@@ -1,0 +1,24 @@
+{
+  "name": "bloxy",
+  "version": "1.1.0",
+  "keywords": [
+    "roblox",
+    "roblox api",
+    "rblx"
+  ],
+  "description": "Do Roblox website actions in NodeJS",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "scriptbased",
+  "license": "MIT",
+  "dependencies": {
+    "cheerio": "^1.0.0-rc.2",
+    "request": "^2.85.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/MartinRBX/rblx-js"
+  }
+}
