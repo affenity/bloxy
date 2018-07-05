@@ -4,7 +4,7 @@ var request = require('request')
 module.exports = async function (jar, xcsrf) {
     var newPromise = new Promise(function (resolve, reject) {
 
-        request('https://www.roblox.com/notification-stream/notification-stream-data', { method: "GET", jar: jar, headers: { 'x-csrf-token': xcsrf} }, function (e, r, body) {
+        request('https://notificationsite.roblox.com/notification-stream/meta-data', { method: "GET", jar: jar, headers: { 'x-csrf-token': xcsrf} }, function (e, r, body) {
             if (e) reject(e);
             try {
                 if (r.statusCode!=200) reject("AUTHENTICATION FAILED, INCORRECT RESPONSE RETRIEVED");
