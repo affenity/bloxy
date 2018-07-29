@@ -1,0 +1,5 @@
+exports.deleteFromInventory = require('./lib/deleteFromInventory')
+exports.getMessageById = require('./lib/getMessageById')
+exports.getMessages = require('./lib/getMessages')
+exports.onChange = require('./lib/onChange')
+exports.onNotification = require('./lib/onNotification')

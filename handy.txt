@@ -1,0 +1,16 @@
+const fs = require('fs')
+fs.readdir('./lib', {encoding:'utf8'}, function(err, files) {
+    
+    let makeLine = files.map(x=>`exports.${x.split(".js")[0]} = require('./lib/${x.split(".")[0]}')`).join("\n")
+    fs.appendFile('./gay.txt', makeLine, {encoding:'utf8'}, function(err) {
+        if (err) throw new Error(err);
+        console.log("done");
+    })    
+})
+
+--
+w
+
+
+
+To send friend request, if response with 403 and message it Captcha, solve captcha for url: https://api.roblox.com/captcha/validate/user
