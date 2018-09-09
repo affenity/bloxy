@@ -1,3 +1,3 @@
-exports.userClass   = require('./lib/user');
-exports.groupClass  = require('./lib/group');
-exports.assetClass  = require('./lib/asset');
+exports.Message = require('./Message');
+exports.User = require('./User');
+exports.Asset = require('./Asset');
