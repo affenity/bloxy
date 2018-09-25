@@ -11,7 +11,8 @@ module.exports = async function (setup, self) {
         let options = {
             json: {
                 message: setup.message
-            }
+            },
+            method: "PATCH"
         }
 
         self._request(url, options).then(({res})=>{

@@ -2,7 +2,7 @@
 
 ***
 
-[![NPM](https://nodei.co/npm/bloxy.png?downloads=true&downloadRank=true&stars=true)]
+[![NPM](https://nodei.co/npm/bloxy.png?downloads=true&downloadRank=true&stars=true)](https://www.npmjs.com/package/bloxy)
 
 
 [![Bloxy](https://img.shields.io/badge/bloxy-v3.0.0-green.svg?longCache=true&style=popout-square)](https://npmjs.com/package/bloxy)

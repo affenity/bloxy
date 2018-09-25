@@ -7,7 +7,8 @@ module.exports = async function (setup, self) {
         let url = `https://groups.roblox.com/v1/groups/${setup.groupId}/users`;
 
         let options = {
-            method: "POST"
+            method: "POST",
+            captchaUrl: `https://www.roblox.com/Groups/Group.aspx?gid=${setup.groupId}`
         }
 
         self._request(url, options).then(({res})=>{

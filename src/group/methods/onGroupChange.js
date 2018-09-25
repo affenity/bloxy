@@ -16,7 +16,7 @@ class GroupChangeEvent extends EventEmitter {
         this._self = group._setup;
 
         settings = settings || {};
-        this.intervalWait = settings.interval || 30000;
+        this.intervalWait = settings.interval || 10000;
         this.init();
     }
 
@@ -32,8 +32,8 @@ class GroupChangeEvent extends EventEmitter {
                     let cachedShout = Cache[this._group.groupId];
                     if (!cachedShout) return Cache[this._group.groupId] = new group.GroupShout(thisShout, this._self);
                     
-                    if (thisShout.body.toLowerCase() != cachedShout.body.toLowerCase()) self.emit('shout', {
-                        new: new group.GroupShout(thisShout, self),
+                    if (thisShout.body.toLowerCase() != cachedShout.body.toLowerCase()) this.emit('shout', {
+                        new: new group.GroupShout(thisShout, this._self),
                         old: cachedShout
                     })
 

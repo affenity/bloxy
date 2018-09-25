@@ -1,5 +1,5 @@
 const cheerio = require('cheerio');
-
+const Group = require('../group');
 
 module.exports = async function (setup, self) {
     let newPromise = new Promise(async function(resolve, reject) {
@@ -32,7 +32,7 @@ module.exports = async function (setup, self) {
                 }
             }
 
-            resolve(requests);
+            resolve(requests.map(x=> new Group.JoinRequest(x, self)));
         }).catch(reject);
     })
     return newPromise;

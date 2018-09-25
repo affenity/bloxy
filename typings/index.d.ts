@@ -1,9 +1,8 @@
 import { EventEmitter } from 'events';
-import { jar } from 'request';
 
 declare module 'bloxy' {
 
-class BloxyClient {
+export class BloxyClient {
     constructor(options?: BloxyClientOptions)
 
     public account: RobloxUser;
@@ -35,7 +34,7 @@ class BloxyClient {
     public getMessageById (messageId: number): Promise<RobloxMessage>;
     public getMessages (options: MessagesOptions): Promise<Array<RobloxMessage>>;
     public getNumFriends (userId: number): Promise<Array<PartialUser>>;
-    public getProductInfo (productId: number): Promise<ProductInfo>;
+    public getProductInfo (productId: number): Promise<any>;
     public getUserGroups (userId: number): Promise<Array<UserGroup>>;
     public getUsernameById (userId: number): Promise<string>;
     public getUserPrimaryGroup (userId: number): Promise<UserGroup>;
@@ -60,6 +59,7 @@ class BloxyClient {
     public login (options: BloxyClientOptions): void;
 
     public _request (url: string, options: ClientRequestOptions): Promise<{res: any, jar: any, xcsrf: any}>
+    public setCacheDuration (options: CacheDurationOptions): Promise<any>;
     
     public on(event: 'ready', listener: () => void): this;
     public on(event: 'lostFriend', listener: (userId: number) => void): this;
@@ -253,6 +253,9 @@ class JoinRequest extends UserFunctions {
     public date: Date;
     public requestId: number;
     public groupId: number;
+
+    public accept (): Promise<boolean>;
+    public decline (): Promise<boolean>;
 }
 
 class WallPost extends UserFunctions {
@@ -325,7 +328,7 @@ class GroupFunctions {
     public getRole (options?: GetRoleOptions): Promise<GroupRole>;
     public getRoles (): Promise<Array<GroupRole>>;
     public getUsers (options?: GetUsersOptions): Promise<Array<PartialUser>>;
-    public getUsersWithRole (roleId: number): Promise<Array<PartialUser>>;
+    public getUsersWithRole (roleId: number): Promise<ResultGetUsersWithRole>;
     public getWall (options?: GetUsersOptions): Promise<Array<WallPost>>;
     public isInGroup (userId: number): Promise<boolean>;
     public joinGroup (): Promise<boolean>;
@@ -626,12 +629,11 @@ type ResultsGroupSearch = {
 }
 
 type BloxyCache = {
-    public cache (category: string, identifier: string, value: any): Promise<any>;
-    public getCategory (category: string): Object;
-    public getCache (category: string, identifier: string): Promise<any>;
-    public saveCache (): Promise<any>;
-    public deleteCache (): Promise<any>;
-    public refreshCache (): Promise<any>;
+    cache (category: string, identifier: string, value: any): Promise<any>;
+    getCache (category: string, identifier: string): Promise<any>;
+    saveCache (): Promise<any>;
+    deleteCache (): Promise<any>;
+    refreshCache (): Promise<any>;
 }
 
 type ClientRequestOptions = {
@@ -644,5 +646,16 @@ type ClientRequestOptions = {
     json: any;
 }
 
+type CacheDurationOptions = {
+    user?: number;
+    group?: number;
+    getIdByUsername?: number;
+}
+
+type ResultGetUsersWithRole = {
+    previousPageCursor: string;
+    nextPageCursor: string;
+    users: Array<PartialUser>;
+}
 export = BloxyClient;
 }

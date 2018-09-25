@@ -1,5 +1,6 @@
 {
     "dependencies": {
-        "@types/node":"^10.9.2"
+        "@types/node":"^10.9.2",
+        "events": "^3.0.0"
     }
 }

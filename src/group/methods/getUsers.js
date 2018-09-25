@@ -1,5 +1,5 @@
 const classes = require('../../classes');
-
+const cheerio = require('cheerio');
 
 module.exports = async function (setup, self) {
     let newPromise = new Promise(async function(resolve, reject) {

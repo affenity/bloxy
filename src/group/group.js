@@ -67,8 +67,8 @@ class GroupShout {
 
     constructor(data, self) {
         this._setup = self;
-        this.body   = String(data.Body || data.body).toString();
-        this.poster = new classes.User.PartialUser(data.poster, self);
+        this.body   = data != null ? String(data.Body || data.body).toString() : null;
+        this.poster = data != null ? new classes.User.PartialUser(data.poster, self) : null;
     }
 }
 
@@ -109,12 +109,21 @@ class JoinRequest extends classes.User.UserFunctions {
      */
     constructor(data, self) {
         super((data.UserId || data.userId || data.Id), self);
-
+        this._self = self;
+        
         this.username = data.username || data.Username;
         this.userId = data.UserId || data.userId || data.Id;
         this.date = new Date(data.date);
         this.requestId = data.requestId;
         this.groupId = data.groupId;
+    }
+
+    async accept () {
+        return Methods.acceptJoinRequest(this.requestId, this._self);
+    }
+
+    async decline () {
+        return Methods.declineJoinRequest(this.requestId, this._self);
     }
 }
 

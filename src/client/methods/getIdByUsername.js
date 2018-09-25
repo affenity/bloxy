@@ -9,15 +9,15 @@ module.exports = async function (username, self, overrideCache) {
         let options = {
             json: true
         };
-
+        
         if (!overrideCache) {
-            let find = await self._setup.cache.getCache('getid', username.toLowerCase());
+            let find = await self._setup.cache.getCache('getidbyusername', username.toLowerCase());
             if (find != null) return resolve(find);
         }
         self._request(url, options).then(({res})=>{
             if (res.statusCode !== 200) return reject(`Failed to get user by username, code: ${res.statusCode}, message: ${res.statusMessage}`);
             let userId = res.body.Id;
-            self._setup.cache.cache('getid', username.toLowerCase(), userId);
+            self._setup.cache.cache('getidbyusername', username.toLowerCase(), userId);
             resolve(userId);
         })
     })

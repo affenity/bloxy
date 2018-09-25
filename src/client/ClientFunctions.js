@@ -145,7 +145,7 @@ class ClientFunctions extends EventEmitter {
     async getUser (identifier, _type) {
         _type = _type || typeof(identifier);
         _type = _type.toLowerCase();
-        _type = _type == 'number' ? 'number' : 'userid' ? 'number' : _type == 'username' ? 'string' : _type == 'name' ? 'string' : '';
+        _type = _type == 'string' ? 'string' : _type == 'username' ? 'string' : _type == 'userId' ? 'number' : _type == 'number' ? 'string' : typeof(identifier);
         let wait;
         if (_type == 'number') {
             wait = await Methods.getUserProfile(identifier, this).catch();
@@ -221,6 +221,14 @@ class ClientFunctions extends EventEmitter {
 
     async uploadAsset (opts) {
         return Methods.uploadAsset(opts, this._client);
+    }
+
+    /**
+     * Set the duration for how long caching should last (in hours)
+     * @param {CacheDurationOptions} options 
+     */
+    async setCacheDuration (options) {
+        return this._client._setup.cache.setCacheDuration(options);
     }
 
 

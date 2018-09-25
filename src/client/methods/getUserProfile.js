@@ -9,7 +9,7 @@ module.exports = async function (userId, self, overrideCache) {
     let newPromise = new Promise(async function(resolve, reject) {
         if (!userId || !self) return reject(`Did not provide userId or self`);
         let url = `https://www.roblox.com/users/${userId}/profile`;
-
+        
         if (!overrideCache) {
             let find = await self._setup.cache.getCache('getuser', userId);
             if (find != null) return resolve(new classes.User.RobloxUser(find, self));

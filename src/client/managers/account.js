@@ -99,7 +99,7 @@ exports.captchaHandler = async function (url, setup) {
     let captchaKey = setup.authTab.CaptchaKey;
     if (!captchaKey) return reject("No captcha key provided");
 
-    let makeUrl = `http://2captcha.com/in.php?key=${captchaHandler}&method=userrecaptcha&googlekey=${googleKey}&pageurl=${urll}&here=now&json=1`
+    let makeUrl = `http://2captcha.com/in.php?key=${captchaKey}&method=userrecaptcha&googlekey=${googleKey}&pageurl=${url}&here=now&json=1`
     
     request(makeUrl, { json: true }, function (err, res) {
         if (err) return reject(err);

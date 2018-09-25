@@ -190,7 +190,9 @@ const BuildersClub = {
     'tbc' : 'TBC',
     'obc' : 'OBC',
     undefined: 'NBC',
-    null: 'NBC'
+    null: 'NBC',
+    'none': null,
+    
 }
 
 exports.PartialUser = PartialUser;

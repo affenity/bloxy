@@ -1,6 +1,7 @@
 const EventEmitter = require('events');
 const Methods      = require('./methods');
 const Group        = require('./group.js');
+const ClientMethods = require('../client/methods')
 
 class GroupFunctions {
 
@@ -27,7 +28,7 @@ class GroupFunctions {
     }
 
     async demote (userId) {
-        return Methods.demote({ groupId: this.groupId, userId: userId }, this._setup);
+        return Methods.demote({ groupId: this.groupId, userId: userId, amount: -1 }, this._setup);
     }
 
     async exileUser (userId) {
@@ -43,6 +44,9 @@ class GroupFunctions {
     }
 
     async getJoinRequests (options={}) {
+        if (options && options.userId) {
+            options.username = await ClientMethods.getUsernameById(options.userId, this._setup);
+        }
         return Methods.getJoinRequests(Object.assign(options, {groupId: this.groupId}), this._setup);
     }
 
@@ -71,7 +75,7 @@ class GroupFunctions {
     }
 
     async isInGroup (userId) {
-        return Methods.isInGroup({userId: userId, groupId: groupId}, this._setup);
+        return Methods.isInGroup({userId: userId, groupId: this.groupId}, this._setup);
     }
 
     async joinGroup () {
@@ -116,7 +120,8 @@ class GroupFunctions {
     async promote (userId) {
         let setup = {
             userId: userId,
-            groupId: this.groupId
+            groupId: this.groupId,
+            amount: 1
         }
         return Methods.promote(setup, this._setup);
     }

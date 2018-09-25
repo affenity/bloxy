@@ -19,6 +19,7 @@ This page documents all methods of the Bloxy_noAuth class
     - [followUser](#followuser)
     - [friendUser](#frienduser)
     - [getArchivedMessages](#getarchivedmessages)
+    - [getVerificationStatus](#getverificationstatus)
     - [getCurrency](#getcurrency)
     - [getFollowers](#getfollowers)
     - [getFollowing](#getfollowing)
@@ -51,6 +52,7 @@ This page documents all methods of the Bloxy_noAuth class
     - [unfollowUser](#unfollowuser)
     - [unfriendUser](#unfriendUser)
     - [uploadAsset](#uploadasset)
+    - [setCacheDuration](#setcacheduration)
 
 ***
 
@@ -325,6 +327,33 @@ Gets messages that are archived belonging to the authenticated user (Must be sig
 }).then(messages=>{
 
 })
+```
+
+***
+
+### getVerificationStatus
+##### identifier, platform
+Gets the user's verification status using Eryn's API ([link here](https://verify.eryn.io/api))
+
+**Parameters**
+- identifier (Number) - The UserId for either roblox or discord
+- (*optional*) platform (String) - Either "roblox" or "discord", default: "roblox"
+
+**Returns**
+- Promise (Class-RoVerResponseDiscord | Class-RoVerResponseRoblox)
+
+**Example**
+```JavaScript
+// Getting verification status using Roblox userid
+.getVerificationStatus(18442032).then(status=>{
+    console.log(status);
+})
+
+// Getting verification status using Discord userId
+.getVerificationStatus('211122613429338112', 'discord').then(status=>{
+    console.log(status);
+})
+
 ```
 
 ***
@@ -1106,5 +1135,31 @@ Uploads an asset to Roblox either as the authenticated user or as a group (speci
     file: './path/to/file.png'
 }).then(assetId=>{
     
+})
+```
+
+***
+
+### setCacheDuration
+##### options
+Sets the duration for caching
+
+**Parameters**
+- options (Object)
+- options.user (Number) - (in hours) duration of how long the caching should be for when using .getUser, default: .5
+- options.group (Number) - (in hours) how long the cache should last when using .getGroup, default: 2
+- options.getIdByUsername (Number) - (in hours) how long the cache should last, default: permanent
+
+**Returns**
+- Promise ()
+
+**Example**
+```JavaScript
+.setCacheDuration({
+    user: .1,
+    group: 0,
+    getIdByUsername: null
+}).then( () => {
+
 })
 ```

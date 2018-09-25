@@ -19,7 +19,7 @@ const account = require('./account');
  */
 
  
-module.exports = async function fetch (url, opts) {
+module.exports = async function fetch (url, opts, isSecond) {
     var newPromise = new Promise(function (resolve, reject) {
         opts = opts || {}
 
@@ -70,14 +70,17 @@ module.exports = async function fetch (url, opts) {
         request(url, reqOpts, async function (err, res, body) {
             if (err) reject(err);
 
-            if (res.statusCode===403 && opts.captchaUrl && (res.body.indexOf('robot') >=0 || res.body.indexOf('captcha') >= 0)) {
-                let captchaResponse = await account.captchaHandler(opts.captchaUrl, _cId)
+            if (res.statusCode===403 && opts.captchaUrl && (res.body.indexOf('robot') >=0 || res.body.indexOf('captcha') >= 0) && !isSecond) {
+                let captchaResponse = await account.captchaHandler(opts.captchaUrl, thisSetup)
                 if (captchaResponse) {
-                    let validate = await account.validateUser(captchaResponse, _cId);
+                    let validate = await account.validateUser(captchaResponse, thisSetup);
                     if (validate) {
-                        resolve(fetch(url, opts))
+                        resolve(fetch(url, opts, true))
                     } else return reject(`Failed to verify captcha response`);
                 }
+            } else if (res.statusCode === 403 && (res.body.toLowerCase().indexOf('token') >= 0 || res.body.toLowerCase().indexOf('failed')) && !isSecond) {
+                await thisSetup._getXcsrf();
+                return resolve(fetch(url, opts, true));
             }
 
             resolve({
