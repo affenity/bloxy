@@ -1,23 +1,22 @@
 {
   "name": "bloxy",
-  "version": "2.0.0",
-  "description": "Interact with the Roblox website and API",
+  "version": "2.9.861",
+  "description": "Testing atm",
   "main": "./src/index.js",
+  "types": "./typings/index.d.ts",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "scriptbased",
-  "license": "ISC",
+  "license": "MIT",
   "dependencies": {
     "cheerio": "^1.0.0-rc.2",
-    "request": "^2.87.0",
-    "signalr-client": "0.0.17"
+    "easydata": "^1.0.1",
+    "request": "^2.88.0",
+    "signalr-client": "0.0.18"
   },
-  "keywords": [
-    "roblox",
-    "roblox api",
-    "api",
-    "bloxy",
-    "roblox-js"
-  ]
+  "repository": {
+    "type": "GitHub",
+    "url": "https://github.com/MartinRBX/bloxy"
+  }
 }
