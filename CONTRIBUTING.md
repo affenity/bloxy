@@ -33,4 +33,4 @@ When creating an issue, make sure that you follow the instructions below.
 #### When creating issues because you want to get help
 
 Please refrain from doing this as I'd like to keep the Issues for actual issues with the repository and not for people who need help on 
-how to code. If you need help, you can join the [Roblox API Server here]() or you can DM me @ Martini#0001 (on Discord).
+how to code. If you need help, you can join the [Roblox API Server here](https://discord.gg/EDXNdAT) or you can DM me @ Martini#0001 (on Discord).
