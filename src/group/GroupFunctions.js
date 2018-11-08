@@ -61,6 +61,14 @@ class GroupFunctions {
     async getRoles () {
         return Methods.getRoles(this.groupId, this._setup);
     }
+    
+    async getUserRankInGroup (userId) {
+        return Methods.getUserRankInGroup({userId: userId, groupId: this.groupId}, this._setup)
+    }
+    
+    async getUserRankNameInGroup (userId) {
+        return Methods.getUserRankNameInGroup({userId: userId, groupId: this.groupId}, this._setup)
+    }
 
     async getUsers (options={}) {
         return Methods.getUsers(Object.assign(options, {groupId: this.groupId}), this._setup)
