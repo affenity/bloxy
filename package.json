@@ -1,0 +1,40 @@
+{
+  "name": "bloxy",
+  "version": "3.0.0",
+  "description": "Interact with the Roblox site and API",
+  "main": "index.js",
+  "scripts": {
+    "test": "node ./test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MartinRBX/bloxy.git"
+  },
+  "keywords": [
+    "roblox",
+    "bloxy",
+    "api",
+    "roblox-api"
+  ],
+  "author": "MartinRBX",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/MartinRBX/bloxy/issues"
+  },
+  "homepage": "https://github.com/MartinRBX/bloxy#readme",
+  "dependencies": {
+    "@types/node": "^10.12.5",
+    "cheerio": "^1.0.0-rc.2",
+    "easydata": "^1.0.1",
+    "request": "^2.88.0",
+    "signalr-client": "0.0.19"
+  },
+  "devDependencies": {
+    "eslint": "^5.9.0",
+    "eslint-config-standard": "^12.0.0",
+    "eslint-plugin-import": "^2.14.0",
+    "eslint-plugin-node": "^8.0.0",
+    "eslint-plugin-promise": "^4.0.1",
+    "eslint-plugin-standard": "^4.0.0"
+  }
+}
