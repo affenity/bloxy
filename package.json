@@ -1,0 +1,43 @@
+{
+  "name": "bloxy",
+  "version": "4.0.0-alpha3",
+  "description": "A Node.JS library for interacting with the Roblox website and its API.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \\\"Error: no old/test specified\\\" && exit 1"
+  },
+  "types": "./typings/index.d.ts",
+  "keywords": [
+    "bloxy",
+    "bloxy",
+    "roblox",
+    "roblox",
+    "roblox",
+    "group",
+    "games",
+    "develop",
+    "roblox",
+    "bloxy",
+    "roblox",
+    "api",
+    "roblox",
+    "node",
+    "node",
+    "roblox",
+    "node",
+    "bloxy"
+  ],
+  "author": "ScriptBased",
+  "license": "MIT",
+  "devDependencies": {
+    "eslint": "^6.3.0",
+    "@types/node": "^12.7.5"
+  },
+  "dependencies": {
+    "@hapi/joi": "^16.1.2",
+    "lodash": "^4.17.15",
+    "node-cache": "^4.2.1",
+    "request": "^2.88.0",
+    "signalr-client": "0.0.19"
+  }
+}
