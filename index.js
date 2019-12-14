@@ -1,1 +1,2 @@
-module.exports = require("./src/client/client");
+module.exports = require("./src");
+console.log("hello world");

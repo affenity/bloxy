@@ -1,0 +1,291 @@
+declare module "bloxy" {
+// -- Dependencies
+    import * as EventEmitter from "events";
+
+    // -- Classes
+
+    export class Client {
+        constructor(options: ClientConstructorOptions);
+
+        public loggedIn: boolean;
+
+        public login(options: ClientAuthOptions | ClientConstructorOptions): Promise<ClientAuthUser>;
+
+        public getGroup(groupId: GroupIdentifier): Promise<Group>;
+
+        public getUser(userId: UserIdentifier): Promise<User>;
+
+        public getUsername(userId: AnyIdentifier): Promise<UserPartial>;
+
+        public getUserId(username: string): Promise<UserPartial>;
+
+        public on(event: "ready", listener: () => void): this;
+        public on(event: "loggedIn", listener: (user: ClientAuthUser) => void): this;
+        public on(event: "chatTyping", listener: (data: ChatTypingData) => void): this;
+        public on(event: "chatMessage", listener: (conversationId: number, get: () => Promise<ChatConversation>) => void): this;
+        public on(event: "chatMessageSent", listener: (conversationId: number, get: () => Promise<ChatConversation>) => void): this;
+        public on(event: "chatMemberAdded", listener: (conversationId: number, get: () => Promise<ChatConversation>) => void): this;
+        public on(event: "chatMemberLeft", listener: (conversationId: number, get: () => Promise<ChatConversation>) => void): this;
+        public on(event: "chatConversation", listener: (conversationId: number, get: () => Promise<ChatConversation>) => void): this;
+        public on(event: "chatConversationRemoved", listener: (conversationId: number, get: () => Promise<ChatConversation>) => void): this;
+        public on(event: "friendLost", listener: (userId: number, get: () => Promise<User>) => void): this;
+        public on(event: "friendRequest", listener: (userId: number, get: () => Promise<User>) => void): this;
+        public on(event: "friendAdded", listener: (userId: number, get: () => Promise<User>) => void): this;
+        public on(event: "message", listener: (messageId: number, get: () => Promise<Message>) => void): this;
+        public on(event: "messageRead", listener: (messageId: number, get: () => Promise<Message>) => void): this;
+        public on(event: "messageUnread", listener: (messageId: number, get: () => Promise<Message>) => void): this;
+        public on(event: "messageArchived", listener: (messageId: number, get: () => Promise<Message>) => void): this;
+        public on(event: string, listener: Function): this;
+    }
+
+    class ClientBase extends EventEmitter {
+        constructor(options: ClientConstructorOptions);
+
+    }
+
+    class ClientAuthUser {
+        constructor(userId: number);
+
+        public client: Client;
+        public id: AnyIdentifier;
+
+        public getFriendRequests(options?:GenericOptions): Promise<UserFriendRequestCursorPage>;
+        public declineAllFriendRequests(): Promise<true>;
+        public acceptFriendRequest(userId: UserIdentifer): Promise<true>;
+        public declineFriendRequest(userId: UserIdentifier): Promise<true>;
+        public follow(userId: UserIdentifier): Promise<true>
+        public unfriendUser(userId: UserIdentifier): Promise<true>;
+        public isFriendsWith(userIds: Array<UserIdentifier>): Promise<Array<UserFriendStatus>>;
+        public block(): Promise<true>;
+        public updateDescription(): Promise<true>;
+        public updateGender(gender: string): Promise<true>;
+        public updateStatus(status: string): Promise<true>;
+        public getGroups(): Promise<Array<GroupUser>>;
+        public tfaEnabled(): Promise<boolean>;
+        public toggleTfa(enabled: boolean, password: string): Promise<true>;
+        public getTradePrivacy(): Promise<string>;
+        public updateTradePrivacy(tradePrivacy: string): Promise<any>;
+        public getMessages(options: GetMessagesOptions)
+    }
+
+    class Group extends GroupBase {
+        constructor(client: Client, groupData: any);
+
+        public client: Client;
+        public id: AnyIdentifier;
+        public name: string;
+    }
+
+    class GroupBase extends EventEmitter {
+        constructor(client: Client, groupData: any);
+
+    }
+
+    class UserBase {
+        constructor(client: Client, data: any);
+
+        public client: Client;
+        public id: AnyIdentifier;
+        public name: string;
+
+        public block(block?: boolean): Promise<true>;
+
+        public acceptFriendRequest(): Promise<true>;
+
+        public declineFriendRequest(): Promise<true>;
+
+        public follow(): Promise<true>;
+
+        public unfollow(): Promise<true>;
+
+        public sendFriendRequest(): Promise<true>;
+
+        public unfriend(): Promise<true>;
+
+        public isFriendsWith(users: Array<UserIdentifier>): Promise<Array<UserFriendStatus>>;
+
+        public getUser(): Promise<User>;
+    }
+
+    class UserFriendStatus extends UserBase {
+        constructor(client: Client);
+
+        public client: Client;
+        public user: UserPartial;
+        public isFriends: boolean;
+    }
+
+    class UserPartial extends UserBase {
+        constructor(client: Client, data: any);
+    }
+
+    class User extends UserBase {
+        constructor(client: Client, data: any);
+
+        public status: string;
+        public blurb: string;
+        public joinDate: Date;
+        public accountAge: number;
+        public friendsCount: number;
+        public followersCount: number;
+        public followingCount: number;
+        public headshotImage: string;
+        public canMessage: boolean;
+        public canFollow: boolean;
+        public canTrade: boolean;
+        public canSeeFavorites: boolean;
+        public canSeeInventory: boolean;
+        public areFriends: boolean;
+        public canSendFriendRequest: boolean;
+
+    }
+
+    class UserFriendRequest extends UserBase {
+        constructor(client: Client, data: any);
+
+        public client: Client;
+        public user: PartialUser;
+        public created: Date;
+
+        public accept(): Promise<true>;
+
+        public decline(): Promise<true>;
+    }
+
+    class CacheStore {
+        constructor(name: string, expiration?: number);
+
+        public name: string;
+        public cacher: any;
+
+        public set(key: string, value: any, expireOverride?: number): void;
+
+        public get(key: string): any;
+
+        public clear(): void;
+
+        public close(): void;
+    }
+
+    class CacheController {
+        constructor(client: Client);
+
+        public client: Client;
+        public defaultTTL: number;
+        public cache: {
+            users: CacheStore;
+            groups: CacheStore;
+        };
+
+        public new(name: string): CacheStore;
+
+        public del(name: String): void;
+
+        public clear(): void;
+    }
+
+    class RequestHandler {
+        constructor(client: Client);
+
+        public client: Client;
+        public requester: any;
+
+        public request(requestOptions: RequestOptions): Promise<RequestResponse>;
+
+        public createCookie(options: RequestCookieOptions): any;
+
+        public proxy(proxy?: string): string;
+
+        public userAgent(userAgent?: string): string;
+    }
+
+    class RequestTokenManager {
+        constructor(client: Client);
+
+        public client: Client;
+        public requestInterval: NodeJS.Timer;
+        public token: string | null;
+
+        public refresh(): Promise<RequestToken>;
+
+        public getToken(ignoreCurrent?: boolean): Promise<RequestToken>;
+
+        public start(): void;
+
+        public stop: void;
+    }
+
+    class ToughCookieJar {
+        constructor();
+
+        public jar: any;
+        public setCookie(cookie: ToughCookie, url: string, options?: ToughCookieSetOptions): Promise<void>;
+        public getCookies(url: string, options?: ToughCookieGetOptions): Promise<ToughCookieCookies>;
+        public getCookiesString(url: string): Promise<string>;
+    }
+
+    class ToughCookie {
+        constructor(options: ToughCookieConstructorOptions);
+        public value: any;
+    }
+
+// -- Types
+
+    type ClientConstructorOptions = {
+        cookie: string;
+        username: string;
+        password: string;
+        callbacks: object;
+        proxy: string;
+        userAgent: string;
+        cache: {
+            users: number;
+            groups: number;
+        };
+    };
+
+    type ClientAuthOptions = {
+        cookie: string;
+        username: string;
+        password: string;
+    };
+
+    type AnyIdentifier = string | number | any;
+    type GroupIdentifier = AnyIdentifier | Group | PartialGroup | GroupMember;
+
+    interface ToughCookieConstructorOptions {
+        key: string;
+        value: string;
+        domain: string;
+        hostOnly: boolean;
+        httpOnly: boolean;
+    }
+
+    interface ToughCookieGetOptions {
+        http: boolean;
+        secure: boolean;
+        expire: boolean;
+        allPaths: boolean;
+    }
+
+    interface ToughCookieSetOptions {
+        http: boolean;
+        secure: boolean;
+    }
+
+    type ToughCookieCookies = Array<ToughCookie>;
+
+    interface RequestOptions {
+        url: string;
+        method: string | "GET";
+        proxy: string;
+        userAgent: string;
+        token: string | boolean;
+        headers: object;
+        body: object;
+        json: object;
+        form: object;
+        formData: object;
+
+    }
+}

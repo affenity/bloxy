@@ -1,40 +1,43 @@
 {
   "name": "bloxy",
-  "version": "3.0.0",
-  "description": "Interact with the Roblox site and API",
+  "version": "4.0.0-beta0",
+  "description": "A Node.JS library for interacting with the Roblox website and its API.",
   "main": "index.js",
   "scripts": {
-    "test": "node ./test"
+    "test": "jest"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/MartinRBX/bloxy.git"
-  },
+  "types": "./typings/index.d.ts",
   "keywords": [
+    "bloxy",
+    "bloxy",
+    "roblox",
+    "roblox",
+    "roblox",
+    "group",
+    "games",
+    "develop",
     "roblox",
     "bloxy",
+    "roblox",
     "api",
-    "roblox-api"
+    "roblox",
+    "node",
+    "node",
+    "roblox",
+    "node",
+    "bloxy"
   ],
-  "author": "MartinRBX",
+  "author": "ScriptBased",
   "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/MartinRBX/bloxy/issues"
-  },
-  "homepage": "https://github.com/MartinRBX/bloxy#readme",
-  "dependencies": {
-    "@types/node": "^10.12.5",
-    "cheerio": "^1.0.0-rc.2",
-    "easydata": "^1.0.1",
-    "request": "^2.88.0",
-    "signalr-client": "0.0.19"
-  },
   "devDependencies": {
-    "eslint": "^5.9.0",
-    "eslint-config-standard": "^12.0.0",
-    "eslint-plugin-import": "^2.14.0",
-    "eslint-plugin-node": "^8.0.0",
-    "eslint-plugin-promise": "^4.0.1",
-    "eslint-plugin-standard": "^4.0.0"
+    "@types/node": "^12.7.5",
+    "eslint": "^6.3.0",
+    "jest": "^24.9.0"
+  },
+  "dependencies": {
+    "@hapi/joi": "^16.1.2",
+    "got": "^9.6.0",
+    "node-cache": "^4.2.1",
+    "signalr-client": "0.0.19"
   }
 }
