@@ -220,6 +220,8 @@ declare module "bloxy" {
         public createRole(options: GroupRoleOptions): Promise<>;
         public updateRole(role: GroupRoleIdentifier, options: GroupRoleOptions): Promise<>;
         public deleteRole(role: GroupRoleIdentifier): Promise<>;
+        public promote(user: UserIdentifier): Promise<>;
+        public demote(user: UserIdentifier): Promise<>;
 
         public on(event: "joinRequest", listener: (request: GroupJoinRequest, group: Group) => void): this;
         public on(event: "wallPost", listener: (post: GroupWallPost, group: Group) => void): this;
