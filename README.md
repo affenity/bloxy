@@ -8,7 +8,8 @@
 <br>
     <p>
     <a href="https://npmjs.com/package/bloxy"><img src="https://img.shields.io/npm/v/bloxy.svg?maxAge=3600&style=flat-square" alt="NPM"></a>
-    <a href="https://npmjs.com/package/bloxy"><img src="https://img.shields.io/npm/dt/bloxy.svg?maxAge=3600&style=flat-square" alt="Downloads"></a>
+    <a href="https://npmjs.com/package/bloxy"><img src="https://img.shields.io/npm/dt/bloxy.svg?maxAge=3600&style=flat-square" alt="Downloads"></a><a href="https://app.fossa.io/projects/git%2Bgithub.com%2FVisualizememe%2Fbloxy?ref=badge_shield" alt="FOSSA Status"><img src="https://app.fossa.io/api/projects/git%2Bgithub.com%2FVisualizememe%2Fbloxy.svg?type=shield"/></a>
+
     <a href="https://discord.gg/EDXNdAT"><img src="https://img.shields.io/badge/discord-roblox%20api%20chat-blue.svg?style=flat-square&logo=discord" alt="Roblox API Discord"></a>
     </p>
     <br>
@@ -121,3 +122,6 @@ roblox.login().then( async () => {
 ## License
 
 This project is licensed under the MIT License.
+
+
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2FVisualizememe%2Fbloxy.svg?type=large)](https://app.fossa.io/projects/git%2Bgithub.com%2FVisualizememe%2Fbloxy?ref=badge_large)
