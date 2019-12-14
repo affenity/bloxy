@@ -10,6 +10,7 @@ declare module "bloxy" {
         public user: UserPartial;
         public apis: {
             develop: ClientDevelopAPI;
+            groups: ClientGroupsAPI;
         };
 
         public getGroup(group: GroupIdentifier): Promise<Group>;
@@ -22,6 +23,7 @@ declare module "bloxy" {
         public generateToken(): Promise<ClientLoginCredentials>;
         public clearSessions(): Promise<boolean>;
         public ws(): void; // Inits the websocket connection
+        public searchGroups(query: string, isKeyword: boolean): Promise<>; // Defaults to regular text search
 
         public on(event: "ready", listener: () => void): this;
         public on(event: "loggedIn", listener: (user: ClientAuthUser) => void): this;
@@ -130,6 +132,14 @@ declare module "bloxy" {
 
         public user: ClientUser;
 
+        // https://accountsettings.roblox.com/docs#!/PrivacySettings/get_v1_app_chat_privacy
+        public getChatPrivacy(): Promise<>;
+        public updateChatPrivacy(options: UpdateChatPrivacyOptions): Promise<>;
+        public getGameChatPrivacy(): Promise<>;
+        public updateGameChatPrivacy(options: UpdateChatPrivacyOptions): Promise<>;
+        public getInventoryPrivacy(): Promise<>;
+        public updateInventoryPrivacy(options: UpdateInventoryPrivacyOptions): Promise<>;
+        public
         public isTFAEnabled(): Promise<>;
         public enableTFA(enabled: boolean, password: string): Promise<>;
         public updateTradePrivacy(tradePrivacy: string): Promise<>;
@@ -202,6 +212,7 @@ declare module "bloxy" {
         public getJoinRequest(user: UserIdentifier): Promise<>;
         public handleJoinRequest(user: UserIdentifier, accept: boolean): Promise<>;
         public getRoles(): Promise<>;
+        public getRole(identifier: GroupGetRoleIdentifer): Promise<>;
         public getMembersWithRole(role: GroupRoleIdentifier, options: GenericFilterOptions): Promise<>;
         public getMembers(options: GenericFilterOptions): Promise<>;
         public getMember(user: UserIdentifier): Promise<>;
@@ -211,6 +222,7 @@ declare module "bloxy" {
         public kick(user: UserIdentifier): Promise<>;
         public updateMemberRole(user: UserIdentifier, role: GroupRoleIdentifier): Promise<>;
         public getCurrentPayouts(): Promise<>;
+        public getPayouts(): Promise<>;
         public payoutUsers(payouts: GroupPayoutOptions): Promise<>; // One-time payout
         public updatePayouts(payouts: GroupPayoutOptions): Promise<>; // Default payouts
         public getRolePermissions(role: GroupRoleIdentifier): Promise<>;
@@ -222,6 +234,19 @@ declare module "bloxy" {
         public deleteRole(role: GroupRoleIdentifier): Promise<>;
         public promote(user: UserIdentifier): Promise<>;
         public demote(user: UserIdentifier): Promise<>;
+        public setPrimary(): Promise<>;
+        public leave(): Promise<>;
+        public join(): Promise<>;
+        public getSocialLinks(): Promise<>;
+        public createSocialLink(data: GroupSocialLink): Promise<>;
+        public updateSocialLink(id: AnyIdentifier, data: GroupSocialLink): Promise<>;
+        public deleteSocialLink(id: AnyIdentifier): Promise<>;
+        public getRelationships(relationType: GroupRelationshipTypes, from: number, maxResults: number): Promise<>;
+        public declineRelationshipRequests(relationType: GroupRelationshipTypes, groups: Array<GroupIdentifier> | GroupIdentifier): Promise<>;
+        public getRelationshipRequests(relationType: GroupRelationshipTypes, from: number, maxResults: number): Promise<>;
+        public acceptRelationshipRequests(relationType: GroupRelationshipTypes, groups: Array<GroupIdentifier> | GroupIdentifier): Promise<>;
+        public removeRelationship(relationType: GroupRelationshipTypes, group: GroupIdentifier): Promise<>;
+        public sendRelationshipRequest(relationType: GroupRelationshipTypes, group: GroupIdentifier): Promise<>;
 
         public on(event: "joinRequest", listener: (request: GroupJoinRequest, group: Group) => void): this;
         public on(event: "wallPost", listener: (post: GroupWallPost, group: Group) => void): this;
@@ -479,6 +504,18 @@ declare module "bloxy" {
         name: string;
         description: string;
         commentsEnabled: boolean;
+    }
+
+    interface GroupGetRoleIdentifier {
+        name: string;
+        rank: number;
+        id: number;
+    };
+
+    interface GroupSocialLink {
+        type: "Facebook" | "Twitter" | "Discord" | string;
+        url: string;
+        title: string;
     }
 
     interface UniverseSettingsOptions {
