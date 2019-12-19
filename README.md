@@ -86,11 +86,11 @@ Check out below for some examples of how to use bloxy!
 
 ```js
 const bloxy = require("bloxy");
-const roblox = new bloxy.Client({
-    cookie: ".ROBLOSECURITY"
-});
+const roblox = new bloxy.Client();
 
-roblox.login().then( (user) => {
+roblox.login({
+    cookie: ".ROBLOSECURITY"
+}).then( (user) => {
     console.log(`Logged in as ${roblox.user.id}`);
     // --> "Logged in as 1234" 
 });
@@ -102,16 +102,19 @@ roblox.login().then( (user) => {
 
 ```js
 const bloxy = require("bloxy");
-const roblox = new bloxy({
-    cookie: ""
-});
+const roblox = new bloxy.Client();
 
-roblox.login().then( async () => {
-    const group = await roblox.getGroup(12345);
-    const promoted = await group.promote(12345);
+const user_to_promote = 256; // Shedletsky
+
+roblox.login({
+    cookie: ".ROBLOSECURITY"
+}).then( async () => {
+    const group = await roblox.getGroup(12345); // Get the group object for group 12345
+    const roles = await group.getRoles(); // Get all the roles
+    const promoted = await group.updateMember(user_to_promote,roles[1]); // Update the member's role to the second role in the group.
     	
     console.log(`Promoted user to ${promoted.name}`);
-    // --> "Promoted user to <name>"
+    // --> "Promote user to <name>"
 });
 ```
 </details>
