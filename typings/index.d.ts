@@ -24,6 +24,7 @@ declare module "bloxy" {
         public clearSessions(): Promise<boolean>;
         public ws(): void; // Inits the websocket connection
         public searchGroups(query: string, isKeyword: boolean): Promise<>; // Defaults to regular text search
+        public getRobloxVerificationStatus(userId: AnyIdentifier, platform: "Roblox" | "Discord"): Promise<>;
 
         public on(event: "ready", listener: () => void): this;
         public on(event: "loggedIn", listener: (user: ClientAuthUser) => void): this;
@@ -78,6 +79,14 @@ declare module "bloxy" {
         public removePrimaryGroup(): Promise<>;
         public setPrimaryGroup(group: GroupIdentifier): Promise<>;
         public sendMessage(options: ClientUserSendMessageOptions): Promise<>;
+        public getRobux(): Promise<>;
+        public getFriendsOnline(): Promise<>;
+        public buyAsset(productId: AnyIdentifier, price: number, sellerId: AnyIdentifier): Promise<>;
+        public canManageAsset(assetId: AnyIdentifier): Promise<>;
+        public ownsAsset(assetId: AnyIdentifier): Promise<>;
+        public ownsGamePass(passId: AnyIdentifier): Promise<>;
+        public redeemPromoCode(code: string): Promise<>;
+        public getGroupPermissionsFor(group: GroupIdentifier): Promise<>;
     }
 
     class ClientDevelopAPI {
@@ -117,6 +126,15 @@ declare module "bloxy" {
         public updateDeveloperProduct(universeId: AnyIdentifier, productId: AnyIdentifier, data: UpdateDeveloperProductOptions): Promise<>;
     }
 
+    class ClientGroupsAPI {
+        constructor(client: Client, data: any);
+
+        public client: Client;
+
+        public getGroup(group: GroupIdentifier): Promise<>;
+        public getAuditLogs(groupId: GroupIdentifier, sortOptions: GroupGetAuditLogsOptions): Promise<>;
+    }
+
     class ClientUserProfile {
         constructor(user: ClientUser);
 
@@ -125,6 +143,8 @@ declare module "bloxy" {
         public updateDescription(description: string): Promise<>;
         public updateGender(gender: string): Promise<>;
         public updateStatus(status: string): Promise<>;
+        public getBirthDate(): Promise<>;
+        public updateBirthDate(birthDate: Date): Promise<>;
     }
 
     class ClientUserAccount {
@@ -133,16 +153,59 @@ declare module "bloxy" {
         public user: ClientUser;
 
         // https://accountsettings.roblox.com/docs#!/PrivacySettings/get_v1_app_chat_privacy
+        public unlockPin(pin: AnyIdentifier): Promise<>;
+        public lockPin(): Promise<>;
+        public addPin(): Promise<>;
         public getChatPrivacy(): Promise<>;
         public updateChatPrivacy(options: UpdateChatPrivacyOptions): Promise<>;
         public getGameChatPrivacy(): Promise<>;
         public updateGameChatPrivacy(options: UpdateChatPrivacyOptions): Promise<>;
         public getInventoryPrivacy(): Promise<>;
         public updateInventoryPrivacy(options: UpdateInventoryPrivacyOptions): Promise<>;
-        public
+        public getPrivacySettings(): Promise<>;
+        public updatePrivacySettings(options: UpdatePrivacySettingsOptions): Promise<>;
+        public getMessagingPrivacy(): Promise<>;
+        public updateMessagingPrivacy(options: UpdateMessagingPrivacyOptions): Promise<>;
+        public getEmailStatus(): Promise<>;
+        public updateEmail(email: string, password: string): Promise<>;
+        public sendEmailVerification(): Promise<>;
+        public getCurrentTheme(): Promise<>;
+        public updateTheme(theme: UpdateThemeOptions): Promise<>;
+        public getThemesAvailable(): Promise<>;
         public isTFAEnabled(): Promise<>;
         public enableTFA(enabled: boolean, password: string): Promise<>;
+        public getTradePrivacy(): Promise<>;
         public updateTradePrivacy(tradePrivacy: string): Promise<>;
+        public getTradeQualityFilter(): Promise<>;
+        public updateTradeQualityFilter(filter: UpdateTradeQualityFilterOptions): Promise<>;
+        public getTFAEnabled(): Promise<>;
+        public updateTFAEnabled(enabled: boolean, password: string): Promise<>;
+        public getPhoneInformation(): Promise<>;
+        public setPhone(options: UpdatePhoneNumberOptions): Promise<>;
+        public deletePhone(): Promise<>;
+    }
+
+    class ClientAuthAPI {
+        constructor(client: Client);
+
+        public removeAccountPin(): Promise<>;
+        public getAccountPinStatus(): Promise<>;
+        public updateAccountPin(pin: AnyIdentifier): Promise<>;
+        public createAccountPin(pin: AnyIdentifier): Promise<>;
+        public lockAccount(): Promise<>;
+        public unlockAccount(pin: AnyIdentifier): Promise<>;
+        public getAuthMetadata(): Promise<>;
+        public login(credentials: ClientLoginCredentials): Promise<>;
+        public logout(): Promise<>;
+        public validatePassword(password: string): Promise<>;
+        public changePassword(oldPassword: string, newPassword: string): Promise<>;
+        public getRevertInformation(ticket: string): Promise<>;
+        public revertAccount(revertData: RevertAccountData): Promise<>;
+        public getConnectedSocialProviders(): Promise<>;
+        public removeConnectedSocialProvider(provider: string, password: string): Promise<>;
+        public resendTFACode(ticketData: TicketDataOptions): Promise<>;
+        public verifyTFACode(ticketData: TicketDataOptions): Promise<>;
+
     }
 
     class UserPartial extends UserBase {
@@ -150,8 +213,6 @@ declare module "bloxy" {
 
         public id: AnyIdentifier;
         public name: string;
-
-        public get(): Promise<User>;
     }
 
     class User extends UserPartial {
@@ -179,29 +240,23 @@ declare module "bloxy" {
 
         public client: Client;
 
+        public get(): Promise<>;
         public block(block: boolean): Promise<>;
         public handleFriendRequest(accept: boolean): Promise<>;
         public follow(follow: boolean): Promise<>;
         public sendFriendRequest(): Promise<>;
         public areFriendsWith(users: Array<UserIdentifier>): Promise<>;
+        public getNumFriends(): Promise<>;
+        public getVerificationStatus(): Promise<>;
+        public sendMessage(options: ClientUserSendMessageOptions): Promise<>;
+        public ownsGamePass(passId: AnyIdentifier): Promise<>;
     }
 
     class GroupBase {
-        constructor(client: Client);
-
-        public client: Client;
-    }
-
-    class Group extends GroupBase {
         constructor(client: Client, data: any);
 
-        public id: AnyIdentifier;
-        public name: string;
-        public description: string;
-        public owner: GroupMember;
-        public shout: GroupShout;
-
-        public update(): Promise<>; // Fetches new information from the Roblox Web API
+        public client: Client;
+        public get(): Promise<>; // Fetches new information from the Roblox Web API
         public getSettings(): Promise<GroupSettings>;
         public updateSettings(): Promise<GroupConfigureSetting>;
         public getAuditLogs(options: GroupAuditLogOptions): Promise<>;
@@ -247,10 +302,25 @@ declare module "bloxy" {
         public acceptRelationshipRequests(relationType: GroupRelationshipTypes, groups: Array<GroupIdentifier> | GroupIdentifier): Promise<>;
         public removeRelationship(relationType: GroupRelationshipTypes, group: GroupIdentifier): Promise<>;
         public sendRelationshipRequest(relationType: GroupRelationshipTypes, group: GroupIdentifier): Promise<>;
+        public changeMemberRank(user: UserIdentifier, changeAmount: number): Promise<>;
+        public demote(user: UserIdentifier): Promise<>;
+        public promote(user: UserIdentifier): Promise<>;
+        public getFunds(): Promise<>;
+        public getMyPermissions(): Promise<>;
 
         public on(event: "joinRequest", listener: (request: GroupJoinRequest, group: Group) => void): this;
         public on(event: "wallPost", listener: (post: GroupWallPost, group: Group) => void): this;
         public on(event: "shout", listener: (shout: GroupShout, group: Group) => void): this;
+    }
+
+    class Group extends GroupBase {
+        constructor(client: Client, data: any);
+
+        public id: AnyIdentifier;
+        public name: string;
+        public description: string;
+        public owner: GroupMember;
+        public shout: GroupShout;
     }
 
     class GroupUser extends GroupBase {

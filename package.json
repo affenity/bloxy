@@ -1,6 +1,6 @@
 {
   "name": "bloxy",
-  "version": "4.0.0-beta1",
+  "version": "4.0.0-alpha4",
   "description": "A Node.JS library for interacting with the Roblox website and its API.",
   "main": "index.js",
   "scripts": {
@@ -10,23 +10,15 @@
   "types": "./typings/index.d.ts",
   "keywords": [
     "bloxy",
-    "bloxy",
-    "roblox",
-    "roblox",
-    "roblox",
     "group",
     "games",
     "develop",
     "roblox",
     "bloxy",
-    "roblox",
-    "api",
-    "roblox",
-    "node",
-    "node",
-    "roblox",
-    "node",
-    "bloxy"
+    "nodejs roblox api",
+    "roblox api",
+    "roblox groups",
+    "roblox module"
   ],
   "author": "ScriptBased",
   "license": "MIT",
@@ -34,11 +26,11 @@
     "@types/node": "^12.7.5",
     "eslint": "^6.3.0",
     "eslint-plugin-security": "^1.4.0",
-    "jest": "^24.9.0"
+    "jest": "^24.9.0",
+    "codacy-coverage": "^3.4.0"
   },
   "dependencies": {
     "@hapi/joi": "^16.1.2",
-    "codacy-coverage": "^3.4.0",
     "got": "^9.6.0",
     "node-cache": "^4.2.1",
     "signalr-client": "0.0.19"
