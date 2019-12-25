@@ -3,5 +3,6 @@ module.exports = {
 	chat: require("./chat"),
 	client: require("./client"),
 	group: require("./group"),
-	message: require("./message")
+	message: require("./message"),
+	user: require("./user")
 };

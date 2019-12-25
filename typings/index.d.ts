@@ -484,7 +484,7 @@ declare module "bloxy" {
         public requester: any; // TODO: Uses either the default "got" module, or it will send the requestOptions to the callback provided, so that users can customize it themselves
 
         public request(options: RestRequestOptions): Promise<RestRequestResponse>;
-        public createCookie(options: RestCookieOptions): void;
+        public createCookie(options: RestCreateCookieOptions): void;
         public proxy(url?: string): string;
         public userAgent(userAgent?: string): string;
     }
@@ -611,6 +611,14 @@ declare module "bloxy" {
         description: string;
         iconAssetId: number;
         price: number;
+    }
+
+    interface RestCreateCookieOptions {
+        key: string;
+        value: string;
+        domain: string;
+        hostOnly: boolean;
+        httpOnly: boolean;
     }
 
     // -- Types
