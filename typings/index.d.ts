@@ -12,6 +12,7 @@ declare module "bloxy" {
             develop: ClientDevelopAPI;
             groups: ClientGroupsAPI;
         };
+        public debugEnabled: boolean;
 
         public getGroup(group: GroupIdentifier): Promise<Group>;
         public getUserGroups(user: UserIdentifier): Promise<Array<GroupUser>>;
@@ -480,7 +481,7 @@ declare module "bloxy" {
         constructor(client: Client);
 
         public client: Client;
-        public requester: any;
+        public requester: any; // TODO: Uses either the default "got" module, or it will send the requestOptions to the callback provided, so that users can customize it themselves
 
         public request(options: RestRequestOptions): Promise<RestRequestResponse>;
         public createCookie(options: RestCookieOptions): void;
@@ -526,7 +527,8 @@ declare module "bloxy" {
             cache: {
                 users: number;
                 groups: number;
-            }
+            },
+            requester: Function; // TOOD: For dealing with the requests
         }
     }
 
