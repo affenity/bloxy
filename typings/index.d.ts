@@ -8,11 +8,38 @@ declare module "bloxy" {
 
         public loggedIn: boolean;
         public user: UserPartial;
-        public apis: {
-            develop: ClientDevelopAPI;
-            groups: ClientGroupsAPI;
-        };
         public debugEnabled: boolean;
+        public apis: {
+            accountInformation: AccountInformationAPI;
+            accountSettings: AccountSettingsAPI;
+            api: API;
+            auth: AuthAPI;
+            avatar: AvatarAPI;
+            badge: BadgeAPI;
+            billing: BillingAPI;
+            captcha: CaptchaAPI;
+            catalog: CatalogAPI;
+            chat: ChatAPI;
+            contacts: ContactsAPI;
+            develop: DevelopAPI;
+            economy: EconomyAPI;
+            followings: FollowingsAPI;
+            friends: FriendsAPI;
+            gameInternationalization: GameInternationalizationAPI;
+            games: GamesAPI;
+            groups: GroupsAPI;
+            inventory: InventoryAPI;
+            itemConfiguration: ItemConfigurationAPI;
+            locale: LocaleAPI;
+            metrics: MetricsAPI;
+            notifications: NotificationsAPI;
+            premiumFeatures: PremiumFeaturesAPI;
+            presence: PresenceAPI;
+            publish: PublishAPI;
+            thumbnails: ThumbnailsAPI;
+            translationRoles: TranslationRolesAPI;
+            users: UsersAPI;
+        };
 
         public getGroup(group: GroupIdentifier): Promise<Group>;
         public getUserGroups(user: UserIdentifier): Promise<Array<GroupUser>>;
@@ -90,7 +117,7 @@ declare module "bloxy" {
         public getGroupPermissionsFor(group: GroupIdentifier): Promise<>;
     }
 
-    class ClientDevelopAPI {
+    class DevelopAPI {
         constructor(client: Client);
 
         public client: Client;
@@ -127,7 +154,7 @@ declare module "bloxy" {
         public updateDeveloperProduct(universeId: AnyIdentifier, productId: AnyIdentifier, data: UpdateDeveloperProductOptions): Promise<>;
     }
 
-    class ClientGroupsAPI {
+    class GroupsAPI {
         constructor(client: Client, data: any);
 
         public client: Client;
@@ -186,7 +213,7 @@ declare module "bloxy" {
         public deletePhone(): Promise<>;
     }
 
-    class ClientAuthAPI {
+    class AuthAPI {
         constructor(client: Client);
 
         public removeAccountPin(): Promise<>;
@@ -482,11 +509,31 @@ declare module "bloxy" {
 
         public client: Client;
         public requester: any; // TODO: Uses either the default "got" module, or it will send the requestOptions to the callback provided, so that users can customize it themselves
+        public isCustomRequester: boolean;
+        public responseHandlers: Array<Function>;
+        public jar: any;
 
         public request(options: RestRequestOptions): Promise<RestRequestResponse>;
         public createCookie(options: RestCreateCookieOptions): void;
         public proxy(url?: string): string;
         public userAgent(userAgent?: string): string;
+        public addResponseHandler(handler: Function): void;
+    }
+
+    class DebugController {
+        constructor(client: Client);
+
+        public client: Client;
+        public enabled: boolean;
+
+        public log(log: string): DebugLog;
+    }
+
+    class DebugLog {
+        constructor(controller: DebugController, log: string);
+
+        public controller: DebugController;
+        public log: string;
     }
 
     class RestTokenController {
@@ -529,6 +576,7 @@ declare module "bloxy" {
                 groups: number;
             },
             requester: Function; // TOOD: For dealing with the requests
+            debugging: boolean;
         }
     }
 

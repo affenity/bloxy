@@ -27,6 +27,11 @@ class ClientBase extends EventEmitter {
 		 * @type {UtilController}
 		 */
 		this.util = new Controllers.util(this);
+		/**
+		 * The debug controller to make it easier to handle logs
+		 * @type {DebugController}
+		 */
+		this.debug = new Controllers.Debug(this);
 	}
 }
 
