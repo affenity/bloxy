@@ -1,4 +1,5 @@
 const onResponse = require("./onResponse");
+const _ = require("lodash");
 
 class RestRequest {
 	/**
@@ -9,9 +10,9 @@ class RestRequest {
 	 */
 	constructor (client, restController, responseOptions) {
 		this.client = client;
-		this.restController = restController;
+		this.controller = restController;
 		this.responseOptions = responseOptions;
-		this.requestOptions = null;
+		this.options = null;
 		this.response = null;
 
 		this.client.debug.log("Created a request instance");
@@ -22,7 +23,7 @@ class RestRequest {
 
 		this.client.debug.log("Called restController.onResponse");
 
-		const successful = this.restController.responseHandlers.every(x => {
+		const successful = this.controller.responseHandlers.every(x => {
 			const [success, error] = x(response);
 			if (!success) {
 				handlerError = error;
@@ -38,6 +39,17 @@ class RestRequest {
 			this.client.debug.log("All response handlers were satisfied, proceeding to processing the request");
 			return onResponse(this, response);
 		}
+	}
+
+	prepare (options) {
+		this.options = options;
+	}
+
+	async send () {
+		const requester = this.controller.requester;
+		const response = await requester(this.options);
+
+		return this.onResponse(response);
 	}
 }
 

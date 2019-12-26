@@ -526,7 +526,7 @@ declare module "bloxy" {
         public client: Client;
         public restController: RestController;
         public responseOptions: RestControllerResponseOptions;
-        public requestOptions: RestRequestOptions;
+        public options: RestRequestOptions;
         public response: RestResponse;
 
         public onResponse(response: RestResponse): void;
@@ -536,9 +536,13 @@ declare module "bloxy" {
         constructor(client: Client, request: RestRequest, response: object);
         public client: Client;
         public request: RestRequest;
+        public options: RestRequest["responseOptions"];
         public data: object;
 
+        public validateResponse(): boolean;
         public isValidStatusCode(): boolean;
+        public isValidStatus(): boolean;
+        public isValidBody(): boolean;
     }
 
     class DebugController {

@@ -5,7 +5,6 @@ const toughCookie = require("tough-cookie");
  */
 class RestController {
 	/**
-	 *
 	 * @param {Client} client
 	 */
 	constructor (client) {
@@ -15,6 +14,8 @@ class RestController {
 		this.jar = new toughCookie.CookieJar();
 		this.responseHandlers = []; // TODO: Add each function that needs to be called in this array
 		this.request = require("./lib/Request");
+
+		require("./lib/responseHandlers")(this);
 	}
 
 	/**

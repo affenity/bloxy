@@ -5,5 +5,11 @@
  */
 module.exports = (request, response) => {
 	const { body, statusCode, statusMessage } = response;
-	const isAllowedStatus = request.responseOptions.
+	const [validResponse, validationError] = response.validateResponse();
+
+	if (!validResponse) {
+		throw new Error(validationError);
+	}
+
+	// TODO: Continue with processing the received response and finish the responseHandlers
 };

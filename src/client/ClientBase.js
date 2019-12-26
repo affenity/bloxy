@@ -6,7 +6,8 @@ const Controllers = require("../structures").controllers;
  */
 class ClientBase extends EventEmitter {
 	/**
-	 *
+	 * wdwadaw
+	 * @description does something
 	 * @param {ClientConstructorOptions} options
 	 */
 	constructor (options) {
