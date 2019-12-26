@@ -79,6 +79,7 @@ declare module "bloxy" {
         public options: ClientConstructorOptions;
         public rest: RestController;
         public util: UtilController;
+        public debug: DebugController;
     }
 
     class ClientUser {
@@ -520,6 +521,26 @@ declare module "bloxy" {
         public addResponseHandler(handler: Function): void;
     }
 
+    class RestRequest {
+        constructor(client: Client, restController: RestController, responseOptions: RestControllerResponseOptions);
+        public client: Client;
+        public restController: RestController;
+        public responseOptions: RestControllerResponseOptions;
+        public requestOptions: RestRequestOptions;
+        public response: RestResponse;
+
+        public onResponse(response: RestResponse): void;
+    }
+
+    class RestResponse {
+        constructor(client: Client, request: RestRequest, response: object);
+        public client: Client;
+        public request: RestRequest;
+        public data: object;
+
+        public isValidStatusCode(): boolean;
+    }
+
     class DebugController {
         constructor(client: Client);
 
@@ -667,6 +688,13 @@ declare module "bloxy" {
         domain: string;
         hostOnly: boolean;
         httpOnly: boolean;
+    }
+
+    interface RestControllerResponseOptions {
+        allowedStatusCodes: Array<number>;
+        disallowedStatusCodes: Array<number>;
+        failOnStatusInclude: Array<string>; // TODO: Fails when the status includes any of the words in the array
+        onlyJSON: boolean; // TODO: Fail if the body returned is not a valid JSON, it only expects json
     }
 
     // -- Types

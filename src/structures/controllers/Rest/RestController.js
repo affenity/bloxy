@@ -14,7 +14,7 @@ class RestController {
 		this.isCustomRequester = !!client.options.setup.requester;
 		this.jar = new toughCookie.CookieJar();
 		this.responseHandlers = []; // TODO: Add each function that needs to be called in this array
-		this.request = require("./lib/request");
+		this.request = require("./lib/Request");
 	}
 
 	/**
