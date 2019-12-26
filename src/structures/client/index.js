@@ -30,7 +30,7 @@ module.exports = {
 	Users: require("./UsersAPI")
 };
 /*
-module.exports.init = client => {
+Module.exports.init = client => {
 	const keys = Object.keys(module.exports);
 	let initiatedAPIs = {};
 	keys.map(k => {

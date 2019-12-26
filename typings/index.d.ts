@@ -514,7 +514,7 @@ declare module "bloxy" {
         public responseHandlers: Array<Function>;
         public jar: any;
 
-        public request(options: RestRequestOptions): Promise<RestRequestResponse>;
+        public request(options: RestRequestOptions): Promise<RestResponse>;
         public createCookie(options: RestCreateCookieOptions): void;
         public proxy(url?: string): string;
         public userAgent(userAgent?: string): string;
@@ -522,14 +522,14 @@ declare module "bloxy" {
     }
 
     class RestRequest {
-        constructor(client: Client, restController: RestController, responseOptions: RestControllerResponseOptions);
+        constructor(restController: RestController, responseOptions: RestControllerResponseOptions);
         public client: Client;
-        public restController: RestController;
+        public controller: RestController;
         public responseOptions: RestControllerResponseOptions;
         public options: RestRequestOptions;
-        public response: RestResponse;
 
-        public onResponse(response: RestResponse): void;
+        public prepare(options): void;
+        public send(): Promise<RestResponse>;
     }
 
     class RestResponse {
@@ -562,9 +562,9 @@ declare module "bloxy" {
     }
 
     class RestTokenController {
-        constructor(rest: RestController);
+        constructor(client: Client);
 
-        public rest: RestController;
+        public client: Client;
         public token: string;
         public fetchInterval: NodeJS.Timer;
 
@@ -697,8 +697,13 @@ declare module "bloxy" {
     interface RestControllerResponseOptions {
         allowedStatusCodes: Array<number>;
         disallowedStatusCodes: Array<number>;
-        failOnStatusInclude: Array<string>; // TODO: Fails when the status includes any of the words in the array
+        allowedStatuses: Array<string>;
+        disallowedStatuses: Array<string>; // TODO: Fails when the status includes any of the words in the array
         onlyJSON: boolean; // TODO: Fail if the body returned is not a valid JSON, it only expects json
+        disabledChecks: {
+            captcha: boolean;
+            token: boolean;
+        };
     }
 
     // -- Types

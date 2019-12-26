@@ -1,5 +1,5 @@
 module.exports = {
 	Rest: require("./Rest"),
 	Util: require("./Util"),
-	Debug: require("./Debug")
+	Debug: require("./Debug/DebugController")
 };

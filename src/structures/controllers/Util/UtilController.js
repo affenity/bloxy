@@ -15,15 +15,15 @@ class UtilController {
 		/**
 		 * @type {RestTokenController}
 		 */
-		this.token = new TokenController();
+		this.token = new TokenController(client);
 		/**
 		 * @type {CacheController}
 		 */
-		this.cache = new CacheController();
+		// this.cache = new CacheController();
 		/**
 		 * @type {CaptchaController}
 		 */
-		this.captcha = new CaptchaController();
+		// this.captcha = new CaptchaController();
 	}
 }
 

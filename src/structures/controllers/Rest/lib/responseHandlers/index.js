@@ -1,5 +1,5 @@
 const handlers = [
-	require("./xcsrf"),
+	require("./token"),
 	require("./captcha")
 ];
 /**

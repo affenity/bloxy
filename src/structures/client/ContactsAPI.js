@@ -1,5 +1,5 @@
 class ContactsAPI {
-	constructor (client) {	
+	constructor (client) {
 		this.client = client;
 	}
 }

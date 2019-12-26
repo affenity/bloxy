@@ -19,7 +19,6 @@ class Client extends ClientBase {
 		 * @type {UserPartial}
 		 */
 		this.user = null;
-		this.debugEnabled = false;
 		this.apis = {
 			accountInformation: new clientStructures.AccountInformation(this),
 			accountSettings: new clientStructures.AccountSettings(this),

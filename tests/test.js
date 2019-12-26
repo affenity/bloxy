@@ -5,6 +5,4 @@ const client = new bloxy.Client({
 	}
 });
 
-//console.log(client);
-
 client.util.token.refresh();

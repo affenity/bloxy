@@ -1,4 +1,5 @@
 const toughCookie = require("tough-cookie");
+const Request = require("./lib/Request");
 
 /**
  * @type {RestController}
@@ -13,11 +14,20 @@ class RestController {
 		this.isCustomRequester = !!client.options.setup.requester;
 		this.jar = new toughCookie.CookieJar();
 		this.responseHandlers = []; // TODO: Add each function that needs to be called in this array
-		this.request = require("./lib/Request");
 
 		require("./lib/responseHandlers")(this);
 	}
 
+	/**
+	 * @param {RestRequestOptions} options
+	 * @param {RestControllerResponseOptions} responseOptions
+	 * @returns {Promise<RestResponse>}
+	 */
+	request (options, responseOptions = {}) {
+		const request = new Request(this, responseOptions);
+		request.prepare(options);
+		return request.send();
+	}
 	/**
 	 * Adds a handler that needs to return true in order to process the request successfully.
 	 * @param {Function} handler
@@ -62,3 +72,5 @@ class RestController {
 		return userAgent || this.client.options.setup.userAgent;
 	}
 }
+
+module.exports = RestController;
