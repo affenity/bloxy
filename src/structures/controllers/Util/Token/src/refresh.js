@@ -13,5 +13,5 @@ module.exports = async controller => {
 		disableTokenCheck: true
 	});
 
-	//console.log(response);
+	console.log(response);
 };
