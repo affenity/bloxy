@@ -2,8 +2,9 @@
 const config = require("./config");
 
 const bloxy = require("../index");
-const c1 = new bloxy();
 
-test("Checks if you can construct bloxy with just calling it", () => {
+test("Constructing a new client", () => {
+	const c1 = new bloxy.Client();
+	console.log(c1);
 	expect(c1).toBeInstanceOf(bloxy);
 });
