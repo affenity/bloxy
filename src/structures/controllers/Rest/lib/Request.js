@@ -20,10 +20,15 @@ class RestRequest {
 	prepare (options = {}) {
 		this.options = options;
 		this.options.throwHttpErrors = false;
+		this.options.cookieJar = this.controller.jar;
 	}
 
 	async send () {
 		const requester = this.controller.requester;
+		if (this.options.token !== false) {
+			this.options.token = await this.client.util.token.fetch();
+		}
+
 		const response = await requester(this.options);
 
 		return onResponse(this, response);

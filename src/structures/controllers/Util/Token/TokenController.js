@@ -10,6 +10,13 @@ class RestTokenController {
 
 		this.refresh = require("./src/refresh").bind(this, this);
 	}
+
+	async fetch () {
+		if (!this.token) {
+			this.token = await this.refresh();
+		}
+		return this.token;
+	}
 }
 
 module.exports = RestTokenController;
