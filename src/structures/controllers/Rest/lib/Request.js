@@ -1,12 +1,10 @@
 const onResponse = require("./onResponse");
-const _ = require("lodash");
-const Response = require("./Response");
 
 class RestRequest {
 	/**
 	 * Creates a new instance of Request
-	 * @param restController {RestController}
-	 * @param responseOptions {RestControllerRequestOptions}
+	 * @param {RestController} restController The Rest controller
+	 * @param {RestRequestOptions} responseOptions The response options for validation / handling
 	 */
 	constructor (restController, responseOptions) {
 		this.controller = restController;

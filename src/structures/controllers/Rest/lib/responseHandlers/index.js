@@ -3,7 +3,7 @@ const handlers = [
 	require("./captcha")
 ];
 /**
- * @param {RestController} controller
+ * @param {RestController} controller The Rest controller
  */
 module.exports = controller => {
 	handlers.forEach(handler => {

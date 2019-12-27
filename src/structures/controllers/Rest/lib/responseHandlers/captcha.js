@@ -2,7 +2,8 @@ const captchaErrorCodes = [403];
 const captchaErrorStatuses = ["captcha", "bot", "robot"];
 
 /**
- * @param {RestResponse} response
+ * @param {RestResponse} response The response
+ * @returns {Array<boolean, string>}
  */
 module.exports = response => {
 	const data = response.data;

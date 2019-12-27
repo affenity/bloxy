@@ -8,7 +8,7 @@ const clientStructures = require("../structures").client;
 class Client extends ClientBase {
 	/**
 	 * Creates a new bloxy client
-	 * @param {ClientConstructorOptions} options
+	 * @param {ClientConstructorOptions} options The options used to initiate a client with
 	 */
 	constructor (options) {
 		super(options);

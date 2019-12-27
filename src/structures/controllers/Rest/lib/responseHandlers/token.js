@@ -2,7 +2,8 @@ const tokenErrorCodes = [403];
 const tokenErrorStatuses = ["token", "xcsrf", "x-csrf", "x-csrf-token"];
 
 /**
- * @param {RestResponse} response
+ * @param {RestResponse} response The response
+ * @returns {Array<boolean, string>}
  */
 module.exports = response => {
 	const data = response.data;

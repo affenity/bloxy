@@ -5,9 +5,9 @@ const lodash = require("lodash");
  */
 class RestResponse {
 	/**
-	 * @param client {Client}
-	 * @param request {RestRequest}
-	 * @param response {object}
+	 * @param {Client} client The client
+	 * @param {RestRequest} request  The request
+	 * @param {Object} response  The response data
 	 */
 	constructor (client, request, response) {
 		this.client = client;
@@ -112,9 +112,7 @@ class RestResponse {
 					} else {
 						// Parse the body and see if it's JSON
 						const parsed = JSON.parse(body);
-						if (parsed instanceof Object) {
-							valid = true;
-						}
+						valid = parsed instanceof Object;
 					}
 				} catch (error) {
 					this.client.debug.log(`Failed to validate body, it's most likely not JSON as expected`);

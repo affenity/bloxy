@@ -1,8 +1,10 @@
 const Response = require("./Response");
 
 /**
- * @param request {RestRequest}
- * @param responseData {object}
+ *
+ * @param {RestRequest} request The request
+ * @param {Object} responseData The response from the request
+ * @returns {RestResponse}
  */
 module.exports = (request, responseData) => {
 	const client = request.client;

@@ -6,21 +6,22 @@ const Request = require("./lib/Request");
  */
 class RestController {
 	/**
-	 * @param {Client} client
+	 * @param {Client} client The client
 	 */
 	constructor (client) {
 		this.client = client;
 		this.requester = client.options.setup.requester || require("got");
 		this.isCustomRequester = !!client.options.setup.requester;
 		this.jar = new toughCookie.CookieJar();
-		this.responseHandlers = []; // TODO: Add each function that needs to be called in this array
+		// TODO: Add each function that needs to be called in this array
+		this.responseHandlers = [];
 
 		require("./lib/responseHandlers")(this);
 	}
 
 	/**
-	 * @param {RestRequestOptions} options
-	 * @param {RestControllerResponseOptions} responseOptions
+	 * @param {RestRequestOptions} options The options used for the request
+	 * @param {RestControllerResponseOptions} responseOptions The response options for validation / handling
 	 * @returns {Promise<RestResponse>}
 	 */
 	request (options, responseOptions = {}) {
@@ -30,7 +31,7 @@ class RestController {
 	}
 	/**
 	 * Adds a handler that needs to return true in order to process the request successfully.
-	 * @param {Function} handler
+	 * @param {Function} handler A handler to process the response, which returns [boolean, infoString]
 	 * @returns {number}
 	 */
 	addResponseHandler (handler) {
@@ -39,7 +40,7 @@ class RestController {
 
 	/**
 	 * Creates a cookie
-	 * @param {RestCreateCookieOptions} options
+	 * @param {RestCreateCookieOptions} options The options for creating a cookie
 	 * @returns {toughCookie#Cookie}
 	 */
 	createCookie (options) {
@@ -48,7 +49,7 @@ class RestController {
 
 	/**
 	 * Retrieves or updates the default proxy
-	 * @param url {string}
+	 * @param {string} url The proxy url
 	 * @returns {string}
 	 */
 	proxy (url) {
@@ -61,7 +62,7 @@ class RestController {
 
 	/**
 	 * Retrieves or updates the default user-agent header
-	 * @param userAgent {string}
+	 * @param {string} userAgent The user-agent header
 	 * @returns {string}
 	 */
 	userAgent (userAgent) {

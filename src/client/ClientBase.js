@@ -7,9 +7,8 @@ const lodash = require("lodash");
  */
 class ClientBase extends EventEmitter {
 	/**
-	 * Wdwadaw
-	 * @description does something
-	 * @param {ClientConstructorOptions} options
+	 * The ClientBase provides the client instance with methods under the hood
+	 * @param {ClientConstructorOptions} options The options used to initiate the client with
 	 */
 	constructor (options) {
 		super();

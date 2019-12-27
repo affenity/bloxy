@@ -1,7 +1,7 @@
 class DebugLog {
 	/**
-	 * @param {DebugController} controller
-	 * @param {string} log
+	 * @param {DebugController} controller The debug controller
+	 * @param {string} log What to log
 	 */
 	constructor (controller, log) {
 		this.controller = controller;

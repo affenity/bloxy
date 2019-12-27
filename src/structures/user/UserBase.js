@@ -1,6 +1,6 @@
 class UserBase {
 	/**
-	 * @param {Client} client
+	 * @param {Client} client The client
 	 */
 	constructor (client) {
 		this.client = client;

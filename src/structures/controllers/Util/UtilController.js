@@ -1,5 +1,3 @@
-const CacheController = require("./Cache");
-const CaptchaController = require("./Captcha");
 const TokenController = require("./Token");
 
 /**
@@ -8,7 +6,7 @@ const TokenController = require("./Token");
 class UtilController {
 	/**
 	 *
-	 * @param {Client} client
+	 * @param {Client} client The client
 	 */
 	constructor (client) {
 		this.client = client;

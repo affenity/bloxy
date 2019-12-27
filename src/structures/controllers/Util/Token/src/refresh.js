@@ -1,5 +1,5 @@
 /**
- * @param {RestTokenController} controller
+ * @param {RestTokenController} controller The Rest controller
  */
 module.exports = async controller => {
 	const restController = controller.client.rest;
@@ -31,6 +31,7 @@ module.exports = async controller => {
 
 	controller.client.debug.log(`Successfully updated the x-csrf-token to "${tokenFound}"`);
 
+	// eslint-disable-next-line require-atomic-updates
 	controller.token = tokenFound;
 	return tokenFound;
 };
