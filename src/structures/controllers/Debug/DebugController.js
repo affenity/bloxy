@@ -6,7 +6,7 @@ const DebugLog = require("./DebugLog");
 class DebugController {
 	constructor (client) {
 		this.client = client;
-		this.enabled = client.options.setup.debugging || true;
+		this.enabled = client.options.setup.debugging || false;
 	}
 
 	log (log) {

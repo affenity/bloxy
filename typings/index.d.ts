@@ -503,6 +503,7 @@ declare module "bloxy" {
         public token: RestTokenController;
         public cache: CacheController;
         public captcha: CaptchaController;
+        public structures: Structures;
     }
 
     class RestController {
@@ -704,6 +705,30 @@ declare module "bloxy" {
             captcha: boolean;
             token: boolean;
         };
+    }
+
+    interface Constants {
+        captcha: {
+            login: {
+                publicKey: string;
+                solveForURL: string;
+                solvedURL: string;
+            };
+            signup: {
+                publicKey: string;
+                solveForURL: string;
+                solvedURL: string;
+            };
+            userAction: {
+                publicKey: string;
+            };
+            gameCardRedemption: {
+                publicKey: string;
+            };
+            resetPassword: {
+                publicKey: string;
+            }
+        }
     }
 
     // -- Types

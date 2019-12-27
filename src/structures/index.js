@@ -4,5 +4,6 @@ module.exports = {
 	client: require("./client"),
 	group: require("./group"),
 	message: require("./message"),
-	user: require("./user")
+	user: require("./user"),
+	constants: require("./constants")
 };

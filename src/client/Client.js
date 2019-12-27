@@ -50,6 +50,8 @@ class Client extends ClientBase {
 			translationRoles: new clientStructures.TranslationRoles(this),
 			users: new clientStructures.Users(this)
 		};
+
+		this.login = require("./src/login").bind(this, this);
 	}
 }
 

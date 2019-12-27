@@ -1,4 +1,5 @@
 const TokenController = require("./Token");
+const CaptchaController = require("./Captcha");
 
 /**
  * Holding misc. functions and variables
@@ -21,7 +22,8 @@ class UtilController {
 		/**
 		 * @type {CaptchaController}
 		 */
-		// this.captcha = new CaptchaController();
+		this.captcha = new CaptchaController(client);
+		this.structures = require("../../");
 	}
 }
 

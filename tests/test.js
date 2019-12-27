@@ -7,7 +7,14 @@ const client = new bloxy.Client({
 		debugging: false
 	},
 	credentials: {
-		cookie: ""
+		username: "",
+		password: "",
+		fcToken: ""
+	},
+	callbacks: {
+		onCaptcha: async function onCaptcha (client, info) {
+			return "ok"
+		}
 	}
 });
 

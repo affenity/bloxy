@@ -24,7 +24,7 @@ class RestController {
 	 * @param {RestControllerResponseOptions} responseOptions The response options for validation / handling
 	 * @returns {Promise<RestResponse>}
 	 */
-	request (options, responseOptions = {}) {
+	request (options, responseOptions) {
 		const request = new Request(this, responseOptions);
 		request.prepare(options);
 		return request.send();
