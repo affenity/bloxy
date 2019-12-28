@@ -33,9 +33,7 @@ module.exports = async (client, credentials) => {
 		},
 		body: JSON.stringify(sendBody),
 		responseType: "json"
-	}).then(r => {
-		return r.data;
-	}).catch(e => {
+	}).then(r => r.data).catch(e => {
 		throw new Error(e);
 	});
 

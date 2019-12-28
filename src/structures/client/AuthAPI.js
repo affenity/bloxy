@@ -10,9 +10,7 @@ class AuthAPI {
 		return this.request({
 			url: this.url("v2/auth/metadata"),
 			json: true
-		}).then(r => {
-			return r.data.body;
-		});
+		}).then(r => r.data.body);
 	}
 
 	logout () {
@@ -31,9 +29,7 @@ class AuthAPI {
 				"request.password": password
 			},
 			json: true
-		}).then(r => {
-			return r.data.body;
-		});
+		}).then(r => r.data.body);
 	}
 
 	sendCredentialsForVerification ({ credentialType, credentialValue, password }) {
@@ -106,7 +102,7 @@ class AuthAPI {
 		}).then(r => r.data.body);
 	}
 
-	changePassword ({ currentPassword, newPassword}) {
+	changePassword ({ currentPassword, newPassword }) {
 		return this.request({
 			url: this.url("v2/user/passwords/change"),
 			method: "POST",

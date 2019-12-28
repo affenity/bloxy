@@ -4,16 +4,15 @@ class API {
 		this.baseUrl = "https://api.roblox.com/";
 		this.url = u => this.baseUrl + u;
 		this.request = d => this.client.rest.request(d);
-		this.checkAuth = n => {
+		this.checkAuth = () => {
 			if (!this.client.loggedIn) {
-				throw new Error(`Function ${n} requires you to be authenticated`);
+				throw new Error(`This function requires you to be authenticated`);
 			}
 		};
 	}
 
 	getAssetVersions ({ id, page, placeId }) {
-		this.checkAuth("api.getAssetsVersion");
-
+		this.checkAuth();
 		return this.request({
 			url: this.url(`assets/${id}/versions`),
 			json: true,
@@ -36,8 +35,7 @@ class API {
 	}
 
 	getBalance () {
-		this.checkAuth("api.getBalance");
-
+		this.checkAuth();
 		return this.request({
 			url: this.url("currency/balance"),
 			json: true
@@ -55,8 +53,7 @@ class API {
 	}
 
 	acceptFriendRequest (userId) {
-		this.checkAuth("api.acceptFriendRequest");
-
+		this.checkAuth();
 		return this.request({
 			url: this.url("user/accept-friend-request"),
 			method: "POST",
@@ -68,8 +65,7 @@ class API {
 	}
 
 	declineFriendRequest (userId) {
-		this.checkAuth("api.declineFriendRequest");
-
+		this.checkAuth();
 		return this.request({
 			url: this.url("user/decline-friend-request"),
 			method: "POST",
@@ -81,8 +77,7 @@ class API {
 	}
 
 	sendFriendRequest (userId) {
-		this.checkAuth("api.sendFriendRequest");
-
+		this.checkAuth();
 		return this.request({
 			url: this.url("user/request-friendship"),
 			method: "POST",
@@ -104,8 +99,7 @@ class API {
 	}
 
 	unfriendUser (userId) {
-		this.checkAuth("api.unfriendUser");
-
+		this.checkAuth();
 		return this.request({
 			url: this.url("user/unfriend"),
 			method: "POST",
@@ -128,8 +122,7 @@ class API {
 	}
 
 	followUser (userId) {
-		this.checkAuth("api.followUser");
-
+		this.checkAuth();
 		return this.request({
 			url: this.url("user/follow"),
 			method: "POST",
@@ -141,8 +134,7 @@ class API {
 	}
 
 	unfollowUser (userId) {
-		this.checkAuth("api.unfollowUser");
-
+		this.checkAuth();
 		return this.request({
 			url: this.url("user/unfollow"),
 			method: "POST",
@@ -188,9 +180,8 @@ class API {
 	}
 
 	getIncomingItems () {
-		this.checkAuth("api.getIncomingItems");
-
-		this.checkAuth("api.getIncomingInfo");
+		this.checkAuth();
+		this.checkAuth();
 		return this.request({
 			url: this.url("incoming-items/counts"),
 			json: true
@@ -236,8 +227,7 @@ class API {
 	}
 
 	blockUser (userId) {
-		this.checkAuth("api.blockUser");
-
+		this.checkAuth();
 		return this.request({
 			url: this.url("userblock/block"),
 			qs: {
@@ -249,8 +239,7 @@ class API {
 	}
 
 	unblockUser (userId) {
-		this.checkAuth("api.unblockUser");
-
+		this.checkAuth();
 		return this.request({
 			url: this.url("userblock/unblock"),
 			qs: {
