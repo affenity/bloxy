@@ -6,12 +6,13 @@ module.exports = async client => {
 	});
 
 	const body = response.data.body;
+
 	if (body.includes("null")) {
 		throw new Error(`Failed to validate login, incorrect cookies!`);
 	}
 
 	client.user = new client.util.structures.user.Auth(client, {
-		userId: Number(body)
+		id: Number(body)
 	});
 	client.loggedIn = true;
 	client.emit("loggedIn");

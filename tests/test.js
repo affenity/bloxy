@@ -1,15 +1,12 @@
 const bloxy = require("../");
+const prompts = require("prompts");
+
 /**
  * @type {Client}
  */
 const client = new bloxy.Client({
 	setup: {
 		debugging: false
-	},
-	credentials: {
-		username: "",
-		password: "",
-		fcToken: ""
 	},
 	callbacks: {
 		onCaptcha: async function onCaptcha (client, info) {
@@ -18,10 +15,12 @@ const client = new bloxy.Client({
 	}
 });
 
-client.login().then(user => {
-	console.log(user);
-});
+(async () => {
+	const metadata = await client.apis.auth.checkCredentials({
+		credentialType: "Username",
+		credentialValue: "1TheNoobestNoob",
+		password: "9YvG$BIQR&BZqGVd%CVb%0R%bgRXGC4Gjz%B0s0Op1eAAyvsfqVXxidUZ@&!DjYo*VA4v9$yF19PR*jkHB67WeFobqHthocXXaf"
+	});
 
-client.on("loggedIn", () => {
-	console.log("User logged in");
-});
+	console.log(metadata);
+})();

@@ -24,10 +24,11 @@
   "license": "MIT",
   "devDependencies": {
     "@types/node": "^12.7.5",
+    "codacy-coverage": "^3.4.0",
     "eslint": "^6.3.0",
     "eslint-plugin-security": "^1.4.0",
     "jest": "^24.9.0",
-    "codacy-coverage": "^3.4.0"
+    "prompts": "^2.3.0"
   },
   "dependencies": {
     "@hapi/joi": "^16.1.2",

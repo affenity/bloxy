@@ -5,7 +5,7 @@ class UserPartial {
 	 */
 	constructor (client, data) {
 		this.client = client;
-		this.userId = data.userId;
+		this.id = data.id;
 		this.username = data.username;
 	}
 }

@@ -1,5 +1,6 @@
 const onResponse = require("./onResponse");
 const lodash = require("lodash");
+const querystring = require("querystring");
 
 class RestRequest {
 	/**
@@ -23,6 +24,9 @@ class RestRequest {
 		this.options.headers = lodash.merge(this.options.headers || {}, {
 			"User-Agent": options.userAgent || this.client.options.setup.userAgent
 		});
+		if (this.options.qs) {
+			this.options.url += `?${querystring.encode(this.options.qs)}`;
+		}
 	}
 
 	async send () {
