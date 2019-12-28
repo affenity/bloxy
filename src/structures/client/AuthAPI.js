@@ -123,7 +123,7 @@ class AuthAPI {
 		}).then(r => r.data.body);
 	}
 
-	getRevertTicketInfo (ticket) {
+	getRevertInfo (ticket) {
 		return this.request({
 			url: this.url("v2/revert/account"),
 			qs: {
@@ -132,7 +132,101 @@ class AuthAPI {
 		}).then(r => r.data.body);
 	}
 
+	revertAccount ({ userId, newPassword, ticket }) {
+		return this.request({
+			url: this.url("v2/revert/account"),
+			method: "POST",
+			json: {
+				UserId: userId,
+				NewPassword: newPassword,
+				NewPasswordRepeated: newPassword,
+				Ticket: ticket
+			}
+		}).then(r => r.data.body);
+	}
 
+	getTFAMetadata () {
+		return this.request({
+			url: this.url("v2/twostepverification/metadata")
+		}).then(r => r.data.body);
+	}
+
+	resendTFACode ({ username, ticket, actionType }) {
+		return this.request({
+			url: this.url("v2/twostepverification/resend"),
+			method: "POST",
+			json: {
+				username,
+				ticket,
+				actionType: actionType || "Login"
+			}
+		}).then(r => r.data.body);
+	}
+
+	verifyTFACode ({ username, ticket, code, rememberDevice, actionType }) {
+		return this.request({
+			url: this.url("v2/twostepverification/verify"),
+			method: "POST",
+			json: {
+				username,
+				ticket,
+				code,
+				rememberDevice: rememberDevice || true,
+				actionType: actionType || "Login"
+			}
+		}).then(r => r.data.body);
+	}
+
+	getExistingUsernames (username) {
+		return this.request({
+			url: this.url("v2/usernames"),
+			qs: {
+				username
+			},
+			json: true
+		}).then(r => r.data.body);
+	}
+
+	validateUsername ({ username, birthday, context }) {
+		return this.requset({
+			url: this.url("v2/usernames/validate"),
+			qs: {
+				"request.username": username,
+				"request.birthday": birthday,
+				"request.context": context || "Signup"
+			}
+		}).then(r => r.data.body);
+	}
+
+	recoverUsernames ({ targetType, target }) {
+		return this.request({
+			url: this.url("v2/usernames/recover"),
+			method: "POST",
+			json: {
+				targetType,
+				target
+			}
+		}).then(r => r.data.body);
+	}
+
+	signup (options) {
+		return this.request({
+			url: this.url("v2/signup"),
+			method: "POST",
+			json: options
+		}).then(r => r.data.body);
+	}
+
+	changeUsername ({ username, password }) {
+		return this.request({
+			url: this.url("v2/username"),
+			method: "POST",
+			json: {
+				username,
+				password
+			}
+		}).then(r => r.data.body);
+	}
 }
 
 module.exports = AuthAPI;
