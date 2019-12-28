@@ -243,6 +243,7 @@ class API {
 			qs: {
 				userId
 			},
+			method: "POST",
 			json: true
 		}).then(r => r.data.body);
 	}
@@ -255,6 +256,7 @@ class API {
 			qs: {
 				userId
 			},
+			method: "POST",
 			json: true
 		}).then(r => r.data.body);
 	}
