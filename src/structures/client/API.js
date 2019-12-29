@@ -1,270 +1,230 @@
+const lodash = require("lodash");
+
 class API {
 	constructor (client) {
 		this.client = client;
 		this.baseUrl = "https://api.roblox.com/";
-		this.url = u => this.baseUrl + u;
-		this.request = d => this.client.rest.request(d);
-		this.checkAuth = () => {
-			if (!this.client.loggedIn) {
-				throw new Error(`This function requires you to be authenticated`);
-			}
-		};
+		this.request = require("./_request").bind(this, this);
 	}
 
 	getAssetVersions ({ id, page, placeId }) {
-		this.checkAuth();
 		return this.request({
-			url: this.url(`assets/${id}/versions`),
-			json: true,
+			url: `assets/${id}/versions`,
 			qs: page ? {
 				page
 			} : {}
-		}).then(r => r.data.body);
+		});
 	}
 
 	awardBadge ({ userId, badgeId, placeId }) {
 		return this.request({
-			url: this.url("assets/award-badge"),
+			url: "assets/award-badge",
 			method: "POST",
 			qs: {
 				userId,
 				badgeId,
 				placeId
 			}
-		}).then(r => r.data.body);
+		});
 	}
 
 	getBalance () {
-		this.checkAuth();
 		return this.request({
-			url: this.url("currency/balance"),
-			json: true
-		}).then(r => r.data.body);
+			url: "currency/balance"
+		});
 	}
 
 	getUserFriends ({ userId, page }) {
 		return this.request({
-			url: this.url(`users/${userId}/friends`),
+			url: `users/${userId}/friends`,
 			qs: page ? {
 				page
-			} : {},
-			json: true
-		}).then(r => r.data.body);
+			} : {}
+		});
 	}
 
 	acceptFriendRequest (userId) {
-		this.checkAuth();
 		return this.request({
-			url: this.url("user/accept-friend-request"),
+			url: "user/accept-friend-request",
 			method: "POST",
 			qs: {
 				requesterUserId: userId
-			},
-			json: true
-		}).then(r => r.data.body);
+			}
+		});
 	}
 
 	declineFriendRequest (userId) {
-		this.checkAuth();
 		return this.request({
-			url: this.url("user/decline-friend-request"),
+			url: "user/decline-friend-request",
 			method: "POST",
 			qs: {
 				requesterUserId: userId
-			},
-			json: true
-		}).then(r => r.data.body);
+			}
+		});
 	}
 
 	sendFriendRequest (userId) {
-		this.checkAuth();
 		return this.request({
-			url: this.url("user/request-friendship"),
+			url: "user/request-friendship",
 			method: "POST",
 			qs: {
 				recipientUserId: userId
-			},
-			json: true
-		}).then(r => r.data.body);
+			}
+		});
 	}
 
 	getUserFriendsCount (userId) {
 		return this.request({
-			url: this.url("user/get-friendship-count"),
+			url: "user/get-friendship-count",
 			qs: {
 				userId
-			},
-			json: true
-		}).then(r => r.data.body);
+			}
+		});
 	}
 
 	unfriendUser (userId) {
-		this.checkAuth();
 		return this.request({
-			url: this.url("user/unfriend"),
+			url: "user/unfriend",
 			method: "POST",
 			qs: {
 				friendUserId: userId
-			},
-			json: true
-		}).then(r => r.data.body);
+			}
+		});
 	}
 
 	isUserFollowing ({ userId, otherUserId2 }) {
 		return this.request({
-			url: this.url("user/following-exists"),
+			url: "user/following-exists",
 			qs: {
 				userId: userId,
 				followerUserId: otherUserId2
-			},
-			json: true
-		}).then(r => r.data.body);
+			}
+		});
 	}
 
 	followUser (userId) {
-		this.checkAuth();
 		return this.request({
-			url: this.url("user/follow"),
+			url: "user/follow",
 			method: "POST",
 			qs: {
 				followedUserId: userId
-			},
-			json: true
-		}).then(r => r.data.body);
+			}
+		});
 	}
 
 	unfollowUser (userId) {
-		this.checkAuth();
 		return this.request({
-			url: this.url("user/unfollow"),
+			url: "user/unfollow",
 			method: "POST",
 			qs: {
 				followedUserId: userId
-			},
-			json: true
-		}).then(r => r.data.body);
+			}
+		});
 	}
 
 	getUserGroups (userId) {
 		return this.request({
-			url: this.url(`users/${userId}/groups`),
-			json: true
-		}).then(r => r.data.body);
+			url: `users/${userId}/groups`
+		});
 	}
 
 	getGroup (groupId) {
 		return this.request({
-			url: this.url(`groups/${groupId}`),
-			json: true
-		}).then(r => r.data.body);
+			url: `groups/${groupId}`
+		});
 	}
 
 	getGroupAllies (groupId, page) {
 		return this.request({
-			url: this.url(`groups/${groupId}/allies`),
+			url: `groups/${groupId}/allies`,
 			qs: page ? {
 				page
-			} : {},
-			json: true
-		}).then(r => r.data.body);
+			} : {}
+		});
 	}
 
 	getGroupEnemies (groupId, page) {
 		return this.request({
-			url: this.url(`groups/${groupId}/enemies`),
+			url: `groups/${groupId}/enemies`,
 			qs: page ? {
 				page
-			} : {},
-			json: true
-		}).then(r => r.data.body);
+			} : {}
+		});
 	}
 
 	getIncomingItems () {
-		this.checkAuth();
-		this.checkAuth();
 		return this.request({
-			url: this.url("incoming-items/counts"),
-			json: true
-		}).then(r => r.data.body);
+			url: "incoming-items/counts"
+		});
 	}
 
 	getProductInfo (assetId) {
 		return this.request({
-			url: this.url("marketplace/productinfo"),
+			url: "marketplace/productinfo",
 			qs: {
 				assetId
-			},
-			json: true
-		}).then(r => r.data.body);
+			}
+		});
 	}
 
 	getGamePassInfo (gamePassId) {
 		return this.request({
-			url: this.url("marketplace/game-pass-product-info"),
+			url: "marketplace/game-pass-product-info",
 			qs: {
 				gamePassId
-			},
-			json: true
-		}).then(r => r.data.body);
+			}
+		});
 	}
 
 	userOwnsAsset ({ userId, assetId }) {
 		return this.request({
-			url: this.url("ownership/hasasset"),
+			url: "ownership/hasasset",
 			qs: {
 				userId,
 				assetId
-			},
-			json: true
-		}).then(r => r.data.body);
+			}
+		});
 	}
 
 	getDeviceInfo () {
 		return this.request({
-			url: this.url("reference/deviceinfo"),
-			json: true
-		}).then(r => r.data.body);
+			url: "reference/deviceinfo"
+		});
 	}
 
 	blockUser (userId) {
-		this.checkAuth();
 		return this.request({
-			url: this.url("userblock/block"),
+			url: "userblock/block",
 			qs: {
 				userId
 			},
-			method: "POST",
-			json: true
-		}).then(r => r.data.body);
+			method: "POST"
+		});
 	}
 
 	unblockUser (userId) {
-		this.checkAuth();
 		return this.request({
-			url: this.url("userblock/unblock"),
+			url: "userblock/unblock",
 			qs: {
 				userId
 			},
-			method: "POST",
-			json: true
-		}).then(r => r.data.body);
+			method: "POST"
+		});
 	}
 
 	getUserByUsername (username) {
 		return this.request({
-			url: this.url("users/get-by-username"),
+			url: "users/get-by-username",
 			qs: {
 				username
-			},
-			json: true
-		}).then(r => r.data.body);
+			}
+		});
 	}
 
 	userCanManageAsset ({ userId, assetId }) {
 		return this.request({
-			url: this.url(`users/${userId}/canmanage/${assetId}`),
-			json: true
-		}).then(r => r.data.body);
+			url: `users/${userId}/canmanage/${assetId}`
+		});
 	}
 }
 

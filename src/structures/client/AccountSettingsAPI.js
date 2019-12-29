@@ -3,30 +3,8 @@ const lodash = require("lodash");
 class AccountSettingsAPI {
 	constructor (client) {
 		this.client = client;
-		this.baseUrl = "https://accountsettings.roblox.com/"
-		this.checkAuth = () => {
-			if (!client.loggedIn) {
-				throw new Error("This function requires you to be signed in");
-			}
-		};
-		this.request = (options, responseOptions = {}, extra = {}) => {
-			if (!extra.disableCheck) this.checkAuth();
-			if (!options.customUrl) {
-				options.url = `${this.baseUrl}${options.url}`
-			} else {
-				options.url = options.customUrl;
-			}
-
-			return this.client.rest.request(lodash.merge({
-				json: true
-			}, options), responseOptions).then(response => {
-				if (!extra.disableProcess) {
-					return response.data.body;
-				} else {
-					return response;
-				}
-			});
-		};
+		this.baseUrl = "https://accountsettings.roblox.com/";
+		this.request = require("./_request").bind(this, this);
 	}
 
 	getAppChatPrivacy () {
@@ -162,7 +140,7 @@ class AccountSettingsAPI {
 		return this.request({
 			url: "v1/themes/types"
 		}, {}, {
-			disableCheck: true
+			disableAuth: true
 		});
 	}
 

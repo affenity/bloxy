@@ -4,7 +4,7 @@ module.exports = {
 	API: require("./API"),
 	Auth: require("./AuthAPI"),
 	Avatar: require("./AvatarAPI"),
-	Badge: require("./BadgeAPI"),
+	Badges: require("./BadgesAPI"),
 	Billing: require("./BillingAPI"),
 	Captcha: require("./CaptchaAPI"),
 	Catalog: require("./CatalogAPI"),

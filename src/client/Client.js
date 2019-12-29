@@ -25,7 +25,7 @@ class Client extends ClientBase {
 			api: new clientStructures.API(this),
 			auth: new clientStructures.Auth(this),
 			avatar: new clientStructures.Avatar(this),
-			badge: new clientStructures.Badge(this),
+			badges: new clientStructures.Badges(this),
 			billing: new clientStructures.Billing(this),
 			captcha: new clientStructures.Captcha(this),
 			catalog: new clientStructures.Catalog(this),

@@ -15,7 +15,7 @@ declare module "bloxy" {
             api: API;
             auth: AuthAPI;
             avatar: AvatarAPI;
-            badge: BadgeAPI;
+            badges: BadgeAPI;
             billing: BillingAPI;
             captcha: CaptchaAPI;
             catalog: CatalogAPI;

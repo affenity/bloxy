@@ -2,28 +2,18 @@ class AccountInformationAPI {
 	constructor (client) {
 		this.client = client;
 		this.baseUrl = "https://accountinformation.roblox.com/";
-		this.url = u => this.baseUrl + u;
-		this.request = (options, responseOptions) => this.client.rest.request(options, responseOptions).then(r => {
-			return r.data.body;
-		});
-		this.checkAuth = () => {
-			if (!this.client.loggedIn) {
-				throw new Error(`This function requires you to be authenticated`);
-			}
-		};
+		this.request = require("./_request").bind(this, this);
 	}
 
 	getBirthdate () {
 		return this.request({
-			url: this.url("v1/birthdate"),
-			json: true
+			url: "v1/birthdate"
 		});
 	}
 
 	updateBirthdate ({ month, day, year }) {
-		this.checkAuth();
 		return this.request({
-			url: this.url("v1/birthdate"),
+			url: "v1/birthdate",
 			method: "POST",
 			json: {
 				birthMonth: month,
@@ -34,17 +24,14 @@ class AccountInformationAPI {
 	}
 
 	getDescription () {
-		this.checkAuth();
 		return this.request({
-			url: this.url("v1/description"),
-			json: true
+			url: "v1/description"
 		});
 	}
 
 	updateDescription (description) {
-		this.checkAuth();
 		return this.request({
-			url: this.url("v1/description"),
+			url: "v1/description",
 			method: "POST",
 			json: {
 				description
@@ -53,17 +40,14 @@ class AccountInformationAPI {
 	}
 
 	getGender () {
-		this.checkAuth();
 		return this.request({
-			url: this.url("v1/gender"),
-			json: true
+			url: "v1/gender"
 		});
 	}
 
 	updateGender (gender) {
-		this.checkAuth();
 		return this.request({
-			url: this.url("v1/gender"),
+			url: "v1/gender",
 			method: "POST",
 			json: {
 				gender
@@ -72,32 +56,26 @@ class AccountInformationAPI {
 	}
 
 	getConsecutiveXboxLoginDays () {
-		this.checkAuth();
 		return this.request({
-			url: this.url("v1/xbox-live/consecutive-login-days"),
-			json: true
+			url: "v1/xbox-live/consecutive-login-days"
 		});
 	}
 
 	getMetadata () {
 		return this.request({
-			url: this.url("v1/metadata"),
-			json: true
+			url: "v1/metadata"
 		});
 	}
 
 	getVerifiedPhone () {
-		this.checkAuth();
 		return this.request({
-			url: this.url("v1/phone"),
-			json: true
+			url: "v1/phone"
 		});
 	}
 
 	updatePhone ({ countryCode, prefix, phone, password }) {
-		this.checkAuth();
 		return this.request({
-			url: this.url("v1/phone"),
+			url: "v1/phone",
 			method: "POST",
 			json: {
 				countryCode,
@@ -108,10 +86,9 @@ class AccountInformationAPI {
 		});
 	}
 
-	deletePhone ({countryCode, prefix, phone, password }) {
-		this.checkAuth();
+	deletePhone ({ countryCode, prefix, phone, password }) {
 		return this.request({
-			url: this.url("v1/phone/delete"),
+			url: "v1/phone/delete",
 			method: "POST",
 			json: {
 				countryCode,
@@ -123,7 +100,6 @@ class AccountInformationAPI {
 	}
 
 	resendPhoneCode ({ countryCode, prefix, phone, password }) {
-		this.checkAuth();
 		return this.request({
 			url: this.url("v1/phone/resend"),
 			method: "POST",
@@ -137,7 +113,6 @@ class AccountInformationAPI {
 	}
 
 	verifyPhoneCode (code) {
-		this.checkAuth();
 		return this.request({
 			url: "v1/phone/verify",
 			method: "POST",
@@ -148,15 +123,12 @@ class AccountInformationAPI {
 	}
 
 	getPromotions () {
-		this.checkAuth();
 		return this.request({
-			url: "v1/promotion-channels",
-			json: true
+			url: "v1/promotion-channels"
 		});
 	}
 
 	updatePromotions ({ facebook, twitter, youtube, twitch, visibility }) {
-		this.checkAuth();
 		return this.request({
 			url: "v1/promotion-channels",
 			method: "POST",
@@ -164,31 +136,26 @@ class AccountInformationAPI {
 				facebook,
 				twitter,
 				youtube,
-				twitter,
+				twitch,
 				promotionChannelsVisibilityPrivacy: visibility || "AllUsers"
 			}
 		});
 	}
 
 	removeStarCodeAffiliate () {
-		this.checkAuth();
 		return this.request({
 			url: "v1/star-code-affiliate",
-			method: "DELETE",
-			json: true
+			method: "DELETE"
 		});
 	}
 
 	getStarCodeAffiliate () {
-		this.checkAuth();
 		return this.request({
-			url: "v1/star-code-affiliate",
-			json: true
+			url: "v1/star-code-affiliate"
 		});
 	}
 
 	setStarCodeAffiliate (affiliateCode) {
-		this.checkAuth();
 		return this.request({
 			url: "v1/star-code-affiliate",
 			json: {
