@@ -26,8 +26,6 @@ class BillingAPI {
 			}
 		});
 	}
-
-	
 }
 
 module.exports = BillingAPI;
