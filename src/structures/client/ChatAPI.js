@@ -158,11 +158,11 @@ class ChatAPI {
 		});
 	}
 
-	sendMessage ({ universe, conversationId, decorators }) {
+	sendMessage ({ message, conversationId, decorators }) {
 		return this.request({
 			url: "v2/send-message",
 			method: "POST",
-			json:{
+			json: {
 				message,
 				conversationId,
 				decorators
