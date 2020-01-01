@@ -214,7 +214,12 @@ module.exports = [
 			]
 		],
 		request: {
-			url: (env, { roleId }) => `https://groups.roblox.com/v1/groups/${env.id}/roles/${roleId}/users`
+			url: (env, { roleId }) => `https://groups.roblox.com/v1/groups/${env.id}/roles/${roleId}/users`,
+			queries: (env, { options = {} }) => ({
+				sortOrder: options.sortOrder || "Desc",
+				limit: options.limit || 100,
+				cursor: options.cursor
+			})
 		},
 		response: (env, params, data) => new env.client.structures.CursorPage({
 			env, params,
