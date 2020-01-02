@@ -11,7 +11,7 @@ class TranslationRolesAPI {
 		});
 	}
 
-	getUserBelongingToRole ({ gameId, role }) {
+	getUsersBelongingToRole ({ universeId, role }) {
 		return this.request({
 			url: `v1/game-localization-roles/games/${universeId}/roles/${role}/assignees`
 		});
@@ -19,7 +19,11 @@ class TranslationRolesAPI {
 
 	getSelfGamesRoles ({ role, start, amount }) {
 		return this.request({
-			url: `v1/game-localization-roles/roles/${role}/current-user`
+			url: `v1/game-localization-roles/roles/${role}/current-user`,
+			qs: {
+				exclusiveStartKey: start,
+				pageSize: amount
+			}
 		});
 	}
 }

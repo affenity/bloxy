@@ -16,10 +16,5 @@ const client = new bloxy.Client({
 });
 
 (async () => {
-	await client.login({
-		cookie: ""
-	});
-
-	const metadata = await client.apis.badges.getBadgeInfo(2124443956);
-	console.log(metadata);
+	console.log(client);
 })();

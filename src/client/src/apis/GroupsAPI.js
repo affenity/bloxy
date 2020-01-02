@@ -364,7 +364,7 @@ class ClientGroupsAPI {
 			url: `v1/groups/${groupId}/social-links`,
 			method: "POST",
 			json: {
-				type: linkTitle,
+				type: linkType,
 				url: linkUrl,
 				title: linkTitle
 			}

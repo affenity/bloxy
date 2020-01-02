@@ -120,7 +120,10 @@ class GamesAPI {
 	favoriteGame ({ universeId, favorited }) {
 		return this.request({
 			url: `v1/games/${universeId}/favorites`,
-			method: "POST"
+			method: "POST",
+			json: {
+				isFavorited: favorited
+			}
 		});
 	}
 

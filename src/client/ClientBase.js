@@ -1,20 +1,22 @@
 const EventEmitter = require("events");
-const Controllers = require("../structures").controllers;
+const structures = require("../structures");
+const clientAPIs = require("./src/apis");
 const lodash = require("lodash");
+const Controllers = structures.controllers;
 
 /**
  * @type {ClientBase}
  */
 class ClientBase extends EventEmitter {
 	/**
-	 * The ClientBase provides the client instance with methods under the hood
-	 * @param {ClientConstructorOptions} options The options used to initiate the client with
+	 * The ClientBase provides the apis instance with methods under the hood
+	 * @param {ClientConstructorOptions} options The options used to initiate the apis with
 	 */
 	constructor (options) {
 		super();
 
 		/**
-		 * The options the client was initiated with
+		 * The options the apis was initiated with
 		 * @type {ClientConstructorOptions}
 		 */
 		this.options = options;
@@ -35,6 +37,39 @@ class ClientBase extends EventEmitter {
 		 * @type {DebugController}
 		 */
 		this.debug = new Controllers.Debug(this);
+
+		this.structures = structures;
+		this.apis = {
+			accountInformation: new clientAPIs.AccountInformation(this),
+			accountSettings: new clientAPIs.AccountSettings(this),
+			api: new clientAPIs.API(this),
+			auth: new clientAPIs.Auth(this),
+			avatar: new clientAPIs.Avatar(this),
+			badges: new clientAPIs.Badges(this),
+			billing: new clientAPIs.Billing(this),
+			captcha: new clientAPIs.Captcha(this),
+			catalog: new clientAPIs.Catalog(this),
+			chat: new clientAPIs.Chat(this),
+			contacts: new clientAPIs.Contacts(this),
+			develop: new clientAPIs.Develop(this),
+			economy: new clientAPIs.Economy(this),
+			followings: new clientAPIs.Followings(this),
+			friends: new clientAPIs.Friends(this),
+			gameInternationalization: new clientAPIs.GameInternationalization(this),
+			games: new clientAPIs.Games(this),
+			groups: new clientAPIs.Groups(this),
+			inventory: new clientAPIs.Inventory(this),
+			itemConfiguration: new clientAPIs.ItemConfiguration(this),
+			locale: new clientAPIs.Locale(this),
+			metrics: new clientAPIs.Metrics(this),
+			notifications: new clientAPIs.Notifications(this),
+			premiumFeatures: new clientAPIs.PremiumFeatures(this),
+			presence: new clientAPIs.Presence(this),
+			publish: new clientAPIs.Publish(this),
+			thumbnails: new clientAPIs.Thumbnails(this),
+			translationRoles: new clientAPIs.TranslationRoles(this),
+			users: new clientAPIs.Users(this)
+		};
 	}
 
 	updateOptions (options) {

@@ -1,7 +1,7 @@
 module.exports = {
 	controllers: require("./controllers"),
 	chat: require("./chat"),
-	client: require("./client"),
+	client: require("../client/src/apis"),
 	group: require("./group"),
 	message: require("./message"),
 	user: require("./user"),

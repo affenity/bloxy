@@ -126,7 +126,7 @@ class FriendsAPI {
 		return this.request({
 			url: `v1/users/${userId}/friends/statuses`,
 			qs: {
-				userIds: userId.join("\n")
+				userIds: userIds.join("\n")
 			}
 		});
 	}

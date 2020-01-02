@@ -4,7 +4,7 @@
 class CaptchaController {
 	/**
 	 * Creating a new captcha controller
-	 * @param {Client} client The client
+	 * @param {Client} client The apis
 	 */
 	constructor (client) {
 		this.client = client;

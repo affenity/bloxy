@@ -1,5 +1,3 @@
-const lodash = require("lodash");
-
 class AccountSettingsAPI {
 	constructor (client) {
 		this.client = client;

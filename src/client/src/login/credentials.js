@@ -2,7 +2,7 @@ const validate = require("./validate");
 
 /**
  * Logs in with standard credentials (username and password)
- * @param {Client} client The client
+ * @param {Client} client The apis
  * @param {ClientLoginCredentials} credentials The credentials to sign in with
  * @returns {Promise<void>}
  */

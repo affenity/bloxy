@@ -30,11 +30,11 @@ module.exports = {
 	Users: require("./UsersAPI")
 };
 /*
-Module.exports.init = client => {
+Module.exports.init = apis => {
 	const keys = Object.keys(module.exports);
 	let initiatedAPIs = {};
 	keys.map(k => {
-		initiatedAPIs[k] = new module.exports[k](client);
+		initiatedAPIs[k] = new module.exports[k](apis);
 	});
 	return initiatedAPIs;
 };

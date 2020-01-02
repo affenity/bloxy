@@ -22,10 +22,11 @@ class MetricsAPI {
 		});
 	}
 
-	reportrecordBundleLoadSuccess (data) {
+	reportRecordBundleLoadSuccess (data) {
 		return this.request({
 			url: "v1/bundle-metrics/report",
-			method: "POST"
+			method: "POST",
+			json: data
 		});
 	}
 }

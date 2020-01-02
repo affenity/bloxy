@@ -5,7 +5,7 @@ const lodash = require("lodash");
  */
 class RestResponse {
 	/**
-	 * @param {Client} client The client
+	 * @param {Client} client The apis
 	 * @param {RestRequest} request  The request
 	 * @param {Object} response  The response data
 	 */

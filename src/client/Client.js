@@ -1,5 +1,5 @@
 const ClientBase = require("./ClientBase");
-const clientStructures = require("../structures").client;
+
 
 /**
  * @type {Client}
@@ -7,8 +7,8 @@ const clientStructures = require("../structures").client;
  */
 class Client extends ClientBase {
 	/**
-	 * Creates a new bloxy client
-	 * @param {ClientConstructorOptions} options The options used to initiate a client with
+	 * Creates a new bloxy apis
+	 * @param {ClientConstructorOptions} options The options used to initiate a apis with
 	 */
 	constructor (options) {
 		super(options);
@@ -19,38 +19,6 @@ class Client extends ClientBase {
 		 * @type {UserPartial}
 		 */
 		this.user = null;
-		this.apis = {
-			accountInformation: new clientStructures.AccountInformation(this),
-			accountSettings: new clientStructures.AccountSettings(this),
-			api: new clientStructures.API(this),
-			auth: new clientStructures.Auth(this),
-			avatar: new clientStructures.Avatar(this),
-			badges: new clientStructures.Badges(this),
-			billing: new clientStructures.Billing(this),
-			captcha: new clientStructures.Captcha(this),
-			catalog: new clientStructures.Catalog(this),
-			chat: new clientStructures.Chat(this),
-			contacts: new clientStructures.Contacts(this),
-			develop: new clientStructures.Develop(this),
-			economy: new clientStructures.Economy(this),
-			followings: new clientStructures.Followings(this),
-			friends: new clientStructures.Friends(this),
-			gameInternationalization: new clientStructures.GameInternationalization(this),
-			games: new clientStructures.Games(this),
-			groups: new clientStructures.Groups(this),
-			inventory: new clientStructures.Inventory(this),
-			itemConfiguration: new clientStructures.ItemConfiguration(this),
-			locale: new clientStructures.Locale(this),
-			metrics: new clientStructures.Metrics(this),
-			notifications: new clientStructures.Notifications(this),
-			premiumFeatures: new clientStructures.PremiumFeatures(this),
-			presence: new clientStructures.Presence(this),
-			publish: new clientStructures.Publish(this),
-			thumbnails: new clientStructures.Thumbnails(this),
-			translationRoles: new clientStructures.TranslationRoles(this),
-			users: new clientStructures.Users(this)
-		};
-
 		this.login = require("./src/login").bind(this, this);
 	}
 }

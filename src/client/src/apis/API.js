@@ -1,5 +1,3 @@
-const lodash = require("lodash");
-
 class API {
 	constructor (client) {
 		this.client = client;
@@ -10,9 +8,10 @@ class API {
 	getAssetVersions ({ id, page, placeId }) {
 		return this.request({
 			url: `assets/${id}/versions`,
-			qs: page ? {
-				page
-			} : {}
+			qs: {
+				page,
+				placeId
+			}
 		});
 	}
 
@@ -37,9 +36,9 @@ class API {
 	getUserFriends ({ userId, page }) {
 		return this.request({
 			url: `users/${userId}/friends`,
-			qs: page ? {
+			qs: {
 				page
-			} : {}
+			}
 		});
 	}
 
@@ -137,18 +136,18 @@ class API {
 	getGroupAllies (groupId, page) {
 		return this.request({
 			url: `groups/${groupId}/allies`,
-			qs: page ? {
+			qs: {
 				page
-			} : {}
+			}
 		});
 	}
 
 	getGroupEnemies (groupId, page) {
 		return this.request({
 			url: `groups/${groupId}/enemies`,
-			qs: page ? {
+			qs: {
 				page
-			} : {}
+			}
 		});
 	}
 

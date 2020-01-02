@@ -4,7 +4,7 @@ const lodash = require("lodash");
 
 /**
  * Logging in
- * @param {Client} client The client
+ * @param {Client} client The apis
  * @param {ClientLoginCredentials} credentials The credentials to log in with
  * @returns {Promise<ClientAuthUser>}
  */

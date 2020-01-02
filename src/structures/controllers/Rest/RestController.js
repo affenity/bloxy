@@ -6,7 +6,7 @@ const Request = require("./lib/Request");
  */
 class RestController {
 	/**
-	 * @param {Client} client The client
+	 * @param {Client} client The apis
 	 */
 	constructor (client) {
 		this.client = client;
