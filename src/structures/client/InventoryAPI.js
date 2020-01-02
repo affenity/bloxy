@@ -8,7 +8,7 @@ class InventoryAPI {
 	getPackageAssetIds (packageId) {
 		return this.request({
 			url: `v1/packages/${packageId}/assets`
-		})
+		});
 	}
 
 	getUserOwnedCollectibles ({ userId, assetType, sortOrder, limit, cursor }) {
@@ -20,7 +20,7 @@ class InventoryAPI {
 				limit,
 				cursor
 			}
-		})
+		});
 	}
 
 	getUserOwnedItems ({ userId, itemType, targetId }) {

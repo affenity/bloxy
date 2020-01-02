@@ -28,7 +28,7 @@ class ItemConfigurationAPI {
 			qs: {
 				itemIds
 			}
-		})
+		});
 	}
 
 	createItemTag ({ itemId, tagId }) {
@@ -39,20 +39,20 @@ class ItemConfigurationAPI {
 				itemId,
 				tagId
 			}
-		})
+		});
 	}
 
 	getItemTagsMetadata () {
 		return this.request({
 			url: "v1/item-tags/metadata"
-		})
+		});
 	}
 
 	deleteItemTags (itemId) {
 		return this.request({
 			url: `v1/item-tags/${itemId}`,
 			method: "DELETE"
-		})
+		});
 	}
 
 	getTagsInfo (tagIds) {
@@ -61,7 +61,7 @@ class ItemConfigurationAPI {
 			qs: {
 				tagIds
 			}
-		})
+		});
 	}
 
 	prefixTagSearch ({ prefix, amount }) {
@@ -71,7 +71,7 @@ class ItemConfigurationAPI {
 				prefix,
 				numberOfResults: amount
 			}
-		})
+		});
 	}
 
 	releaseAsset ({ assetId, price, saleStatus }) {
@@ -94,7 +94,6 @@ class ItemConfigurationAPI {
 			}
 		});
 	}
-
 }
 
 module.exports = ItemConfigurationAPI;

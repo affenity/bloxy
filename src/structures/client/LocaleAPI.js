@@ -27,7 +27,7 @@ class LocaleAPI {
 			json: {
 				countryId
 			}
-		})
+		});
 	}
 
 	getLocales (displayLocaleValue) {
@@ -42,19 +42,19 @@ class LocaleAPI {
 	getSupportedLocales () {
 		return this.request({
 			url: "v1/locales/supported-locales"
-		})
+		});
 	}
 
 	getSelfLocale () {
 		return this.request({
 			url: "v1/locales/user-locale"
-		})
+		});
 	}
 
 	getLocusSupportedLocales () {
 		return this.request({
 			url: "v1/locales/user-localization/locus-supported-locales"
-		})
+		});
 	}
 
 	setSelfSupportedLocale (localeCode) {
@@ -66,8 +66,6 @@ class LocaleAPI {
 			}
 		});
 	}
-
-
 }
 
 module.exports = LocaleAPI;
