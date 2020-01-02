@@ -112,7 +112,7 @@ class ClientDevelopAPI {
 		});
 	}
 
-	updatePluginInfo ({ pluginId, name, description, enableComments}) {
+	updatePluginInfo ({ pluginId, name, description, enableComments }) {
 		return this.request({
 			url: `v1/plugins/${pluginId}`,
 			method: "PATCH",
