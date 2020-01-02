@@ -2,7 +2,7 @@ const EventEmitter = require("events");
 const structures = require("../structures");
 const clientAPIs = require("./src/apis");
 const lodash = require("lodash");
-const Controllers = structures.controllers;
+const controllers = require("../controllers");
 
 /**
  * @type {ClientBase}
@@ -26,17 +26,17 @@ class ClientBase extends EventEmitter {
 		 * The rest controller for dealing with the (http) requests
 		 * @type {RestController}
 		 */
-		this.rest = new Controllers.Rest(this);
+		this.rest = new controllers.Rest(this);
 		/**
 		 * The util controller for dealing with misc. stuff
 		 * @type {UtilController}
 		 */
-		this.util = new Controllers.Util(this);
+		this.util = new controllers.Util(this);
 		/**
 		 * The debug controller to make it easier to handle logs
 		 * @type {DebugController}
 		 */
-		this.debug = new Controllers.Debug(this);
+		this.debug = new controllers.Debug(this);
 
 		this.structures = structures;
 		this.apis = {

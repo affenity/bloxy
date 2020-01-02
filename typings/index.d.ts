@@ -9,6 +9,7 @@ declare module "bloxy" {
         public loggedIn: boolean;
         public user: UserPartial;
         public debugEnabled: boolean;
+        public ws: SocketConnection;
         public apis: {
             accountInformation: AccountInformationAPI;
             accountSettings: AccountSettingsAPI;
@@ -50,7 +51,7 @@ declare module "bloxy" {
         public login(options: ClientLoginCredentials): Promise<string>;
         public generateToken(): Promise<ClientLoginCredentials>;
         public clearSessions(): Promise<boolean>;
-        public ws(): void; // Inits the websocket connection
+        public connect(): void; // Inits the websocket connection
         public searchGroups(query: string, isKeyword: boolean): Promise<>; // Defaults to regular text search
         public getRobloxVerificationStatus(userId: AnyIdentifier, platform: "Roblox" | "Discord"): Promise<>;
 

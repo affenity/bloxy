@@ -20,6 +20,7 @@ class Client extends ClientBase {
 		 */
 		this.user = null;
 		this.login = require("./src/login").bind(this, this);
+		this.connect = require("./src/websocket").bind(this, this);
 	}
 }
 

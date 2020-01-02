@@ -23,7 +23,7 @@ class UtilController {
 		 * @type {CaptchaController}
 		 */
 		this.captcha = new CaptchaController(client);
-		this.structures = require("../../");
+		this.structures = require("../../structures");
 	}
 }
 

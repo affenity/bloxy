@@ -1,5 +1,5 @@
 module.exports = {
-	controllers: require("./controllers"),
+	controllers: require("../controllers"),
 	chat: require("./chat"),
 	client: require("../client/src/apis"),
 	group: require("./group"),
