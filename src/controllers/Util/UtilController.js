@@ -1,5 +1,5 @@
-const TokenController = require("./Token");
-const CaptchaController = require("./Captcha");
+const TokenController = require("../Rest/src/token");
+const CaptchaController = require("../Captcha");
 
 /**
  * Holding misc. functions and variables
@@ -18,7 +18,7 @@ class UtilController {
 		/**
 		 * @type {CacheController}
 		 */
-		// this.cache = new CacheController();
+		// this.Cache = new CacheController();
 		/**
 		 * @type {CaptchaController}
 		 */
