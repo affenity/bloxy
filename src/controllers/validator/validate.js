@@ -1,0 +1,20 @@
+const Joi = require("@hapi/joi");
+
+module.exports = async (args, typed) => {
+	const argsType = typeof args;
+	const argsExists = args !== null && args !== undefined;
+
+	if (!argsExists) {
+		throw new Error("Args is null or undefined.");
+	}
+
+	typed = typed(Joi);
+
+	const valid = await typed.validateAsync(args).catch(e => new Error(e));
+
+	if (valid instanceof Error) {
+		throw new Error(`Failed to validate args. ${valid}`);
+	}
+	console.log(valid);
+	return valid;
+};

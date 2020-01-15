@@ -6,7 +6,7 @@ class UserPartial extends UserBase {
 	 * @param {Object} data The user data
 	 */
 	constructor (client, data) {
-		super(client);
+		super(client, data);
 	}
 }
 

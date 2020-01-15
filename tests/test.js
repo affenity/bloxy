@@ -6,7 +6,7 @@ const prompts = require("prompts");
  */
 const client = new bloxy.Client({
 	setup: {
-		debugging: true
+		debugging: false
 	},
 	callbacks: {
 		onCaptcha: async function onCaptcha (client, info) {
@@ -16,5 +16,6 @@ const client = new bloxy.Client({
 });
 
 (async () => {
-	console.log(client);
+	const userGroups = await client.getUserGroups(18442032);
+	console.log(userGroups);
 })();

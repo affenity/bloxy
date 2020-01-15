@@ -27,7 +27,8 @@ module.exports = {
 	Publish: require("./PublishAPI"),
 	Thumbnails: require("./ThumbnailsAPI"),
 	TranslationRoles: require("./TranslationRolesAPI"),
-	Users: require("./UsersAPI")
+	Users: require("./UsersAPI"),
+	Other: require("./OtherAPI")
 };
 /*
 Module.exports.init = apis => {

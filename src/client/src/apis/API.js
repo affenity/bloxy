@@ -98,6 +98,8 @@ class API {
 				userId: userId,
 				followerUserId: otherUserId2
 			}
+		}, {}, {
+			disableAuth: true
 		});
 	}
 
@@ -124,12 +126,16 @@ class API {
 	getUserGroups (userId) {
 		return this.request({
 			url: `users/${userId}/groups`
+		}, {}, {
+			disableAuth: true
 		});
 	}
 
 	getGroup (groupId) {
 		return this.request({
 			url: `groups/${groupId}`
+		}, {}, {
+			disableAuth: true
 		});
 	}
 
@@ -163,6 +169,8 @@ class API {
 			qs: {
 				assetId
 			}
+		}, {}, {
+			disableAuth: true
 		});
 	}
 
@@ -172,6 +180,8 @@ class API {
 			qs: {
 				gamePassId
 			}
+		}, {}, {
+			disableAuth: true
 		});
 	}
 
@@ -182,12 +192,16 @@ class API {
 				userId,
 				assetId
 			}
+		}, {}, {
+			disableAuth: true
 		});
 	}
 
 	getDeviceInfo () {
 		return this.request({
 			url: "reference/deviceinfo"
+		}, {}, {
+			disableAuth: true
 		});
 	}
 
@@ -217,12 +231,16 @@ class API {
 			qs: {
 				username
 			}
+		}, {}, {
+			disableAuth: true
 		});
 	}
 
 	userCanManageAsset ({ userId, assetId }) {
 		return this.request({
 			url: `users/${userId}/canmanage/${assetId}`
+		}, {}, {
+			disableAuth: true
 		});
 	}
 }

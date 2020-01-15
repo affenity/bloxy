@@ -15,6 +15,7 @@ class UtilController {
 		 * @type {RestTokenController}
 		 */
 		this.token = new TokenController(client);
+
 		/**
 		 * @type {CacheController}
 		 */
@@ -23,7 +24,18 @@ class UtilController {
 		 * @type {CaptchaController}
 		 */
 		this.captcha = new CaptchaController(client);
+
+		/**
+		 * The structures
+		 * @type {Structures}
+		 */
 		this.structures = require("../../structures");
+
+		/**
+		 * Value extractor
+		 * @type {UtilValueExtractor}
+		 */
+		this.valueExtractor = require("./valueExtractor");
 	}
 }
 

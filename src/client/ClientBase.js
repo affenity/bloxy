@@ -27,18 +27,29 @@ class ClientBase extends EventEmitter {
 		 * @type {RestController}
 		 */
 		this.rest = new controllers.Rest(this);
+
 		/**
 		 * The util controller for dealing with misc. stuff
 		 * @type {UtilController}
 		 */
 		this.util = new controllers.Util(this);
+
 		/**
 		 * The debug controller to make it easier to handle logs
 		 * @type {DebugController}
 		 */
 		this.debug = new controllers.Debug(this);
 
+		/**
+		 * The structures for the module
+		 * @type {Structures}
+		 */
 		this.structures = structures;
+
+		/**
+		 * All the APIs for the module
+		 * @type {{auth: AuthAPI, catalog: CatalogAPI, inventory: InventoryAPI, locale: LocaleAPI, billing: BillingAPI, translationRoles: TranslationRolesAPI, accountInformation: AccountInformationAPI, captcha: CaptchaAPI, games: GamesAPI, api: API, presence: PresenceAPI, gameInternationalization: GameInternationalizationAPI, groups: ClientGroupsAPI, avatar: AvatarAPI, develop: ClientDevelopAPI, economy: EconomyAPI, premiumFeatures: PremiumFeaturesAPI, friends: FriendsAPI, users: UsersAPI, badges: BadgesAPI, itemConfiguration: ItemConfigurationAPI, followings: FollowingsAPI, chat: ChatAPI, publish: PublishAPI, metrics: MetricsAPI, thumbnails: ThumbnailsAPI, accountSettings: AccountSettingsAPI, contacts: ContactsAPI, notifications: NotificationsAPI}}
+		 */
 		this.apis = {
 			accountInformation: new clientAPIs.AccountInformation(this),
 			accountSettings: new clientAPIs.AccountSettings(this),
@@ -68,10 +79,17 @@ class ClientBase extends EventEmitter {
 			publish: new clientAPIs.Publish(this),
 			thumbnails: new clientAPIs.Thumbnails(this),
 			translationRoles: new clientAPIs.TranslationRoles(this),
-			users: new clientAPIs.Users(this)
+			users: new clientAPIs.Users(this),
+			other: new clientAPIs.Other(this)
 		};
+
+		this._validate = controllers.validator;
 	}
 
+	/**
+	 * Updates this client's options
+	 * @param {ClientConstructorOptions} options The options to update
+	 */
 	updateOptions (options) {
 		this.options = lodash.merge({
 			credentials: {},

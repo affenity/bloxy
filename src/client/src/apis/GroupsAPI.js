@@ -46,6 +46,8 @@ class ClientGroupsAPI {
 	getGroupMetadata () {
 		return this.request({
 			url: "v1/groups/configuration/metadata"
+		}, {}, {
+			disableAuth: true
 		});
 	}
 
@@ -167,6 +169,8 @@ class ClientGroupsAPI {
 				limit,
 				cursor
 			}
+		}, {}, {
+			disableAuth: true
 		});
 	}
 
@@ -178,6 +182,8 @@ class ClientGroupsAPI {
 				limit,
 				cursor
 			}
+		}, {}, {
+			disableAuth: true
 		});
 	}
 
@@ -201,12 +207,16 @@ class ClientGroupsAPI {
 	getUserMetadata (userId) {
 		return this.request({
 			url: `v1/users/${userId}/group-membership-status`
+		}, {}, {
+			disableAuth: true
 		});
 	}
 
 	getUserGroups (userId) {
 		return this.request({
 			url: `v1/users/${userId}/groups/roles`
+		}, {}, {
+			disableAuth: true
 		});
 	}
 
@@ -350,12 +360,16 @@ class ClientGroupsAPI {
 	getGuestPermissions (groupId) {
 		return this.request({
 			url: `v1/groups/${groupId}/roles/guest/permissions`
+		}, {}, {
+			disableAuth: true
 		});
 	}
 
 	getGroupSocialLinks (groupId) {
 		return this.request({
 			url: `v1/groups/${groupId}/social-links`
+		}, {}, {
+			disableAuth: true
 		});
 	}
 
@@ -398,6 +412,8 @@ class ClientGroupsAPI {
 				limit,
 				cursor
 			}
+		}, {}, {
+			disableAuth: true
 		});
 	}
 
@@ -433,6 +449,8 @@ class ClientGroupsAPI {
 				limit,
 				cursor
 			}
+		}, {}, {
+			disableAuth: true
 		});
 	}
 
@@ -442,12 +460,16 @@ class ClientGroupsAPI {
 			qs: {
 				groupName: query
 			}
+		}, {}, {
+			disableAuth: true
 		});
 	}
 
 	getGroupSearchMetadata () {
 		return this.request({
 			url: "v1/groups/search/metadata"
+		}, {}, {
+			disableAuth: true
 		});
 	}
 
@@ -457,12 +479,16 @@ class ClientGroupsAPI {
 			qs: {
 				ids: roleIds.join("\n")
 			}
+		}, {}, {
+			disableAuth: true
 		});
 	}
 
 	getUserPrimaryGroup (userId) {
 		return this.request({
 			url: `v1/users/${userId}/groups/primary/role`
+		}, {}, {
+			disableAuth: true
 		});
 	}
 
@@ -521,12 +547,16 @@ class ClientGroupsAPI {
 			qs: {
 				groupIds: groupIds.join("\n")
 			}
+		}, {}, {
+			disableAuth: true
 		});
 	}
 
 	getUserGroupsV2 (userId) {
 		return this.request({
 			url: `v2/users/${userId}/groups/roles`
+		}, {}, {
+			disableAuth: true
 		});
 	}
 
@@ -538,6 +568,8 @@ class ClientGroupsAPI {
 				limit,
 				cursor
 			}
+		}, {}, {
+			disableAuth: true
 		});
 	}
 

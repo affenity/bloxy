@@ -8,6 +8,8 @@ class UsersAPI {
 	getUserInfo (userId) {
 		return this.request({
 			url: `v1/users/${userId}`
+		}, {}, {
+			disableAuth: true
 		});
 	}
 
@@ -18,6 +20,8 @@ class UsersAPI {
 			json: {
 				usernames
 			}
+		}, {}, {
+			disableAuth: true
 		});
 	}
 
@@ -28,6 +32,8 @@ class UsersAPI {
 			json: {
 				userIds
 			}
+		}, {}, {
+			disableAuth: true
 		});
 	}
 }

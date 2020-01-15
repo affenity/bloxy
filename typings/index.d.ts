@@ -1,4 +1,3 @@
-declare module "bloxy" {
     // -- Dependencies
     import * as EventEmitter from "events";
 
@@ -10,37 +9,6 @@ declare module "bloxy" {
         public user: UserPartial;
         public debugEnabled: boolean;
         public ws: SocketConnection;
-        public apis: {
-            accountInformation: AccountInformationAPI;
-            accountSettings: AccountSettingsAPI;
-            api: API;
-            auth: AuthAPI;
-            avatar: AvatarAPI;
-            badges: BadgeAPI;
-            billing: BillingAPI;
-            captcha: CaptchaAPI;
-            catalog: CatalogAPI;
-            chat: ChatAPI;
-            contacts: ContactsAPI;
-            develop: DevelopAPI;
-            economy: EconomyAPI;
-            followings: FollowingsAPI;
-            friends: FriendsAPI;
-            gameInternationalization: GameInternationalizationAPI;
-            games: GamesAPI;
-            groups: GroupsAPI;
-            inventory: InventoryAPI;
-            itemConfiguration: ItemConfigurationAPI;
-            locale: LocaleAPI;
-            metrics: MetricsAPI;
-            notifications: NotificationsAPI;
-            premiumFeatures: PremiumFeaturesAPI;
-            presence: PresenceAPI;
-            publish: PublishAPI;
-            thumbnails: ThumbnailsAPI;
-            translationRoles: TranslationRolesAPI;
-            users: UsersAPI;
-        };
 
         public getGroup(group: GroupIdentifier): Promise<Group>;
         public getUserGroups(user: UserIdentifier): Promise<Array<GroupUser>>;
@@ -81,6 +49,37 @@ declare module "bloxy" {
         public rest: RestController;
         public util: UtilController;
         public debug: DebugController;
+        public apis: {
+            accountInformation: AccountInformationAPI;
+            accountSettings: AccountSettingsAPI;
+            api: API;
+            auth: AuthAPI;
+            avatar: AvatarAPI;
+            badges: BadgeAPI;
+            billing: BillingAPI;
+            captcha: CaptchaAPI;
+            catalog: CatalogAPI;
+            chat: ChatAPI;
+            contacts: ContactsAPI;
+            develop: DevelopAPI;
+            economy: EconomyAPI;
+            followings: FollowingsAPI;
+            friends: FriendsAPI;
+            gameInternationalization: GameInternationalizationAPI;
+            games: GamesAPI;
+            groups: GroupsAPI;
+            inventory: InventoryAPI;
+            itemConfiguration: ItemConfigurationAPI;
+            locale: LocaleAPI;
+            metrics: MetricsAPI;
+            notifications: NotificationsAPI;
+            premiumFeatures: PremiumFeaturesAPI;
+            presence: PresenceAPI;
+            publish: PublishAPI;
+            thumbnails: ThumbnailsAPI;
+            translationRoles: TranslationRolesAPI;
+            users: UsersAPI;
+        };
     }
 
     class ClientUser {
@@ -505,6 +504,7 @@ declare module "bloxy" {
         public cache: CacheController;
         public captcha: CaptchaController;
         public structures: Structures;
+        public valueExtractor: UtilValueExtractor;
     }
 
     class RestController {
@@ -751,4 +751,3 @@ declare module "bloxy" {
         user: UserIdentifier;
         amount: number;
     }];
-}
