@@ -41,7 +41,7 @@ class Client extends ClientBase {
 		if (!isName) {
 			user = await this._validate(user, () => this._validate.user.identifier);
 		} else {
-			user = await this._validate(user, joi => joi.string()).then(username => this.apis.api.getUserByUsername(username).then(n => n && n.Id));
+			user = await this.getUserId(user);
 		}
 		return this.apis.other.getUser(user).then(userData => new this.structures.user(this, userData));
 	}
@@ -53,6 +53,40 @@ class Client extends ClientBase {
 	 */
 	getUserGroups (user) {
 		return this._validate(user, () => this._validate.user.identifier).then(id => this.apis.groups.getUserGroupsV2(id).then(data => data && data.data && data.data.map(group => new this.structures.group.User(this, group))));
+	}
+
+	/**
+	 * Gets a user's id (and other data) by their username
+	 * @param {string} user The user's username
+	 * @param {boolean} returnFull Whether to return the full object or just the id
+	 * @returns {Promise<number, Object>}
+	 */
+	getUserId (user, returnFull = false) {
+		return this._validate(user, joi => joi.string()).then(name => {
+			return this.apis.api.getUserByUsername(name).then(data => {
+				return returnFull ? data : data.Id;
+			});
+		});
+	}
+
+	/**
+	 * Gets multiple users (partial information)
+	 * @param {UserIdentifier[]} users The users
+	 * @param {boolean} names Whether or not the values are names, not ids
+	 * @returns {Promise<UserPartial[]>}
+	 */
+	getMultiUsers (users, names) {
+		return this._validate(users, joi => (!names && this._validate.user.identifiers) || joi.array().items(joi.string())).then(ids => {
+			if (names) {
+				return this.apis.users.getUsersByNames(ids).then(data => {
+					return (data && data.data).map(user => new this.structures.user.Partial(this, user));
+				});
+			} else {
+				return this.apis.users.getUsersByIds(ids).then(data => {
+					return (data && data.data).map(user => new this.structures.user.Partial(this, user));
+				});
+			}
+		});
 	}
 }
 

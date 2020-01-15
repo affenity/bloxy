@@ -118,6 +118,11 @@ class RestResponse {
 					this.client.debug.log(`Failed to validate body, it's most likely not JSON as expected`);
 				}
 			} else {
+				if (this.data.body instanceof Object) {
+					if (this.data.body.errors && this.data.body.errors.length > 0) {
+						valid = false;
+					}
+				}
 				valid = true;
 			}
 		} else {

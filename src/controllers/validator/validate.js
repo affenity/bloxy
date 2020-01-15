@@ -14,6 +14,5 @@ module.exports = async (args, typed) => {
 	if (valid instanceof Error) {
 		throw new Error(`Failed to validate args. ${valid}`);
 	}
-	console.log(valid);
 	return valid;
 };

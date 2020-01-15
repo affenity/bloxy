@@ -27,6 +27,16 @@ class RestRequest {
 		if (this.options.qs) {
 			this.options.url += `?${querystring.encode(this.options.qs)}`;
 		}
+		if ((this.options.json && typeof this.options.json !== "boolean") && this.options.method.toLowerCase() !== "get") {
+			this.options.body = this.options.json;
+			this.options.headers = lodash.merge(this.options.headers || {}, {
+				"Content-Type": "application/json"
+			});
+			this.options.json = true;
+		}
+		if (this.options.method === undefined || this.options.method === null) {
+			this.options.method = "GET";
+		}
 	}
 
 	async send () {
@@ -37,6 +47,8 @@ class RestRequest {
 				"X-CSRF-TOKEN": this.options.token
 			});
 		}
+
+		this.client.debug.log(`Performing request: ${this.options.method.toUpperCase()} ${this.options.url}`);
 		const response = await requester(this.options);
 
 		return onResponse(this, response);
