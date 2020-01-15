@@ -1,7 +1,6 @@
 const Joi = require("@hapi/joi");
 
 module.exports = async (args, typed) => {
-	const argsType = typeof args;
 	const argsExists = args !== null && args !== undefined;
 
 	if (!argsExists) {

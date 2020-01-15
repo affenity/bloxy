@@ -28,7 +28,7 @@ class Client extends ClientBase {
 	 * @returns {Promise<Group>}
 	 */
 	getGroup (args) {
-		return this._validate(args, joi => this._validate.group.identifier).then(id => this.apis.groups.getGroupInfo(id).then(group => new this.structures.group(this, group)));
+		return this._validate(args, () => this._validate.group.identifier).then(id => this.apis.groups.getGroupInfo(id).then(group => new this.structures.group(this, group)));
 	}
 
 	/**
@@ -54,8 +54,6 @@ class Client extends ClientBase {
 	getUserGroups (user) {
 		return this._validate(user, () => this._validate.user.identifier).then(id => this.apis.groups.getUserGroupsV2(id).then(data => data && data.data && data.data.map(group => new this.structures.group.User(this, group))));
 	}
-
-
 }
 
 module.exports = Client;

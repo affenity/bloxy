@@ -2,7 +2,7 @@ const Joi = require("@hapi/joi");
 const { group } = require("../../../structures");
 
 // These functions assume the value is valid, because they're called from validate.js
-const groupIdentifier = Joi.any().custom((value, helpers) => {
+const groupIdentifier = Joi.any().custom(value => {
 	const valueType = typeof value;
 
 	if (value === null || value === undefined) {
@@ -24,7 +24,7 @@ const groupIdentifier = Joi.any().custom((value, helpers) => {
 	}
 }, "Group Identifier Validation");
 
-const groupIdentifiers = Joi.array().custom((value, helpers) => {
+const groupIdentifiers = Joi.array().custom(value => {
 	const groups = [];
 	for (let v of value) {
 		const valid = groupIdentifier.validate(v);

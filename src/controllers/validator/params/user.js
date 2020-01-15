@@ -2,7 +2,7 @@ const Joi = require("@hapi/joi");
 const { user } = require("../../../structures");
 
 // These functions assume the value is valid, because they're called from validate.js
-const userIdentifier = Joi.any().custom((value, helpers) => {
+const userIdentifier = Joi.any().custom(value => {
 	const valueType = typeof value;
 
 	if (value === null || value === undefined) {
@@ -24,7 +24,7 @@ const userIdentifier = Joi.any().custom((value, helpers) => {
 	}
 }, "User Identifier Validation");
 
-const userIdentifiers = Joi.array().custom((value, helpers) => {
+const userIdentifiers = Joi.array().custom(value => {
 	const users = [];
 	for (let v of value) {
 		const valid = userIdentifier.validate(v);

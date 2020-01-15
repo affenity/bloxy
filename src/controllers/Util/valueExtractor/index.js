@@ -3,6 +3,7 @@
  * @param {Object} data The data to extract from
  * @param {"userId" | "groupId" | "username" | "membership" | "name" | "friendsCount"} identifierType The type
  * @param {string[]} excludeTypes The ids in the type to ignore, for example "id" in Group
+ * @returns {any}
  */
 module.exports = (data, identifierType, excludeTypes) => {
 	if (!data) {
