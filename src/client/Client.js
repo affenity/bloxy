@@ -24,11 +24,11 @@ class Client extends ClientBase {
 
 	/**
 	 * Gets group information
-	 * @param {GroupIdentifier} args The group identifier
+	 * @param {GroupIdentifier} groupId The group identifier
 	 * @returns {Promise<Group>}
 	 */
-	getGroup (args) {
-		return this._validate(args, () => this._validate.group.identifier).then(id => this.apis.groups.getGroupInfo(id).then(group => new this.structures.group(this, group)));
+	getGroup (groupId) {
+		return this._validate(groupId, () => this._validate.group.identifier).then(id => this.apis.groups.getGroupInfo(id).then(group => new this.structures.group(this, group)));
 	}
 
 	/**
@@ -62,11 +62,17 @@ class Client extends ClientBase {
 	 * @returns {Promise<number, Object>}
 	 */
 	getUserId (user, returnFull = false) {
-		return this._validate(user, joi => joi.string()).then(name => {
-			return this.apis.api.getUserByUsername(name).then(data => {
-				return returnFull ? data : data.Id;
-			});
-		});
+		return this._validate(user, joi => joi.string()).then(name => this.apis.api.getUserByUsername(name).then(data => returnFull ? new this.structures.user.Partial(this, data) : data.Id));
+	}
+
+	/**
+	 * Gets a user's username by their id
+	 * @param {UserIdentifier} user The user's id
+	 * @param {boolean} returnFull Whether to return all the data retrieved or not
+	 * @returns {Promise<UserPartial | string>}
+	 */
+	getUsername (user, returnFull) {
+		return this._validate(user, () => this._validate.user.identifier).then(id => this.apis.api.getUserById(id).then(data => returnFull ? new this.structures.user.Partial(this, data) : data.Username));
 	}
 
 	/**
@@ -78,15 +84,59 @@ class Client extends ClientBase {
 	getMultiUsers (users, names) {
 		return this._validate(users, joi => (!names && this._validate.user.identifiers) || joi.array().items(joi.string())).then(ids => {
 			if (names) {
-				return this.apis.users.getUsersByNames(ids).then(data => {
-					return (data && data.data).map(user => new this.structures.user.Partial(this, user));
-				});
+				return this.apis.users.getUsersByNames(ids).then(data => (data && data.data).map(user => new this.structures.user.Partial(this, user)));
 			} else {
-				return this.apis.users.getUsersByIds(ids).then(data => {
-					return (data && data.data).map(user => new this.structures.user.Partial(this, user));
-				});
+				return this.apis.users.getUsersByIds(ids).then(data => (data && data.data).map(user => new this.structures.user.Partial(this, user)));
 			}
 		});
+	}
+
+	/**
+	 * Searches for groups
+	 * @param {string} query The query
+	 * @param {boolean} isKeyword Whether the query is a keyword
+	 * @param {string} cursor The page cursor (only if it is keyword search)
+	 * @param {number} limit The max amount of data to be returned (only if keyword search)
+	 * @returns {Promise<Array<GroupPartial>>}
+	 */
+	searchGroups (query, { isKeyword = false, cursor, limit = 100 } = {}) {
+		return this._validate(query, joi => joi.string()).then(q => {
+			if (isKeyword) {
+				return this.apis.groups.searchGroupsByKeyword({
+					keyword: q,
+					cursor,
+					limit
+				}).then(d => {
+					console.log(d);
+				});
+			} else {
+				return this.apis.groups.searchGroups(q).then(data => data.data.map(group => new this.structures.group.Partial(this, group)));
+			}
+		});
+	}
+
+	/**
+	 * Gets a user's Roblox verification status (fetched from eryn's API)
+	 * @param {AnyIdentifier} userId The user's id
+	 * @returns {Promise<Object>}
+	 */
+	getRobloxVerificationStatus (userId) {
+		return this._validate(userId, () => this._validate.user.identifier).then(id => this.rest.request({
+			url: `https://verify.eryn.io/api/user/${userId}`,
+			json: true
+		}).then(response => {
+			const body = response.data.body;
+			if (body instanceof Object) {
+				if (body.error) {
+					throw new Error("User does not exist");
+				} else {
+					return new this.structures.user.Partial(this, {
+						username: body.robloxUsername,
+						userId: body.robloxId
+					});
+				}
+			}
+		}));
 	}
 }
 

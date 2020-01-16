@@ -14,14 +14,12 @@
         public getUserGroups(user: UserIdentifier): Promise<Array<GroupUser>>;
         public getUser (user: UserIdentifier, isName?: boolean): Promise<User>;
         public getMultiUsers(users: Array<UserIdentifier>, areUsernames?: boolean): Promise<Array<UserPartial>>;
-        public getUsername(userId: AnyIdentifier): Promise<UserPartial>;
-        public getUserId(username: string): Promise<UserPartial>;
+        public getUsername(userId: AnyIdentifier, returnFull?: boolean): Promise<UserPartial>;
+        public getUserId(username: string, returnFull?: boolean): Promise<UserPartial>;
         public login(options: ClientLoginCredentials): Promise<string>;
-        public generateToken(): Promise<ClientLoginCredentials>;
-        public clearSessions(): Promise<boolean>;
         public connect(): void; // Inits the websocket connection
-        public searchGroups(query: string, isKeyword: boolean): Promise<>; // Defaults to regular text search
-        public getRobloxVerificationStatus(userId: AnyIdentifier, platform: "Roblox" | "Discord"): Promise<>;
+        public searchGroups(query: string, options: { isKeyword: boolean } & GenericFilterOptions): Promise<>; // Defaults to regular text search
+        public getRobloxVerificationStatus(userId: AnyIdentifier): Promise<>;
 
         public on(event: "ready", listener: () => void): this;
         public on(event: "loggedIn", listener: (user: ClientAuthUser) => void): this;

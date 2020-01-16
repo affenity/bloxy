@@ -243,6 +243,14 @@ class API {
 			disableAuth: true
 		});
 	}
+
+	getUserById (userId) {
+		return this.request({
+			url: `users/${userId}`
+		}, {}, {
+			disableAuth: true
+		});
+	}
 }
 
 

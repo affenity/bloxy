@@ -5,6 +5,10 @@ const socketHandlers = require("./socketHandlers");
  * @param {Client} client The client
  */
 module.exports = client => {
+	if (!client.loggedIn) {
+		throw new Error("Cannot connect with websocket unauthenticated!");
+	}
+
 	const maxRetries = client.options.setup.wsRetries || 3;
 	const jar = client.rest.jar;
 	const robloxCookie = jar.getCookieStringSync("https://roblox.com");
@@ -12,6 +16,8 @@ module.exports = client => {
 	if (client.ws) {
 		// TODO: Stop the ongoing connection
 	}
+
+	client.debug.log(`Initializing connection through web sockets.`);
 
 	const connectSocket = retries => {
 		retries = retries || 0;

@@ -7,3 +7,4 @@ module.exports.Role = require("./Role");
 module.exports.Shout = require("./Shout");
 module.exports.User = require("./User");
 module.exports.WallPost = require("./WallPost");
+module.exports.Partial = require("./Partial");

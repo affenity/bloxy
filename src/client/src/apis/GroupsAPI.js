@@ -456,7 +456,7 @@ class ClientGroupsAPI {
 
 	searchGroups (query) {
 		return this.request({
-			url: `v1/groups/search`,
+			url: `v1/groups/search/lookup`,
 			qs: {
 				groupName: query
 			}
