@@ -1,12 +1,13 @@
     // -- Dependencies
     import * as EventEmitter from "events";
+    import * as APIs from "./apis";
 
     // -- Classes
     export class Client extends ClientBase {
         constructor(options: ClientConstructorOptions);
 
         public loggedIn: boolean;
-        public user: UserPartial;
+        public user: ClientUser;
         public debugEnabled: boolean;
         public ws: SocketConnection;
 
@@ -47,37 +48,7 @@
         public rest: RestController;
         public util: UtilController;
         public debug: DebugController;
-        public apis: {
-            accountInformation: AccountInformationAPI;
-            accountSettings: AccountSettingsAPI;
-            api: API;
-            auth: AuthAPI;
-            avatar: AvatarAPI;
-            badges: BadgeAPI;
-            billing: BillingAPI;
-            captcha: CaptchaAPI;
-            catalog: CatalogAPI;
-            chat: ChatAPI;
-            contacts: ContactsAPI;
-            develop: DevelopAPI;
-            economy: EconomyAPI;
-            followings: FollowingsAPI;
-            friends: FriendsAPI;
-            gameInternationalization: GameInternationalizationAPI;
-            games: GamesAPI;
-            groups: GroupsAPI;
-            inventory: InventoryAPI;
-            itemConfiguration: ItemConfigurationAPI;
-            locale: LocaleAPI;
-            metrics: MetricsAPI;
-            notifications: NotificationsAPI;
-            premiumFeatures: PremiumFeaturesAPI;
-            presence: PresenceAPI;
-            publish: PublishAPI;
-            thumbnails: ThumbnailsAPI;
-            translationRoles: TranslationRolesAPI;
-            users: UsersAPI;
-        };
+        public apis: APIs;
     }
 
     class ClientUser {
@@ -101,14 +72,14 @@
         public getGroups(): Promise<>;
         public getMessages(options: GenericFilterOptions): Promise<ClientUserMessagesResponse>;
         public markMessagesRead(markRead: boolean, messages: Array<MessageIdentifier>): Promise<>;
-        public moveMessages(action: "archive" | "unarchive", messages: Array<MessageIdentifier>): Promise<>;
+        public moveMessages(options: {archive: boolean, messages: Array<MessageIdentifier>}): Promise<>;
         public getPrimaryGroup(): Promise<>;
         public removePrimaryGroup(): Promise<>;
         public setPrimaryGroup(group: GroupIdentifier): Promise<>;
         public sendMessage(options: ClientUserSendMessageOptions): Promise<>;
         public getRobux(): Promise<>;
         public getFriendsOnline(): Promise<>;
-        public buyAsset(productId: AnyIdentifier, price: number, sellerId: AnyIdentifier): Promise<>;
+        public buyAsset(options: {productId: AnyIdentifier, price: number, sellerId: AnyIdentifier}): Promise<>;
         public canManageAsset(assetId: AnyIdentifier): Promise<>;
         public ownsAsset(assetId: AnyIdentifier): Promise<>;
         public ownsGamePass(passId: AnyIdentifier): Promise<>;
@@ -116,54 +87,8 @@
         public getGroupPermissionsFor(group: GroupIdentifier): Promise<>;
     }
 
-    class DevelopAPI {
-        constructor(client: Client);
-
-        public client: Client;
-
-        public getGameTemplates(): Promise<>;
-        public getGameUpdates(universeId: AnyIdentifier): Promise<>;
-        public postGameUpdate(universeId: AnyIdentifier, update: string): Promise<>;
-        public filterText(text: string): Promise<>;
-        public getGroupUniverses(groupId: GroupIdentifier, options: GenericFilterOptions): Promise<>;
-        public getPlaceCompatibilities(placeId: AnyIdentifier): Promise<>;
-        public updatePlace(placeId: AnyIdentifier, configuration: UpdatePlaceOptions): Promise<>;
-        public getPlugins(plugins: Array<AnyIdentifier>): Promise<>;
-        public updatePlugin(pluginId: AnyIdentifier, UpdatePluginOptions): Promise<>;
-        public searchUniverses(query: string, sort: SearchUniversesSort, options: GenericFilterOptions): Promise<>;
-        public getUniverse(universeId: AnyIdentifier): Promise<>;
-        public getUniversePermissions(universeId: AnyIdentifier): Promise<>;
-        public getUniversePlaces(universeId: AnyIdentifier): Promise<>;
-        public getUniverses(universeIds: Array<AnyIdentifier>): Promise<>;
-        public getUniversesPermissions(universeIds: Array<AnyIdentifier>): Promise<>;
-        public activateUniverse(universeId: AnyIdentifier, activate: boolean): Promise<>;
-        public getUniverseSettings(universeId: AnyIdentifier): Promise<>;
-        public updateUniverseSettings(universeId: AnyIdentifier, options: UniverseSettingsOptions): Promise<>;
-        public getVIPServersConfiguration(universeId: AnyIdentifier): Promise<>;
-        public getTeamCreate(universeId: AnyIdentifier): Promise<>;
-        public enableTeamCreate(universeId: AnyIdentifier, enabled: boolean): Promise<>;
-        public removeUserFromTeamCreate(universeId: AnyIdentifier, user: UserIdentifier): Promise<>;
-        public getUsersInTeamCreate(universeId: AnyIdentifier, options: GenericFilterOptions): Promise<>;
-        public addUserToTeamCreate(universeId: AnyIdentifier, user: UserIdentifier): Promise<>;
-        public getTeamCreatesJoined(options: GenericFilterOptions): Promise<>;
-        public getManageableGroups(): Promise<>;
-        public getStudioData(key: string): Promise<>;
-        public saveStudioData(key: string, data: object): Promise<>;
-        public getAuthorizedUniverses(options: GenericFilterOptions): Promise<>;
-        public updateDeveloperProduct(universeId: AnyIdentifier, productId: AnyIdentifier, data: UpdateDeveloperProductOptions): Promise<>;
-    }
-
-    class GroupsAPI {
-        constructor(client: Client, data: any);
-
-        public client: Client;
-
-        public getGroup(group: GroupIdentifier): Promise<>;
-        public getAuditLogs(groupId: GroupIdentifier, sortOptions: GroupGetAuditLogsOptions): Promise<>;
-    }
-
     class ClientUserProfile {
-        constructor(user: ClientUser);
+        constructor(user: ClientUser, data: any);
 
         public user: ClientUser;
 
@@ -210,29 +135,6 @@
         public getPhoneInformation(): Promise<>;
         public setPhone(options: UpdatePhoneNumberOptions): Promise<>;
         public deletePhone(): Promise<>;
-    }
-
-    class AuthAPI {
-        constructor(client: Client);
-
-        public removeAccountPin(): Promise<>;
-        public getAccountPinStatus(): Promise<>;
-        public updateAccountPin(pin: AnyIdentifier): Promise<>;
-        public createAccountPin(pin: AnyIdentifier): Promise<>;
-        public lockAccount(): Promise<>;
-        public unlockAccount(pin: AnyIdentifier): Promise<>;
-        public getAuthMetadata(): Promise<>;
-        public login(credentials: ClientLoginCredentials): Promise<>;
-        public logout(): Promise<>;
-        public validatePassword(password: string): Promise<>;
-        public changePassword(oldPassword: string, newPassword: string): Promise<>;
-        public getRevertInformation(ticket: string): Promise<>;
-        public revertAccount(revertData: RevertAccountData): Promise<>;
-        public getConnectedSocialProviders(): Promise<>;
-        public removeConnectedSocialProvider(provider: string, password: string): Promise<>;
-        public resendTFACode(ticketData: TicketDataOptions): Promise<>;
-        public verifyTFACode(ticketData: TicketDataOptions): Promise<>;
-
     }
 
     class UserPartial extends UserBase {

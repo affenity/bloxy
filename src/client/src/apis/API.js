@@ -191,7 +191,8 @@ class API {
 			qs: {
 				userId,
 				assetId
-			}
+			},
+			json: false
 		}, {}, {
 			disableAuth: true
 		});

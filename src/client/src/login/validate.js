@@ -1,3 +1,5 @@
+const ClientUser = require("../../ClientUser");
+
 module.exports = async client => {
 	const response = await client.rest.request({
 		url: "https://www.roblox.com/game/GetCurrentUser.ashx"
@@ -11,7 +13,10 @@ module.exports = async client => {
 		throw new Error(`Failed to validate login, incorrect cookies!`);
 	}
 
-	client.user = new client.util.structures.user.Auth(client, {
+	/**
+	 * @type {ClientUser}
+	 */
+	client.user = new ClientUser(client, {
 		id: Number(body)
 	});
 	client.loggedIn = true;

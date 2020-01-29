@@ -15,7 +15,7 @@ class Client extends ClientBase {
 		this.loggedIn = false;
 		/**
 		 * The user that is authenticated (only existent when authenticated)
-		 * @type {UserPartial}
+		 * @type {ClientUser}
 		 */
 		this.user = null;
 		this.login = require("./src/login").bind(this, this);
@@ -107,7 +107,16 @@ class Client extends ClientBase {
 					cursor,
 					limit
 				}).then(d => {
-					console.log(d);
+					// TODO: Finish here
+					const foundGroups = d.data.map(g => new this.structures.group.Partial(this, g));
+					return {
+						keyword: d.keyword,
+						previousPageCursor: d.previousPageCursor,
+						nextPageCursor: d.nextPageCursor,
+						groups: foundGroups,
+						next: () => this.searchGroups(query, { isKeyword, cursor: d.nextPageCursor, limit }),
+						previous: () => this.searchGroups(query, { isKeyword, cursor: d.previousPageCursor, limit })
+					};
 				});
 			} else {
 				return this.apis.groups.searchGroups(q).then(data => data.data.map(group => new this.structures.group.Partial(this, group)));

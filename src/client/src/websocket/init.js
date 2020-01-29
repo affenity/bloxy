@@ -15,6 +15,7 @@ module.exports = client => {
 
 	if (client.ws) {
 		// TODO: Stop the ongoing connection
+		client.ws.close();
 	}
 
 	client.debug.log(`Initializing connection through web sockets.`);
