@@ -61,12 +61,12 @@ class ThumbnailsAPI {
 		});
 	}
 
-	getGamesIcons ({ universeIds, returnPoilcy, size, format }) {
+	getGamesIcons ({ universeIds, returnPolicy, size, format }) {
 		return this.request({
 			url: "v1/games/icons",
 			qs: {
 				universeIds: universeIds.join("\n"),
-				returnPoilcy,
+				returnPolicy,
 				size,
 				format
 			}

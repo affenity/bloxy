@@ -91,12 +91,12 @@ class API {
 		});
 	}
 
-	isUserFollowing ({ userId, otherUserId2 }) {
+	isUserFollowing ({ userId, otherUserId }) {
 		return this.request({
 			url: "user/following-exists",
 			qs: {
 				userId: userId,
-				followerUserId: otherUserId2
+				followerUserId: otherUserId
 			}
 		}, {}, {
 			disableAuth: true
