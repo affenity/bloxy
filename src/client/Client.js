@@ -49,7 +49,7 @@ class Client extends ClientBase {
 	/**
 	 * Gets a user's groups
 	 * @param {UserIdentifier} user The user identifier
-	 * @returns {Promise<Array<GroupUser>>}
+	 * @returns {Promise<Array<UserGroup>>}
 	 */
 	getUserGroups (user) {
 		return this._validate(user, () => this._validate.user.identifier).then(id => this.apis.groups.getUserGroupsV2(id).then(data => data && data.data && data.data.map(group => new this.structures.group.User(this, group))));

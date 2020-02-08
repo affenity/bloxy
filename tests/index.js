@@ -5,6 +5,8 @@ const bloxy = require("../src");
 const client = new bloxy.Client();
 
 (async () => {
-	const group = await client.getGroup(3544434);
-	console.log(group);
+	const user = await client.getUser(18442032);
+	console.log(user);
+
+	const num = await user.
 })();

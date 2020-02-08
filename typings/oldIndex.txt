@@ -60,7 +60,7 @@ declare module "bloxy" {
         public updateDescription(): Promise<true>;
         public updateGender(gender: string): Promise<true>;
         public updateStatus(status: string): Promise<true>;
-        public getGroups(): Promise<Array<GroupUser>>;
+        public getGroups(): Promise<Array<UserGroup>>;
         public tfaEnabled(): Promise<boolean>;
         public toggleTfa(enabled: boolean, password: string): Promise<true>;
         public getTradePrivacy(): Promise<string>;

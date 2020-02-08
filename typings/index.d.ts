@@ -45,7 +45,7 @@ export class Client extends ClientBase {
 
     public getGroup(group: GroupIdentifier): Promise<Group>;
 
-    public getUserGroups(user: UserIdentifier): Promise<Array<GroupUser>>;
+    public getUserGroups(user: UserIdentifier): Promise<Array<UserGroup>>;
 
     public getUser(user: UserIdentifier, isName?: boolean): Promise<User>;
 
@@ -299,7 +299,7 @@ class UserBase {
 
     public get(): Promise<>;
 
-    public block(block: boolean): Promise<>;
+    public block(): Promise<>;
 
     public handleFriendRequest(accept: boolean): Promise<>;
 
@@ -437,7 +437,7 @@ class Group extends GroupBase {
     public shout: GroupShout;
 }
 
-class GroupUser extends GroupBase {
+class UserGroup extends GroupBase {
     constructor(client: Client, data: any);
 
     public role: GroupRole;
@@ -847,7 +847,7 @@ interface Constants {
 // -- Types
 type AnyIdentifier = string | number | any;
 type UserIdentifier = AnyIdentifier | User | UserPartial;
-type GroupIdentifier = AnyIdentifier | Group | GroupUser;
+type GroupIdentifier = AnyIdentifier | Group | UserGroup;
 type MessageIdentifier = AnyIdentifier | Message;
 type ChatMessageIdentifier = AnyIdentifier | ChatMessage;
 type GroupRoleIdentifier = AnyIdentifier | GroupRole;

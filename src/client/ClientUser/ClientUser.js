@@ -13,11 +13,6 @@ class ClientUser {
 		this.apis = client.apis;
 	}
 
-	/**
-	 * Gets the authenticated user's friend requests
-	 * @param {GenericFilterOptions} options The options (optional)
-	 * @returns {Promise<Array<UserFriendRequest>>}
-	 */
 	getFriendRequests (options) {
 		return this._validate(options, () => this.client._validate.options.genericFilter).then(o => this.apis.friends.getFriendRequests(o).then(data => {
 			console.log(data);

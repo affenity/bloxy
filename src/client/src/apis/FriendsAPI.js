@@ -113,6 +113,8 @@ class FriendsAPI {
 	getUserFriendsCount (userId) {
 		return this.request({
 			url: `v1/users/${userId}/friends/count`
+		}, {}, {
+			disableAuth: true
 		});
 	}
 
