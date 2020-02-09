@@ -10,7 +10,15 @@ const genericFilterOptions = Joi.object({
 });
 
 module.exports = {
-	anyIdentifier: (...args) => validate(...args, anyIdentifier),
-	anyIdentifiers: (...args) => validate(...args, anyIdentifiers),
-	genericFilterOptions: (...args) => validate(...args, genericFilterOptions)
+	validate: {
+		anyIdentifier: a => a === undefined ? anyIdentifier : validate(...args, anyIdentifier, true),
+		anyIdentifiers: a => a === undefined ? anyIdentifiers : validate(...args, anyIdentifiers, true),
+		genericFilterOptions: a => a === undefined ? genericFilterOptions :
+			validate(a, genericFilterOptions, true)
+	},
+	types: {
+		anyIdentifier,
+		anyIdentifiers,
+		genericFilterOptions
+	}
 };

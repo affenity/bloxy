@@ -41,6 +41,12 @@ const userIdentifiers = Joi.array().custom(value => {
 
 // Exporting
 module.exports = {
-	identifier: (...args) => validate(...args, userIdentifier),
-	identifiers: (...args) => validate(...args, userIdentifiers)
+	validate: {
+		identifier: a => validate(a, userIdentifier),
+		identifiers: a => validate(a, userIdentifiers),
+	},
+	types: {
+		userIdentifier,
+		userIdentifiers
+	}
 };

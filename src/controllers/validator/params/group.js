@@ -41,6 +41,12 @@ const groupIdentifiers = Joi.array().custom(value => {
 
 // Exporting
 module.exports = {
-	identifier: (...args) => validate(...args, groupIdentifier),
-	identifiers: (...args) => validate(...args, groupIdentifiers)
+	validate: {
+		identifier: a => validate(a, groupIdentifier),
+		identifiers: a => validate(a, groupIdentifiers)
+	},
+	types: {
+		groupIdentifier,
+		groupIdentifiers
+	}
 };

@@ -9,12 +9,12 @@ class ClientUser {
 		this.account = new ClientUserAccount(client);
 
 		this._validate = client._validate;
-		this._getUserId = u => this._validate(u, this._validate.user.identifier);
+		this._getUserId = u => this._validate.user.validate.identifier(u);
 		this.apis = client.apis;
 	}
 
-	getFriendRequests (options) {
-		return this._validate(options, () => this.client._validate.options.genericFilter).then(o => this.apis.friends.getFriendRequests(o).then(data => {
+	getFriendRequests (options = {}) {
+		return this._validate.other.genericFilterOptions(options).then(o => this.apis.friends.getFriendRequests(o).then(data => {
 			console.log(data);
 		}));
 	}
@@ -24,31 +24,31 @@ class ClientUser {
 	}
 
 	acceptFriendRequest (user) {
-		return this._validate(user, () => this.client._validate.user.identifier).then(id => this.apis.friends.acceptFriendRequest(id).then(() => true));
+		return this._validate.user.validate.identifier(user).then(id => this.apis.friends.acceptFriendRequest(id).then(() => true));
 	}
 
 	declineFriendRequest (user) {
-		return this._validate(user, () => this._validate.user.identifier).then(id => this.apis.friends.declineFriendRequest(id).then(() => true));
+		return this._validate.user.validate.identifier(user).then(id => this.apis.friends.declineFriendRequest(id).then(() => true));
 	}
 
 	follow (user) {
-		return this._validate(user, () => this._validate.user.identifier).then(id => this.apis.friends.followUser(id).then(() => true));
+		return this._validate.user.validate.identifier(user).then(id => this.apis.friends.followUser(id).then(() => true));
 	}
 
 	sendFriendRequest (user) {
-		return this._validate(user, () => this._validate.user.identifier).then(id => this.apis.friends.sendFriendRequest(id));
+		return this._validate.user.validate.identifier(user).then(id => this.apis.friends.sendFriendRequest(id));
 	}
 
 	unfollow (user) {
-		return this._getUserId(user).then(id => this.apis.friends.unfollowUser(id));
+		return this._validate.user.validate.identifier(user).then(id => this.apis.friends.unfollowUser(id));
 	}
 
 	unfriend (user) {
-		return this._getUserId(user).then(id => this.apis.friends.unfriendUser(id));
+		return this._validate.user.validate.identifier(user).then(id => this.apis.friends.unfriendUser(id));
 	}
 
 	isFriendsWith (users) {
-		return this._validate(users, () => this._validate.user.identifiers).then(ids => this.apis.friends.getUserStatusesWith({
+		return this._validate.user.identifiers(users).then(ids => this.apis.friends.getUserStatusesWith({
 			userId: this.client.user.id,
 			userIds: ids
 		}));
@@ -66,19 +66,19 @@ class ClientUser {
 		return this.client.getUserGroups(this.client.user.id);
 	}
 
-	getMessages (options) {
-		return this._validate(options, () => this._validate.options.genericFilter).then(o => {
+	getMessages (options = {}) {
+		return this._validate.other.genericFilterOptions(options).then(o => {
 			throw new Error("messages not added yet");
 		});
 	}
 
 	markMessagesRead (markRead, messages) {
-		return this._validate(messages, () => this._validate.message.identifiers).then(ids => {
+		return this._validate.message.identifiers(messages).then(ids => {
 			throw new Error("messages not added yet");
 		});
 	}
 
-	moveMessages (options) {
+	moveMessages (options = {}) {
 		return this._validate(options, joi => joi.object({
 			archive: joi.boolean(),
 			messages: this._validate.message.identifiers
@@ -96,7 +96,7 @@ class ClientUser {
 	}
 
 	setPrimaryGroup (group) {
-		return this._validate(group, () => this._validate.group.identifier).then(id => this.apis.groups.setPrimaryGroup(id).then(() => true));
+		return this._validate.group.validate.identifier(group).then(id => this.apis.groups.setPrimaryGroup(id).then(() => true));
 	}
 
 	sendMessage (options) {
@@ -161,7 +161,7 @@ class ClientUser {
 	}
 
 	getGroupPermissionsFor (group) {
-		return this._validate(group, () => this._validate.group.identifier).then(id => {
+		return this._validate.group.validate.identifier(group).then(id => {
 			throw new Error("getGroupPermissions not supported yet");
 		});
 	}

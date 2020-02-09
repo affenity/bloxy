@@ -44,24 +44,25 @@ export class Client extends ClientBase {
 
     public getGroup(group: GroupIdentifier): Promise<Group>;
 
-    public getUserGroups(user: UserIdentifier): Promise<Array<UserGroup>>;
+    public getUserGroups(user: UserIdentifier): Promise<UserGroup[]>;
 
     public getUser(user: UserIdentifier, isName?: boolean): Promise<User>;
 
-    public getMultiUsers(users: Array<UserIdentifier>, areUsernames?: boolean): Promise<Array<UserPartial>>;
+    public getMultiUsers(users: Array<UserIdentifier>, areUsernames?: boolean): Promise<UserPartial[]>;
 
     public getUsername(userId: AnyIdentifier, returnFull?: boolean): Promise<UserPartial>;
 
     public getUserId(username: string, returnFull?: boolean): Promise<UserPartial>;
 
-    public login(options: ClientLoginCredentials): Promise<string>;
+    public login(options: ClientLoginCredentials): Promise<unknown>;
 
     public connect(): void; // Inits the websocket connection
-    public searchGroups(query: string, options: { isKeyword: boolean } & GenericFilterOptions): Promise<>; // Defaults to regular text search
-    public getRobloxVerificationStatus(userId: AnyIdentifier): Promise<>;
+    public searchGroups(query: string, options: { isKeyword: boolean } & GenericFilterOptions):
+        Promise<unknown>; // Defaults to regular text search
+    public getRobloxVerificationStatus(userId: AnyIdentifier): Promise<unknown>;
 
     public on(event: "ready", listener: () => void): this;
-    public on(event: "loggedIn", listener: (user: ClientAuthUser) => void): this;
+    public on(event: "loggedIn", listener: (user: ClientUser) => void): this;
     public on(event: "chatTyping", listener: (data: ChatTypingData) => void): this;
     public on(event: "chatMessage", listener: (conversationId: number, get: () => Promise<ChatConversation>) => void): this;
     public on(event: "chatMessageSent", listener: (conversationId: number, get: () => Promise<ChatConversation>) => void): this;
@@ -335,7 +336,8 @@ class GroupBase {
 
     constructor(client: Client, data: any);
 
-    public get(): Promise<>; // Fetches new information from the Roblox Web API
+    public refresh(): Promise<>; // Fetches new information from the Roblox Web API
+
     public getSettings(): Promise<GroupSettings>;
 
     public updateSettings(): Promise<GroupConfigureSetting>;
@@ -356,15 +358,13 @@ class GroupBase {
 
     public getRoles(): Promise<>;
 
-    public getRole(identifier: GroupGetRoleIdentifer): Promise<>;
+    public getRole(identifier: GroupRoleIdentifier): Promise<>;
 
     public getMembersWithRole(role: GroupRoleIdentifier, options: GenericFilterOptions): Promise<>;
 
     public getMembers(options: GenericFilterOptions): Promise<>;
 
     public getMember(user: UserIdentifier): Promise<>;
-
-    public joinGroup(): Promise<>;
 
     public changeOwner(user: UserIdentifier): Promise<>;
 
@@ -379,7 +379,9 @@ class GroupBase {
     public getPayouts(): Promise<>;
 
     public payoutUsers(payouts: GroupPayoutOptions): Promise<>; // One-time payout
+
     public updatePayouts(payouts: GroupPayoutOptions): Promise<>; // Default payouts
+
     public getRolePermissions(role: GroupRoleIdentifier): Promise<>;
 
     public getWall(options?: GenericFilterOptions): Promise<>;
@@ -433,6 +435,10 @@ class GroupBase {
     public getFunds(): Promise<>;
 
     public getMyPermissions(): Promise<>;
+
+    public getGames(options: GenericFilterOptions): Promise<unknown>;
+
+    public //TODO: CONTINUE HERE
 
     public on(event: "joinRequest", listener: (request: GroupJoinRequest, group: Group) => void): this;
     public on(event: "wallPost", listener: (post: GroupWallPost, group: Group) => void): this;
@@ -854,6 +860,29 @@ interface Constants {
             publicKey: string;
         }
     }
+}
+
+interface Structures {
+    chat: {
+
+    };
+    group: {
+        Base: GroupBase;
+        JoinRequest: GroupJoinRequest;
+        Member: GroupMember;
+        Role: GroupRole;
+        Shout: GroupShout;
+        User: UserGroup;
+        WallPost: GroupWallPost;
+        Partial: GroupPartial;
+    };
+    user: {
+        Base: UserBase;
+        Partial: UserPartial;
+    };
+    message: {
+
+    };
 }
 
 // -- Types

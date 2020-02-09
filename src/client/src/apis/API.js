@@ -95,8 +95,8 @@ class API {
 		return this.request({
 			url: "user/following-exists",
 			qs: {
-				userId: userId,
-				followerUserId: otherUserId
+				userId: otherUserId,
+				followerUserId: userId
 			}
 		}, {}, {
 			disableAuth: true

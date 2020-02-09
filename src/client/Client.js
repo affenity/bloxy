@@ -24,11 +24,11 @@ class Client extends ClientBase {
 
 	/**
 	 * Gets group information
-	 * @param {GroupIdentifier} groupId The group identifier
+	 * @param {GroupIdentifier} group The group identifier
 	 * @returns {Promise<Group>}
 	 */
-	getGroup (groupId) {
-		return this._validate(groupId, () => this._validate.group.identifier).then(id => this.apis.groups.getGroupInfo(id).then(group => new this.structures.group(this, group)));
+	getGroup (group) {
+		return this._validate.group.identifier(group).then(id => this.apis.groups.getGroupInfo(id).then(group => new this.structures.group(this, group)));
 	}
 
 	/**
@@ -39,7 +39,7 @@ class Client extends ClientBase {
 	 */
 	async getUser (user, isName = false) {
 		if (!isName) {
-			user = await this._validate(user, () => this._validate.user.identifier);
+			user = await this._validate.user.validate.identifier(user);
 		} else {
 			user = await this.getUserId(user);
 		}
@@ -52,7 +52,7 @@ class Client extends ClientBase {
 	 * @returns {Promise<Array<UserGroup>>}
 	 */
 	getUserGroups (user) {
-		return this._validate(user, () => this._validate.user.identifier).then(id => this.apis.groups.getUserGroupsV2(id).then(data => data && data.data && data.data.map(group => new this.structures.group.User(this, group))));
+		return this._validate.user.validate.identifier(user).then(id => this.apis.groups.getUserGroupsV2(id).then(data => data && data.data && data.data.map(group => new this.structures.group.User(this, group))));
 	}
 
 	/**
@@ -72,7 +72,7 @@ class Client extends ClientBase {
 	 * @returns {Promise<UserPartial | string>}
 	 */
 	getUsername (user, returnFull) {
-		return this._validate(user, () => this._validate.user.identifier).then(id => this.apis.api.getUserById(id).then(data => returnFull ? new this.structures.user.Partial(this, data) : data.Username));
+		return this._validate.user.validate.identifier(user).then(id => this.apis.api.getUserById(id).then(data => returnFull ? new this.structures.user.Partial(this, data) : data.Username));
 	}
 
 	/**
@@ -81,14 +81,15 @@ class Client extends ClientBase {
 	 * @param {boolean} names Whether or not the values are names, not ids
 	 * @returns {Promise<UserPartial[]>}
 	 */
-	getMultiUsers (users, names) {
-		return this._validate(users, joi => (!names && this._validate.user.identifiers) || joi.array().items(joi.string())).then(ids => {
-			if (names) {
-				return this.apis.users.getUsersByNames(ids).then(data => (data && data.data).map(user => new this.structures.user.Partial(this, user)));
-			} else {
-				return this.apis.users.getUsersByIds(ids).then(data => (data && data.data).map(user => new this.structures.user.Partial(this, user)));
-			}
-		});
+	async getMultiUsers (users, names) {
+		const ids = names === true ? await this._validate.user.validate.identifiers(users) :
+			await this._validate(users, joi => joi.array().items(joi.string()));
+
+		if (names) {
+			return this.apis.users.getUsersByNames(ids).then(data => (data && data.data).map(user => new this.structures.user.Partial(this, user)));
+		} else {
+			return this.apis.users.getUsersByIds(ids).then(data => (data && data.data).map(user => new this.structures.user.Partial(this, user)));
+		}
 	}
 
 	/**
@@ -130,7 +131,7 @@ class Client extends ClientBase {
 	 * @returns {Promise<Object>}
 	 */
 	getRobloxVerificationStatus (userId) {
-		return this._validate(userId, () => this._validate.user.identifier).then(id => this.rest.request({
+		return this._validate.user.validate.identifier(userId).then(id => this.rest.request({
 			url: `https://verify.eryn.io/api/user/${userId}`,
 			json: true
 		}).then(response => {

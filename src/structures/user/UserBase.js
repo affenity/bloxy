@@ -40,7 +40,7 @@ class UserBase {
 	}
 
 	isFollowing (user) {
-		return this._validate(user, () => this._validate.user.identifier)
+		return this._validate.user.validate.identifier(user)
 			.then(id => this.apis.api.isUserFollowing({
 				userId: this.id,
 				otherUserId: id
@@ -56,7 +56,7 @@ class UserBase {
 	}
 
 	ownsAsset (asset) {
-		return this._validate(asset, () => this._validate.other.anyIdentifier)
+		return this._validate.other.validate.anyIdentifier(asset)
 			.then(id => {
 				throw new Error("ownsAsset not implemented yet");
 			});
@@ -71,7 +71,7 @@ class UserBase {
 	}
 
 	canManageAsset (asset) {
-		return this._validate(asset, () => this._validate.other.anyIdentifier)
+		return this._validate.other.validate.anyIdentifier(asset)
 			.then(id => {
 				throw new Error("canManageAsset not implemented yet");
 			});
@@ -118,12 +118,10 @@ class UserBase {
 
 	getBadgesTimestamps (badges) {
 		return this._validate(badges, () => this._validate.other.anyIdentifiers)
-			.then(ids => {
-				return this.apis.badges.getUserBadgeTimestamps({
-					userId: this.id,
-					badges: ids
-				});
-			});
+			.then(ids => this.apis.badges.getUserBadgeTimestamps({
+				userId: this.id,
+				badges: ids
+			}));
 	}
 
 	getOwnedBundles (options = {}) {
@@ -149,9 +147,9 @@ class UserBase {
 			});
 	}
 
-	createGroupChatConversation(others = []) {
+	createGroupChatConversation (others = []) {
 		throw new Error("Chat features not added yet");
-		return this._validate(others, () => this._validate.user.identifiers)
+		return this._validate.user.validate.identifiers(others)
 			.then(ids => {
 
 			});
@@ -162,27 +160,21 @@ class UserBase {
 	}
 
 	getTag () {
-		return this.apis.contacts.getUserTags([this.id]).then(tags => {
-			return tags[0];
-		});
+		return this.apis.contacts.getUserTags([this.id]).then(tags => tags[0]);
 	}
 
 	setPendingTag (tag) {
-		return this._validate(tag, joi => joi.any()).then(tag => {
-			return this.apis.contacts.setPendingTag({
-				userId: this.id,
-				tag
-			});
-		});
+		return this._validate(tag, joi => joi.any()).then(tag => this.apis.contacts.setPendingTag({
+			userId: this.id,
+			tag
+		}));
 	}
 
 	setTag (tag) {
-		return this._validate(tag, joi => joi.any()).then(tag => {
-			return this.apis.contacts.setTag({
-				userId: this.id,
-				tag
-			});
-		});
+		return this._validate(tag, joi => joi.any()).then(tag => this.apis.contacts.setTag({
+			userId: this.id,
+			tag
+		}));
 	}
 
 	removeTag () {
@@ -194,32 +186,26 @@ class UserBase {
 
 	removeFromTeamCreate (universe) {
 		return this._validate(universe, () => this._validate.other.anyIdentifier)
-			.then(id => {
-				return this.apis.develop.removeUserFromTeamCreate({
-					userId: this.id,
-					universeId: id
-				});
-			});
+			.then(id => this.apis.develop.removeUserFromTeamCreate({
+				userId: this.id,
+				universeId: id
+			}));
 	}
 
 	addToTeamCreate (universe) {
 		return this._validate(universe, () => this._validate.other.anyIdentifier)
-			.then(id => {
-				return this.apis.develop.addUserToTeamCreate({
-					userId: this.id,
-					universeId: id
-				});
-			});
+			.then(id => this.apis.develop.addUserToTeamCreate({
+				userId: this.id,
+				universeId: id
+			}));
 	}
 
 	getResellableAssetCopies (assetId) {
 		return this._validate(assetId, () => this._validate.other.anyIdentifier)
-			.then(id => {
-				return this.apis.economy.getUserResellableAssetCopies({
-					userId: this.id,
-					assetId: id
-				});
-			});
+			.then(id => this.apis.economy.getUserResellableAssetCopies({
+				userId: this.id,
+				assetId: id
+			}));
 	}
 
 	getFollowers (options = {}) {
@@ -227,7 +213,7 @@ class UserBase {
 			.then(options => {
 				options.userId = this.id;
 				return this.apis.friends.getUserFollowers(options);
-			})
+			});
 	}
 
 	getFollowersCount () {
@@ -247,47 +233,39 @@ class UserBase {
 	}
 
 	getGroupJoinRequest (group) {
-		return this._validate(group, () => this._validate.group.identifier)
-			.then(id => {
-				return this.apis.groups.getJoinRequest({
-					userId: this.id,
-					groupId: id
-				})
-			});
+		return this._validate.group.validate.identifier(group)
+			.then(id => this.apis.groups.getJoinRequest({
+				userId: this.id,
+				groupId: id
+			}));
 	}
 
 	acceptGroupJoinRequest (group) {
-		return this._validate(group, () => this._validate.group.identifier)
+		return this._validate.group.validate.identifier(group)
 			.then(id => this.apis.groups.acceptJoinRequest({
 				userId: this.id,
 				groupId: id
-			}))
+			}));
 	}
 
 	declineGroupJoinRequest (group) {
-		return this._validate(group, () => this._validate.group.identifier)
+		return this._validate.group.validate.identifier(group)
 			.then(id => this.apis.groups.declineJoinRequest({
 				userId: this.id,
 				groupId: id
-			}))
+			}));
 	}
 
 	setGroupOwnerFor (group) {
-		return this._validate(group, () => this._validate.group.identifier)
+		return this._validate.group.validate.identifier(group)
 			.then(id => this.apis.groups.changeGroupOwner({
 				userId: this.id,
 				groupId: id
-			}))
+			}));
 	}
 
 	updateMemberInGroup (group, role) {
-		return this._validate([group, role], joi => joi.array().items())
-	}
-
-	async test (id) {
-		console.log(id);
-		id = await this._validate.group.identifier(id);
-		console.log(id);
+		return this._validate([group, role], joi => joi.array().items());
 	}
 }
 
