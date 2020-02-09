@@ -12,6 +12,17 @@ class OtherAPI {
 			disableAuth: true
 		});
 	}
+
+	updateSelfStatus (status) {
+		return this.request({
+			customUrl: `https://www.roblox.com/home/updatestatus`,
+			method: "POST",
+			json: {
+				status,
+				sendToFacebook: false
+			}
+		});
+	}
 }
 
 module.exports = OtherAPI;

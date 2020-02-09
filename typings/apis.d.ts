@@ -1,11 +1,4 @@
-import {
-    AnyIdentifier,
-    Client, ClientLoginCredentials,
-    GenericFilterOptions,
-    GroupIdentifier,
-    UniverseSettingsOptions, UpdateDeveloperProductOptions,
-    UpdatePlaceOptions, UserIdentifier
-} from "./index";
+import {AnyIdentifier, Client, ClientLoginCredentials, GenericFilterOptions} from "./index";
 
 export class BaseAPI {
     public client: Client;
@@ -16,31 +9,56 @@ export class BaseAPI {
 }
 
 export class API extends BaseAPI {
-    public getAssetVersions(options: {id: AnyIdentifier, page: any, placeId: AnyIdentifier}): Promise<any>;
-    public awardBadge(options: {useRId: AnyIdentifier, badgeId: AnyIdentifier, placeId: AnyIdentifier}): Promise<any>;
+    public getAssetVersions(options: { id: AnyIdentifier, page: any, placeId: AnyIdentifier }): Promise<any>;
+
+    public awardBadge(options: { userId: AnyIdentifier, badgeId: AnyIdentifier, placeId: AnyIdentifier }): Promise<any>;
+
     public getBalance(): Promise<any>;
-    public getUserFriends(options: {userId: AnyIdentifier, page: any}): Promise<any>;
+
+    public getUserFriends(options: { userId: AnyIdentifier, page: any }): Promise<any>;
+
     public acceptFriendRequest(userId: AnyIdentifier): Promise<any>;
+
     public declineFriendRequest(userId: AnyIdentifier): Promise<any>;
+
     public sendFriendRequest(userId: AnyIdentifier): Promise<any>;
+
     public getUserFriendsCount(userId: AnyIdentifier): Promise<any>;
+
     public unfriendUser(userId: AnyIdentifier): Promise<any>;
-    public isUserFollowing(options: {userId: AnyIdentifier, otherUserId: AnyIdentifier}): Promise<any>;
+
+    public isUserFollowing(options: { userId: AnyIdentifier, otherUserId: AnyIdentifier }): Promise<any>;
+
     public followUser(userId: AnyIdentifier): Promise<any>;
+
     public unfollowUser(userId: AnyIdentifier): Promise<any>;
+
     public getUserGroups(userId: AnyIdentifier): Promise<any>;
+
     public getGroup(groupId: AnyIdentifier): Promise<any>;
+
     public getGroupAllies(groupId: AnyIdentifier, page: any): Promise<any>;
+
     public getGroupEnemies(groupId: AnyIdentifier, page: any): Promise<any>;
+
     public getIncomingItems(): Promise<any>;
+
     public getProductInfo(assetId: AnyIdentifier): Promise<any>;
+
     public getGamePassInfo(gamePassId: AnyIdentifier): Promise<any>;
-    public userOwnsAsset(options: {userId: AnyIdentifier, assetId: AnyIdentifier}): Promise<any>;
+
+    public userOwnsAsset(options: { userId: AnyIdentifier, assetId: AnyIdentifier }): Promise<any>;
+
     public getDeviceInfo(): Promise<any>;
+
     public blockUser(userId: AnyIdentifier): Promise<any>;
+
     public unblockUser(userId: AnyIdentifier): Promise<any>;
+
     public getUserByUsername(username: string): Promise<any>;
-    public userCanManageAsset(options: {userId: AnyIdentifier, assetId: AnyIdentifier}): Promise<any>;
+
+    public userCanManageAsset(options: { userId: AnyIdentifier, assetId: AnyIdentifier }): Promise<any>;
+
     public getUserById(userId: AnyIdentifier): Promise<any>;
 }
 
@@ -48,7 +66,7 @@ export class AccountInformationAPI extends BaseAPI {
 
     public getBirthdate(): Promise<any>;
 
-    public updatgeBirthdate(options: { month: number, day: number, year: number }): Promise<any>;
+    public updateBirthdate(options: { month: number, day: number, year: number }): Promise<any>;
 
     public getDescription(): Promise<any>;
 
@@ -488,8 +506,7 @@ export class FriendsAPI extends BaseAPI {
 
     public getMetadata(): Promise<any>;
 
-    public getFriendsCount(): Promise<any>;
-    public getFriendsCount(): Promise<any>;
+    public getFriendsCount(): Promise<number>;
 
     public getFriendRequests(options: GenericFilterOptions): Promise<any>;
 
@@ -966,7 +983,9 @@ export class NotificationsAPI extends BaseAPI {
 }
 
 export class OtherAPI extends BaseAPI {
-    public getUser(userId: AnyIdentifier): Promise<any>;
+    public getUser(userId: AnyIdentifier): Promise<unknown>;
+
+    public updateSelfStatus(status: string): Promise<unknown>;
 }
 
 export class PremiumFeaturesAPI extends BaseAPI {

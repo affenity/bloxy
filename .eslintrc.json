@@ -93,7 +93,7 @@
     "yoda": "error",
 
     "no-label-var": "error",
-    "no-shadow": "error",
+    "no-shadow": "off",
     "no-undef-init": "error",
 
     "callback-return": "error",

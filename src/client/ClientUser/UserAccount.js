@@ -6,9 +6,7 @@ class UserAccount {
 	}
 
 	unlockPin (pin) {
-		return this._validate(pin, joi => joi.any()).then(pin => {
-			return this.apis.auth.unlockAccount(pin).then(() => true);
-		});
+		return this._validate(pin, joi => joi.any()).then(pin => this.apis.auth.unlockAccount(pin).then(() => true));
 	}
 
 	lockPin () {
@@ -16,9 +14,7 @@ class UserAccount {
 	}
 
 	addPin (pin, password) {
-		return this._validate(pin, () => joi.any()).then(pin => {
-			return this.apis.auth.createAccountPin(pin).then(() => true);
-		});
+		return this._validate(pin, () => joi.any()).then(pin => this.apis.auth.createAccountPin(pin).then(() => true));
 	}
 
 	getGameChatPrivacy () {

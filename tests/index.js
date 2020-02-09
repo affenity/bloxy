@@ -5,8 +5,9 @@ const bloxy = require("../src");
 const client = new bloxy.Client();
 
 (async () => {
-	const user = await client.getUser(18442032);
-	console.log(user);
-
-	const num = await user.
+	await client.login({
+		cookie: ""
+	});
+	const user = await client.getUser(75380482);
+	const t = await user.test("boomer");
 })();

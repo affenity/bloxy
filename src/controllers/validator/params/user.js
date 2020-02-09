@@ -1,5 +1,6 @@
 const Joi = require("@hapi/joi");
 const { user } = require("../../../structures");
+const validate = require("../validate");
 
 // These functions assume the value is valid, because they're called from validate.js
 const userIdentifier = Joi.any().custom(value => {
@@ -40,6 +41,6 @@ const userIdentifiers = Joi.array().custom(value => {
 
 // Exporting
 module.exports = {
-	identifier: userIdentifier,
-	identifiers: userIdentifiers
+	identifier: (...args) => validate(...args, userIdentifier),
+	identifiers: (...args) => validate(...args, userIdentifiers)
 };

@@ -1,6 +1,5 @@
 // -- Dependencies
 import * as EventEmitter from "events";
-import * as APIs from "./apis";
 import {
     AccountInformationAPI,
     AccountSettingsAPI,
@@ -36,12 +35,12 @@ import {
 
 // -- Classes
 export class Client extends ClientBase {
-    constructor(options: ClientConstructorOptions);
-
     public loggedIn: boolean;
     public user: ClientUser;
     public debugEnabled: boolean;
     public ws: SocketConnection;
+
+    constructor(options: ClientConstructorOptions);
 
     public getGroup(group: GroupIdentifier): Promise<Group>;
 
@@ -81,8 +80,6 @@ export class Client extends ClientBase {
 }
 
 class ClientBase extends EventEmitter {
-    constructor(options: ClientConstructorOptions);
-
     public options: ClientConstructorOptions;
     public rest: RestController;
     public util: UtilController;
@@ -119,15 +116,18 @@ class ClientBase extends EventEmitter {
         users: UsersAPI,
         other: OtherAPI
     };
+    public structures: Structures;
+
+    constructor(options: ClientConstructorOptions);
 }
 
 class ClientUser {
-    constructor(client: Client, data: any);
-
     public client: Client;
     public id: UserIdentifier;
     public profile: ClientUserProfile;
     public account: ClientUserAccount;
+
+    constructor(client: Client, data: any);
 
     public getFriendRequests(): Promise<>;
 
@@ -183,98 +183,30 @@ class ClientUser {
 }
 
 class ClientUserProfile {
-    constructor(user: ClientUser, data: any);
-
     public user: ClientUser;
+
+    constructor(user: ClientUser, data: any);
 
     public updateDescription(description: string): Promise<>;
 
-    public updateGender(gender: string): Promise<>;
-
     public updateStatus(status: string): Promise<>;
 
-    public getBirthDate(): Promise<>;
-
-    public updateBirthDate(birthDate: Date): Promise<>;
 }
 
 class ClientUserAccount {
-    constructor(user: ClientUser);
-
     public user: ClientUser;
 
-    // https://accountsettings.roblox.com/docs#!/PrivacySettings/get_v1_app_chat_privacy
-    public unlockPin(pin: AnyIdentifier): Promise<>;
-
-    public lockPin(): Promise<>;
-
-    public addPin(): Promise<>;
-
-    public getChatPrivacy(): Promise<>;
-
-    public updateChatPrivacy(options: UpdateChatPrivacyOptions): Promise<>;
-
-    public getGameChatPrivacy(): Promise<>;
-
-    public updateGameChatPrivacy(options: UpdateChatPrivacyOptions): Promise<>;
-
-    public getInventoryPrivacy(): Promise<>;
-
-    public updateInventoryPrivacy(options: UpdateInventoryPrivacyOptions): Promise<>;
-
-    public getPrivacySettings(): Promise<>;
-
-    public updatePrivacySettings(options: UpdatePrivacySettingsOptions): Promise<>;
-
-    public getMessagingPrivacy(): Promise<>;
-
-    public updateMessagingPrivacy(options: UpdateMessagingPrivacyOptions): Promise<>;
-
-    public getEmailStatus(): Promise<>;
-
-    public updateEmail(email: string, password: string): Promise<>;
-
-    public sendEmailVerification(): Promise<>;
-
-    public getCurrentTheme(): Promise<>;
-
-    public updateTheme(theme: UpdateThemeOptions): Promise<>;
-
-    public getThemesAvailable(): Promise<>;
-
-    public isTFAEnabled(): Promise<>;
-
-    public enableTFA(enabled: boolean, password: string): Promise<>;
-
-    public getTradePrivacy(): Promise<>;
-
-    public updateTradePrivacy(tradePrivacy: string): Promise<>;
-
-    public getTradeQualityFilter(): Promise<>;
-
-    public updateTradeQualityFilter(filter: UpdateTradeQualityFilterOptions): Promise<>;
-
-    public getTFAEnabled(): Promise<>;
-
-    public updateTFAEnabled(enabled: boolean, password: string): Promise<>;
-
-    public getPhoneInformation(): Promise<>;
-
-    public setPhone(options: UpdatePhoneNumberOptions): Promise<>;
-
-    public deletePhone(): Promise<>;
+    constructor(user: ClientUser);
 }
 
 class UserPartial extends UserBase {
-    constructor(client: Client, data: any);
-
     public id: AnyIdentifier;
     public name: string;
+
+    constructor(client: Client, data: any);
 }
 
 class User extends UserPartial {
-    constructor(client: Client, data: any);
-
     public status: string;
     public blurb: string;
     public joinDate: Date;
@@ -290,38 +222,118 @@ class User extends UserPartial {
     public canSeeInventory: boolean;
     public areFriends: boolean;
     public canSendFriendRequest: boolean;
+
+    constructor(client: Client, data: any);
 }
 
 class UserBase {
-    constructor(client: Client);
-
     public client: Client;
 
-    public get(): Promise<>;
+    constructor(client: Client);
 
-    public block(): Promise<>;
+    public update(): Promise<User>;
 
-    public handleFriendRequest(accept: boolean): Promise<>;
+    public getGroups(): Promise<UserGroup[]>
 
-    public follow(follow: boolean): Promise<>;
+    public acceptFriendRequest(): Promise<boolean>;
 
-    public sendFriendRequest(): Promise<>;
+    public declineFriendRequest(): Promise<boolean>;
 
-    public areFriendsWith(users: Array<UserIdentifier>): Promise<>;
+    public sendFriendRequest(): Promise<boolean>;
 
-    public getNumFriends(): Promise<>;
+    public getFriendsCount(): Promise<number>;
 
-    public getVerificationStatus(): Promise<>;
+    public unfriend(): Promise<boolean>;
 
-    public sendMessage(options: ClientUserSendMessageOptions): Promise<>;
+    public isFollowing(user: UserIdentifier): Promise<unknown>;
 
-    public ownsGamePass(passId: AnyIdentifier): Promise<>;
+    public follow(): Promise<boolean>;
+
+    public unfollow(): Promise<boolean>;
+
+    public ownsAsset(assetId: AnyIdentifier): Promise<boolean>;
+
+    public block(): Promise<boolean>;
+
+    public unblock(): Promise<boolean>;
+
+    public canManageAsset(asset: AnyIdentifier): Promise<boolean>;
+
+    public awardBadge(badge: AnyIdentifier, place: AnyIdentifier): Promise<boolean>;
+
+    public getAvatar(): Promise<unknown>;
+
+    public getWearingAssets(): Promise<unknown>;
+
+    public getOutfits(options?: unknown): Promise<unknown>;
+
+    public getBadges(options?: GenericFilterOptions): Promise<unknown>;
+
+    public getBadgesTimestamps(badges: AnyIdentifier[]): Promise<unknown>;
+
+    public getOwnedBundles(options: GenericFilterOptions): Promise<unknown>;
+
+    public addToChatConversation(conversation: ChatConversationIdentifier): Promise<unknown>;
+
+    public removeFromChatConversation(conversation: ChatConversationIdentifier): Promise<unknown>;
+
+    public createGroupChatConversation(others?: UserIdentifier[]): Promise<unknown>;
+
+    public startChatConversation(): Promise<unknown>;
+
+    public getTag(): Promise<unknown>;
+
+    public setPendingTag(tag: any): Promise<unknown>;
+
+    public setTag(tag: any): Promise<unknown>;
+
+    public removeTag(): Promise<unknown>;
+
+    public removeFromTeamCreate(universe: AnyIdentifier): Promise<unknown>;
+
+    public addToTeamCreate(universe: AnyIdentifier): Promise<unknown>;
+
+    public getResellableAssetCopies(assetId: AnyIdentifier): Promise<unknown>;
+
+    public getFollowers(options: GenericFilterOptions): Promise<unknown>;
+
+    public getFollowersCount(): Promise<number>;
+
+    public getFriends(): Promise<unknown>;
+
+    public getFriendsCount(): Promise<number>;
+
+    public getGames(): Promise<unknown>;
+
+    public getGroupJoinRequest(group: GroupIdentifier): Promise<unknown>;
+
+    public acceptGroupJoinRequest(group: GroupIdentifier): Promise<unknown>;
+
+    public declineGroupJoinRequest(group: GroupIdentifier): Promise<unknown>;
+
+    public setGroupOwnerFor(group: GroupIdentifier): Promise<unknown>;
+
+    public updateMemberInGroup(group: GroupIdentifier, role: GroupRoleIdentifier): Promise<unknown>;
+
+    public deleteGroupWallPosts(group: GroupIdentifier): Promise<unknown>;
+
+    public getPrimaryGroup(): Promise<UserGroup>;
+
+    public getOwnedItems(options: unknown): Promise<unknown>;
+
+    public getAssetInventory(options: unknown): Promise<unknown>;
+
+    public validatePremiumMembership(): Promise<unknown>;
+
+    public getPresence(): Promise<unknown>;
+
+    public getAvatarHeadshot(options: unknown): Promise<unknown>;
 }
 
 class GroupBase {
-    constructor(client: Client, data: any);
-
     public client: Client;
+
+    constructor(client: Client, data: any);
 
     public get(): Promise<>; // Fetches new information from the Roblox Web API
     public getSettings(): Promise<GroupSettings>;
@@ -428,18 +440,16 @@ class GroupBase {
 }
 
 class Group extends GroupBase {
-    constructor(client: Client, data: any);
-
     public id: AnyIdentifier;
     public name: string;
     public description: string;
     public owner: GroupMember;
     public shout: GroupShout;
+
+    constructor(client: Client, data: any);
 }
 
 class UserGroup extends GroupBase {
-    constructor(client: Client, data: any);
-
     public role: GroupRole;
     public owner: GroupMember;
     public shout: GroupShout;
@@ -447,16 +457,18 @@ class UserGroup extends GroupBase {
     public isPremiumOnly: boolean;
     public hasClan: boolean;
     public publicEntry: boolean;
+
+    constructor(client: Client, data: any);
 }
 
 class GroupRole {
-    constructor(client: Client, data: any);
-
     public client: Client;
     public id: AnyIdentifier;
     public name: string;
     public rank: number;
     public group: Group | null;
+
+    constructor(client: Client, data: any);
 
     public getMembers(options: GenericFilterOptions): Promise<>;
 
@@ -464,9 +476,9 @@ class GroupRole {
 }
 
 class GroupMember extends UserPartial {
-    constructor(client: Client, data: any);
-
     public role: GroupRole;
+
+    constructor(client: Client, data: any);
 
     public kick(): Promise<>;
 
@@ -480,20 +492,20 @@ class GroupMember extends UserPartial {
 }
 
 class GroupShout {
-    constructor(client: Client, data: any);
-
     public client: Client;
     public poster: GroupMember;
     public content: string;
     public createdAt: Date;
+
+    constructor(client: Client, data: any);
 }
 
 class GroupJoinRequest {
-    constructor(client: Client, data: any);
-
     public client: Client;
     public user: GroupMember;
     public createdAt: Date;
+
+    constructor(client: Client, data: any);
 
     public accept(): Promise<>;
 
@@ -501,13 +513,13 @@ class GroupJoinRequest {
 }
 
 class GroupWallPost {
-    constructor(client: Client, data: any);
-
     public client: Client;
     public id: AnyIdentifier;
     public poster: GroupMember;
     public content: string;
     public createdAt: Date;
+
+    constructor(client: Client, data: any);
 
     public delete(): Promise<>;
 
@@ -517,8 +529,6 @@ class GroupWallPost {
 }
 
 class ChatConversation {
-    constructor(client: Client, data: any);
-
     public client: Client;
     public id: string;
     public title: string;
@@ -527,6 +537,8 @@ class ChatConversation {
     public members: Array<UserPartial>;
     public type: string;
     public updatedAt: Date;
+
+    constructor(client: Client, data: any);
 
     public getMessages(pageSize: number, unreadOnly: boolean): Promise<>;
 
@@ -541,8 +553,6 @@ class ChatConversation {
 }
 
 class ChatMessage {
-    constructor(conversationId: number, data: any);
-
     public id: string;
     public senderType: string;
     public sentAt: Date;
@@ -550,6 +560,8 @@ class ChatMessage {
     public type: string;
     public senderTargetId: number;
     public content: string;
+
+    constructor(conversationId: number, data: any);
 
     public markRead(): Promise<>;
 
@@ -559,16 +571,14 @@ class ChatMessage {
 }
 
 class ChatSettings {
-    constructor(client: Client, data: any);
-
     public client: Client;
     public chatEnabled: boolean;
     public isActiveChatUser: boolean;
+
+    constructor(client: Client, data: any);
 }
 
 class ChatSentMessage {
-    constructor(data: any);
-
     public content: string;
     public filtered: boolean;
     public id: string;
@@ -576,11 +586,11 @@ class ChatSentMessage {
     public type: string;
     public result: string;
     public status: string;
+
+    constructor(data: any);
 }
 
 class Message {
-    constructor(client: Client, data: any);
-
     public id: number;
     public sender: UserPartial;
     public recipient: UserPartial;
@@ -590,6 +600,8 @@ class Message {
     public read: boolean;
     public systemMessage: boolean;
 
+    constructor(client: Client, data: any);
+
     public reply(message: string): Promise<>;
 
     public archive(): Promise<>;
@@ -598,23 +610,23 @@ class Message {
 }
 
 class UtilController {
-    constructor();
-
     public token: RestTokenController;
     public cache: CacheController;
     public captcha: CaptchaController;
     public structures: Structures;
     public valueExtractor: UtilValueExtractor;
+
+    constructor();
 }
 
 class RestController {
-    constructor(client: Client);
-
     public client: Client;
     public requester: any; // TODO: Uses either the default "got" module, or it will send the requestOptions to the callback provided, so that users can customize it themselves
     public isCustomRequester: boolean;
     public responseHandlers: Array<Function>;
     public jar: any;
+
+    constructor(client: Client);
 
     public request(options: RestRequestOptions): Promise<RestResponse>;
 
@@ -628,12 +640,12 @@ class RestController {
 }
 
 class RestRequest {
-    constructor(restController: RestController, responseOptions: RestControllerResponseOptions);
-
     public client: Client;
     public controller: RestController;
     public responseOptions: RestControllerResponseOptions;
     public options: RestRequestOptions;
+
+    constructor(restController: RestController, responseOptions: RestControllerResponseOptions);
 
     public prepare(options): void;
 
@@ -641,12 +653,12 @@ class RestRequest {
 }
 
 class RestResponse {
-    constructor(client: Client, request: RestRequest, response: object);
-
     public client: Client;
     public request: RestRequest;
     public options: RestRequest["responseOptions"];
     public data: object;
+
+    constructor(client: Client, request: RestRequest, response: object);
 
     public validateResponse(): boolean;
 
@@ -658,27 +670,27 @@ class RestResponse {
 }
 
 class DebugController {
-    constructor(client: Client);
-
     public client: Client;
     public enabled: boolean;
+
+    constructor(client: Client);
 
     public log(log: string): DebugLog;
 }
 
 class DebugLog {
-    constructor(controller: DebugController, log: string);
-
     public controller: DebugController;
     public log: string;
+
+    constructor(controller: DebugController, log: string);
 }
 
 class RestTokenController {
-    constructor(client: Client);
-
     public client: Client;
     public token: string;
     public fetchInterval: NodeJS.Timer;
+
+    constructor(client: Client);
 
     public refresh(): Promise<string>;
 
@@ -688,10 +700,10 @@ class RestTokenController {
 }
 
 class CaptchaController {
-    constructor(client: Client);
-
     public client: Client;
     public constants: object;
+
+    constructor(client: Client);
 }
 
 // -- Interfaces
@@ -852,6 +864,7 @@ type MessageIdentifier = AnyIdentifier | Message;
 type ChatMessageIdentifier = AnyIdentifier | ChatMessage;
 type GroupRoleIdentifier = AnyIdentifier | GroupRole;
 type GroupWallPostIdentifier = AnyIdentifier | GroupWallPost;
+type ChatConversationIdentifier = AnyIdentifier | ChatConversation;
 
 type GenericFilterOptions = {
     sortOrder: string | "Desc";
