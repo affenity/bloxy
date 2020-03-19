@@ -25,7 +25,7 @@ class InventoryAPI {
 
 	getUserOwnedItems ({ userId, itemType, targetId }) {
 		return this.request({
-			url: `v1j/users/${userId}/items/${itemType}/${targetId}`
+			url: `v1/users/${userId}/items/${itemType}/${targetId}`
 		});
 	}
 
