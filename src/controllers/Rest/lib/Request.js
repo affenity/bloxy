@@ -19,7 +19,7 @@ class RestRequest {
 
 	prepare (options = {}) {
 		this.options = options;
-		this.options.throwHttpErrors = false;
+		this.options.throwHttpErrors = this.client.options.setup.throwHttpErrors || false;
 		this.options.cookieJar = this.controller.jar;
 		this.options.headers = lodash.merge(this.options.headers || {}, {
 			"User-Agent": options.userAgent || this.client.options.setup.userAgent

@@ -102,7 +102,8 @@ class ClientBase extends EventEmitter {
 					groups: 1000
 				},
 				requester: null,
-				debugging: false
+				debugging: false,
+				throwHttpErrors: false
 			}
 		}, options);
 
