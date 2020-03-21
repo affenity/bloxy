@@ -13,10 +13,10 @@ module.exports = async controller => {
 		disabledChecks: {
 			token: true
 		}
-	}).catch(e => {
+	}).then(r => [true, r]).catch(e => {
 		controller.client.debug.log(`An error occurred while processing the TokenController.refresh function`);
 		return [false, e];
-	}).then(r => [true, r]);
+	});
 
 	if (!success) {
 		throw new Error(`Failed to process RestTokenController.refresh function. ${response}`);
