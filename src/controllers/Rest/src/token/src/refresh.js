@@ -27,11 +27,10 @@ module.exports = async controller => {
 			}
 
 			const [success] = tokenResponseHandler(response);
-			if (success) {
-				return [true, response];
-			} else {
+			if (!success) {
 				throw new Error(e);
 			}
+			return [true, response];
 		}
 
 		controller.client.debug.log(`An error occurred while processing the TokenController.refresh function`);
