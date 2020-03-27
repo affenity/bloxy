@@ -24,7 +24,7 @@ module.exports = async controller => {
 					}
 				},
 				data: e
-			}
+			};
 
 			const [success] = tokenResponseHandler(response);
 			if (!success) {
