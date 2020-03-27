@@ -694,15 +694,10 @@ class DebugLog {
 class RestTokenController {
     public client: Client;
     public token: string;
-    public fetchInterval: NodeJS.Timer;
 
     constructor(client: Client);
 
     public refresh(): Promise<string>;
-
-    public stop(): void;
-
-    public start(): void;
 }
 
 class CaptchaController {
