@@ -1,3 +1,5 @@
+const tokenResponseHandler = require("../../../lib/responseHandlers/token");
+
 /**
  * @param {RestTokenController} controller The Rest controller
  */
@@ -14,6 +16,24 @@ module.exports = async controller => {
 			token: true
 		}
 	}).then(r => [true, r]).catch(e => {
+		if (controller.client.options.setup.throwHttpErrors) {
+			const response = {
+				options: {
+					disabledChecks: {
+						token: true
+					}
+				},
+				data: e
+			}
+
+			const [success] = tokenResponseHandler(response);
+			if (success) {
+				return [true, response];
+			} else {
+				throw new Error(e);
+			}
+		}
+
 		controller.client.debug.log(`An error occurred while processing the TokenController.refresh function`);
 		return [false, e];
 	});
