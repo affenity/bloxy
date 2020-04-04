@@ -86,7 +86,7 @@ Check out below for some examples of how to use bloxy!
 
 ```js
 const bloxy = require("bloxy");
-const roblox = new bloxy.Client({
+const roblox = new bloxy({
     cookie: ".ROBLOSECURITY"
 });
 
