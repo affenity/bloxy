@@ -38,6 +38,6 @@
     "lodash": "^4.17.15",
     "node-cache": "^4.2.1",
     "request": "^2.88.0",
-    "signalr-client": "0.0.19"
+    "signalr-client": "0.0.20"
   }
 }
