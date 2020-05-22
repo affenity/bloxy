@@ -1,0 +1,51 @@
+{
+  "name": "bloxy",
+  "version": "4.0.0-alpha4",
+  "description": "A Node.JS library for interacting with the Roblox website and its API.",
+  "main": "./dist/index.js",
+  "scripts": {
+    "test": "jest",
+    "test-with-coverage": "jest --coverage && cat ./coverage/lcov.info | codacy-coverage",
+    "prepublish": "tsc",
+    "lint": "npm run lint",
+    "build": "tsc --skipLibCheck",
+    "eslint": "eslint . --fix --ext .ts"
+  },
+  "types": "./dist/index.d.ts",
+  "keywords": [
+    "bloxy",
+    "group",
+    "games",
+    "develop",
+    "roblox",
+    "bloxy",
+    "nodejs roblox api",
+    "roblox api",
+    "roblox groups",
+    "roblox module"
+  ],
+  "author": "ScriptBased",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/got": "^9.6.10",
+    "@types/hapi__joi": "^16.0.12",
+    "@types/lodash": "^4.14.150",
+    "@types/node": "^12.12.36",
+    "@typescript-eslint/eslint-plugin": "^2.28.0",
+    "@typescript-eslint/parser": "^2.28.0",
+    "codacy-coverage": "^3.4.0",
+    "eslint": "^6.8.0",
+    "eslint-plugin-security": "^1.4.0",
+    "fast-check": "^1.24.1",
+    "jest": "^24.9.0",
+    "typescript": "^3.8.3"
+  },
+  "dependencies": {
+    "@hapi/joi": "^16.1.8",
+    "got": "^9.6.0",
+    "lodash": "^4.17.15",
+    "node-cache": "^4.2.1",
+    "signalr-client": "0.0.19",
+    "tough-cookie": "^3.0.1"
+  }
+}

@@ -1,0 +1,7 @@
+node_modules
+.idea
+coverage
+src
+old
+tests/test.js
+dist
