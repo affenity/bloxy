@@ -1,0 +1,147 @@
+import got from "got";
+import { CookieJar } from "tough-cookie";
+import RESTRequest from "../controllers/rest/Request";
+import RESTResponse from "../controllers/rest/Response";
+
+
+export declare type RESTRequester = (requestOptions: RESTRequestOptions) => Promise<RESTResponseDataType>;
+export declare type RESTRequestHandler = (request: RESTRequest) => boolean | Error;
+export declare type RESTResponseHandler = (response: RESTResponse) => boolean | Error;
+
+export declare type RESTControllerOptions = {
+    requester: (requestOptions: RESTRequestOptions) => Promise<unknown>;
+    /**
+     * If specified, the user agent that will be used for the requests
+     */
+    userAgent?: string;
+    /**
+     * If specified, the url which the request will be proxied through
+     */
+    proxy?: string;
+    /**
+     * The current XCSRF token
+     */
+    xcsrf?: string;
+    /**
+     * The time in ms when the xcsrf was last set
+     */
+    xcsrfSet?: number;
+};
+
+export declare type RESTCreateCookieOptions = {
+    key: string;
+    value: string;
+    domain: string;
+    hostOnly: boolean;
+    httpOnly: boolean;
+};
+
+export declare type RESTRequestOptions = {
+    /**
+     * The URL to send the request to
+     */
+    url: string;
+    /**
+     * The request method to use
+     */
+    method?: "GET" | "POST" | "PUT" | "DELETE" | "PATCH" | "OPTIONS" | string;
+    /**
+     * The proxy to use
+     */
+    proxy?: string;
+    /**
+     * If the request should follow all redirects
+     */
+    followAllRedirects?: boolean;
+    /**
+     * Roblox's "old" verification system with general verification tokens
+     */
+    verification?: string;
+    /**
+     * An "overriding" user agent for the request
+     */
+    userAgent?: string;
+    /**
+     * Provide your own cookie jar
+     */
+    jar?: CookieJar;
+    /**
+     * Add some custom headers that will override / merge with the "base" headers
+     */
+    headers?: { [key: string]: unknown };
+    /**
+     * The JSON body
+     */
+    json?: Array<unknown> | { [key: string]: unknown };
+    /**
+     * The form body
+     */
+    form?: { [key: string]: unknown };
+    /**
+     * The form data body
+     */
+    formData?: { [key: string]: unknown };
+    /**
+     * Any query params?
+     */
+    qs?: { [key: string]: unknown };
+    /**
+     * Sets the state of any checks
+     */
+    checks?: RESTResponseOptions["checks"];
+    /**
+     * If you want to use a "custom" xcsrf token
+     */
+    xcsrf?: string | boolean;
+    /**
+     * The optional response options
+     */
+    responseOptions?: RESTResponseOptions;
+};
+
+export declare type RESTResponseOptions = {
+    allowedStatusCodes: number[];
+    disallowedStatusCodes: number[];
+    allowedStatuses: string[];
+    disallowedStatuses: string[];
+    onlyJSON: boolean;
+    checks: {
+        xcsrf?: boolean;
+        status?: boolean;
+        statusCode?: boolean;
+        body?: boolean;
+        captcha?: boolean;
+    };
+};
+
+export declare type RESTResponseDataType = {
+    body: string | object | Buffer;
+    url: string;
+    requestUrl: string;
+    status: string;
+    statusCode: number;
+};
+
+export const DefaultRESTRequestOptions = {
+    checks: {
+        xcsrf: true,
+        status: true,
+        statusCode: true,
+        body: true,
+        captcha: true
+    }
+};
+
+export const DefaultCreateCookieOptions = {
+    domain: ".roblox.com",
+    hostOnly: false,
+    httpOnly: false
+};
+
+export const DefaultRESTControllerOptions = {
+    requester: got,
+    userAgent: "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/51.0.2704.103 Safari/537.36",
+    proxy: undefined,
+    xcsrf: undefined,
+    xcsrfSet: undefined
+};
