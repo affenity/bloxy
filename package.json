@@ -6,7 +6,6 @@
   "scripts": {
     "test": "jest",
     "test-with-coverage": "jest --coverage && cat ./coverage/lcov.info | codacy-coverage",
-    "prepublish": "tsc",
     "lint": "npm run lint",
     "build": "tsc --skipLibCheck",
     "eslint": "eslint . --fix --ext .ts"

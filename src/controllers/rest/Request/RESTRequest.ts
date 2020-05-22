@@ -39,7 +39,7 @@ class RESTRequest {
             await prepare.bind(this)(options);
         }
 
-        await Promise.all(this.controller.requestHandlers.map(handler => handler()));
+        await Promise.all(this.controller.requestHandlers.map(handler => handler(this)));
     }
 
     async send (options?: RESTRequestOptions): Promise<RESTResponseDataType> {
