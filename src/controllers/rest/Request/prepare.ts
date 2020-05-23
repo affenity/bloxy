@@ -3,11 +3,8 @@ import lodash from "lodash";
 import RESTRequest from "../Request";
 
 
-export default async function prepare (this: RESTRequest, options?: RESTRequestOptions): Promise<void> {
-    if (options) {
-        this.setOptions(options);
-    }
-
+export default async function prepare (this: RESTRequest, options: RESTRequestOptions): Promise<void> {
+    this.setOptions(options);
     this.requestOptions = lodash.merge(this.options || {}, this.requestOptions || {}) as RESTRequestOptions;
 
     if (!this.options.url) {

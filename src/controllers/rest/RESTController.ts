@@ -8,6 +8,7 @@ import {
     RESTRequester,
     RESTRequestHandler,
     RESTRequestOptions,
+    RESTResponseDataType,
     RESTResponseHandler
 } from "../../interfaces/RESTInterfaces";
 import updateXCSRFToken from "./lib/updateXCSRFToken";
@@ -63,7 +64,7 @@ class RESTController {
      * @param {RequestOptions} options The options
      * @returns {Promise<Object>}
      */
-    async request (options: RESTRequestOptions): Promise<unknown> {
+    async request (options: RESTRequestOptions): Promise<RESTResponseDataType> {
         const request = new RESTRequest(this, options);
         const responseData = await request.send();
         const response = new RESTResponse(this, request, responseData);
@@ -126,7 +127,7 @@ class RESTController {
      * @returns {Cookie}
      */
     addCookie (cookie: Cookie, domain: string, setCookieOptions?: object): Cookie {
-        return this.jar.setCookieSync(cookie, domain || "https://roblox.com", setCookieOptions);
+        return this.jar.setCookieSync(cookie, domain || "https://roblox.com", setCookieOptions || {});
     }
 
     /**

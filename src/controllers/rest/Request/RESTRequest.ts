@@ -28,17 +28,18 @@ class RESTRequest {
     setOptions (options: RESTRequestOptions): RESTRequestOptions {
         this.options = lodash.merge(
             DefaultRESTRequestOptions,
-            options
+            options,
+            {
+                jar: this.controller.jar,
+                cookieJar: this.controller.jar
+            }
         );
 
         return this.options;
     }
 
-    async prepare (options?: RESTRequestOptions): Promise<void> {
-        if (options) {
-            await prepare.bind(this)(options);
-        }
-
+    async prepare (options: RESTRequestOptions): Promise<void> {
+        await prepare.bind(this)(options);
         await Promise.all(this.controller.requestHandlers.map(handler => handler(this)));
     }
 

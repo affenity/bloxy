@@ -16,10 +16,10 @@ export default class RESTResponse {
         this.responseData = responseData;
     }
 
-    process (): boolean {
+    process (): RESTResponseDataType {
         const allProcessed = this.controller.responseHandlers.map(handler => handler(this));
         if (allProcessed.every(processed => processed === true)) {
-            return true;
+            return this.responseData;
         } else {
             throw allProcessed.find(processed => processed instanceof Error);
         }

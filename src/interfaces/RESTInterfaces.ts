@@ -65,6 +65,7 @@ export declare type RESTRequestOptions = {
      * Provide your own cookie jar
      */
     jar?: CookieJar;
+    cookieJar?: CookieJar;
     /**
      * Add some custom headers that will override / merge with the "base" headers
      */
