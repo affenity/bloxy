@@ -1,5 +1,4 @@
 import got from "got";
-import { CookieJar } from "tough-cookie";
 import RESTRequest from "../controllers/rest/Request";
 import RESTResponse from "../controllers/rest/Response";
 
@@ -62,11 +61,6 @@ export declare type RESTRequestOptions = {
      */
     userAgent?: string;
     /**
-     * Provide your own cookie jar
-     */
-    jar?: CookieJar;
-    cookieJar?: CookieJar;
-    /**
      * Add some custom headers that will override / merge with the "base" headers
      */
     headers?: { [key: string]: unknown };
@@ -98,6 +92,10 @@ export declare type RESTRequestOptions = {
      * The optional response options
      */
     responseOptions?: RESTResponseOptions;
+    /**
+     * If it should throw http errors if the statuscode is != 200
+     */
+    throwHttpErrors?: boolean;
 };
 
 export declare type RESTResponseOptions = {
@@ -121,6 +119,7 @@ export declare type RESTResponseDataType = {
     requestUrl: string;
     status: string;
     statusCode: number;
+    headers: Record<string, string>;
 };
 
 export const DefaultRESTRequestOptions = {
@@ -130,7 +129,9 @@ export const DefaultRESTRequestOptions = {
         statusCode: true,
         body: true,
         captcha: true
-    }
+    },
+    headers: {},
+    method: "GET"
 };
 
 export const DefaultCreateCookieOptions = {

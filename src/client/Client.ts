@@ -18,8 +18,8 @@ export default class Client extends ClientBase {
         super(options);
         this.user = null;
         this.apis = initAPIs(this);
-        this.login = clientLogin.bind(this, this.options.credentials || {});
-        this.rest = new RESTController(this);
+        this.login = (credentials?: ClientCredentialsOptions) => clientLogin.bind(this)(credentials || this.options.credentials || {});
+        this.rest = new RESTController(this, this.options.rest);
         this.structures = initStructures();
 
         this.init();

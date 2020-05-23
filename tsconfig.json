@@ -22,7 +22,7 @@
     /* Specify the root directory of input files. Use to control the output directory structure with --outDir. */
     // "composite": true,                     /* Enable project compilation */
     // "tsBuildInfoFile": "./",               /* Specify file to store incremental compilation information */
-    "removeComments": true,
+    "removeComments": false,
     /* Do not emit comments to output. */
     // "noEmit": true,                        /* Do not emit outputs. */
     "importHelpers": true,
@@ -89,7 +89,6 @@
     "dist",
     "node_modules",
     "oldSrc2",
-    "tests",
     ".circleci",
     "old"
   ],

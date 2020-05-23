@@ -7,8 +7,8 @@ export default function validStatusCode (response: RESTResponse): boolean | Erro
         error: undefined
     };
 
-    if (request.options.responseOptions && request.options.checks?.status) {
-        const { allowedStatusCodes, disallowedStatusCodes } = request.options.responseOptions;
+    if (request.requestOptions.responseOptions && request.requestOptions.checks?.status) {
+        const { allowedStatusCodes, disallowedStatusCodes } = request.requestOptions.responseOptions;
 
         const isAllowed = allowedStatusCodes.some(statusCode => responseData.statusCode === statusCode);
         const isDisallowed = disallowedStatusCodes.some(statusCode => responseData.statusCode === statusCode);

@@ -6,4 +6,7 @@ export declare type BaseAPIOptions = {
     client: Client;
 };
 
-export declare type GeneralAPIGetAssetVersions = {};
+
+
+
+export declare type AccountInformationAPIGetUserBirthdate =

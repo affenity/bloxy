@@ -34,6 +34,7 @@ export default class BaseAPI {
             throw new Error(`Must provide a URL or path!`);
         } else if (options.request.path) {
             options.request.url = this.options.baseUrl + options.request.path;
+            delete options.request.path;
         }
 
         return this.options.client.rest.request(options.request as RESTRequestOptions);

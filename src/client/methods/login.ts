@@ -21,6 +21,7 @@ export declare type AuthLoginV2 = {
 }
 
 export default async function login (this: Client, credentials: ClientCredentialsOptions): Promise<ClientUser> {
+    console.log(credentials);
     if (!credentials.cookie && !credentials.username && !credentials.password) {
         throw new Error(`Must provide credentials to log in with!`);
     }

@@ -1,34 +1,36 @@
 import { RESTRequestOptions } from "../../../interfaces/RESTInterfaces";
-import lodash from "lodash";
 import RESTRequest from "../Request";
+import querystring from "querystring";
 
 
-export default async function prepare (this: RESTRequest, options: RESTRequestOptions): Promise<void> {
-    this.setOptions(options);
-    this.requestOptions = lodash.merge(this.options || {}, this.requestOptions || {}) as RESTRequestOptions;
+export default async function prepare (request: RESTRequest, options: RESTRequestOptions): Promise<void> {
+    request.setOptions(options);
 
-    if (!this.options.url) {
+    if (!request.requestOptions.url) {
         throw new Error("No url was provided when executing rest.request.prepare");
-    } else {
-        this.requestOptions.url = this.options.url;
     }
-
-    if (this.options.headers) {
-        this.requestOptions.headers = lodash.merge(this.requestOptions.headers, this.options.headers);
+    if (!request.requestOptions.headers) {
+        request.requestOptions.headers = {};
     }
-
-    if (this.options.xcsrf) {
-        this.requestOptions.headers = {
-            ...this.options.headers,
-            "X-CSRF-TOKEN": await this.controller.getXCSRFToken()
+    if (request.requestOptions.followAllRedirects !== false) {
+        request.requestOptions.followAllRedirects = true;
+    }
+    if (!request.requestOptions.method) {
+        request.requestOptions.method = "GET";
+    }
+    if (request.requestOptions.qs) {
+        if (!request.requestOptions.url.includes("?")) {
+            request.requestOptions.url += `?${querystring.stringify(request.requestOptions.qs as Record<string, string>)}`;
+        }
+    }
+    if ((request.requestOptions.xcsrf !== false && request.requestOptions.method.toLowerCase() !== "get") || request.requestOptions.xcsrf === true) {
+        request.requestOptions.headers = {
+            ...request.requestOptions.headers,
+            "X-CSRF-TOKEN": await request.controller.getXCSRFToken()
         };
     }
+    request.requestOptions.headers.Cookie = request.controller.cookieJar.getCookieStringSync(request.requestOptions.url);
 
-    if (this.options.followAllRedirects) {
-        this.requestOptions.followAllRedirects = true;
-    }
-
-    if (!this.options.method) {
-        this.requestOptions.method = "GET";
-    }
+    // Utilities
+    request.requestOptions.throwHttpErrors = false;
 }

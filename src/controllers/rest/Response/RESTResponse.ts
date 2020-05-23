@@ -18,6 +18,7 @@ export default class RESTResponse {
 
     process (): RESTResponseDataType {
         const allProcessed = this.controller.responseHandlers.map(handler => handler(this));
+
         if (allProcessed.every(processed => processed === true)) {
             return this.responseData;
         } else {

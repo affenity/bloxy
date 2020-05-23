@@ -15,17 +15,16 @@ import updateXCSRFToken from "./lib/updateXCSRFToken";
 import RESTRequest from "./Request";
 import lodash from "lodash";
 import got from "got";
-import RESTResponse from "./Response";
 import responseHandlers from "./Response/handlers";
 
 
 class RESTController {
     public client: Client;
+    public options: RESTControllerOptions;
     public requester: RESTRequester;
-    public jar: CookieJar;
+    public cookieJar: CookieJar;
     public responseHandlers: RESTResponseHandler[];
     public requestHandlers: RESTRequestHandler[];
-    public options: RESTControllerOptions;
 
 
     constructor (client: Client, options?: RESTControllerOptions) {
@@ -34,9 +33,13 @@ class RESTController {
          */
         this.client = client;
         /**
+         * The options for this RESTController
+         */
+        this.options = this.setOptions(options || this.client.options.rest);
+        /**
          * The cookie jar
          */
-        this.jar = new CookieJar();
+        this.cookieJar = new CookieJar();
         /**
          * Functions to go through to validate / modify the response
          */
@@ -48,10 +51,6 @@ class RESTController {
          */
         this.requestHandlers = [];
         /**
-         * The options for this RESTController
-         */
-        this.options = this.setOptions(options);
-        /**
          * The function that's being used to perform the requests, can be modified
          */
         this.requester = (this.options.requester || got) as RESTRequester;
@@ -62,13 +61,12 @@ class RESTController {
     /**
      * Sends a request
      * @param {RequestOptions} options The options
-     * @returns {Promise<Object>}
+     * @returns {Promise<RESTResponseDataType>}
      */
-    async request (options: RESTRequestOptions): Promise<RESTResponseDataType> {
+    request (options: RESTRequestOptions): Promise<RESTResponseDataType> {
         const request = new RESTRequest(this, options);
-        const responseData = await request.send();
-        const response = new RESTResponse(this, request, responseData);
-        return response.process();
+
+        return request.send();
     }
 
     /**
@@ -127,7 +125,7 @@ class RESTController {
      * @returns {Cookie}
      */
     addCookie (cookie: Cookie, domain: string, setCookieOptions?: object): Cookie {
-        return this.jar.setCookieSync(cookie, domain || "https://roblox.com", setCookieOptions || {});
+        return this.cookieJar.setCookieSync(cookie, domain || "https://roblox.com", setCookieOptions || {});
     }
 
     /**
@@ -136,7 +134,7 @@ class RESTController {
      * @returns {Cookie[]}
      */
     getCookies (domain: string): Cookie[] {
-        return this.jar.getCookiesSync(domain);
+        return this.cookieJar.getCookiesSync(domain);
     }
 
     /**

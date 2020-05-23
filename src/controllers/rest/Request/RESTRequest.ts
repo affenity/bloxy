@@ -6,47 +6,35 @@ import {
 } from "../../../interfaces/RESTInterfaces";
 import RESTController from "../RESTController";
 import prepare from "./prepare";
-import send from "./send";
+import RESTResponse from "../Response";
 
 
 class RESTRequest {
     public controller: RESTController;
     /**
-     * Options for the request instance
-     */
-    public options: RESTRequestOptions;
-    /**
      * The options that will be used for sending the request
      */
-    public requestOptions?: RESTRequestOptions;
+    public requestOptions: RESTRequestOptions;
 
     constructor (controller: RESTController, options: RESTRequestOptions) {
         this.controller = controller;
-        this.options = options;
+        this.requestOptions = options;
     }
 
     setOptions (options: RESTRequestOptions): RESTRequestOptions {
-        this.options = lodash.merge(
-            DefaultRESTRequestOptions,
-            options,
-            {
-                jar: this.controller.jar,
-                cookieJar: this.controller.jar
-            }
-        );
-
-        return this.options;
-    }
-
-    async prepare (options: RESTRequestOptions): Promise<void> {
-        await prepare.bind(this)(options);
-        await Promise.all(this.controller.requestHandlers.map(handler => handler(this)));
+        // As lodash overwrites all entries that are provided with each other, it also mutates the default
+        // This way, it creates a clone of the default each time, so there's "new" default data each time
+        this.requestOptions = lodash.merge(JSON.parse(JSON.stringify(DefaultRESTRequestOptions)), options || {});
+        return this.requestOptions;
     }
 
     async send (options?: RESTRequestOptions): Promise<RESTResponseDataType> {
-        await this.prepare(options || this.options);
+        await prepare(this, options || this.requestOptions);
+        await Promise.all(this.controller.requestHandlers.map(handler => handler(this)));
 
-        return send.bind(this)();
+        const responseData = await this.controller.requester(this.requestOptions);
+        const response = new RESTResponse(this.controller, this, responseData);
+        return response.process();
     }
 }
 
