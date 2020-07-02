@@ -36,7 +36,7 @@
   "dependencies": {
     "@hapi/joi": "^16.1.2",
     "lodash": "^4.17.15",
-    "node-cache": "^4.2.1",
+    "node-cache": "^5.1.2",
     "request": "^2.88.0",
     "signalr-client": "0.0.19"
   }
