@@ -1,4 +1,4 @@
 node_modules
 coverage
 dist
-tests/index.js
+src/tests/index.js

@@ -22,11 +22,6 @@
     ],
     "no-await-in-loop": "warn",
     "no-compare-neg-zero": "error",
-    "no-extra-parens": [
-      "warn", "all", {
-        "nestedBinaryExpressions": false
-      }
-    ],
     "no-template-curly-in-string": "error",
     "no-unsafe-negation": "error",
     "valid-jsdoc": [

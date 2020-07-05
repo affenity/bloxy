@@ -12,10 +12,10 @@ import {
     RESTResponseHandler
 } from "../../interfaces/RESTInterfaces";
 import updateXCSRFToken from "./lib/updateXCSRFToken";
-import RESTRequest from "./Request";
+import RESTRequest from "./request";
 import lodash from "lodash";
 import got from "got";
-import responseHandlers from "./Response/handlers";
+import responseHandlers from "./response/handlers";
 
 
 class RESTController {

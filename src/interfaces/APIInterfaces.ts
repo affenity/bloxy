@@ -5,8 +5,3 @@ export declare type BaseAPIOptions = {
     baseUrl: string;
     client: Client;
 };
-
-
-
-
-export declare type AccountInformationAPIGetUserBirthdate =

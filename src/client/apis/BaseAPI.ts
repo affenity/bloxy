@@ -14,6 +14,10 @@ export declare type BaseAPIRequestOptions = {
      * If the client must be authenticated in order to send the request
      */
     requiresAuth: boolean;
+    /**
+     * If the response body is JSON
+     */
+    json?: boolean;
 };
 
 export default class BaseAPI {
@@ -26,7 +30,7 @@ export default class BaseAPI {
     request (options: BaseAPIRequestOptions): Promise<RESTResponseDataType> {
         if (options.requiresAuth) {
             if (!this.options.client.user) {
-                throw new Error(`You must be authenticated in order to perform this request!`);
+                throw new Error(`You must be authenticated in order to perform this request! API: ${options.request.path ? this.options.baseUrl : ""}${options.request.path || options.request.url}`);
             }
         }
 
@@ -37,6 +41,13 @@ export default class BaseAPI {
             delete options.request.path;
         }
 
-        return this.options.client.rest.request(options.request as RESTRequestOptions);
+        return this.options.client.rest.request(options.request as RESTRequestOptions)
+            .then(response => {
+                if (options.json) {
+                    response.body = JSON.parse(response.body.toString());
+                }
+
+                return response;
+            });
     }
 }

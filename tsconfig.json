@@ -1,5 +1,8 @@
 {
   "compilerOptions": {
+    "types": [
+      "node"
+    ],
     /* Basic Options */
     // "incremental": true,
     /* Enable incremental compilation */
@@ -88,9 +91,7 @@
   "exclude": [
     "dist",
     "node_modules",
-    "oldSrc2",
-    ".circleci",
-    "old"
+    ".circleci"
   ],
   "include": [
     "src"

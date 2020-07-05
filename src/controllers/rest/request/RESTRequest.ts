@@ -6,7 +6,7 @@ import {
 } from "../../../interfaces/RESTInterfaces";
 import RESTController from "../RESTController";
 import prepare from "./prepare";
-import RESTResponse from "../Response";
+import RESTResponse from "../response";
 
 
 class RESTRequest {

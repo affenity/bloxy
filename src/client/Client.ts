@@ -10,7 +10,7 @@ import initStructures, { Structures } from "../structures";
 export default class Client extends ClientBase {
     public user: ClientUser | null;
     public apis: APIs;
-    public login: OmitThisParameter<(this: Client, credentials: ClientCredentialsOptions) => Promise<ClientUser>>;
+    public login: OmitThisParameter<(this: Client, credentials?: ClientCredentialsOptions) => Promise<ClientUser>>;
     public rest: RESTController;
     public structures: Structures;
 

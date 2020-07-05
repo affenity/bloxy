@@ -21,7 +21,6 @@ export declare type AuthLoginV2 = {
 }
 
 export default async function login (this: Client, credentials: ClientCredentialsOptions): Promise<ClientUser> {
-    console.log(credentials);
     if (!credentials.cookie && !credentials.username && !credentials.password) {
         throw new Error(`Must provide credentials to log in with!`);
     }
@@ -83,8 +82,6 @@ export default async function login (this: Client, credentials: ClientCredential
             if (loginResponse.twoStepVerificationData) {
                 throw new Error(`2SV is not suppported in bloxy yet!`);
             }
-
-            console.log(loginResponse.user);
         } else {
             throw new Error(`Unexpected response when logging in!`);
         }
@@ -95,7 +92,7 @@ export default async function login (this: Client, credentials: ClientCredential
     });
 
     const authenticatedResponseBody = authenticatedResponse.body as undefined | string;
-    console.log(authenticatedResponseBody);
+
     if (!authenticatedResponse || !authenticatedResponseBody || authenticatedResponseBody.toLowerCase().includes("null")) {
         throw new Error(`Failed to validate login, response unsuccessful`);
     }

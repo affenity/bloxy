@@ -1,6 +1,6 @@
 import got from "got";
-import RESTRequest from "../controllers/rest/Request";
-import RESTResponse from "../controllers/rest/Response";
+import RESTRequest from "../controllers/rest/request";
+import RESTResponse from "../controllers/rest/response";
 
 
 export declare type RESTRequester = (requestOptions: RESTRequestOptions) => Promise<RESTResponseDataType>;
@@ -99,12 +99,12 @@ export declare type RESTRequestOptions = {
 };
 
 export declare type RESTResponseOptions = {
-    allowedStatusCodes: number[];
-    disallowedStatusCodes: number[];
-    allowedStatuses: string[];
-    disallowedStatuses: string[];
-    onlyJSON: boolean;
-    checks: {
+    allowedStatusCodes?: number[];
+    disallowedStatusCodes?: number[];
+    allowedStatuses?: string[];
+    disallowedStatuses?: string[];
+    onlyJSON?: boolean;
+    checks?: {
         xcsrf?: boolean;
         status?: boolean;
         statusCode?: boolean;

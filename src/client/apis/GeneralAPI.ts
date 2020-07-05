@@ -1,12 +1,15 @@
 import BaseAPI from "./BaseAPI";
 import { AnyIdentifier } from "../../interfaces/GeneralInterfaces";
 import Client from "../Client";
+import { AssetVersion } from "../../structures/asset/AssetVersion";
+import GroupMember from "../../structures/group/GroupMember";
+import GroupRole from "../../structures/group/GroupRole";
 
 
 export declare type GetAssetVersionOptions = {
-    id: AnyIdentifier;
-    page: AnyIdentifier;
-    placeId: AnyIdentifier;
+    id: number;
+    page: number;
+    placeId: number;
 }
 export declare type AwardBadgeOptions = {
     userId: AnyIdentifier;
@@ -84,20 +87,20 @@ export declare type GetUserByIdOptions = {
 }
 
 export declare type GetAssetVersions = {}
-export declare type AwardBadge = {}
+export declare type AwardBadge = boolean;
 export declare type GetBalance = {
     robux: number;
 }
-export declare type GetUserFriends = {}
-export declare type AcceptFriendRequest = {
-    success: boolean;
-    message: "Success";
-}
+export declare type GetUserFriends = {
+    id: number;
+    username: string;
+    avatarUrl: string;
+    avatarFinal: boolean;
+    online: boolean;
+}[];
+export declare type AcceptFriendRequest = boolean;
 
-export declare interface DeclineFriendRequest {
-    success: boolean;
-    message: "Success";
-}
+export declare type DeclineFriendRequest = boolean;
 
 export declare type SendFriendRequest = {}
 export declare type GetUserFriendsCount = {}
@@ -105,11 +108,32 @@ export declare type UnfriendUser = {}
 export declare type IsUserFollowing = {}
 export declare type FollowUser = {}
 export declare type UnfollowUser = {}
-export declare type GetUserGroups = {}
-export declare type GetGroup = {}
-export declare type GetGroupAllies = {}
-export declare type GetGroupEnemies = {}
-export declare type GetIncomingItems = {}
+export declare type GetUserGroups = {
+    id: number;
+    name: string;
+    emblemId: number | null;
+    emblemUrl: string | null;
+    role: {
+        rank: number;
+        name: string;
+    };
+    inClan: boolean;
+    primary: boolean;
+}[];
+export declare type GetGroup = {
+    name: string;
+    id: number;
+    owner: GroupMember;
+    emblemUrl: string;
+    description: string;
+    roles: GroupRole[];
+}
+export declare type GetGroupAllies = GetGroup[];
+export declare type GetGroupEnemies = GetGroup[];
+export declare type GetIncomingItems = {
+    unreadMessageCount: number;
+    friendRequestsCount: number;
+}
 export declare type GetProductInfo = {}
 export declare type GetGamePassInfo = {}
 export declare type UserOwnsAsset = {}
@@ -131,13 +155,20 @@ export default class GeneralAPI extends BaseAPI {
         this.client = client;
     }
 
-    getAssetVersions (options: GetAssetVersionOptions): Promise<GetAssetVersions> {
+    getAssetVersions (id: AnyIdentifier): Promise<AssetVersion[]> {
         return this.request({
             requiresAuth: true,
             request: {
-                path: `assets/${options.id}/versions`
-            }
-        });
+                path: `assets/${id}/versions`,
+                responseOptions: {
+                    allowedStatusCodes: [200]
+                }
+            },
+            json: true
+        }).then(response =>
+            // eslint-disable-next-line no-extra-parens
+            (response.body as any[]).map(assetVersionData => new AssetVersion(assetVersionData, this.client))
+        );
     }
 
     awardBadge (options: AwardBadgeOptions): Promise<AwardBadge> {
@@ -146,9 +177,12 @@ export default class GeneralAPI extends BaseAPI {
             request: {
                 path: "assets/award-badge",
                 method: "POST",
-                qs: options
+                qs: options,
+                responseOptions: {
+                    allowedStatusCodes: [200]
+                }
             }
-        });
+        }).then(() => true);
     }
 
     getBalance (): Promise<GetBalance> {
@@ -167,9 +201,22 @@ export default class GeneralAPI extends BaseAPI {
                 path: `users/${options.userId}/friends`,
                 qs: {
                     page: options.page
+                },
+                responseOptions: {
+                    allowedStatusCodes: [200]
                 }
-            }
-        }).then(response => response.body as GetUserFriends);
+            },
+            json: true
+        }).then(response =>
+            // eslint-disable-next-line no-extra-parens
+            (response.body as any[]).map(userFriendData => ({
+                id: userFriendData.Id,
+                avatarFinal: userFriendData.AvatarFinal,
+                username: userFriendData.Username,
+                online: userFriendData.IsOnline,
+                avatarUrl: userFriendData.AvatarUri
+            })) as GetUserFriends
+        );
     }
 
     acceptFriendRequest (options: AcceptFriendRequestOptions): Promise<AcceptFriendRequest> {
@@ -180,9 +227,12 @@ export default class GeneralAPI extends BaseAPI {
                 method: "POST",
                 qs: {
                     requesterUserId: options.userId
+                },
+                responseOptions: {
+                    allowedStatusCodes: [200]
                 }
             }
-        }).then(response => response.body as AcceptFriendRequest);
+        }).then(() => true as AcceptFriendRequest);
     }
 
     declineFriendRequest (options: DeclineFriendRequestOptions): Promise<DeclineFriendRequest> {
@@ -193,9 +243,12 @@ export default class GeneralAPI extends BaseAPI {
                 method: "POST",
                 qs: {
                     requesterUserId: options.userId
+                },
+                responseOptions: {
+                    allowedStatusCodes: [200]
                 }
             }
-        }).then(response => response.body as DeclineFriendRequest);
+        }).then(() => true as DeclineFriendRequest);
     }
 
     sendFriendRequest (options: SendFriendRequestOptions): Promise<SendFriendRequest> {
@@ -206,9 +259,12 @@ export default class GeneralAPI extends BaseAPI {
                 method: "POST",
                 qs: {
                     recipientUserId: options.userId
+                },
+                responseOptions: {
+                    allowedStatusCodes: [200]
                 }
             }
-        }).then(response => response.body as SendFriendRequest);
+        }).then(() => true as SendFriendRequest);
     }
 
     getUserFriendsCount (options: GetUserFriendsCountOptions): Promise<GetUserFriends> {
@@ -216,9 +272,16 @@ export default class GeneralAPI extends BaseAPI {
             requiresAuth: false,
             request: {
                 path: "user/get-friendship-count",
-                qs: options
-            }
-        }).then(response => response.body as GetUserFriends);
+                qs: options,
+                responseOptions: {
+                    allowedStatusCodes: [200]
+                }
+            },
+            json: true
+        }).then(response =>
+            // eslint-disable-next-line no-extra-parens
+            (response.body as any).count as GetUserFriends
+        );
     }
 
     unfriendUser (options: UnfriendUserOptions): Promise<UnfriendUser> {
@@ -229,9 +292,12 @@ export default class GeneralAPI extends BaseAPI {
                 method: "POST",
                 qs: {
                     friendUserId: options.userId
+                },
+                responseOptions: {
+                    allowedStatusCodes: [200]
                 }
             }
-        }).then(response => response.body as UnfriendUser);
+        }).then(() => true as UnfriendUser);
     }
 
     isUserFollowing (options: IsUserFollowingOptions): Promise<IsUserFollowing> {
@@ -239,9 +305,12 @@ export default class GeneralAPI extends BaseAPI {
             requiresAuth: false,
             request: {
                 path: "user/following-exists",
-                qs: options
+                qs: options,
+                responseOptions: {
+                    allowedStatusCodes: [200]
+                }
             }
-        }).then(response => response.body as IsUserFollowing);
+        }).then(response => (response.body as any).isFollowing as IsUserFollowing);
     }
 
     followUser (options: FollowUserOptions): Promise<FollowUser> {
@@ -252,9 +321,12 @@ export default class GeneralAPI extends BaseAPI {
                 method: "POST",
                 qs: {
                     followedUserId: options.userId
+                },
+                responseOptions: {
+                    allowedStatusCodes: [200]
                 }
             }
-        }).then(response => response.body as FollowUser);
+        }).then(() => true as FollowUser);
     }
 
     unfollowUser (options: UnfollowUserOptions): Promise<UnfollowUser> {
@@ -265,9 +337,12 @@ export default class GeneralAPI extends BaseAPI {
                 method: "POST",
                 qs: {
                     followedUserId: options.userId
+                },
+                responseOptions: {
+                    allowedStatusCodes: [200]
                 }
             }
-        }).then(response => response.body as UnfollowUser);
+        }).then(() => true as UnfollowUser);
     }
 
     getUserGroups (options: GetUserGroupsOptions): Promise<GetUserGroups> {
@@ -276,16 +351,51 @@ export default class GeneralAPI extends BaseAPI {
             request: {
                 path: `users/${options.userId}/groups`
             }
-        }).then(response => response.body as GetUserGroups);
+        }).then(response => (response.body as any[]).map(userGroupData => ({
+            id: userGroupData.Id,
+            name: userGroupData.Name,
+            emblemId: userGroupData.EmblemId,
+            emblemUrl: userGroupData.EmblemUrl,
+            role: {
+                rank: userGroupData.Rank,
+                name: userGroupData.Role
+            },
+            inClan: userGroupData.IsInClan,
+            primary: userGroupData.IsPrimary
+        })) as GetUserGroups);
     }
 
     getGroup (options: GetGroupOptions): Promise<GetGroup> {
         return this.request({
             requiresAuth: false,
             request: {
-                path: `groups/${options.groupId}`
-            }
-        }).then(response => response.body as GetGroup);
+                path: `groups/${options.groupId}`,
+                responseOptions: {
+                    allowedStatusCodes: [200]
+                }
+            },
+            json: true
+        }).then((response: { body: any }) => ({
+            id: response.body.Id,
+            name: response.body.Name,
+            description: response.body.Description,
+            emblemUrl: response.body.EmblemUrl,
+            owner: new GroupMember({
+                id: response.body.Owner.Id,
+                name: response.body.Owner.Name,
+                group: {
+                    id: response.body.Id,
+                    name: response.body.Name
+                }
+            }, this.client),
+            roles: response.body.Roles.map((roleData: any) => new GroupRole({
+                rank: roleData.Rank,
+                name: roleData.Name,
+                group: {
+                    id: response.body.Id
+                }
+            }, this.client))
+        }) as GetGroup);
     }
 
     getGroupAllies (options: GetGroupAlliesOptions): Promise<GetGroupAllies> {
@@ -295,9 +405,33 @@ export default class GeneralAPI extends BaseAPI {
                 path: `groups/${options.groupId}/allies`,
                 qs: {
                     page: options.page
+                },
+                responseOptions: {
+                    allowedStatusCodes: [200]
                 }
-            }
-        }).then(response => response.body as GetGroupAllies);
+            },
+            json: true
+        }).then((response: { body: any }) => response.body.map((groupData: any) => ({
+            id: groupData.Id,
+            name: groupData.Name,
+            description: groupData.Description,
+            emblemUrl: groupData.EmblemUrl,
+            owner: new GroupMember({
+                id: groupData.Owner.Id,
+                name: groupData.Owner.Name,
+                group: {
+                    id: groupData.Id,
+                    name: groupData.Name
+                }
+            }, this.client),
+            roles: groupData.Roles.map((roleData: any) => new GroupRole({
+                rank: roleData.Rank,
+                name: roleData.Name,
+                group: {
+                    id: groupData.Id
+                }
+            }, this.client))
+        }) as GetGroup) as GetGroupAllies);
     }
 
     getGroupEnemies (options: GetGroupEnemiesOptions): Promise<GetGroupEnemies> {
@@ -307,18 +441,49 @@ export default class GeneralAPI extends BaseAPI {
                 path: `groups/${options.groupId}/enemies`,
                 qs: {
                     page: options.page
+                },
+                responseOptions: {
+                    allowedStatusCodes: [200]
                 }
-            }
-        }).then(response => response.body as GetGroupEnemies);
+            },
+            json: true
+        }).then((response: { body: any }) => response.body.map((groupData: any) => ({
+            id: groupData.Id,
+            name: groupData.Name,
+            description: groupData.Description,
+            emblemUrl: groupData.EmblemUrl,
+            owner: new GroupMember({
+                id: groupData.Owner.Id,
+                name: groupData.Owner.Name,
+                group: {
+                    id: groupData.Id,
+                    name: groupData.Name
+                }
+            }, this.client),
+            roles: groupData.Roles.map((roleData: any) => new GroupRole({
+                rank: roleData.Rank,
+                name: roleData.Name,
+                group: {
+                    id: groupData.Id
+                }
+            }, this.client))
+        }) as GetGroup) as GetGroupEnemies);
     }
 
     getIncomingItems (): Promise<GetIncomingItems> {
         return this.request({
             requiresAuth: true,
             request: {
-                path: "incoming-items/counts"
-            }
-        }).then(response => response.body as GetIncomingItems);
+                path: "incoming-items/counts",
+                responseOptions: {
+                    allowedStatusCodes: [200]
+                }
+            },
+            json: true
+        }).then((response: any) => ({
+            friendRequestsCount: response.body.friendRequestsCount,
+            unreadMessageCount: response.body.unreadMessageCount
+        }) as GetIncomingItems);
     }
 
     getProductInfo (options: GetProductInfoOptions): Promise<GetProductInfo> {

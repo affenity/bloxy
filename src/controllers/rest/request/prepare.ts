@@ -1,5 +1,5 @@
 import { RESTRequestOptions } from "../../../interfaces/RESTInterfaces";
-import RESTRequest from "../Request";
+import RESTRequest from "./";
 import querystring from "querystring";
 
 
