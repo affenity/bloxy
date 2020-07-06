@@ -34,11 +34,11 @@ export declare type GetUserBirthdate = {
     birthDay: number;
     birthYear: number;
 };
-export declare type UpdateUserBirthdate = {};
+export declare type UpdateUserBirthdate = boolean;
 export declare type GetUserDescription = {
     description: string;
 };
-export declare type UpdateUserDescription = {}
+export declare type UpdateUserDescription = boolean;
 export declare type GetUserGender = {
     gender: number;
 }
@@ -64,9 +64,7 @@ export declare type GetStarCodeAffiliate = {
     name: string;
     code: string;
 }
-export declare type AddStarCodeAffiliate = {
-    code: string;
-};
+export declare type AddStarCodeAffiliate = GetStarCodeAffiliate;
 
 export default class AccountInformationAPI extends BaseAPI {
     public client: Client;
@@ -94,16 +92,22 @@ export default class AccountInformationAPI extends BaseAPI {
             request: {
                 path: "v1/birthdate",
                 method: "POST",
-                json: options
+                json: options,
+                responseOptions: {
+                    allowedStatusCodes: [200]
+                }
             }
-        }).then(response => response.body as {});
+        }).then(() => true as UpdateUserBirthdate);
     }
 
     getUserDescription (): Promise<GetUserDescription> {
         return this.request({
             requiresAuth: true,
             request: {
-                path: "v1/description"
+                path: "v1/description",
+                responseOptions: {
+                    allowedStatusCodes: [200]
+                }
             }
         }).then(response => response.body as GetUserDescription);
     }
@@ -114,17 +118,24 @@ export default class AccountInformationAPI extends BaseAPI {
             request: {
                 path: "v1/description",
                 method: "POST",
-                json: options
+                json: options,
+                responseOptions: {
+                    allowedStatusCodes: [200]
+                }
             }
-        }).then(response => response.body as UpdateUserDescription);
+        }).then(() => true as UpdateUserDescription);
     }
 
     getUserGender (): Promise<GetUserGender> {
         return this.request({
             requiresAuth: true,
             request: {
-                path: "v1/gender"
-            }
+                path: "v1/gender",
+                responseOptions: {
+                    allowedStatusCodes: [200]
+                }
+            },
+            json: true
         }).then(response => response.body as GetUserGender);
     }
 
@@ -136,15 +147,19 @@ export default class AccountInformationAPI extends BaseAPI {
                 method: "POST",
                 json: options
             }
-        }).then(response => response.body as UpdateUserGender);
+        }).then(() => true as UpdateUserGender);
     }
 
     getConsecutiveXboxLoginDays (): Promise<GetConsecutiveXboxLoginDays> {
         return this.request({
             requiresAuth: true,
             request: {
-                path: "v1/xbox-live/consecutive-login-days"
-            }
+                path: "v1/xbox-live/consecutive-login-days",
+                responseOptions: {
+                    allowedStatusCodes: [200]
+                }
+            },
+            json: true
         }).then(response => response.body as GetConsecutiveXboxLoginDays);
     }
 
@@ -152,8 +167,12 @@ export default class AccountInformationAPI extends BaseAPI {
         return this.request({
             requiresAuth: false,
             request: {
-                path: "v1/metadata"
-            }
+                path: "v1/metadata",
+                responseOptions: {
+                    allowedStatusCodes: [200]
+                }
+            },
+            json: true
         }).then(response => response.body as GetMetaData);
     }
 
@@ -161,8 +180,12 @@ export default class AccountInformationAPI extends BaseAPI {
         return this.request({
             requiresAuth: true,
             request: {
-                path: "v1/phone"
-            }
+                path: "v1/phone",
+                responseOptions: {
+                    allowedStatusCodes: [200]
+                }
+            },
+            json: true
         }).then(response => response.body as GetVerifiedPhoneNumber);
     }
 
@@ -174,7 +197,7 @@ export default class AccountInformationAPI extends BaseAPI {
                 method: "POST",
                 json: options
             }
-        }).then(response => response.body as SetPhoneNumber);
+        }).then(() => true as SetPhoneNumber);
     }
 
     deletePhone (options: DeletePhoneOptions): Promise<DeletePhone> {
@@ -183,9 +206,12 @@ export default class AccountInformationAPI extends BaseAPI {
             request: {
                 path: "v1/phone/delete",
                 method: "POST",
-                json: options
+                json: options,
+                responseOptions: {
+                    allowedStatusCodes: [200]
+                }
             }
-        }).then(response => response.body as DeletePhone);
+        }).then(() => true as DeletePhone);
     }
 
     resendPhoneCode (options: ResendPhoneCodeOptions): Promise<ResendPhoneCode> {
@@ -194,9 +220,12 @@ export default class AccountInformationAPI extends BaseAPI {
             request: {
                 path: "v1/phone/resend",
                 method: "POST",
-                json: options
+                json: options,
+                responseOptions: {
+                    allowedStatusCodes: [200]
+                }
             }
-        }).then(response => response.body as ResendPhoneCode);
+        }).then(() => true as ResendPhoneCode);
     }
 
     verifyPhone (options: VerifyPhoneOptions): Promise<VerifyPhone> {
@@ -205,17 +234,24 @@ export default class AccountInformationAPI extends BaseAPI {
             request: {
                 path: "v1/phone/verify",
                 method: "POST",
-                json: options
+                json: options,
+                responseOptions: {
+                    allowedStatusCodes: [200]
+                }
             }
-        }).then(response => response.body as VerifyPhone);
+        }).then(() => true as VerifyPhone);
     }
 
     getUserPromotionChannels (): Promise<GetUserPromotionChannels> {
         return this.request({
             requiresAuth: true,
             request: {
-                path: "v1/promotion-channels"
-            }
+                path: "v1/promotion-channels",
+                responseOptions: {
+                    allowedStatusCodes: [200]
+                }
+            },
+            json: true
         }).then(response => response.body as GetUserPromotionChannels);
     }
 
@@ -225,9 +261,12 @@ export default class AccountInformationAPI extends BaseAPI {
             request: {
                 path: "v1/promotion-channels",
                 method: "POST",
-                json: options
+                json: options,
+                responseOptions: {
+                    allowedStatusCodes: [200]
+                }
             }
-        }).then(response => response.body as UpdateUserPromotionChannels);
+        }).then(() => true as UpdateUserPromotionChannels);
     }
 
     removeStarCodeAffiliate (): Promise<RemoveStarCodeAffiliate> {
@@ -235,17 +274,24 @@ export default class AccountInformationAPI extends BaseAPI {
             requiresAuth: true,
             request: {
                 path: "v1/star-code-affiliates",
-                method: "DELETE"
+                method: "DELETE",
+                responseOptions: {
+                    allowedStatusCodes: [200]
+                }
             }
-        }).then(response => response.body as RemoveStarCodeAffiliate);
+        }).then(() => true as RemoveStarCodeAffiliate);
     }
 
     getStarCodeAffiliate (): Promise<GetStarCodeAffiliate> {
         return this.request({
             requiresAuth: true,
             request: {
-                path: "v1/star-code-affiliates"
-            }
+                path: "v1/star-code-affiliates",
+                responseOptions: {
+                    allowedStatusCodes: [200]
+                }
+            },
+            json: true
         }).then(response => response.body as GetStarCodeAffiliate);
     }
 
@@ -255,8 +301,12 @@ export default class AccountInformationAPI extends BaseAPI {
             request: {
                 path: "v1/star-code-affiliates",
                 method: "POST",
-                json: options
-            }
+                json: options,
+                responseOptions: {
+                    allowedStatusCodes: [200]
+                }
+            },
+            json: true
         }).then(response => response.body as AddStarCodeAffiliate);
     }
 }
