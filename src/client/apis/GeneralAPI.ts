@@ -4,13 +4,10 @@ import Client from "../Client";
 import { AssetVersion } from "../../structures/asset/AssetVersion";
 import GroupMember from "../../structures/group/GroupMember";
 import GroupRole from "../../structures/group/GroupRole";
+import Product, { ProductOptions } from "../../structures/asset/Product";
 
 
-export declare type GetAssetVersionOptions = {
-    id: number;
-    page: number;
-    placeId: number;
-}
+export declare type GetAssetVersionOptions = AnyIdentifier;
 export declare type AwardBadgeOptions = {
     userId: AnyIdentifier;
     badgeId: AnyIdentifier;
@@ -62,7 +59,7 @@ export declare type GetGroupEnemiesOptions = {
 export declare type GetProductInfoOptions = {
     assetId: AnyIdentifier;
 }
-export declare type GetGamePassInfoOptions = {
+export declare type GetGamePassProductInfoOptions = {
     gamePassId: AnyIdentifier;
 }
 export declare type UserOwnsAssetOptions = {
@@ -86,7 +83,7 @@ export declare type GetUserByIdOptions = {
     userId: AnyIdentifier;
 }
 
-export declare type GetAssetVersions = {}
+export declare type GetAssetVersions = AssetVersion[];
 export declare type AwardBadge = boolean;
 export declare type GetBalance = {
     robux: number;
@@ -102,12 +99,12 @@ export declare type AcceptFriendRequest = boolean;
 
 export declare type DeclineFriendRequest = boolean;
 
-export declare type SendFriendRequest = {}
-export declare type GetUserFriendsCount = {}
-export declare type UnfriendUser = {}
-export declare type IsUserFollowing = {}
-export declare type FollowUser = {}
-export declare type UnfollowUser = {}
+export declare type SendFriendRequest = boolean;
+export declare type GetUserFriendsCount = number;
+export declare type UnfriendUser = boolean;
+export declare type IsUserFollowing = boolean;
+export declare type FollowUser = boolean;
+export declare type UnfollowUser = boolean;
 export declare type GetUserGroups = {
     id: number;
     name: string;
@@ -134,15 +131,22 @@ export declare type GetIncomingItems = {
     unreadMessageCount: number;
     friendRequestsCount: number;
 }
-export declare type GetProductInfo = {}
-export declare type GetGamePassInfo = {}
-export declare type UserOwnsAsset = {}
-export declare type GetDeviceInfo = {}
-export declare type BlockUser = {}
-export declare type UnblockUser = {}
-export declare type GetUserByUsername = {}
-export declare type UserCanManageAsset = {}
-export declare type GetUserById = {};
+export declare type GetProductInfo = Product;
+export declare type GetGamePassProductInfo = Product;
+export declare type UserOwnsAsset = boolean;
+export declare type GetDeviceInfo = {
+    platformType: string;
+    deviceType: string;
+    operatingSystemType: string;
+}
+export declare type BlockUser = boolean;
+export declare type UnblockUser = boolean;
+export declare type GetUserById = {
+    id: number;
+    name: string;
+};
+export declare type GetUserByUsername = GetUserById;
+export declare type UserCanManageAsset = boolean;
 
 export default class GeneralAPI extends BaseAPI {
     public client: Client;
@@ -155,11 +159,11 @@ export default class GeneralAPI extends BaseAPI {
         this.client = client;
     }
 
-    getAssetVersions (id: AnyIdentifier): Promise<AssetVersion[]> {
+    getAssetVersions (options: GetAssetVersionOptions): Promise<GetAssetVersions> {
         return this.request({
             requiresAuth: true,
             request: {
-                path: `assets/${id}/versions`,
+                path: `assets/${options}/versions`,
                 responseOptions: {
                     allowedStatusCodes: [200]
                 }
@@ -194,7 +198,7 @@ export default class GeneralAPI extends BaseAPI {
         }).then(response => response.body as GetBalance);
     }
 
-    getUserFriends (options: GetUserFriendsOptions): Promise<GetUserFriendsCount> {
+    getUserFriends (options: GetUserFriendsOptions): Promise<GetUserFriends> {
         return this.request({
             requiresAuth: false,
             request: {
@@ -267,7 +271,7 @@ export default class GeneralAPI extends BaseAPI {
         }).then(() => true as SendFriendRequest);
     }
 
-    getUserFriendsCount (options: GetUserFriendsCountOptions): Promise<GetUserFriends> {
+    getUserFriendsCount (options: GetUserFriendsCountOptions): Promise<GetUserFriendsCount> {
         return this.request({
             requiresAuth: false,
             request: {
@@ -280,7 +284,7 @@ export default class GeneralAPI extends BaseAPI {
             json: true
         }).then(response =>
             // eslint-disable-next-line no-extra-parens
-            (response.body as any).count as GetUserFriends
+            (response.body as any).count as GetUserFriendsCount
         );
     }
 
@@ -349,7 +353,10 @@ export default class GeneralAPI extends BaseAPI {
         return this.request({
             requiresAuth: false,
             request: {
-                path: `users/${options.userId}/groups`
+                path: `users/${options.userId}/groups`,
+                responseOptions: {
+                    allowedStatusCodes: [200]
+                }
             }
         }).then(response => (response.body as any[]).map(userGroupData => ({
             id: userGroupData.Id,
@@ -488,22 +495,30 @@ export default class GeneralAPI extends BaseAPI {
 
     getProductInfo (options: GetProductInfoOptions): Promise<GetProductInfo> {
         return this.request({
-            requiresAuth: true,
+            requiresAuth: false,
             request: {
                 path: "marketplace/productinfo",
-                qs: options
-            }
-        }).then(response => response.body as GetProductInfo);
+                qs: options,
+                responseOptions: {
+                    allowedStatusCodes: [200]
+                }
+            },
+            json: true
+        }).then(response => new Product(response.body as ProductOptions, this.client) as GetProductInfo);
     }
 
-    getGamePassInfo (options: GetGamePassInfoOptions): Promise<GetGamePassInfo> {
+    getGamePassProductInfo (options: GetGamePassProductInfoOptions): Promise<GetGamePassProductInfo> {
         return this.request({
-            requiresAuth: true,
+            requiresAuth: false,
             request: {
                 path: "marketplace/game-pass-product-info",
-                qs: options
-            }
-        }).then(response => response.body as GetGamePassInfo);
+                qs: options,
+                responseOptions: {
+                    allowedStatusCodes: [200]
+                }
+            },
+            json: true
+        }).then(response => new Product(response.body as ProductOptions, this.client) as GetGamePassProductInfo);
     }
 
     userOwnsAsset (options: UserOwnsAssetOptions): Promise<UserOwnsAsset> {
@@ -511,18 +526,28 @@ export default class GeneralAPI extends BaseAPI {
             requiresAuth: false,
             request: {
                 path: "ownership/hasasset",
-                qs: options
+                qs: options,
+                responseOptions: {
+                    allowedStatusCodes: [200]
+                }
             }
-        }).then(response => response.body as UserOwnsAsset);
+        }).then(response => (response.body as string).includes("true") as UserOwnsAsset);
     }
 
     getDeviceInfo (): Promise<GetDeviceInfo> {
         return this.request({
             requiresAuth: false,
             request: {
-                path: "reference/deviceinfo"
+                path: "reference/deviceinfo",
+                responseOptions: {
+                    allowedStatusCodes: [200]
+                }
             }
-        }).then(response => response.body as GetDeviceInfo);
+        }).then((response: { body: any }) => ({
+            deviceType: response.body.DeviceType,
+            operatingSystemType: response.body.OperationSystemType,
+            platformType: response.body.PlatformType
+        }) as GetDeviceInfo);
     }
 
     blockUser (options: BlockUserOptions): Promise<BlockUser> {
@@ -531,9 +556,13 @@ export default class GeneralAPI extends BaseAPI {
             request: {
                 path: "userblock/block",
                 qs: options,
-                method: "POST"
-            }
-        }).then(response => response.body as BlockUser);
+                method: "POST",
+                responseOptions: {
+                    allowedStatusCodes: [200]
+                }
+            },
+            json: true
+        }).then((response: { body: any }) => response.body.success === true as BlockUser);
     }
 
     unblockUser (options: UnblockUserOptions): Promise<UnblockUser> {
@@ -542,36 +571,58 @@ export default class GeneralAPI extends BaseAPI {
             request: {
                 path: "userblock/unblock",
                 qs: options,
-                method: "POST"
-            }
-        }).then(response => response.body as UnblockUser);
-    }
-
-    getUserByUsername (options: GetUserByUsernameOptions): Promise<GetUserByUsername> {
-        return this.request({
-            requiresAuth: true,
-            request: {
-                path: "users/get-by-username",
-                qs: options
-            }
-        }).then(response => response.body as GetUserByUsername);
-    }
-
-    userCanManageAsset (options: UserCanManageAssetOptions): Promise<UserCanManageAsset> {
-        return this.request({
-            requiresAuth: false,
-            request: {
-                path: `users/${options.userId}/canmanage/${options.assetId}`
-            }
-        }).then(response => response.body as UserCanManageAsset);
+                method: "POST",
+                responseOptions: {
+                    allowedStatusCodes: [200]
+                }
+            },
+            json: true
+        }).then((response: { body: any }) => response.body.success === true as UnblockUser);
     }
 
     getUserById (options: GetUserByIdOptions): Promise<GetUserById> {
         return this.request({
             requiresAuth: false,
             request: {
-                path: `users/${options.userId}`
-            }
-        }).then(response => response.body as GetUserById);
+                path: `users/${options.userId}`,
+                responseOptions: {
+                    allowedStatusCodes: [200]
+                }
+            },
+            json: true
+        }).then((response: { body: any }) => ({
+            id: response.body.Id,
+            name: response.body.Username
+        }) as GetUserById);
+    }
+
+    getUserByUsername (options: GetUserByUsernameOptions): Promise<GetUserByUsername> {
+        return this.request({
+            requiresAuth: false,
+            request: {
+                path: "users/get-by-username",
+                qs: options,
+                responseOptions: {
+                    allowedStatusCodes: [200]
+                }
+            },
+            json: true
+        }).then((response: { body: any }) => ({
+            id: response.body.Id,
+            name: response.body.Username
+        }) as GetUserByUsername);
+    }
+
+    userCanManageAsset (options: UserCanManageAssetOptions): Promise<UserCanManageAsset> {
+        return this.request({
+            requiresAuth: false,
+            request: {
+                path: `users/${options.userId}/canmanage/${options.assetId}`,
+                responseOptions: {
+                    allowedStatusCodes: [200]
+                }
+            },
+            json: true
+        }).then((response: { body: any }) => response.body.CanManage === true as UserCanManageAsset);
     }
 }
