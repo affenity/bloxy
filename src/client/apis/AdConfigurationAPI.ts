@@ -8,11 +8,11 @@ export declare type GetSponsoredGamesOptions = {
     count?: number;
 };
 
-export declare type CreateAdOptions = {};
-export declare type RunAdOptions = {};
-export declare type StopAdOptions = {};
+export declare type CreateAdOptions = unknown;
+export declare type RunAdOptions = unknown;
+export declare type StopAdOptions = unknown;
 
-export declare type CreateAdMetaData = {
+export declare type GetCreateAdMetaData = {
     universeId: number;
     universeCreatorType: string;
     universeCreatorTargetId: number;
@@ -44,9 +44,9 @@ export declare type GetSponsoredGames = {
     isErroneous: boolean;
     minimumBidAmount: number;
 }
-export declare type CreateAd = {};
-export declare type RunAd = {};
-export declare type StopAd = {};
+export declare type CreateAd = unknown;
+export declare type RunAd = unknown;
+export declare type StopAd = unknown;
 
 export default class AdConfigurationAPI extends BaseAPI {
     public client: Client;
@@ -59,13 +59,13 @@ export default class AdConfigurationAPI extends BaseAPI {
         this.client = client;
     }
 
-    getCreateAdMetaData (): Promise<CreateAdMetaData> {
+    getCreateAdMetaData (): Promise<GetCreateAdMetaData> {
         return this.request({
             requiresAuth: false,
             request: {
                 path: "/v1/sponsored-games/create-ad/metadata"
             }
-        }).then(response => response.body as CreateAdMetaData);
+        }).then(response => response.body as GetCreateAdMetaData);
     }
 
     getSponsoredGames (options: GetSponsoredGamesOptions): Promise<GetSponsoredGames> {
@@ -88,9 +88,9 @@ export default class AdConfigurationAPI extends BaseAPI {
             request: {
                 path: "/v1/sponsored-games/create-ad",
                 method: "POST",
-                json: options
+                json: options as any
             }
-        }).then(response => response.body as CreateAd);
+        }).then((response: { body: any }) => response.body as CreateAd);
     }
 
     runAd (options: RunAdOptions): Promise<RunAd> {
@@ -99,9 +99,9 @@ export default class AdConfigurationAPI extends BaseAPI {
             request: {
                 path: "/v1/sponsored-games/run",
                 method: "POST",
-                json: options
+                json: options as any
             }
-        }).then(response => response.body as RunAd);
+        }).then((response: { body: any }) => response.body as RunAd);
     }
 
     stopAd (options: StopAdOptions): Promise<StopAd> {
@@ -110,8 +110,8 @@ export default class AdConfigurationAPI extends BaseAPI {
             request: {
                 path: "/v1/sponsored-games/stop",
                 method: "POST",
-                json: options
+                json: options as any
             }
-        }).then(response => response.body as StopAd);
+        }).then((response: { body: any }) => response.body as StopAd);
     }
 }

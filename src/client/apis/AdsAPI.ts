@@ -9,12 +9,12 @@ export declare type CreateAssetAdOptions = {
     file: unknown;
 };
 export declare type CreateGamePassAdOptions = {
-    assetId: AnyIdentifier;
+    gamePassId: AnyIdentifier;
     name: string;
     file: unknown;
 };
 export declare type CreateGroupAdOptions = {
-    assetId: AnyIdentifier;
+    groupId: AnyIdentifier;
     name: string;
     file: unknown;
 };
@@ -44,6 +44,9 @@ export default class AdsAPI extends BaseAPI {
                 formData: {
                     name: options.name,
                     files: options.file
+                },
+                qs: {
+                    assetId: options.assetId
                 }
             }
         }).then(response => response.body as CreateAssetAd);
@@ -53,11 +56,14 @@ export default class AdsAPI extends BaseAPI {
         return this.request({
             requiresAuth: true,
             request: {
-                path: "v1/user-ads/assets/create",
+                path: "v1/user-ads/game-pass/create",
                 method: "POST",
                 formData: {
                     name: options.name,
                     files: options.file
+                },
+                qs: {
+                    gamePassId: options.gamePassId
                 }
             }
         }).then(response => response.body as CreateGamePassAd);
@@ -67,11 +73,14 @@ export default class AdsAPI extends BaseAPI {
         return this.request({
             requiresAuth: true,
             request: {
-                path: "v1/user-ads/assets/create",
+                path: "v1/user-ads/groups/create",
                 method: "POST",
                 formData: {
                     name: options.name,
                     files: options.file
+                },
+                qs: {
+                    groupId: options.groupId
                 }
             }
         }).then(response => response.body as CreateAssetAd);
