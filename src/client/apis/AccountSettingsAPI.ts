@@ -407,7 +407,7 @@ export default class AccountSettingsAPI extends BaseAPI {
             request: {
                 path: "v1/email",
                 responseOptions: {
-                    allowedStatusCodes: [20]
+                    allowedStatusCodes: [200]
                 },
                 json: options
             },
@@ -421,7 +421,7 @@ export default class AccountSettingsAPI extends BaseAPI {
             request: {
                 path: "v1/trade-value",
                 responseOptions: {
-                    allowedStatusCodes: [20]
+                    allowedStatusCodes: [200]
                 }
             },
             json: true
@@ -435,7 +435,7 @@ export default class AccountSettingsAPI extends BaseAPI {
                 path: "v1/email",
                 method: "POST",
                 responseOptions: {
-                    allowedStatusCodes: [20]
+                    allowedStatusCodes: [200]
                 },
                 json: options
             },
@@ -449,7 +449,7 @@ export default class AccountSettingsAPI extends BaseAPI {
             request: {
                 path: "v1/twostepverification",
                 responseOptions: {
-                    allowedStatusCodes: [20]
+                    allowedStatusCodes: [200]
                 }
             },
             json: true
@@ -463,7 +463,7 @@ export default class AccountSettingsAPI extends BaseAPI {
                 path: "v1/email",
                 method: "PATCH",
                 responseOptions: {
-                    allowedStatusCodes: [20]
+                    allowedStatusCodes: [200]
                 },
                 json: options
             },
@@ -477,7 +477,7 @@ export default class AccountSettingsAPI extends BaseAPI {
             request: {
                 path: "v1/user/screens/contact-upsell",
                 responseOptions: {
-                    allowedStatusCodes: [20]
+                    allowedStatusCodes: [200]
                 }
             },
             json: true
@@ -490,7 +490,7 @@ export default class AccountSettingsAPI extends BaseAPI {
             request: {
                 path: "v1/user/screens/contact-upsell/suppress",
                 responseOptions: {
-                    allowedStatusCodes: [20]
+                    allowedStatusCodes: [200]
                 },
                 json: options
             },
@@ -504,7 +504,7 @@ export default class AccountSettingsAPI extends BaseAPI {
             request: {
                 path: "v1/xbox/is-username-valid",
                 responseOptions: {
-                    allowedStatusCodes: [20]
+                    allowedStatusCodes: [200]
                 },
                 qs: {
                     Authorization: options.authorization,
@@ -523,7 +523,7 @@ export default class AccountSettingsAPI extends BaseAPI {
                 path: "v1/promotion-channels",
                 method: "POST",
                 responseOptions: {
-                    allowedStatusCodes: [20]
+                    allowedStatusCodes: [200]
                 },
                 json: options
             },
