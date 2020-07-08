@@ -2,6 +2,7 @@ import PartialUser from "../user/PartialUser";
 import PartialGroup from "../group/PartialGroup";
 import { CreatorType } from "../../util/constants";
 import Client from "../../client";
+import { ProductDetails } from "../../client/apis/CatalogAPI";
 
 
 export interface BundleOptions {
@@ -20,17 +21,7 @@ export interface BundleOptions {
         name: string;
         type: string;
     };
-    product: {
-        id: number;
-        type: string;
-        isPublicDomain: boolean;
-        isForSale: boolean;
-        priceInRobux: number;
-        premiumPricing: {
-            premiumDiscountPercentage: number;
-            premiumPriceInRobux: number;
-        };
-    };
+    product: ProductDetails;
 }
 
 export default class Bundle {
