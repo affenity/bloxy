@@ -25,7 +25,10 @@ export default class CaptchaAPI extends BaseAPI {
         return this.request({
             requiresAuth: false,
             request: {
-                path: `v1/captcha/metadata`
+                path: `v1/captcha/metadata`,
+                responseOptions: {
+                    allowedStatusCodes: [200]
+                }
             },
             json: true
         }).then((response: { body: any }) => response.body);
@@ -35,7 +38,10 @@ export default class CaptchaAPI extends BaseAPI {
         return this.request({
             requiresAuth: false,
             request: {
-                path: `v1/language-resources`
+                path: `v1/language-resources`,
+                responseOptions: {
+                    allowedStatusCodes: [200]
+                }
             },
             json: true
         }).then((response: { body: any }) => response.body);

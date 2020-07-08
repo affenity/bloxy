@@ -64,7 +64,10 @@ export default class AvatarAPI extends BaseAPI {
         return this.request({
             requiresAuth: false,
             request: {
-                path: `v1/badges/${options.badgeId}`
+                path: `v1/badges/${options.badgeId}`,
+                responseOptions: {
+                    allowedStatusCodes: [200]
+                }
             },
             json: true
         }).then((response: { body: any }) => response.body);
@@ -75,7 +78,10 @@ export default class AvatarAPI extends BaseAPI {
             requiresAuth: false,
             request: {
                 path: `v1/badges/${options.id}`,
-                method: "PATCH"
+                method: "PATCH",
+                responseOptions: {
+                    allowedStatusCodes: [200]
+                }
             },
             json: true
         }).then((response: { body: any }) => response.body);
@@ -86,7 +92,10 @@ export default class AvatarAPI extends BaseAPI {
             requiresAuth: false,
             request: {
                 path: `v1/universes/${options.universeId}/badges`,
-                qs: options
+                qs: options,
+                responseOptions: {
+                    allowedStatusCodes: [200]
+                }
             },
             json: true
         }).then((response: { body: any }) => response.body);
@@ -97,7 +106,10 @@ export default class AvatarAPI extends BaseAPI {
             requiresAuth: false,
             request: {
                 path: `v1/users/${options.userId}/badges`,
-                qs: options
+                qs: options,
+                responseOptions: {
+                    allowedStatusCodes: [200]
+                }
             },
             json: true
         }).then((response: { body: any }) => response.body);
@@ -110,6 +122,9 @@ export default class AvatarAPI extends BaseAPI {
                 path: `v1/users/${options.userId}/badges/awarded-dates`,
                 qs: {
                     badgeIds: options.badgeIds.join(",")
+                },
+                responseOptions: {
+                    allowedStatusCodes: [200]
                 }
             },
             json: true
@@ -121,7 +136,10 @@ export default class AvatarAPI extends BaseAPI {
             requiresAuth: false,
             request: {
                 path: `v1/user/${options.userId}/badges/${options.badgeId}`,
-                method: "DELETE"
+                method: "DELETE",
+                responseOptions: {
+                    allowedStatusCodes: [200]
+                }
             },
             json: true
         }).then((response: { body: any }) => response.body);
@@ -132,7 +150,10 @@ export default class AvatarAPI extends BaseAPI {
             requiresAuth: false,
             request: {
                 path: `v1/user/badges/${options.badgeId}`,
-                method: "DELETE"
+                method: "DELETE",
+                responseOptions: {
+                    allowedStatusCodes: [200]
+                }
             },
             json: true
         }).then((response: { body: any }) => response.body);

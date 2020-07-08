@@ -223,7 +223,10 @@ export default class AvatarAPI extends BaseAPI {
         return this.request({
             requiresAuth: true,
             request: {
-                path: "v1/avatar"
+                path: "v1/avatar",
+                responseOptions: {
+                    allowedStatusCodes: [200]
+                }
             },
             json: true
         }).then((response: { body: any }) => response.body);
@@ -233,7 +236,10 @@ export default class AvatarAPI extends BaseAPI {
         return this.request({
             requiresAuth: false,
             request: {
-                path: "v1/avatar/metadata"
+                path: "v1/avatar/metadata",
+                responseOptions: {
+                    allowedStatusCodes: [200]
+                }
             },
             json: true
         }).then((response: { body: any }) => response.body);
@@ -243,7 +249,10 @@ export default class AvatarAPI extends BaseAPI {
         return this.request({
             requiresAuth: true,
             request: {
-                path: "v1/avatar-rules"
+                path: "v1/avatar-rules",
+                responseOptions: {
+                    allowedStatusCodes: [200]
+                }
             },
             json: true
         }).then((response: { body: any }) => response.body);
@@ -253,7 +262,10 @@ export default class AvatarAPI extends BaseAPI {
         return this.request({
             requiresAuth: true,
             request: {
-                path: `v1/users/${options.userId}/avatar`
+                path: `v1/users/${options.userId}/avatar`,
+                responseOptions: {
+                    allowedStatusCodes: [200]
+                }
             },
             json: true
         }).then((response: { body: any }) => response.body);
@@ -263,7 +275,10 @@ export default class AvatarAPI extends BaseAPI {
         return this.request({
             requiresAuth: false,
             request: {
-                path: `v1/users/${options.userId}/currently-wearing`
+                path: `v1/users/${options.userId}/currently-wearing`,
+                responseOptions: {
+                    allowedStatusCodes: [200]
+                }
             },
             json: true
         }).then((response: { body: any }) => response.body);
@@ -273,7 +288,10 @@ export default class AvatarAPI extends BaseAPI {
         return this.request({
             requiresAuth: false,
             request: {
-                path: `v1/users/${options.userId}/outfits`
+                path: `v1/users/${options.userId}/outfits`,
+                responseOptions: {
+                    allowedStatusCodes: [200]
+                }
             },
             json: true
         }).then((response: { body: any }) => response.body);
@@ -284,7 +302,10 @@ export default class AvatarAPI extends BaseAPI {
             requiresAuth: true,
             request: {
                 path: `v1/avatar/assets/${options.assetId}/remove`,
-                method: "POST"
+                method: "POST",
+                responseOptions: {
+                    allowedStatusCodes: [200]
+                }
             },
             json: true
         }).then((response: { body: any }) => response.body);
@@ -295,7 +316,10 @@ export default class AvatarAPI extends BaseAPI {
             requiresAuth: true,
             request: {
                 path: `v1/avatar/assets/${options.assetId}/wear`,
-                method: "POST"
+                method: "POST",
+                responseOptions: {
+                    allowedStatusCodes: [200]
+                }
             },
             json: true
         }).then((response: { body: any }) => response.body);
@@ -306,7 +330,10 @@ export default class AvatarAPI extends BaseAPI {
             requiresAuth: true,
             request: {
                 path: "v1/avatar/redraw-thumbnail",
-                method: "POST"
+                method: "POST",
+                responseOptions: {
+                    allowedStatusCodes: [200]
+                }
             },
             json: true
         }).then((response: { body: any }) => response.body);
@@ -318,7 +345,10 @@ export default class AvatarAPI extends BaseAPI {
             request: {
                 path: "v1/avatar/set-body-colors",
                 method: "POST",
-                json: options
+                json: options,
+                responseOptions: {
+                    allowedStatusCodes: [200]
+                }
             },
             json: true
         }).then((response: { body: any }) => response.body);
@@ -330,7 +360,10 @@ export default class AvatarAPI extends BaseAPI {
             request: {
                 path: "v1/avatar/set-player-avatar-type",
                 method: "POST",
-                json: options
+                json: options,
+                responseOptions: {
+                    allowedStatusCodes: [200]
+                }
             },
             json: true
         }).then((response: { body: any }) => response.body);
@@ -342,7 +375,10 @@ export default class AvatarAPI extends BaseAPI {
             request: {
                 path: "v1/avatar/set-scales",
                 method: "POST",
-                json: options
+                json: options,
+                responseOptions: {
+                    allowedStatusCodes: [200]
+                }
             },
             json: true
         }).then((response: { body: any }) => response.body);
@@ -354,7 +390,10 @@ export default class AvatarAPI extends BaseAPI {
             request: {
                 path: "v1/avatar/set-swearing-assets",
                 method: "POST",
-                json: options
+                json: options,
+                responseOptions: {
+                    allowedStatusCodes: [200]
+                }
             },
             json: true
         }).then((response: { body: any }) => response.body);
@@ -364,7 +403,10 @@ export default class AvatarAPI extends BaseAPI {
         return this.request({
             requiresAuth: true,
             request: {
-                path: `v1/outfits/${options.userOutfitId}/details`
+                path: `v1/outfits/${options.userOutfitId}/details`,
+                responseOptions: {
+                    allowedStatusCodes: [200]
+                }
             },
             json: true
         }).then((response: { body: any }) => response.body);
@@ -375,7 +417,10 @@ export default class AvatarAPI extends BaseAPI {
             requiresAuth: true,
             request: {
                 path: `v1/outfits/${options.userOutfitId}/delete`,
-                method: "POST"
+                method: "POST",
+                responseOptions: {
+                    allowedStatusCodes: [200]
+                }
             },
             json: true
         }).then((response: { body: any }) => response.body);
@@ -387,7 +432,10 @@ export default class AvatarAPI extends BaseAPI {
             request: {
                 path: `v1/outfits/${options.id}/update`,
                 method: "POST",
-                json: options
+                json: options,
+                responseOptions: {
+                    allowedStatusCodes: [200]
+                }
             },
             json: true
         }).then((response: { body: any }) => response.body);
@@ -398,7 +446,10 @@ export default class AvatarAPI extends BaseAPI {
             requiresAuth: true,
             request: {
                 path: `v1/outfits/${options.userOutfitId}/wear`,
-                method: "POST"
+                method: "POST",
+                responseOptions: {
+                    allowedStatusCodes: [200]
+                }
             },
             json: true
         }).then((response: { body: any }) => response.body);
@@ -410,7 +461,10 @@ export default class AvatarAPI extends BaseAPI {
             request: {
                 path: "v1/outfits/create",
                 method: "POST",
-                json: options
+                json: options,
+                responseOptions: {
+                    allowedStatusCodes: [200]
+                }
             },
             json: true
         }).then((response: { body: any }) => response.body);
@@ -420,7 +474,10 @@ export default class AvatarAPI extends BaseAPI {
         return this.request({
             requiresAuth: true,
             request: {
-                path: `v1/recent-items/${options.recentItemListType}/list`
+                path: `v1/recent-items/${options.recentItemListType}/list`,
+                responseOptions: {
+                    allowedStatusCodes: [200]
+                }
             },
             json: true
         }).then((response: { body: any }) => response.body);
