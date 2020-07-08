@@ -6,6 +6,8 @@ import AdConfigurationAPI from "./AdConfigurationAPI";
 import AdsAPI from "./AdsAPI";
 import AssetDeliveryAPI from "./AssetDeliveryAPI";
 import AuthAPI from "./AuthAPI";
+import AvatarAPI from "./AvatarAPI";
+import BadgesAPI from "./BadgesAPI";
 
 
 export declare type APIs = {
@@ -15,6 +17,8 @@ export declare type APIs = {
     adsAPI: AdsAPI;
     assetDeliveryAPI: AssetDeliveryAPI;
     authAPI: AuthAPI;
+    avatarAPI: AvatarAPI;
+    badgesAPI: BadgesAPI;
     generalApi: GeneralAPI;
 };
 
@@ -26,6 +30,8 @@ export default function initAPIs (client: Client): APIs {
         adsAPI: new AdsAPI(client),
         assetDeliveryAPI: new AssetDeliveryAPI(client),
         authAPI: new AuthAPI(client),
+        avatarAPI: new AvatarAPI(client),
+        badgesAPI: new BadgesAPI(client),
         generalApi: new GeneralAPI(client)
     };
 }

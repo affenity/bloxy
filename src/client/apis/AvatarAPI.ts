@@ -181,7 +181,7 @@ export type DeleteOutfitOptions = {
 export type DeleteOutfit = {
     success: boolean;
 }
-export type UpdateOutfitOptions = Omit<GetOutfit, "isEditable" | "id">;
+export type UpdateOutfitOptions = Omit<GetOutfit, "isEditable">;
 export type UpdateOutfit = {
     success: boolean;
 }
@@ -217,5 +217,212 @@ export default class AvatarAPI extends BaseAPI {
             client,
             baseUrl: "https://avatar.roblox.com/"
         });
+    }
+
+    getSelfAvatar (): Promise<GetUserAvatar> {
+        return this.request({
+            requiresAuth: true,
+            request: {
+                path: "v1/avatar"
+            },
+            json: true
+        }).then((response: { body: any }) => response.body);
+    }
+
+    getAvatarMetaData (): Promise<GetAvatarMetadata> {
+        return this.request({
+            requiresAuth: false,
+            request: {
+                path: "v1/avatar/metadata"
+            },
+            json: true
+        }).then((response: { body: any }) => response.body);
+    }
+
+    getAvatarRules (): Promise<GetAvatarRules> {
+        return this.request({
+            requiresAuth: true,
+            request: {
+                path: "v1/avatar-rules"
+            },
+            json: true
+        }).then((response: { body: any }) => response.body);
+    }
+
+    getUserAvatar (options: GetUserAvatarOptions): Promise<GetUserAvatar> {
+        return this.request({
+            requiresAuth: true,
+            request: {
+                path: `v1/users/${options.userId}/avatar`
+            },
+            json: true
+        }).then((response: { body: any }) => response.body);
+    }
+
+    getUserCurrentlyWearing (options: GetUserCurrentlyWearingOptions): Promise<GetUserCurrentlyWearing> {
+        return this.request({
+            requiresAuth: false,
+            request: {
+                path: `v1/users/${options.userId}/currently-wearing`
+            },
+            json: true
+        }).then((response: { body: any }) => response.body);
+    }
+
+    getUserOutfits (options: GetUserOutfitsOptions): Promise<GetUserOutfits> {
+        return this.request({
+            requiresAuth: false,
+            request: {
+                path: `v1/users/${options.userId}/outfits`
+            },
+            json: true
+        }).then((response: { body: any }) => response.body);
+    }
+
+    removeAssetFromAvatar (options: RemoveAssetFromAvatarOptions): Promise<RemoveAssetFromAvatar> {
+        return this.request({
+            requiresAuth: true,
+            request: {
+                path: `v1/avatar/assets/${options.assetId}/remove`,
+                method: "POST"
+            },
+            json: true
+        }).then((response: { body: any }) => response.body);
+    }
+
+    wearAssetOnAvatar (options: WearAssetOnAvatarOptions): Promise<WearAssetOnAvatar> {
+        return this.request({
+            requiresAuth: true,
+            request: {
+                path: `v1/avatar/assets/${options.assetId}/wear`,
+                method: "POST"
+            },
+            json: true
+        }).then((response: { body: any }) => response.body);
+    }
+
+    redrawThumbnail (): Promise<RedrawThumbnail> {
+        return this.request({
+            requiresAuth: true,
+            request: {
+                path: "v1/avatar/redraw-thumbnail",
+                method: "POST"
+            },
+            json: true
+        }).then((response: { body: any }) => response.body);
+    }
+
+    setSelfAvatarBodyColors (options: SetBodyColorsOptions): Promise<SetBodyColors> {
+        return this.request({
+            requiresAuth: true,
+            request: {
+                path: "v1/avatar/set-body-colors",
+                method: "POST",
+                json: options
+            },
+            json: true
+        }).then((response: { body: any }) => response.body);
+    }
+
+    setSelfAvatarType (options: SetPlayerAvatarTypeOptions): Promise<SetPlayerAvatarType> {
+        return this.request({
+            requiresAuth: true,
+            request: {
+                path: "v1/avatar/set-player-avatar-type",
+                method: "POST",
+                json: options
+            },
+            json: true
+        }).then((response: { body: any }) => response.body);
+    }
+
+    setSelfAvatarScales (options: SetPlayerAvatarScalesOptions): Promise<SetPlayerAvatarScales> {
+        return this.request({
+            requiresAuth: true,
+            request: {
+                path: "v1/avatar/set-scales",
+                method: "POST",
+                json: options
+            },
+            json: true
+        }).then((response: { body: any }) => response.body);
+    }
+
+    setSelfWearingAssets (options: SetPlayerAvatarWearingAssetsOptions): Promise<GetUserCurrentlyWearing> {
+        return this.request({
+            requiresAuth: true,
+            request: {
+                path: "v1/avatar/set-swearing-assets",
+                method: "POST",
+                json: options
+            },
+            json: true
+        }).then((response: { body: any }) => response.body);
+    }
+
+    getOutfit (options: GetOutfitOptions): Promise<GetOutfit> {
+        return this.request({
+            requiresAuth: true,
+            request: {
+                path: `v1/outfits/${options.userOutfitId}/details`
+            },
+            json: true
+        }).then((response: { body: any }) => response.body);
+    }
+
+    deleteOutfit (options: DeleteOutfitOptions): Promise<DeleteOutfit> {
+        return this.request({
+            requiresAuth: true,
+            request: {
+                path: `v1/outfits/${options.userOutfitId}/delete`,
+                method: "POST"
+            },
+            json: true
+        }).then((response: { body: any }) => response.body);
+    }
+
+    updateOutfit (options: UpdateOutfitOptions): Promise<UpdateOutfit> {
+        return this.request({
+            requiresAuth: true,
+            request: {
+                path: `v1/outfits/${options.id}/update`,
+                method: "POST",
+                json: options
+            },
+            json: true
+        }).then((response: { body: any }) => response.body);
+    }
+
+    wearOutfit (options: WearOutfitOptions): Promise<WearOutfit> {
+        return this.request({
+            requiresAuth: true,
+            request: {
+                path: `v1/outfits/${options.userOutfitId}/wear`,
+                method: "POST"
+            },
+            json: true
+        }).then((response: { body: any }) => response.body);
+    }
+
+    createOutfit (options: CreateOutfitOptions): Promise<CreateOutfit> {
+        return this.request({
+            requiresAuth: true,
+            request: {
+                path: "v1/outfits/create",
+                method: "POST",
+                json: options
+            },
+            json: true
+        }).then((response: { body: any }) => response.body);
+    }
+
+    getRecentlyUsed (options: GetRecentItemsOptions): Promise<GetRecentItems> {
+        return this.request({
+            requiresAuth: true,
+            request: {
+                path: `v1/recent-items/${options.recentItemListType}/list`
+            },
+            json: true
+        }).then((response: { body: any }) => response.body);
     }
 }
