@@ -67,14 +67,11 @@ export declare type GetStarCodeAffiliate = {
 export declare type AddStarCodeAffiliate = GetStarCodeAffiliate;
 
 export default class AccountInformationAPI extends BaseAPI {
-    public client: Client;
-
     constructor (client: Client) {
         super({
             baseUrl: "https://accountinformation.roblox.com/",
             client
         });
-        this.client = client;
     }
 
     getUserBirthdate (): Promise<GetUserBirthdate> {

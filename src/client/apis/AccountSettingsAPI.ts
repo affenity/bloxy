@@ -123,14 +123,11 @@ export type UpdateUserPromotionChannels = boolean;
 
 
 export default class AccountSettingsAPI extends BaseAPI {
-    public client: Client;
-
     constructor (client: Client) {
         super({
             baseUrl: "https://accountsettings.roblox.com/",
             client
         });
-        this.client = client;
     }
 
     getSettingsGroups (): Promise<GetSettingsGroups> {

@@ -49,14 +49,11 @@ export declare type RunAd = unknown;
 export declare type StopAd = unknown;
 
 export default class AdConfigurationAPI extends BaseAPI {
-    public client: Client;
-
     constructor (client: Client) {
         super({
             baseUrl: "https://adconfiguration.roblox.com/",
             client
         });
-        this.client = client;
     }
 
     getCreateAdMetaData (): Promise<GetCreateAdMetaData> {

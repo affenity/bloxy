@@ -1,5 +1,6 @@
 import { BaseAPIOptions } from "../../interfaces/APIInterfaces";
 import { RESTRequestOptions, RESTResponseDataType } from "../../interfaces/RESTInterfaces";
+import Client from "../Client";
 
 
 export declare type BaseAPIRequestOptions = {
@@ -21,9 +22,11 @@ export declare type BaseAPIRequestOptions = {
 };
 
 export default class BaseAPI {
+    public client: Client;
     public options: BaseAPIOptions;
 
     constructor (options: BaseAPIOptions) {
+        this.client = options.client;
         this.options = options;
     }
 

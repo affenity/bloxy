@@ -99,14 +99,11 @@ export type GetBatchAssetsOptions = {
 export type GetBatchAssets = BaseAsset[];
 
 export default class AssetDeliveryAPI extends BaseAPI {
-    public client: Client;
-
     constructor (client: Client) {
         super({
             baseUrl: "https://assetdelivery.roblox.com/",
             client
         });
-        this.client = client;
     }
 
     getAssetByAlias (options: GetAssetByAliasOptions): Promise<GetAssetByAlias> {

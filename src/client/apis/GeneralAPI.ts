@@ -149,14 +149,11 @@ export declare type GetUserByUsername = GetUserById;
 export declare type UserCanManageAsset = boolean;
 
 export default class GeneralAPI extends BaseAPI {
-    public client: Client;
-
     constructor (client: Client) {
         super({
             baseUrl: "https://api.roblox.com/",
             client
         });
-        this.client = client;
     }
 
     getAssetVersions (options: GetAssetVersionOptions): Promise<GetAssetVersions> {

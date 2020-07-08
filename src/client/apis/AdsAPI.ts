@@ -25,14 +25,11 @@ export declare type CreateGroupAd = {};
 
 
 export default class AdsAPI extends BaseAPI {
-    public client: Client;
-
     constructor (client: Client) {
         super({
             baseUrl: "https://ads.roblox.com/",
             client
         });
-        this.client = client;
     }
 
     createAssetAd (options: CreateAssetAdOptions): Promise<CreateAssetAd> {
