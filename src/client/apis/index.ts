@@ -8,6 +8,7 @@ import AssetDeliveryAPI from "./AssetDeliveryAPI";
 import AuthAPI from "./AuthAPI";
 import AvatarAPI from "./AvatarAPI";
 import BadgesAPI from "./BadgesAPI";
+import BillingAPI from "./BillingAPI";
 
 
 export declare type APIs = {
@@ -19,6 +20,7 @@ export declare type APIs = {
     authAPI: AuthAPI;
     avatarAPI: AvatarAPI;
     badgesAPI: BadgesAPI;
+    billingAPI: BillingAPI;
     generalApi: GeneralAPI;
 };
 
@@ -32,6 +34,7 @@ export default function initAPIs (client: Client): APIs {
         authAPI: new AuthAPI(client),
         avatarAPI: new AvatarAPI(client),
         badgesAPI: new BadgesAPI(client),
+        billingAPI: new BillingAPI(client),
         generalApi: new GeneralAPI(client)
     };
 }
