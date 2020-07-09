@@ -19,6 +19,8 @@ import EconomyCreatorStatsAPI from "./EconomyCreatorStatsAPI";
 import EngagementPayoutsAPI from "./EngagementPayoutsAPI";
 import FollowingsAPI from "./FollowingsAPI";
 import FriendsAPI from "./FriendsAPI";
+import GamesAPI from "./GamesAPI";
+import GameInternationalizationAPI from "./GameInternationalizationAPI";
 
 
 export declare type APIs = {
@@ -41,6 +43,8 @@ export declare type APIs = {
     engagementPayouts: EngagementPayoutsAPI;
     followingsAPI: FollowingsAPI;
     friendsAPI: FriendsAPI;
+    gamesAPI: GamesAPI;
+    gameInternationalizationAPI: GameInternationalizationAPI;
     generalApi: GeneralAPI;
 };
 
@@ -65,6 +69,8 @@ export default function initAPIs (client: Client): APIs {
         engagementPayouts: new EngagementPayoutsAPI(client),
         followingsAPI: new FollowingsAPI(client),
         friendsAPI: new FriendsAPI(client),
+        gamesAPI: new GamesAPI(client),
+        gameInternationalizationAPI: new GameInternationalizationAPI(client),
         generalApi: new GeneralAPI(client)
     };
 }
