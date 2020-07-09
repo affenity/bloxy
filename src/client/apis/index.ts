@@ -13,6 +13,8 @@ import CaptchaAPI from "./CaptchaAPI";
 import CatalogAPI from "./CatalogAPI";
 import ChatAPI from "./ChatAPI";
 import ContactsAPI from "./ContactsAPI";
+import DevelopAPI from "./DevelopAPI";
+import EconomyAPI from "./EconomyAPI";
 
 
 export declare type APIs = {
@@ -29,6 +31,8 @@ export declare type APIs = {
     catalogAPI: CatalogAPI;
     chatAPI: ChatAPI;
     contactsAPI: ContactsAPI;
+    developAPI: DevelopAPI;
+    economyAPI: EconomyAPI;
     generalApi: GeneralAPI;
 };
 
@@ -47,6 +51,8 @@ export default function initAPIs (client: Client): APIs {
         catalogAPI: new CatalogAPI(client),
         chatAPI: new ChatAPI(client),
         contactsAPI: new ContactsAPI(client),
+        developAPI: new DevelopAPI(client),
+        economyAPI: new EconomyAPI(client),
         generalApi: new GeneralAPI(client)
     };
 }
