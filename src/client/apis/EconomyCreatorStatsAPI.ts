@@ -13,7 +13,7 @@ export type GetUniverseStats = {
     data: unknown;
 }
 
-export default class ContactsAPI extends BaseAPI {
+export default class EconomyCreatorStatsAPI extends BaseAPI {
     constructor (client: Client) {
         super({
             client,

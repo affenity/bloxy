@@ -400,7 +400,7 @@ export type UpdateDeveloperProductOptions = {
 }
 export type UpdateDeveloperProduct = {}
 
-export default class ContactsAPI extends BaseAPI {
+export default class DevelopAPI extends BaseAPI {
     constructor (client: Client) {
         super({
             client,

@@ -5,6 +5,7 @@ import { AssetVersion } from "../../structures/asset/AssetVersion";
 import GroupMember from "../../structures/group/GroupMember";
 import GroupRole from "../../structures/group/GroupRole";
 import Product, { ProductOptions } from "../../structures/asset/Product";
+import PartialUser from "../../structures/user/PartialUser";
 
 
 export declare type GetAssetVersionOptions = AnyIdentifier;
@@ -89,8 +90,7 @@ export declare type GetBalance = {
     robux: number;
 }
 export declare type GetUserFriends = {
-    id: number;
-    username: string;
+    user: PartialUser;
     avatarUrl: string;
     avatarFinal: boolean;
     online: boolean;
@@ -211,9 +211,11 @@ export default class GeneralAPI extends BaseAPI {
         }).then(response =>
             // eslint-disable-next-line no-extra-parens
             (response.body as any[]).map(userFriendData => ({
-                id: userFriendData.Id,
                 avatarFinal: userFriendData.AvatarFinal,
-                username: userFriendData.Username,
+                user: new PartialUser({
+                    id: userFriendData.Id,
+                    name: userFriendData.Username
+                }, this.client),
                 online: userFriendData.IsOnline,
                 avatarUrl: userFriendData.AvatarUri
             })) as GetUserFriends

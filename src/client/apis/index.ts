@@ -15,6 +15,10 @@ import ChatAPI from "./ChatAPI";
 import ContactsAPI from "./ContactsAPI";
 import DevelopAPI from "./DevelopAPI";
 import EconomyAPI from "./EconomyAPI";
+import EconomyCreatorStatsAPI from "./EconomyCreatorStatsAPI";
+import EngagementPayoutsAPI from "./EngagementPayoutsAPI";
+import FollowingsAPI from "./FollowingsAPI";
+import FriendsAPI from "./FriendsAPI";
 
 
 export declare type APIs = {
@@ -33,6 +37,10 @@ export declare type APIs = {
     contactsAPI: ContactsAPI;
     developAPI: DevelopAPI;
     economyAPI: EconomyAPI;
+    economyCreatorStats: EconomyCreatorStatsAPI;
+    engagementPayouts: EngagementPayoutsAPI;
+    followingsAPI: FollowingsAPI;
+    friendsAPI: FriendsAPI;
     generalApi: GeneralAPI;
 };
 
@@ -53,6 +61,10 @@ export default function initAPIs (client: Client): APIs {
         contactsAPI: new ContactsAPI(client),
         developAPI: new DevelopAPI(client),
         economyAPI: new EconomyAPI(client),
+        economyCreatorStats: new EconomyCreatorStatsAPI(client),
+        engagementPayouts: new EngagementPayoutsAPI(client),
+        followingsAPI: new FollowingsAPI(client),
+        friendsAPI: new FriendsAPI(client),
         generalApi: new GeneralAPI(client)
     };
 }

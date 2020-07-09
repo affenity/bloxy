@@ -154,7 +154,7 @@ export type GetSelfTransactionsOptions = Omit<GetGroupTransactionsOptions, "grou
 }
 export type GetSelfTransactions = GetGroupTransactions;
 
-export default class ContactsAPI extends BaseAPI {
+export default class EconomyAPI extends BaseAPI {
     constructor (client: Client) {
         super({
             client,
