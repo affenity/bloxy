@@ -21,6 +21,11 @@ import FollowingsAPI from "./FollowingsAPI";
 import FriendsAPI from "./FriendsAPI";
 import GamesAPI from "./GamesAPI";
 import GameInternationalizationAPI from "./GameInternationalizationAPI";
+import GroupsAPI from "./GroupsAPI";
+import InventoryAPI from "./InventoryAPI";
+import ItemConfigurationAPI from "./ItemConfigurationAPI";
+import LocaleAPI from "./LocaleAPI";
+import MetricsAPI from "./MetricsAPI";
 
 
 export declare type APIs = {
@@ -45,6 +50,11 @@ export declare type APIs = {
     friendsAPI: FriendsAPI;
     gamesAPI: GamesAPI;
     gameInternationalizationAPI: GameInternationalizationAPI;
+    groupsAPI: GroupsAPI;
+    inventoryAPI: InventoryAPI;
+    itemConfigurationAPI: ItemConfigurationAPI;
+    localeAPI: LocaleAPI;
+    metricsAPI: MetricsAPI;
     generalApi: GeneralAPI;
 };
 
@@ -71,6 +81,11 @@ export default function initAPIs (client: Client): APIs {
         friendsAPI: new FriendsAPI(client),
         gamesAPI: new GamesAPI(client),
         gameInternationalizationAPI: new GameInternationalizationAPI(client),
+        groupsAPI: new GroupsAPI(client),
+        inventoryAPI: new InventoryAPI(client),
+        itemConfigurationAPI: new ItemConfigurationAPI(client),
+        localeAPI: new LocaleAPI(client),
+        metricsAPI: new MetricsAPI(client),
         generalApi: new GeneralAPI(client)
     };
 }
