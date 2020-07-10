@@ -1,6 +1,5 @@
 import BaseAPI from "./BaseAPI";
 import Client from "../Client";
-import PartialUser from "../../structures/user/PartialUser";
 
 
 export type GetGameInfoOptions = {
@@ -38,7 +37,10 @@ export type GetGameInfoHistoryOptions = {
 export type GetGameInfoHistory = {
     history: {
         translationText: string;
-        translator: PartialUser;
+        translator: {
+            id: number;
+            agentType: "User";
+        };
         created: Date;
     }[];
     lastEvaluatedId: string;

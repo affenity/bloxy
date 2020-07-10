@@ -1,13 +1,8 @@
 import BaseAPI from "./BaseAPI";
 import Client from "../Client";
-import GameUniverse from "../../structures/game/GameUniverse";
-import PartialGameUniverse from "../../structures/game/PartialGameUniverse";
-import PartialUser from "../../structures/user/PartialUser";
-import PartialGroup from "../../structures/group/PartialGroup";
-import { CreatorType } from "../../util/constants";
-import PartialPlace from "../../structures/game/PartialPlace";
-import Place from "../../structures/game/Place";
-import VIPServer from "../../structures/game/VIPServer";
+import { GameUniverseOptions } from "../../structures/game/GameUniverse";
+import { PlaceOptions } from "../../structures/game/Place";
+import { VIPServerOptions } from "../../structures/game/VIPServer";
 
 
 export type GameServer = {
@@ -24,7 +19,9 @@ export type GameServer = {
 export type GetGameUniversesOptions = {
     universeIds: number[];
 }
-export type GetGameUniverses = GameUniverse[];
+export type GetGameUniverses = {
+    data: GameUniverseOptions[];
+};
 export type GetGameServersByTypeOptions = {
     placeId: number;
     serverType: "Public" | "Friend" | "VIP";
@@ -41,11 +38,14 @@ export type GetGamesProductInfoOptions = {
     universeIds: number[];
 }
 export type GameGamesProductInfo = {
-    universe: PartialGameUniverse;
-    forSale: boolean;
-    price: number;
-    sellerId: number;
-}[];
+    data: {
+        universeId: number;
+        isForSale: boolean;
+        price: number;
+        sellerId: number;
+        productId: number;
+    }[];
+};
 export type ListGamesOptions = {
     sortToken?: string;
     gameFilter?: string;
@@ -66,16 +66,17 @@ export type ListGamesOptions = {
 }
 export type ListGames = {
     games: {
-        creator: PartialUser | PartialGroup;
-        creatorType: CreatorType;
+        creatorId: number;
+        creatorName: string;
+        creatorType: "Group" | "User";
         upVotes: number;
         downVotes: number;
-        universe: PartialGameUniverse;
-        place: PartialPlace;
+        universeId: number;
+        placeId: number;
         playerCount: number;
         imageToken: string;
         users: {
-            user: PartialUser;
+            userId: number;
             gameId: string;
         }[];
         isSponsored: boolean;
@@ -98,14 +99,14 @@ export type ListGames = {
 export type MultiGetPlacesOptions = {
     placeIds: number[];
 }
-export type MultiGetPlaces = Place[];
+export type MultiGetPlaces = PlaceOptions[];
 export type MultiGetGameUniversesPlayabilityOptions = {
     universeIds: number[];
 }
 export type MultiGetGameUniversesPlayability = {
     playabilityStatus: "UnplayableOtherReason" | string;
     isPlayable: boolean;
-    universe: PartialGameUniverse;
+    universeId: number;
 }[];
 export type GetGameRecommendationsByAlgorithmOptions = {
     algorithmName: string;
@@ -201,10 +202,12 @@ export type GetGamesVotesOptions = {
     universeIds: number[];
 }
 export type GetGamesVotes = {
-    universe: PartialGameUniverse;
-    upVotes: number;
-    downVotes: number;
-}[];
+    data: {
+        id: number;
+        upVotes: number;
+        downVotes: number;
+    }[];
+};
 export type SetSelfGameVoteOptions = {
     universeId: number;
     vote: boolean;
@@ -219,14 +222,14 @@ export type CanSelfInviteUserToVIPServer = {
 export type GetVIPServerOptions = {
     id: number;
 }
-export type GetVIPServer = VIPServer;
+export type GetVIPServer = VIPServerOptions;
 export type UpdateVIPServerOptions = {
     id: number;
     name: string;
     newJoinCode: boolean;
     active: boolean;
 }
-export type UpdateVIPServer = VIPServer;
+export type UpdateVIPServer = VIPServerOptions;
 export type CreateVIPServerOptions = {
     universeId: number;
     name: string;
@@ -253,7 +256,11 @@ export type UpdateVIPServerPermissions = {
     clanAllowed: boolean;
     enemyClanId: number;
     friendsAllowed: boolean;
-    users: PartialUser[];
+    users: {
+        id: number;
+        name: string;
+        displayName: string;
+    }[];
 }
 export type UpdateVIPServerSubscriptionOptions = {
     id: number;
@@ -288,7 +295,7 @@ export default class GamesAPI extends BaseAPI {
                 }
             },
             json: true
-        }).then((response: { body: any }) => response.body.data.map((val: any) => new GameUniverse(val, this.client)));
+        }).then((response: { body: any }) => response.body);
     }
 
     getGameServersByType (options: GetGameServersByTypeOptions): Promise<GetGameServersByType> {
@@ -318,14 +325,7 @@ export default class GamesAPI extends BaseAPI {
                 }
             },
             json: true
-        }).then((response: { body: any }) => response.body.data.map((val: any) => ({
-            universe: new PartialGameUniverse({
-                id: val.universeId
-            }, this.client),
-            forSale: val.isForSale,
-            price: val.price,
-            seller: val.sellerId
-        })));
+        }).then((response: { body: any }) => response.body);
     }
 
     listGames (options: ListGamesOptions): Promise<ListGames> {
@@ -356,35 +356,7 @@ export default class GamesAPI extends BaseAPI {
                 }
             },
             json: true
-        }).then((response: { body: any }) => ({
-            ...response.body,
-            games: response.body.games.map((val: any) => ({
-                ...val,
-                creatorType: val.creatorType === "Group" ? CreatorType.GROUP : CreatorType.USER,
-                creator: val.creatorType === "Group" ? new PartialGroup({
-                    id: val.creatorId,
-                    name: val.creatorName
-                }, this.client) : new PartialUser({
-                    id: val.creatorId,
-                    name: val.creatorName
-                }, this.client),
-                upVotes: val.totalUpVotes,
-                downVotes: val.totalDownVotes,
-                universe: new PartialGameUniverse({
-                    id: val.universeId,
-                    name: val.name
-                }, this.client),
-                place: new PartialPlace({
-                    id: val.placeId
-                }, this.client),
-                users: val.users.map((userData: any) => ({
-                    user: new PartialUser({
-                        id: userData.userId
-                    }, this.client),
-                    gameId: userData.gameId
-                }))
-            }))
-        }));
+        }).then((response: { body: any }) => response.body);
     }
 
     getMultiPlaces (options: MultiGetPlacesOptions): Promise<MultiGetPlaces> {
@@ -400,10 +372,10 @@ export default class GamesAPI extends BaseAPI {
                 }
             },
             json: true
-        }).then((response: { body: any }) => response.body.map((val: any) => new Place(val, this.client)));
+        }).then((response: { body: any }) => response.body);
     }
 
-    getMultiGamesPlayabilitySttus (options: MultiGetGameUniversesPlayabilityOptions): Promise<MultiGetGameUniversesPlayability> {
+    getMultiGamesPlayabilityStatus (options: MultiGetGameUniversesPlayabilityOptions): Promise<MultiGetGameUniversesPlayability> {
         return this.request({
             requiresAuth: true,
             request: {
@@ -416,10 +388,7 @@ export default class GamesAPI extends BaseAPI {
                 }
             },
             json: true
-        }).then((response: { body: any }) => response.body.map((val: any) => ({
-            ...val,
-            universe: new PartialGameUniverse(val.universeId, this.client)
-        })));
+        }).then((response: { body: any }) => response.body);
     }
 
     getGameRecommendationsByAlgorithm (options: GetGameRecommendationsByAlgorithmOptions): Promise<GetGameRecommendationsByAlgorithm> {
@@ -436,35 +405,7 @@ export default class GamesAPI extends BaseAPI {
                 }
             },
             json: true
-        }).then((response: { body: any }) => ({
-            ...response.body,
-            games: response.body.games.map((val: any) => ({
-                ...val,
-                creatorType: val.creatorType === "Group" ? CreatorType.GROUP : CreatorType.USER,
-                creator: val.creatorType === "Group" ? new PartialGroup({
-                    id: val.creatorId,
-                    name: val.creatorName
-                }, this.client) : new PartialUser({
-                    id: val.creatorId,
-                    name: val.creatorName
-                }, this.client),
-                upVotes: val.totalUpVotes,
-                downVotes: val.totalDownVotes,
-                universe: new PartialGameUniverse({
-                    id: val.universeId,
-                    name: val.name
-                }, this.client),
-                place: new PartialPlace({
-                    id: val.placeId
-                }, this.client),
-                users: val.users.map((userData: any) => ({
-                    user: new PartialUser({
-                        id: userData.userId
-                    }, this.client),
-                    gameId: userData.gameId
-                }))
-            }))
-        }));
+        }).then((response: { body: any }) => response.body);
     }
 
     getGameRecommendationsByGame (options: GetGameRecommendationsByGameOptions): Promise<GetGameRecommendationsByGame> {
@@ -481,35 +422,7 @@ export default class GamesAPI extends BaseAPI {
                 }
             },
             json: true
-        }).then((response: { body: any }) => ({
-            ...response.body,
-            games: response.body.games.map((val: any) => ({
-                ...val,
-                creatorType: val.creatorType === "Group" ? CreatorType.GROUP : CreatorType.USER,
-                creator: val.creatorType === "Group" ? new PartialGroup({
-                    id: val.creatorId,
-                    name: val.creatorName
-                }, this.client) : new PartialUser({
-                    id: val.creatorId,
-                    name: val.creatorName
-                }, this.client),
-                upVotes: val.totalUpVotes,
-                downVotes: val.totalDownVotes,
-                universe: new PartialGameUniverse({
-                    id: val.universeId,
-                    name: val.name
-                }, this.client),
-                place: new PartialPlace({
-                    id: val.placeId
-                }, this.client),
-                users: val.users.map((userData: any) => ({
-                    user: new PartialUser({
-                        id: userData.userId
-                    }, this.client),
-                    gameId: userData.gameId
-                }))
-            }))
-        }));
+        }).then((response: { body: any }) => response.body);
     }
 
     getGameSorts (options: GetGameSortsOptions): Promise<GetGameSorts> {
@@ -611,12 +524,7 @@ export default class GamesAPI extends BaseAPI {
                 }
             },
             json: true
-        }).then((response: { body: any }) => response.body.map((val: any) => ({
-            ...val,
-            universe: new PartialGameUniverse({
-                id: val.id
-            }, this.client)
-        })));
+        }).then((response: { body: any }) => response.body);
     }
 
     setSelfGameVote (options: SetSelfGameVoteOptions): Promise<SetSelfGameVote> {
@@ -660,7 +568,7 @@ export default class GamesAPI extends BaseAPI {
                 }
             },
             json: true
-        }).then((response: { body: any }) => new VIPServer(response.body, this.client));
+        }).then((response: { body: any }) => response.body);
     }
 
     updateVIPServer (options: UpdateVIPServerOptions): Promise<UpdateVIPServer> {
@@ -675,7 +583,7 @@ export default class GamesAPI extends BaseAPI {
                 }
             },
             json: true
-        }).then((response: { body: any }) => new VIPServer(response.body, this.client));
+        }).then((response: { body: any }) => response.body);
     }
 
     createVIPServer (options: CreateVIPServerOptions): Promise<CreateVIPServer> {

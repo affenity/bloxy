@@ -24,10 +24,11 @@ export interface GroupOptions {
         };
         created: string;
         updated: string;
-    };
+    } | null;
     memberCount: number;
     isBuildersClubOnly: boolean;
     publicEntryAllowed: boolean;
+    created?: string;
 }
 
 export default class Group extends GroupBase {

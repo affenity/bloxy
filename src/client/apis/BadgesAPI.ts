@@ -1,12 +1,32 @@
 import BaseAPI from "./BaseAPI";
 import Client from "../Client";
-import GameBadge from "../../structures/game/GameBadge";
 
 
 export type GetBadgeOptions = {
     badgeId: number;
 }
-export type GetBadge = GameBadge;
+export type GetBadge = {
+    id: number;
+    name: string;
+    description: string;
+    displayName: string;
+    displayDescription: string;
+    enabled: boolean;
+    iconImageId: number;
+    displayIconImageId: number;
+    created: string;
+    updated: string;
+    statistics: {
+        pastDayAwardedCount: number;
+        awardedCount: number;
+        winRatePercentage: number;
+    };
+    awardingUniverse: {
+        id: number;
+        name: string;
+        rootPlaceId: number;
+    };
+};
 export type UpdateBadgeOptions = {
     id: number;
     name: string;

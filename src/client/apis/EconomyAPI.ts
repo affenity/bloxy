@@ -1,6 +1,5 @@
 import BaseAPI from "./BaseAPI";
 import Client from "../Client";
-import PartialUser from "../../structures/user/PartialUser";
 import { SubmitDeveloperExchangeOptions as BillingAPISubmitDeveloperExchangeOptions } from "./BillingAPI";
 
 
@@ -32,7 +31,11 @@ export type GetAssetResellers = {
     nextPageCursor: string;
     data: {
         userAssetId: number;
-        seller: PartialUser;
+        seller: {
+            id: number;
+            type: "User" | "Group";
+            name: string;
+        };
         price: number;
         serialNumber: number;
     }[];

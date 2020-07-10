@@ -11,6 +11,19 @@ export interface ChatMessageOptions {
     decorators: string[];
     senderTargetId: number;
     content: string;
+    link?: {
+        type: "Game";
+        game: {
+            universeId: number;
+        };
+    };
+    eventBased?: {
+        type: "SetConversationUniverse";
+        setConversationUniverse: {
+            actorUserId: number;
+            universeId: number;
+        };
+    };
 }
 
 export default class ChatMessage {

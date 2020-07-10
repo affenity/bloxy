@@ -1,35 +1,33 @@
 import BaseAPI from "./BaseAPI";
 import Client from "../Client";
-import PartialGameUniverse from "../../structures/game/PartialGameUniverse";
-import PartialUser from "../../structures/user/PartialUser";
 
 
 export type GetUserFollowedUniversesOptions = {
     userId: number;
 }
 export type GetUserFollowedUniverses = {
-    universe: PartialGameUniverse;
-    userId: PartialUser;
+    universeId: number;
+    userId: number;
 }
 export type GetUserFollowingUniverseStatusOptions = {
     userId: number;
     universeId: number;
 }
 export type GetUserFollowingUniverseStatus = {
-    universe: PartialGameUniverse;
-    user: PartialUser;
-    canFollow: boolean;
-    isFollowing: boolean;
-    followingCountByType: number;
-    followingLimitByType: number;
+    UniverseId: number;
+    UserId: number;
+    CanFollow: boolean;
+    IsFollowing: boolean;
+    FollowingCountByType: number;
+    FollowingLimitByType: number;
 }
 export type UnFollowUniverseOptions = {
     userId: number;
     universeId: number;
 }
 export type UnFollowUniverse = {
-    universe: PartialGameUniverse;
-    user: PartialUser;
+    universeId: number;
+    userId: number;
 }
 export type FollowUniverseOptions = UnFollowUniverseOptions;
 export type FollowUniverse = UnFollowUniverse;

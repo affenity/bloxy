@@ -3,7 +3,7 @@ import PartialGameUniverse from "./PartialGameUniverse";
 import PartialUser from "../user/PartialUser";
 
 
-export interface VIPServerData {
+export interface VIPServerOptions {
     id: number;
     name: string;
     game: {
@@ -53,7 +53,7 @@ export default class VIPServer {
         users: PartialUser[];
     };
 
-    constructor (data: VIPServerData, client: Client) {
+    constructor (data: VIPServerOptions, client: Client) {
         this.client = client;
         this.id = data.id;
         this.name = data.name;

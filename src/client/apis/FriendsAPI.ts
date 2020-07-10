@@ -1,8 +1,5 @@
 import BaseAPI from "./BaseAPI";
 import Client from "../Client";
-import PartialUser from "../../structures/user/PartialUser";
-import PartialPlace from "../../structures/game/PartialPlace";
-import PartialGameUniverse from "../../structures/game/PartialGameUniverse";
 import {
     MatchContacts as ContactsAPIMatchContacts,
     MatchContactsOptions as ContactsAPIMatchContactsOptions,
@@ -16,7 +13,8 @@ export type FindFriendByCodeOptions = {
     code: string;
 }
 export type FindFriendByCode = {
-    user: PartialUser;
+    userId: number;
+    username: string;
     friendshipStatus: "NoFriendship" | string;
 }
 export type CheckSessionHealth = {}
@@ -32,7 +30,10 @@ export type GetOrCreateNearbySession = {
 export type RedeemQRCodeOptions = {
     code: string;
 }
-export type RedeemQRCode = PartialUser;
+export type RedeemQRCode = {
+    userId: number;
+    username: string;
+};
 export type DeleteQRCodeSession = {}
 export type GetOrCreateQRCodeSession = GetOrCreateNearbySession;
 export type GetMetaDataOptions = {
@@ -59,7 +60,9 @@ export type GetSelfFriendRequests = {
         description: string;
         created: Date;
         isBanned: boolean;
-        user: PartialUser;
+        id: number;
+        name: string;
+        displayName: string;
     }[];
 }
 export type GetSelfFriendRequestsCount = {
@@ -80,7 +83,9 @@ export type GetUserFollowers = {
         description: string;
         created: Date;
         isBanned: boolean;
-        user: PartialUser;
+        id: number;
+        name: string;
+        displayName: string;
     }[];
 };
 export type GetUserFollowersCountOptions = {
@@ -105,33 +110,41 @@ export type GetUserFriends = {
         description: string;
         created: Date;
         isBanned: boolean;
-        user: PartialUser;
+        id: number;
+        name: string;
+        displayName: string;
     }[];
 };
 export type GetUserOnlineFriendsOptions = {
     userId: number;
 }
 export type GetUserOnlineFriends = {
-    user: PartialUser;
-    presence: {
-        UserPresenceType: string | null;
-        UserLocationType: string | null;
-        lastLocation: string | null;
-        place: PartialPlace | null;
-        rootPlace: PartialPlace | null;
-        gameInstanceId: string | null;
-        universe: PartialGameUniverse | null;
-        lastOnline: string | null;
-    };
-}[];
+    data: {
+        id: number;
+        name: string;
+        displayName: string;
+        presence: {
+            UserPresenceType: string | null;
+            UserLocationType: string | null;
+            lastLocation: string | null;
+            placeId: number | null;
+            rootPlaceId: number | null;
+            gameInstanceId: string | null;
+            universeId: number | null;
+            lastOnline: string | null;
+        };
+    }[];
+};
 export type GetUserFriendsWithStatusesOptions = {
     userId: number;
     withUserIds: number[];
 }
 export type GetUserFriendsWithStatuses = {
-    user: PartialUser;
-    status: "NotFriends" | string;
-}[];
+    data: {
+        id: number;
+        status: "NotFriends" | string;
+    }[];
+};
 export type DeclineAllFriendRequests = {}
 export type AcceptFriendRequestOptions = {
     userId: number;
@@ -161,7 +174,8 @@ export type UnfriendUserOptions = {
 }
 export type UnfriendUser = {}
 export type GetSelfRecommendedUsers = {
-    user: PartialUser;
+    userId: number;
+    userName: string;
     profileUrl: string;
     presenceType: number;
 }[];
@@ -188,13 +202,7 @@ export default class FriendsAPI extends BaseAPI {
                 }
             },
             json: true
-        }).then((response: { body: any }) => ({
-            friendshipStatus: response.body.friendshipStatus,
-            user: new PartialUser({
-                id: response.body.userId,
-                name: response.body.username
-            }, this.client)
-        }));
+        }).then((response: { body: any }) => response.body);
     }
 
     checkSessionHealth (): Promise<CheckSessionHealth> {
@@ -263,10 +271,7 @@ export default class FriendsAPI extends BaseAPI {
                 }
             },
             json: true
-        }).then((response: { body: any }) => new PartialUser({
-            id: response.body.userId,
-            name: response.body.username
-        }, this.client));
+        }).then((response: { body: any }) => response.body);
     }
 
     deleteFriendQRSession (): Promise<DeleteQRCodeSession> {
@@ -335,18 +340,7 @@ export default class FriendsAPI extends BaseAPI {
                 }
             },
             json: true
-        }).then((response: { body: any }) => ({
-            ...response.body,
-            data: response.body.map((val: any) => ({
-                description: val.description,
-                created: new Date(val.created),
-                isBanned: val.isBanned,
-                user: new PartialUser({
-                    id: val.id,
-                    name: val.name
-                }, this.client)
-            }))
-        }));
+        }).then((response: { body: any }) => response.body);
     }
 
     getSelfFriendRequestsCount (): Promise<GetSelfFriendRequestsCount> {
@@ -373,20 +367,7 @@ export default class FriendsAPI extends BaseAPI {
                 }
             },
             json: true
-        }).then((response: { body: any }) => ({
-            ...response.body,
-            data: response.body.map((val: any) => ({
-                description: val.description,
-                created: new Date(val.created),
-                isBanned: val.isBanned,
-                isOnline: val.isOnline,
-                isDeleted: val.isDeleted,
-                user: new PartialUser({
-                    id: val.id,
-                    name: val.name
-                }, this.client)
-            }))
-        }));
+        }).then((response: { body: any }) => response.body);
     }
 
     getUserFollowersCount (options: GetUserFollowersCountOptions): Promise<GetUserFollowersCount> {
@@ -413,20 +394,7 @@ export default class FriendsAPI extends BaseAPI {
                 }
             },
             json: true
-        }).then((response: { body: any }) => ({
-            ...response.body,
-            data: response.body.map((val: any) => ({
-                description: val.description,
-                created: new Date(val.created),
-                isBanned: val.isBanned,
-                isOnline: val.isOnline,
-                isDeleted: val.isDeleted,
-                user: new PartialUser({
-                    id: val.id,
-                    name: val.name
-                }, this.client)
-            }))
-        }));
+        }).then((response: { body: any }) => response.body);
     }
 
     getUserFollowingCount (options: GetUserFollowingCountOptions): Promise<GetUserFollowingCount> {
@@ -453,20 +421,7 @@ export default class FriendsAPI extends BaseAPI {
                 }
             },
             json: true
-        }).then((response: { body: any }) => ({
-            ...response.body,
-            data: response.body.map((val: any) => ({
-                description: val.description,
-                created: new Date(val.created),
-                isBanned: val.isBanned,
-                isOnline: val.isOnline,
-                isDeleted: val.isDeleted,
-                user: new PartialUser({
-                    id: val.id,
-                    name: val.name
-                }, this.client)
-            }))
-        }));
+        }).then((response: { body: any }) => response.body);
     }
 
     getUserFriendsCount (options: GetUserFriendsCountOptions): Promise<GetUserFriendsCount> {
@@ -492,28 +447,7 @@ export default class FriendsAPI extends BaseAPI {
                 }
             },
             json: true
-        }).then((response: { body: any }) => response.body.map((val: any) => ({
-            user: new PartialUser({
-                id: val.id,
-                name: val.name
-            }, this.client),
-            presence: {
-                UserPresenceType: val.userPresence.UserPresenceType,
-                UserLocationType: val.userPresence.UserLocationType,
-                lastLocation: val.userPresence.lastLocation,
-                place: val.userPresence.placeId ? new PartialPlace({
-                    id: val.userPresence.placeId
-                }, this.client) : null,
-                rootPlace: val.userPresence.rootPlaceId ? new PartialPlace({
-                    id: val.userPresence.rootPlaceId
-                }, this.client) : null,
-                gameInstance: val.userPresence.gameInstance,
-                universe: val.userPresence.universeId ? new PartialGameUniverse({
-                    id: val.userPresence.universeId
-                }, this.client) : null,
-                lastOnline: new Date(val.userPresence.lastOnline)
-            }
-        })));
+        }).then((response: { body: any }) => response.body);
     }
 
     getUserFriendsWithStatuses (options: GetUserFriendsWithStatusesOptions): Promise<GetUserFriendsWithStatuses> {
@@ -529,12 +463,7 @@ export default class FriendsAPI extends BaseAPI {
                 }
             },
             json: true
-        }).then((response: { body: any }) => response.body.map((val: any) => ({
-            user: new PartialUser({
-                id: val.id
-            }, this.client),
-            status: val.status
-        })));
+        }).then((response: { body: any }) => response.body);
     }
 
     declineAllFriendRequests (): Promise<DeclineAllFriendRequests> {
@@ -648,13 +577,7 @@ export default class FriendsAPI extends BaseAPI {
                 }
             },
             json: true
-        }).then((response: { body: any }) => response.body.map((val: any) => ({
-            user: new PartialUser({
-                id: val.id
-            }, this.client),
-            profileUrl: val.userProfilePageUrl,
-            presenceType: val.userPresenceType
-        })));
+        }).then((response: { body: any }) => response.body);
     }
 
     matchContacts (options: MatchContactsOptions): Promise<MatchContacts> {

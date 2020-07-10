@@ -1,9 +1,7 @@
 import BaseAPI from "./BaseAPI";
 import Client from "../Client";
-import GameUniverse from "../../structures/game/GameUniverse";
-import PartialUser from "../../structures/user/PartialUser";
-import PartialGroup from "../../structures/group/PartialGroup";
-import Place from "../../structures/game/Place";
+import { GameUniverseOptions } from "../../structures/game/GameUniverse";
+import { PartialGroupOptions } from "../../structures/group/PartialGroup";
 
 
 export type GetAssetsVoteInformationOptions = {
@@ -23,7 +21,7 @@ export type GetAssetsVoteInformation = {
 export type GetGameTemplates = {
     gameTemplateType: string;
     hasTutorials: boolean;
-    universe: GameUniverse;
+    universe: GameUniverseOptions;
 }[];
 export type GetGameUpdatesHistoryOptions = {
     universeId: number;
@@ -63,7 +61,7 @@ export type GetGroupUniversesOptions = {
 export type GetGroupUniverses = {
     previousPageCursor: string;
     nextPageCursor: string;
-    data: GameUniverse[];
+    data: GameUniverseOptions[];
 }
 export type GetPlaceCompatibilitiesOptions = {
     placeId: number;
@@ -133,7 +131,7 @@ export type SearchUniversesOptions = {
 export type SearchUniverses = {
     previousPageCursor: string;
     nextPageCursor: string;
-    data: GameUniverse[];
+    data: GameUniverseOptions[];
 }
 export type SearchToolboxOptions = {
     category: string;
@@ -191,7 +189,7 @@ export type SearchToolbox = {
 export type GetUniverseOptions = {
     universeId: number;
 }
-export type GetUniverse = GameUniverse;
+export type GetUniverse = GameUniverseOptions;
 export type GetUniversePermissionsOptions = {
     universeId: number;
 }
@@ -239,7 +237,7 @@ export type DownloadUniverseStatisticsReportByTime = unknown;
 export type MultiGetUniversesOptions = {
     ids: number[];
 }
-export type MultiGetUniverses = GameUniverse[];
+export type MultiGetUniverses = GameUniverseOptions[];
 export type MultiGetUniversesPermissionsOptions = {
     ids: number[];
 }
@@ -317,7 +315,12 @@ export type GetUsersInUniverseTeamCreate = {
     nextPageCursor: string;
     data: {
         buildersClubMembershipType: "None" | string;
-        user: PartialUser;
+        user: {
+            buildersClubMembershipType: "None" | string;
+            userId: number;
+            username: string;
+            displayName: string;
+        };
     }[];
 }
 export type GetSelfTeamCreateUniversesAccessOptions = {
@@ -328,10 +331,10 @@ export type GetSelfTeamCreateUniversesAccessOptions = {
 export type GetSelfTeamCreateUniversesAccess = {
     previousPageCursor: string;
     nextPageCursor: string;
-    data: GameUniverse[];
+    data: GameUniverseOptions[];
 }
 export type GetSelfGroupsAccess = {
-    data: PartialGroup[];
+    data: PartialGroupOptions[];
 }
 export type GetNotificationsStatisticReports = {
     data: {
@@ -361,7 +364,7 @@ export type GetSelfUniversesOptions = {
 export type GetSelfUniverses = {
     previousPageCursor: string;
     nextPageCursor: string;
-    data: GameUniverse[];
+    data: GameUniverseOptions[];
 }
 export type CreateUniverseAliasOptions = {
     name: string;
@@ -432,11 +435,7 @@ export default class DevelopAPI extends BaseAPI {
                 }
             },
             json: true
-        }).then((response: { body: any }) => response.body.data.map((val: any) => ({
-            gameTemplateType: val.gameTemplateType,
-            hasTutorials: val.hasTutorials,
-            universe: new GameUniverse(val.universe, this.client)
-        })));
+        }).then((response: { body: any }) => response.body.data);
     }
 
     getGameUpdatesHistory (options: GetGameUpdatesHistoryOptions): Promise<GetGameUpdatesHistory> {
@@ -493,11 +492,7 @@ export default class DevelopAPI extends BaseAPI {
                 }
             },
             json: true
-        }).then((response: { body: any }) => ({
-            previousPageCursor: response.body.previousPageCursor,
-            nextPageCursor: response.body.nextPageCursor,
-            data: response.body.data.map((val: any) => new GameUniverse(val, this.client))
-        }));
+        }).then((response: { body: any }) => response.body);
     }
 
     getPlaceCompatibilities (options: GetPlaceCompatibilitiesOptions): Promise<GetPlaceCompatibilities> {
@@ -587,11 +582,7 @@ export default class DevelopAPI extends BaseAPI {
                 }
             },
             json: true
-        }).then((response: { body: any }) => ({
-            previousPageCursor: response.body.previousPageCursor,
-            nextPageCursor: response.body.nextPageCursor,
-            data: response.body.data.map((val: any) => new GameUniverse(val, this.client))
-        }));
+        }).then((response: { body: any }) => response.body);
     }
 
     searchToolbox (options: SearchToolboxOptions): Promise<SearchToolbox> {
@@ -618,7 +609,7 @@ export default class DevelopAPI extends BaseAPI {
                 }
             },
             json: true
-        }).then((response: { body: any }) => new GameUniverse(response.body, this.client));
+        }).then((response: { body: any }) => response.body);
     }
 
     getSelfUniversePermissions (options: GetUniversePermissionsOptions): Promise<GetUniversePermissions> {
@@ -645,11 +636,7 @@ export default class DevelopAPI extends BaseAPI {
                 }
             },
             json: true
-        }).then((response: { body: any }) => ({
-            previousPageCursor: response.body.previousPageCursor,
-            nextPageCursor: response.body.nextPageCursor,
-            data: response.body.data.map((val: any) => new Place(val, this.client))
-        }));
+        }).then((response: { body: any }) => response.body);
     }
 
     getUniverseStatisticReports (options: GetUniverseStatisticsReportsOptions): Promise<GetUniverseStatisticsReports> {
@@ -704,7 +691,7 @@ export default class DevelopAPI extends BaseAPI {
                 }
             },
             json: true
-        }).then((response: { body: any }) => response.body.data.map((val: any) => new GameUniverse(val, this.client)));
+        }).then((response: { body: any }) => response.body);
     }
 
     getMultiUniversesPermissions (options: MultiGetUniversesPermissionsOptions): Promise<MultiGetUniversesPermissions> {
@@ -860,14 +847,7 @@ export default class DevelopAPI extends BaseAPI {
                 }
             },
             json: true
-        }).then((response: { body: any }) => ({
-            previousPageCursor: response.body.previousPageCursor,
-            nextPageCursor: response.body.nextPageCursor,
-            data: response.body.data.map((val: any) => ({
-                buildersClubMembershipType: val.buildersClubMembershipType,
-                user: new PartialUser(val.user, this.client)
-            }))
-        }));
+        }).then((response: { body: any }) => response.body);
     }
 
     getSelfUniversesTeamCreateAccess (options: GetSelfTeamCreateUniversesAccessOptions): Promise<GetSelfTeamCreateUniversesAccess> {
@@ -881,11 +861,7 @@ export default class DevelopAPI extends BaseAPI {
                 }
             },
             json: true
-        }).then((response: { body: any }) => ({
-            previousPageCursor: response.body.previousPageCursor,
-            nextPageCursor: response.body.nextPageCursor,
-            data: response.body.data.map((val: any) => new GameUniverse(val, this.client))
-        }));
+        }).then((response: { body: any }) => response.body);
     }
 
     getSelfManageableGroups (): Promise<GetSelfGroupsAccess> {
@@ -898,7 +874,7 @@ export default class DevelopAPI extends BaseAPI {
                 }
             },
             json: true
-        }).then((response: { body: any }) => response.body.map((val: any) => new PartialGroup(val, this.client)));
+        }).then((response: { body: any }) => response.body);
     }
 
     getSelfNotificationStatisticReports (): Promise<GetNotificationsStatisticReports> {
@@ -957,11 +933,7 @@ export default class DevelopAPI extends BaseAPI {
                 }
             },
             json: true
-        }).then((response: { body: any }) => ({
-            previousPageCursor: response.body.previousPageCursor,
-            nextPageCursor: response.body.nextPageCursor,
-            data: response.body.data.map((val: any) => new GameUniverse(val, this.client))
-        }));
+        }).then((response: { body: any }) => response.body);
     }
 
     createUniverseAlias (options: CreateUniverseAliasOptions): Promise<CreateUniverseAlias> {

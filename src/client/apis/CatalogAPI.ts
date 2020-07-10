@@ -1,6 +1,5 @@
 import BaseAPI from "./BaseAPI";
 import Client from "../Client";
-import { CreatorType } from "../../util/constants";
 
 
 export type ProductDetails = {
@@ -41,7 +40,7 @@ export type GetAssetBundles = {
             name: string;
             type: string;
         };
-        creatorType: CreatorType;
+        creatorType: number;
         product: ProductDetails;
     }[];
 }

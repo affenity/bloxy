@@ -1,10 +1,8 @@
 import BaseAPI from "./BaseAPI";
 import Client from "../Client";
-import ChatConversation from "../../structures/chat/ChatConversation";
-import ChatMessage from "../../structures/chat/ChatMessage";
-import PartialChatConversation from "../../structures/chat/PartialChatConversation";
-import PartialUser from "../../structures/user/PartialUser";
-import ChatMessageSent from "../../structures/chat/ChatMessageSent";
+import { ChatMessageOptions } from "../../structures/chat/ChatMessage";
+import { ChatConversationOptions } from "../../structures/chat/ChatConversation";
+import { ChatMessageSentOptions } from "../../structures/chat/ChatMessageSent";
 
 
 export type GetChatSettings = {
@@ -13,13 +11,13 @@ export type GetChatSettings = {
 export type GetConversationsOptions = {
     conversationIds: number[];
 }
-export type GetConversations = ChatConversation[];
+export type GetConversations = ChatConversationOptions[];
 export type GetConversationMessagesOptions = {
     conversationId: number;
     pageSize: number;
     exclusiveStartMessageId?: string;
 }
-export type GetConversationMessages = ChatMessage[];
+export type GetConversationMessages = ChatMessageOptions[];
 export type GetRolloutSettingsOptions = {
     featureNames: string[];
 }
@@ -37,14 +35,14 @@ export type GetUnreadMessagesInConversationsOptions = {
     pageSize?: number;
 }
 export type GetUnreadMessagesInConversations = {
-    conversation: PartialChatConversation;
-    chatMessages: ChatMessage[];
-}
+    conversationId: number;
+    chatMessages: ChatMessageOptions[];
+}[];
 export type GetUserConversationsOptions = {
     pageNumber: number;
     pageSize: number;
 }
-export type GetUserConversations = ChatConversation[];
+export type GetUserConversations = ChatConversationOptions[];
 export type GetMetaData = {
     isChatEnabledByPrivacySetting: string;
     languageForPrivacySettingUnavailable: string;
@@ -79,9 +77,12 @@ export type AddUsersToConversationOptions = {
     conversationId: number;
 }
 export type AddUsersToConversation = {
-    conversation: PartialChatConversation;
-    rejectedMembers: {
-        user: PartialUser;
+    conversationId: number;
+    rejectedParticipants: {
+        targetId: number;
+        name: string;
+        displayName: string;
+        type: "User";
         rejectedReason: string;
     };
     resultType: "Success" | string;
@@ -105,7 +106,7 @@ export type RemoveUserFromConversationOptions = {
     conversationId: number;
 }
 export type RemoveUserFromConversation = {
-    conversation: PartialChatConversation;
+    conversationId: number;
     resultType: "Success" | string;
     statusMessage: string;
 }
@@ -114,45 +115,50 @@ export type RenameGroupConversationOptions = {
     newTitle: string;
 }
 export type RenameGroupConversation = {
-    conversation: PartialChatConversation;
+    conversationTitle: string;
     statusMessage: string;
     resultType: "Success" | string;
+    title: {
+        titleForViewer: string;
+        isDefaultTitle: boolean;
+    };
 }
 export type ResetConversationUniverseOptions = {
     conversationId: number;
 }
 export type ResetConversationUniverse = {
     statusMessage: string;
-    conversation: PartialChatConversation;
 }
 export type SendGameLinkMessageOptions = {
     universeId: number;
     conversationId: number;
     decorators: string[];
 }
-export type SendGameLinkMessage = ChatMessageSent;
+export type SendGameLinkMessage = ChatMessageSentOptions;
 export type SendMessageOptions = {
     message: string;
     conversationId: number;
     decorators: string[];
 }
-export type SendMessage = ChatMessageSent;
+export type SendMessage = ChatMessageSentOptions;
 export type SetConversationUniverseOptions = {
     conversationId: number;
     universeId: number;
 }
 export type SetConversationUniverse = {
-    conversation: PartialChatConversation;
     statusMessage: string;
 }
 export type StartCloudEditConversationOptions = {
     placeId: number;
 }
 export type StartCloudEditConversation = {
-    conversation: ChatConversation;
-    rejectedMembers: {
+    conversation: ChatConversationOptions;
+    rejectedParticipants: {
         rejectedReason: string;
-        user: PartialUser;
+        type: "User";
+        targetId: number;
+        name: string;
+        displayName: string;
     }[];
     resultType: "Success" | string;
     statusMessage: string;
@@ -208,7 +214,7 @@ export default class ChatAPI extends BaseAPI {
                 }
             },
             json: true
-        }).then((response: { body: any }) => response.body.map((val: any) => new ChatConversation(val, this.client)));
+        }).then((response: { body: any }) => response.body);
     }
 
     getConversationMessages (options: GetConversationMessagesOptions): Promise<GetConversationMessages> {
@@ -222,7 +228,7 @@ export default class ChatAPI extends BaseAPI {
                 }
             },
             json: true
-        }).then((response: { body: any }) => response.body.map((val: any) => new ChatMessage(val, this.client)));
+        }).then((response: { body: any }) => response.body);
     }
 
     getRolloutSettings (options: GetRolloutSettingsOptions): Promise<GetRolloutSettings> {
@@ -254,7 +260,7 @@ export default class ChatAPI extends BaseAPI {
         }).then((response: { body: any }) => response.body);
     }
 
-    getUnreadMessagesInConversations (options: GetUnreadMessagesInConversationsOptions): Promise<GetConversations> {
+    getUnreadMessagesInConversations (options: GetUnreadMessagesInConversationsOptions): Promise<GetUnreadMessagesInConversations> {
         return this.request({
             requiresAuth: true,
             request: {
@@ -268,7 +274,7 @@ export default class ChatAPI extends BaseAPI {
                 }
             },
             json: true
-        }).then((response: { body: any }) => response.body.map((val: any) => new ChatConversation(val, this.client)));
+        }).then((response: { body: any }) => response.body);
     }
 
     getUserConversations (options: GetUserConversationsOptions): Promise<GetUserConversations> {
@@ -282,7 +288,7 @@ export default class ChatAPI extends BaseAPI {
                 }
             },
             json: true
-        }).then((response: { body: any }) => response.body.map((val: any) => new ChatConversation(val, this.client)));
+        }).then((response: { body: any }) => response.body);
     }
 
     getMetaData (): Promise<GetMetaData> {
@@ -309,12 +315,7 @@ export default class ChatAPI extends BaseAPI {
                 }
             },
             json: true
-        }).then((response: { body: any }) => response.body.map((val: any) => ({
-            conversation: new PartialChatConversation({
-                id: val.conversationId
-            }, this.client),
-            chatMessages: response.body.chatMessages.map((mes: any) => new ChatMessage(mes, this.client))
-        }) as GetUnreadMessagesInConversations));
+        }).then((response: { body: any }) => response.body);
     }
 
     addUsersToConversation (options: AddUsersToConversationOptions): Promise<AddUsersToConversation> {
@@ -329,15 +330,7 @@ export default class ChatAPI extends BaseAPI {
                 }
             },
             json: true
-        }).then((response: { body: any }) => ({
-            conversation: new ChatConversation(response.body.conversation, this.client),
-            rejectedMembers: response.body.rejectedParticipants.map((val: any) => new PartialUser({
-                id: val.targetId,
-                name: val.name
-            }, this.client)),
-            resultType: response.body.resultType,
-            statusMessage: response.body.statusMessage
-        }));
+        }).then((response: { body: any }) => response.body);
     }
 
     markConversationMessagesRead (options: MarkMessageInConversationAsReadOptions): Promise<MarkMessageInConversationAsRead> {
@@ -382,13 +375,7 @@ export default class ChatAPI extends BaseAPI {
                 }
             },
             json: true
-        }).then((response: { body: any }) => ({
-            conversation: new PartialChatConversation({
-                id: options.conversationId
-            }, this.client),
-            resultType: response.body.resultType,
-            statusMessage: response.body.statusMessage
-        }));
+        }).then((response: { body: any }) => response.body);
     }
 
     renameGroupConversation (options: RenameGroupConversationOptions): Promise<RenameGroupConversation> {
@@ -403,13 +390,7 @@ export default class ChatAPI extends BaseAPI {
                 }
             },
             json: true
-        }).then((response: { body: any }) => ({
-            conversation: new PartialChatConversation({
-                id: options.conversationId
-            }, this.client),
-            resultType: response.body.responseType,
-            statusMessage: response.body.statusMessage
-        }));
+        }).then((response: { body: any }) => response.body);
     }
 
     resetConversationUniverse (options: ResetConversationUniverseOptions): Promise<ResetConversationUniverse> {
@@ -424,12 +405,7 @@ export default class ChatAPI extends BaseAPI {
                 }
             },
             json: true
-        }).then((response: { body: any }) => ({
-            conversation: new PartialChatConversation({
-                id: options.conversationId
-            }, this.client),
-            statusMessage: response.body.statusMessage
-        }));
+        }).then((response: { body: any }) => response.body);
     }
 
     sendGameLinkMessage (options: SendGameLinkMessageOptions): Promise<SendGameLinkMessage> {
@@ -444,7 +420,7 @@ export default class ChatAPI extends BaseAPI {
                 }
             },
             json: true
-        }).then((response: { body: any }) => new ChatMessageSent(response.body, this.client));
+        }).then((response: { body: any }) => response.body);
     }
 
     sendMessage (options: SendMessageOptions): Promise<SendMessage> {
@@ -459,7 +435,7 @@ export default class ChatAPI extends BaseAPI {
                 }
             },
             json: true
-        }).then((response: { body: any }) => new ChatMessageSent(response.body, this.client));
+        }).then((response: { body: any }) => response.body);
     }
 
     setConversationUniverse (options: SetConversationUniverseOptions): Promise<SetConversationUniverse> {
@@ -474,12 +450,7 @@ export default class ChatAPI extends BaseAPI {
                 }
             },
             json: true
-        }).then((response: { body: any }) => ({
-            conversation: new PartialChatConversation({
-                id: options.conversationId
-            }, this.client),
-            statusMessage: response.body.statusMessage
-        }));
+        }).then((response: { body: any }) => response.body);
     }
 
     startCloudEditConversation (options: StartCloudEditConversationOptions): Promise<StartCloudEditConversation> {
@@ -494,15 +465,7 @@ export default class ChatAPI extends BaseAPI {
                 }
             },
             json: true
-        }).then((response: { body: any }) => ({
-            conversation: new ChatConversation(response.body.conversation, this.client),
-            rejectedMembers: response.body.rejectedParticipants.map((val: any) => new PartialUser({
-                id: val.targetId,
-                name: val.name
-            }, this.client)),
-            resultType: response.body.resultType,
-            statusMessage: response.body.statusMessage
-        }));
+        }).then((response: { body: any }) => response.body);
     }
 
     startGroupConversation (options: StartGroupConversationOptions): Promise<StartGroupConversation> {
@@ -517,12 +480,7 @@ export default class ChatAPI extends BaseAPI {
                 }
             },
             json: true
-        }).then((response: { body: any }) => ({
-            conversation: new ChatConversation(response.body.conversation, this.client),
-            statusMessage: response.body.statusMessage,
-            resultType: response.body.resultType,
-            rejectedMembers: response.body.rejectedParticipants.map((val: any) => new PartialUser(val, this.client))
-        }));
+        }).then((response: { body: any }) => response.body);
     }
 
     startOneToOneConversation (options: StartOneToOneConversationOptions): Promise<StartOneToOneConversation> {
@@ -537,12 +495,7 @@ export default class ChatAPI extends BaseAPI {
                 }
             },
             json: true
-        }).then((response: { body: any }) => ({
-            conversation: new ChatConversation(response.body.conversation, this.client),
-            statusMessage: response.body.statusMessage,
-            resultType: response.body.resultType,
-            rejectedMembers: response.body.rejectedParticipants.map((val: any) => new PartialUser(val, this.client))
-        }));
+        }).then((response: { body: any }) => response.body);
     }
 
     updateUserTypingStatus (options: UpdateUserTypingStatusOptions): Promise<UpdateUserTypingStatus> {

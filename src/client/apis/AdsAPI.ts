@@ -1,20 +1,19 @@
 import BaseAPI from "./BaseAPI";
 import Client from "../Client";
-import { AnyIdentifier } from "../../interfaces/GeneralInterfaces";
 
 
 export declare type CreateAssetAdOptions = {
-    assetId: AnyIdentifier;
+    assetId: number;
     name: string;
     file: unknown;
 };
 export declare type CreateGamePassAdOptions = {
-    gamePassId: AnyIdentifier;
+    gamePassId: number;
     name: string;
     file: unknown;
 };
 export declare type CreateGroupAdOptions = {
-    groupId: AnyIdentifier;
+    groupId: number;
     name: string;
     file: unknown;
 };
