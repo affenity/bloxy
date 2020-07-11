@@ -38,12 +38,12 @@ export type AllowNotificationsDestinationOptions = {
 export type AllowNotificationsDestination = {}
 export type DisallowNotificationsDestinationOptions = AllowNotificationsDestinationOptions;
 export type DisallowNotificationsDestination = {}
-export type UpdateNotificationDestinationOptions = {
+export type UpdateNotificationDestinationSettingsOptions = {
     notificationSourceType: string;
     destinationId: number;
     isEnabled: boolean;
 }
-export type UpdateNotificationDestination = {}
+export type UpdateNotificationDestinationSettings = {}
 export type UpdateNotificationSettingsOptions = {
     updatedSettings: {
         notificationSourceType: string;
@@ -240,5 +240,378 @@ export default class NotificationsAPI extends BaseAPI {
             client,
             baseUrl: "https://notifications.roblox.com/"
         });
+    }
+
+    getNotificationsSettings (): Promise<GetNotificationsSettings> {
+        return this.request({
+            requiresAuth: false,
+            request: {
+                path: `v2/notifications/get-settings`
+            },
+            json: true
+        }).then((response: { body: any }) => response.body);
+    }
+
+    getRealtimeNotificationSettings (): Promise<GetRealtimeNotificationsSettings> {
+        return this.request({
+            requiresAuth: false,
+            request: {
+                path: `v2/notifications/settings/realtime`
+            },
+            json: true
+        }).then((response: { body: any }) => response.body);
+    }
+
+    allowNotificationSource (options: AllowNotificationSourceOptions): Promise<AllowNotificationSource> {
+        return this.request({
+            requiresAuth: false,
+            request: {
+                path: `v2/notifications/notification-source-types/allow`,
+                method: "POST",
+                json: options
+            },
+            json: true
+        }).then((response: { body: any }) => response.body);
+    }
+
+    disallowNotificationSource (options: DisallowNotificationSourceOptions): Promise<DisallowNotificationSource> {
+        return this.request({
+            requiresAuth: false,
+            request: {
+                path: `v2/notifications/notification-source-types/opt-out`,
+                method: "POST",
+                json: options
+            },
+            json: true
+        }).then((response: { body: any }) => response.body);
+    }
+
+    allowNotificationDestination (options: AllowNotificationsDestinationOptions): Promise<AllowNotificationsDestination> {
+        return this.request({
+            requiresAuth: false,
+            request: {
+                path: `v2/notifications/receiver-destination-types/allow`,
+                method: "POST",
+                json: options
+            },
+            json: true
+        }).then((response: { body: any }) => response.body);
+    }
+
+    disallowNotificationDestination (options: DisallowNotificationsDestinationOptions): Promise<DisallowNotificationsDestination> {
+        return this.request({
+            requiresAuth: false,
+            request: {
+                path: `v2/notifications/receiver-destination-types/opt-out`,
+                method: "POST",
+                json: options
+            },
+            json: true
+        }).then((response: { body: any }) => response.body);
+    }
+
+    updateDestinationSetting (options: UpdateNotificationDestinationSettingsOptions): Promise<UpdateNotificationDestinationSettings> {
+        return this.request({
+            requiresAuth: false,
+            request: {
+                path: `v2/notifications/update-destination-setting`,
+                method: "POST",
+                json: options
+            },
+            json: true
+        }).then((response: { body: any }) => response.body);
+    }
+
+    updateNotificationSettings (options: UpdateNotificationSettingsOptions): Promise<UpdateNotificationSettings> {
+        return this.request({
+            requiresAuth: false,
+            request: {
+                path: `v2/notifications/update-notification-settings`,
+                method: "POST",
+                json: options
+            },
+            json: true
+        }).then((response: { body: any }) => response.body);
+    }
+
+    getChromeManifest (): Promise<GetChromeNotificationsManifest> {
+        return this.request({
+            requiresAuth: false,
+            request: {
+                path: `v2/push-notifications/chrome-manifest`
+            },
+            json: true
+        }).then((response: { body: any }) => response.body);
+    }
+
+    getCurrentDeviceDestination (): Promise<GetCurrentNotificationDeviceDestination> {
+        return this.request({
+            requiresAuth: false,
+            request: {
+                path: `v2/push-notifications/get-current-device-destination`
+            },
+            json: true
+        }).then((response: { body: any }) => response.body);
+    }
+
+    getDestinations (): Promise<GetNotificationDestinations> {
+        return this.request({
+            requiresAuth: false,
+            request: {
+                path: `v2/push-notifications/get-destinations`
+            },
+            json: true
+        }).then((response: { body: any }) => response.body);
+    }
+
+    getPushNotificationsMetaData (): Promise<GetNotificationsMetaData> {
+        return this.request({
+            requiresAuth: false,
+            request: {
+                path: `v2/push-notifications/metadata`
+            },
+            json: true
+        }).then((response: { body: any }) => response.body);
+    }
+
+    getNotificationIds (options: GetNotificationIdsOptions): Promise<GetNotificationIds> {
+        return this.request({
+            requiresAuth: false,
+            request: {
+                path: `v2/push-notifications/notification-ids`,
+                qs: options
+            },
+            json: true
+        }).then((response: { body: any }) => response.body);
+    }
+
+    deregisterAllDevices (): Promise<DeregisterAllDevices> {
+        return this.request({
+            requiresAuth: false,
+            request: {
+                path: `v2/push-notifications/deregister-all-devices`,
+                method: "POST"
+            },
+            json: true
+        }).then((response: { body: any }) => response.body);
+    }
+
+    deregisterCurrentDevice (): Promise<DeregisterCurrentDevice> {
+        return this.request({
+            requiresAuth: false,
+            request: {
+                path: `v2/push-notifications/deregister-current-device`
+            },
+            json: true
+        }).then((response: { body: any }) => response.body);
+    }
+
+    markNotificationRead (options: MarkNotificationReadOptions): Promise<MarkNotificationRead> {
+        return this.request({
+            requiresAuth: false,
+            request: {
+                path: `v2/push-notifications/mark-as-read`,
+                method: "POST",
+                json: options
+            },
+            json: true
+        }).then((response: { body: any }) => response.body);
+    }
+
+    markNotificationCategoryRead (options: MarkNotificationCategoryReadOptions): Promise<MarkNotificationCategoryRead> {
+        return this.request({
+            requiresAuth: false,
+            request: {
+                path: `v2/push-notifications/mark-category-as-read`,
+                method: "POST",
+                json: options
+            },
+            json: true
+        }).then((response: { body: any }) => response.body);
+    }
+
+    markNotificationInteraction (options: MarkNotificationInteractionOptions): Promise<MarkNotificationInteraction> {
+        return this.request({
+            requiresAuth: false,
+            request: {
+                path: `v2/push-notifications/mark-interaction`,
+                method: "POST",
+                json: options
+            },
+            json: true
+        }).then((response: { body: any }) => response.body);
+    }
+
+    registerAndroidAmazon (options: RegisterAmazonAndroidOptions): Promise<RegisterAmazonAndroid> {
+        return this.request({
+            requiresAuth: false,
+            request: {
+                path: `v2/push-notifications/register-android-amazon`,
+                method: "POST",
+                json: options
+            },
+            json: true
+        }).then((response: { body: any }) => response.body);
+    }
+
+    registerAndroidNative (options: RegisterAndroidNativeOptions): Promise<RegisterAndroidNative> {
+        return this.request({
+            requiresAuth: false,
+            request: {
+                path: `v2/push-notifications/register-android-native`,
+                method: "POST",
+                json: options
+            },
+            json: true
+        }).then((response: { body: any }) => response.body);
+    }
+
+    registerAndroidTencentSerice (options: RegisterAndroidTencentServiceOptions): Promise<RegisterAndroidTencentService> {
+        return this.request({
+            requiresAuth: false,
+            request: {
+                path: `v2/push-notifications/register-android-tencent-service`,
+                method: "POST",
+                json: options
+            },
+            json: true
+        }).then((response: { body: any }) => response.body);
+    }
+
+    registerChrome (options: RegisterChromeOptions): Promise<RegisterChrome> {
+        return this.request({
+            requiresAuth: false,
+            request: {
+                path: `v2/push-notifications/register-chrome`,
+                method: "POST",
+                json: options
+            },
+            json: true
+        }).then((response: { body: any }) => response.body);
+    }
+
+    registerFirefox (options: RegisterFirefoxOptions): Promise<RegisterFirefox> {
+        return this.request({
+            requiresAuth: false,
+            request: {
+                path: `v2/push-notifications/register-firefox`,
+                method: "POST",
+                json: options
+            },
+            json: true
+        }).then((response: { body: any }) => response.body);
+    }
+
+    registerIOSNative (options: RegisterIOSNativeOptions): Promise<RegisterIOSNative> {
+        return this.request({
+            requiresAuth: false,
+            request: {
+                path: `v2/push-notifications/register-ios-native`,
+                method: "POST",
+                json: options
+            },
+            json: true
+        }).then((response: { body: any }) => response.body);
+    }
+
+    getLatestUniversesUpdates (options: GetLatestUniversesUpdatesOptions): Promise<GetLatestUniverseUpdates> {
+        return this.request({
+            requiresAuth: false,
+            request: {
+                path: `v2/stream-notifications/get-latest-game-updates`,
+                qs: {
+                    ...options,
+                    universeId: options.universeIds.join(",")
+                }
+            },
+            json: true
+        }).then((response: { body: any }) => response.body);
+    }
+
+    getStreamNotificationsPromptSettings (): Promise<GetStreamNotificationsPromptSettings> {
+        return this.request({
+            requiresAuth: false,
+            request: {
+                path: `v2/stream-notifications/get-prompt-settings`
+            },
+            json: true
+        }).then((response: { body: any }) => response.body);
+    }
+
+    getRecentStreamNotifications (options: GetRecentStreamNotificationsOptions): Promise<GetRecentStreamNotifications> {
+        return this.request({
+            requiresAuth: false,
+            request: {
+                path: `v2/stream-notifications/get-recent`,
+                qs: options
+            },
+            json: true
+        }).then((response: { body: any }) => response.body);
+    }
+
+    getStreamNotificationsMetaData (): Promise<GetLatestUniverseUpdates> {
+        return this.request({
+            requiresAuth: false,
+            request: {
+                path: `v2/stream-notifications/metadata`
+            },
+            json: true
+        }).then((response: { body: any }) => response.body);
+    }
+
+    getUnreadStreamNotificationsCount (): Promise<GetLatestUniverseUpdates> {
+        return this.request({
+            requiresAuth: false,
+            request: {
+                path: `v2/stream-notifications/unread-count`
+            },
+            json: true
+        }).then((response: { body: any }) => response.body);
+    }
+
+    clearUnreadStreamNotifications (): Promise<ClearUnreadStreamNotifications> {
+        return this.request({
+            requiresAuth: false,
+            request: {
+                path: `v2/stream-notifications/clear-unread`,
+                method: "POST"
+            },
+            json: true
+        }).then((response: { body: any }) => response.body);
+    }
+
+    markGameUpdateNotificationInteracted (options: SendGameUpdateNotificationInteractedOptions): Promise<SendGameUpdateNotificationInteracted> {
+        return this.request({
+            requiresAuth: false,
+            request: {
+                path: `v2/stream-notifications/game-update-notification-interacted`,
+                method: "POST",
+                json: options
+            },
+            json: true
+        }).then((response: { body: any }) => response.body);
+    }
+
+    markGameUpdateNotificationRead (options: SendGameUpdateNotificationReadOptions): Promise<SendGameUpdateNotificationRead> {
+        return this.request({
+            requiresAuth: false,
+            request: {
+                path: `v2/stream-notifications/get-latest-game-updates`,
+                method: "POST",
+                json: options
+            },
+            json: true
+        }).then((response: { body: any }) => response.body);
+    }
+
+    suppressStreamNotificationsPrompt (): Promise<SuppressStreamNotificationsPrompt> {
+        return this.request({
+            requiresAuth: false,
+            request: {
+                path: `v2/stream-notifications/suppress-prompt`,
+                method: "POST"
+            },
+            json: true
+        }).then((response: { body: any }) => response.body);
     }
 }
