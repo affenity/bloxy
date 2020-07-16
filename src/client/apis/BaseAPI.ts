@@ -33,7 +33,7 @@ export default class BaseAPI {
     request (options: BaseAPIRequestOptions): Promise<RESTResponseDataType> {
         if (options.requiresAuth) {
             if (!this.options.client.user) {
-                throw new Error(`You must be authenticated in order to perform this request! API: ${options.request.path ? this.options.baseUrl : ""}${options.request.path || options.request.url}`);
+                throw new Error(`You must be authenticated in order to perform this request! API: ${(options.request.method || "GET").toUpperCase()} ${options.request.path ? this.options.baseUrl : ""}${options.request.path || options.request.url}`);
             }
         }
 

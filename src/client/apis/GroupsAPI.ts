@@ -4,7 +4,35 @@ import { GroupOptions } from "../../structures/group/Group";
 import { GroupRolePermissionsOptions } from "../../structures/group/GroupRolePermissions";
 import { GroupRoleOptions } from "../../structures/group/GroupRole";
 
-
+export type GetGroupOptions = {
+    groupId: number;
+}
+export type GetGroup = {
+    id: number;
+    name: string;
+    description: string;
+    owner: {
+        buildersClubMembershipType: "None" | string;
+        userId: number;
+        username: string;
+        displayName: string;
+    };
+    shout: {
+        body: string;
+        poster: {
+            buildersClubMembershipType: "None" | string;
+            userId: number;
+            username: string;
+            displayName: string;
+        };
+        created: string;
+        updated: string;
+    };
+    memberCount: number;
+    isBuildersClubOnly: boolean;
+    publicEntryAllowed: boolean;
+    isLocked: boolean;
+}
 export type GetMultiGroupsOptions = {
     groupIds: number[];
 }
@@ -505,6 +533,16 @@ export default class GroupsAPI extends BaseAPI {
             client,
             baseUrl: "https://groups.roblox.com/"
         });
+    }
+
+    getGroup (options: GetGroupOptions): Promise<GetGroup> {
+        return this.request({
+            requiresAuth: false,
+            request: {
+                path: `v1/groups/${options.groupId}`
+            },
+            json: true
+        }).then((response: { body: any }) => response.body);
     }
 
     getMultiGroups (options: GetMultiGroupsOptions): Promise<GetMultiGroups> {

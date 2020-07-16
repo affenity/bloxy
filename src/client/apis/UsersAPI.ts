@@ -79,7 +79,7 @@ export type SearchUsers = {
     }[];
 }
 
-export default class TradesAPI extends BaseAPI {
+export default class UsersAPI extends BaseAPI {
     constructor (client: Client) {
         super({
             client,

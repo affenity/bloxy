@@ -26,6 +26,15 @@ import InventoryAPI from "./InventoryAPI";
 import ItemConfigurationAPI from "./ItemConfigurationAPI";
 import LocaleAPI from "./LocaleAPI";
 import MetricsAPI from "./MetricsAPI";
+import NotificationsAPI from "./NotificationsAPI";
+import PremiumFeaturesAPI from "./PremiumFeaturesAPI";
+import PresenceAPI from "./PresenceAPI";
+import PrivateMessagesAPI from "./PrivateMessagesAPI";
+import PublishAPI from "./PublishAPI";
+import ThumbnailsAPI from "./ThumbnailsAPI";
+import TradesAPI from "./TradesAPI";
+import TranslationRolesAPI from "./TranslationRolesAPI";
+import UsersAPI from "./UsersAPI";
 
 
 export declare type APIs = {
@@ -55,6 +64,15 @@ export declare type APIs = {
     itemConfigurationAPI: ItemConfigurationAPI;
     localeAPI: LocaleAPI;
     metricsAPI: MetricsAPI;
+    notificationsAPI: NotificationsAPI;
+    premiumFeaturesAPI: PremiumFeaturesAPI;
+    presenceAPI: PresenceAPI;
+    privateMessagesAPI: PrivateMessagesAPI;
+    publishAPI: PublishAPI;
+    thumbnailsAPI: ThumbnailsAPI;
+    tradesAPI: TradesAPI;
+    translationRolesAPI: TranslationRolesAPI;
+    usersAPI: UsersAPI;
     generalApi: GeneralAPI;
 };
 
@@ -86,6 +104,15 @@ export default function initAPIs (client: Client): APIs {
         itemConfigurationAPI: new ItemConfigurationAPI(client),
         localeAPI: new LocaleAPI(client),
         metricsAPI: new MetricsAPI(client),
-        generalApi: new GeneralAPI(client)
+        generalApi: new GeneralAPI(client),
+        notificationsAPI: new NotificationsAPI(client),
+        premiumFeaturesAPI: new PremiumFeaturesAPI(client),
+        presenceAPI: new PresenceAPI(client),
+        privateMessagesAPI: new PrivateMessagesAPI(client),
+        publishAPI: new PublishAPI(client),
+        thumbnailsAPI: new ThumbnailsAPI(client),
+        tradesAPI: new TradesAPI(client),
+        translationRolesAPI: new TranslationRolesAPI(client),
+        usersAPI: new UsersAPI(client)
     };
 }

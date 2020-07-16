@@ -87,7 +87,7 @@ export type UnArchiveMessagesOptions = ArchiveMessagesOptions;
 export type UnArchiveMessages = ArchiveMessages;
 
 
-export default class TradesAPI extends BaseAPI {
+export default class PrivateMessagesAPI extends BaseAPI {
     constructor (client: Client) {
         super({
             client,
