@@ -6,11 +6,6 @@ const c = new Client({
 });
 
 (async () => {
-    await c.login();
-    console.log(c.user);
-
-    c.socket.on("chatMessageSent", (conversation) => {
-        console.log(conversation)
-    });
-    await c.socket.connect();
+    // await c.login();
+    const user = await c.getUser(18442032);
 })();

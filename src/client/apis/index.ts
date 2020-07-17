@@ -35,6 +35,7 @@ import ThumbnailsAPI from "./ThumbnailsAPI";
 import TradesAPI from "./TradesAPI";
 import TranslationRolesAPI from "./TranslationRolesAPI";
 import UsersAPI from "./UsersAPI";
+import OtherAPI from "./OtherAPI";
 
 
 export declare type APIs = {
@@ -65,6 +66,7 @@ export declare type APIs = {
     localeAPI: LocaleAPI;
     metricsAPI: MetricsAPI;
     notificationsAPI: NotificationsAPI;
+    otherAPI: OtherAPI;
     premiumFeaturesAPI: PremiumFeaturesAPI;
     presenceAPI: PresenceAPI;
     privateMessagesAPI: PrivateMessagesAPI;
@@ -106,6 +108,7 @@ export default function initAPIs (client: Client): APIs {
         metricsAPI: new MetricsAPI(client),
         generalApi: new GeneralAPI(client),
         notificationsAPI: new NotificationsAPI(client),
+        otherAPI: new OtherAPI(client),
         premiumFeaturesAPI: new PremiumFeaturesAPI(client),
         presenceAPI: new PresenceAPI(client),
         privateMessagesAPI: new PrivateMessagesAPI(client),

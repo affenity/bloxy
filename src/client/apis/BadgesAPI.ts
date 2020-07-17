@@ -21,10 +21,9 @@ export type GetBadge = {
         awardedCount: number;
         winRatePercentage: number;
     };
-    awardingUniverse: {
+    awarder: {
         id: number;
-        name: string;
-        rootPlaceId: number;
+        type: "Place" | string;
     };
 };
 export type UpdateBadgeOptions = {

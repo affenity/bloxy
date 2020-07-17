@@ -22,7 +22,7 @@ export type GetAssetBundlesOptions = {
     cursor?: string;
 }
 export type GetAssetBundles = {
-    previousPageCursor: ShadowRootInit;
+    previousPageCursor: string;
     nextPageCursor: string;
     data: {
         id: number;

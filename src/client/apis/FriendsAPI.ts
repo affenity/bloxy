@@ -99,6 +99,8 @@ export type GetUserFollowing = GetUserFollowers;
 export type GetUserFollowingCountOptions = GetUserFollowersCountOptions;
 export type GetUserFollowingCount = GetUserFollowersCount;
 export type GetUserFriendsOptions = {
+    cursor?: string;
+    limit?: 10 | 25 | 50 | 100;
     userId: number;
 }
 export type GetUserFriends = {

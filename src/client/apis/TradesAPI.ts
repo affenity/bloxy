@@ -95,7 +95,7 @@ export type DeclineTradeOptions = {
     tradeId: number;
 }
 export type DeclineTrade = {}
-export type SendTradeOptions = CounterTradeOptions;
+export type SendTradeOptions = Omit<CounterTradeOptions, "tradeId">;
 export type SendTrade = {
     id: number;
 }

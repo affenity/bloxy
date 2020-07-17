@@ -7,6 +7,8 @@ import RESTController from "../controllers/rest";
 import initStructures, { Structures } from "../structures";
 import Group from "../structures/group/Group";
 import ClientSocket from "./lib/ClientSocket/ClientSocket";
+import User from "../structures/user/User";
+import PartialUser from "../structures/user/PartialUser";
 
 
 export default class Client extends ClientBase {
@@ -46,5 +48,68 @@ export default class Client extends ClientBase {
                 return new Group(data, this);
             }
         });
+    }
+
+    getUser (userId: number): Promise<User> {
+        return this.apis.otherAPI.getUserProfileHeader({
+            userId
+        }).then(data => new User({
+            id: data.ProfileUserId,
+            name: data.ProfileUserName,
+            canFollow: data.CanBeFollowed,
+            canSeeInventory: data.CanSeeInventory,
+            canTrade: data.CanTrade,
+            incomingFriendRequest: data.IncomingFriendRequestPending,
+            sentFriendRequest: data.FriendRequestPending,
+            canMessage: data.CanMessage,
+            isViewerBlocked: data.IsViewerBlocked,
+            isVieweeBlocked: data.IsVieweeBlocked,
+            followingsCount: data.FollowingsCount,
+            followersCount: data.FollowersCount,
+            userPlaceId: data.UserPlaceId,
+            userStatusDate: data.UserStatusDate,
+            userStatus: data.UserStatus,
+            presenceType: data.UserPresenceType,
+            friendsCount: data.FriendsCount,
+            canFriend: data.MaySendFriendInvitation,
+            areFriends: data.AreFriends,
+            lastLocation: data.LastLocation,
+            canSeeFavorites: data.CanSeeFavorites,
+            headShotImage: {
+                final: data.HeadShotImage.Final,
+                endpointType: data.HeadShotImage.EndpointType,
+                retryUrl: data.HeadShotImage.RetryUrl,
+                url: data.HeadShotImage.Url,
+                userId: data.HeadShotImage.UserId
+            },
+            messagesDisabled: data.MessagesDisabled,
+            previousUsernames: data.PreviousUserNames
+        }, this));
+    }
+
+    getUserIdFromUsername (username: string): Promise<PartialUser> {
+        return this.apis.generalApi.getUserByUsername({
+            username
+        }).then(data => new PartialUser(data, this));
+    }
+
+    getUsernameFromUserId (userId: number): Promise<PartialUser> {
+        return this.apis.generalApi.getUserById({
+            userId
+        }).then(data => new PartialUser(data, this));
+    }
+
+    getUsersByUserIds (userIds: number[], excludeBannedUsers = false): Promise<PartialUser[]> {
+        return this.apis.usersAPI.getUsersByIds({
+            excludeBannedUsers,
+            userIds
+        }).then(response => response.data.map(userData => new PartialUser(userData, this)));
+    }
+
+    getUsersByUsernames (usernames: string[], excludeBannedUsers = false): Promise<PartialUser[]> {
+        return this.apis.usersAPI.getUsersByUsernames({
+            excludeBannedUsers,
+            usernames
+        }).then(response => response.data.map(userData => new PartialUser(userData, this)));
     }
 }

@@ -10,7 +10,7 @@ export type GetPackageAssets = {
 }
 export type GetUserCollectiblesOptions = {
     userId: number;
-    assetType: "Image" | "TShirt" | "Audio" | "Mesh" | "Lua" | "HTML" | "Text" | "Hat" | "Place" | "Model" | "Shirt" | "Pants" | "Decal" | "Avatar" | "Head" | "Face" | "Gear" | "Badge" | "GroupEmblem" | "Animation" | "Arms" | "Legs" | "Torso" | "RightArm" | "LeftArm" | "LeftLeg" | "RightLeg" | "Package" | "YouTubeVideo" | "GamePass" | "App" | "Code" | "Plugin" | "SolidModel" | "MeshPart" | "HairAccessory" | "NeckAccessory" | "ShoulderAccessory" | "FrontAccessory" | "BackAccessory" | "WaistAccessory" | "ClimbAnimation" | "DeathAnimation" | "FallAnimation" | "IdleAnimation" | "JumpAnimation" | "RunAnimation" | "SwimAnimation" | "WalkAnimation" | "PoseAnimation" | "LocalizationTableManifest" | "LocalizationTableTranslation" | "EmoteAnimation" | "Video" | "TexturePack";
+    assetType?: "Image" | "TShirt" | "Audio" | "Mesh" | "Lua" | "HTML" | "Text" | "Hat" | "Place" | "Model" | "Shirt" | "Pants" | "Decal" | "Avatar" | "Head" | "Face" | "Gear" | "Badge" | "GroupEmblem" | "Animation" | "Arms" | "Legs" | "Torso" | "RightArm" | "LeftArm" | "LeftLeg" | "RightLeg" | "Package" | "YouTubeVideo" | "GamePass" | "App" | "Code" | "Plugin" | "SolidModel" | "MeshPart" | "HairAccessory" | "NeckAccessory" | "ShoulderAccessory" | "FrontAccessory" | "BackAccessory" | "WaistAccessory" | "ClimbAnimation" | "DeathAnimation" | "FallAnimation" | "IdleAnimation" | "JumpAnimation" | "RunAnimation" | "SwimAnimation" | "WalkAnimation" | "PoseAnimation" | "LocalizationTableManifest" | "LocalizationTableTranslation" | "EmoteAnimation" | "Video" | "TexturePack";
     sortOrder?: "Asc" | "Desc";
     limit?: 10 | 25 | 50 | 100;
     cursor?: string;
@@ -42,7 +42,7 @@ export type GetUserItemsByTypeAndTargetId = {
         Name: string;
         Type: GetUserItemsByTypeAndTargetIdOptions["itemType"];
         InstanceId: number;
-    };
+    }[];
 }
 export type GetAssetOwnersOptions = {
     assetId: number;

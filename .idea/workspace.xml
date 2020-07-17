@@ -26,20 +26,30 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a85767c4-bfb1-401b-832d-4f10d57a6f3a" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/client/lib/ClientSocket/ClientSocket.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/client/lib/ClientSocket/handlers/chatNotifications.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/client/lib/ClientSocket/handlers/index.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/client/lib/ClientSocket/index.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.eslintrc.json" beforeDir="false" afterPath="$PROJECT_DIR$/.eslintrc.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/codeStyles/Project.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/jsLinters/eslint.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/client/apis/OtherAPI.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/structures/asset/CursorPage.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/structures/user/User.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/bloxy.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/bloxy.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dictionaries/_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dictionaries/_.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/client/Client.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/client/Client.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/client/apis/BaseAPI.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/client/apis/BaseAPI.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/client/apis/GroupsAPI.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/client/apis/GroupsAPI.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/client/apis/PrivateMessagesAPI.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/client/apis/PrivateMessagesAPI.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/client/apis/UsersAPI.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/client/apis/UsersAPI.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/client/apis/BadgesAPI.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/client/apis/BadgesAPI.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/client/apis/CatalogAPI.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/client/apis/CatalogAPI.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/client/apis/FriendsAPI.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/client/apis/FriendsAPI.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/client/apis/InventoryAPI.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/client/apis/InventoryAPI.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/client/apis/TradesAPI.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/client/apis/TradesAPI.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/client/apis/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/client/apis/index.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/interfaces/ClientInterfaces.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/interfaces/ClientInterfaces.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/tests/test.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/structures/user/UserBase.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/structures/user/UserBase.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tests/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/tests/index.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -73,9 +83,11 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="TERMINAL_CUSTOM_COMMANDS_GOT_IT" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="javascript.nodejs.core.library.configured.version" value="12.16.3" />
     <property name="js.linters.configure.manually.selectedeslint" value="true" />
@@ -94,8 +106,8 @@
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="nodejs.jest.jest_package" value="$PROJECT_DIR$/node_modules/jest" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="settings.editor.selected.configurable" value="editor.preferences.completion" />
-    <property name="ts.external.directory.path" value="C:\Program Files\JetBrains\WebStorm 2020.1.3\plugins\JavaScriptLanguage\jsLanguageServicesImpl\external" />
+    <property name="settings.editor.selected.configurable" value="settings.typescriptcompiler" />
+    <property name="ts.external.directory.path" value="E:\Personal\Open-Sourced Modules\bloxy\node_modules\typescript\lib" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -210,7 +222,8 @@
       <workItem from="1593786780831" duration="32000" />
       <workItem from="1594638815909" duration="36000" />
       <workItem from="1594638875501" duration="58000" />
-      <workItem from="1594928570478" duration="8917000" />
+      <workItem from="1594928570478" duration="9619000" />
+      <workItem from="1594980016096" duration="8844000" />
     </task>
     <servers />
   </component>
@@ -242,6 +255,10 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="WindowStateProjectService">
+    <state x="678" y="167" key="#TypeScript" timestamp="1594981192484">
+      <screen x="0" y="0" width="1920" height="1050" />
+    </state>
+    <state x="678" y="167" key="#TypeScript/0.0.1920.1050/-1920.0.1920.1050/1920.0.1920.1050@0.0.1920.1050" timestamp="1594981192484" />
     <state x="414" y="195" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1590231960005">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
@@ -267,22 +284,22 @@
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
     <state x="739" y="267" key="FileChooserDialogImpl/-1920.0.1920.1050/1920.0.1920.1050/0.0.1920.1050@0.0.1920.1050" timestamp="1594638929773" />
-    <state width="1898" height="433" key="GridCell.Tab.0.bottom" timestamp="1594938457519">
+    <state width="1898" height="433" key="GridCell.Tab.0.bottom" timestamp="1594986380728">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
-    <state width="1898" height="433" key="GridCell.Tab.0.bottom/0.0.1920.1050/-1920.0.1920.1050/1920.0.1920.1050@0.0.1920.1050" timestamp="1594938457519" />
-    <state width="1898" height="433" key="GridCell.Tab.0.center" timestamp="1594938457519">
+    <state width="1898" height="433" key="GridCell.Tab.0.bottom/0.0.1920.1050/-1920.0.1920.1050/1920.0.1920.1050@0.0.1920.1050" timestamp="1594986380728" />
+    <state width="1898" height="433" key="GridCell.Tab.0.center" timestamp="1594986380728">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
-    <state width="1898" height="433" key="GridCell.Tab.0.center/0.0.1920.1050/-1920.0.1920.1050/1920.0.1920.1050@0.0.1920.1050" timestamp="1594938457519" />
-    <state width="1898" height="433" key="GridCell.Tab.0.left" timestamp="1594938457519">
+    <state width="1898" height="433" key="GridCell.Tab.0.center/0.0.1920.1050/-1920.0.1920.1050/1920.0.1920.1050@0.0.1920.1050" timestamp="1594986380728" />
+    <state width="1898" height="433" key="GridCell.Tab.0.left" timestamp="1594986380728">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
-    <state width="1898" height="433" key="GridCell.Tab.0.left/0.0.1920.1050/-1920.0.1920.1050/1920.0.1920.1050@0.0.1920.1050" timestamp="1594938457519" />
-    <state width="1898" height="433" key="GridCell.Tab.0.right" timestamp="1594938457519">
+    <state width="1898" height="433" key="GridCell.Tab.0.left/0.0.1920.1050/-1920.0.1920.1050/1920.0.1920.1050@0.0.1920.1050" timestamp="1594986380728" />
+    <state width="1898" height="433" key="GridCell.Tab.0.right" timestamp="1594986380728">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
-    <state width="1898" height="433" key="GridCell.Tab.0.right/0.0.1920.1050/-1920.0.1920.1050/1920.0.1920.1050@0.0.1920.1050" timestamp="1594938457519" />
+    <state width="1898" height="433" key="GridCell.Tab.0.right/0.0.1920.1050/-1920.0.1920.1050/1920.0.1920.1050@0.0.1920.1050" timestamp="1594986380728" />
     <state width="1399" height="344" key="GridCell.Tab.1.bottom" timestamp="1590265494502">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
@@ -331,41 +348,49 @@
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
     <state width="1399" height="344" key="GridCell.Tab.3.right/0.0.1920.1050/-1920.0.1920.1050/1920.0.1920.1050@0.0.1920.1050" timestamp="1590265494502" />
-    <state x="461" y="182" key="SettingsEditor" timestamp="1594934485470">
+    <state x="461" y="182" key="SettingsEditor" timestamp="1594982084692">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
-    <state x="461" y="182" key="SettingsEditor/0.0.1920.1050/-1920.0.1920.1050/1920.0.1920.1050@0.0.1920.1050" timestamp="1594934485470" />
-    <state width="498" height="446" key="SwitcherDM" timestamp="1594938531132">
+    <state x="461" y="182" key="SettingsEditor/0.0.1920.1050/-1920.0.1920.1050/1920.0.1920.1050@0.0.1920.1050" timestamp="1594982084692" />
+    <state width="498" height="446" key="SwitcherDM" timestamp="1594989316318">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
-    <state width="498" height="446" key="SwitcherDM/0.0.1920.1050/-1920.0.1920.1050/1920.0.1920.1050@0.0.1920.1050" timestamp="1594938531132" />
-    <state x="-1927" y="0" width="974" height="1057" key="dock-window-1" timestamp="1593786812358">
+    <state width="498" height="446" key="SwitcherDM/0.0.1920.1050/-1920.0.1920.1050/1920.0.1920.1050@0.0.1920.1050" timestamp="1594989316318" />
+    <state x="832" y="384" key="cloudConfig.SelfSettingsDialog" timestamp="1594938862818">
+      <screen x="0" y="0" width="1920" height="1050" />
+    </state>
+    <state x="832" y="384" key="cloudConfig.SelfSettingsDialog/0.0.1920.1050/-1920.0.1920.1050/1920.0.1920.1050@0.0.1920.1050" timestamp="1594938862818" />
+    <state x="441" y="212" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1594980773661">
+      <screen x="0" y="0" width="1920" height="1050" />
+    </state>
+    <state x="441" y="212" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/0.0.1920.1050/-1920.0.1920.1050/1920.0.1920.1050@0.0.1920.1050" timestamp="1594980773661" />
+    <state x="-967" y="0" width="974" height="1057" key="dock-window-1" timestamp="1594986056675">
       <screen x="-1920" y="0" width="1920" height="1050" />
     </state>
-    <state x="-1927" y="0" width="974" height="1057" key="dock-window-1/0.0.1920.1050/-1920.0.1920.1050/1920.0.1920.1050@0.0.1920.1050" timestamp="1593786812358" />
-    <state x="100" y="100" width="1720" height="880" key="dock-window-2" timestamp="1590238982846">
-      <screen x="0" y="0" width="1920" height="1050" />
+    <state x="-967" y="0" width="974" height="1057" key="dock-window-1/0.0.1920.1050/-1920.0.1920.1050/1920.0.1920.1050@0.0.1920.1050" timestamp="1594986056675" />
+    <state x="1913" y="0" width="974" height="1057" key="dock-window-2" timestamp="1594981478381">
+      <screen x="1920" y="0" width="1920" height="1050" />
     </state>
-    <state x="100" y="100" width="1720" height="880" key="dock-window-2/0.0.1920.1050/-1920.0.1920.1050/1920.0.1920.1050@0.0.1920.1050" timestamp="1590238982846" />
+    <state x="1913" y="0" width="974" height="1057" key="dock-window-2/0.0.1920.1050/-1920.0.1920.1050/1920.0.1920.1050@0.0.1920.1050" timestamp="1594981478381" />
     <state x="-967" y="0" width="974" height="1057" key="dock-window-3" timestamp="1590243202998">
       <screen x="-1920" y="0" width="1920" height="1050" />
     </state>
     <state x="-967" y="0" width="974" height="1057" key="dock-window-3/0.0.1920.1050/-1920.0.1920.1050/1920.0.1920.1050@0.0.1920.1050" timestamp="1590243202998" />
-    <state x="668" y="115" width="583" height="849" key="find.popup" timestamp="1594937376494">
+    <state x="668" y="115" width="583" height="849" key="find.popup" timestamp="1594982254939">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
-    <state x="668" y="115" width="583" height="849" key="find.popup/0.0.1920.1050/-1920.0.1920.1050/1920.0.1920.1050@0.0.1920.1050" timestamp="1594937376494" />
+    <state x="668" y="115" width="583" height="849" key="find.popup/0.0.1920.1050/-1920.0.1920.1050/1920.0.1920.1050@0.0.1920.1050" timestamp="1594982254939" />
     <state x="609" y="274" width="700" height="530" key="recent.locations.popup" timestamp="1594935992169">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
     <state x="609" y="274" width="700" height="530" key="recent.locations.popup/0.0.1920.1050/-1920.0.1920.1050/1920.0.1920.1050@0.0.1920.1050" timestamp="1594935992169" />
-    <state x="624" y="254" width="672" height="677" key="run.anything.popup" timestamp="1590249437204">
+    <state x="624" y="254" width="672" height="677" key="run.anything.popup" timestamp="1594981427190">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
-    <state x="624" y="254" width="672" height="677" key="run.anything.popup/0.0.1920.1050/-1920.0.1920.1050/1920.0.1920.1050@0.0.1920.1050" timestamp="1590249437204" />
-    <state x="623" y="239" width="672" height="678" key="search.everywhere.popup" timestamp="1590271636158">
+    <state x="624" y="254" width="672" height="677" key="run.anything.popup/0.0.1920.1050/-1920.0.1920.1050/1920.0.1920.1050@0.0.1920.1050" timestamp="1594981427190" />
+    <state x="623" y="239" width="672" height="678" key="search.everywhere.popup" timestamp="1594988109030">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
-    <state x="623" y="239" width="672" height="678" key="search.everywhere.popup/0.0.1920.1050/-1920.0.1920.1050/1920.0.1920.1050@0.0.1920.1050" timestamp="1590271636158" />
+    <state x="623" y="239" width="672" height="678" key="search.everywhere.popup/0.0.1920.1050/-1920.0.1920.1050/1920.0.1920.1050@0.0.1920.1050" timestamp="1594988109030" />
   </component>
 </project>
