@@ -8,8 +8,7 @@
     "test-with-coverage": "jest --coverage && cat ./coverage/lcov.info | codacy-coverage",
     "lint": "npm run lint",
     "build": "tsc --skipLibCheck",
-    "eslint": "eslint . --fix --ext .ts",
-    "postinstall": "npm run build"
+    "eslint": "eslint . --fix --ext .ts"
   },
   "types": "./dist/index.d.ts",
   "keywords": [
