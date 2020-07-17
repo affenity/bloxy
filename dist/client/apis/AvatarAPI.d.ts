@@ -40,6 +40,11 @@ export declare type UserAvatar = {
     }[];
     defaultShirtApplied: boolean;
     defaultPantsApplied: boolean;
+    emotes: {
+        assetId: number;
+        assetName: string;
+        position: number;
+    }[];
 };
 export declare type GetAvatarMetadata = {
     enableDefaultClothingMessage: boolean;
