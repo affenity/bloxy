@@ -1,5 +1,6 @@
 import BaseAPI from "./BaseAPI";
 import Client from "../Client";
+import PartialUser from "../../structures/user/PartialUser";
 
 
 export type GetAuthMetaData = {
@@ -13,11 +14,7 @@ export type LoginOptions = {
     captchaProvider: "PROVIDER_ARKOSELABS" | string;
 };
 export type Login = {
-    user: {
-        id: number;
-        name: string;
-        displayName: string;
-    };
+    user: PartialUser;
     twoStepVerificationData?: {
         mediaType: "Email" | string;
         ticket: string;
@@ -51,16 +48,12 @@ export type GetPasswordResetMetaDataOptions = {
     ticket: string;
 }
 export type GetPasswordResetMetaData = {
-    users: {
-        userId: number;
-        username: string;
-        displayName: string;
-    }[];
+    users: PartialUser[];
 }
 export type ResetPasswordOptions = {
     targetType: "Email" | "PhoneNumber";
     ticket: string;
-    userId: number;
+    user: PartialUser;
     password: string;
     passwordRepeated: string;
 };
@@ -117,8 +110,7 @@ export type RevertAccountInfo = {
     isTwoStepVerificationEnabled: boolean;
     isEmailVerified: boolean;
     isEmailChanged: boolean;
-    userId: number;
-    username: string;
+    user: PartialUser;
     ticket: string;
 }
 export type RevertAccountOptions = {
@@ -235,7 +227,10 @@ export default class AuthAPI extends BaseAPI {
                 },
                 json: options
             }
-        }).then((response: { body: any }) => response.body as Login);
+        }).then((response: { body: any }) => ({
+            ...response.body,
+            user: new PartialUser(response.body.user, this.client)
+        }) as Login);
     }
 
     logout (): Promise<Logout> {
@@ -325,7 +320,9 @@ export default class AuthAPI extends BaseAPI {
                     "request.ticket": options.ticket
                 }
             }
-        }).then((response: { body: any }) => response.body as GetPasswordResetMetaData);
+        }).then((response: { body: any }) => ({
+            users: response.body.users.map((userData: any) => new PartialUser(userData, this.client))
+        }) as GetPasswordResetMetaData);
     }
 
     resetPassword (options: ResetPasswordOptions): Promise<ResetPassword> {
@@ -340,7 +337,12 @@ export default class AuthAPI extends BaseAPI {
                 },
                 json: options
             }
-        }).then((response: { body: any }) => response.body as ResetPassword);
+        }).then((response: { body: any }) => ({
+            ...response.body,
+            user: new PartialUser({
+                id: response.body.userId
+            }, this.client)
+        }) as ResetPassword);
     }
 
     validatePassword (options: ValidatePasswordOptions): Promise<ValidatePassword> {
@@ -387,7 +389,12 @@ export default class AuthAPI extends BaseAPI {
                 },
                 json: options
             }
-        }).then((response: { body: any }) => response.body as VerifyPasswordReset);
+        }).then((response: { body: any }) => ({
+            userTickets: response.body.userTickets.map((ticketData: any) => ({
+                user: new PartialUser(ticketData.user, this.client),
+                ticket: ticketData.ticket
+            }))
+        }) as VerifyPasswordReset);
     }
 
     changeUserPassword (options: ChangeUserPasswordOptions): Promise<ChangeUserPassword> {
@@ -431,7 +438,13 @@ export default class AuthAPI extends BaseAPI {
                     ticket: options.ticket
                 }
             }
-        }).then((response: { body: any }) => response.body as RevertAccountInfo);
+        }).then((response: { body: any }) => ({
+            ...response.body,
+            user: new PartialUser({
+                id: response.body.userId,
+                name: response.body.username
+            }, this.client)
+        }) as RevertAccountInfo);
     }
 
     revertAccount (options: RevertAccountOptions): Promise<RevertAccount> {
@@ -576,7 +589,12 @@ export default class AuthAPI extends BaseAPI {
                 },
                 json: options
             }
-        }).then((response: { body: any }) => response.body as SignUp);
+        }).then((response: { body: any }) => ({
+            ...response.body,
+            user: new PartialUser({
+                id: response.body.userId
+            }, this.client)
+        }) as SignUp);
     }
 
     changeUserUsername (options: ChangeUsernameOptions): Promise<ChangeUsername> {
