@@ -15,7 +15,8 @@
     "test-with-coverage": "jest --coverage && cat ./coverage/lcov.info | codacy-coverage",
     "lint": "npm run lint",
     "build": "tsc --skipLibCheck",
-    "eslint": "eslint . --fix --ext .ts"
+    "eslint": "eslint . --fix --ext .ts",
+    "postinstall": "echo \nThank you for installing bloxy! \n\nNOTE: THIS VERSION IS A DEVELOPMENT. \nPLEASE, USE VERSION 4.0.0-alpha3 FOR THE LATEST ''STABLE'' VERSION OF BLOXY."
   },
   "types": "./dist/index.d.ts",
   "keywords": [
