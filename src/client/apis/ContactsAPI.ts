@@ -67,7 +67,7 @@ export default class ContactsAPI extends BaseAPI {
                 }
             },
             json: true
-        }).then((response: { body: any }) => response.body);
+        }).then(response => response.body);
     }
 
     matchContacts (options: MatchContactsOptions): Promise<MatchContacts> {
@@ -82,7 +82,7 @@ export default class ContactsAPI extends BaseAPI {
                 }
             },
             json: true
-        }).then((response: { body: any }) => response.body);
+        }).then(response => response.body);
     }
 
     updateContacts (options: UpdateContactsOptions): Promise<UpdateContacts> {
@@ -97,7 +97,7 @@ export default class ContactsAPI extends BaseAPI {
                 }
             },
             json: true
-        }).then((response: { body: any }) => response.body);
+        }).then(response => response.body);
     }
 
     getUsersTags (options: GetUsersTagsOptions): Promise<GetUsersTags> {
@@ -112,7 +112,7 @@ export default class ContactsAPI extends BaseAPI {
                 }
             },
             json: true
-        }).then((response: { body: any }) => response.body);
+        }).then(response => response.body);
     }
 
     setPendingUserTag (options: SetPendingUserTagOptions): Promise<SetPendingUserTag> {
@@ -127,7 +127,7 @@ export default class ContactsAPI extends BaseAPI {
                 }
             },
             json: true
-        }).then((response: { body: any }) => response.body);
+        }).then(response => response.body);
     }
 
     setUserTag (options: SetUserTagOptions): Promise<SetUserTag> {
@@ -142,6 +142,6 @@ export default class ContactsAPI extends BaseAPI {
                 }
             },
             json: true
-        }).then((response: { body: any }) => response.body);
+        }).then(response => response.body);
     }
 }
