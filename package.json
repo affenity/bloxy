@@ -1,5 +1,12 @@
 {
   "name": "bloxy",
+  "bugs": {
+    "url": "https://github.com/visualizememe/bloxy/issues"
+  },
+  "repository": {
+    "url": "https://github.com/visualizememe/bloxy#pre-dev",
+    "type": "github"
+  },
   "version": "5.0.0",
   "description": "A Node.JS library for interacting with the Roblox website and its API.",
   "main": "./dist/index.js",
@@ -21,7 +28,8 @@
     "nodejs roblox api",
     "roblox api",
     "roblox groups",
-    "roblox module"
+    "roblox module",
+    "typescript"
   ],
   "author": "ScriptBased",
   "license": "MIT",
