@@ -33,7 +33,6 @@
     "@typescript-eslint/parser": "^2.34.0",
     "codacy-coverage": "^3.4.0",
     "eslint": "^6.8.0",
-    "eslint-plugin-scanjs-rules": "^0.2.1",
     "eslint-plugin-security": "^1.4.0",
     "fast-check": "^1.26.0",
     "jest": "^24.9.0",
