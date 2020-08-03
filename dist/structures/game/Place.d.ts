@@ -1,5 +1,5 @@
 import Client from "../../client";
-import PartialGameUniverse from "./PartialGameUniverse";
+import PartialGameUniverse from "./GameUniverse/PartialGameUniverse";
 export interface PlaceOptions {
     placeId: number;
     name: string;

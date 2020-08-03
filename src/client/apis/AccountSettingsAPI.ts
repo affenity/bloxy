@@ -140,7 +140,7 @@ export default class AccountSettingsAPI extends BaseAPI {
                 }
             },
             json: true
-        }).then((response: { body: any }) => response.body.map((val: any) => ({
+        }).then(response => response.body.map((val: any) => ({
             title: val.Title,
             url: val.Url,
             suffix: val.Suffix
@@ -157,7 +157,7 @@ export default class AccountSettingsAPI extends BaseAPI {
                 }
             },
             json: true
-        }).then((response: { body: any }) => response.body);
+        }).then(response => response.body);
     }
 
     updateAppChatPrivacy (options: UpdateAppChatPrivacyOptions): Promise<UpdateAppChatPrivacy> {
@@ -172,7 +172,7 @@ export default class AccountSettingsAPI extends BaseAPI {
                 json: options
             },
             json: true
-        }).then((response: { body: any }) => response.body);
+        }).then(response => response.body);
     }
 
     getGameChatPrivacy (): Promise<GetGameChatPrivacy> {
@@ -185,7 +185,7 @@ export default class AccountSettingsAPI extends BaseAPI {
                 }
             },
             json: true
-        }).then((response: { body: any }) => response.body);
+        }).then(response => response.body);
     }
 
     updateGameChatPrivacy (options: UpdateGameChatPrivacyOptions): Promise<UpdateGameChatPrivacy> {
@@ -200,7 +200,7 @@ export default class AccountSettingsAPI extends BaseAPI {
                 json: options
             },
             json: true
-        }).then((response: { body: any }) => response.body);
+        }).then(response => response.body);
     }
 
     getInventoryPrivacy (): Promise<GetInventoryPrivacy> {
@@ -213,7 +213,7 @@ export default class AccountSettingsAPI extends BaseAPI {
                 }
             },
             json: true
-        }).then((response: { body: any }) => response.body);
+        }).then(response => response.body);
     }
 
     updateInventoryPrivacy (options: UpdateInventoryPrivacyOptions): Promise<UpdateInventoryPrivacy> {
@@ -228,7 +228,7 @@ export default class AccountSettingsAPI extends BaseAPI {
                 json: options
             },
             json: true
-        }).then((response: { body: any }) => response.body);
+        }).then(response => response.body);
     }
 
     getUserPrivacy (): Promise<GetUserPrivacy> {
@@ -241,7 +241,7 @@ export default class AccountSettingsAPI extends BaseAPI {
                 }
             },
             json: true
-        }).then((response: { body: any }) => response.body);
+        }).then(response => response.body);
     }
 
     updateUserPrivacy (options: UpdateUserPrivacyOptions): Promise<UpdateUserPrivacy> {
@@ -256,7 +256,7 @@ export default class AccountSettingsAPI extends BaseAPI {
                 json: options
             },
             json: true
-        }).then((response: { body: any }) => response.body);
+        }).then(response => response.body);
     }
 
     getUserPrivacySettingsInfo (): Promise<GetUserPrivacySettingsInfo> {
@@ -404,7 +404,7 @@ export default class AccountSettingsAPI extends BaseAPI {
             request: {
                 path: "v1/email",
                 responseOptions: {
-                    allowedStatusCodes: [200]
+                    allowedStatusCodes: [20]
                 },
                 json: options
             },
@@ -418,7 +418,7 @@ export default class AccountSettingsAPI extends BaseAPI {
             request: {
                 path: "v1/trade-value",
                 responseOptions: {
-                    allowedStatusCodes: [200]
+                    allowedStatusCodes: [20]
                 }
             },
             json: true
@@ -432,7 +432,7 @@ export default class AccountSettingsAPI extends BaseAPI {
                 path: "v1/email",
                 method: "POST",
                 responseOptions: {
-                    allowedStatusCodes: [200]
+                    allowedStatusCodes: [20]
                 },
                 json: options
             },
@@ -446,7 +446,7 @@ export default class AccountSettingsAPI extends BaseAPI {
             request: {
                 path: "v1/twostepverification",
                 responseOptions: {
-                    allowedStatusCodes: [200]
+                    allowedStatusCodes: [20]
                 }
             },
             json: true
@@ -460,7 +460,7 @@ export default class AccountSettingsAPI extends BaseAPI {
                 path: "v1/email",
                 method: "PATCH",
                 responseOptions: {
-                    allowedStatusCodes: [200]
+                    allowedStatusCodes: [20]
                 },
                 json: options
             },
@@ -474,7 +474,7 @@ export default class AccountSettingsAPI extends BaseAPI {
             request: {
                 path: "v1/user/screens/contact-upsell",
                 responseOptions: {
-                    allowedStatusCodes: [200]
+                    allowedStatusCodes: [20]
                 }
             },
             json: true
@@ -487,7 +487,7 @@ export default class AccountSettingsAPI extends BaseAPI {
             request: {
                 path: "v1/user/screens/contact-upsell/suppress",
                 responseOptions: {
-                    allowedStatusCodes: [200]
+                    allowedStatusCodes: [20]
                 },
                 json: options
             },
@@ -501,7 +501,7 @@ export default class AccountSettingsAPI extends BaseAPI {
             request: {
                 path: "v1/xbox/is-username-valid",
                 responseOptions: {
-                    allowedStatusCodes: [200]
+                    allowedStatusCodes: [20]
                 },
                 qs: {
                     Authorization: options.authorization,
@@ -520,7 +520,7 @@ export default class AccountSettingsAPI extends BaseAPI {
                 path: "v1/promotion-channels",
                 method: "POST",
                 responseOptions: {
-                    allowedStatusCodes: [200]
+                    allowedStatusCodes: [20]
                 },
                 json: options
             },

@@ -38,7 +38,7 @@ class AdConfigurationAPI extends BaseAPI_1.default {
                 method: "POST",
                 json: options
             }
-        }).then((response) => response.body);
+        }).then(response => response.body);
     }
     runAd(options) {
         return this.request({
@@ -48,7 +48,7 @@ class AdConfigurationAPI extends BaseAPI_1.default {
                 method: "POST",
                 json: options
             }
-        }).then((response) => response.body);
+        }).then(response => response.body);
     }
     stopAd(options) {
         return this.request({
@@ -58,7 +58,7 @@ class AdConfigurationAPI extends BaseAPI_1.default {
                 method: "POST",
                 json: options
             }
-        }).then((response) => response.body);
+        }).then(response => response.body);
     }
 }
 exports.default = AdConfigurationAPI;

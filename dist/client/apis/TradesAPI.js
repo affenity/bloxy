@@ -16,7 +16,7 @@ class TradesAPI extends BaseAPI_1.default {
                 path: `v1/trades/${options.tradeId}`
             },
             json: true
-        }).then((response) => response.body);
+        }).then(response => response.body);
     }
     getTradesByStatusType(options) {
         return this.request({
@@ -25,7 +25,7 @@ class TradesAPI extends BaseAPI_1.default {
                 path: `v1/trades/${options.tradeStatusType}`
             },
             json: true
-        }).then((response) => response.body);
+        }).then(response => response.body);
     }
     getTradesCountByStatusType(options) {
         return this.request({
@@ -34,7 +34,7 @@ class TradesAPI extends BaseAPI_1.default {
                 path: `v1/trades/${options.tradeStatusType}/count`
             },
             json: true
-        }).then((response) => response.body);
+        }).then(response => response.body);
     }
     getTradesMetaData() {
         return this.request({
@@ -43,7 +43,7 @@ class TradesAPI extends BaseAPI_1.default {
                 path: `v1/trades/metadata`
             },
             json: true
-        }).then((response) => response.body);
+        }).then(response => response.body);
     }
     canTradeWith(options) {
         return this.request({
@@ -52,7 +52,7 @@ class TradesAPI extends BaseAPI_1.default {
                 path: `v1/users/${options.userId}/can-trade-with`
             },
             json: true
-        }).then((response) => response.body);
+        }).then(response => response.body);
     }
     acceptTrade(options) {
         return this.request({
@@ -62,7 +62,7 @@ class TradesAPI extends BaseAPI_1.default {
                 method: "POST"
             },
             json: true
-        }).then((response) => response.body);
+        }).then(response => response.body);
     }
     counterTrade(options) {
         return this.request({
@@ -73,7 +73,7 @@ class TradesAPI extends BaseAPI_1.default {
                 json: options
             },
             json: true
-        }).then((response) => response.body);
+        }).then(response => response.body);
     }
     declineTrade(options) {
         return this.request({
@@ -83,7 +83,7 @@ class TradesAPI extends BaseAPI_1.default {
                 method: "POST"
             },
             json: true
-        }).then((response) => response.body);
+        }).then(response => response.body);
     }
     sendTrade(options) {
         return this.request({
@@ -94,7 +94,7 @@ class TradesAPI extends BaseAPI_1.default {
                 json: options
             },
             json: true
-        }).then((response) => response.body);
+        }).then(response => response.body);
     }
 }
 exports.default = TradesAPI;

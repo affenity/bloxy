@@ -17,7 +17,7 @@ class PremiumFeaturesAPI extends BaseAPI_1.default {
                 qs: options
             },
             json: true
-        }).then((response) => response.body);
+        }).then(response => response.body);
     }
     validateUserMembership(options) {
         return this.request({
@@ -26,7 +26,7 @@ class PremiumFeaturesAPI extends BaseAPI_1.default {
                 path: `v1/users/${options.userId}/validate-membership`
             },
             json: true
-        }).then((response) => response.body);
+        }).then(response => response.body);
     }
 }
 exports.default = PremiumFeaturesAPI;

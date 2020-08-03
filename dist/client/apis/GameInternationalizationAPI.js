@@ -19,7 +19,7 @@ class GameInternationalizationAPI extends BaseAPI_1.default {
                 }
             },
             json: true
-        }).then((response) => response.body);
+        }).then(response => response.body);
     }
     updateGameInfo(options) {
         return this.request({
@@ -35,7 +35,7 @@ class GameInternationalizationAPI extends BaseAPI_1.default {
                 }
             },
             json: true
-        }).then((response) => response.body);
+        }).then(response => response.body);
     }
     getNameDescriptionMetaData() {
         return this.request({
@@ -47,7 +47,7 @@ class GameInternationalizationAPI extends BaseAPI_1.default {
                 }
             },
             json: true
-        }).then((response) => response.body);
+        }).then(response => response.body);
     }
     getGameInfoHistory(options) {
         return this.request({
@@ -61,7 +61,7 @@ class GameInternationalizationAPI extends BaseAPI_1.default {
                 }
             },
             json: true
-        }).then((response) => response.body);
+        }).then(response => response.body);
     }
     getGameSourceLanguage(options) {
         return this.request({
@@ -73,7 +73,7 @@ class GameInternationalizationAPI extends BaseAPI_1.default {
                 }
             },
             json: true
-        }).then((response) => response.body);
+        }).then(response => response.body);
     }
     updateGameSourceLanguage(options) {
         return this.request({
@@ -89,7 +89,7 @@ class GameInternationalizationAPI extends BaseAPI_1.default {
                 }
             },
             json: true
-        }).then((response) => response.body);
+        }).then(response => response.body);
     }
     getGameSupportedLanguages(options) {
         return this.request({
@@ -101,7 +101,7 @@ class GameInternationalizationAPI extends BaseAPI_1.default {
                 }
             },
             json: true
-        }).then((response) => response.body);
+        }).then(response => response.body);
     }
     modifyGameSupportedLanguages(options) {
         return this.request({
@@ -115,7 +115,7 @@ class GameInternationalizationAPI extends BaseAPI_1.default {
                 }
             },
             json: true
-        }).then((response) => response.body);
+        }).then(response => response.body);
     }
     getGameAutomaticTranslationStatus(options) {
         return this.request({
@@ -127,7 +127,7 @@ class GameInternationalizationAPI extends BaseAPI_1.default {
                 }
             },
             json: true
-        }).then((response) => response.body);
+        }).then(response => response.body);
     }
     getSupportedLanguagesMetaData() {
         return this.request({
@@ -139,7 +139,7 @@ class GameInternationalizationAPI extends BaseAPI_1.default {
                 }
             },
             json: true
-        }).then((response) => response.body);
+        }).then(response => response.body);
     }
     toggleGameAutomaticTranslation(options) {
         return this.request({
@@ -153,7 +153,7 @@ class GameInternationalizationAPI extends BaseAPI_1.default {
                 }
             },
             json: true
-        }).then((response) => response.body);
+        }).then(response => response.body);
     }
 }
 exports.default = GameInternationalizationAPI;

@@ -49,7 +49,7 @@ class AssetDeliveryAPI extends BaseAPI_1.default {
                     allowedStatusCodes: [200]
                 }
             }
-        }).then((response) => convertToBaseAsset(response.body));
+        }).then(response => convertToBaseAsset(response.body));
     }
     getAssetById(options) {
         const generatedOptions = generateBaseDeliveryAssetOptions(options);
@@ -64,7 +64,7 @@ class AssetDeliveryAPI extends BaseAPI_1.default {
                     allowedStatusCodes: [200]
                 }
             }
-        }).then((response) => ({
+        }).then(response => ({
             location: response.body.Location || undefined,
             request: response.body.Request
         }));
@@ -82,7 +82,7 @@ class AssetDeliveryAPI extends BaseAPI_1.default {
                     allowedStatusCodes: [200]
                 }
             }
-        }).then((response) => convertToBaseAsset(response.body));
+        }).then(response => convertToBaseAsset(response.body));
     }
     getAssetByAssetId(options) {
         const generatedOptions = generateBaseDeliveryAssetOptions(options);
@@ -97,7 +97,7 @@ class AssetDeliveryAPI extends BaseAPI_1.default {
                     allowedStatusCodes: [200]
                 }
             }
-        }).then((response) => convertToBaseAsset(response.body));
+        }).then(response => convertToBaseAsset(response.body));
     }
     getAssetVersionByAssetId(options) {
         const generatedOptions = generateBaseDeliveryAssetOptions(options);
@@ -112,7 +112,7 @@ class AssetDeliveryAPI extends BaseAPI_1.default {
                     allowedStatusCodes: [200]
                 }
             }
-        }).then((response) => convertToBaseAsset(response.body));
+        }).then(response => convertToBaseAsset(response.body));
     }
     getAssetByAssetVersionId(options) {
         const generatedOptions = generateBaseDeliveryAssetOptions(options);
@@ -127,7 +127,7 @@ class AssetDeliveryAPI extends BaseAPI_1.default {
                     allowedStatusCodes: [200]
                 }
             }
-        }).then((response) => convertToBaseAsset(response.body));
+        }).then(response => convertToBaseAsset(response.body));
     }
     getAssetByMarAssetHash(options) {
         const generatedOptions = generateBaseDeliveryAssetOptions(options);
@@ -142,7 +142,7 @@ class AssetDeliveryAPI extends BaseAPI_1.default {
                     allowedStatusCodes: [200]
                 }
             }
-        }).then((response) => convertToBaseAsset(response.body));
+        }).then(response => convertToBaseAsset(response.body));
     }
     getAssetByUserAssetId(options) {
         const generatedOptions = generateBaseDeliveryAssetOptions(options);
@@ -157,7 +157,7 @@ class AssetDeliveryAPI extends BaseAPI_1.default {
                     allowedStatusCodes: [200]
                 }
             }
-        }).then((response) => convertToBaseAsset(response.body));
+        }).then(response => convertToBaseAsset(response.body));
     }
     getBatchAssets(options) {
         return this.request({
@@ -171,7 +171,7 @@ class AssetDeliveryAPI extends BaseAPI_1.default {
                     allowedStatusCodes: [200]
                 }
             }
-        }).then((response) => response.body.map((value) => convertToBaseAsset(value)));
+        }).then(response => response.body.map((value) => convertToBaseAsset(value)));
     }
 }
 exports.default = AssetDeliveryAPI;

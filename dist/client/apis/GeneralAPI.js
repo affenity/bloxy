@@ -2,11 +2,6 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 const tslib_1 = require("tslib");
 const BaseAPI_1 = tslib_1.__importDefault(require("./BaseAPI"));
-const AssetVersion_1 = require("../../structures/asset/AssetVersion");
-const GroupMember_1 = tslib_1.__importDefault(require("../../structures/group/GroupMember"));
-const GroupRole_1 = tslib_1.__importDefault(require("../../structures/group/GroupRole"));
-const Product_1 = tslib_1.__importDefault(require("../../structures/asset/Product"));
-const PartialUser_1 = tslib_1.__importDefault(require("../../structures/user/PartialUser"));
 class GeneralAPI extends BaseAPI_1.default {
     constructor(client) {
         super({
@@ -24,9 +19,7 @@ class GeneralAPI extends BaseAPI_1.default {
                 }
             },
             json: true
-        }).then(response => 
-        // eslint-disable-next-line no-extra-parens
-        response.body.map(assetVersionData => new AssetVersion_1.AssetVersion(assetVersionData, this.client)));
+        }).then(response => response.body);
     }
     awardBadge(options) {
         return this.request({
@@ -62,17 +55,7 @@ class GeneralAPI extends BaseAPI_1.default {
                 }
             },
             json: true
-        }).then(response => 
-        // eslint-disable-next-line no-extra-parens
-        response.body.map(userFriendData => ({
-            avatarFinal: userFriendData.AvatarFinal,
-            user: new PartialUser_1.default({
-                id: userFriendData.Id,
-                name: userFriendData.Username
-            }, this.client),
-            online: userFriendData.IsOnline,
-            avatarUrl: userFriendData.AvatarUri
-        })));
+        }).then(response => response.body);
     }
     acceptFriendRequest(options) {
         return this.request({
@@ -130,9 +113,7 @@ class GeneralAPI extends BaseAPI_1.default {
                 }
             },
             json: true
-        }).then(response => 
-        // eslint-disable-next-line no-extra-parens
-        response.body.count);
+        }).then(response => response.body.count);
     }
     unfriendUser(options) {
         return this.request({
@@ -200,18 +181,7 @@ class GeneralAPI extends BaseAPI_1.default {
                     allowedStatusCodes: [200]
                 }
             }
-        }).then(response => response.body.map(userGroupData => ({
-            id: userGroupData.Id,
-            name: userGroupData.Name,
-            emblemId: userGroupData.EmblemId,
-            emblemUrl: userGroupData.EmblemUrl,
-            role: {
-                rank: userGroupData.Rank,
-                name: userGroupData.Role
-            },
-            inClan: userGroupData.IsInClan,
-            primary: userGroupData.IsPrimary
-        })));
+        }).then(response => response.body);
     }
     getGroup(options) {
         return this.request({
@@ -223,27 +193,7 @@ class GeneralAPI extends BaseAPI_1.default {
                 }
             },
             json: true
-        }).then((response) => ({
-            id: response.body.Id,
-            name: response.body.Name,
-            description: response.body.Description,
-            emblemUrl: response.body.EmblemUrl,
-            owner: new GroupMember_1.default({
-                id: response.body.Owner.Id,
-                name: response.body.Owner.Name,
-                group: {
-                    id: response.body.Id,
-                    name: response.body.Name
-                }
-            }, this.client),
-            roles: response.body.Roles.map((roleData) => new GroupRole_1.default({
-                rank: roleData.Rank,
-                name: roleData.Name,
-                group: {
-                    id: response.body.Id
-                }
-            }, this.client))
-        }));
+        }).then(response => response.body);
     }
     getGroupAllies(options) {
         return this.request({
@@ -258,27 +208,7 @@ class GeneralAPI extends BaseAPI_1.default {
                 }
             },
             json: true
-        }).then((response) => response.body.map((groupData) => ({
-            id: groupData.Id,
-            name: groupData.Name,
-            description: groupData.Description,
-            emblemUrl: groupData.EmblemUrl,
-            owner: new GroupMember_1.default({
-                id: groupData.Owner.Id,
-                name: groupData.Owner.Name,
-                group: {
-                    id: groupData.Id,
-                    name: groupData.Name
-                }
-            }, this.client),
-            roles: groupData.Roles.map((roleData) => new GroupRole_1.default({
-                rank: roleData.Rank,
-                name: roleData.Name,
-                group: {
-                    id: groupData.Id
-                }
-            }, this.client))
-        })));
+        }).then(response => response.body);
     }
     getGroupEnemies(options) {
         return this.request({
@@ -293,27 +223,7 @@ class GeneralAPI extends BaseAPI_1.default {
                 }
             },
             json: true
-        }).then((response) => response.body.map((groupData) => ({
-            id: groupData.Id,
-            name: groupData.Name,
-            description: groupData.Description,
-            emblemUrl: groupData.EmblemUrl,
-            owner: new GroupMember_1.default({
-                id: groupData.Owner.Id,
-                name: groupData.Owner.Name,
-                group: {
-                    id: groupData.Id,
-                    name: groupData.Name
-                }
-            }, this.client),
-            roles: groupData.Roles.map((roleData) => new GroupRole_1.default({
-                rank: roleData.Rank,
-                name: roleData.Name,
-                group: {
-                    id: groupData.Id
-                }
-            }, this.client))
-        })));
+        }).then(response => response.body);
     }
     getIncomingItems() {
         return this.request({
@@ -341,7 +251,7 @@ class GeneralAPI extends BaseAPI_1.default {
                 }
             },
             json: true
-        }).then(response => new Product_1.default(response.body, this.client));
+        }).then(response => response.body);
     }
     getGamePassProductInfo(options) {
         return this.request({
@@ -354,7 +264,7 @@ class GeneralAPI extends BaseAPI_1.default {
                 }
             },
             json: true
-        }).then(response => new Product_1.default(response.body, this.client));
+        }).then(response => response.body);
     }
     userOwnsAsset(options) {
         return this.request({
@@ -377,7 +287,7 @@ class GeneralAPI extends BaseAPI_1.default {
                     allowedStatusCodes: [200]
                 }
             }
-        }).then((response) => ({
+        }).then(response => ({
             deviceType: response.body.DeviceType,
             operatingSystemType: response.body.OperationSystemType,
             platformType: response.body.PlatformType
@@ -395,7 +305,7 @@ class GeneralAPI extends BaseAPI_1.default {
                 }
             },
             json: true
-        }).then((response) => response.body.success === true);
+        }).then(response => response.body.success === true);
     }
     unblockUser(options) {
         return this.request({
@@ -409,7 +319,7 @@ class GeneralAPI extends BaseAPI_1.default {
                 }
             },
             json: true
-        }).then((response) => response.body.success === true);
+        }).then(response => response.body.success === true);
     }
     getUserById(options) {
         return this.request({
@@ -421,7 +331,7 @@ class GeneralAPI extends BaseAPI_1.default {
                 }
             },
             json: true
-        }).then((response) => ({
+        }).then(response => ({
             id: response.body.Id,
             name: response.body.Username
         }));
@@ -437,7 +347,7 @@ class GeneralAPI extends BaseAPI_1.default {
                 }
             },
             json: true
-        }).then((response) => ({
+        }).then(response => ({
             id: response.body.Id,
             name: response.body.Username
         }));
@@ -452,7 +362,7 @@ class GeneralAPI extends BaseAPI_1.default {
                 }
             },
             json: true
-        }).then((response) => response.body.CanManage === true);
+        }).then(response => response.body.CanManage === true);
     }
 }
 exports.default = GeneralAPI;

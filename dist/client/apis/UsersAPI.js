@@ -20,7 +20,7 @@ class UsersAPI extends BaseAPI_1.default {
                 }
             },
             json: true
-        }).then((response) => response.body);
+        }).then(response => response.body);
     }
     validateDisplayNameExistingUser(options) {
         return this.request({
@@ -33,7 +33,7 @@ class UsersAPI extends BaseAPI_1.default {
                 }
             },
             json: true
-        }).then((response) => response.body);
+        }).then(response => response.body);
     }
     setDisplayName(options) {
         return this.request({
@@ -47,7 +47,7 @@ class UsersAPI extends BaseAPI_1.default {
                 }
             },
             json: true
-        }).then((response) => response.body);
+        }).then(response => response.body);
     }
     getUserById(options) {
         return this.request({
@@ -59,7 +59,7 @@ class UsersAPI extends BaseAPI_1.default {
                 }
             },
             json: true
-        }).then((response) => response.body);
+        }).then(response => response.body);
     }
     getAuthenticatedUserInformation() {
         return this.request({
@@ -71,7 +71,7 @@ class UsersAPI extends BaseAPI_1.default {
                 }
             },
             json: true
-        }).then((response) => response.body);
+        }).then(response => response.body);
     }
     getUsersByUsernames(options) {
         return this.request({
@@ -85,7 +85,7 @@ class UsersAPI extends BaseAPI_1.default {
                 }
             },
             json: true
-        }).then((response) => response.body);
+        }).then(response => response.body);
     }
     getUsersByIds(options) {
         return this.request({
@@ -99,7 +99,7 @@ class UsersAPI extends BaseAPI_1.default {
                 }
             },
             json: true
-        }).then((response) => response.body);
+        }).then(response => response.body);
     }
     getUserStatus(options) {
         return this.request({
@@ -111,7 +111,7 @@ class UsersAPI extends BaseAPI_1.default {
                 }
             },
             json: true
-        }).then((response) => response.body);
+        }).then(response => response.body);
     }
     updateStatus(options) {
         return this.request({
@@ -125,7 +125,7 @@ class UsersAPI extends BaseAPI_1.default {
                 }
             },
             json: true
-        }).then((response) => response.body);
+        }).then(response => response.body);
     }
     searchUsers(options) {
         return this.request({
@@ -138,7 +138,7 @@ class UsersAPI extends BaseAPI_1.default {
                 }
             },
             json: true
-        }).then((response) => response.body);
+        }).then(response => response.body);
     }
 }
 exports.default = UsersAPI;

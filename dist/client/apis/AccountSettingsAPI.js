@@ -19,7 +19,7 @@ class AccountSettingsAPI extends BaseAPI_1.default {
                 }
             },
             json: true
-        }).then((response) => response.body.map((val) => ({
+        }).then(response => response.body.map((val) => ({
             title: val.Title,
             url: val.Url,
             suffix: val.Suffix
@@ -35,7 +35,7 @@ class AccountSettingsAPI extends BaseAPI_1.default {
                 }
             },
             json: true
-        }).then((response) => response.body);
+        }).then(response => response.body);
     }
     updateAppChatPrivacy(options) {
         return this.request({
@@ -49,7 +49,7 @@ class AccountSettingsAPI extends BaseAPI_1.default {
                 json: options
             },
             json: true
-        }).then((response) => response.body);
+        }).then(response => response.body);
     }
     getGameChatPrivacy() {
         return this.request({
@@ -61,7 +61,7 @@ class AccountSettingsAPI extends BaseAPI_1.default {
                 }
             },
             json: true
-        }).then((response) => response.body);
+        }).then(response => response.body);
     }
     updateGameChatPrivacy(options) {
         return this.request({
@@ -75,7 +75,7 @@ class AccountSettingsAPI extends BaseAPI_1.default {
                 json: options
             },
             json: true
-        }).then((response) => response.body);
+        }).then(response => response.body);
     }
     getInventoryPrivacy() {
         return this.request({
@@ -87,7 +87,7 @@ class AccountSettingsAPI extends BaseAPI_1.default {
                 }
             },
             json: true
-        }).then((response) => response.body);
+        }).then(response => response.body);
     }
     updateInventoryPrivacy(options) {
         return this.request({
@@ -101,7 +101,7 @@ class AccountSettingsAPI extends BaseAPI_1.default {
                 json: options
             },
             json: true
-        }).then((response) => response.body);
+        }).then(response => response.body);
     }
     getUserPrivacy() {
         return this.request({
@@ -113,7 +113,7 @@ class AccountSettingsAPI extends BaseAPI_1.default {
                 }
             },
             json: true
-        }).then((response) => response.body);
+        }).then(response => response.body);
     }
     updateUserPrivacy(options) {
         return this.request({
@@ -127,7 +127,7 @@ class AccountSettingsAPI extends BaseAPI_1.default {
                 json: options
             },
             json: true
-        }).then((response) => response.body);
+        }).then(response => response.body);
     }
     getUserPrivacySettingsInfo() {
         return this.request({
@@ -265,7 +265,7 @@ class AccountSettingsAPI extends BaseAPI_1.default {
             request: {
                 path: "v1/email",
                 responseOptions: {
-                    allowedStatusCodes: [200]
+                    allowedStatusCodes: [20]
                 },
                 json: options
             },
@@ -278,7 +278,7 @@ class AccountSettingsAPI extends BaseAPI_1.default {
             request: {
                 path: "v1/trade-value",
                 responseOptions: {
-                    allowedStatusCodes: [200]
+                    allowedStatusCodes: [20]
                 }
             },
             json: true
@@ -291,7 +291,7 @@ class AccountSettingsAPI extends BaseAPI_1.default {
                 path: "v1/email",
                 method: "POST",
                 responseOptions: {
-                    allowedStatusCodes: [200]
+                    allowedStatusCodes: [20]
                 },
                 json: options
             },
@@ -304,7 +304,7 @@ class AccountSettingsAPI extends BaseAPI_1.default {
             request: {
                 path: "v1/twostepverification",
                 responseOptions: {
-                    allowedStatusCodes: [200]
+                    allowedStatusCodes: [20]
                 }
             },
             json: true
@@ -317,7 +317,7 @@ class AccountSettingsAPI extends BaseAPI_1.default {
                 path: "v1/email",
                 method: "PATCH",
                 responseOptions: {
-                    allowedStatusCodes: [200]
+                    allowedStatusCodes: [20]
                 },
                 json: options
             },
@@ -330,7 +330,7 @@ class AccountSettingsAPI extends BaseAPI_1.default {
             request: {
                 path: "v1/user/screens/contact-upsell",
                 responseOptions: {
-                    allowedStatusCodes: [200]
+                    allowedStatusCodes: [20]
                 }
             },
             json: true
@@ -342,7 +342,7 @@ class AccountSettingsAPI extends BaseAPI_1.default {
             request: {
                 path: "v1/user/screens/contact-upsell/suppress",
                 responseOptions: {
-                    allowedStatusCodes: [200]
+                    allowedStatusCodes: [20]
                 },
                 json: options
             },
@@ -355,7 +355,7 @@ class AccountSettingsAPI extends BaseAPI_1.default {
             request: {
                 path: "v1/xbox/is-username-valid",
                 responseOptions: {
-                    allowedStatusCodes: [200]
+                    allowedStatusCodes: [20]
                 },
                 qs: {
                     Authorization: options.authorization,
@@ -373,7 +373,7 @@ class AccountSettingsAPI extends BaseAPI_1.default {
                 path: "v1/promotion-channels",
                 method: "POST",
                 responseOptions: {
-                    allowedStatusCodes: [200]
+                    allowedStatusCodes: [20]
                 },
                 json: options
             },

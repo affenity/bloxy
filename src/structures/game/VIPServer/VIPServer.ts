@@ -1,6 +1,6 @@
-import Client from "../../client";
-import PartialGameUniverse from "./PartialGameUniverse";
-import PartialUser from "../user/PartialUser";
+import Client from "../../../client";
+import PartialGameUniverse from "../GameUniverse/PartialGameUniverse";
+import PartialUser from "../../user/PartialUser";
 
 
 export interface VIPServerOptions {

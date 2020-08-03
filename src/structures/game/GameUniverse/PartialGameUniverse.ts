@@ -1,8 +1,8 @@
-import Client from "../../client";
+import Client from "../../../client";
 import PartialPlace from "./PartialPlace";
 
 
-interface PartialGameUniverseOptions {
+export interface PartialGameUniverseOptions {
     id: number;
     name?: string;
     rootPlace?: {

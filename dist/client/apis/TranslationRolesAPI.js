@@ -19,7 +19,7 @@ class TradesAPI extends BaseAPI_1.default {
                 }
             },
             json: true
-        }).then((response) => response.body);
+        }).then(response => response.body);
     }
     getGameRoleAssignees(options) {
         return this.request({
@@ -31,7 +31,7 @@ class TradesAPI extends BaseAPI_1.default {
                 }
             },
             json: true
-        }).then((response) => response.body);
+        }).then(response => response.body);
     }
     getSelfGamesAccessByRole(options) {
         return this.request({
@@ -43,7 +43,7 @@ class TradesAPI extends BaseAPI_1.default {
                 }
             },
             json: true
-        }).then((response) => response.body);
+        }).then(response => response.body);
     }
     updateUserAccess(options) {
         return this.request({
@@ -62,7 +62,7 @@ class TradesAPI extends BaseAPI_1.default {
                 }
             },
             json: true
-        }).then((response) => response.body);
+        }).then(response => response.body);
     }
 }
 exports.default = TradesAPI;

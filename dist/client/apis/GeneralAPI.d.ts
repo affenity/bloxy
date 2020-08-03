@@ -1,96 +1,93 @@
 import BaseAPI from "./BaseAPI";
-import { AnyIdentifier } from "../../interfaces/GeneralInterfaces";
 import Client from "../Client";
-import { AssetVersion } from "../../structures/asset/AssetVersion";
-import GroupMember from "../../structures/group/GroupMember";
-import GroupRole from "../../structures/group/GroupRole";
-import Product from "../../structures/asset/Product";
-import PartialUser from "../../structures/user/PartialUser";
-export declare type GetAssetVersionOptions = AnyIdentifier;
+import { AssetVersionOptions } from "../../structures/asset/AssetVersion";
+import { ProductOptions } from "../../structures/asset/Product";
+export declare type GetAssetVersionOptions = number;
 export declare type AwardBadgeOptions = {
-    userId: AnyIdentifier;
-    badgeId: AnyIdentifier;
-    placeId: AnyIdentifier;
+    userId: number;
+    badgeId: number;
+    placeId: number;
 };
 export declare type GetUserFriendsOptions = {
-    userId: AnyIdentifier;
-    page: AnyIdentifier;
+    userId: number;
+    page: number;
 };
 export declare type AcceptFriendRequestOptions = {
-    userId: AnyIdentifier;
+    userId: number;
 };
 export declare type DeclineFriendRequestOptions = {
-    userId: AnyIdentifier;
+    userId: number;
 };
 export declare type SendFriendRequestOptions = {
-    userId: AnyIdentifier;
+    userId: number;
 };
 export declare type GetUserFriendsCountOptions = {
-    userId: AnyIdentifier;
+    userId: number;
 };
 export declare type UnfriendUserOptions = {
-    userId: AnyIdentifier;
+    userId: number;
 };
 export declare type IsUserFollowingOptions = {
-    userId: AnyIdentifier;
-    followUserId: AnyIdentifier;
+    userId: number;
+    followUserId: number;
 };
 export declare type FollowUserOptions = {
-    userId: AnyIdentifier;
+    userId: number;
 };
 export declare type UnfollowUserOptions = {
-    userId: AnyIdentifier;
+    userId: number;
 };
 export declare type GetUserGroupsOptions = {
-    userId: AnyIdentifier;
+    userId: number;
 };
 export declare type GetGroupOptions = {
-    groupId: AnyIdentifier;
+    groupId: number;
 };
 export declare type GetGroupAlliesOptions = {
-    groupId: AnyIdentifier;
-    page: AnyIdentifier;
+    groupId: number;
+    page: number;
 };
 export declare type GetGroupEnemiesOptions = {
-    groupId: AnyIdentifier;
-    page: AnyIdentifier;
+    groupId: number;
+    page: number;
 };
 export declare type GetProductInfoOptions = {
-    assetId: AnyIdentifier;
+    assetId: number;
 };
 export declare type GetGamePassProductInfoOptions = {
-    gamePassId: AnyIdentifier;
+    gamePassId: number;
 };
 export declare type UserOwnsAssetOptions = {
-    userId: AnyIdentifier;
-    assetId: AnyIdentifier;
+    userId: number;
+    assetId: number;
 };
 export declare type BlockUserOptions = {
-    userId: AnyIdentifier;
+    userId: number;
 };
 export declare type UnblockUserOptions = {
-    userId: AnyIdentifier;
+    userId: number;
 };
 export declare type GetUserByUsernameOptions = {
     username: string;
 };
 export declare type UserCanManageAssetOptions = {
-    userId: AnyIdentifier;
-    assetId: AnyIdentifier;
+    userId: number;
+    assetId: number;
 };
 export declare type GetUserByIdOptions = {
-    userId: AnyIdentifier;
+    userId: number;
 };
-export declare type GetAssetVersions = AssetVersion[];
+export declare type GetAssetVersions = AssetVersionOptions[];
 export declare type AwardBadge = boolean;
 export declare type GetBalance = {
     robux: number;
 };
 export declare type GetUserFriends = {
-    user: PartialUser;
-    avatarUrl: string;
-    avatarFinal: boolean;
-    online: boolean;
+    Id: number;
+    Username: string;
+    AvatarUri: string;
+    AvatarFinal: boolean;
+    IsOnline: boolean;
 }[];
 export declare type AcceptFriendRequest = boolean;
 export declare type DeclineFriendRequest = boolean;
@@ -113,12 +110,18 @@ export declare type GetUserGroups = {
     primary: boolean;
 }[];
 export declare type GetGroup = {
-    name: string;
-    id: number;
-    owner: GroupMember;
-    emblemUrl: string;
-    description: string;
-    roles: GroupRole[];
+    Name: string;
+    Id: number;
+    Owner: {
+        Name: string;
+        Id: number;
+    };
+    EmblemUrl: string;
+    Description: string;
+    Roles: {
+        Name: string;
+        Rank: number;
+    }[];
 };
 export declare type GetGroupAllies = GetGroup[];
 export declare type GetGroupEnemies = GetGroup[];
@@ -126,8 +129,8 @@ export declare type GetIncomingItems = {
     unreadMessageCount: number;
     friendRequestsCount: number;
 };
-export declare type GetProductInfo = Product;
-export declare type GetGamePassProductInfo = Product;
+export declare type GetProductInfo = ProductOptions;
+export declare type GetGamePassProductInfo = ProductOptions;
 export declare type UserOwnsAsset = boolean;
 export declare type GetDeviceInfo = {
     platformType: string;

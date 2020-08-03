@@ -19,7 +19,7 @@ class FollowingsAPI extends BaseAPI_1.default {
                 }
             },
             json: true
-        }).then((response) => response.body);
+        }).then(response => response.body);
     }
     getUserFollowingUniverseStatus(options) {
         return this.request({
@@ -31,9 +31,9 @@ class FollowingsAPI extends BaseAPI_1.default {
                 }
             },
             json: true
-        }).then((response) => response.body);
+        }).then(response => response.body);
     }
-    unfollowUniverse(options) {
+    unFollowUniverse(options) {
         return this.request({
             requiresAuth: true,
             request: {
@@ -44,7 +44,7 @@ class FollowingsAPI extends BaseAPI_1.default {
                 }
             },
             json: true
-        }).then((response) => response.body);
+        }).then(response => response.body);
     }
     followUniverse(options) {
         return this.request({
@@ -57,7 +57,7 @@ class FollowingsAPI extends BaseAPI_1.default {
                 }
             },
             json: true
-        }).then((response) => response.body);
+        }).then(response => response.body);
     }
 }
 exports.default = FollowingsAPI;

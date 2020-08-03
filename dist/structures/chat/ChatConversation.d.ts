@@ -1,5 +1,5 @@
 import PartialUser from "../user/PartialUser";
-import PartialGameUniverse from "../game/PartialGameUniverse";
+import PartialGameUniverse from "../game/GameUniverse/PartialGameUniverse";
 import Client from "../../client";
 export interface ChatConversationOptions {
     id: number;

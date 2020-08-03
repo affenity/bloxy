@@ -7,7 +7,7 @@ import { AddUsersToConversation, RemoveUserFromConversation, StartOneToOneConver
 import { GetUsersTags, SetPendingUserTag, SetUserTag } from "../../client/apis/ContactsAPI";
 import { RemoveUserFromUniverseTeamCreate } from "../../client/apis/DevelopAPI";
 import { GetUserResellableAssetCopies } from "../../client/apis/EconomyAPI";
-import { AcceptFriendRequest, DeclineFriendRequest, FollowUser, GetUserFollowers, GetUserFollowersOptions, GetUserFollowing, GetUserFollowingOptions, GetUserFriends, GetUserFriendsOptions, GetUserFriendsWithStatuses, SendFriendRequest, UnFollowUser, UnfriendUser } from "../../client/apis/FriendsAPI";
+import { AcceptFriendRequest, DeclineFriendRequest, FollowUser, GetUserFollowers, GetUserFollowersOptions, GetUserFollowing, GetUserFollowingOptions, GetUserFriendsWithStatuses, SendFriendRequest, UnFollowUser, UnfriendUser } from "../../client/apis/FriendsAPI";
 import { GetJoinRequest, GetUserGroups, GetUserPrimaryGroup, PayoutMembersOptions } from "../../client/apis/GroupsAPI";
 import { GetUserCollectibles, GetUserCollectiblesOptions, GetUserInventory, GetUserInventoryByAssetTypeId, GetUserInventoryByAssetTypeIdOptions, GetUserInventoryOptions, GetUserItemsByTypeAndTargetId, GetUserItemsByTypeAndTargetIdOptions } from "../../client/apis/InventoryAPI";
 import User from "./User";
@@ -17,6 +17,7 @@ import { SendMessage, SendMessageOptions } from "../../client/apis/PrivateMessag
 import { GetUsersAvatarBustImages, GetUsersAvatarBustImagesOptions, GetUsersAvatarHeadShotsImages, GetUsersAvatarHeadShotsImagesOptions, GetUsersFullBodyAvatarImages, GetUsersFullBodyAvatarImagesOptions } from "../../client/apis/ThumbnailsAPI";
 import { SendTrade, SendTradeOptions } from "../../client/apis/TradesAPI";
 import { UpdateUser, UpdateUserAccess } from "../../client/apis/TranslationRolesAPI";
+import FriendRequest from "./FriendRequest";
 export interface UserBaseOptions {
     id: number;
     name?: string | null;
@@ -52,7 +53,7 @@ export default class UserBase {
     getFollowersCount(): Promise<number>;
     getFollowing(options?: Omit<GetUserFollowingOptions, "userId">): Promise<CursorPage<GetUserFollowing["data"][0]>>;
     getFollowingCount(): Promise<number>;
-    getFriends(options?: Omit<GetUserFriendsOptions, "userId">): Promise<CursorPage<GetUserFriends["data"][0]>>;
+    getFriends(): Promise<FriendRequest[]>;
     getFriendsCount(): Promise<number>;
     getFriendsWithStatuses(userIds: number[]): Promise<GetUserFriendsWithStatuses>;
     follow(): Promise<FollowUser>;

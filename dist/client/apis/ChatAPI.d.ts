@@ -1,8 +1,9 @@
 import BaseAPI from "./BaseAPI";
 import Client from "../Client";
-import { ChatMessageOptions } from "../../structures/chat/ChatMessage";
-import { ChatConversationOptions } from "../../structures/chat/ChatConversation";
-import { ChatMessageSentOptions } from "../../structures/chat/ChatMessageSent";
+import { ChatMessageOptions } from "../../structures/chat/ChatMessage/ChatMessage";
+import { ChatConversationOptions } from "../../structures/chat/ChatConversation/ChatConversation";
+import { ChatMessageSentOptions } from "../../structures/chat/ChatMessage/ChatMessageSent";
+import { PartialChatConversationOptions } from "../../structures/chat/ChatConversation/PartialChatConversation";
 export declare type GetChatSettings = {
     chatEnabled: boolean;
 };
@@ -77,12 +78,12 @@ export declare type AddUsersToConversationOptions = {
 export declare type AddUsersToConversation = {
     conversationId: number;
     rejectedParticipants: {
+        rejectedReason: string;
+        type: "User" | string;
         targetId: number;
         name: string;
         displayName: string;
-        type: "User";
-        rejectedReason: string;
-    };
+    }[];
     resultType: "Success" | string;
     statusMessage: string;
 };
@@ -104,7 +105,7 @@ export declare type RemoveUserFromConversationOptions = {
     conversationId: number;
 };
 export declare type RemoveUserFromConversation = {
-    conversationId: number;
+    conversation: PartialChatConversationOptions;
     resultType: "Success" | string;
     statusMessage: string;
 };

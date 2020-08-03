@@ -20,8 +20,8 @@ class BaseAPI {
         }
         return this.options.client.rest.request(options.request)
             .then(response => {
-            if (options.json) {
-                response.body = JSON.parse(response.body.toString());
+            if (options.json && !(response.body instanceof Object)) {
+                response.body = JSON.parse(response.body);
             }
             return response;
         });

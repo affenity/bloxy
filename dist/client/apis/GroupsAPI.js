@@ -16,7 +16,7 @@ class GroupsAPI extends BaseAPI_1.default {
                 path: `v1/groups/${options.groupId}`
             },
             json: true
-        }).then((response) => response.body);
+        }).then(response => response.body);
     }
     getMultiGroups(options) {
         return this.request({
@@ -28,7 +28,7 @@ class GroupsAPI extends BaseAPI_1.default {
                 }
             },
             json: true
-        }).then((response) => response.body);
+        }).then(response => response.body);
     }
     getAuditLogs(options) {
         return this.request({
@@ -38,7 +38,7 @@ class GroupsAPI extends BaseAPI_1.default {
                 qs: options
             },
             json: true
-        }).then((response) => response.body);
+        }).then(response => response.body);
     }
     getGroupSettings(options) {
         return this.request({
@@ -47,7 +47,7 @@ class GroupsAPI extends BaseAPI_1.default {
                 path: `v1/groups/${options.groupId}/settings`
             },
             json: true
-        }).then((response) => response.body);
+        }).then(response => response.body);
     }
     updateGroupSettings(options) {
         return this.request({
@@ -58,7 +58,7 @@ class GroupsAPI extends BaseAPI_1.default {
                 json: options
             },
             json: true
-        }).then((response) => response.body);
+        }).then(response => response.body);
     }
     getGroupConfigurationMetaData() {
         return this.request({
@@ -67,7 +67,7 @@ class GroupsAPI extends BaseAPI_1.default {
                 path: `v1/groups/configuration/metadata`
             },
             json: true
-        }).then((response) => response.body);
+        }).then(response => response.body);
     }
     getGroupsMetaData() {
         return this.request({
@@ -76,7 +76,7 @@ class GroupsAPI extends BaseAPI_1.default {
                 path: `v1/groups/metadata`
             },
             json: true
-        }).then((response) => response.body);
+        }).then(response => response.body);
     }
     createGroup(options) {
         return this.request({
@@ -93,7 +93,7 @@ class GroupsAPI extends BaseAPI_1.default {
                 }
             },
             json: true
-        }).then((response) => response.body);
+        }).then(response => response.body);
     }
     updateGroupDescription(options) {
         return this.request({
@@ -104,7 +104,7 @@ class GroupsAPI extends BaseAPI_1.default {
                 json: options
             },
             json: true
-        }).then((response) => response.body);
+        }).then(response => response.body);
     }
     updateGroupStatus(options) {
         return this.request({
@@ -115,7 +115,7 @@ class GroupsAPI extends BaseAPI_1.default {
                 json: options
             },
             json: true
-        }).then((response) => response.body);
+        }).then(response => response.body);
     }
     updateGroupIcon(options) {
         return this.request({
@@ -126,7 +126,7 @@ class GroupsAPI extends BaseAPI_1.default {
                 body: options.files
             },
             json: true
-        }).then((response) => response.body);
+        }).then(response => response.body);
     }
     declineJoinRequests(options) {
         return this.request({
@@ -139,7 +139,7 @@ class GroupsAPI extends BaseAPI_1.default {
                 }
             },
             json: true
-        }).then((response) => response.body);
+        }).then(response => response.body);
     }
     getJoinRequests(options) {
         return this.request({
@@ -149,7 +149,7 @@ class GroupsAPI extends BaseAPI_1.default {
                 qs: options
             },
             json: true
-        }).then((response) => response.body);
+        }).then(response => response.body);
     }
     acceptJoinRequests(options) {
         return this.request({
@@ -162,7 +162,7 @@ class GroupsAPI extends BaseAPI_1.default {
                 }
             },
             json: true
-        }).then((response) => response.body);
+        }).then(response => response.body);
     }
     declineJoinRequest(options) {
         return this.request({
@@ -172,7 +172,7 @@ class GroupsAPI extends BaseAPI_1.default {
                 method: "DELETE"
             },
             json: true
-        }).then((response) => response.body);
+        }).then(response => response.body);
     }
     getJoinRequest(options) {
         return this.request({
@@ -181,7 +181,7 @@ class GroupsAPI extends BaseAPI_1.default {
                 path: `v1/groups/${options.groupId}/join-requests/users/${options.userId}`
             },
             json: true
-        }).then((response) => response.body);
+        }).then(response => response.body);
     }
     acceptJoinRequest(options) {
         return this.request({
@@ -191,7 +191,7 @@ class GroupsAPI extends BaseAPI_1.default {
                 method: "POST"
             },
             json: true
-        }).then((response) => response.body);
+        }).then(response => response.body);
     }
     getSelfGroupMembership(options) {
         return this.request({
@@ -200,7 +200,7 @@ class GroupsAPI extends BaseAPI_1.default {
                 path: `v1/groups/${options.groupId}/membership`
             },
             json: true
-        }).then((response) => response.body);
+        }).then(response => response.body);
     }
     getGroupRoles(options) {
         return this.request({
@@ -209,7 +209,7 @@ class GroupsAPI extends BaseAPI_1.default {
                 path: `v1/groups/${options.groupId}/roles`
             },
             json: true
-        }).then((response) => response.body);
+        }).then(response => response.body);
     }
     getMembersWithRole(options) {
         return this.request({
@@ -219,7 +219,7 @@ class GroupsAPI extends BaseAPI_1.default {
                 qs: Object.assign(Object.assign({}, options), { roleSetId: options.roleId })
             },
             json: true
-        }).then((response) => response.body);
+        }).then(response => response.body);
     }
     getMembers(options) {
         return this.request({
@@ -229,7 +229,7 @@ class GroupsAPI extends BaseAPI_1.default {
                 qs: options
             },
             json: true
-        }).then((response) => response.body);
+        }).then(response => response.body);
     }
     joinGroup(options) {
         return this.request({
@@ -240,7 +240,7 @@ class GroupsAPI extends BaseAPI_1.default {
                 json: options
             },
             json: true
-        }).then((response) => response.body);
+        }).then(response => response.body);
     }
     getSelfPendingGroupJoins() {
         return this.request({
@@ -249,7 +249,7 @@ class GroupsAPI extends BaseAPI_1.default {
                 path: `v1/user/groups/pending`
             },
             json: true
-        }).then((response) => response.body);
+        }).then(response => response.body);
     }
     getUserGroups(options) {
         return this.request({
@@ -258,7 +258,7 @@ class GroupsAPI extends BaseAPI_1.default {
                 path: `v1/users/${options.userId}/groups/roles`
             },
             json: true
-        }).then((response) => response.body);
+        }).then(response => response.body);
     }
     changeGroupOwner(options) {
         return this.request({
@@ -269,7 +269,7 @@ class GroupsAPI extends BaseAPI_1.default {
                 json: options
             },
             json: true
-        }).then((response) => response.body);
+        }).then(response => response.body);
     }
     claimGroup(options) {
         return this.request({
@@ -280,7 +280,7 @@ class GroupsAPI extends BaseAPI_1.default {
                 json: options
             },
             json: true
-        }).then((response) => response.body);
+        }).then(response => response.body);
     }
     kickMember(options) {
         return this.request({
@@ -290,7 +290,7 @@ class GroupsAPI extends BaseAPI_1.default {
                 method: "DELETE"
             },
             json: true
-        }).then((response) => response.body);
+        }).then(response => response.body);
     }
     updateMember(options) {
         return this.request({
@@ -301,7 +301,7 @@ class GroupsAPI extends BaseAPI_1.default {
                 json: options
             },
             json: true
-        }).then((response) => response.body);
+        }).then(response => response.body);
     }
     getGroupPayouts(options) {
         return this.request({
@@ -310,7 +310,7 @@ class GroupsAPI extends BaseAPI_1.default {
                 path: `v1/groups/${options.groupId}/payouts`
             },
             json: true
-        }).then((response) => response.body);
+        }).then(response => response.body);
     }
     payoutMembers(options) {
         return this.request({
@@ -328,7 +328,7 @@ class GroupsAPI extends BaseAPI_1.default {
                 }
             },
             json: true
-        }).then((response) => response.body);
+        }).then(response => response.body);
     }
     updateRecurringPayouts(options) {
         return this.request({
@@ -346,7 +346,7 @@ class GroupsAPI extends BaseAPI_1.default {
                 }
             },
             json: true
-        }).then((response) => response.body);
+        }).then(response => response.body);
     }
     getGroupRelationships(options) {
         return this.request({
@@ -359,7 +359,7 @@ class GroupsAPI extends BaseAPI_1.default {
                 }
             },
             json: true
-        }).then((response) => response.body);
+        }).then(response => response.body);
     }
     declineRelationshipRequests(options) {
         return this.request({
@@ -372,7 +372,7 @@ class GroupsAPI extends BaseAPI_1.default {
                 }
             },
             json: true
-        }).then((response) => response.body);
+        }).then(response => response.body);
     }
     getRelationshipRequests(options) {
         return this.request({
@@ -382,7 +382,7 @@ class GroupsAPI extends BaseAPI_1.default {
                 qs: options
             },
             json: true
-        }).then((response) => response.body);
+        }).then(response => response.body);
     }
     acceptRelationshipRequests(options) {
         return this.request({
@@ -395,7 +395,7 @@ class GroupsAPI extends BaseAPI_1.default {
                 }
             },
             json: true
-        }).then((response) => response.body);
+        }).then(response => response.body);
     }
     deleteRelationship(options) {
         return this.request({
@@ -405,7 +405,7 @@ class GroupsAPI extends BaseAPI_1.default {
                 method: "DELETE"
             },
             json: true
-        }).then((response) => response.body);
+        }).then(response => response.body);
     }
     createRelationship(options) {
         return this.request({
@@ -415,7 +415,7 @@ class GroupsAPI extends BaseAPI_1.default {
                 method: "POST"
             },
             json: true
-        }).then((response) => response.body);
+        }).then(response => response.body);
     }
     acceptRelationshipRequest(options) {
         return this.request({
@@ -424,7 +424,7 @@ class GroupsAPI extends BaseAPI_1.default {
                 path: `v1/groups/${options.groupId}/relationships/${options.relationshipType}/requests/${options.withGroup}`
             },
             json: true
-        }).then((response) => response.body);
+        }).then(response => response.body);
     }
     declineRelationshipRequest(options) {
         return this.request({
@@ -434,7 +434,7 @@ class GroupsAPI extends BaseAPI_1.default {
                 method: "DELETE"
             },
             json: true
-        }).then((response) => response.body);
+        }).then(response => response.body);
     }
     getRolePermissions(options) {
         return this.request({
@@ -443,7 +443,7 @@ class GroupsAPI extends BaseAPI_1.default {
                 path: `v1/groups/${options.groupId}/roles/${options.roleId}/permissions`
             },
             json: true
-        }).then((response) => response.body);
+        }).then(response => response.body);
     }
     updateRolePermissions(options) {
         return this.request({
@@ -454,7 +454,7 @@ class GroupsAPI extends BaseAPI_1.default {
                 json: options
             },
             json: true
-        }).then((response) => response.body);
+        }).then(response => response.body);
     }
     getGuestPermissions(options) {
         return this.request({
@@ -463,7 +463,7 @@ class GroupsAPI extends BaseAPI_1.default {
                 path: `v1/groups/${options.groupId}/roles/guest/permissions`
             },
             json: true
-        }).then((response) => response.body);
+        }).then(response => response.body);
     }
     getAllRolesPermissions(options) {
         return this.request({
@@ -472,7 +472,7 @@ class GroupsAPI extends BaseAPI_1.default {
                 path: `v1/groups/${options.groupId}/roles/permissions`
             },
             json: true
-        }).then((response) => response.body);
+        }).then(response => response.body);
     }
     getSocialLinks(options) {
         return this.request({
@@ -481,7 +481,7 @@ class GroupsAPI extends BaseAPI_1.default {
                 path: `v1/groups/${options.groupId}/social-links`
             },
             json: true
-        }).then((response) => response.body);
+        }).then(response => response.body);
     }
     createSocialLink(options) {
         return this.request({
@@ -492,7 +492,7 @@ class GroupsAPI extends BaseAPI_1.default {
                 json: options
             },
             json: true
-        }).then((response) => response.body);
+        }).then(response => response.body);
     }
     deleteSocialLink(options) {
         return this.request({
@@ -502,7 +502,7 @@ class GroupsAPI extends BaseAPI_1.default {
                 method: "DELETE"
             },
             json: true
-        }).then((response) => response.body);
+        }).then(response => response.body);
     }
     updateSocialLink(options) {
         return this.request({
@@ -513,7 +513,7 @@ class GroupsAPI extends BaseAPI_1.default {
                 json: options
             },
             json: true
-        }).then((response) => response.body);
+        }).then(response => response.body);
     }
     getWallPosts(options) {
         return this.request({
@@ -523,7 +523,7 @@ class GroupsAPI extends BaseAPI_1.default {
                 qs: options
             },
             json: true
-        }).then((response) => response.body);
+        }).then(response => response.body);
     }
     createWallPost(options) {
         return this.request({
@@ -534,7 +534,7 @@ class GroupsAPI extends BaseAPI_1.default {
                 json: options
             },
             json: true
-        }).then((response) => response.body);
+        }).then(response => response.body);
     }
     deleteWallPost(options) {
         return this.request({
@@ -544,7 +544,7 @@ class GroupsAPI extends BaseAPI_1.default {
                 method: "DELETE"
             },
             json: true
-        }).then((response) => response.body);
+        }).then(response => response.body);
     }
     deleteUserWallPosts(options) {
         return this.request({
@@ -554,7 +554,7 @@ class GroupsAPI extends BaseAPI_1.default {
                 method: "DELETE"
             },
             json: true
-        }).then((response) => response.body);
+        }).then(response => response.body);
     }
     searchGroupsByKeyword(options) {
         return this.request({
@@ -564,7 +564,7 @@ class GroupsAPI extends BaseAPI_1.default {
                 qs: options
             },
             json: true
-        }).then((response) => response.body);
+        }).then(response => response.body);
     }
     searchGroups(options) {
         return this.request({
@@ -574,7 +574,7 @@ class GroupsAPI extends BaseAPI_1.default {
                 qs: options
             },
             json: true
-        }).then((response) => response.body);
+        }).then(response => response.body);
     }
     getGroupSearchMetaData() {
         return this.request({
@@ -583,7 +583,7 @@ class GroupsAPI extends BaseAPI_1.default {
                 path: `v1/groups/search/metadata`
             },
             json: true
-        }).then((response) => response.body);
+        }).then(response => response.body);
     }
     getRolesByIds(options) {
         return this.request({
@@ -595,7 +595,7 @@ class GroupsAPI extends BaseAPI_1.default {
                 }
             },
             json: true
-        }).then((response) => response.body);
+        }).then(response => response.body);
     }
     getUserPrimaryGroup(options) {
         return this.request({
@@ -604,7 +604,7 @@ class GroupsAPI extends BaseAPI_1.default {
                 path: `v1/users/${options.userId}/groups/primary/role`
             },
             json: true
-        }).then((response) => response.body);
+        }).then(response => response.body);
     }
     removePrimaryGroup() {
         return this.request({
@@ -614,7 +614,7 @@ class GroupsAPI extends BaseAPI_1.default {
                 method: "DELETE"
             },
             json: true
-        }).then((response) => response.body);
+        }).then(response => response.body);
     }
     setPrimaryGroup(options) {
         return this.request({
@@ -625,7 +625,7 @@ class GroupsAPI extends BaseAPI_1.default {
                 json: options
             },
             json: true
-        }).then((response) => response.body);
+        }).then(response => response.body);
     }
     createRole(options) {
         return this.request({
@@ -636,7 +636,7 @@ class GroupsAPI extends BaseAPI_1.default {
                 json: options
             },
             json: true
-        }).then((response) => response.body);
+        }).then(response => response.body);
     }
     deleteRole(options) {
         return this.request({
@@ -646,7 +646,7 @@ class GroupsAPI extends BaseAPI_1.default {
                 method: "DELETE"
             },
             json: true
-        }).then((response) => response.body);
+        }).then(response => response.body);
     }
     updateRole(options) {
         return this.request({
@@ -657,7 +657,7 @@ class GroupsAPI extends BaseAPI_1.default {
                 json: options
             },
             json: true
-        }).then((response) => response.body);
+        }).then(response => response.body);
     }
 }
 exports.default = GroupsAPI;

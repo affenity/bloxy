@@ -119,7 +119,7 @@ export default class InventoryAPI extends BaseAPI {
                 path: `v1/packages/${options.packageId}/assets`
             },
             json: true
-        }).then((response: { body: any }) => response.body);
+        }).then(response => response.body);
     }
 
     getUserCollectibles (options: GetUserCollectiblesOptions): Promise<GetUserCollectibles> {
@@ -130,7 +130,7 @@ export default class InventoryAPI extends BaseAPI {
                 qs: options
             },
             json: true
-        }).then((response: { body: any }) => response.body);
+        }).then(response => response.body);
     }
 
     getUserItemsByTypeAndTargetId (options: GetUserItemsByTypeAndTargetIdOptions): Promise<GetUserItemsByTypeAndTargetId> {
@@ -140,7 +140,7 @@ export default class InventoryAPI extends BaseAPI {
                 path: `v1/users/${options.userId}/items/${options.itemType}/${options.itemTargetId}`
             },
             json: true
-        }).then((response: { body: any }) => response.body);
+        }).then(response => response.body);
     }
 
     getAssetOwners (options: GetAssetOwnersOptions): Promise<GetAssetOwners> {
@@ -151,7 +151,7 @@ export default class InventoryAPI extends BaseAPI {
                 qs: options
             },
             json: true
-        }).then((response: { body: any }) => response.body);
+        }).then(response => response.body);
     }
 
     getUserInventory (options: GetUserInventoryOptions): Promise<GetUserInventory> {
@@ -162,7 +162,7 @@ export default class InventoryAPI extends BaseAPI {
                 qs: options
             },
             json: true
-        }).then((response: { body: any }) => response.body);
+        }).then(response => response.body);
     }
 
     getUserInventoryByAssetTypeId (options: GetUserInventoryByAssetTypeIdOptions): Promise<GetUserInventoryByAssetTypeId> {
@@ -173,6 +173,6 @@ export default class InventoryAPI extends BaseAPI {
                 qs: options
             },
             json: true
-        }).then((response: { body: any }) => response.body);
+        }).then(response => response.body);
     }
 }

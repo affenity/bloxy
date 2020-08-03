@@ -36,7 +36,7 @@ export default class LocaleAPI extends BaseAPI {
                 path: `v1/thumbnails/metadata`
             },
             json: true
-        }).then((response: { body: any }) => response.body);
+        }).then(response => response.body);
     }
 
     recordThumbnailLoad (options: RecordThumbnailLoadOptions): Promise<RecordThumbnailLoad> {
@@ -48,7 +48,7 @@ export default class LocaleAPI extends BaseAPI {
                 json: options
             },
             json: true
-        }).then((response: { body: any }) => response.body);
+        }).then(response => response.body);
     }
 
     recordBundleLoad (options: RecordBundleLoadOptions): Promise<RecordBundleLoad> {
@@ -60,6 +60,6 @@ export default class LocaleAPI extends BaseAPI {
                 json: options
             },
             json: true
-        }).then((response: { body: any }) => response.body);
+        }).then(response => response.body);
     }
 }

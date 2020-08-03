@@ -14,7 +14,8 @@ export class BloxyHttpError extends Error {
     public status: string;
 
     constructor (options: BloxyHttpErrorOptions) {
-        options.possibleReasons = [...options.possibleReasons, ...StatusCodeReasons[options.statusCode.toString() as unknown as keyof typeof StatusCodeReasons]];
+        const statusRelatedIssues = StatusCodeReasons[options.statusCode as keyof typeof StatusCodeReasons] || [];
+        options.possibleReasons = [...options.possibleReasons, ...statusRelatedIssues];
         const revisedMessage = `\n\n${options.message} | Status code: ${options.statusCode}, status: ${options.status}. ${options.possibleReasons.length > 0 ? `Possible reasons:\n${options.possibleReasons.map(r => `- ${r}`).join("\n")}\n\n` : ""}`;
         super(revisedMessage);
         this.name = options.name || "BloxyHttpError";

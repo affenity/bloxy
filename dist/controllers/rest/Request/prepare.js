@@ -25,6 +25,11 @@ function prepare(request, options) {
         if ((request.requestOptions.xcsrf !== false && request.requestOptions.method.toLowerCase() !== "get") || request.requestOptions.xcsrf === true) {
             request.requestOptions.headers = Object.assign(Object.assign({}, request.requestOptions.headers), { "X-CSRF-TOKEN": yield request.controller.getXCSRFToken() });
         }
+        if (request.requestOptions.json) {
+            request.requestOptions.body = typeof request.requestOptions.json === "string" ? request.requestOptions.json : JSON.stringify(request.requestOptions.json);
+            request.requestOptions.headers["content-type"] = "application/json";
+            delete request.requestOptions.json;
+        }
         request.requestOptions.headers.Cookie = request.controller.cookieJar.getCookieStringSync(request.requestOptions.url);
         // Utilities
         request.requestOptions.throwHttpErrors = false;

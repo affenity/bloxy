@@ -19,7 +19,7 @@ class AvatarAPI extends BaseAPI_1.default {
                 }
             },
             json: true
-        }).then((response) => response.body);
+        }).then(response => response.body);
     }
     getAvatarMetaData() {
         return this.request({
@@ -31,7 +31,7 @@ class AvatarAPI extends BaseAPI_1.default {
                 }
             },
             json: true
-        }).then((response) => response.body);
+        }).then(response => response.body);
     }
     getAvatarRules() {
         return this.request({
@@ -43,7 +43,7 @@ class AvatarAPI extends BaseAPI_1.default {
                 }
             },
             json: true
-        }).then((response) => response.body);
+        }).then(response => response.body);
     }
     getUserAvatar(options) {
         return this.request({
@@ -55,7 +55,7 @@ class AvatarAPI extends BaseAPI_1.default {
                 }
             },
             json: true
-        }).then((response) => response.body);
+        }).then(response => response.body);
     }
     getUserCurrentlyWearing(options) {
         return this.request({
@@ -67,7 +67,7 @@ class AvatarAPI extends BaseAPI_1.default {
                 }
             },
             json: true
-        }).then((response) => response.body);
+        }).then(response => response.body);
     }
     getUserOutfits(options) {
         return this.request({
@@ -79,7 +79,7 @@ class AvatarAPI extends BaseAPI_1.default {
                 }
             },
             json: true
-        }).then((response) => response.body);
+        }).then(response => response.body);
     }
     removeAssetFromAvatar(options) {
         return this.request({
@@ -92,7 +92,7 @@ class AvatarAPI extends BaseAPI_1.default {
                 }
             },
             json: true
-        }).then((response) => response.body);
+        }).then(response => response.body);
     }
     wearAssetOnAvatar(options) {
         return this.request({
@@ -105,7 +105,7 @@ class AvatarAPI extends BaseAPI_1.default {
                 }
             },
             json: true
-        }).then((response) => response.body);
+        }).then(response => response.body);
     }
     redrawThumbnail() {
         return this.request({
@@ -118,7 +118,7 @@ class AvatarAPI extends BaseAPI_1.default {
                 }
             },
             json: true
-        }).then((response) => response.body);
+        }).then(response => response.body);
     }
     setSelfAvatarBodyColors(options) {
         return this.request({
@@ -132,7 +132,7 @@ class AvatarAPI extends BaseAPI_1.default {
                 }
             },
             json: true
-        }).then((response) => response.body);
+        }).then(response => response.body);
     }
     setSelfAvatarType(options) {
         return this.request({
@@ -146,7 +146,7 @@ class AvatarAPI extends BaseAPI_1.default {
                 }
             },
             json: true
-        }).then((response) => response.body);
+        }).then(response => response.body);
     }
     setSelfAvatarScales(options) {
         return this.request({
@@ -160,7 +160,7 @@ class AvatarAPI extends BaseAPI_1.default {
                 }
             },
             json: true
-        }).then((response) => response.body);
+        }).then(response => response.body);
     }
     setSelfWearingAssets(options) {
         return this.request({
@@ -174,7 +174,7 @@ class AvatarAPI extends BaseAPI_1.default {
                 }
             },
             json: true
-        }).then((response) => response.body);
+        }).then(response => response.body);
     }
     getOutfit(options) {
         return this.request({
@@ -186,7 +186,7 @@ class AvatarAPI extends BaseAPI_1.default {
                 }
             },
             json: true
-        }).then((response) => response.body);
+        }).then(response => response.body);
     }
     deleteOutfit(options) {
         return this.request({
@@ -199,7 +199,7 @@ class AvatarAPI extends BaseAPI_1.default {
                 }
             },
             json: true
-        }).then((response) => response.body);
+        }).then(response => response.body);
     }
     updateOutfit(options) {
         return this.request({
@@ -213,7 +213,7 @@ class AvatarAPI extends BaseAPI_1.default {
                 }
             },
             json: true
-        }).then((response) => response.body);
+        }).then(response => response.body);
     }
     wearOutfit(options) {
         return this.request({
@@ -226,7 +226,7 @@ class AvatarAPI extends BaseAPI_1.default {
                 }
             },
             json: true
-        }).then((response) => response.body);
+        }).then(response => response.body);
     }
     createOutfit(options) {
         return this.request({
@@ -240,7 +240,7 @@ class AvatarAPI extends BaseAPI_1.default {
                 }
             },
             json: true
-        }).then((response) => response.body);
+        }).then(response => response.body);
     }
     getRecentlyUsed(options) {
         return this.request({
@@ -252,7 +252,7 @@ class AvatarAPI extends BaseAPI_1.default {
                 }
             },
             json: true
-        }).then((response) => response.body);
+        }).then(response => response.body);
     }
 }
 exports.default = AvatarAPI;

@@ -18,7 +18,7 @@ class PublishAPI extends BaseAPI_1.default {
                 body: options.files
             },
             json: true
-        }).then((response) => response.body);
+        }).then(response => response.body);
     }
     publishAudio(options) {
         return this.request({
@@ -29,7 +29,7 @@ class PublishAPI extends BaseAPI_1.default {
                 json: options
             },
             json: true
-        }).then((response) => response.body);
+        }).then(response => response.body);
     }
     verifyAudio(options) {
         return this.request({
@@ -40,7 +40,7 @@ class PublishAPI extends BaseAPI_1.default {
                 json: options
             },
             json: true
-        }).then((response) => response.body);
+        }).then(response => response.body);
     }
     publishBadgeIcon(options) {
         return this.request({
@@ -51,7 +51,7 @@ class PublishAPI extends BaseAPI_1.default {
                 body: options.files
             },
             json: true
-        }).then((response) => response.body);
+        }).then(response => response.body);
     }
     publishGamePassIcon(options) {
         return this.request({
@@ -62,7 +62,7 @@ class PublishAPI extends BaseAPI_1.default {
                 body: options.files
             },
             json: true
-        }).then((response) => response.body);
+        }).then(response => response.body);
     }
     uploadGameThumbnail(options) {
         return this.request({
@@ -73,7 +73,7 @@ class PublishAPI extends BaseAPI_1.default {
                 body: options.files
             },
             json: true
-        }).then((response) => response.body);
+        }).then(response => response.body);
     }
     uploadPluginIcon(options) {
         return this.request({
@@ -84,7 +84,7 @@ class PublishAPI extends BaseAPI_1.default {
                 body: options.files
             },
             json: true
-        }).then((response) => response.body);
+        }).then(response => response.body);
     }
 }
 exports.default = PublishAPI;

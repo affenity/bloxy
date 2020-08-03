@@ -17,7 +17,7 @@ class ThumbnailsAPI extends BaseAPI_1.default {
                 qs: Object.assign(Object.assign({}, options), { assetIds: options.assetIds.join(",") })
             },
             json: true
-        }).then((response) => response.body);
+        }).then(response => response.body);
     }
     getBadgesIcons(options) {
         return this.request({
@@ -27,7 +27,7 @@ class ThumbnailsAPI extends BaseAPI_1.default {
                 qs: Object.assign(Object.assign({}, options), { badgeIds: options.badgeIds.join(",") })
             },
             json: true
-        }).then((response) => response.body);
+        }).then(response => response.body);
     }
     getBundlesThumbnails(options) {
         return this.request({
@@ -37,7 +37,7 @@ class ThumbnailsAPI extends BaseAPI_1.default {
                 qs: Object.assign(Object.assign({}, options), { bundleIds: options.bundleIds.join(",") })
             },
             json: true
-        }).then((response) => response.body);
+        }).then(response => response.body);
     }
     getDeveloperProductIcons(options) {
         return this.request({
@@ -47,7 +47,7 @@ class ThumbnailsAPI extends BaseAPI_1.default {
                 qs: Object.assign(Object.assign({}, options), { developerProductIds: options.developerProductIds.join(",") })
             },
             json: true
-        }).then((response) => response.body);
+        }).then(response => response.body);
     }
     getGamePassesIcons(options) {
         return this.request({
@@ -57,7 +57,7 @@ class ThumbnailsAPI extends BaseAPI_1.default {
                 qs: Object.assign(Object.assign({}, options), { gamePassIds: options.gamePassIds.join(",") })
             },
             json: true
-        }).then((response) => response.body);
+        }).then(response => response.body);
     }
     getUniverseThumbnailIds(options) {
         return this.request({
@@ -67,7 +67,7 @@ class ThumbnailsAPI extends BaseAPI_1.default {
                 qs: options
             },
             json: true
-        }).then((response) => response.body);
+        }).then(response => response.body);
     }
     getUniversesRootPlaceThumbnail(options) {
         return this.request({
@@ -77,7 +77,7 @@ class ThumbnailsAPI extends BaseAPI_1.default {
                 qs: Object.assign(Object.assign({}, options), { universeIds: options.universeIds.join(",") })
             },
             json: true
-        }).then((response) => response.body);
+        }).then(response => response.body);
     }
     getUniversesThumbnailIds(options) {
         return this.request({
@@ -87,7 +87,7 @@ class ThumbnailsAPI extends BaseAPI_1.default {
                 qs: Object.assign(Object.assign({}, options), { universeIds: options.universeIds.join(",") })
             },
             json: true
-        }).then((response) => response.body);
+        }).then(response => response.body);
     }
     getGroupsIcons(options) {
         return this.request({
@@ -97,7 +97,7 @@ class ThumbnailsAPI extends BaseAPI_1.default {
                 qs: Object.assign(Object.assign({}, options), { groupIds: options.groupIds.join(",") })
             },
             json: true
-        }).then((response) => response.body);
+        }).then(response => response.body);
     }
     getUsersFullBodyAvatarImages(options) {
         return this.request({
@@ -107,7 +107,7 @@ class ThumbnailsAPI extends BaseAPI_1.default {
                 qs: Object.assign(Object.assign({}, options), { userIds: options.userIds.join(",") })
             },
             json: true
-        }).then((response) => response.body);
+        }).then(response => response.body);
     }
     getUsersAvatarBustImages(options) {
         return this.request({
@@ -117,7 +117,7 @@ class ThumbnailsAPI extends BaseAPI_1.default {
                 qs: Object.assign(Object.assign({}, options), { userIds: options.userIds.join(",") })
             },
             json: true
-        }).then((response) => response.body);
+        }).then(response => response.body);
     }
     getUsersAvatarHeadShotImages(options) {
         return this.request({
@@ -127,7 +127,7 @@ class ThumbnailsAPI extends BaseAPI_1.default {
                 qs: Object.assign(Object.assign({}, options), { userIds: options.userIds.join(",") })
             },
             json: true
-        }).then((response) => response.body);
+        }).then(response => response.body);
     }
     getUsersOutfitsImages(options) {
         return this.request({
@@ -137,7 +137,7 @@ class ThumbnailsAPI extends BaseAPI_1.default {
                 qs: Object.assign(Object.assign({}, options), { userOutfitIds: options.userOutfitIds.join(",") })
             },
             json: true
-        }).then((response) => response.body);
+        }).then(response => response.body);
     }
     getBatchImages(options) {
         return this.request({
@@ -148,7 +148,7 @@ class ThumbnailsAPI extends BaseAPI_1.default {
                 json: options
             },
             json: true
-        }).then((response) => response.body);
+        }).then(response => response.body);
     }
 }
 exports.default = ThumbnailsAPI;

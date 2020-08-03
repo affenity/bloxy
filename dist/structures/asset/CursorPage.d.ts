@@ -11,12 +11,16 @@ declare type CursorPageResponse = {
 };
 export default class CursorPage<T> {
     client: Client;
+    options: CursorPageOptions;
     cursors: {
         current: string | null;
         next: string | null;
         previous: string | null;
     };
     data: T[];
-    constructor(client: Client, options: CursorPageOptions, response: CursorPageResponse);
+    method: Function;
+    constructor(client: Client, options: CursorPageOptions, response: CursorPageResponse, method: Function);
+    getNext(newOptions?: CursorPageOptions): Promise<CursorPage<T>>;
+    getPrevious(newOptions?: CursorPageOptions): Promise<CursorPage<T>>;
 }
 export {};

@@ -1,5 +1,5 @@
-import Client from "../../client";
-import PartialUser from "../user/PartialUser";
+import Client from "../../../client";
+import PartialUser from "../../user/PartialUser";
 
 
 export interface ChatMessageOptions {

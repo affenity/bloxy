@@ -132,7 +132,7 @@ export declare type RedeemPromoCodeOptions = {
 };
 export declare type RedeemPromoCode = {
     success: boolean;
-    errorMsg: ShadowRootInit;
+    errorMsg: string;
     successMsg: string;
 };
 export default class BillingAPI extends BaseAPI {

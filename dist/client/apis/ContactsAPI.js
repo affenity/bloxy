@@ -19,7 +19,7 @@ class ContactsAPI extends BaseAPI_1.default {
                 }
             },
             json: true
-        }).then((response) => response.body);
+        }).then(response => response.body);
     }
     matchContacts(options) {
         return this.request({
@@ -33,7 +33,7 @@ class ContactsAPI extends BaseAPI_1.default {
                 }
             },
             json: true
-        }).then((response) => response.body);
+        }).then(response => response.body);
     }
     updateContacts(options) {
         return this.request({
@@ -47,7 +47,7 @@ class ContactsAPI extends BaseAPI_1.default {
                 }
             },
             json: true
-        }).then((response) => response.body);
+        }).then(response => response.body);
     }
     getUsersTags(options) {
         return this.request({
@@ -61,7 +61,7 @@ class ContactsAPI extends BaseAPI_1.default {
                 }
             },
             json: true
-        }).then((response) => response.body);
+        }).then(response => response.body);
     }
     setPendingUserTag(options) {
         return this.request({
@@ -75,7 +75,7 @@ class ContactsAPI extends BaseAPI_1.default {
                 }
             },
             json: true
-        }).then((response) => response.body);
+        }).then(response => response.body);
     }
     setUserTag(options) {
         return this.request({
@@ -89,7 +89,7 @@ class ContactsAPI extends BaseAPI_1.default {
                 }
             },
             json: true
-        }).then((response) => response.body);
+        }).then(response => response.body);
     }
 }
 exports.default = ContactsAPI;

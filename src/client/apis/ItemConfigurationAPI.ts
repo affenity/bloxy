@@ -94,7 +94,7 @@ export default class InventoryAPI extends BaseAPI {
                 qs: options
             },
             json: true
-        }).then((response: { body: any }) => response.body);
+        }).then(response => response.body);
     }
 
     getMultiCreatedAssets (options: GetMultiCreatedAssetDetailsOptions): Promise<GetMultiCreatedAssetDetails> {
@@ -106,7 +106,7 @@ export default class InventoryAPI extends BaseAPI {
                 json: options
             },
             json: true
-        }).then((response: { body: any }) => response.body);
+        }).then(response => response.body);
     }
 
     getItemTagsByItemIds (options: GetItemTagsByItemIdsOptions): Promise<GetItemTagsByItemIds> {
@@ -119,7 +119,7 @@ export default class InventoryAPI extends BaseAPI {
                 }
             },
             json: true
-        }).then((response: { body: any }) => response.body);
+        }).then(response => response.body);
     }
 
     createItemTag (options: CreateItemTagOptions): Promise<CreateItemTag> {
@@ -131,7 +131,7 @@ export default class InventoryAPI extends BaseAPI {
                 json: options
             },
             json: true
-        }).then((response: { body: any }) => response.body);
+        }).then(response => response.body);
     }
 
     getItemTagsMetaData (): Promise<GetItemTagsMetaData> {
@@ -141,7 +141,7 @@ export default class InventoryAPI extends BaseAPI {
                 path: `v1/item-tags/metadata`
             },
             json: true
-        }).then((response: { body: any }) => response.body);
+        }).then(response => response.body);
     }
 
     deleteItemTag (options: DeleteItemTagOptions): Promise<DeleteItemTag> {
@@ -152,7 +152,7 @@ export default class InventoryAPI extends BaseAPI {
                 method: "DELETE"
             },
             json: true
-        }).then((response: { body: any }) => response.body);
+        }).then(response => response.body);
     }
 
     getTagsByTagIds (options: GetTagsByTagIdsOptions): Promise<GetTagsByTagIds> {
@@ -165,7 +165,7 @@ export default class InventoryAPI extends BaseAPI {
                 }
             },
             json: true
-        }).then((response: { body: any }) => response.body);
+        }).then(response => response.body);
     }
 
     searchTags (options: SearchTagsOptions): Promise<SearchTags> {
@@ -176,6 +176,6 @@ export default class InventoryAPI extends BaseAPI {
                 qs: options
             },
             json: true
-        }).then((response: { body: any }) => response.body);
+        }).then(response => response.body);
     }
 }

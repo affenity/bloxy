@@ -2,7 +2,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 const tslib_1 = require("tslib");
 const PartialUser_1 = tslib_1.__importDefault(require("../user/PartialUser"));
-const PartialGameUniverse_1 = tslib_1.__importDefault(require("../game/PartialGameUniverse"));
+const PartialGameUniverse_1 = tslib_1.__importDefault(require("../game/GameUniverse/PartialGameUniverse"));
 class ChatConversation {
     constructor(data, client) {
         this.client = client;

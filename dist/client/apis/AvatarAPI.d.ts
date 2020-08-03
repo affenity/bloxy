@@ -73,9 +73,9 @@ export declare type GetAvatarRules = {
         name: string;
     }[];
     bodyColorsPalette: ColorPalette[];
-    basicBOdyColorsPalette: ColorPalette[];
+    basicBodyColorsPalette: ColorPalette[];
     minimumDeltaEBodyColorDifference: number;
-    proprtionsAndBodyTypeEnabledForUser: boolean;
+    proportionsAndBodyTypeEnabledForUser: boolean;
     defaultClothingAssetLists: {
         defaultShirtAssetIds: number[];
         defaultPantAssetIds: number[];

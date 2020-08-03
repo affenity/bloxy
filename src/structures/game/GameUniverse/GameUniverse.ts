@@ -1,10 +1,11 @@
-import Client from "../../client";
-import { CreatorType, GameGenre, MorphAvatarType } from "../../util/constants";
+import Client from "../../../client";
+import { CreatorType, GameGenre, MorphAvatarType } from "../../../util/constants";
 import PartialPlace from "./PartialPlace";
-import PartialUser from "../user/PartialUser";
-import PartialGroup from "../group/PartialGroup";
+import PartialUser from "../../user/PartialUser";
+import PartialGroup from "../../group/PartialGroup";
 
 export interface GameUniverseOptions {
+    id: number;
     rootPlaceId: number;
     name: string;
     description: string;
@@ -29,6 +30,7 @@ export interface GameUniverseOptions {
 
 export default class GameUniverse {
     public client: Client;
+    public id: number;
     public rootPlace: PartialPlace | null;
     public name: string;
     public description: string;
@@ -47,14 +49,15 @@ export default class GameUniverse {
     public avatarType: MorphAvatarType;
     public genre: GameGenre;
 
-    constructor (data: any, client: Client) {
+    constructor (data: GameUniverseOptions, client: Client) {
         this.client = client;
+        this.id = data.id;
         this.rootPlace = data.rootPlaceId ? new PartialPlace({
             id: data.rootPlaceId
         }, client) : null;
         this.name = data.name;
         this.description = data.description;
-        this.creatorType = data.creator.type.toLowerCase() === "group" ? CreatorType.GROUP : CreatorType.USER;
+        this.creatorType = data.creatorType.toLowerCase() === "group" ? CreatorType.GROUP : CreatorType.USER;
         this.creator = this.creatorType === CreatorType.GROUP ? new PartialGroup({
             id: data.creator.id,
             name: data.creator.name

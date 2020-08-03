@@ -63,6 +63,6 @@ export default class OtherAPI extends BaseAPI {
                 }
             },
             json: true
-        }).then((response: { body: any }) => response.body);
+        }).then(response => response.body);
     }
 }

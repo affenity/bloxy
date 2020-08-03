@@ -1,6 +1,6 @@
 import BaseAPI from "./BaseAPI";
 import Client from "../Client";
-import { GameUniverseOptions } from "../../structures/game/GameUniverse";
+import { GameUniverseOptions } from "../../structures/game/GameUniverse/GameUniverse";
 import { PartialGroupOptions } from "../../structures/group/PartialGroup";
 export declare type GetAssetsVoteInformationOptions = {
     assetIds: number[];
@@ -59,7 +59,20 @@ export declare type GetGroupUniversesOptions = {
 export declare type GetGroupUniverses = {
     previousPageCursor: string;
     nextPageCursor: string;
-    data: GameUniverseOptions[];
+    data: {
+        id: number;
+        name: string;
+        description: string;
+        isArchived: boolean;
+        rootPlaceId: number | null;
+        isActive: boolean;
+        privacyType: "Private" | string;
+        creatorType: "Group" | string;
+        creatorTargetId: null;
+        creatorName: string;
+        created: string;
+        updated: string;
+    }[];
 };
 export declare type GetPlaceCompatibilitiesOptions = {
     placeId: number;
@@ -211,7 +224,7 @@ export declare type GetUniverseStatisticsReportsOptions = {
 };
 export declare type GetUniverseStatisticsReports = {
     reports: {
-        universeId: string;
+        universeId: number;
         yearDashMonth: string;
         status: "NotGenerated" | string;
         spreadsheetId: string;
@@ -222,7 +235,7 @@ export declare type GetUniverseStatisticsReportsByTimeOptions = {
     yearDashMonth: string;
 };
 export declare type GetUniverseStatisticsReportByTime = {
-    universeId: string;
+    universeId: number;
     yearDashMonth: string;
     status: "NotGenerated" | string;
     spreadsheetId: string;
@@ -315,12 +328,9 @@ export declare type GetUsersInUniverseTeamCreate = {
     nextPageCursor: string;
     data: {
         buildersClubMembershipType: "None" | string;
-        user: {
-            buildersClubMembershipType: "None" | string;
-            userId: number;
-            username: string;
-            displayName: string;
-        };
+        userId: number;
+        username: string;
+        displayName: string;
     }[];
 };
 export declare type GetSelfTeamCreateUniversesAccessOptions = {

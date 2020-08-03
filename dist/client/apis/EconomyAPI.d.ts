@@ -9,7 +9,7 @@ export declare type GetAssetResaleData = {
     sales: number;
     numberRemaining: number;
     recentAveragePrice: number;
-    originalPirce: number;
+    originalPrice: number;
     priceDataPoints: {
         value: number;
         date: string;
@@ -140,7 +140,7 @@ export declare type GetGroupTransactions = {
         isPending: boolean;
         agent: {
             id: number;
-            type: "User" | string;
+            type: "User" | "Group";
             name: string;
         };
         details: unknown;

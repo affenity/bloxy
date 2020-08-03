@@ -17,7 +17,7 @@ class InventoryAPI extends BaseAPI_1.default {
                 qs: options
             },
             json: true
-        }).then((response) => response.body);
+        }).then(response => response.body);
     }
     getMultiCreatedAssets(options) {
         return this.request({
@@ -28,7 +28,7 @@ class InventoryAPI extends BaseAPI_1.default {
                 json: options
             },
             json: true
-        }).then((response) => response.body);
+        }).then(response => response.body);
     }
     getItemTagsByItemIds(options) {
         return this.request({
@@ -40,7 +40,7 @@ class InventoryAPI extends BaseAPI_1.default {
                 }
             },
             json: true
-        }).then((response) => response.body);
+        }).then(response => response.body);
     }
     createItemTag(options) {
         return this.request({
@@ -51,7 +51,7 @@ class InventoryAPI extends BaseAPI_1.default {
                 json: options
             },
             json: true
-        }).then((response) => response.body);
+        }).then(response => response.body);
     }
     getItemTagsMetaData() {
         return this.request({
@@ -60,7 +60,7 @@ class InventoryAPI extends BaseAPI_1.default {
                 path: `v1/item-tags/metadata`
             },
             json: true
-        }).then((response) => response.body);
+        }).then(response => response.body);
     }
     deleteItemTag(options) {
         return this.request({
@@ -70,7 +70,7 @@ class InventoryAPI extends BaseAPI_1.default {
                 method: "DELETE"
             },
             json: true
-        }).then((response) => response.body);
+        }).then(response => response.body);
     }
     getTagsByTagIds(options) {
         return this.request({
@@ -82,7 +82,7 @@ class InventoryAPI extends BaseAPI_1.default {
                 }
             },
             json: true
-        }).then((response) => response.body);
+        }).then(response => response.body);
     }
     searchTags(options) {
         return this.request({
@@ -92,7 +92,7 @@ class InventoryAPI extends BaseAPI_1.default {
                 qs: options
             },
             json: true
-        }).then((response) => response.body);
+        }).then(response => response.body);
     }
 }
 exports.default = InventoryAPI;

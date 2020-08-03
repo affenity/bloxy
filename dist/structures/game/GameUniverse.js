@@ -13,7 +13,7 @@ class GameUniverse {
         }, client) : null;
         this.name = data.name;
         this.description = data.description;
-        this.creatorType = data.creator.type.toLowerCase() === "group" ? constants_1.CreatorType.GROUP : constants_1.CreatorType.USER;
+        this.creatorType = data.creatorType.toLowerCase() === "group" ? constants_1.CreatorType.GROUP : constants_1.CreatorType.USER;
         this.creator = this.creatorType === constants_1.CreatorType.GROUP ? new PartialGroup_1.default({
             id: data.creator.id,
             name: data.creator.name

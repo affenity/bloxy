@@ -16,7 +16,7 @@ class LocaleAPI extends BaseAPI_1.default {
                 path: `v1/thumbnails/metadata`
             },
             json: true
-        }).then((response) => response.body);
+        }).then(response => response.body);
     }
     recordThumbnailLoad(options) {
         return this.request({
@@ -27,7 +27,7 @@ class LocaleAPI extends BaseAPI_1.default {
                 json: options
             },
             json: true
-        }).then((response) => response.body);
+        }).then(response => response.body);
     }
     recordBundleLoad(options) {
         return this.request({
@@ -38,7 +38,7 @@ class LocaleAPI extends BaseAPI_1.default {
                 json: options
             },
             json: true
-        }).then((response) => response.body);
+        }).then(response => response.body);
     }
 }
 exports.default = LocaleAPI;

@@ -20,7 +20,7 @@ class CatalogAPI extends BaseAPI_1.default {
                 }
             },
             json: true
-        }).then((response) => response.body);
+        }).then(response => response.body);
     }
     getBundleDetails(options) {
         return this.request({
@@ -33,7 +33,7 @@ class CatalogAPI extends BaseAPI_1.default {
                 }
             },
             json: true
-        }).then((response) => response.body);
+        }).then(response => response.body);
     }
     getBundleRecommendationsByBundleId(options) {
         return this.request({
@@ -46,7 +46,7 @@ class CatalogAPI extends BaseAPI_1.default {
                 }
             },
             json: true
-        }).then((response) => response.body);
+        }).then(response => response.body);
     }
     getMultiBundleDetails(options) {
         return this.request({
@@ -61,7 +61,7 @@ class CatalogAPI extends BaseAPI_1.default {
                 }
             },
             json: true
-        }).then((response) => response.body);
+        }).then(response => response.body);
     }
     getUserBundles(options) {
         return this.request({
@@ -74,7 +74,7 @@ class CatalogAPI extends BaseAPI_1.default {
                 }
             },
             json: true
-        }).then((response) => response.body);
+        }).then(response => response.body);
     }
     getUserBundlesByType(options) {
         return this.request({
@@ -86,7 +86,7 @@ class CatalogAPI extends BaseAPI_1.default {
                 }
             },
             json: true
-        }).then((response) => response.body);
+        }).then(response => response.body);
     }
     unpackBundle(options) {
         return this.request({
@@ -99,7 +99,7 @@ class CatalogAPI extends BaseAPI_1.default {
                 }
             },
             json: true
-        }).then((response) => response.body);
+        }).then(response => response.body);
     }
     getAssetToCategory() {
         return this.request({
@@ -111,7 +111,7 @@ class CatalogAPI extends BaseAPI_1.default {
                 }
             },
             json: true
-        }).then((response) => response.body);
+        }).then(response => response.body);
     }
     getAssetToSubCategory() {
         return this.request({
@@ -123,7 +123,7 @@ class CatalogAPI extends BaseAPI_1.default {
                 }
             },
             json: true
-        }).then((response) => response.body);
+        }).then(response => response.body);
     }
     getCategories() {
         return this.request({
@@ -135,7 +135,7 @@ class CatalogAPI extends BaseAPI_1.default {
                 }
             },
             json: true
-        }).then((response) => response.body);
+        }).then(response => response.body);
     }
     getSubCategories() {
         return this.request({
@@ -147,7 +147,7 @@ class CatalogAPI extends BaseAPI_1.default {
                 }
             },
             json: true
-        }).then((response) => response.body);
+        }).then(response => response.body);
     }
     getAppStoreExclusiveBundles(options) {
         return this.request({
@@ -159,7 +159,7 @@ class CatalogAPI extends BaseAPI_1.default {
                 }
             },
             json: true
-        }).then((response) => response.body);
+        }).then(response => response.body);
     }
     getAssetFavoriteCount(options) {
         return this.request({
@@ -171,7 +171,7 @@ class CatalogAPI extends BaseAPI_1.default {
                 }
             },
             json: true
-        }).then((response) => response.body);
+        }).then(response => response.body);
     }
     getBundleFavoriteCount(options) {
         return this.request({
@@ -183,7 +183,7 @@ class CatalogAPI extends BaseAPI_1.default {
                 }
             },
             json: true
-        }).then((response) => response.body);
+        }).then(response => response.body);
     }
     removeAssetFavorite(options) {
         return this.request({
@@ -196,7 +196,7 @@ class CatalogAPI extends BaseAPI_1.default {
                 }
             },
             json: true
-        }).then((response) => response.body);
+        }).then(response => response.body);
     }
     getUserFavoriteAsset(options) {
         return this.request({
@@ -208,7 +208,7 @@ class CatalogAPI extends BaseAPI_1.default {
                 }
             },
             json: true
-        }).then((response) => response.body);
+        }).then(response => response.body);
     }
     favoriteAsset(options) {
         return this.request({
@@ -221,7 +221,7 @@ class CatalogAPI extends BaseAPI_1.default {
                 }
             },
             json: true
-        }).then((response) => response.body);
+        }).then(response => response.body);
     }
     removeBundleFavorite(options) {
         return this.request({
@@ -234,7 +234,7 @@ class CatalogAPI extends BaseAPI_1.default {
                 }
             },
             json: true
-        }).then((response) => response.body);
+        }).then(response => response.body);
     }
     getUserFavoriteBundle(options) {
         return this.request({
@@ -246,7 +246,7 @@ class CatalogAPI extends BaseAPI_1.default {
                 }
             },
             json: true
-        }).then((response) => response.body);
+        }).then(response => response.body);
     }
     favoriteBundle(options) {
         return this.request({
@@ -259,7 +259,7 @@ class CatalogAPI extends BaseAPI_1.default {
                 }
             },
             json: true
-        }).then((response) => response.body);
+        }).then(response => response.body);
     }
 }
 exports.default = CatalogAPI;

@@ -19,7 +19,7 @@ class BillingAPI extends BaseAPI_1.default {
                 }
             },
             json: true
-        }).then((response) => response.body);
+        }).then(response => response.body);
     }
     submitDeveloperExchange(options) {
         return this.request({
@@ -33,7 +33,7 @@ class BillingAPI extends BaseAPI_1.default {
                 }
             },
             json: true
-        }).then((response) => response.body);
+        }).then(response => response.body);
     }
     getLuobuDeveloperExchangeBalance() {
         return this.request({
@@ -45,7 +45,7 @@ class BillingAPI extends BaseAPI_1.default {
                 }
             },
             json: true
-        }).then((response) => response.body);
+        }).then(response => response.body);
     }
     getLuobuDeveloperExchangeEligibility() {
         return this.request({
@@ -57,7 +57,7 @@ class BillingAPI extends BaseAPI_1.default {
                 }
             },
             json: true
-        }).then((response) => response.body);
+        }).then(response => response.body);
     }
     getLuobuDeveloperExchangeLatestRequestStatus() {
         return this.request({
@@ -69,7 +69,7 @@ class BillingAPI extends BaseAPI_1.default {
                 }
             },
             json: true
-        }).then((response) => response.body);
+        }).then(response => response.body);
     }
     submitLuobuDeveloperExchange(options) {
         return this.request({
@@ -83,7 +83,7 @@ class BillingAPI extends BaseAPI_1.default {
                 }
             },
             json: true
-        }).then((response) => response.body);
+        }).then(response => response.body);
     }
     getUserPaymentsHistory(options) {
         return this.request({
@@ -96,7 +96,7 @@ class BillingAPI extends BaseAPI_1.default {
                 }
             },
             json: true
-        }).then((response) => response.body);
+        }).then(response => response.body);
     }
     purchaseAmazonProduct(options) {
         return this.request({
@@ -110,7 +110,7 @@ class BillingAPI extends BaseAPI_1.default {
                 }
             },
             json: true
-        }).then((response) => response.body);
+        }).then(response => response.body);
     }
     validateAmazonProduct(options) {
         return this.request({
@@ -124,7 +124,7 @@ class BillingAPI extends BaseAPI_1.default {
                 }
             },
             json: true
-        }).then((response) => response.body);
+        }).then(response => response.body);
     }
     purchaseAppleProduct(options) {
         return this.request({
@@ -138,7 +138,7 @@ class BillingAPI extends BaseAPI_1.default {
                 }
             },
             json: true
-        }).then((response) => response.body);
+        }).then(response => response.body);
     }
     validateAppleProduct(options) {
         return this.request({
@@ -152,7 +152,7 @@ class BillingAPI extends BaseAPI_1.default {
                 }
             },
             json: true
-        }).then((response) => response.body);
+        }).then(response => response.body);
     }
     redeemDigitalCode(options) {
         return this.request({
@@ -166,7 +166,7 @@ class BillingAPI extends BaseAPI_1.default {
                 }
             },
             json: true
-        }).then((response) => response.body);
+        }).then(response => response.body);
     }
     redeemGameCard(options) {
         return this.request({
@@ -180,7 +180,7 @@ class BillingAPI extends BaseAPI_1.default {
                 }
             },
             json: true
-        }).then((response) => response.body);
+        }).then(response => response.body);
     }
     reverseGameCard(options) {
         return this.request({
@@ -194,7 +194,7 @@ class BillingAPI extends BaseAPI_1.default {
                 }
             },
             json: true
-        }).then((response) => response.body);
+        }).then(response => response.body);
     }
     purchaseGoogleProduct(options) {
         return this.request({
@@ -208,7 +208,7 @@ class BillingAPI extends BaseAPI_1.default {
                 }
             },
             json: true
-        }).then((response) => response.body);
+        }).then(response => response.body);
     }
     validateGoogleProduct(options) {
         return this.request({
@@ -222,7 +222,7 @@ class BillingAPI extends BaseAPI_1.default {
                 }
             },
             json: true
-        }).then((response) => response.body);
+        }).then(response => response.body);
     }
     sendXsollaWebhook(options) {
         return this.request({
@@ -236,7 +236,7 @@ class BillingAPI extends BaseAPI_1.default {
                 }
             },
             json: true
-        }).then((response) => response.body);
+        }).then(response => response.body);
     }
     getXsollaIFrameToken(options) {
         return this.request({
@@ -250,7 +250,7 @@ class BillingAPI extends BaseAPI_1.default {
                 }
             },
             json: true
-        }).then((response) => response.body);
+        }).then(response => response.body);
     }
     incrementCounterByAgent(options) {
         return this.request({
@@ -264,7 +264,7 @@ class BillingAPI extends BaseAPI_1.default {
                 }
             },
             json: true
-        }).then((response) => response.body);
+        }).then(response => response.body);
     }
     redeemPromoCode(options) {
         return this.request({
@@ -278,7 +278,7 @@ class BillingAPI extends BaseAPI_1.default {
                 }
             },
             json: true
-        }).then((response) => response.body);
+        }).then(response => response.body);
     }
 }
 exports.default = BillingAPI;

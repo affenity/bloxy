@@ -22,7 +22,7 @@ class GamesAPI extends BaseAPI_1.default {
                 }
             },
             json: true
-        }).then((response) => response.body);
+        }).then(response => response.body);
     }
     getGameServersByType(options) {
         return this.request({
@@ -35,7 +35,7 @@ class GamesAPI extends BaseAPI_1.default {
                 }
             },
             json: true
-        }).then((response) => response.body);
+        }).then(response => response.body);
     }
     getGamesProductInfo(options) {
         return this.request({
@@ -50,7 +50,7 @@ class GamesAPI extends BaseAPI_1.default {
                 }
             },
             json: true
-        }).then((response) => response.body);
+        }).then(response => response.body);
     }
     listGames(options) {
         return this.request({
@@ -80,7 +80,7 @@ class GamesAPI extends BaseAPI_1.default {
                 }
             },
             json: true
-        }).then((response) => response.body);
+        }).then(response => response.body);
     }
     getMultiPlaces(options) {
         return this.request({
@@ -95,7 +95,7 @@ class GamesAPI extends BaseAPI_1.default {
                 }
             },
             json: true
-        }).then((response) => response.body);
+        }).then(response => response.body);
     }
     getMultiGamesPlayabilityStatus(options) {
         return this.request({
@@ -110,7 +110,7 @@ class GamesAPI extends BaseAPI_1.default {
                 }
             },
             json: true
-        }).then((response) => response.body);
+        }).then(response => response.body);
     }
     getGameRecommendationsByAlgorithm(options) {
         return this.request({
@@ -126,7 +126,7 @@ class GamesAPI extends BaseAPI_1.default {
                 }
             },
             json: true
-        }).then((response) => response.body);
+        }).then(response => response.body);
     }
     getGameRecommendationsByGame(options) {
         return this.request({
@@ -142,7 +142,7 @@ class GamesAPI extends BaseAPI_1.default {
                 }
             },
             json: true
-        }).then((response) => response.body);
+        }).then(response => response.body);
     }
     getGameSorts(options) {
         return this.request({
@@ -157,7 +157,7 @@ class GamesAPI extends BaseAPI_1.default {
                 }
             },
             json: true
-        }).then((response) => response.body);
+        }).then(response => response.body);
     }
     isGameFavorited(options) {
         return this.request({
@@ -169,7 +169,7 @@ class GamesAPI extends BaseAPI_1.default {
                 }
             },
             json: true
-        }).then((response) => response.body);
+        }).then(response => response.body);
     }
     toggleGameFavorite(options) {
         return this.request({
@@ -185,7 +185,7 @@ class GamesAPI extends BaseAPI_1.default {
                 }
             },
             json: true
-        }).then((response) => response.body);
+        }).then(response => response.body);
     }
     getGameFavoriteCount(options) {
         return this.request({
@@ -197,7 +197,7 @@ class GamesAPI extends BaseAPI_1.default {
                 }
             },
             json: true
-        }).then((response) => response.body);
+        }).then(response => response.body);
     }
     getGameGamePasses(options) {
         return this.request({
@@ -210,7 +210,7 @@ class GamesAPI extends BaseAPI_1.default {
                 }
             },
             json: true
-        }).then((response) => response.body);
+        }).then(response => response.body);
     }
     getSelfGameVote(options) {
         return this.request({
@@ -222,7 +222,7 @@ class GamesAPI extends BaseAPI_1.default {
                 }
             },
             json: true
-        }).then((response) => response.body);
+        }).then(response => response.body);
     }
     getGamesVotes(options) {
         return this.request({
@@ -237,7 +237,7 @@ class GamesAPI extends BaseAPI_1.default {
                 }
             },
             json: true
-        }).then((response) => response.body);
+        }).then(response => response.body);
     }
     setSelfGameVote(options) {
         return this.request({
@@ -253,7 +253,7 @@ class GamesAPI extends BaseAPI_1.default {
                 }
             },
             json: true
-        }).then((response) => response.body);
+        }).then(response => response.body);
     }
     canSelfInviteUserToVIPServer(options) {
         return this.request({
@@ -265,7 +265,7 @@ class GamesAPI extends BaseAPI_1.default {
                 }
             },
             json: true
-        }).then((response) => response.body);
+        }).then(response => response.body);
     }
     getVIPServer(options) {
         return this.request({
@@ -278,7 +278,7 @@ class GamesAPI extends BaseAPI_1.default {
                 }
             },
             json: true
-        }).then((response) => response.body);
+        }).then(response => response.body);
     }
     updateVIPServer(options) {
         return this.request({
@@ -292,7 +292,7 @@ class GamesAPI extends BaseAPI_1.default {
                 }
             },
             json: true
-        }).then((response) => response.body);
+        }).then(response => response.body);
     }
     createVIPServer(options) {
         return this.request({
@@ -306,7 +306,35 @@ class GamesAPI extends BaseAPI_1.default {
                 }
             },
             json: true
-        }).then((response) => response.body);
+        }).then(response => response.body);
+    }
+    updateVIPServerPermissions(options) {
+        return this.request({
+            requiresAuth: true,
+            request: {
+                path: `v1/games/vip-servers/${options.id}/permissions`,
+                method: "PATCH",
+                json: options,
+                responseOptions: {
+                    allowedStatusCodes: [200]
+                }
+            },
+            json: true
+        }).then(response => response.body);
+    }
+    updateVIPServerSubscription(options) {
+        return this.request({
+            requiresAuth: true,
+            request: {
+                path: `v1/games/vip-servers/${options.id}/subscription`,
+                method: "PATCH",
+                json: options,
+                responseOptions: {
+                    allowedStatusCodes: [200]
+                }
+            },
+            json: true
+        }).then(response => response.body);
     }
 }
 exports.default = GamesAPI;

@@ -37,7 +37,7 @@ export declare type GetGameInfoHistory = {
         translationText: string;
         translator: {
             id: number;
-            agentType: "User";
+            agentType: "User" | string;
         };
         created: Date;
     }[];

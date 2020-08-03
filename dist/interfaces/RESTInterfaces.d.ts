@@ -1,4 +1,3 @@
-/// <reference types="node" />
 import got from "got";
 import RESTRequest from "../controllers/rest/request";
 import RESTResponse from "../controllers/rest/response";
@@ -119,7 +118,7 @@ export declare type RESTResponseOptions = {
     };
 };
 export declare type RESTResponseDataType = {
-    body: string | object | Buffer;
+    body: any;
     url: string;
     requestUrl: string;
     status: string;

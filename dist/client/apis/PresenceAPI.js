@@ -18,7 +18,7 @@ class PresenceAPI extends BaseAPI_1.default {
                 json: options
             },
             json: true
-        }).then((response) => response.body);
+        }).then(response => response.body);
     }
     getUsersPresences(options) {
         return this.request({
@@ -29,7 +29,7 @@ class PresenceAPI extends BaseAPI_1.default {
                 json: options
             },
             json: true
-        }).then((response) => response.body);
+        }).then(response => response.body);
     }
 }
 exports.default = PresenceAPI;

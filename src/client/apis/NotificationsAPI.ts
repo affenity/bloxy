@@ -249,7 +249,7 @@ export default class NotificationsAPI extends BaseAPI {
                 path: `v2/notifications/get-settings`
             },
             json: true
-        }).then((response: { body: any }) => response.body);
+        }).then(response => response.body);
     }
 
     getRealtimeNotificationSettings (): Promise<GetRealtimeNotificationsSettings> {
@@ -259,7 +259,7 @@ export default class NotificationsAPI extends BaseAPI {
                 path: `v2/notifications/settings/realtime`
             },
             json: true
-        }).then((response: { body: any }) => response.body);
+        }).then(response => response.body);
     }
 
     allowNotificationSource (options: AllowNotificationSourceOptions): Promise<AllowNotificationSource> {
@@ -271,7 +271,7 @@ export default class NotificationsAPI extends BaseAPI {
                 json: options
             },
             json: true
-        }).then((response: { body: any }) => response.body);
+        }).then(response => response.body);
     }
 
     disallowNotificationSource (options: DisallowNotificationSourceOptions): Promise<DisallowNotificationSource> {
@@ -283,7 +283,7 @@ export default class NotificationsAPI extends BaseAPI {
                 json: options
             },
             json: true
-        }).then((response: { body: any }) => response.body);
+        }).then(response => response.body);
     }
 
     allowNotificationDestination (options: AllowNotificationsDestinationOptions): Promise<AllowNotificationsDestination> {
@@ -295,7 +295,7 @@ export default class NotificationsAPI extends BaseAPI {
                 json: options
             },
             json: true
-        }).then((response: { body: any }) => response.body);
+        }).then(response => response.body);
     }
 
     disallowNotificationDestination (options: DisallowNotificationsDestinationOptions): Promise<DisallowNotificationsDestination> {
@@ -307,7 +307,7 @@ export default class NotificationsAPI extends BaseAPI {
                 json: options
             },
             json: true
-        }).then((response: { body: any }) => response.body);
+        }).then(response => response.body);
     }
 
     updateDestinationSetting (options: UpdateNotificationDestinationSettingsOptions): Promise<UpdateNotificationDestinationSettings> {
@@ -319,7 +319,7 @@ export default class NotificationsAPI extends BaseAPI {
                 json: options
             },
             json: true
-        }).then((response: { body: any }) => response.body);
+        }).then(response => response.body);
     }
 
     updateNotificationSettings (options: UpdateNotificationSettingsOptions): Promise<UpdateNotificationSettings> {
@@ -331,7 +331,7 @@ export default class NotificationsAPI extends BaseAPI {
                 json: options
             },
             json: true
-        }).then((response: { body: any }) => response.body);
+        }).then(response => response.body);
     }
 
     getChromeManifest (): Promise<GetChromeNotificationsManifest> {
@@ -341,7 +341,7 @@ export default class NotificationsAPI extends BaseAPI {
                 path: `v2/push-notifications/chrome-manifest`
             },
             json: true
-        }).then((response: { body: any }) => response.body);
+        }).then(response => response.body);
     }
 
     getCurrentDeviceDestination (): Promise<GetCurrentNotificationDeviceDestination> {
@@ -351,7 +351,7 @@ export default class NotificationsAPI extends BaseAPI {
                 path: `v2/push-notifications/get-current-device-destination`
             },
             json: true
-        }).then((response: { body: any }) => response.body);
+        }).then(response => response.body);
     }
 
     getDestinations (): Promise<GetNotificationDestinations> {
@@ -361,7 +361,7 @@ export default class NotificationsAPI extends BaseAPI {
                 path: `v2/push-notifications/get-destinations`
             },
             json: true
-        }).then((response: { body: any }) => response.body);
+        }).then(response => response.body);
     }
 
     getPushNotificationsMetaData (): Promise<GetNotificationsMetaData> {
@@ -371,7 +371,7 @@ export default class NotificationsAPI extends BaseAPI {
                 path: `v2/push-notifications/metadata`
             },
             json: true
-        }).then((response: { body: any }) => response.body);
+        }).then(response => response.body);
     }
 
     getNotificationIds (options: GetNotificationIdsOptions): Promise<GetNotificationIds> {
@@ -382,7 +382,7 @@ export default class NotificationsAPI extends BaseAPI {
                 qs: options
             },
             json: true
-        }).then((response: { body: any }) => response.body);
+        }).then(response => response.body);
     }
 
     deregisterAllDevices (): Promise<DeregisterAllDevices> {
@@ -393,7 +393,7 @@ export default class NotificationsAPI extends BaseAPI {
                 method: "POST"
             },
             json: true
-        }).then((response: { body: any }) => response.body);
+        }).then(response => response.body);
     }
 
     deregisterCurrentDevice (): Promise<DeregisterCurrentDevice> {
@@ -403,7 +403,7 @@ export default class NotificationsAPI extends BaseAPI {
                 path: `v2/push-notifications/deregister-current-device`
             },
             json: true
-        }).then((response: { body: any }) => response.body);
+        }).then(response => response.body);
     }
 
     markNotificationRead (options: MarkNotificationReadOptions): Promise<MarkNotificationRead> {
@@ -415,7 +415,7 @@ export default class NotificationsAPI extends BaseAPI {
                 json: options
             },
             json: true
-        }).then((response: { body: any }) => response.body);
+        }).then(response => response.body);
     }
 
     markNotificationCategoryRead (options: MarkNotificationCategoryReadOptions): Promise<MarkNotificationCategoryRead> {
@@ -427,7 +427,7 @@ export default class NotificationsAPI extends BaseAPI {
                 json: options
             },
             json: true
-        }).then((response: { body: any }) => response.body);
+        }).then(response => response.body);
     }
 
     markNotificationInteraction (options: MarkNotificationInteractionOptions): Promise<MarkNotificationInteraction> {
@@ -439,7 +439,7 @@ export default class NotificationsAPI extends BaseAPI {
                 json: options
             },
             json: true
-        }).then((response: { body: any }) => response.body);
+        }).then(response => response.body);
     }
 
     registerAndroidAmazon (options: RegisterAmazonAndroidOptions): Promise<RegisterAmazonAndroid> {
@@ -451,7 +451,7 @@ export default class NotificationsAPI extends BaseAPI {
                 json: options
             },
             json: true
-        }).then((response: { body: any }) => response.body);
+        }).then(response => response.body);
     }
 
     registerAndroidNative (options: RegisterAndroidNativeOptions): Promise<RegisterAndroidNative> {
@@ -463,7 +463,7 @@ export default class NotificationsAPI extends BaseAPI {
                 json: options
             },
             json: true
-        }).then((response: { body: any }) => response.body);
+        }).then(response => response.body);
     }
 
     registerAndroidTencentSerice (options: RegisterAndroidTencentServiceOptions): Promise<RegisterAndroidTencentService> {
@@ -475,7 +475,7 @@ export default class NotificationsAPI extends BaseAPI {
                 json: options
             },
             json: true
-        }).then((response: { body: any }) => response.body);
+        }).then(response => response.body);
     }
 
     registerChrome (options: RegisterChromeOptions): Promise<RegisterChrome> {
@@ -487,7 +487,7 @@ export default class NotificationsAPI extends BaseAPI {
                 json: options
             },
             json: true
-        }).then((response: { body: any }) => response.body);
+        }).then(response => response.body);
     }
 
     registerFirefox (options: RegisterFirefoxOptions): Promise<RegisterFirefox> {
@@ -499,7 +499,7 @@ export default class NotificationsAPI extends BaseAPI {
                 json: options
             },
             json: true
-        }).then((response: { body: any }) => response.body);
+        }).then(response => response.body);
     }
 
     registerIOSNative (options: RegisterIOSNativeOptions): Promise<RegisterIOSNative> {
@@ -511,7 +511,7 @@ export default class NotificationsAPI extends BaseAPI {
                 json: options
             },
             json: true
-        }).then((response: { body: any }) => response.body);
+        }).then(response => response.body);
     }
 
     getLatestUniversesUpdates (options: GetLatestUniversesUpdatesOptions): Promise<GetLatestUniverseUpdates> {
@@ -525,7 +525,7 @@ export default class NotificationsAPI extends BaseAPI {
                 }
             },
             json: true
-        }).then((response: { body: any }) => response.body);
+        }).then(response => response.body);
     }
 
     getStreamNotificationsPromptSettings (): Promise<GetStreamNotificationsPromptSettings> {
@@ -535,7 +535,7 @@ export default class NotificationsAPI extends BaseAPI {
                 path: `v2/stream-notifications/get-prompt-settings`
             },
             json: true
-        }).then((response: { body: any }) => response.body);
+        }).then(response => response.body);
     }
 
     getRecentStreamNotifications (options: GetRecentStreamNotificationsOptions): Promise<GetRecentStreamNotifications> {
@@ -546,7 +546,7 @@ export default class NotificationsAPI extends BaseAPI {
                 qs: options
             },
             json: true
-        }).then((response: { body: any }) => response.body);
+        }).then(response => response.body);
     }
 
     getStreamNotificationsMetaData (): Promise<GetLatestUniverseUpdates> {
@@ -556,7 +556,7 @@ export default class NotificationsAPI extends BaseAPI {
                 path: `v2/stream-notifications/metadata`
             },
             json: true
-        }).then((response: { body: any }) => response.body);
+        }).then(response => response.body);
     }
 
     getUnreadStreamNotificationsCount (): Promise<GetLatestUniverseUpdates> {
@@ -566,7 +566,7 @@ export default class NotificationsAPI extends BaseAPI {
                 path: `v2/stream-notifications/unread-count`
             },
             json: true
-        }).then((response: { body: any }) => response.body);
+        }).then(response => response.body);
     }
 
     clearUnreadStreamNotifications (): Promise<ClearUnreadStreamNotifications> {
@@ -577,7 +577,7 @@ export default class NotificationsAPI extends BaseAPI {
                 method: "POST"
             },
             json: true
-        }).then((response: { body: any }) => response.body);
+        }).then(response => response.body);
     }
 
     markGameUpdateNotificationInteracted (options: SendGameUpdateNotificationInteractedOptions): Promise<SendGameUpdateNotificationInteracted> {
@@ -589,7 +589,7 @@ export default class NotificationsAPI extends BaseAPI {
                 json: options
             },
             json: true
-        }).then((response: { body: any }) => response.body);
+        }).then(response => response.body);
     }
 
     markGameUpdateNotificationRead (options: SendGameUpdateNotificationReadOptions): Promise<SendGameUpdateNotificationRead> {
@@ -601,7 +601,7 @@ export default class NotificationsAPI extends BaseAPI {
                 json: options
             },
             json: true
-        }).then((response: { body: any }) => response.body);
+        }).then(response => response.body);
     }
 
     suppressStreamNotificationsPrompt (): Promise<SuppressStreamNotificationsPrompt> {
@@ -612,6 +612,6 @@ export default class NotificationsAPI extends BaseAPI {
                 method: "POST"
             },
             json: true
-        }).then((response: { body: any }) => response.body);
+        }).then(response => response.body);
     }
 }

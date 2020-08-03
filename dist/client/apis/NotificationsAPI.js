@@ -16,7 +16,7 @@ class NotificationsAPI extends BaseAPI_1.default {
                 path: `v2/notifications/get-settings`
             },
             json: true
-        }).then((response) => response.body);
+        }).then(response => response.body);
     }
     getRealtimeNotificationSettings() {
         return this.request({
@@ -25,7 +25,7 @@ class NotificationsAPI extends BaseAPI_1.default {
                 path: `v2/notifications/settings/realtime`
             },
             json: true
-        }).then((response) => response.body);
+        }).then(response => response.body);
     }
     allowNotificationSource(options) {
         return this.request({
@@ -36,7 +36,7 @@ class NotificationsAPI extends BaseAPI_1.default {
                 json: options
             },
             json: true
-        }).then((response) => response.body);
+        }).then(response => response.body);
     }
     disallowNotificationSource(options) {
         return this.request({
@@ -47,7 +47,7 @@ class NotificationsAPI extends BaseAPI_1.default {
                 json: options
             },
             json: true
-        }).then((response) => response.body);
+        }).then(response => response.body);
     }
     allowNotificationDestination(options) {
         return this.request({
@@ -58,7 +58,7 @@ class NotificationsAPI extends BaseAPI_1.default {
                 json: options
             },
             json: true
-        }).then((response) => response.body);
+        }).then(response => response.body);
     }
     disallowNotificationDestination(options) {
         return this.request({
@@ -69,7 +69,7 @@ class NotificationsAPI extends BaseAPI_1.default {
                 json: options
             },
             json: true
-        }).then((response) => response.body);
+        }).then(response => response.body);
     }
     updateDestinationSetting(options) {
         return this.request({
@@ -80,7 +80,7 @@ class NotificationsAPI extends BaseAPI_1.default {
                 json: options
             },
             json: true
-        }).then((response) => response.body);
+        }).then(response => response.body);
     }
     updateNotificationSettings(options) {
         return this.request({
@@ -91,7 +91,7 @@ class NotificationsAPI extends BaseAPI_1.default {
                 json: options
             },
             json: true
-        }).then((response) => response.body);
+        }).then(response => response.body);
     }
     getChromeManifest() {
         return this.request({
@@ -100,7 +100,7 @@ class NotificationsAPI extends BaseAPI_1.default {
                 path: `v2/push-notifications/chrome-manifest`
             },
             json: true
-        }).then((response) => response.body);
+        }).then(response => response.body);
     }
     getCurrentDeviceDestination() {
         return this.request({
@@ -109,7 +109,7 @@ class NotificationsAPI extends BaseAPI_1.default {
                 path: `v2/push-notifications/get-current-device-destination`
             },
             json: true
-        }).then((response) => response.body);
+        }).then(response => response.body);
     }
     getDestinations() {
         return this.request({
@@ -118,7 +118,7 @@ class NotificationsAPI extends BaseAPI_1.default {
                 path: `v2/push-notifications/get-destinations`
             },
             json: true
-        }).then((response) => response.body);
+        }).then(response => response.body);
     }
     getPushNotificationsMetaData() {
         return this.request({
@@ -127,7 +127,7 @@ class NotificationsAPI extends BaseAPI_1.default {
                 path: `v2/push-notifications/metadata`
             },
             json: true
-        }).then((response) => response.body);
+        }).then(response => response.body);
     }
     getNotificationIds(options) {
         return this.request({
@@ -137,7 +137,7 @@ class NotificationsAPI extends BaseAPI_1.default {
                 qs: options
             },
             json: true
-        }).then((response) => response.body);
+        }).then(response => response.body);
     }
     deregisterAllDevices() {
         return this.request({
@@ -147,7 +147,7 @@ class NotificationsAPI extends BaseAPI_1.default {
                 method: "POST"
             },
             json: true
-        }).then((response) => response.body);
+        }).then(response => response.body);
     }
     deregisterCurrentDevice() {
         return this.request({
@@ -156,7 +156,7 @@ class NotificationsAPI extends BaseAPI_1.default {
                 path: `v2/push-notifications/deregister-current-device`
             },
             json: true
-        }).then((response) => response.body);
+        }).then(response => response.body);
     }
     markNotificationRead(options) {
         return this.request({
@@ -167,7 +167,7 @@ class NotificationsAPI extends BaseAPI_1.default {
                 json: options
             },
             json: true
-        }).then((response) => response.body);
+        }).then(response => response.body);
     }
     markNotificationCategoryRead(options) {
         return this.request({
@@ -178,7 +178,7 @@ class NotificationsAPI extends BaseAPI_1.default {
                 json: options
             },
             json: true
-        }).then((response) => response.body);
+        }).then(response => response.body);
     }
     markNotificationInteraction(options) {
         return this.request({
@@ -189,7 +189,7 @@ class NotificationsAPI extends BaseAPI_1.default {
                 json: options
             },
             json: true
-        }).then((response) => response.body);
+        }).then(response => response.body);
     }
     registerAndroidAmazon(options) {
         return this.request({
@@ -200,7 +200,7 @@ class NotificationsAPI extends BaseAPI_1.default {
                 json: options
             },
             json: true
-        }).then((response) => response.body);
+        }).then(response => response.body);
     }
     registerAndroidNative(options) {
         return this.request({
@@ -211,7 +211,7 @@ class NotificationsAPI extends BaseAPI_1.default {
                 json: options
             },
             json: true
-        }).then((response) => response.body);
+        }).then(response => response.body);
     }
     registerAndroidTencentSerice(options) {
         return this.request({
@@ -222,7 +222,7 @@ class NotificationsAPI extends BaseAPI_1.default {
                 json: options
             },
             json: true
-        }).then((response) => response.body);
+        }).then(response => response.body);
     }
     registerChrome(options) {
         return this.request({
@@ -233,7 +233,7 @@ class NotificationsAPI extends BaseAPI_1.default {
                 json: options
             },
             json: true
-        }).then((response) => response.body);
+        }).then(response => response.body);
     }
     registerFirefox(options) {
         return this.request({
@@ -244,7 +244,7 @@ class NotificationsAPI extends BaseAPI_1.default {
                 json: options
             },
             json: true
-        }).then((response) => response.body);
+        }).then(response => response.body);
     }
     registerIOSNative(options) {
         return this.request({
@@ -255,7 +255,7 @@ class NotificationsAPI extends BaseAPI_1.default {
                 json: options
             },
             json: true
-        }).then((response) => response.body);
+        }).then(response => response.body);
     }
     getLatestUniversesUpdates(options) {
         return this.request({
@@ -265,7 +265,7 @@ class NotificationsAPI extends BaseAPI_1.default {
                 qs: Object.assign(Object.assign({}, options), { universeId: options.universeIds.join(",") })
             },
             json: true
-        }).then((response) => response.body);
+        }).then(response => response.body);
     }
     getStreamNotificationsPromptSettings() {
         return this.request({
@@ -274,7 +274,7 @@ class NotificationsAPI extends BaseAPI_1.default {
                 path: `v2/stream-notifications/get-prompt-settings`
             },
             json: true
-        }).then((response) => response.body);
+        }).then(response => response.body);
     }
     getRecentStreamNotifications(options) {
         return this.request({
@@ -284,7 +284,7 @@ class NotificationsAPI extends BaseAPI_1.default {
                 qs: options
             },
             json: true
-        }).then((response) => response.body);
+        }).then(response => response.body);
     }
     getStreamNotificationsMetaData() {
         return this.request({
@@ -293,7 +293,7 @@ class NotificationsAPI extends BaseAPI_1.default {
                 path: `v2/stream-notifications/metadata`
             },
             json: true
-        }).then((response) => response.body);
+        }).then(response => response.body);
     }
     getUnreadStreamNotificationsCount() {
         return this.request({
@@ -302,7 +302,7 @@ class NotificationsAPI extends BaseAPI_1.default {
                 path: `v2/stream-notifications/unread-count`
             },
             json: true
-        }).then((response) => response.body);
+        }).then(response => response.body);
     }
     clearUnreadStreamNotifications() {
         return this.request({
@@ -312,7 +312,7 @@ class NotificationsAPI extends BaseAPI_1.default {
                 method: "POST"
             },
             json: true
-        }).then((response) => response.body);
+        }).then(response => response.body);
     }
     markGameUpdateNotificationInteracted(options) {
         return this.request({
@@ -323,7 +323,7 @@ class NotificationsAPI extends BaseAPI_1.default {
                 json: options
             },
             json: true
-        }).then((response) => response.body);
+        }).then(response => response.body);
     }
     markGameUpdateNotificationRead(options) {
         return this.request({
@@ -334,7 +334,7 @@ class NotificationsAPI extends BaseAPI_1.default {
                 json: options
             },
             json: true
-        }).then((response) => response.body);
+        }).then(response => response.body);
     }
     suppressStreamNotificationsPrompt() {
         return this.request({
@@ -344,7 +344,7 @@ class NotificationsAPI extends BaseAPI_1.default {
                 method: "POST"
             },
             json: true
-        }).then((response) => response.body);
+        }).then(response => response.body);
     }
 }
 exports.default = NotificationsAPI;

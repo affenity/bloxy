@@ -19,7 +19,7 @@ class PrivateMessagesAPI extends BaseAPI_1.default {
                 }
             },
             json: true
-        }).then((response) => response.body);
+        }).then(response => response.body);
     }
     getAnnouncementsMetaData() {
         return this.request({
@@ -31,7 +31,7 @@ class PrivateMessagesAPI extends BaseAPI_1.default {
                 }
             },
             json: true
-        }).then((response) => response.body);
+        }).then(response => response.body);
     }
     getMessages(options) {
         return this.request({
@@ -44,7 +44,7 @@ class PrivateMessagesAPI extends BaseAPI_1.default {
                 }
             },
             json: true
-        }).then((response) => response.body);
+        }).then(response => response.body);
     }
     getMessage(options) {
         return this.request({
@@ -56,7 +56,7 @@ class PrivateMessagesAPI extends BaseAPI_1.default {
                 }
             },
             json: true
-        }).then((response) => response.body);
+        }).then(response => response.body);
     }
     getUnreadMessagesCount() {
         return this.request({
@@ -68,7 +68,7 @@ class PrivateMessagesAPI extends BaseAPI_1.default {
                 }
             },
             json: true
-        }).then((response) => response.body);
+        }).then(response => response.body);
     }
     archiveMessages(options) {
         return this.request({
@@ -82,7 +82,7 @@ class PrivateMessagesAPI extends BaseAPI_1.default {
                 }
             },
             json: true
-        }).then((response) => response.body);
+        }).then(response => response.body);
     }
     markMessagesRead(options) {
         return this.request({
@@ -96,7 +96,7 @@ class PrivateMessagesAPI extends BaseAPI_1.default {
                 }
             },
             json: true
-        }).then((response) => response.body);
+        }).then(response => response.body);
     }
     markMessagesUnread(options) {
         return this.request({
@@ -110,7 +110,7 @@ class PrivateMessagesAPI extends BaseAPI_1.default {
                 }
             },
             json: true
-        }).then((response) => response.body);
+        }).then(response => response.body);
     }
     sendMessage(options) {
         return this.request({
@@ -124,7 +124,7 @@ class PrivateMessagesAPI extends BaseAPI_1.default {
                 }
             },
             json: true
-        }).then((response) => response.body);
+        }).then(response => response.body);
     }
     unArchiveMessages(options) {
         return this.request({
@@ -138,7 +138,7 @@ class PrivateMessagesAPI extends BaseAPI_1.default {
                 }
             },
             json: true
-        }).then((response) => response.body);
+        }).then(response => response.body);
     }
 }
 exports.default = PrivateMessagesAPI;

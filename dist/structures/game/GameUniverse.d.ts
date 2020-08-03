@@ -44,5 +44,5 @@ export default class GameUniverse {
     createVIPServersEnabled: boolean;
     avatarType: MorphAvatarType;
     genre: GameGenre;
-    constructor(data: any, client: Client);
+    constructor(data: GameUniverseOptions, client: Client);
 }

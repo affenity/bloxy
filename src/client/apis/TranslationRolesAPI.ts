@@ -59,7 +59,7 @@ export default class TradesAPI extends BaseAPI {
                 }
             },
             json: true
-        }).then((response: { body: any }) => response.body);
+        }).then(response => response.body);
     }
 
     getGameRoleAssignees (options: GetGameRoleAssigneesOptions): Promise<GetGameRoleAssignees> {
@@ -72,7 +72,7 @@ export default class TradesAPI extends BaseAPI {
                 }
             },
             json: true
-        }).then((response: { body: any }) => response.body);
+        }).then(response => response.body);
     }
 
     getSelfGamesAccessByRole (options: GetSelfGamesAccessByRoleOptions): Promise<GetSelfGamesAccessByRole> {
@@ -85,7 +85,7 @@ export default class TradesAPI extends BaseAPI {
                 }
             },
             json: true
-        }).then((response: { body: any }) => response.body);
+        }).then(response => response.body);
     }
 
     updateUserAccess (options: UpdateUserAccess): Promise<UpdateUser> {
@@ -105,6 +105,6 @@ export default class TradesAPI extends BaseAPI {
                 }
             },
             json: true
-        }).then((response: { body: any }) => response.body);
+        }).then(response => response.body);
     }
 }

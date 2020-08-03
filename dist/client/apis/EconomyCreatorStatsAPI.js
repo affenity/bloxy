@@ -24,7 +24,7 @@ class EconomyCreatorStatsAPI extends BaseAPI_1.default {
                 }
             },
             json: true
-        }).then((response) => response.body);
+        }).then(response => response.body);
     }
 }
 exports.default = EconomyCreatorStatsAPI;

@@ -19,7 +19,7 @@ class FriendsAPI extends BaseAPI_1.default {
                 }
             },
             json: true
-        }).then((response) => response.body);
+        }).then(response => response.body);
     }
     checkSessionHealth() {
         return this.request({
@@ -31,7 +31,7 @@ class FriendsAPI extends BaseAPI_1.default {
                 }
             },
             json: true
-        }).then((response) => response.body);
+        }).then(response => response.body);
     }
     redeemFriendCode(options) {
         return this.request({
@@ -44,7 +44,7 @@ class FriendsAPI extends BaseAPI_1.default {
                 }
             },
             json: true
-        }).then((response) => response.body);
+        }).then(response => response.body);
     }
     deleteFriendSession() {
         return this.request({
@@ -57,7 +57,7 @@ class FriendsAPI extends BaseAPI_1.default {
                 }
             },
             json: true
-        }).then((response) => response.body);
+        }).then(response => response.body);
     }
     getSession() {
         return this.request({
@@ -70,7 +70,7 @@ class FriendsAPI extends BaseAPI_1.default {
                 }
             },
             json: true
-        }).then((response) => response.body);
+        }).then(response => response.body);
     }
     redeemFriendQRCode(options) {
         return this.request({
@@ -83,7 +83,7 @@ class FriendsAPI extends BaseAPI_1.default {
                 }
             },
             json: true
-        }).then((response) => response.body);
+        }).then(response => response.body);
     }
     deleteFriendQRSession() {
         return this.request({
@@ -96,7 +96,7 @@ class FriendsAPI extends BaseAPI_1.default {
                 }
             },
             json: true
-        }).then((response) => response.body);
+        }).then(response => response.body);
     }
     getFriendQRSession() {
         return this.request({
@@ -109,11 +109,11 @@ class FriendsAPI extends BaseAPI_1.default {
                 }
             },
             json: true
-        }).then((response) => response.body);
+        }).then(response => response.body);
     }
     getMetaData(options) {
         return this.request({
-            requiresAuth: true,
+            requiresAuth: false,
             request: {
                 path: `v1/metadata`,
                 qs: options,
@@ -122,7 +122,7 @@ class FriendsAPI extends BaseAPI_1.default {
                 }
             },
             json: true
-        }).then((response) => response.body);
+        }).then(response => response.body);
     }
     getSelfFriendsCount() {
         return this.request({
@@ -134,7 +134,7 @@ class FriendsAPI extends BaseAPI_1.default {
                 }
             },
             json: true
-        }).then((response) => response.body);
+        }).then(response => response.body);
     }
     getSelfFriendRequests(options) {
         return this.request({
@@ -147,7 +147,7 @@ class FriendsAPI extends BaseAPI_1.default {
                 }
             },
             json: true
-        }).then((response) => response.body);
+        }).then(response => response.body);
     }
     getSelfFriendRequestsCount() {
         return this.request({
@@ -159,11 +159,11 @@ class FriendsAPI extends BaseAPI_1.default {
                 }
             },
             json: true
-        }).then((response) => response.body);
+        }).then(response => response.body);
     }
     getUserFollowers(options) {
         return this.request({
-            requiresAuth: true,
+            requiresAuth: false,
             request: {
                 path: `v1/users/${options.userId}/followers`,
                 qs: options,
@@ -172,11 +172,11 @@ class FriendsAPI extends BaseAPI_1.default {
                 }
             },
             json: true
-        }).then((response) => response.body);
+        }).then(response => response.body);
     }
     getUserFollowersCount(options) {
         return this.request({
-            requiresAuth: true,
+            requiresAuth: false,
             request: {
                 path: `v1/users/${options.userId}/followers/count`,
                 responseOptions: {
@@ -184,11 +184,11 @@ class FriendsAPI extends BaseAPI_1.default {
                 }
             },
             json: true
-        }).then((response) => response.body);
+        }).then(response => response.body);
     }
     getUserFollowing(options) {
         return this.request({
-            requiresAuth: true,
+            requiresAuth: false,
             request: {
                 path: `v1/users/${options.userId}/followings`,
                 qs: options,
@@ -197,11 +197,11 @@ class FriendsAPI extends BaseAPI_1.default {
                 }
             },
             json: true
-        }).then((response) => response.body);
+        }).then(response => response.body);
     }
     getUserFollowingCount(options) {
         return this.request({
-            requiresAuth: true,
+            requiresAuth: false,
             request: {
                 path: `v1/users/${options.userId}/followings/count`,
                 responseOptions: {
@@ -209,11 +209,11 @@ class FriendsAPI extends BaseAPI_1.default {
                 }
             },
             json: true
-        }).then((response) => response.body);
+        }).then(response => response.body);
     }
     getUserFriends(options) {
         return this.request({
-            requiresAuth: true,
+            requiresAuth: false,
             request: {
                 path: `v1/users/${options.userId}/friends`,
                 qs: options,
@@ -222,11 +222,11 @@ class FriendsAPI extends BaseAPI_1.default {
                 }
             },
             json: true
-        }).then((response) => response.body);
+        }).then(response => response.body);
     }
     getUserFriendsCount(options) {
         return this.request({
-            requiresAuth: true,
+            requiresAuth: false,
             request: {
                 path: `v1/users/${options.userId}/friends/count`,
                 responseOptions: {
@@ -234,7 +234,7 @@ class FriendsAPI extends BaseAPI_1.default {
                 }
             },
             json: true
-        }).then((response) => response.body);
+        }).then(response => response.body);
     }
     getUserFriendsOnline(options) {
         return this.request({
@@ -246,11 +246,11 @@ class FriendsAPI extends BaseAPI_1.default {
                 }
             },
             json: true
-        }).then((response) => response.body);
+        }).then(response => response.body);
     }
     getUserFriendsWithStatuses(options) {
         return this.request({
-            requiresAuth: true,
+            requiresAuth: false,
             request: {
                 path: `v1/users/${options.userId}/friends/statuses`,
                 qs: {
@@ -261,7 +261,7 @@ class FriendsAPI extends BaseAPI_1.default {
                 }
             },
             json: true
-        }).then((response) => response.body);
+        }).then(response => response.body);
     }
     declineAllFriendRequests() {
         return this.request({
@@ -274,7 +274,7 @@ class FriendsAPI extends BaseAPI_1.default {
                 }
             },
             json: true
-        }).then((response) => response.body);
+        }).then(response => response.body);
     }
     acceptFriendRequest(options) {
         return this.request({
@@ -287,7 +287,7 @@ class FriendsAPI extends BaseAPI_1.default {
                 }
             },
             json: true
-        }).then((response) => response.body);
+        }).then(response => response.body);
     }
     declineFriendRequest(options) {
         return this.request({
@@ -300,7 +300,7 @@ class FriendsAPI extends BaseAPI_1.default {
                 }
             },
             json: true
-        }).then((response) => response.body);
+        }).then(response => response.body);
     }
     followUser(options) {
         return this.request({
@@ -313,7 +313,7 @@ class FriendsAPI extends BaseAPI_1.default {
                 }
             },
             json: true
-        }).then((response) => response.body);
+        }).then(response => response.body);
     }
     sendFriendRequest(options) {
         return this.request({
@@ -329,7 +329,7 @@ class FriendsAPI extends BaseAPI_1.default {
                 }
             },
             json: true
-        }).then((response) => response.body);
+        }).then(response => response.body);
     }
     unFollowUser(options) {
         return this.request({
@@ -342,7 +342,7 @@ class FriendsAPI extends BaseAPI_1.default {
                 }
             },
             json: true
-        }).then((response) => response.body);
+        }).then(response => response.body);
     }
     unfriendUser(options) {
         return this.request({
@@ -355,7 +355,7 @@ class FriendsAPI extends BaseAPI_1.default {
                 }
             },
             json: true
-        }).then((response) => response.body);
+        }).then(response => response.body);
     }
     getRecommendedUsers() {
         return this.request({
@@ -367,7 +367,7 @@ class FriendsAPI extends BaseAPI_1.default {
                 }
             },
             json: true
-        }).then((response) => response.body);
+        }).then(response => response.body);
     }
     matchContacts(options) {
         return this.request({
@@ -381,7 +381,7 @@ class FriendsAPI extends BaseAPI_1.default {
                 }
             },
             json: true
-        }).then((response) => response.body);
+        }).then(response => response.body);
     }
     updateContacts(options) {
         return this.request({
@@ -395,7 +395,7 @@ class FriendsAPI extends BaseAPI_1.default {
                 }
             },
             json: true
-        }).then((response) => response.body);
+        }).then(response => response.body);
     }
 }
 exports.default = FriendsAPI;

@@ -115,7 +115,7 @@ export declare type RESTResponseOptions = {
 };
 
 export declare type RESTResponseDataType = {
-    body: string | object | Buffer;
+    body: any;
     url: string;
     requestUrl: string;
     status: string;

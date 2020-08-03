@@ -1,4 +1,4 @@
-import Client from "../../client";
+import Client from "../../../client";
 import PartialGameUniverse from "./PartialGameUniverse";
 
 export interface PlaceOptions {

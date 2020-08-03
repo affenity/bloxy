@@ -2,6 +2,7 @@ import BaseAPI from "./BaseAPI";
 import Client from "../Client";
 import { MatchContacts as ContactsAPIMatchContacts, MatchContactsOptions as ContactsAPIMatchContactsOptions, UpdateContacts as ContactsAPIUpdateContacts, UpdateContactsOptions as ContactsAPIUpdateContactsOptions } from "./ContactsAPI";
 import { GetUserFriendsCount, GetUserFriendsCountOptions } from "./GeneralAPI";
+import PartialUser from "../../structures/user/PartialUser";
 export declare type FindFriendByCodeOptions = {
     code: string;
 };
@@ -51,11 +52,10 @@ export declare type GetSelfFriendRequests = {
     nextPageCursor: string;
     data: {
         description: string;
-        created: Date;
+        created: string;
         isBanned: boolean;
-        id: number;
-        name: string;
-        displayName: string;
+        userId: number;
+        username: string;
     }[];
 };
 export declare type GetSelfFriendRequestsCount = {
@@ -74,11 +74,10 @@ export declare type GetUserFollowers = {
         isOnline: boolean;
         isDeleted: boolean;
         description: string;
-        created: Date;
+        created: string;
         isBanned: boolean;
         id: number;
         name: string;
-        displayName: string;
     }[];
 };
 export declare type GetUserFollowersCountOptions = {
@@ -97,17 +96,14 @@ export declare type GetUserFriendsOptions = {
     userId: number;
 };
 export declare type GetUserFriends = {
-    previousPageCursor: string;
-    nextPageCursor: string;
     data: {
         isOnline: boolean;
         isDeleted: boolean;
         description: string;
-        created: Date;
+        created: string;
         isBanned: boolean;
         id: number;
         name: string;
-        displayName: string;
     }[];
 };
 export declare type GetUserOnlineFriendsOptions = {
@@ -115,17 +111,15 @@ export declare type GetUserOnlineFriendsOptions = {
 };
 export declare type GetUserOnlineFriends = {
     data: {
-        id: number;
-        name: string;
-        displayName: string;
+        userId: number;
+        username: string;
         presence: {
+            placeId: number | null;
+            universeId: number | null;
             UserPresenceType: string | null;
             UserLocationType: string | null;
             lastLocation: string | null;
-            placeId: number | null;
-            rootPlaceId: number | null;
             gameInstanceId: string | null;
-            universeId: number | null;
             lastOnline: string | null;
         };
     }[];
@@ -169,8 +163,7 @@ export declare type UnfriendUserOptions = {
 };
 export declare type UnfriendUser = {};
 export declare type GetSelfRecommendedUsers = {
-    userId: number;
-    userName: string;
+    user: PartialUser;
     profileUrl: string;
     presenceType: number;
 }[];

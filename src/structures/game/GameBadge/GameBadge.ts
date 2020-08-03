@@ -1,5 +1,5 @@
-import PartialGameUniverse from "./PartialGameUniverse";
-import Client from "../../client";
+import PartialGameUniverse from "../GameUniverse/PartialGameUniverse";
+import Client from "../../../client";
 
 
 export interface GameBadgeOptions {

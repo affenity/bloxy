@@ -1,8 +1,9 @@
 import BaseAPI from "./BaseAPI";
 import Client from "../Client";
-import { GameUniverseOptions } from "../../structures/game/GameUniverse";
-import { PlaceOptions } from "../../structures/game/Place";
-import { VIPServerOptions } from "../../structures/game/VIPServer";
+import { GameUniverseOptions } from "../../structures/game/GameUniverse/GameUniverse";
+import { PlaceOptions } from "../../structures/game/GameUniverse/Place";
+import { VIPServerOptions } from "../../structures/game/VIPServer/VIPServer";
+import PartialGameUniverse from "../../structures/game/GameUniverse/PartialGameUniverse";
 export declare type GameServer = {
     id: string;
     maxPlayers: number;
@@ -16,9 +17,7 @@ export declare type GameServer = {
 export declare type GetGameUniversesOptions = {
     universeIds: number[];
 };
-export declare type GetGameUniverses = {
-    data: GameUniverseOptions[];
-};
+export declare type GetGameUniverses = GameUniverseOptions[];
 export declare type GetGameServersByTypeOptions = {
     placeId: number;
     serverType: "Public" | "Friend" | "VIP";
@@ -65,7 +64,7 @@ export declare type ListGames = {
     games: {
         creatorId: number;
         creatorName: string;
-        creatorType: "Group" | "User";
+        creatorType: "User" | "Group" | string;
         upVotes: number;
         downVotes: number;
         universeId: number;
@@ -200,7 +199,7 @@ export declare type GetGamesVotesOptions = {
 };
 export declare type GetGamesVotes = {
     data: {
-        id: number;
+        number: PartialGameUniverse;
         upVotes: number;
         downVotes: number;
     }[];
@@ -232,17 +231,9 @@ export declare type CreateVIPServerOptions = {
     name: string;
     expectedPrice: number;
 };
-export declare type CreateVIPServer = {
-    id: string;
-    maxPlayers: number;
-    playing: number;
-    fps: number;
-    ping: number;
-    name: string;
-    vipServerId: number;
-    accessCode: string;
-};
+export declare type CreateVIPServer = GameServer;
 export declare type UpdateVIPServerPermissionsOptions = {
+    id: number;
     clanAllowed: boolean;
     enemyClanId: number;
     friendsAllowed: boolean;
@@ -292,4 +283,6 @@ export default class GamesAPI extends BaseAPI {
     getVIPServer(options: GetVIPServerOptions): Promise<GetVIPServer>;
     updateVIPServer(options: UpdateVIPServerOptions): Promise<UpdateVIPServer>;
     createVIPServer(options: CreateVIPServerOptions): Promise<CreateVIPServer>;
+    updateVIPServerPermissions(options: UpdateVIPServerPermissionsOptions): Promise<UpdateVIPServerPermissions>;
+    updateVIPServerSubscription(options: UpdateVIPServerSubscriptionOptions): Promise<UpdateVIPServerSubscription>;
 }

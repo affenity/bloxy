@@ -7,6 +7,7 @@ export interface PartialUserOptions {
     name?: string;
 }
 
+
 export default class PartialUser extends UserBase {
     constructor (data: PartialUserOptions, client: Client) {
         super(data, client);

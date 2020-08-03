@@ -17,7 +17,7 @@ class LocaleAPI extends BaseAPI_1.default {
                 qs: options
             },
             json: true
-        }).then((response) => response.body);
+        }).then(response => response.body);
     }
     getLocales(options) {
         return this.request({
@@ -27,7 +27,7 @@ class LocaleAPI extends BaseAPI_1.default {
                 qs: options
             },
             json: true
-        }).then((response) => response.body);
+        }).then(response => response.body);
     }
     getSupportedLocales() {
         return this.request({
@@ -36,7 +36,7 @@ class LocaleAPI extends BaseAPI_1.default {
                 path: `v1/locales/supported-locales`
             },
             json: true
-        }).then((response) => response.body);
+        }).then(response => response.body);
     }
     getUserLocale() {
         return this.request({
@@ -45,7 +45,7 @@ class LocaleAPI extends BaseAPI_1.default {
                 path: `v1/locales/user-locale`
             },
             json: true
-        }).then((response) => response.body);
+        }).then(response => response.body);
     }
     getLocusSupportedLocales() {
         return this.request({
@@ -54,7 +54,7 @@ class LocaleAPI extends BaseAPI_1.default {
                 path: `v1/locales/user-localization-locus-supported-locales`
             },
             json: true
-        }).then((response) => response.body);
+        }).then(response => response.body);
     }
     setUserLocale(options) {
         return this.request({
@@ -65,7 +65,7 @@ class LocaleAPI extends BaseAPI_1.default {
                 json: options
             },
             json: true
-        }).then((response) => response.body);
+        }).then(response => response.body);
     }
 }
 exports.default = LocaleAPI;

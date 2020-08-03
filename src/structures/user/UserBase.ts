@@ -24,8 +24,6 @@ import {
     GetUserFollowersOptions,
     GetUserFollowing,
     GetUserFollowingOptions,
-    GetUserFriends,
-    GetUserFriendsOptions,
     GetUserFriendsWithStatuses,
     SendFriendRequest,
     UnFollowUser,
@@ -60,6 +58,7 @@ import {
 } from "../../client/apis/ThumbnailsAPI";
 import { SendTrade, SendTradeOptions } from "../../client/apis/TradesAPI";
 import { UpdateUser, UpdateUserAccess } from "../../client/apis/TranslationRolesAPI";
+import FriendRequest from "./FriendRequest";
 
 
 export interface UserBaseOptions {
@@ -111,7 +110,7 @@ export default class UserBase {
         return this.client.apis.badgesAPI.getUserBadges({
             ...options,
             userId: this.id
-        }).then(response => new CursorPage<GetUserBadges["data"][0]>(this.client, options || {}, response));
+        }).then(response => new CursorPage<GetUserBadges["data"][0]>(this.client, options || {}, response, this.getBadges));
     }
 
     getBadgesAwardedDates (badges: number[]): Promise<{ id: number; awardedAt: Date }[]> {
@@ -135,7 +134,7 @@ export default class UserBase {
         return this.client.apis.catalogAPI.getUserBundles({
             ...options,
             userId: this.id
-        }).then(response => new CursorPage(this.client, options || {}, response));
+        }).then(response => new CursorPage(this.client, options || {}, response, this.getBundles));
     }
 
     getBundlesByType (bundleType: string, options?: Omit<GetUserBundlesOptions, "userId">): Promise<CursorPage<GetUserBundlesByType["data"][0]>> {
@@ -143,7 +142,7 @@ export default class UserBase {
             ...options,
             userId: this.id,
             bundleType
-        }).then(response => new CursorPage(this.client, options || {}, response));
+        }).then(response => new CursorPage(this.client, options || {}, response, this.getBundlesByType));
     }
 
     addToChatConversation (conversationId: number): Promise<AddUsersToConversation> {
@@ -204,7 +203,7 @@ export default class UserBase {
         return this.client.apis.friendsAPI.getUserFollowers({
             ...options,
             userId: this.id
-        }).then(response => new CursorPage(this.client, options || {}, response));
+        }).then(response => new CursorPage(this.client, options || {}, response, this.getFollowers));
     }
 
     getFollowersCount (): Promise<number> {
@@ -217,7 +216,7 @@ export default class UserBase {
         return this.client.apis.friendsAPI.getUserFollowing({
             ...options,
             userId: this.id
-        }).then(response => new CursorPage(this.client, options || {}, response));
+        }).then(response => new CursorPage(this.client, options || {}, response, this.getFollowing));
     }
 
     getFollowingCount (): Promise<number> {
@@ -226,10 +225,10 @@ export default class UserBase {
         }).then(response => response.count);
     }
 
-    getFriends (options?: Omit<GetUserFriendsOptions, "userId">): Promise<CursorPage<GetUserFriends["data"][0]>> {
+    getFriends (): Promise<FriendRequest[]> {
         return this.client.apis.friendsAPI.getUserFriends({
             userId: this.id
-        }).then(response => new CursorPage(this.client, options || {}, response));
+        }).then(response => response.data.map(friendRequest => new FriendRequest(friendRequest, this.client)));
     }
 
     getFriendsCount (): Promise<number> {
@@ -412,7 +411,7 @@ export default class UserBase {
         return this.client.apis.inventoryAPI.getUserCollectibles({
             ...options,
             userId: this.id
-        }).then(response => new CursorPage(this.client, options || {}, response));
+        }).then(response => new CursorPage(this.client, options || {}, response, this.getCollectibles));
     }
 
     getItemsByTypeAndTargetId (itemType: GetUserItemsByTypeAndTargetIdOptions["itemType"], id: number): Promise<CursorPage<GetUserItemsByTypeAndTargetId["data"][0]>> {
@@ -420,21 +419,21 @@ export default class UserBase {
             itemType,
             itemTargetId: id,
             userId: this.id
-        }).then(response => new CursorPage(this.client, {}, response));
+        }).then(response => new CursorPage(this.client, {}, response, this.getItemsByTypeAndTargetId));
     }
 
     getInventory (options: Omit<GetUserInventoryOptions, "userId">): Promise<CursorPage<GetUserInventory["data"][0]>> {
         return this.client.apis.inventoryAPI.getUserInventory({
             ...options,
             userId: this.id
-        }).then(response => new CursorPage(this.client, options, response));
+        }).then(response => new CursorPage(this.client, options, response, this.getInventory));
     }
 
     getInventoryByAssetTypeId (options: Omit<GetUserInventoryByAssetTypeIdOptions, "userId">): Promise<CursorPage<GetUserInventoryByAssetTypeId["data"][0]>> {
         return this.client.apis.inventoryAPI.getUserInventoryByAssetTypeId({
             ...options,
             userId: this.id
-        }).then(response => new CursorPage(this.client, options, response));
+        }).then(response => new CursorPage(this.client, options, response, this.getInventoryByAssetTypeId));
     }
 
     getUser = (): Promise<User> => this.client.getUser(this.id);

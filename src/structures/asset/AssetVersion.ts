@@ -1,8 +1,19 @@
 import Client from "../../client";
 import { CreatorType } from "../../util/constants";
 import PartialUser from "../user/PartialUser";
-import GameUniverse from "../game/GameUniverse";
+import PartialGameUniverse from "../game/GameUniverse/PartialGameUniverse";
 
+
+export interface AssetVersionOptions {
+    Id: number;
+    AssetId: number;
+    VersionNumber: number;
+    ParentAssetVersionId: number;
+    CreatorType: unknown;
+    CreatingUniverseId: number | null;
+    Created: string;
+    Updated: string;
+}
 
 export class AssetVersion {
     public client: Client;
@@ -11,7 +22,7 @@ export class AssetVersion {
     public versionNumber: number;
     public parentAssetVersionId: number | null;
     public creatorType: CreatorType;
-    public createdForUniverse: GameUniverse | null;
+    public createdForUniverse: PartialGameUniverse | null;
     public creator: PartialUser;
     public created: Date;
     public updated: Date;
@@ -26,7 +37,7 @@ export class AssetVersion {
         this.creator = new PartialUser({
             id: data.CreatorTargetId
         }, this.client);
-        this.createdForUniverse = data.CreatingUniverseId ? new GameUniverse({
+        this.createdForUniverse = data.CreatingUniverseId ? new PartialGameUniverse({
             id: data.CreatingUniverseId
         }, client) : null;
         this.created = new Date(data.Created);

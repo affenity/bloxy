@@ -1,31 +1,12 @@
 import BaseAPI from "./BaseAPI";
 import Client from "../Client";
+import GameBadge from "../../structures/game/GameBadge/GameBadge";
 
 
 export type GetBadgeOptions = {
     badgeId: number;
 }
-export type GetBadge = {
-    id: number;
-    name: string;
-    description: string;
-    displayName: string;
-    displayDescription: string;
-    enabled: boolean;
-    iconImageId: number;
-    displayIconImageId: number;
-    created: string;
-    updated: string;
-    statistics: {
-        pastDayAwardedCount: number;
-        awardedCount: number;
-        winRatePercentage: number;
-    };
-    awarder: {
-        id: number;
-        type: "Place" | string;
-    };
-};
+export type GetBadge = GameBadge;
 export type UpdateBadgeOptions = {
     id: number;
     name: string;
@@ -89,7 +70,7 @@ export default class AvatarAPI extends BaseAPI {
                 }
             },
             json: true
-        }).then((response: { body: any }) => response.body);
+        }).then(response => new GameBadge(response.body, this.client));
     }
 
     updateBadge (options: UpdateBadgeOptions): Promise<UpdateBadge> {
@@ -103,7 +84,7 @@ export default class AvatarAPI extends BaseAPI {
                 }
             },
             json: true
-        }).then((response: { body: any }) => response.body);
+        }).then(response => response.body);
     }
 
     getUniverseBadges (options: GetUniverseBadgesOptions): Promise<GetUniverseBadges> {
@@ -117,7 +98,10 @@ export default class AvatarAPI extends BaseAPI {
                 }
             },
             json: true
-        }).then((response: { body: any }) => response.body);
+        }).then(response => ({
+            ...response.body,
+            data: response.body.data.map((data: any) => new GameBadge(data, this.client))
+        }));
     }
 
     getUserBadges (options: GetUserBadgesOptions): Promise<GetUserBadges> {
@@ -131,7 +115,10 @@ export default class AvatarAPI extends BaseAPI {
                 }
             },
             json: true
-        }).then((response: { body: any }) => response.body);
+        }).then(response => ({
+            ...response.body,
+            data: response.body.data.map((data: any) => new GameBadge(data, this.client))
+        }));
     }
 
     getUserBadgesAwardedDates (options: GetUserBadgesAwardedDatesOptions): Promise<GetUserBadgesAwardedDates> {
@@ -147,7 +134,12 @@ export default class AvatarAPI extends BaseAPI {
                 }
             },
             json: true
-        }).then((response: { body: any }) => response.body);
+        }).then(response => ({
+            data: response.body.data.map((data: any) => ({
+                badge: new GameBadge(data, this.client),
+                awardedDate: new Date(data.awardedDate)
+            }))
+        }));
     }
 
     deleteBadgeFromUser (options: DeleteBadgeFromUserOptions): Promise<DeleteBadgeFromUser> {
@@ -161,7 +153,7 @@ export default class AvatarAPI extends BaseAPI {
                 }
             },
             json: true
-        }).then((response: { body: any }) => response.body);
+        }).then(response => response.body);
     }
 
     deleteBadgeFromSelf (options: DeleteBadgeFromSelfOptions): Promise<DeleteBadgeFromSelf> {
@@ -175,6 +167,6 @@ export default class AvatarAPI extends BaseAPI {
                 }
             },
             json: true
-        }).then((response: { body: any }) => response.body);
+        }).then(response => response.body);
     }
 }

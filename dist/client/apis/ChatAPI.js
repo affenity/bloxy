@@ -19,7 +19,7 @@ class ChatAPI extends BaseAPI_1.default {
                 }
             },
             json: true
-        }).then((response) => response.body);
+        }).then(response => response.body);
     }
     getConversations(options) {
         return this.request({
@@ -34,7 +34,7 @@ class ChatAPI extends BaseAPI_1.default {
                 }
             },
             json: true
-        }).then((response) => response.body);
+        }).then(response => response.body);
     }
     getConversationMessages(options) {
         return this.request({
@@ -47,7 +47,7 @@ class ChatAPI extends BaseAPI_1.default {
                 }
             },
             json: true
-        }).then((response) => response.body);
+        }).then(response => response.body);
     }
     getRolloutSettings(options) {
         return this.request({
@@ -62,7 +62,7 @@ class ChatAPI extends BaseAPI_1.default {
                 }
             },
             json: true
-        }).then((response) => response.body);
+        }).then(response => response.body);
     }
     getUnreadConversationCount() {
         return this.request({
@@ -74,7 +74,7 @@ class ChatAPI extends BaseAPI_1.default {
                 }
             },
             json: true
-        }).then((response) => response.body);
+        }).then(response => response.body);
     }
     getUnreadMessagesInConversations(options) {
         return this.request({
@@ -90,7 +90,7 @@ class ChatAPI extends BaseAPI_1.default {
                 }
             },
             json: true
-        }).then((response) => response.body);
+        }).then(response => response.body);
     }
     getUserConversations(options) {
         return this.request({
@@ -103,7 +103,7 @@ class ChatAPI extends BaseAPI_1.default {
                 }
             },
             json: true
-        }).then((response) => response.body);
+        }).then(response => response.body);
     }
     getMetaData() {
         return this.request({
@@ -115,7 +115,7 @@ class ChatAPI extends BaseAPI_1.default {
                 }
             },
             json: true
-        }).then((response) => response.body);
+        }).then(response => response.body);
     }
     getMultiLatestConversationMessages(options) {
         return this.request({
@@ -128,7 +128,7 @@ class ChatAPI extends BaseAPI_1.default {
                 }
             },
             json: true
-        }).then((response) => response.body);
+        }).then(response => response.body);
     }
     addUsersToConversation(options) {
         return this.request({
@@ -142,7 +142,7 @@ class ChatAPI extends BaseAPI_1.default {
                 }
             },
             json: true
-        }).then((response) => response.body);
+        }).then(response => response.body);
     }
     markConversationMessagesRead(options) {
         return this.request({
@@ -156,7 +156,7 @@ class ChatAPI extends BaseAPI_1.default {
                 }
             },
             json: true
-        }).then((response) => response.body);
+        }).then(response => response.body);
     }
     markConversationsSeen(options) {
         return this.request({
@@ -170,7 +170,7 @@ class ChatAPI extends BaseAPI_1.default {
                 }
             },
             json: true
-        }).then((response) => response.body);
+        }).then(response => response.body);
     }
     removeUserFromConversation(options) {
         return this.request({
@@ -184,7 +184,7 @@ class ChatAPI extends BaseAPI_1.default {
                 }
             },
             json: true
-        }).then((response) => response.body);
+        }).then(response => response.body);
     }
     renameGroupConversation(options) {
         return this.request({
@@ -198,7 +198,7 @@ class ChatAPI extends BaseAPI_1.default {
                 }
             },
             json: true
-        }).then((response) => response.body);
+        }).then(response => response.body);
     }
     resetConversationUniverse(options) {
         return this.request({
@@ -212,7 +212,7 @@ class ChatAPI extends BaseAPI_1.default {
                 }
             },
             json: true
-        }).then((response) => response.body);
+        }).then(response => response.body);
     }
     sendGameLinkMessage(options) {
         return this.request({
@@ -226,7 +226,7 @@ class ChatAPI extends BaseAPI_1.default {
                 }
             },
             json: true
-        }).then((response) => response.body);
+        }).then(response => response.body);
     }
     sendMessage(options) {
         return this.request({
@@ -240,7 +240,7 @@ class ChatAPI extends BaseAPI_1.default {
                 }
             },
             json: true
-        }).then((response) => response.body);
+        }).then(response => response.body);
     }
     setConversationUniverse(options) {
         return this.request({
@@ -254,7 +254,7 @@ class ChatAPI extends BaseAPI_1.default {
                 }
             },
             json: true
-        }).then((response) => response.body);
+        }).then(response => response.body);
     }
     startCloudEditConversation(options) {
         return this.request({
@@ -268,7 +268,7 @@ class ChatAPI extends BaseAPI_1.default {
                 }
             },
             json: true
-        }).then((response) => response.body);
+        }).then(response => response.body);
     }
     startGroupConversation(options) {
         return this.request({
@@ -282,7 +282,7 @@ class ChatAPI extends BaseAPI_1.default {
                 }
             },
             json: true
-        }).then((response) => response.body);
+        }).then(response => response.body);
     }
     startOneToOneConversation(options) {
         return this.request({
@@ -296,7 +296,7 @@ class ChatAPI extends BaseAPI_1.default {
                 }
             },
             json: true
-        }).then((response) => response.body);
+        }).then(response => response.body);
     }
     updateUserTypingStatus(options) {
         return this.request({
@@ -310,7 +310,7 @@ class ChatAPI extends BaseAPI_1.default {
                 }
             },
             json: true
-        }).then((response) => response.body);
+        }).then(response => response.body);
     }
 }
 exports.default = ChatAPI;

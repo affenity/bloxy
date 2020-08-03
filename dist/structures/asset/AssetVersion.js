@@ -3,7 +3,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.AssetVersion = void 0;
 const tslib_1 = require("tslib");
 const PartialUser_1 = tslib_1.__importDefault(require("../user/PartialUser"));
-const GameUniverse_1 = tslib_1.__importDefault(require("../game/GameUniverse"));
+const PartialGameUniverse_1 = tslib_1.__importDefault(require("../game/GameUniverse/PartialGameUniverse"));
 class AssetVersion {
     constructor(data, client) {
         this.client = client;
@@ -15,7 +15,7 @@ class AssetVersion {
         this.creator = new PartialUser_1.default({
             id: data.CreatorTargetId
         }, this.client);
-        this.createdForUniverse = data.CreatingUniverseId ? new GameUniverse_1.default({
+        this.createdForUniverse = data.CreatingUniverseId ? new PartialGameUniverse_1.default({
             id: data.CreatingUniverseId
         }, client) : null;
         this.created = new Date(data.Created);

@@ -1,6 +1,6 @@
-import PartialUser from "../user/PartialUser";
-import PartialGameUniverse from "../game/PartialGameUniverse";
-import Client from "../../client";
+import PartialUser from "../../user/PartialUser";
+import PartialGameUniverse from "../../game/GameUniverse/PartialGameUniverse";
+import Client from "../../../client";
 
 
 export interface ChatConversationOptions {
@@ -17,7 +17,7 @@ export interface ChatConversationOptions {
         type: "User" | string;
         targetId: number;
         name: string;
-        displayName: ShadowRootInit;
+        displayName: string;
     }[];
     conversationType: "OneToOneConversation" | string;
     conversationTitle: {

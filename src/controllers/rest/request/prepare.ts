@@ -29,6 +29,11 @@ export default async function prepare (request: RESTRequest, options: RESTReques
             "X-CSRF-TOKEN": await request.controller.getXCSRFToken()
         };
     }
+    if (request.requestOptions.json) {
+        request.requestOptions.body = typeof request.requestOptions.json === "string" ? request.requestOptions.json : JSON.stringify(request.requestOptions.json);
+        request.requestOptions.headers["content-type"] = "application/json";
+        delete request.requestOptions.json;
+    }
     request.requestOptions.headers.Cookie = request.controller.cookieJar.getCookieStringSync(request.requestOptions.url);
 
     // Utilities

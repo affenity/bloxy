@@ -1,7 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 const tslib_1 = require("tslib");
-const PartialChatConversation_1 = tslib_1.__importDefault(require("../../../../structures/chat/PartialChatConversation"));
+const PartialChatConversation_1 = tslib_1.__importDefault(require("../../../../structures/chat/ChatConversation/PartialChatConversation"));
 function handleChatNotifications(socket, messageType, message) {
     switch (messageType) {
         case "newmessagebyself":

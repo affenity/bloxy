@@ -31,7 +31,7 @@ export default class CaptchaAPI extends BaseAPI {
                 }
             },
             json: true
-        }).then((response: { body: any }) => response.body);
+        }).then(response => response.body);
     }
 
     getLanguageResources (): Promise<GetLanguageResources> {
@@ -44,6 +44,6 @@ export default class CaptchaAPI extends BaseAPI {
                 }
             },
             json: true
-        }).then((response: { body: any }) => response.body);
+        }).then(response => response.body);
     }
 }

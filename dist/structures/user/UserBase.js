@@ -2,6 +2,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 const tslib_1 = require("tslib");
 const CursorPage_1 = tslib_1.__importDefault(require("../asset/CursorPage"));
+const FriendRequest_1 = tslib_1.__importDefault(require("./FriendRequest"));
 class UserBase {
     constructor(data, client) {
         this.getUser = () => this.client.getUser(this.id);
@@ -29,7 +30,7 @@ class UserBase {
         return this.client.apis.avatarAPI.getUserOutfits(Object.assign(Object.assign({}, options), { userId: this.id }));
     }
     getBadges(options) {
-        return this.client.apis.badgesAPI.getUserBadges(Object.assign(Object.assign({}, options), { userId: this.id })).then(response => new CursorPage_1.default(this.client, options || {}, response));
+        return this.client.apis.badgesAPI.getUserBadges(Object.assign(Object.assign({}, options), { userId: this.id })).then(response => new CursorPage_1.default(this.client, options || {}, response, this.getBadges));
     }
     getBadgesAwardedDates(badges) {
         return this.client.apis.badgesAPI.getUserBadgesAwardedDates({
@@ -47,10 +48,10 @@ class UserBase {
         });
     }
     getBundles(options) {
-        return this.client.apis.catalogAPI.getUserBundles(Object.assign(Object.assign({}, options), { userId: this.id })).then(response => new CursorPage_1.default(this.client, options || {}, response));
+        return this.client.apis.catalogAPI.getUserBundles(Object.assign(Object.assign({}, options), { userId: this.id })).then(response => new CursorPage_1.default(this.client, options || {}, response, this.getBundles));
     }
     getBundlesByType(bundleType, options) {
-        return this.client.apis.catalogAPI.getUserBundlesByType(Object.assign(Object.assign({}, options), { userId: this.id, bundleType })).then(response => new CursorPage_1.default(this.client, options || {}, response));
+        return this.client.apis.catalogAPI.getUserBundlesByType(Object.assign(Object.assign({}, options), { userId: this.id, bundleType })).then(response => new CursorPage_1.default(this.client, options || {}, response, this.getBundlesByType));
     }
     addToChatConversation(conversationId) {
         return this.client.apis.chatAPI.addUsersToConversation({
@@ -99,7 +100,7 @@ class UserBase {
         });
     }
     getFollowers(options) {
-        return this.client.apis.friendsAPI.getUserFollowers(Object.assign(Object.assign({}, options), { userId: this.id })).then(response => new CursorPage_1.default(this.client, options || {}, response));
+        return this.client.apis.friendsAPI.getUserFollowers(Object.assign(Object.assign({}, options), { userId: this.id })).then(response => new CursorPage_1.default(this.client, options || {}, response, this.getFollowers));
     }
     getFollowersCount() {
         return this.client.apis.friendsAPI.getUserFollowersCount({
@@ -107,17 +108,17 @@ class UserBase {
         }).then(response => response.count);
     }
     getFollowing(options) {
-        return this.client.apis.friendsAPI.getUserFollowing(Object.assign(Object.assign({}, options), { userId: this.id })).then(response => new CursorPage_1.default(this.client, options || {}, response));
+        return this.client.apis.friendsAPI.getUserFollowing(Object.assign(Object.assign({}, options), { userId: this.id })).then(response => new CursorPage_1.default(this.client, options || {}, response, this.getFollowing));
     }
     getFollowingCount() {
         return this.client.apis.friendsAPI.getUserFollowingCount({
             userId: this.id
         }).then(response => response.count);
     }
-    getFriends(options) {
+    getFriends() {
         return this.client.apis.friendsAPI.getUserFriends({
             userId: this.id
-        }).then(response => new CursorPage_1.default(this.client, options || {}, response));
+        }).then(response => response.data.map(friendRequest => new FriendRequest_1.default(friendRequest, this.client)));
     }
     getFriendsCount() {
         return this.client.apis.friendsAPI.getUserFriendsCount({
@@ -267,20 +268,20 @@ class UserBase {
         });
     }
     getCollectibles(options) {
-        return this.client.apis.inventoryAPI.getUserCollectibles(Object.assign(Object.assign({}, options), { userId: this.id })).then(response => new CursorPage_1.default(this.client, options || {}, response));
+        return this.client.apis.inventoryAPI.getUserCollectibles(Object.assign(Object.assign({}, options), { userId: this.id })).then(response => new CursorPage_1.default(this.client, options || {}, response, this.getCollectibles));
     }
     getItemsByTypeAndTargetId(itemType, id) {
         return this.client.apis.inventoryAPI.getUserItemsByTypeAndTargetId({
             itemType,
             itemTargetId: id,
             userId: this.id
-        }).then(response => new CursorPage_1.default(this.client, {}, response));
+        }).then(response => new CursorPage_1.default(this.client, {}, response, this.getItemsByTypeAndTargetId));
     }
     getInventory(options) {
-        return this.client.apis.inventoryAPI.getUserInventory(Object.assign(Object.assign({}, options), { userId: this.id })).then(response => new CursorPage_1.default(this.client, options, response));
+        return this.client.apis.inventoryAPI.getUserInventory(Object.assign(Object.assign({}, options), { userId: this.id })).then(response => new CursorPage_1.default(this.client, options, response, this.getInventory));
     }
     getInventoryByAssetTypeId(options) {
-        return this.client.apis.inventoryAPI.getUserInventoryByAssetTypeId(Object.assign(Object.assign({}, options), { userId: this.id })).then(response => new CursorPage_1.default(this.client, options, response));
+        return this.client.apis.inventoryAPI.getUserInventoryByAssetTypeId(Object.assign(Object.assign({}, options), { userId: this.id })).then(response => new CursorPage_1.default(this.client, options, response, this.getInventoryByAssetTypeId));
     }
     getPremiumMembership() {
         return this.client.apis.premiumFeaturesAPI.validateUserMembership({

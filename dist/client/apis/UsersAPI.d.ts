@@ -47,7 +47,9 @@ export declare type GetUsersByUserIdsOptions = {
     userIds: number[];
     excludeBannedUsers?: boolean;
 };
-export declare type GetUsersByUserIds = GetUsersByUsernames;
+export declare type GetUsersByUserIds = {
+    data: Omit<GetUsersByUsernames["data"][0], "requestedUsername">[];
+};
 export declare type GetUserStatusOptions = {
     userId: number;
 };

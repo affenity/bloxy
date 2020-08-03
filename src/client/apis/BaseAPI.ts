@@ -36,7 +36,6 @@ export default class BaseAPI {
                 throw new Error(`You must be authenticated in order to perform this request! API: ${(options.request.method || "GET").toUpperCase()} ${options.request.path ? this.options.baseUrl : ""}${options.request.path || options.request.url}`);
             }
         }
-
         if (!options.request.url && !options.request.path) {
             throw new Error(`Must provide a URL or path!`);
         } else if (options.request.path) {
@@ -46,8 +45,8 @@ export default class BaseAPI {
 
         return this.options.client.rest.request(options.request as RESTRequestOptions)
             .then(response => {
-                if (options.json) {
-                    response.body = JSON.parse(response.body.toString());
+                if (options.json && !(response.body instanceof Object)) {
+                    response.body = JSON.parse(response.body);
                 }
 
                 return response;

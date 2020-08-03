@@ -79,6 +79,6 @@ export default class AdsAPI extends BaseAPI {
                     groupId: options.groupId
                 }
             }
-        }).then(response => response.body as CreateAssetAd);
+        }).then(response => response.body as CreateGroupAd);
     }
 }

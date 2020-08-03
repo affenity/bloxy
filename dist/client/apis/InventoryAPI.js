@@ -16,7 +16,7 @@ class InventoryAPI extends BaseAPI_1.default {
                 path: `v1/packages/${options.packageId}/assets`
             },
             json: true
-        }).then((response) => response.body);
+        }).then(response => response.body);
     }
     getUserCollectibles(options) {
         return this.request({
@@ -26,7 +26,7 @@ class InventoryAPI extends BaseAPI_1.default {
                 qs: options
             },
             json: true
-        }).then((response) => response.body);
+        }).then(response => response.body);
     }
     getUserItemsByTypeAndTargetId(options) {
         return this.request({
@@ -35,7 +35,7 @@ class InventoryAPI extends BaseAPI_1.default {
                 path: `v1/users/${options.userId}/items/${options.itemType}/${options.itemTargetId}`
             },
             json: true
-        }).then((response) => response.body);
+        }).then(response => response.body);
     }
     getAssetOwners(options) {
         return this.request({
@@ -45,7 +45,7 @@ class InventoryAPI extends BaseAPI_1.default {
                 qs: options
             },
             json: true
-        }).then((response) => response.body);
+        }).then(response => response.body);
     }
     getUserInventory(options) {
         return this.request({
@@ -55,7 +55,7 @@ class InventoryAPI extends BaseAPI_1.default {
                 qs: options
             },
             json: true
-        }).then((response) => response.body);
+        }).then(response => response.body);
     }
     getUserInventoryByAssetTypeId(options) {
         return this.request({
@@ -65,7 +65,7 @@ class InventoryAPI extends BaseAPI_1.default {
                 qs: options
             },
             json: true
-        }).then((response) => response.body);
+        }).then(response => response.body);
     }
 }
 exports.default = InventoryAPI;

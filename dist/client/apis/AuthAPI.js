@@ -19,7 +19,7 @@ class AuthAPI extends BaseAPI_1.default {
                     allowedStatusCodes: [200]
                 }
             }
-        }).then((response) => response.body);
+        }).then(response => response.body);
     }
     login(options) {
         return this.request({
@@ -33,7 +33,7 @@ class AuthAPI extends BaseAPI_1.default {
                 },
                 json: options
             }
-        }).then((response) => response.body);
+        }).then(response => response.body);
     }
     logout() {
         return this.request({
@@ -46,7 +46,7 @@ class AuthAPI extends BaseAPI_1.default {
                     allowedStatusCodes: [200]
                 }
             }
-        }).then((response) => response.body);
+        }).then(response => response.body);
     }
     getCredentialsVerificationStatus(options) {
         return this.request({
@@ -63,7 +63,7 @@ class AuthAPI extends BaseAPI_1.default {
                     "request.password": options.password
                 }
             }
-        }).then((response) => response.body);
+        }).then(response => response.body);
     }
     sendCredentialsVerificationMessage(options) {
         return this.request({
@@ -77,7 +77,7 @@ class AuthAPI extends BaseAPI_1.default {
                 },
                 json: options
             }
-        }).then((response) => response.body);
+        }).then(response => response.body);
     }
     getMetaData() {
         return this.request({
@@ -89,7 +89,7 @@ class AuthAPI extends BaseAPI_1.default {
                     allowedStatusCodes: [200]
                 }
             }
-        }).then((response) => response.body);
+        }).then(response => response.body);
     }
     getCurrentUserPasswordStatus() {
         return this.request({
@@ -101,7 +101,7 @@ class AuthAPI extends BaseAPI_1.default {
                     allowedStatusCodes: [200]
                 }
             }
-        }).then((response) => response.body);
+        }).then(response => response.body);
     }
     getPasswordResetMetaData(options) {
         return this.request({
@@ -117,7 +117,7 @@ class AuthAPI extends BaseAPI_1.default {
                     "request.ticket": options.ticket
                 }
             }
-        }).then((response) => response.body);
+        }).then(response => response.body);
     }
     resetPassword(options) {
         return this.request({
@@ -131,7 +131,7 @@ class AuthAPI extends BaseAPI_1.default {
                 },
                 json: options
             }
-        }).then((response) => response.body);
+        }).then(response => response.body);
     }
     validatePassword(options) {
         return this.request({
@@ -147,7 +147,7 @@ class AuthAPI extends BaseAPI_1.default {
                     "request.password": options.password
                 }
             }
-        }).then((response) => response.body);
+        }).then(response => response.body);
     }
     sendPasswordReset(options) {
         return this.request({
@@ -161,7 +161,7 @@ class AuthAPI extends BaseAPI_1.default {
                 },
                 json: options
             }
-        }).then((response) => response.body);
+        }).then(response => response.body);
     }
     verifyPasswordReset(options) {
         return this.request({
@@ -175,7 +175,7 @@ class AuthAPI extends BaseAPI_1.default {
                 },
                 json: options
             }
-        }).then((response) => response.body);
+        }).then(response => response.body);
     }
     changeUserPassword(options) {
         return this.request({
@@ -189,7 +189,7 @@ class AuthAPI extends BaseAPI_1.default {
                 },
                 json: options
             }
-        }).then((response) => response.body);
+        }).then(response => response.body);
     }
     getRecoveryMetaData() {
         return this.request({
@@ -201,7 +201,7 @@ class AuthAPI extends BaseAPI_1.default {
                     allowedStatusCodes: [200]
                 }
             }
-        }).then((response) => response.body);
+        }).then(response => response.body);
     }
     getRevertAccountInfo(options) {
         return this.request({
@@ -216,7 +216,7 @@ class AuthAPI extends BaseAPI_1.default {
                     ticket: options.ticket
                 }
             }
-        }).then((response) => response.body);
+        }).then(response => response.body);
     }
     revertAccount(options) {
         return this.request({
@@ -230,7 +230,7 @@ class AuthAPI extends BaseAPI_1.default {
                 },
                 json: options
             }
-        }).then((response) => response.body);
+        }).then(response => response.body);
     }
     getSAMLMetaData() {
         return this.request({
@@ -242,7 +242,7 @@ class AuthAPI extends BaseAPI_1.default {
                     allowedStatusCodes: [200]
                 }
             }
-        }).then((response) => response.body);
+        }).then(response => response.body);
     }
     samlAuthenticate() {
         return this.request({
@@ -252,7 +252,7 @@ class AuthAPI extends BaseAPI_1.default {
                 path: "v2/saml/login",
                 method: "POST"
             }
-        }).then((response) => response.body);
+        }).then(response => response.body);
     }
     getTwoStepVerificationMetaData() {
         return this.request({
@@ -264,7 +264,7 @@ class AuthAPI extends BaseAPI_1.default {
                     allowedStatusCodes: [200]
                 }
             }
-        }).then((response) => response.body);
+        }).then(response => response.body);
     }
     resendTwoStepVerificationCode(options) {
         return this.request({
@@ -278,7 +278,7 @@ class AuthAPI extends BaseAPI_1.default {
                 },
                 json: options
             }
-        }).then((response) => response.body);
+        }).then(response => response.body);
     }
     verifyTwoStepCode(options) {
         return this.request({
@@ -292,7 +292,7 @@ class AuthAPI extends BaseAPI_1.default {
                 },
                 json: options
             }
-        }).then((response) => response.body);
+        }).then(response => response.body);
     }
     getExistingUsernames(options) {
         return this.request({
@@ -307,7 +307,7 @@ class AuthAPI extends BaseAPI_1.default {
                     username: options.username
                 }
             }
-        }).then((response) => response.body);
+        }).then(response => response.body);
     }
     validateUsername(options) {
         return this.request({
@@ -324,7 +324,7 @@ class AuthAPI extends BaseAPI_1.default {
                     "request.context": options.context
                 }
             }
-        }).then((response) => response.body);
+        }).then(response => response.body);
     }
     recoverUsernames(options) {
         return this.request({
@@ -337,7 +337,7 @@ class AuthAPI extends BaseAPI_1.default {
                 },
                 json: options
             }
-        }).then((response) => response.body);
+        }).then(response => response.body);
     }
     signUp(options) {
         return this.request({
@@ -351,7 +351,7 @@ class AuthAPI extends BaseAPI_1.default {
                 },
                 json: options
             }
-        }).then((response) => response.body);
+        }).then(response => response.body);
     }
     changeUserUsername(options) {
         return this.request({
@@ -365,7 +365,7 @@ class AuthAPI extends BaseAPI_1.default {
                 },
                 json: options
             }
-        }).then((response) => response.body);
+        }).then(response => response.body);
     }
 }
 exports.default = AuthAPI;

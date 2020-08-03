@@ -87,7 +87,7 @@ export default class AdConfigurationAPI extends BaseAPI {
                 method: "POST",
                 json: options as any
             }
-        }).then((response: { body: any }) => response.body as CreateAd);
+        }).then(response => response.body as CreateAd);
     }
 
     runAd (options: RunAdOptions): Promise<RunAd> {
@@ -98,7 +98,7 @@ export default class AdConfigurationAPI extends BaseAPI {
                 method: "POST",
                 json: options as any
             }
-        }).then((response: { body: any }) => response.body as RunAd);
+        }).then(response => response.body as RunAd);
     }
 
     stopAd (options: StopAdOptions): Promise<StopAd> {
@@ -109,6 +109,6 @@ export default class AdConfigurationAPI extends BaseAPI {
                 method: "POST",
                 json: options as any
             }
-        }).then((response: { body: any }) => response.body as StopAd);
+        }).then(response => response.body as StopAd);
     }
 }

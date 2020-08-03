@@ -6,7 +6,7 @@ export declare type GetUserFollowedUniversesOptions = {
 export declare type GetUserFollowedUniverses = {
     universeId: number;
     userId: number;
-};
+}[];
 export declare type GetUserFollowingUniverseStatusOptions = {
     userId: number;
     universeId: number;
@@ -33,6 +33,6 @@ export default class FollowingsAPI extends BaseAPI {
     constructor(client: Client);
     getUserFollowedUniverses(options: GetUserFollowedUniversesOptions): Promise<GetUserFollowedUniverses>;
     getUserFollowingUniverseStatus(options: GetUserFollowingUniverseStatusOptions): Promise<GetUserFollowingUniverseStatus>;
-    unfollowUniverse(options: UnFollowUniverseOptions): Promise<UnFollowUniverse>;
+    unFollowUniverse(options: UnFollowUniverseOptions): Promise<UnFollowUniverse>;
     followUniverse(options: FollowUniverseOptions): Promise<FollowUniverse>;
 }

@@ -20,7 +20,7 @@ class DevelopAPI extends BaseAPI_1.default {
                 }
             },
             json: true
-        }).then((response) => response.body);
+        }).then(response => response.body);
     }
     getGameTemplates() {
         return this.request({
@@ -32,7 +32,7 @@ class DevelopAPI extends BaseAPI_1.default {
                 }
             },
             json: true
-        }).then((response) => response.body.data);
+        }).then(response => response.body.data);
     }
     getGameUpdatesHistory(options) {
         return this.request({
@@ -44,7 +44,7 @@ class DevelopAPI extends BaseAPI_1.default {
                 }
             },
             json: true
-        }).then((response) => response.body);
+        }).then(response => response.body);
     }
     publishGameUpdateNotification(options) {
         return this.request({
@@ -58,7 +58,7 @@ class DevelopAPI extends BaseAPI_1.default {
                 }
             },
             json: true
-        }).then((response) => response.body);
+        }).then(response => response.body);
     }
     filterGameUpdateNotificationText(options) {
         return this.request({
@@ -72,7 +72,7 @@ class DevelopAPI extends BaseAPI_1.default {
                 }
             },
             json: true
-        }).then((response) => response.body);
+        }).then(response => response.body);
     }
     getGroupUniverses(options) {
         return this.request({
@@ -85,7 +85,7 @@ class DevelopAPI extends BaseAPI_1.default {
                 }
             },
             json: true
-        }).then((response) => response.body);
+        }).then(response => response.body);
     }
     getPlaceCompatibilities(options) {
         return this.request({
@@ -97,7 +97,7 @@ class DevelopAPI extends BaseAPI_1.default {
                 }
             },
             json: true
-        }).then((response) => response.body);
+        }).then(response => response.body);
     }
     updatePlaceConfiguration(options) {
         return this.request({
@@ -111,7 +111,7 @@ class DevelopAPI extends BaseAPI_1.default {
                 }
             },
             json: true
-        }).then((response) => response.body);
+        }).then(response => response.body);
     }
     getPlaceStatistics(options) {
         return this.request({
@@ -124,7 +124,7 @@ class DevelopAPI extends BaseAPI_1.default {
                 }
             },
             json: true
-        }).then((response) => response.body);
+        }).then(response => response.body);
     }
     getMultiPlugins(options) {
         return this.request({
@@ -139,7 +139,7 @@ class DevelopAPI extends BaseAPI_1.default {
                 }
             },
             json: true
-        }).then((response) => response.body);
+        }).then(response => response.body);
     }
     updatePlugin(options) {
         return this.request({
@@ -153,7 +153,7 @@ class DevelopAPI extends BaseAPI_1.default {
                 }
             },
             json: true
-        }).then((response) => response.body);
+        }).then(response => response.body);
     }
     searchUniverses(options) {
         return this.request({
@@ -166,7 +166,7 @@ class DevelopAPI extends BaseAPI_1.default {
                 }
             },
             json: true
-        }).then((response) => response.body);
+        }).then(response => response.body);
     }
     searchToolbox(options) {
         return this.request({
@@ -179,7 +179,7 @@ class DevelopAPI extends BaseAPI_1.default {
                 }
             },
             json: true
-        }).then((response) => response.body);
+        }).then(response => response.body);
     }
     getUniverse(options) {
         return this.request({
@@ -191,7 +191,7 @@ class DevelopAPI extends BaseAPI_1.default {
                 }
             },
             json: true
-        }).then((response) => response.body);
+        }).then(response => response.body);
     }
     getSelfUniversePermissions(options) {
         return this.request({
@@ -203,7 +203,7 @@ class DevelopAPI extends BaseAPI_1.default {
                 }
             },
             json: true
-        }).then((response) => response.body);
+        }).then(response => response.body);
     }
     getPlacesInUniverse(options) {
         return this.request({
@@ -216,7 +216,7 @@ class DevelopAPI extends BaseAPI_1.default {
                 }
             },
             json: true
-        }).then((response) => response.body);
+        }).then(response => response.body);
     }
     getUniverseStatisticReports(options) {
         return this.request({
@@ -228,7 +228,7 @@ class DevelopAPI extends BaseAPI_1.default {
                 }
             },
             json: true
-        }).then((response) => response.body);
+        }).then(response => response.body);
     }
     getUniverseStatisticReportsByTime(options) {
         return this.request({
@@ -240,7 +240,7 @@ class DevelopAPI extends BaseAPI_1.default {
                 }
             },
             json: true
-        }).then((response) => response.body);
+        }).then(response => response.body);
     }
     downloadUniverseStatisticReportsByTime(options) {
         return this.request({
@@ -252,7 +252,7 @@ class DevelopAPI extends BaseAPI_1.default {
                 }
             },
             json: true
-        }).then((response) => response.body);
+        }).then(response => response.body);
     }
     getMultiUniverses(options) {
         return this.request({
@@ -267,7 +267,7 @@ class DevelopAPI extends BaseAPI_1.default {
                 }
             },
             json: true
-        }).then((response) => response.body);
+        }).then(response => response.body);
     }
     getMultiUniversesPermissions(options) {
         return this.request({
@@ -282,7 +282,7 @@ class DevelopAPI extends BaseAPI_1.default {
                 }
             },
             json: true
-        }).then((response) => response.body);
+        }).then(response => response.body);
     }
     activateUniverse(options) {
         return this.request({
@@ -295,7 +295,7 @@ class DevelopAPI extends BaseAPI_1.default {
                 }
             },
             json: true
-        }).then((response) => response.body);
+        }).then(response => response.body);
     }
     deactivateUniverse(options) {
         return this.request({
@@ -308,7 +308,7 @@ class DevelopAPI extends BaseAPI_1.default {
                 }
             },
             json: true
-        }).then((response) => response.body);
+        }).then(response => response.body);
     }
     generateUniverseStatisticReportsByTime(options) {
         return this.request({
@@ -321,7 +321,7 @@ class DevelopAPI extends BaseAPI_1.default {
                 }
             },
             json: true
-        }).then((response) => response.body);
+        }).then(response => response.body);
     }
     getUniverseConfiguration(options) {
         return this.request({
@@ -333,7 +333,7 @@ class DevelopAPI extends BaseAPI_1.default {
                 }
             },
             json: true
-        }).then((response) => response.body);
+        }).then(response => response.body);
     }
     updateUniverseConfiguration(options) {
         return this.request({
@@ -347,7 +347,7 @@ class DevelopAPI extends BaseAPI_1.default {
                 }
             },
             json: true
-        }).then((response) => response.body);
+        }).then(response => response.body);
     }
     getUniverseVIPServersConfiguration(options) {
         return this.request({
@@ -359,7 +359,7 @@ class DevelopAPI extends BaseAPI_1.default {
                 }
             },
             json: true
-        }).then((response) => response.body);
+        }).then(response => response.body);
     }
     getUniverseTeamCreateSettings(options) {
         return this.request({
@@ -371,7 +371,7 @@ class DevelopAPI extends BaseAPI_1.default {
                 }
             },
             json: true
-        }).then((response) => response.body);
+        }).then(response => response.body);
     }
     updateUniverseTeamCreateSettings(options) {
         return this.request({
@@ -385,7 +385,7 @@ class DevelopAPI extends BaseAPI_1.default {
                 }
             },
             json: true
-        }).then((response) => response.body);
+        }).then(response => response.body);
     }
     removeUserFromUniverseTeamCreate(options) {
         return this.request({
@@ -399,7 +399,7 @@ class DevelopAPI extends BaseAPI_1.default {
                 }
             },
             json: true
-        }).then((response) => response.body);
+        }).then(response => response.body);
     }
     getUniverseTeamCreateMembers(options) {
         return this.request({
@@ -412,7 +412,7 @@ class DevelopAPI extends BaseAPI_1.default {
                 }
             },
             json: true
-        }).then((response) => response.body);
+        }).then(response => response.body);
     }
     getSelfUniversesTeamCreateAccess(options) {
         return this.request({
@@ -425,7 +425,7 @@ class DevelopAPI extends BaseAPI_1.default {
                 }
             },
             json: true
-        }).then((response) => response.body);
+        }).then(response => response.body);
     }
     getSelfManageableGroups() {
         return this.request({
@@ -437,7 +437,7 @@ class DevelopAPI extends BaseAPI_1.default {
                 }
             },
             json: true
-        }).then((response) => response.body);
+        }).then(response => response.body);
     }
     getSelfNotificationStatisticReports() {
         return this.request({
@@ -449,7 +449,7 @@ class DevelopAPI extends BaseAPI_1.default {
                 }
             },
             json: true
-        }).then((response) => response.body);
+        }).then(response => response.body);
     }
     getStudioData(options) {
         return this.request({
@@ -462,7 +462,7 @@ class DevelopAPI extends BaseAPI_1.default {
                 }
             },
             json: true
-        }).then((response) => response.body);
+        }).then(response => response.body);
     }
     setStudioData(options) {
         return this.request({
@@ -479,7 +479,7 @@ class DevelopAPI extends BaseAPI_1.default {
                 }
             },
             json: true
-        }).then((response) => response.body);
+        }).then(response => response.body);
     }
     getSelfUniverses(options) {
         return this.request({
@@ -492,7 +492,7 @@ class DevelopAPI extends BaseAPI_1.default {
                 }
             },
             json: true
-        }).then((response) => response.body);
+        }).then(response => response.body);
     }
     createUniverseAlias(options) {
         return this.request({
@@ -504,7 +504,7 @@ class DevelopAPI extends BaseAPI_1.default {
                 }
             },
             json: true
-        }).then((response) => response.body);
+        }).then(response => response.body);
     }
     deleteUniverseAlias(options) {
         return this.request({
@@ -517,7 +517,7 @@ class DevelopAPI extends BaseAPI_1.default {
                 }
             },
             json: true
-        }).then((response) => response.body);
+        }).then(response => response.body);
     }
     updateUniverseAlias(options) {
         return this.request({
@@ -531,7 +531,7 @@ class DevelopAPI extends BaseAPI_1.default {
                 }
             },
             json: true
-        }).then((response) => response.body);
+        }).then(response => response.body);
     }
     createDeveloperProduct(options) {
         return this.request({
@@ -545,7 +545,7 @@ class DevelopAPI extends BaseAPI_1.default {
                 }
             },
             json: true
-        }).then((response) => response.body);
+        }).then(response => response.body);
     }
     updateDeveloperProduct(options) {
         return this.request({
@@ -559,7 +559,7 @@ class DevelopAPI extends BaseAPI_1.default {
                 }
             },
             json: true
-        }).then((response) => response.body);
+        }).then(response => response.body);
     }
 }
 exports.default = DevelopAPI;

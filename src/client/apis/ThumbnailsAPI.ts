@@ -157,7 +157,7 @@ export default class ThumbnailsAPI extends BaseAPI {
                 }
             },
             json: true
-        }).then((response: { body: any }) => response.body);
+        }).then(response => response.body);
     }
 
     getBadgesIcons (options: GetBadgesIconsOptions): Promise<GetBadgesIcons> {
@@ -171,7 +171,7 @@ export default class ThumbnailsAPI extends BaseAPI {
                 }
             },
             json: true
-        }).then((response: { body: any }) => response.body);
+        }).then(response => response.body);
     }
 
     getBundlesThumbnails (options: GetBundlesThumbnailsOptions): Promise<GetBundlesThumbnails> {
@@ -185,7 +185,7 @@ export default class ThumbnailsAPI extends BaseAPI {
                 }
             },
             json: true
-        }).then((response: { body: any }) => response.body);
+        }).then(response => response.body);
     }
 
     getDeveloperProductIcons (options: GetDeveloperProductsIconsOptions): Promise<GetDeveloperProductsIcons> {
@@ -199,7 +199,7 @@ export default class ThumbnailsAPI extends BaseAPI {
                 }
             },
             json: true
-        }).then((response: { body: any }) => response.body);
+        }).then(response => response.body);
     }
 
     getGamePassesIcons (options: GetGamePassesIconsOptions): Promise<GetGamePassesIcons> {
@@ -213,7 +213,7 @@ export default class ThumbnailsAPI extends BaseAPI {
                 }
             },
             json: true
-        }).then((response: { body: any }) => response.body);
+        }).then(response => response.body);
     }
 
     getUniverseThumbnailIds (options: GetUniverseThumbnailsOptions): Promise<GetUniverseThumbnails> {
@@ -224,7 +224,7 @@ export default class ThumbnailsAPI extends BaseAPI {
                 qs: options
             },
             json: true
-        }).then((response: { body: any }) => response.body);
+        }).then(response => response.body);
     }
 
     getUniversesRootPlaceThumbnail (options: GetUniversesRootPlaceThumbnailsOptions): Promise<GetUniversesRootPlaceThumbnails> {
@@ -238,7 +238,7 @@ export default class ThumbnailsAPI extends BaseAPI {
                 }
             },
             json: true
-        }).then((response: { body: any }) => response.body);
+        }).then(response => response.body);
     }
 
     getUniversesThumbnailIds (options: GetUniversesThumbnailsOptions): Promise<GetUniversesThumbnails> {
@@ -252,7 +252,7 @@ export default class ThumbnailsAPI extends BaseAPI {
                 }
             },
             json: true
-        }).then((response: { body: any }) => response.body);
+        }).then(response => response.body);
     }
 
     getGroupsIcons (options: GetGroupsIconsOptions): Promise<GetGroupsIcons> {
@@ -266,7 +266,7 @@ export default class ThumbnailsAPI extends BaseAPI {
                 }
             },
             json: true
-        }).then((response: { body: any }) => response.body);
+        }).then(response => response.body);
     }
 
     getUsersFullBodyAvatarImages (options: GetUsersFullBodyAvatarImagesOptions): Promise<GetUsersFullBodyAvatarImages> {
@@ -280,7 +280,7 @@ export default class ThumbnailsAPI extends BaseAPI {
                 }
             },
             json: true
-        }).then((response: { body: any }) => response.body);
+        }).then(response => response.body);
     }
 
     getUsersAvatarBustImages (options: GetUsersAvatarBustImagesOptions): Promise<GetUsersAvatarBustImages> {
@@ -294,7 +294,7 @@ export default class ThumbnailsAPI extends BaseAPI {
                 }
             },
             json: true
-        }).then((response: { body: any }) => response.body);
+        }).then(response => response.body);
     }
 
     getUsersAvatarHeadShotImages (options: GetUsersAvatarHeadShotsImagesOptions): Promise<GetUsersAvatarHeadShotsImages> {
@@ -308,7 +308,7 @@ export default class ThumbnailsAPI extends BaseAPI {
                 }
             },
             json: true
-        }).then((response: { body: any }) => response.body);
+        }).then(response => response.body);
     }
 
     getUsersOutfitsImages (options: GetUsersOutfitsImagesOptions): Promise<GetUsersOutfitsImages> {
@@ -322,7 +322,7 @@ export default class ThumbnailsAPI extends BaseAPI {
                 }
             },
             json: true
-        }).then((response: { body: any }) => response.body);
+        }).then(response => response.body);
     }
 
     getBatchImages (options: GetBatchImagesOptions): Promise<GetBatchImages> {
@@ -334,6 +334,6 @@ export default class ThumbnailsAPI extends BaseAPI {
                 json: options
             },
             json: true
-        }).then((response: { body: any }) => response.body);
+        }).then(response => response.body);
     }
 }

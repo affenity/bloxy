@@ -134,7 +134,7 @@ export type RedeemPromoCodeOptions = {
 }
 export type RedeemPromoCode = {
     success: boolean;
-    errorMsg: ShadowRootInit;
+    errorMsg: string;
     successMsg: string;
 }
 
@@ -157,7 +157,7 @@ export default class BillingAPI extends BaseAPI {
                 }
             },
             json: true
-        }).then((response: { body: any }) => response.body);
+        }).then(response => response.body);
     }
 
     submitDeveloperExchange (options: SubmitDeveloperExchangeOptions): Promise<SubmitDeveloperExchange> {
@@ -172,7 +172,7 @@ export default class BillingAPI extends BaseAPI {
                 }
             },
             json: true
-        }).then((response: { body: any }) => response.body);
+        }).then(response => response.body);
     }
 
     getLuobuDeveloperExchangeBalance (): Promise<GetLuobuDeveloperExchangeBalance> {
@@ -185,7 +185,7 @@ export default class BillingAPI extends BaseAPI {
                 }
             },
             json: true
-        }).then((response: { body: any }) => response.body);
+        }).then(response => response.body);
     }
 
     getLuobuDeveloperExchangeEligibility (): Promise<GetLuobuDeveloperExchangeEligibility> {
@@ -198,7 +198,7 @@ export default class BillingAPI extends BaseAPI {
                 }
             },
             json: true
-        }).then((response: { body: any }) => response.body);
+        }).then(response => response.body);
     }
 
     getLuobuDeveloperExchangeLatestRequestStatus (): Promise<GetLatestLuobuDeveloperExchangeStatus> {
@@ -211,7 +211,7 @@ export default class BillingAPI extends BaseAPI {
                 }
             },
             json: true
-        }).then((response: { body: any }) => response.body);
+        }).then(response => response.body);
     }
 
     submitLuobuDeveloperExchange (options: SubmitLuobuDeveloperExchangeOptions): Promise<SubmitLuobuDeveloperExchange> {
@@ -226,7 +226,7 @@ export default class BillingAPI extends BaseAPI {
                 }
             },
             json: true
-        }).then((response: { body: any }) => response.body);
+        }).then(response => response.body);
     }
 
     getUserPaymentsHistory (options: GetUserPaymentsOptions): Promise<GetUserPayments> {
@@ -240,7 +240,7 @@ export default class BillingAPI extends BaseAPI {
                 }
             },
             json: true
-        }).then((response: { body: any }) => response.body);
+        }).then(response => response.body);
     }
 
     purchaseAmazonProduct (options: PurchaseAmazonProductOptions): Promise<PurchaseAmazonProduct> {
@@ -255,7 +255,7 @@ export default class BillingAPI extends BaseAPI {
                 }
             },
             json: true
-        }).then((response: { body: any }) => response.body);
+        }).then(response => response.body);
     }
 
     validateAmazonProduct (options: ValidateAmazonProductOptions): Promise<ValidateAmazonProduct> {
@@ -270,7 +270,7 @@ export default class BillingAPI extends BaseAPI {
                 }
             },
             json: true
-        }).then((response: { body: any }) => response.body);
+        }).then(response => response.body);
     }
 
     purchaseAppleProduct (options: PurchaseAppleProductOptions): Promise<PurchaseAppleProduct> {
@@ -285,7 +285,7 @@ export default class BillingAPI extends BaseAPI {
                 }
             },
             json: true
-        }).then((response: { body: any }) => response.body);
+        }).then(response => response.body);
     }
 
     validateAppleProduct (options: ValidateAppleProductOptions): Promise<ValidateAppleProduct> {
@@ -300,7 +300,7 @@ export default class BillingAPI extends BaseAPI {
                 }
             },
             json: true
-        }).then((response: { body: any }) => response.body);
+        }).then(response => response.body);
     }
 
     redeemDigitalCode (options: RedeemDigitalCodeOptions): Promise<RedeemDigitalCode> {
@@ -315,7 +315,7 @@ export default class BillingAPI extends BaseAPI {
                 }
             },
             json: true
-        }).then((response: { body: any }) => response.body);
+        }).then(response => response.body);
     }
 
     redeemGameCard (options: RedeemGameCardOptions): Promise<RedeemGameCard> {
@@ -330,7 +330,7 @@ export default class BillingAPI extends BaseAPI {
                 }
             },
             json: true
-        }).then((response: { body: any }) => response.body);
+        }).then(response => response.body);
     }
 
     reverseGameCard (options: ReverseGameCardOptions): Promise<ReverseGameCard> {
@@ -345,7 +345,7 @@ export default class BillingAPI extends BaseAPI {
                 }
             },
             json: true
-        }).then((response: { body: any }) => response.body);
+        }).then(response => response.body);
     }
 
     purchaseGoogleProduct (options: PurchaseGoogleProductOptions): Promise<PurchaseGoogleProduct> {
@@ -360,7 +360,7 @@ export default class BillingAPI extends BaseAPI {
                 }
             },
             json: true
-        }).then((response: { body: any }) => response.body);
+        }).then(response => response.body);
     }
 
     validateGoogleProduct (options: ValidateGoogleProductOptions): Promise<ValidateGoogleProduct> {
@@ -375,7 +375,7 @@ export default class BillingAPI extends BaseAPI {
                 }
             },
             json: true
-        }).then((response: { body: any }) => response.body);
+        }).then(response => response.body);
     }
 
     sendXsollaWebhook (options: SendXsollaWebhookOptions): Promise<SendXsollaWebhook> {
@@ -390,7 +390,7 @@ export default class BillingAPI extends BaseAPI {
                 }
             },
             json: true
-        }).then((response: { body: any }) => response.body);
+        }).then(response => response.body);
     }
 
     getXsollaIFrameToken (options: GetXsollaIFrameTokenOptions): Promise<GetXsollaIFrameToken> {
@@ -405,7 +405,7 @@ export default class BillingAPI extends BaseAPI {
                 }
             },
             json: true
-        }).then((response: { body: any }) => response.body);
+        }).then(response => response.body);
     }
 
     incrementCounterByAgent (options: IncrementCounterByAgentOptions): Promise<IncrementCounterByAgent> {
@@ -420,7 +420,7 @@ export default class BillingAPI extends BaseAPI {
                 }
             },
             json: true
-        }).then((response: { body: any }) => response.body);
+        }).then(response => response.body);
     }
 
     redeemPromoCode (options: RedeemPromoCodeOptions): Promise<RedeemPromoCode> {
@@ -435,6 +435,6 @@ export default class BillingAPI extends BaseAPI {
                 }
             },
             json: true
-        }).then((response: { body: any }) => response.body);
+        }).then(response => response.body);
     }
 }
