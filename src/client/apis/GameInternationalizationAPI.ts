@@ -39,7 +39,7 @@ export type GetGameInfoHistory = {
         translationText: string;
         translator: {
             id: number;
-            agentType: "User";
+            agentType: "User" | string;
         };
         created: Date;
     }[];
@@ -124,7 +124,7 @@ export default class GameInternationalizationAPI extends BaseAPI {
                 }
             },
             json: true
-        }).then((response: { body: any }) => response.body);
+        }).then(response => response.body);
     }
 
     updateGameInfo (options: UpdateGameInfoOptions): Promise<UpdateGameInfo> {
@@ -141,7 +141,7 @@ export default class GameInternationalizationAPI extends BaseAPI {
                 }
             },
             json: true
-        }).then((response: { body: any }) => response.body);
+        }).then(response => response.body);
     }
 
     getNameDescriptionMetaData (): Promise<GetNameDescriptionMetaData> {
@@ -154,7 +154,7 @@ export default class GameInternationalizationAPI extends BaseAPI {
                 }
             },
             json: true
-        }).then((response: { body: any }) => response.body);
+        }).then(response => response.body);
     }
 
     getGameInfoHistory (options: GetGameInfoHistoryOptions): Promise<GetGameInfoHistory> {
@@ -169,7 +169,7 @@ export default class GameInternationalizationAPI extends BaseAPI {
                 }
             },
             json: true
-        }).then((response: { body: any }) => response.body);
+        }).then(response => response.body);
     }
 
     getGameSourceLanguage (options: GetGameSourceLanguageOptions): Promise<GetGameSourceLanguage> {
@@ -182,7 +182,7 @@ export default class GameInternationalizationAPI extends BaseAPI {
                 }
             },
             json: true
-        }).then((response: { body: any }) => response.body);
+        }).then(response => response.body);
     }
 
     updateGameSourceLanguage (options: UpdateGameSourceLanguageOptions): Promise<UpdateGameSourceLanguage> {
@@ -199,7 +199,7 @@ export default class GameInternationalizationAPI extends BaseAPI {
                 }
             },
             json: true
-        }).then((response: { body: any }) => response.body);
+        }).then(response => response.body);
     }
 
     getGameSupportedLanguages (options: GetGameSupportedLanguagesOptions): Promise<GetGameSupportedLanguages> {
@@ -212,7 +212,7 @@ export default class GameInternationalizationAPI extends BaseAPI {
                 }
             },
             json: true
-        }).then((response: { body: any }) => response.body);
+        }).then(response => response.body);
     }
 
     modifyGameSupportedLanguages (options: ModifyGameSupportedLanguagesOptions): Promise<ModifyGameSupportedLanguages> {
@@ -227,7 +227,7 @@ export default class GameInternationalizationAPI extends BaseAPI {
                 }
             },
             json: true
-        }).then((response: { body: any }) => response.body);
+        }).then(response => response.body);
     }
 
     getGameAutomaticTranslationStatus (options: GetGameAutomaticTranslationResultsOptions): Promise<GetGameAutomaticTranslationResults> {
@@ -240,7 +240,7 @@ export default class GameInternationalizationAPI extends BaseAPI {
                 }
             },
             json: true
-        }).then((response: { body: any }) => response.body);
+        }).then(response => response.body);
     }
 
     getSupportedLanguagesMetaData (): Promise<GetSupportedLanguagesMetaData> {
@@ -253,7 +253,7 @@ export default class GameInternationalizationAPI extends BaseAPI {
                 }
             },
             json: true
-        }).then((response: { body: any }) => response.body);
+        }).then(response => response.body);
     }
 
     toggleGameAutomaticTranslation (options: ToggleAutomaticGameTranslationOptions): Promise<ToggleAutomaticGameTranslation> {
@@ -268,6 +268,6 @@ export default class GameInternationalizationAPI extends BaseAPI {
                 }
             },
             json: true
-        }).then((response: { body: any }) => response.body);
+        }).then(response => response.body);
     }
 }
