@@ -1,104 +1,98 @@
 import BaseAPI from "./BaseAPI";
-import { AnyIdentifier } from "../../interfaces/GeneralInterfaces";
 import Client from "../Client";
-import { AssetVersion } from "../../structures/asset/AssetVersion";
-import GroupMember from "../../structures/group/GroupMember";
-import GroupRole from "../../structures/group/GroupRole";
-import Product, { ProductOptions } from "../../structures/asset/Product";
-import PartialUser from "../../structures/user/PartialUser";
+import { AssetVersionOptions } from "../../structures/asset/AssetVersion";
+import { ProductOptions } from "../../structures/asset/Product";
 
 
-export declare type GetAssetVersionOptions = AnyIdentifier;
+export declare type GetAssetVersionOptions = number;
 export declare type AwardBadgeOptions = {
-    userId: AnyIdentifier;
-    badgeId: AnyIdentifier;
-    placeId: AnyIdentifier;
+    userId: number;
+    badgeId: number;
+    placeId: number;
 }
 export declare type GetUserFriendsOptions = {
-    userId: AnyIdentifier;
-    page: AnyIdentifier;
+    userId: number;
+    page: number;
 }
 export declare type AcceptFriendRequestOptions = {
-    userId: AnyIdentifier;
+    userId: number;
 }
 export declare type DeclineFriendRequestOptions = {
-    userId: AnyIdentifier;
+    userId: number;
 }
 export declare type SendFriendRequestOptions = {
-    userId: AnyIdentifier;
+    userId: number;
 }
 export declare type GetUserFriendsCountOptions = {
-    userId: AnyIdentifier;
+    userId: number;
 }
 export declare type UnfriendUserOptions = {
-    userId: AnyIdentifier;
+    userId: number;
 }
 export declare type IsUserFollowingOptions = {
-    userId: AnyIdentifier;
-    followUserId: AnyIdentifier;
+    userId: number;
+    followUserId: number;
 }
 export declare type FollowUserOptions = {
-    userId: AnyIdentifier;
+    userId: number;
 }
 export declare type UnfollowUserOptions = {
-    userId: AnyIdentifier;
+    userId: number;
 }
 export declare type GetUserGroupsOptions = {
-    userId: AnyIdentifier;
+    userId: number;
 }
 export declare type GetGroupOptions = {
-    groupId: AnyIdentifier;
+    groupId: number;
 }
 export declare type GetGroupAlliesOptions = {
-    groupId: AnyIdentifier;
-    page: AnyIdentifier;
+    groupId: number;
+    page: number;
 }
 export declare type GetGroupEnemiesOptions = {
-    groupId: AnyIdentifier;
-    page: AnyIdentifier;
+    groupId: number;
+    page: number;
 }
 export declare type GetProductInfoOptions = {
-    assetId: AnyIdentifier;
+    assetId: number;
 }
 export declare type GetGamePassProductInfoOptions = {
-    gamePassId: AnyIdentifier;
+    gamePassId: number;
 }
 export declare type UserOwnsAssetOptions = {
-    userId: AnyIdentifier;
-    assetId: AnyIdentifier;
+    userId: number;
+    assetId: number;
 }
 export declare type BlockUserOptions = {
-    userId: AnyIdentifier;
+    userId: number;
 }
 export declare type UnblockUserOptions = {
-    userId: AnyIdentifier;
+    userId: number;
 }
 export declare type GetUserByUsernameOptions = {
     username: string;
 }
 export declare type UserCanManageAssetOptions = {
-    userId: AnyIdentifier;
-    assetId: AnyIdentifier;
+    userId: number;
+    assetId: number;
 }
 export declare type GetUserByIdOptions = {
-    userId: AnyIdentifier;
+    userId: number;
 }
-
-export declare type GetAssetVersions = AssetVersion[];
+export declare type GetAssetVersions = AssetVersionOptions[];
 export declare type AwardBadge = boolean;
 export declare type GetBalance = {
     robux: number;
 }
 export declare type GetUserFriends = {
-    user: PartialUser;
-    avatarUrl: string;
-    avatarFinal: boolean;
-    online: boolean;
+    Id: number;
+    Username: string;
+    AvatarUri: string;
+    AvatarFinal: boolean;
+    IsOnline: boolean;
 }[];
 export declare type AcceptFriendRequest = boolean;
-
 export declare type DeclineFriendRequest = boolean;
-
 export declare type SendFriendRequest = boolean;
 export declare type GetUserFriendsCount = number;
 export declare type UnfriendUser = boolean;
@@ -118,12 +112,18 @@ export declare type GetUserGroups = {
     primary: boolean;
 }[];
 export declare type GetGroup = {
-    name: string;
-    id: number;
-    owner: GroupMember;
-    emblemUrl: string;
-    description: string;
-    roles: GroupRole[];
+    Name: string;
+    Id: number;
+    Owner: {
+        Name: string;
+        Id: number;
+    };
+    EmblemUrl: string;
+    Description: string;
+    Roles: {
+        Name: string;
+        Rank: number;
+    }[];
 }
 export declare type GetGroupAllies = GetGroup[];
 export declare type GetGroupEnemies = GetGroup[];
@@ -131,8 +131,8 @@ export declare type GetIncomingItems = {
     unreadMessageCount: number;
     friendRequestsCount: number;
 }
-export declare type GetProductInfo = Product;
-export declare type GetGamePassProductInfo = Product;
+export declare type GetProductInfo = ProductOptions;
+export declare type GetGamePassProductInfo = ProductOptions;
 export declare type UserOwnsAsset = boolean;
 export declare type GetDeviceInfo = {
     platformType: string;
@@ -166,10 +166,7 @@ export default class GeneralAPI extends BaseAPI {
                 }
             },
             json: true
-        }).then(response =>
-            // eslint-disable-next-line no-extra-parens
-            (response.body as any[]).map(assetVersionData => new AssetVersion(assetVersionData, this.client))
-        );
+        }).then(response => response.body);
     }
 
     awardBadge (options: AwardBadgeOptions): Promise<AwardBadge> {
@@ -208,18 +205,7 @@ export default class GeneralAPI extends BaseAPI {
                 }
             },
             json: true
-        }).then(response =>
-            // eslint-disable-next-line no-extra-parens
-            (response.body as any[]).map(userFriendData => ({
-                avatarFinal: userFriendData.AvatarFinal,
-                user: new PartialUser({
-                    id: userFriendData.Id,
-                    name: userFriendData.Username
-                }, this.client),
-                online: userFriendData.IsOnline,
-                avatarUrl: userFriendData.AvatarUri
-            })) as GetUserFriends
-        );
+        }).then(response => response.body);
     }
 
     acceptFriendRequest (options: AcceptFriendRequestOptions): Promise<AcceptFriendRequest> {
@@ -281,10 +267,7 @@ export default class GeneralAPI extends BaseAPI {
                 }
             },
             json: true
-        }).then(response =>
-            // eslint-disable-next-line no-extra-parens
-            (response.body as any).count as GetUserFriendsCount
-        );
+        }).then(response => response.body.count);
     }
 
     unfriendUser (options: UnfriendUserOptions): Promise<UnfriendUser> {
@@ -313,7 +296,7 @@ export default class GeneralAPI extends BaseAPI {
                     allowedStatusCodes: [200]
                 }
             }
-        }).then(response => (response.body as any).isFollowing as IsUserFollowing);
+        }).then(response => response.body.isFollowing);
     }
 
     followUser (options: FollowUserOptions): Promise<FollowUser> {
@@ -357,18 +340,7 @@ export default class GeneralAPI extends BaseAPI {
                     allowedStatusCodes: [200]
                 }
             }
-        }).then(response => (response.body as any[]).map(userGroupData => ({
-            id: userGroupData.Id,
-            name: userGroupData.Name,
-            emblemId: userGroupData.EmblemId,
-            emblemUrl: userGroupData.EmblemUrl,
-            role: {
-                rank: userGroupData.Rank,
-                name: userGroupData.Role
-            },
-            inClan: userGroupData.IsInClan,
-            primary: userGroupData.IsPrimary
-        })) as GetUserGroups);
+        }).then(response => response.body);
     }
 
     getGroup (options: GetGroupOptions): Promise<GetGroup> {
@@ -381,27 +353,7 @@ export default class GeneralAPI extends BaseAPI {
                 }
             },
             json: true
-        }).then((response: { body: any }) => ({
-            id: response.body.Id,
-            name: response.body.Name,
-            description: response.body.Description,
-            emblemUrl: response.body.EmblemUrl,
-            owner: new GroupMember({
-                id: response.body.Owner.Id,
-                name: response.body.Owner.Name,
-                group: {
-                    id: response.body.Id,
-                    name: response.body.Name
-                }
-            }, this.client),
-            roles: response.body.Roles.map((roleData: any) => new GroupRole({
-                rank: roleData.Rank,
-                name: roleData.Name,
-                group: {
-                    id: response.body.Id
-                }
-            }, this.client))
-        }) as GetGroup);
+        }).then(response => response.body);
     }
 
     getGroupAllies (options: GetGroupAlliesOptions): Promise<GetGroupAllies> {
@@ -417,27 +369,7 @@ export default class GeneralAPI extends BaseAPI {
                 }
             },
             json: true
-        }).then((response: { body: any }) => response.body.map((groupData: any) => ({
-            id: groupData.Id,
-            name: groupData.Name,
-            description: groupData.Description,
-            emblemUrl: groupData.EmblemUrl,
-            owner: new GroupMember({
-                id: groupData.Owner.Id,
-                name: groupData.Owner.Name,
-                group: {
-                    id: groupData.Id,
-                    name: groupData.Name
-                }
-            }, this.client),
-            roles: groupData.Roles.map((roleData: any) => new GroupRole({
-                rank: roleData.Rank,
-                name: roleData.Name,
-                group: {
-                    id: groupData.Id
-                }
-            }, this.client))
-        }) as GetGroup) as GetGroupAllies);
+        }).then(response => response.body);
     }
 
     getGroupEnemies (options: GetGroupEnemiesOptions): Promise<GetGroupEnemies> {
@@ -453,27 +385,7 @@ export default class GeneralAPI extends BaseAPI {
                 }
             },
             json: true
-        }).then((response: { body: any }) => response.body.map((groupData: any) => ({
-            id: groupData.Id,
-            name: groupData.Name,
-            description: groupData.Description,
-            emblemUrl: groupData.EmblemUrl,
-            owner: new GroupMember({
-                id: groupData.Owner.Id,
-                name: groupData.Owner.Name,
-                group: {
-                    id: groupData.Id,
-                    name: groupData.Name
-                }
-            }, this.client),
-            roles: groupData.Roles.map((roleData: any) => new GroupRole({
-                rank: roleData.Rank,
-                name: roleData.Name,
-                group: {
-                    id: groupData.Id
-                }
-            }, this.client))
-        }) as GetGroup) as GetGroupEnemies);
+        }).then(response => response.body);
     }
 
     getIncomingItems (): Promise<GetIncomingItems> {
@@ -503,7 +415,7 @@ export default class GeneralAPI extends BaseAPI {
                 }
             },
             json: true
-        }).then(response => new Product(response.body as ProductOptions, this.client) as GetProductInfo);
+        }).then(response => response.body);
     }
 
     getGamePassProductInfo (options: GetGamePassProductInfoOptions): Promise<GetGamePassProductInfo> {
@@ -517,7 +429,7 @@ export default class GeneralAPI extends BaseAPI {
                 }
             },
             json: true
-        }).then(response => new Product(response.body as ProductOptions, this.client) as GetGamePassProductInfo);
+        }).then(response => response.body);
     }
 
     userOwnsAsset (options: UserOwnsAssetOptions): Promise<UserOwnsAsset> {
@@ -542,7 +454,7 @@ export default class GeneralAPI extends BaseAPI {
                     allowedStatusCodes: [200]
                 }
             }
-        }).then((response: { body: any }) => ({
+        }).then(response => ({
             deviceType: response.body.DeviceType,
             operatingSystemType: response.body.OperationSystemType,
             platformType: response.body.PlatformType
@@ -561,7 +473,7 @@ export default class GeneralAPI extends BaseAPI {
                 }
             },
             json: true
-        }).then((response: { body: any }) => response.body.success === true as BlockUser);
+        }).then(response => response.body.success === true as BlockUser);
     }
 
     unblockUser (options: UnblockUserOptions): Promise<UnblockUser> {
@@ -576,7 +488,7 @@ export default class GeneralAPI extends BaseAPI {
                 }
             },
             json: true
-        }).then((response: { body: any }) => response.body.success === true as UnblockUser);
+        }).then(response => response.body.success === true as UnblockUser);
     }
 
     getUserById (options: GetUserByIdOptions): Promise<GetUserById> {
@@ -589,7 +501,7 @@ export default class GeneralAPI extends BaseAPI {
                 }
             },
             json: true
-        }).then((response: { body: any }) => ({
+        }).then(response => ({
             id: response.body.Id,
             name: response.body.Username
         }) as GetUserById);
@@ -606,7 +518,7 @@ export default class GeneralAPI extends BaseAPI {
                 }
             },
             json: true
-        }).then((response: { body: any }) => ({
+        }).then(response => ({
             id: response.body.Id,
             name: response.body.Username
         }) as GetUserByUsername);
@@ -622,6 +534,6 @@ export default class GeneralAPI extends BaseAPI {
                 }
             },
             json: true
-        }).then((response: { body: any }) => response.body.CanManage === true as UserCanManageAsset);
+        }).then(response => response.body.CanManage === true as UserCanManageAsset);
     }
 }
