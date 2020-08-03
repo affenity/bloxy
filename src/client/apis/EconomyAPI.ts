@@ -11,7 +11,7 @@ export type GetAssetResaleData = {
     sales: number;
     numberRemaining: number;
     recentAveragePrice: number;
-    originalPirce: number;
+    originalPrice: number;
     priceDataPoints: {
         value: number;
         date: string;
@@ -142,7 +142,7 @@ export type GetGroupTransactions = {
         isPending: boolean;
         agent: {
             id: number;
-            type: "User" | string;
+            type: "User" | "Group";
             name: string;
         };
         details: unknown;
@@ -175,7 +175,7 @@ export default class EconomyAPI extends BaseAPI {
                 }
             },
             json: true
-        }).then((response: { body: any }) => response.body);
+        }).then(response => response.body);
     }
 
     getAssetResellers (options: GetAssetResellersOptions): Promise<GetAssetResellers> {
@@ -189,7 +189,7 @@ export default class EconomyAPI extends BaseAPI {
                 }
             },
             json: true
-        }).then((response: { body: any }) => response.body);
+        }).then(response => response.body);
     }
 
     getUserResellableAssetCopies (options: GetUserResellableAssetCopiesOptions): Promise<GetUserResellableAssetCopies> {
@@ -202,7 +202,7 @@ export default class EconomyAPI extends BaseAPI {
                 }
             },
             json: true
-        }).then((response: { body: any }) => response.body);
+        }).then(response => response.body);
     }
 
     getResaleTaxRate (): Promise<GetResaleTaxRate> {
@@ -215,7 +215,7 @@ export default class EconomyAPI extends BaseAPI {
                 }
             },
             json: true
-        }).then((response: { body: any }) => response.body);
+        }).then(response => response.body);
     }
 
     setAssetCopiesForSale (options: SetAssetCopiesOptions): Promise<SetAssetCopies> {
@@ -232,7 +232,7 @@ export default class EconomyAPI extends BaseAPI {
                 }
             },
             json: true
-        }).then((response: { body: any }) => response.body);
+        }).then(response => response.body);
     }
 
     getDeveloperExchangeAbility (): Promise<GetDeveloperExchangeAbility> {
@@ -245,7 +245,7 @@ export default class EconomyAPI extends BaseAPI {
                 }
             },
             json: true
-        }).then((response: { body: any }) => response.body);
+        }).then(response => response.body);
     }
 
     getDeveloperExchangeHelp (): Promise<GetDeveloperExchangeHelp> {
@@ -258,7 +258,7 @@ export default class EconomyAPI extends BaseAPI {
                 }
             },
             json: true
-        }).then((response: { body: any }) => response.body);
+        }).then(response => response.body);
     }
 
     getDeveloperExchangeInfo (options: GetDeveloperExchangeInfoOptions): Promise<GetDeveloperExchangeInfo> {
@@ -272,7 +272,7 @@ export default class EconomyAPI extends BaseAPI {
                 }
             },
             json: true
-        }).then((response: { body: any }) => response.body);
+        }).then(response => response.body);
     }
 
     submitDeveloperExchange (options: SubmitDeveloperExchangeOptions): Promise<SubmitDeveloperExchange> {
@@ -287,7 +287,7 @@ export default class EconomyAPI extends BaseAPI {
                 }
             },
             json: true
-        }).then((response: { body: any }) => response.body);
+        }).then(response => response.body);
     }
 
     getGroupCurrency (options: GetGroupCurrencyOptions): Promise<GetGroupCurrency> {
@@ -300,7 +300,7 @@ export default class EconomyAPI extends BaseAPI {
                 }
             },
             json: true
-        }).then((response: { body: any }) => response.body);
+        }).then(response => response.body);
     }
 
     getSelfCurrency (options: GetSelfCurrencyOptions): Promise<GetSelfCurrency> {
@@ -313,7 +313,7 @@ export default class EconomyAPI extends BaseAPI {
                 }
             },
             json: true
-        }).then((response: { body: any }) => response.body);
+        }).then(response => response.body);
     }
 
     getGroupRevenueByTime (options: GetGroupRevenueSummaryInTimeFrameOptions): Promise<GetGroupRevenueSummaryInTimeFrame> {
@@ -326,7 +326,7 @@ export default class EconomyAPI extends BaseAPI {
                 }
             },
             json: true
-        }).then((response: { body: any }) => response.body);
+        }).then(response => response.body);
     }
 
     getSelfRevenueSummaryByTIme (options: GetSelfRevenueSummaryInTimeFrameOptions): Promise<GetSelfRevenueSummaryInTimeFrame> {
@@ -339,7 +339,7 @@ export default class EconomyAPI extends BaseAPI {
                 }
             },
             json: true
-        }).then((response: { body: any }) => response.body);
+        }).then(response => response.body);
     }
 
     getGroupTransactions (options: GetGroupTransactionsOptions): Promise<GetGroupTransactions> {
@@ -353,7 +353,7 @@ export default class EconomyAPI extends BaseAPI {
                 }
             },
             json: true
-        }).then((response: { body: any }) => response.body);
+        }).then(response => response.body);
     }
 
     getSelfTransactions (options: GetSelfTransactionsOptions): Promise<GetSelfTransactions> {
@@ -367,6 +367,6 @@ export default class EconomyAPI extends BaseAPI {
                 }
             },
             json: true
-        }).then((response: { body: any }) => response.body);
+        }).then(response => response.body);
     }
 }
