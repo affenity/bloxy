@@ -8,7 +8,6 @@ export interface FriendRequestOptions {
     isBanned: boolean;
     id: number;
     name: string;
-    displayName: string;
 }
 
 export default class FriendRequest {
