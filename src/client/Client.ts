@@ -4,7 +4,7 @@ import ClientUser from "../structures/ClientUser";
 import RESTController from "../controllers/rest";
 import initStructures, { Structures } from "../structures";
 import Group from "../structures/group/Group";
-import ClientSocket from "./lib/ClientSocket/ClientSocket";
+import * as ClientSocket from "./lib/ClientSocket/ClientSocket";
 import User from "../structures/user/User";
 import PartialUser from "../structures/user/PartialUser";
 
@@ -14,7 +14,7 @@ export default class Client extends ClientBase {
     public apis: APIs;
     public rest: RESTController;
     public structures: Structures;
-    public socket: ClientSocket;
+    public socket: ClientSocket.Socket;
 
     constructor (options?: ClientOptions) {
         super(options);
@@ -23,7 +23,7 @@ export default class Client extends ClientBase {
         this.apis = initAPIs(this);
         this.rest = new RESTController(this, this.options.rest);
         this.structures = initStructures();
-        this.socket = new ClientSocket(this);
+        this.socket = new ClientSocket.Socket(this);
 
         this.init();
     }

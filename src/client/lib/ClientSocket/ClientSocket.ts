@@ -4,9 +4,15 @@ import Client from "../../Client";
 import * as SignalR from "signalr-client";
 import { default as socketHandlers } from "./handlers";
 import EventEmitter from "events";
+import PartialChatConversation from "../../../structures/chat/ChatConversation/PartialChatConversation";
 
 
-export default class ClientSocket extends EventEmitter {
+export declare interface Socket extends EventEmitter {
+    on (event: "chatMessageSent", listener: (conversation: PartialChatConversation) => void): this;
+}
+
+
+export class Socket extends EventEmitter {
     public client: Client;
     public socket: any;
     public connected: boolean;

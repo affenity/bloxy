@@ -94,7 +94,9 @@ export declare type GetUserFriends = {
 export declare type AcceptFriendRequest = boolean;
 export declare type DeclineFriendRequest = boolean;
 export declare type SendFriendRequest = boolean;
-export declare type GetUserFriendsCount = number;
+export declare type GetUserFriendsCount = {
+    count: number;
+};
 export declare type UnfriendUser = boolean;
 export declare type IsUserFollowing = boolean;
 export declare type FollowUser = boolean;

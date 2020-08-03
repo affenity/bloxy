@@ -8,9 +8,4 @@ const client = new Client();
     const clientUser = await client.login(
         cookie
     );
-
-    const user = await clientUser.getUser();
-    const data = await client.apis.badgesAPI.getUserBadges({
-        userId: 18442032
-    });
 })();

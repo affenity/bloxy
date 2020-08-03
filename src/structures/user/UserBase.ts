@@ -234,7 +234,7 @@ export default class UserBase {
     getFriendsCount (): Promise<number> {
         return this.client.apis.friendsAPI.getUserFriendsCount({
             userId: this.id
-        });
+        }).then(data => data.count);
     }
 
     getFriendsWithStatuses (userIds: number[]): Promise<GetUserFriendsWithStatuses> {

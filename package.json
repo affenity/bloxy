@@ -1,5 +1,8 @@
 {
   "name": "bloxy",
+  "version": "5.0.0-alpha",
+  "description": "A Node.JS library for interacting with the Roblox website and its API.",
+  "main": "./dist/index.js",
   "bugs": {
     "url": "https://github.com/visualizememe/bloxy/issues"
   },
@@ -7,9 +10,6 @@
     "url": "https://github.com/visualizememe/bloxy#pre-dev",
     "type": "github"
   },
-  "version": "5.0.0-alpha",
-  "description": "A Node.JS library for interacting with the Roblox website and its API.",
-  "main": "./dist/index.js",
   "scripts": {
     "test": "jest",
     "test-with-coverage": "jest --coverage && cat ./coverage/lcov.info | codacy-coverage",
