@@ -30,7 +30,7 @@
   "author": "ScriptBased",
   "license": "MIT",
   "devDependencies": {
-    "eslint": "^6.3.0",
+    "eslint": "^7.6.0",
     "@types/node": "^12.7.5"
   },
   "dependencies": {
