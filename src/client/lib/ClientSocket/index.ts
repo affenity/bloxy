@@ -1,1 +1,1 @@
-export { default } from "./ClientSocket";
+export * from "./ClientSocket";
