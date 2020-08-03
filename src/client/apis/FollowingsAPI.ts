@@ -8,7 +8,7 @@ export type GetUserFollowedUniversesOptions = {
 export type GetUserFollowedUniverses = {
     universeId: number;
     userId: number;
-}
+}[];
 export type GetUserFollowingUniverseStatusOptions = {
     userId: number;
     universeId: number;
@@ -50,7 +50,7 @@ export default class FollowingsAPI extends BaseAPI {
                 }
             },
             json: true
-        }).then((response: { body: any }) => response.body);
+        }).then(response => response.body);
     }
 
     getUserFollowingUniverseStatus (options: GetUserFollowingUniverseStatusOptions): Promise<GetUserFollowingUniverseStatus> {
@@ -63,10 +63,10 @@ export default class FollowingsAPI extends BaseAPI {
                 }
             },
             json: true
-        }).then((response: { body: any }) => response.body);
+        }).then(response => response.body);
     }
 
-    unfollowUniverse (options: UnFollowUniverseOptions): Promise<UnFollowUniverse> {
+    unFollowUniverse (options: UnFollowUniverseOptions): Promise<UnFollowUniverse> {
         return this.request({
             requiresAuth: true,
             request: {
@@ -77,7 +77,7 @@ export default class FollowingsAPI extends BaseAPI {
                 }
             },
             json: true
-        }).then((response: { body: any }) => response.body);
+        }).then(response => response.body);
     }
 
     followUniverse (options: FollowUniverseOptions): Promise<FollowUniverse> {
@@ -91,6 +91,6 @@ export default class FollowingsAPI extends BaseAPI {
                 }
             },
             json: true
-        }).then((response: { body: any }) => response.body);
+        }).then(response => response.body);
     }
 }
