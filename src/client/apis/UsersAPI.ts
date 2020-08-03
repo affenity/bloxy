@@ -147,7 +147,8 @@ export default class UsersAPI extends BaseAPI {
 
     getAuthenticatedUserInformation (): Promise<GetSelfAuthenticatedUserInformation> {
         return this.request({
-            requiresAuth: true,
+            // This should actually be "true", but as it's needed in client.login, it's set to false
+            requiresAuth: false,
             request: {
                 path: `v1/users/authenticated`,
                 responseOptions: {

@@ -1,8 +1,6 @@
-import ClientBase from "./ClientBase";
-import { ClientCredentialsOptions, ClientOptions } from "../interfaces/ClientInterfaces";
+import ClientBase, { ClientOptions } from "./ClientBase";
 import initAPIs, { APIs } from "./apis";
 import ClientUser from "../structures/ClientUser";
-import clientLogin from "./methods/login";
 import RESTController from "../controllers/rest";
 import initStructures, { Structures } from "../structures";
 import Group from "../structures/group/Group";
@@ -14,7 +12,6 @@ import PartialUser from "../structures/user/PartialUser";
 export default class Client extends ClientBase {
     public user: ClientUser | null;
     public apis: APIs;
-    public login: OmitThisParameter<(this: Client, credentials?: ClientCredentialsOptions) => Promise<ClientUser>>;
     public rest: RESTController;
     public structures: Structures;
     public socket: ClientSocket;
@@ -24,7 +21,6 @@ export default class Client extends ClientBase {
 
         this.user = null;
         this.apis = initAPIs(this);
-        this.login = (credentials?: ClientCredentialsOptions) => clientLogin.bind(this)(credentials || this.options.credentials || {});
         this.rest = new RESTController(this, this.options.rest);
         this.structures = initStructures();
         this.socket = new ClientSocket(this);
@@ -37,6 +33,37 @@ export default class Client extends ClientBase {
             this.rest.setOptions(this.options.rest);
         }
     }
+
+    login = async (cookie?: string): Promise<ClientUser> => {
+        cookie = cookie || (this.options.credentials || {}).cookie || undefined;
+
+        if (!cookie) {
+            throw new Error("Attempted to log in without a cookie!");
+        }
+        this.options.credentials = {
+            ...this.options.credentials,
+            cookie
+        };
+
+        const createdCookie = this.rest.createCookie({
+            key: ".ROBLOSECURITY",
+            value: cookie,
+            domain: "roblox.com",
+            hostOnly: false,
+            httpOnly: false
+        });
+
+        this.rest.addCookie(createdCookie, "https://roblox.com");
+
+        const getAuthenticationData = await this.apis.usersAPI.getAuthenticatedUserInformation();
+        this.user = new ClientUser({
+            id: getAuthenticationData.id,
+            name: getAuthenticationData.name
+        }, this);
+        this.emit("loggedIn");
+
+        return this.user;
+    };
 
     getGroup (groupId: number): Promise<Group> {
         return this.apis.groupsAPI.getGroup({

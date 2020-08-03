@@ -26,133 +26,238 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a85767c4-bfb1-401b-832d-4f10d57a6f3a" name="Default Changelist" comment="Updated CatalogAPI.ts to remove response modifications">
-      <change afterPath="$PROJECT_DIR$/src/structures/game/GameBadge/GameBadgeBase.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/structures/game/GameBadge/PartialGameBadge.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/structures/game/VIPServer/PartialVIPServer.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/client/apis/AdConfigurationAPI.js" beforeDir="false" afterPath="$PROJECT_DIR$/dist/client/apis/AdConfigurationAPI.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/client/apis/AssetDeliveryAPI.js" beforeDir="false" afterPath="$PROJECT_DIR$/dist/client/apis/AssetDeliveryAPI.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/client/apis/AuthAPI.js" beforeDir="false" afterPath="$PROJECT_DIR$/dist/client/apis/AuthAPI.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/client/apis/AvatarAPI.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/dist/client/apis/AvatarAPI.d.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/client/apis/AvatarAPI.js" beforeDir="false" afterPath="$PROJECT_DIR$/dist/client/apis/AvatarAPI.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/client/apis/BadgesAPI.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/dist/client/apis/BadgesAPI.d.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/client/apis/BadgesAPI.js" beforeDir="false" afterPath="$PROJECT_DIR$/dist/client/apis/BadgesAPI.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/client/apis/BaseAPI.js" beforeDir="false" afterPath="$PROJECT_DIR$/dist/client/apis/BaseAPI.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/client/apis/BillingAPI.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/dist/client/apis/BillingAPI.d.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/client/apis/BillingAPI.js" beforeDir="false" afterPath="$PROJECT_DIR$/dist/client/apis/BillingAPI.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/client/apis/CaptchaAPI.js" beforeDir="false" afterPath="$PROJECT_DIR$/dist/client/apis/CaptchaAPI.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/client/apis/CatalogAPI.js" beforeDir="false" afterPath="$PROJECT_DIR$/dist/client/apis/CatalogAPI.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/client/apis/ChatAPI.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/dist/client/apis/ChatAPI.d.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/client/apis/ChatAPI.js" beforeDir="false" afterPath="$PROJECT_DIR$/dist/client/apis/ChatAPI.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/client/apis/ContactsAPI.js" beforeDir="false" afterPath="$PROJECT_DIR$/dist/client/apis/ContactsAPI.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/client/apis/DevelopAPI.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/dist/client/apis/DevelopAPI.d.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/client/apis/DevelopAPI.js" beforeDir="false" afterPath="$PROJECT_DIR$/dist/client/apis/DevelopAPI.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/client/apis/EconomyAPI.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/dist/client/apis/EconomyAPI.d.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/client/apis/EconomyAPI.js" beforeDir="false" afterPath="$PROJECT_DIR$/dist/client/apis/EconomyAPI.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/client/apis/EconomyCreatorStatsAPI.js" beforeDir="false" afterPath="$PROJECT_DIR$/dist/client/apis/EconomyCreatorStatsAPI.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/client/apis/EngagementPayoutsAPI.js" beforeDir="false" afterPath="$PROJECT_DIR$/dist/client/apis/EngagementPayoutsAPI.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/client/apis/FollowingsAPI.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/dist/client/apis/FollowingsAPI.d.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/client/apis/FollowingsAPI.js" beforeDir="false" afterPath="$PROJECT_DIR$/dist/client/apis/FollowingsAPI.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/client/apis/FriendsAPI.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/dist/client/apis/FriendsAPI.d.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/client/apis/FriendsAPI.js" beforeDir="false" afterPath="$PROJECT_DIR$/dist/client/apis/FriendsAPI.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/client/apis/GameInternationalizationAPI.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/dist/client/apis/GameInternationalizationAPI.d.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/client/apis/GameInternationalizationAPI.js" beforeDir="false" afterPath="$PROJECT_DIR$/dist/client/apis/GameInternationalizationAPI.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/client/apis/GamesAPI.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/dist/client/apis/GamesAPI.d.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/client/apis/GamesAPI.js" beforeDir="false" afterPath="$PROJECT_DIR$/dist/client/apis/GamesAPI.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/client/apis/GeneralAPI.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/dist/client/apis/GeneralAPI.d.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/client/apis/GeneralAPI.js" beforeDir="false" afterPath="$PROJECT_DIR$/dist/client/apis/GeneralAPI.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/client/apis/GroupsAPI.js" beforeDir="false" afterPath="$PROJECT_DIR$/dist/client/apis/GroupsAPI.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/client/apis/InventoryAPI.js" beforeDir="false" afterPath="$PROJECT_DIR$/dist/client/apis/InventoryAPI.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/client/apis/ItemConfigurationAPI.js" beforeDir="false" afterPath="$PROJECT_DIR$/dist/client/apis/ItemConfigurationAPI.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/client/apis/LocaleAPI.js" beforeDir="false" afterPath="$PROJECT_DIR$/dist/client/apis/LocaleAPI.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/client/apis/MetricsAPI.js" beforeDir="false" afterPath="$PROJECT_DIR$/dist/client/apis/MetricsAPI.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/client/apis/NotificationsAPI.js" beforeDir="false" afterPath="$PROJECT_DIR$/dist/client/apis/NotificationsAPI.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/client/apis/OtherAPI.js" beforeDir="false" afterPath="$PROJECT_DIR$/dist/client/apis/OtherAPI.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/client/apis/PremiumFeaturesAPI.js" beforeDir="false" afterPath="$PROJECT_DIR$/dist/client/apis/PremiumFeaturesAPI.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/client/apis/PresenceAPI.js" beforeDir="false" afterPath="$PROJECT_DIR$/dist/client/apis/PresenceAPI.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/client/apis/PrivateMessagesAPI.js" beforeDir="false" afterPath="$PROJECT_DIR$/dist/client/apis/PrivateMessagesAPI.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/client/apis/PublishAPI.js" beforeDir="false" afterPath="$PROJECT_DIR$/dist/client/apis/PublishAPI.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/client/apis/ThumbnailsAPI.js" beforeDir="false" afterPath="$PROJECT_DIR$/dist/client/apis/ThumbnailsAPI.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/client/apis/TradesAPI.js" beforeDir="false" afterPath="$PROJECT_DIR$/dist/client/apis/TradesAPI.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/client/apis/TranslationRolesAPI.js" beforeDir="false" afterPath="$PROJECT_DIR$/dist/client/apis/TranslationRolesAPI.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/client/apis/UsersAPI.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/dist/client/apis/UsersAPI.d.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/client/apis/UsersAPI.js" beforeDir="false" afterPath="$PROJECT_DIR$/dist/client/apis/UsersAPI.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/client/lib/ClientSocket/handlers/chatNotifications.js" beforeDir="false" afterPath="$PROJECT_DIR$/dist/client/lib/ClientSocket/handlers/chatNotifications.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/controllers/rest/Request/prepare.js" beforeDir="false" afterPath="$PROJECT_DIR$/dist/controllers/rest/Request/prepare.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/controllers/rest/lib/updateXCSRFToken.js" beforeDir="false" afterPath="$PROJECT_DIR$/dist/controllers/rest/lib/updateXCSRFToken.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/interfaces/RESTInterfaces.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/dist/interfaces/RESTInterfaces.d.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/structures/asset/AssetVersion.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/dist/structures/asset/AssetVersion.d.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/structures/asset/AssetVersion.js" beforeDir="false" afterPath="$PROJECT_DIR$/dist/structures/asset/AssetVersion.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/structures/asset/CursorPage.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/dist/structures/asset/CursorPage.d.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/structures/asset/CursorPage.js" beforeDir="false" afterPath="$PROJECT_DIR$/dist/structures/asset/CursorPage.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/structures/chat/ChatConversation.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/dist/structures/chat/ChatConversation.d.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/structures/chat/ChatConversation.js" beforeDir="false" afterPath="$PROJECT_DIR$/dist/structures/chat/ChatConversation.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/structures/game/GameUniverse.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/dist/structures/game/GameUniverse.d.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/structures/game/GameUniverse.js" beforeDir="false" afterPath="$PROJECT_DIR$/dist/structures/game/GameUniverse.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/structures/game/PartialGameUniverse.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/dist/structures/game/PartialGameUniverse.d.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/structures/game/Place.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/dist/structures/game/Place.d.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/structures/game/Place.js" beforeDir="false" afterPath="$PROJECT_DIR$/dist/structures/game/Place.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/structures/group/GroupBase.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/dist/structures/group/GroupBase.d.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/structures/group/GroupBase.js" beforeDir="false" afterPath="$PROJECT_DIR$/dist/structures/group/GroupBase.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/structures/user/UserBase.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/dist/structures/user/UserBase.d.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/structures/user/UserBase.js" beforeDir="false" afterPath="$PROJECT_DIR$/dist/structures/user/UserBase.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/util/errors/errors.js" beforeDir="false" afterPath="$PROJECT_DIR$/dist/util/errors/errors.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/client/apis/AccountSettingsAPI.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/client/apis/AccountSettingsAPI.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/client/apis/AdConfigurationAPI.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/client/apis/AdConfigurationAPI.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/client/apis/AdsAPI.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/client/apis/AdsAPI.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/client/apis/AssetDeliveryAPI.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/client/apis/AssetDeliveryAPI.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/client/apis/AuthAPI.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/client/apis/AuthAPI.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/client/apis/AvatarAPI.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/client/apis/AvatarAPI.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/client/apis/BadgesAPI.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/client/apis/BadgesAPI.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/client/apis/BaseAPI.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/client/apis/BaseAPI.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/client/apis/BillingAPI.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/client/apis/BillingAPI.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/client/apis/CaptchaAPI.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/client/apis/CaptchaAPI.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/client/apis/EconomyCreatorStatsAPI.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/client/apis/EconomyCreatorStatsAPI.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/client/apis/EngagementPayoutsAPI.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/client/apis/EngagementPayoutsAPI.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/client/apis/GroupsAPI.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/client/apis/GroupsAPI.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/client/apis/InventoryAPI.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/client/apis/InventoryAPI.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/client/apis/ItemConfigurationAPI.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/client/apis/ItemConfigurationAPI.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/client/apis/LocaleAPI.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/client/apis/LocaleAPI.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/client/apis/MetricsAPI.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/client/apis/MetricsAPI.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/client/apis/NotificationsAPI.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/client/apis/NotificationsAPI.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/client/apis/OtherAPI.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/client/apis/OtherAPI.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/client/apis/PremiumFeaturesAPI.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/client/apis/PremiumFeaturesAPI.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/client/apis/PresenceAPI.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/client/apis/PresenceAPI.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/client/apis/PrivateMessagesAPI.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/client/apis/PrivateMessagesAPI.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/client/apis/PublishAPI.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/client/apis/PublishAPI.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/client/apis/ThumbnailsAPI.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/client/apis/ThumbnailsAPI.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/client/apis/TradesAPI.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/client/apis/TradesAPI.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/client/apis/TranslationRolesAPI.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/client/apis/TranslationRolesAPI.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/client/Client.d.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/client/Client.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/client/ClientBase.d.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/client/ClientBase.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/client/apis/AccountInformationAPI.d.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/client/apis/AccountInformationAPI.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/client/apis/AccountSettingsAPI.d.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/client/apis/AccountSettingsAPI.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/client/apis/AdConfiguration.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/tests/apis/AccountInformationAPI.test.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/client/apis/AdConfiguration.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/client/apis/AdConfigurationAPI.d.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/client/apis/AdConfigurationAPI.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/client/apis/AdsAPI.d.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/client/apis/AdsAPI.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/client/apis/AssetDeliveryAPI.d.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/client/apis/AssetDeliveryAPI.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/client/apis/AuthAPI.d.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/client/apis/AuthAPI.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/client/apis/AvatarAPI.d.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/client/apis/AvatarAPI.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/client/apis/BadgesAPI.d.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/client/apis/BadgesAPI.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/client/apis/BaseAPI.d.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/client/apis/BaseAPI.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/client/apis/BillingAPI.d.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/client/apis/BillingAPI.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/client/apis/CaptchaAPI.d.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/client/apis/CaptchaAPI.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/client/apis/CatalogAPI.d.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/client/apis/CatalogAPI.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/client/apis/ChatAPI.d.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/client/apis/ChatAPI.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/client/apis/ContactsAPI.d.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/client/apis/ContactsAPI.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/client/apis/DevelopAPI.d.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/client/apis/DevelopAPI.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/client/apis/EconomyAPI.d.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/client/apis/EconomyAPI.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/client/apis/EconomyCreatorStatsAPI.d.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/client/apis/EconomyCreatorStatsAPI.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/client/apis/EngagementPayoutsAPI.d.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/client/apis/EngagementPayoutsAPI.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/client/apis/FollowingsAPI.d.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/client/apis/FollowingsAPI.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/client/apis/FriendsAPI.d.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/client/apis/FriendsAPI.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/client/apis/GameInternationalizationAPI.d.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/client/apis/GameInternationalizationAPI.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/client/apis/GamesAPI.d.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/client/apis/GamesAPI.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/client/apis/GeneralAPI.d.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/client/apis/GeneralAPI.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/client/apis/GroupsAPI.d.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/client/apis/GroupsAPI.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/client/apis/InventoryAPI.d.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/client/apis/InventoryAPI.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/client/apis/ItemConfigurationAPI.d.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/client/apis/ItemConfigurationAPI.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/client/apis/LocaleAPI.d.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/client/apis/LocaleAPI.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/client/apis/MetricsAPI.d.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/client/apis/MetricsAPI.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/client/apis/NotificationsAPI.d.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/client/apis/NotificationsAPI.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/client/apis/OtherAPI.d.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/client/apis/OtherAPI.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/client/apis/PremiumFeaturesAPI.d.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/client/apis/PremiumFeaturesAPI.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/client/apis/PresenceAPI.d.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/client/apis/PresenceAPI.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/client/apis/PrivateMessagesAPI.d.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/client/apis/PrivateMessagesAPI.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/client/apis/PublishAPI.d.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/client/apis/PublishAPI.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/client/apis/ThumbnailsAPI.d.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/client/apis/ThumbnailsAPI.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/client/apis/TradesAPI.d.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/client/apis/TradesAPI.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/client/apis/TranslationRolesAPI.d.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/client/apis/TranslationRolesAPI.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/client/apis/UsersAPI.d.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/client/apis/UsersAPI.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/client/apis/index.d.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/client/apis/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/client/index.d.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/client/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/client/lib/ClientSocket.d.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/client/lib/ClientSocket.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/client/lib/ClientSocket/ClientSocket.d.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/client/lib/ClientSocket/ClientSocket.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/client/lib/ClientSocket/handlers/chatNotifications.d.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/client/lib/ClientSocket/handlers/chatNotifications.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/client/lib/ClientSocket/handlers/index.d.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/client/lib/ClientSocket/handlers/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/client/lib/ClientSocket/index.d.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/client/lib/ClientSocket/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/client/methods/login.d.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/client/methods/login.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/client/methods/websocket/ClientSocket.d.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/client/methods/websocket/ClientSocket.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/client/methods/websocket/Socket.d.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/client/methods/websocket/Socket.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/client/methods/websocket/connect.d.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/client/methods/websocket/connect.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/client/methods/websocket/index.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/tests/getCookie.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/client/methods/websocket/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/controllers/index.d.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/controllers/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/controllers/rest/RESTController.d.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/controllers/rest/RESTController.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/controllers/rest/Request/RESTRequest.d.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/controllers/rest/Request/RESTRequest.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/controllers/rest/Request/index.d.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/controllers/rest/Request/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/controllers/rest/Request/prepare.d.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/controllers/rest/Request/prepare.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/controllers/rest/Response/RESTResponse.d.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/controllers/rest/Response/RESTResponse.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/controllers/rest/Response/handlers/index.d.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/controllers/rest/Response/handlers/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/controllers/rest/Response/handlers/validBody.d.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/controllers/rest/Response/handlers/validBody.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/controllers/rest/Response/handlers/validStatus.d.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/controllers/rest/Response/handlers/validStatus.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/controllers/rest/Response/handlers/validStatusCode.d.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/controllers/rest/Response/handlers/validStatusCode.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/controllers/rest/Response/index.d.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/controllers/rest/Response/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/controllers/rest/index.d.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/controllers/rest/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/controllers/rest/lib/updateXCSRFToken.d.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/controllers/rest/lib/updateXCSRFToken.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/index.d.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/interfaces/APIInterfaces.d.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/interfaces/APIInterfaces.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/interfaces/ClientInterfaces.d.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/interfaces/ClientInterfaces.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/interfaces/GeneralInterfaces.d.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/interfaces/GeneralInterfaces.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/interfaces/RESTInterfaces.d.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/interfaces/RESTInterfaces.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/structures/ClientUser.d.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/structures/ClientUser.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/structures/asset/AssetVersion.d.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/structures/asset/AssetVersion.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/structures/asset/Bundle.d.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/structures/asset/Bundle.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/structures/asset/CollectibleAsset.d.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/structures/asset/CollectibleAsset.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/structures/asset/CursorPage.d.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/structures/asset/CursorPage.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/structures/asset/Product.d.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/structures/asset/Product.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/structures/asset/Trade.d.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/structures/asset/Trade.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/structures/chat/ChatConversation.d.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/structures/chat/ChatConversation.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/structures/chat/ChatMessage.d.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/structures/chat/ChatMessage.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/structures/chat/ChatMessageSent.d.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/structures/chat/ChatMessageSent.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/structures/chat/PartialChatConversation.d.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/structures/chat/PartialChatConversation.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/structures/game/GameBadge.d.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/structures/game/GameBadge.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/structures/game/GameMediaData.d.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/structures/game/GameMediaData.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/structures/game/GamePass.d.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/structures/game/GamePass.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/structures/game/GameUniverse.d.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/structures/game/GameUniverse.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/structures/game/PartialGameUniverse.d.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/structures/game/PartialGameUniverse.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/structures/game/PartialPlace.d.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/structures/game/PartialPlace.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/structures/game/Place.d.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/structures/game/Place.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/structures/game/VIPServer.d.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/structures/game/VIPServer.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/structures/group/Group.d.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/structures/group/Group.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/structures/group/GroupBase.d.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/structures/group/GroupBase.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/structures/group/GroupJoinRequest.d.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/structures/group/GroupJoinRequest.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/structures/group/GroupMember.d.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/structures/group/GroupMember.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/structures/group/GroupRole.d.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/structures/group/GroupRole.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/structures/group/GroupRolePermissions.d.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/structures/group/GroupRolePermissions.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/structures/group/GroupShout.d.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/structures/group/GroupShout.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/structures/group/GroupWallPost.d.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/structures/group/GroupWallPost.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/structures/group/PartialGroup.d.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/structures/group/PartialGroup.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/structures/index.d.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/structures/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/structures/user/FriendRequest.d.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/structures/user/FriendRequest.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/structures/user/PartialUser.d.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/structures/user/PartialUser.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/structures/user/User.d.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/structures/user/User.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/structures/user/UserBase.d.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/structures/user/UserBase.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/tests/test.d.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/tests/test.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/util/constants.d.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/util/constants.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/util/converter.d.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/util/converter.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/util/errors/errors.d.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/util/errors/errors.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/util/errors/index.d.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/util/errors/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/util/errors/messages.d.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/util/errors/messages.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/client/Client.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/client/Client.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/client/ClientBase.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/client/ClientBase.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/client/apis/UsersAPI.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/client/apis/UsersAPI.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/client/lib/ClientSocket/handlers/chatNotifications.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/client/lib/ClientSocket/handlers/chatNotifications.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/controllers/rest/lib/updateXCSRFToken.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/controllers/rest/lib/updateXCSRFToken.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/controllers/rest/request/prepare.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/controllers/rest/request/prepare.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/interfaces/RESTInterfaces.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/interfaces/RESTInterfaces.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/structures/asset/AssetVersion.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/structures/asset/AssetVersion.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/structures/asset/CursorPage.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/structures/asset/CursorPage.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/structures/chat/ChatConversation.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/structures/chat/ChatConversation/ChatConversation.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/structures/chat/ChatMessage.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/structures/chat/ChatMessage/ChatMessage.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/structures/chat/ChatMessageSent.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/structures/chat/ChatMessage/ChatMessageSent.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/structures/chat/PartialChatConversation.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/structures/chat/ChatConversation/PartialChatConversation.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/structures/game/GameBadge.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/structures/game/GameBadge/GameBadge.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/structures/game/GamePass.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/structures/game/GamePass/GamePass.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/structures/game/GameUniverse.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/structures/game/GameUniverse/GameUniverse.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/structures/game/PartialGameUniverse.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/structures/game/GameUniverse/PartialGameUniverse.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/structures/game/PartialPlace.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/structures/game/GameUniverse/PartialPlace.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/structures/game/Place.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/structures/game/GameUniverse/Place.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/structures/game/VIPServer.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/structures/game/VIPServer/VIPServer.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/structures/group/GroupBase.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/structures/group/GroupBase.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/structures/user/PartialUser.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/structures/user/PartialUser.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/structures/user/UserBase.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/structures/user/UserBase.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/util/errors/errors.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/util/errors/errors.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/client/methods/login.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/controllers/rest/RESTController.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/controllers/rest/RESTController.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/interfaces/ClientInterfaces.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/structures/ClientUser.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/structures/ClientUser.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/client.test.js" beforeDir="false" afterPath="$PROJECT_DIR$/tests/client.test.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tests/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/tests/index.js" afterDir="false" />
     </list>
-    <list id="2baa7156-334f-4736-a7ad-c82d073ffac9" name="Revert &quot;Added Auth API&quot;" comment="Revert &quot;Added Auth API&quot;&#10;&#10;This reverts commit 80c65c6b">
-      <change beforePath="$PROJECT_DIR$/dist/client/apis/AccountSettingsAPI.js" beforeDir="false" afterPath="$PROJECT_DIR$/dist/client/apis/AccountSettingsAPI.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/client/apis/AccountSettingsAPI.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/client/apis/AccountSettingsAPI.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/client/apis/AuthAPI.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/client/apis/AuthAPI.ts" afterDir="false" />
-    </list>
+    <list id="2baa7156-334f-4736-a7ad-c82d073ffac9" name="Revert &quot;Added Auth API&quot;" comment="Revert &quot;Added Auth API&quot;&#10;&#10;This reverts commit 80c65c6b" />
     <list id="79d16524-19f3-4d6c-9b53-cc0c67aa0aac" name="Revert &quot;Added Auth API&quot;-2" comment="Revert &quot;Added Auth API&quot;&#10;&#10;This reverts commit 80c65c6b" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -162,8 +267,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="JavaScript File" />
         <option value="TypeScript File" />
+        <option value="JavaScript File" />
       </list>
     </option>
   </component>
@@ -180,65 +285,6 @@
     <exe-path />
     <other-services-enabled>true</other-services-enabled>
     <auto-save>true</auto-save>
-  </component>
-  <component name="LineStatusTrackerManager">
-    <file path="$PROJECT_DIR$/src/client/apis/AuthAPI.ts">
-      <ranges>
-        <range start1="2" end1="3" start2="2" end2="2" changelist="a85767c4-bfb1-401b-832d-4f10d57a6f3a" />
-        <range start1="16" end1="17" start2="15" end2="20" changelist="2baa7156-334f-4736-a7ad-c82d073ffac9" />
-        <range start1="50" end1="51" start2="53" end2="58" changelist="a85767c4-bfb1-401b-832d-4f10d57a6f3a" />
-        <range start1="55" end1="56" start2="62" end2="63" changelist="a85767c4-bfb1-401b-832d-4f10d57a6f3a" />
-        <range start1="112" end1="113" start2="119" end2="121" changelist="a85767c4-bfb1-401b-832d-4f10d57a6f3a" />
-        <range start1="214" end1="215" start2="222" end2="223" changelist="a85767c4-bfb1-401b-832d-4f10d57a6f3a" />
-        <range start1="229" end1="233" start2="237" end2="238" changelist="a85767c4-bfb1-401b-832d-4f10d57a6f3a" />
-        <range start1="246" end1="247" start2="251" end2="252" changelist="a85767c4-bfb1-401b-832d-4f10d57a6f3a" />
-        <range start1="264" end1="265" start2="269" end2="270" changelist="a85767c4-bfb1-401b-832d-4f10d57a6f3a" />
-        <range start1="279" end1="280" start2="284" end2="285" changelist="a85767c4-bfb1-401b-832d-4f10d57a6f3a" />
-        <range start1="292" end1="293" start2="297" end2="298" changelist="a85767c4-bfb1-401b-832d-4f10d57a6f3a" />
-        <range start1="305" end1="306" start2="310" end2="311" changelist="a85767c4-bfb1-401b-832d-4f10d57a6f3a" />
-        <range start1="322" end1="325" start2="327" end2="328" changelist="a85767c4-bfb1-401b-832d-4f10d57a6f3a" />
-        <range start1="339" end1="345" start2="342" end2="343" changelist="a85767c4-bfb1-401b-832d-4f10d57a6f3a" />
-        <range start1="361" end1="362" start2="359" end2="360" changelist="a85767c4-bfb1-401b-832d-4f10d57a6f3a" />
-        <range start1="376" end1="377" start2="374" end2="375" changelist="a85767c4-bfb1-401b-832d-4f10d57a6f3a" />
-        <range start1="391" end1="397" start2="389" end2="390" changelist="a85767c4-bfb1-401b-832d-4f10d57a6f3a" />
-        <range start1="411" end1="412" start2="404" end2="405" changelist="a85767c4-bfb1-401b-832d-4f10d57a6f3a" />
-        <range start1="424" end1="425" start2="417" end2="418" changelist="a85767c4-bfb1-401b-832d-4f10d57a6f3a" />
-        <range start1="440" end1="447" start2="433" end2="434" changelist="a85767c4-bfb1-401b-832d-4f10d57a6f3a" />
-        <range start1="461" end1="462" start2="448" end2="449" changelist="a85767c4-bfb1-401b-832d-4f10d57a6f3a" />
-        <range start1="474" end1="475" start2="461" end2="462" changelist="a85767c4-bfb1-401b-832d-4f10d57a6f3a" />
-        <range start1="485" end1="486" start2="472" end2="473" changelist="a85767c4-bfb1-401b-832d-4f10d57a6f3a" />
-        <range start1="498" end1="499" start2="485" end2="486" changelist="a85767c4-bfb1-401b-832d-4f10d57a6f3a" />
-        <range start1="513" end1="514" start2="500" end2="501" changelist="a85767c4-bfb1-401b-832d-4f10d57a6f3a" />
-        <range start1="528" end1="529" start2="515" end2="516" changelist="a85767c4-bfb1-401b-832d-4f10d57a6f3a" />
-        <range start1="544" end1="545" start2="531" end2="532" changelist="a85767c4-bfb1-401b-832d-4f10d57a6f3a" />
-        <range start1="562" end1="563" start2="549" end2="550" changelist="a85767c4-bfb1-401b-832d-4f10d57a6f3a" />
-        <range start1="576" end1="577" start2="563" end2="564" changelist="a85767c4-bfb1-401b-832d-4f10d57a6f3a" />
-        <range start1="591" end1="597" start2="578" end2="579" changelist="a85767c4-bfb1-401b-832d-4f10d57a6f3a" />
-        <range start1="611" end1="612" start2="593" end2="594" changelist="a85767c4-bfb1-401b-832d-4f10d57a6f3a" />
-      </ranges>
-    </file>
-    <file path="$PROJECT_DIR$/src/client/apis/AccountSettingsAPI.ts">
-      <ranges>
-        <range start1="142" end1="143" start2="142" end2="143" changelist="a85767c4-bfb1-401b-832d-4f10d57a6f3a" />
-        <range start1="159" end1="160" start2="159" end2="160" changelist="a85767c4-bfb1-401b-832d-4f10d57a6f3a" />
-        <range start1="174" end1="175" start2="174" end2="175" changelist="a85767c4-bfb1-401b-832d-4f10d57a6f3a" />
-        <range start1="187" end1="188" start2="187" end2="188" changelist="a85767c4-bfb1-401b-832d-4f10d57a6f3a" />
-        <range start1="202" end1="203" start2="202" end2="203" changelist="a85767c4-bfb1-401b-832d-4f10d57a6f3a" />
-        <range start1="215" end1="216" start2="215" end2="216" changelist="a85767c4-bfb1-401b-832d-4f10d57a6f3a" />
-        <range start1="230" end1="231" start2="230" end2="231" changelist="a85767c4-bfb1-401b-832d-4f10d57a6f3a" />
-        <range start1="243" end1="244" start2="243" end2="244" changelist="a85767c4-bfb1-401b-832d-4f10d57a6f3a" />
-        <range start1="258" end1="259" start2="258" end2="259" changelist="a85767c4-bfb1-401b-832d-4f10d57a6f3a" />
-        <range start1="406" end1="407" start2="406" end2="407" changelist="2baa7156-334f-4736-a7ad-c82d073ffac9" />
-        <range start1="420" end1="421" start2="420" end2="421" changelist="2baa7156-334f-4736-a7ad-c82d073ffac9" />
-        <range start1="434" end1="435" start2="434" end2="435" changelist="2baa7156-334f-4736-a7ad-c82d073ffac9" />
-        <range start1="448" end1="449" start2="448" end2="449" changelist="2baa7156-334f-4736-a7ad-c82d073ffac9" />
-        <range start1="462" end1="463" start2="462" end2="463" changelist="2baa7156-334f-4736-a7ad-c82d073ffac9" />
-        <range start1="476" end1="477" start2="476" end2="477" changelist="2baa7156-334f-4736-a7ad-c82d073ffac9" />
-        <range start1="489" end1="490" start2="489" end2="490" changelist="2baa7156-334f-4736-a7ad-c82d073ffac9" />
-        <range start1="503" end1="504" start2="503" end2="504" changelist="2baa7156-334f-4736-a7ad-c82d073ffac9" />
-        <range start1="522" end1="523" start2="522" end2="523" changelist="2baa7156-334f-4736-a7ad-c82d073ffac9" />
-      </ranges>
-    </file>
   </component>
   <component name="ProjectId" id="1cH4g46NmS18gtAve6a84oyJMLB" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
@@ -293,18 +339,15 @@
       <command value="npm run build" />
     </option>
   </component>
-  <component name="RunManager" selected="Node.js.index.js">
-    <configuration name="testing client" type="JavaScriptTestRunnerJest" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="Jest.client.test.js">
+    <configuration name="client.test.js" type="JavaScriptTestRunnerJest" temporary="true" nameIsGenerated="true">
       <node-interpreter value="project" />
       <node-options value="" />
       <jest-package value="$PROJECT_DIR$/node_modules/jest" />
       <working-dir value="$PROJECT_DIR$" />
       <envs />
-      <scope-kind value="SUITE" />
+      <scope-kind value="TEST_FILE" />
       <test-file value="$PROJECT_DIR$/tests/client.test.js" />
-      <test-names>
-        <test-name value="testing client" />
-      </test-names>
       <method v="2" />
     </configuration>
     <configuration name="testing login function of client.should error because invalid cookie" type="JavaScriptTestRunnerJest" temporary="true" nameIsGenerated="true">
@@ -351,17 +394,17 @@
     <list>
       <item itemvalue="Jest.testing login function of client.should error because invalid cookie" />
       <item itemvalue="Jest.testing login function of client.should error because only username is provided" />
-      <item itemvalue="Jest.testing client" />
       <item itemvalue="Node.js.index.js" />
       <item itemvalue="npm.build" />
+      <item itemvalue="Jest.client.test.js" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Jest.client.test.js" />
         <item itemvalue="Node.js.index.js" />
         <item itemvalue="npm.build" />
         <item itemvalue="Jest.testing login function of client.should error because only username is provided" />
         <item itemvalue="Jest.testing login function of client.should error because invalid cookie" />
-        <item itemvalue="Jest.testing client" />
       </list>
     </recent_temporary>
   </component>
@@ -396,7 +439,7 @@
       <workItem from="1595084752128" duration="28000" />
       <workItem from="1596386138630" duration="34000" />
       <workItem from="1596386190672" duration="1720000" />
-      <workItem from="1596455022459" duration="10907000" />
+      <workItem from="1596455022459" duration="14960000" />
     </task>
     <task id="LOCAL−00001" summary="Updated">
       <created>1596387076571</created>
@@ -540,10 +583,10 @@
     </state>
     <state x="640" y="275" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog/-1920.0.1920.1050/1920.0.1920.1050/0.0.1920.1050@0.0.1920.1050" timestamp="1594638848661" />
     <state x="640" y="275" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog/0.0.1920.1050/-1920.0.1920.1050/1920.0.1920.1050@0.0.1920.1050" timestamp="1590175440963" />
-    <state x="690" y="287" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1590250820339">
+    <state x="690" y="287" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1596479326184">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
-    <state x="690" y="287" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1920.1050/-1920.0.1920.1050/1920.0.1920.1050@0.0.1920.1050" timestamp="1590250820339" />
+    <state x="690" y="287" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1920.1050/-1920.0.1920.1050/1920.0.1920.1050@0.0.1920.1050" timestamp="1596479326184" />
     <state x="653" y="185" key="#testing_creation_of_client" timestamp="1590231946896">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
@@ -560,22 +603,22 @@
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
     <state x="739" y="267" key="FileChooserDialogImpl/-1920.0.1920.1050/1920.0.1920.1050/0.0.1920.1050@0.0.1920.1050" timestamp="1594638929773" />
-    <state width="1898" height="326" key="GridCell.Tab.0.bottom" timestamp="1596469661796">
+    <state width="1898" height="326" key="GridCell.Tab.0.bottom" timestamp="1596479069248">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
-    <state width="1898" height="326" key="GridCell.Tab.0.bottom/0.0.1920.1050/-1920.0.1920.1050/1920.0.1920.1050@0.0.1920.1050" timestamp="1596469661796" />
-    <state width="1898" height="326" key="GridCell.Tab.0.center" timestamp="1596469661795">
+    <state width="1898" height="326" key="GridCell.Tab.0.bottom/0.0.1920.1050/-1920.0.1920.1050/1920.0.1920.1050@0.0.1920.1050" timestamp="1596479069248" />
+    <state width="1898" height="326" key="GridCell.Tab.0.center" timestamp="1596479069248">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
-    <state width="1898" height="326" key="GridCell.Tab.0.center/0.0.1920.1050/-1920.0.1920.1050/1920.0.1920.1050@0.0.1920.1050" timestamp="1596469661795" />
-    <state width="1898" height="326" key="GridCell.Tab.0.left" timestamp="1596469661795">
+    <state width="1898" height="326" key="GridCell.Tab.0.center/0.0.1920.1050/-1920.0.1920.1050/1920.0.1920.1050@0.0.1920.1050" timestamp="1596479069248" />
+    <state width="1898" height="326" key="GridCell.Tab.0.left" timestamp="1596479069248">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
-    <state width="1898" height="326" key="GridCell.Tab.0.left/0.0.1920.1050/-1920.0.1920.1050/1920.0.1920.1050@0.0.1920.1050" timestamp="1596469661795" />
-    <state width="1898" height="326" key="GridCell.Tab.0.right" timestamp="1596469661796">
+    <state width="1898" height="326" key="GridCell.Tab.0.left/0.0.1920.1050/-1920.0.1920.1050/1920.0.1920.1050@0.0.1920.1050" timestamp="1596479069248" />
+    <state width="1898" height="326" key="GridCell.Tab.0.right" timestamp="1596479069248">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
-    <state width="1898" height="326" key="GridCell.Tab.0.right/0.0.1920.1050/-1920.0.1920.1050/1920.0.1920.1050@0.0.1920.1050" timestamp="1596469661796" />
+    <state width="1898" height="326" key="GridCell.Tab.0.right/0.0.1920.1050/-1920.0.1920.1050/1920.0.1920.1050@0.0.1920.1050" timestamp="1596479069248" />
     <state width="1399" height="344" key="GridCell.Tab.1.bottom" timestamp="1590265494502">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
@@ -636,14 +679,14 @@
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
     <state x="757" y="159" key="RollbackChangesDialog/0.0.1920.1050/-1920.0.1920.1050/1920.0.1920.1050@0.0.1920.1050" timestamp="1596386716949" />
-    <state x="461" y="182" key="SettingsEditor" timestamp="1596469409537">
+    <state x="461" y="182" key="SettingsEditor" timestamp="1596479646071">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
-    <state x="461" y="182" key="SettingsEditor/0.0.1920.1050/-1920.0.1920.1050/1920.0.1920.1050@0.0.1920.1050" timestamp="1596469409537" />
-    <state width="498" height="446" key="SwitcherDM" timestamp="1596471774129">
+    <state x="461" y="182" key="SettingsEditor/0.0.1920.1050/-1920.0.1920.1050/1920.0.1920.1050@0.0.1920.1050" timestamp="1596479646071" />
+    <state width="498" height="446" key="SwitcherDM" timestamp="1596479672843">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
-    <state width="498" height="446" key="SwitcherDM/0.0.1920.1050/-1920.0.1920.1050/1920.0.1920.1050@0.0.1920.1050" timestamp="1596471774129" />
+    <state width="498" height="446" key="SwitcherDM/0.0.1920.1050/-1920.0.1920.1050/1920.0.1920.1050@0.0.1920.1050" timestamp="1596479672843" />
     <state x="832" y="384" key="cloudConfig.SelfSettingsDialog" timestamp="1594938862818">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
@@ -668,10 +711,10 @@
       <screen x="-1920" y="0" width="1920" height="1050" />
     </state>
     <state x="-967" y="0" width="974" height="1057" key="dock-window-3/0.0.1920.1050/-1920.0.1920.1050/1920.0.1920.1050@0.0.1920.1050" timestamp="1590243202998" />
-    <state x="668" y="115" width="583" height="849" key="find.popup" timestamp="1596472399007">
+    <state x="668" y="115" width="583" height="849" key="find.popup" timestamp="1596480517020">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
-    <state x="668" y="115" width="583" height="849" key="find.popup/0.0.1920.1050/-1920.0.1920.1050/1920.0.1920.1050@0.0.1920.1050" timestamp="1596472399007" />
+    <state x="668" y="115" width="583" height="849" key="find.popup/0.0.1920.1050/-1920.0.1920.1050/1920.0.1920.1050@0.0.1920.1050" timestamp="1596480517020" />
     <state x="609" y="274" width="700" height="530" key="recent.locations.popup" timestamp="1594935992169">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>

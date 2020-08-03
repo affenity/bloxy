@@ -1,14 +1,16 @@
 const { Client } = require("../dist");
+const cookie = require("./getCookie");
 
 
 const client = new Client();
 
 (async () => {
-    const users = await client.apis.usersAPI.getUsersByUsernames({
-        usernames: [
-            "astralscripters"
-        ]
-    })
+    const clientUser = await client.login(
+        cookie
+    );
 
-    console.log(users);
+    const user = await clientUser.getUser();
+    const data = await client.apis.badgesAPI.getUserBadges({
+        userId: 18442032
+    });
 })();

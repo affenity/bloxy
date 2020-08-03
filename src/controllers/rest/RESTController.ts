@@ -200,7 +200,7 @@ class RESTController {
      * Initiates the RESTController
      */
     init (): void {
-        console.log("init called");
+
     }
 }
 
