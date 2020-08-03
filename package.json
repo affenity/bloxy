@@ -1,6 +1,6 @@
 {
   "name": "bloxy",
-  "version": "4.0.0-alpha4",
+  "version": "4.0.0",
   "description": "A Node.JS library for interacting with the Roblox website and its API.",
   "main": "./dist/index.js",
   "scripts": {
