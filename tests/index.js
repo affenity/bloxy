@@ -6,5 +6,5 @@ const client = new Client();
 
 (async () => {
     const user = await client.login(cookie);
-    console.log(user);
+    user.sendTrade({})
 })();
