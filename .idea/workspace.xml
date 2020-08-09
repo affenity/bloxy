@@ -26,14 +26,62 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a85767c4-bfb1-401b-832d-4f10d57a6f3a" name="Default Changelist" comment="Updated CatalogAPI.ts to remove response modifications">
-      <change afterPath="$PROJECT_DIR$/src/client/lib/ClientSocket/handlers/friendShipnotifications.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/client/lib/ClientSocket/handlers/messageNotifications.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/client/lib/ClientSocket/handlers/presenceBulkNotifications.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/structures/Asset.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/structures/Chat.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/structures/Game.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/structures/Group.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/structures/User.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/client/Client.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/client/Client.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/client/apis/AccountSettingsAPI.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/client/apis/AccountSettingsAPI.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/client/apis/BadgesAPI.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/client/apis/BadgesAPI.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/client/apis/ChatAPI.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/client/apis/ChatAPI.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/client/apis/DevelopAPI.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/client/apis/DevelopAPI.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/client/apis/FriendsAPI.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/client/apis/FriendsAPI.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/client/apis/GamesAPI.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/client/apis/GamesAPI.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/client/apis/GeneralAPI.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/client/apis/GeneralAPI.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/client/apis/GroupsAPI.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/client/apis/GroupsAPI.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/client/lib/ClientSocket/ClientSocket.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/client/lib/ClientSocket/ClientSocket.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/client/lib/ClientSocket/handlers/chatNotifications.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/client/lib/ClientSocket/handlers/chatNotifications.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/client/lib/ClientSocket/handlers/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/client/lib/ClientSocket/handlers/index.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/client/lib/ClientSocket/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/client/lib/ClientSocket/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/client/lib/ClientSocket/handlers/friendShipnotifications.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/client/lib/ClientSocket/handlers/friendShipnotifications.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/client/lib/ClientSocket/handlers/presenceBulkNotifications.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/client/lib/ClientSocket/handlers/presenceBulkNotifications.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/structures/ClientUser.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/structures/ClientUser.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/structures/asset/AssetVersion.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/structures/asset/Bundle.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/structures/asset/CollectibleAsset.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/structures/asset/CursorPage.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/structures/asset/Product.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/structures/asset/Trade.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/structures/chat/ChatConversation/ChatConversation.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/structures/chat/ChatConversation/PartialChatConversation.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/structures/chat/ChatMessage/ChatMessage.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/structures/chat/ChatMessage/ChatMessageSent.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/structures/game/GameBadge/GameBadge.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/structures/game/GameBadge/GameBadgeBase.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/structures/game/GameBadge/PartialGameBadge.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/structures/game/GameMediaData.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/structures/game/GamePass/GamePass.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/structures/game/GameUniverse/GameUniverse.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/structures/game/GameUniverse/PartialGameUniverse.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/structures/game/GameUniverse/PartialPlace.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/structures/game/GameUniverse/Place.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/structures/game/VIPServer/PartialVIPServer.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/structures/game/VIPServer/VIPServer.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/structures/group/Group.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/structures/group/GroupBase.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/structures/group/GroupJoinRequest.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/structures/group/GroupMember.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/structures/group/GroupRole.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/structures/group/GroupRolePermissions.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/structures/group/GroupShout.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/structures/group/GroupWallPost.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/structures/group/PartialGroup.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/structures/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/structures/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/structures/user/FriendRequest.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/structures/user/PartialUser.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/structures/user/User.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/structures/user/UserBase.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/tests/index.js" afterDir="false" />
     </list>
     <list id="2baa7156-334f-4736-a7ad-c82d073ffac9" name="Revert &quot;Added Auth API&quot;" comment="Revert &quot;Added Auth API&quot;&#10;&#10;This reverts commit 80c65c6b" />
     <list id="79d16524-19f3-4d6c-9b53-cc0c67aa0aac" name="Revert &quot;Added Auth API&quot;-2" comment="Revert &quot;Added Auth API&quot;&#10;&#10;This reverts commit 80c65c6b" />
@@ -63,6 +111,9 @@
     <exe-path />
     <other-services-enabled>true</other-services-enabled>
     <auto-save>true</auto-save>
+  </component>
+  <component name="MacroExpansionManager">
+    <option name="directoryName" value="9g2pk2mg" />
   </component>
   <component name="ProjectId" id="1cH4g46NmS18gtAve6a84oyJMLB" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
@@ -101,9 +152,6 @@
     <property name="ts.external.directory.path" value="E:\Personal\Open-Sourced Modules\bloxy\node_modules\typescript\lib" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="E:\Personal\Open-Sourced Modules\bloxy\src\client\apis" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="E:\Personal\Open-Sourced Modules\bloxy\src\structures\chat\ChatMessage" />
       <recent name="E:\Personal\Open-Sourced Modules\bloxy\src\structures\chat\ChatConversation" />
@@ -111,13 +159,16 @@
       <recent name="E:\Personal\Open-Sourced Modules\bloxy\src\structures\game\GamePass" />
       <recent name="E:\Personal\Open-Sourced Modules\bloxy\src\structures\game\VIPServer" />
     </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="E:\Personal\Open-Sourced Modules\bloxy\src\client\apis" />
+    </key>
   </component>
   <component name="RunAnythingCache">
     <option name="myCommands">
       <command value="npm run build" />
     </option>
   </component>
-  <component name="RunManager" selected="Node.js.postinstall.js">
+  <component name="RunManager" selected="Node.js.index.js">
     <configuration name="client.test.js" type="JavaScriptTestRunnerJest" temporary="true" nameIsGenerated="true">
       <node-interpreter value="project" />
       <node-options value="" />
@@ -159,19 +210,19 @@
       <method v="2" />
     </configuration>
     <list>
+      <item itemvalue="Jest.client.test.js" />
       <item itemvalue="Jest.testing login function of client.should error because only username is provided" />
       <item itemvalue="Node.js.index.js" />
-      <item itemvalue="npm.build" />
-      <item itemvalue="Jest.client.test.js" />
       <item itemvalue="Node.js.postinstall.js" />
+      <item itemvalue="npm.build" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Node.js.postinstall.js" />
-        <item itemvalue="Jest.client.test.js" />
         <item itemvalue="Node.js.index.js" />
         <item itemvalue="npm.build" />
+        <item itemvalue="Node.js.postinstall.js" />
         <item itemvalue="Jest.testing login function of client.should error because only username is provided" />
+        <item itemvalue="Jest.client.test.js" />
       </list>
     </recent_temporary>
   </component>
@@ -206,7 +257,12 @@
       <workItem from="1595084752128" duration="28000" />
       <workItem from="1596386138630" duration="34000" />
       <workItem from="1596386190672" duration="1720000" />
-      <workItem from="1596455022459" duration="23109000" />
+      <workItem from="1596455022459" duration="24320000" />
+      <workItem from="1596559426132" duration="2505000" />
+      <workItem from="1596674621577" duration="16000" />
+      <workItem from="1596881168475" duration="65000" />
+      <workItem from="1596881250167" duration="1937000" />
+      <workItem from="1596992003218" duration="4346000" />
     </task>
     <task id="LOCAL−00001" summary="Updated">
       <created>1596387076571</created>
@@ -350,10 +406,10 @@
     </state>
     <state x="640" y="275" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog/-1920.0.1920.1050/1920.0.1920.1050/0.0.1920.1050@0.0.1920.1050" timestamp="1594638848661" />
     <state x="640" y="275" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog/0.0.1920.1050/-1920.0.1920.1050/1920.0.1920.1050@0.0.1920.1050" timestamp="1590175440963" />
-    <state x="690" y="287" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1596479326184">
+    <state x="690" y="287" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1597003328589">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
-    <state x="690" y="287" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1920.1050/-1920.0.1920.1050/1920.0.1920.1050@0.0.1920.1050" timestamp="1596479326184" />
+    <state x="690" y="287" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1920.1050/-1920.0.1920.1050/1920.0.1920.1050@0.0.1920.1050" timestamp="1597003328589" />
     <state x="653" y="185" key="#testing_creation_of_client" timestamp="1590231946896">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
@@ -370,22 +426,22 @@
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
     <state x="739" y="267" key="FileChooserDialogImpl/-1920.0.1920.1050/1920.0.1920.1050/0.0.1920.1050@0.0.1920.1050" timestamp="1594638929773" />
-    <state width="1898" height="326" key="GridCell.Tab.0.bottom" timestamp="1596484376912">
+    <state width="1899" height="303" key="GridCell.Tab.0.bottom" timestamp="1597002102270">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
-    <state width="1898" height="326" key="GridCell.Tab.0.bottom/0.0.1920.1050/-1920.0.1920.1050/1920.0.1920.1050@0.0.1920.1050" timestamp="1596484376912" />
-    <state width="1898" height="326" key="GridCell.Tab.0.center" timestamp="1596484376912">
+    <state width="1899" height="303" key="GridCell.Tab.0.bottom/0.0.1920.1050/-1920.0.1920.1050/1920.0.1920.1050@0.0.1920.1050" timestamp="1597002102270" />
+    <state width="1899" height="303" key="GridCell.Tab.0.center" timestamp="1597002102269">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
-    <state width="1898" height="326" key="GridCell.Tab.0.center/0.0.1920.1050/-1920.0.1920.1050/1920.0.1920.1050@0.0.1920.1050" timestamp="1596484376912" />
-    <state width="1898" height="326" key="GridCell.Tab.0.left" timestamp="1596484376912">
+    <state width="1899" height="303" key="GridCell.Tab.0.center/0.0.1920.1050/-1920.0.1920.1050/1920.0.1920.1050@0.0.1920.1050" timestamp="1597002102269" />
+    <state width="1899" height="303" key="GridCell.Tab.0.left" timestamp="1597002102269">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
-    <state width="1898" height="326" key="GridCell.Tab.0.left/0.0.1920.1050/-1920.0.1920.1050/1920.0.1920.1050@0.0.1920.1050" timestamp="1596484376912" />
-    <state width="1898" height="326" key="GridCell.Tab.0.right" timestamp="1596484376912">
+    <state width="1899" height="303" key="GridCell.Tab.0.left/0.0.1920.1050/-1920.0.1920.1050/1920.0.1920.1050@0.0.1920.1050" timestamp="1597002102269" />
+    <state width="1899" height="303" key="GridCell.Tab.0.right" timestamp="1597002102269">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
-    <state width="1898" height="326" key="GridCell.Tab.0.right/0.0.1920.1050/-1920.0.1920.1050/1920.0.1920.1050@0.0.1920.1050" timestamp="1596484376912" />
+    <state width="1899" height="303" key="GridCell.Tab.0.right/0.0.1920.1050/-1920.0.1920.1050/1920.0.1920.1050@0.0.1920.1050" timestamp="1597002102269" />
     <state width="1399" height="344" key="GridCell.Tab.1.bottom" timestamp="1590265494502">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
@@ -450,10 +506,10 @@
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
     <state x="461" y="182" key="SettingsEditor/0.0.1920.1050/-1920.0.1920.1050/1920.0.1920.1050@0.0.1920.1050" timestamp="1596479646071" />
-    <state width="498" height="446" key="SwitcherDM" timestamp="1596490076379">
+    <state width="498" height="446" key="SwitcherDM" timestamp="1597003157833">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
-    <state width="498" height="446" key="SwitcherDM/0.0.1920.1050/-1920.0.1920.1050/1920.0.1920.1050@0.0.1920.1050" timestamp="1596490076379" />
+    <state width="498" height="446" key="SwitcherDM/0.0.1920.1050/-1920.0.1920.1050/1920.0.1920.1050@0.0.1920.1050" timestamp="1597003157833" />
     <state x="832" y="384" key="cloudConfig.SelfSettingsDialog" timestamp="1594938862818">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
@@ -466,10 +522,10 @@
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
     <state x="441" y="212" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/0.0.1920.1050/-1920.0.1920.1050/1920.0.1920.1050@0.0.1920.1050" timestamp="1594980773661" />
-    <state x="-967" y="0" width="974" height="1057" key="dock-window-1" timestamp="1596464416207">
+    <state x="-967" y="0" width="974" height="1057" key="dock-window-1" timestamp="1596881576321">
       <screen x="-1920" y="0" width="1920" height="1050" />
     </state>
-    <state x="-967" y="0" width="974" height="1057" key="dock-window-1/0.0.1920.1050/-1920.0.1920.1050/1920.0.1920.1050@0.0.1920.1050" timestamp="1596464416207" />
+    <state x="-967" y="0" width="974" height="1057" key="dock-window-1/0.0.1920.1050/-1920.0.1920.1050/1920.0.1920.1050@0.0.1920.1050" timestamp="1596881576321" />
     <state x="1926" y="0" width="670" height="1096" maximized="true" key="dock-window-2" timestamp="1595084779343">
       <screen x="1920" y="0" width="1920" height="1050" />
     </state>
@@ -478,10 +534,10 @@
       <screen x="-1920" y="0" width="1920" height="1050" />
     </state>
     <state x="-967" y="0" width="974" height="1057" key="dock-window-3/0.0.1920.1050/-1920.0.1920.1050/1920.0.1920.1050@0.0.1920.1050" timestamp="1590243202998" />
-    <state x="668" y="115" width="583" height="849" key="find.popup" timestamp="1596485914012">
+    <state x="668" y="115" width="583" height="849" key="find.popup" timestamp="1597003540101">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
-    <state x="668" y="115" width="583" height="849" key="find.popup/0.0.1920.1050/-1920.0.1920.1050/1920.0.1920.1050@0.0.1920.1050" timestamp="1596485914012" />
+    <state x="668" y="115" width="583" height="849" key="find.popup/0.0.1920.1050/-1920.0.1920.1050/1920.0.1920.1050@0.0.1920.1050" timestamp="1597003540101" />
     <state x="609" y="274" width="700" height="530" key="recent.locations.popup" timestamp="1594935992169">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>

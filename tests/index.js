@@ -5,7 +5,6 @@ const cookie = require("./getCookie");
 const client = new Client();
 
 (async () => {
-    const clientUser = await client.login(
-        cookie
-    );
+    const user = await client.login(cookie);
+    console.log(user);
 })();

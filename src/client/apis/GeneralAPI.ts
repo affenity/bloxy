@@ -1,7 +1,6 @@
 import BaseAPI from "./BaseAPI";
 import Client from "../Client";
-import { AssetVersionOptions } from "../../structures/asset/AssetVersion";
-import { ProductOptions } from "../../structures/asset/Product";
+import { AssetVersionOptions, ProductOptions } from "../../structures/Asset";
 
 
 export declare type GetAssetVersionOptions = number;

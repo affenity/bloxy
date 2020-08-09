@@ -1,9 +1,6 @@
 import BaseAPI from "./BaseAPI";
 import Client from "../Client";
-import { GameUniverseOptions } from "../../structures/game/GameUniverse/GameUniverse";
-import { PlaceOptions } from "../../structures/game/GameUniverse/Place";
-import { VIPServerOptions } from "../../structures/game/VIPServer/VIPServer";
-import PartialGameUniverse from "../../structures/game/GameUniverse/PartialGameUniverse";
+import { GameUniverseOptions, PlaceOptions, VIPServerOptions, PartialGameUniverse } from "../../structures/Game";
 
 
 export type GameServer = {

@@ -1,7 +1,7 @@
 import BaseAPI from "./BaseAPI";
 import Client from "../Client";
-import { GameUniverseOptions } from "../../structures/game/GameUniverse/GameUniverse";
-import { PartialGroupOptions } from "../../structures/group/PartialGroup";
+import { GameUniverseOptions } from "../../structures/Game";
+import { PartialGroupOptions } from "../../structures/Group";
 
 
 export type GetAssetsVoteInformationOptions = {

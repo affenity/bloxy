@@ -7,7 +7,7 @@ import {
     UpdateContactsOptions as ContactsAPIUpdateContactsOptions
 } from "./ContactsAPI";
 import { GetUserFriendsCount, GetUserFriendsCountOptions } from "./GeneralAPI";
-import PartialUser from "../../structures/user/PartialUser";
+import { PartialUser } from "../../structures/User";
 
 
 export type FindFriendByCodeOptions = {

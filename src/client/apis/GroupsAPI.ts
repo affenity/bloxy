@@ -1,8 +1,7 @@
 import BaseAPI from "./BaseAPI";
 import Client from "../Client";
-import { GroupOptions } from "../../structures/group/Group";
-import { GroupRolePermissionsOptions } from "../../structures/group/GroupRolePermissions";
-import { GroupRoleOptions } from "../../structures/group/GroupRole";
+import { GroupRoleOptions, GroupOptions, GroupRolePermissionsOptions } from "../../structures/Group";
+
 
 export type GetGroupOptions = {
     groupId: number;

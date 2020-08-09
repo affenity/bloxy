@@ -1,6 +1,6 @@
 import * as ClientSocket from "../ClientSocket";
-import PartialChatConversation from "../../../../structures/chat/ChatConversation/PartialChatConversation";
-import PartialUser from "../../../../structures/user/PartialUser";
+import { PartialChatConversation } from "../../../../structures/Chat";
+import { PartialUser } from "../../../../structures/User";
 
 
 export default function handleChatNotifications (socket: ClientSocket.Socket, messageType: string, message: any): void {

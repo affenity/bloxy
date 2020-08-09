@@ -346,7 +346,7 @@ export default class AccountSettingsAPI extends BaseAPI {
         return this.request({
             requiresAuth: true,
             request: {
-                path: `v1/themes/User/${this.client.user?.id}`,
+                path: `v1/themes/User/${this.client.user}`,
                 responseOptions: {
                     allowedStatusCodes: [200]
                 }

@@ -3,10 +3,9 @@ import initAPIs, { APIs } from "./apis";
 import ClientUser from "../structures/ClientUser";
 import RESTController from "../controllers/rest";
 import initStructures, { Structures } from "../structures";
-import Group from "../structures/group/Group";
+import { Group } from "../structures/Group";
 import * as ClientSocket from "./lib/ClientSocket/ClientSocket";
-import User from "../structures/user/User";
-import PartialUser from "../structures/user/PartialUser";
+import { PartialUser, User } from "../structures/User";
 
 
 export default class Client extends ClientBase {

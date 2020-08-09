@@ -1,6 +1,6 @@
 import BaseAPI from "./BaseAPI";
 import Client from "../Client";
-import GameBadge from "../../structures/game/GameBadge/GameBadge";
+import { GameBadge } from "../../structures/Game";
 
 
 export type GetBadgeOptions = {

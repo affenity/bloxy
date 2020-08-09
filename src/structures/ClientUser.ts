@@ -1,5 +1,6 @@
 import Client from "../client";
-import PartialUser from "./user/PartialUser";
+import { PartialUser } from "./User";
+
 
 export interface ClientUserOptions {
     id: number;
