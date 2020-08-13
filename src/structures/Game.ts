@@ -2,6 +2,8 @@ import Client from "../client";
 import { CreatorType, GameGenre, MorphAvatarType } from "../util/constants";
 import { PartialGroup } from "./Group";
 import { PartialUser } from "./User";
+import { GetPlaceStatisticsByTypeOptions } from "../client/apis/DevelopAPI";
+import { GetGameServersByTypeOptions } from "../client/apis/GamesAPI";
 
 
 export interface GameBadgeBaseOptions {
@@ -132,6 +134,60 @@ export class GamePass {
 }
 
 
+export interface BasePlaceOptions {
+    id: number;
+    name?: string;
+}
+
+
+export class BasePlace {
+    public client: Client;
+    public id: number;
+    public name: string | null;
+
+    constructor (options: BasePlaceOptions, client: Client) {
+        this.client = client;
+        this.id = options.id;
+        this.name = options.name || null;
+    }
+
+    getCompatibilities () {
+        return this.client.apis.developAPI.getPlaceCompatibilities({
+            placeId: this.id
+        });
+    }
+
+    updatePlaceConfiguration (options: { name: string; description: string }) {
+        return this.client.apis.developAPI.updatePlaceConfiguration({
+            placeId: this.id,
+            ...options
+        });
+    }
+
+    getStatistics (options: Omit<GetPlaceStatisticsByTypeOptions, "placeId">) {
+        return this.client.apis.developAPI.getPlaceStatistics({
+            placeId: this.id,
+            ...options
+        });
+    }
+
+    awardBadge (userId: number, badgeId: number) {
+        return this.client.apis.generalApi.awardBadge({
+            placeId: this.id,
+            badgeId,
+            userId
+        });
+    }
+
+    getGameServers (options: Omit<GetGameServersByTypeOptions, "placeId">) {
+        return this.client.apis.gamesAPI.getGameServersByType({
+            placeId: this.id,
+            ...options
+        });
+    }
+}
+
+
 export interface PlaceOptions {
     placeId: number;
     name: string;
@@ -148,10 +204,7 @@ export interface PlaceOptions {
 }
 
 
-export class Place {
-    public client: Client;
-    public id: number;
-    public name: string;
+export class Place extends BasePlace {
     public description: string;
     public url: string;
     public creatorName: string;
@@ -164,9 +217,10 @@ export class Place {
     public imageToken: string;
 
     constructor (data: PlaceOptions, client: Client) {
-        this.client = client;
-        this.id = data.placeId;
-        this.name = data.name;
+        super({
+            id: data.placeId,
+            name: data.name
+        }, client);
         this.description = data.description;
         this.url = data.url;
         this.creatorName = data.builder;
@@ -192,15 +246,12 @@ interface PartialPlaceOptions {
 }
 
 
-export class PartialPlace {
-    public client: Client;
-    public id: number;
-    public name: string | null;
-
+export class PartialPlace extends BasePlace {
     constructor (data: PartialPlaceOptions, client: Client) {
-        this.client = client;
-        this.id = data.id;
-        this.name = data.name || null;
+        super({
+            id: data.id,
+            name: data.name || undefined
+        }, client);
     }
 }
 
