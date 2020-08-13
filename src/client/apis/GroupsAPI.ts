@@ -913,7 +913,7 @@ export default class GroupsAPI extends BaseAPI {
             request: {
                 path: `v1/groups/${options.groupId}/relationships/${options.relationshipType}`,
                 qs: {
-                    "model.startRowIndex": options.startRowIndex,
+                    "model.startRowIndex": options.startRowIndex || 0,
                     "model.maxRows": options.maxRows
                 }
             },

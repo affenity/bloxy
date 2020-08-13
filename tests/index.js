@@ -6,10 +6,8 @@ const client = new Client();
 
 (async () => {
     const user = await client.login(cookie);
-    const group = await client.getGroup(3544434);
+    const group = await client.getGroup(4636366);
     const allies = await group.getAllies();
 
     console.log(allies);
-
-    const conv = await client.chat.getConversation(1);
 })();

@@ -126,8 +126,11 @@ export declare type GetGroup = {
         Rank: number;
     }[];
 }
-export declare type GetGroupAllies = GetGroup[];
-export declare type GetGroupEnemies = GetGroup[];
+export declare type GetGroupAllies = {
+    Groups: GetGroup[];
+    FinalPage: boolean;
+};
+export declare type GetGroupEnemies = GetGroupAllies
 export declare type GetIncomingItems = {
     unreadMessageCount: number;
     friendRequestsCount: number;

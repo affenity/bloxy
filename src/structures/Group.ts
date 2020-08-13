@@ -18,7 +18,9 @@ import {
     ChangeOwner,
     ClaimGroup,
     CreateRelationship,
-    CreateRelationshipOptions, CreateRole, CreateRoleOptions,
+    CreateRelationshipOptions,
+    CreateRole,
+    CreateRoleOptions,
     CreateWallPost,
     CreateWallPostOptions,
     DeclineJoinRequest,
@@ -27,7 +29,8 @@ import {
     DeclineRelationshipRequests,
     DeclineRelationshipRequestsOptions,
     DeleteRelationship,
-    DeleteRelationshipOptions, DeleteRole,
+    DeleteRelationshipOptions,
+    DeleteRole,
     DeleteSocialLink,
     DeleteWallPost,
     GetAllRolesPermissions,
@@ -52,7 +55,9 @@ import {
     PayoutMembers,
     PayoutMembersOptions,
     PostSocialLink,
-    PostSocialLinkOptions, RemovePrimaryGroup, SetPrimaryGroup,
+    PostSocialLinkOptions,
+    RemovePrimaryGroup,
+    SetPrimaryGroup,
     UpdateGroupDescription,
     UpdateGroupIcon,
     UpdateGroupSettings,
@@ -60,17 +65,24 @@ import {
     UpdateGroupStatus,
     UpdateMember,
     UpdateRecurringPayouts,
-    UpdateRecurringPayoutsOptions, UpdateRole, UpdateRoleOptions,
+    UpdateRecurringPayoutsOptions,
+    UpdateRole,
+    UpdateRoleOptions,
     UpdateRolePermissions,
     UpdateRolePermissionsOptions,
     UpdateSocialLink,
     UpdateSocialLinkOptions
 } from "../client/apis/GroupsAPI";
-import { GetGroupAllies, GetGroupEnemies } from "../client/apis/GeneralAPI";
 import { PartialUser, PartialUserOptions, UserBase } from "./User";
 
 
-type HandleGroupRelationshipResponse = { group: PartialGroup; description: string; emblemUrl: string }[];
+type GroupRelationships<T extends "enemies" | "allies"> = Omit<GetGroupRelationships, "relatedGroups"> & {
+    groupId: number;
+    relationshipType: T;
+    totalGroupCount: number;
+    groups: Group[];
+    nextRowIndex: number;
+}
 
 
 export interface GroupBaseOptions {
@@ -142,18 +154,30 @@ export class GroupBase {
         });
     }
 
-    getAllies (page?: number): Promise<HandleGroupRelationshipResponse> {
-        return this.client.apis.generalApi.getGroupAllies({
+    getAllies (maxItems = 100, startItem?: number): Promise<GroupRelationships<"allies">> {
+        return this.client.apis.groupsAPI.getGroupRelationships({
+            relationshipType: "allies",
             groupId: this.id,
-            page: page || 0
-        }).then(response => this.handleGroupRelationshipsResponse(response));
+            maxRows: maxItems,
+            startRowIndex: startItem
+        }).then(response => ({
+            ...response,
+            relationshipType: "allies",
+            groups: response.relatedGroups.map(groupData => new Group(groupData, this.client))
+        }));
     }
 
-    getEnemies (page?: number): Promise<HandleGroupRelationshipResponse> {
-        return this.client.apis.generalApi.getGroupEnemies({
+    getEnemies (maxItems = 100, startItem?: number): Promise<GroupRelationships<"enemies">> {
+        return this.client.apis.groupsAPI.getGroupRelationships({
+            relationshipType: "enemies",
             groupId: this.id,
-            page: page || 0
-        }).then(response => this.handleGroupRelationshipsResponse(response));
+            maxRows: maxItems,
+            startRowIndex: startItem
+        }).then(response => ({
+            ...response,
+            relationshipType: "enemies",
+            groups: response.relatedGroups.map(groupData => new Group(groupData, this.client))
+        }));
     }
 
     getGroup (): Promise<Group> {
@@ -544,16 +568,6 @@ export class GroupBase {
             ...options
         });
     }
-
-
-    private handleGroupRelationshipsResponse = (response: (GetGroupAllies[0] | GetGroupEnemies[0])[]): HandleGroupRelationshipResponse => response.map(data => ({
-        group: new PartialGroup({
-            id: data.Id,
-            name: data.Name
-        }, this.client),
-        description: data.Description,
-        emblemUrl: data.EmblemUrl
-    }));
 }
 
 
