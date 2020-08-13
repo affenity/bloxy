@@ -605,6 +605,10 @@ export class GroupMember extends UserBase {
             }
         }, client) : null;
     }
+
+    kick (): Promise<unknown> {
+        return this.kickFromGroup(this.id);
+    }
 }
 
 

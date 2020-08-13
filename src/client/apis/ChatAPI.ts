@@ -66,10 +66,10 @@ export type GetMetaData = {
     isRoactChatEnabled: boolean;
 }
 export type GetMultiLatestConversationMessagesOptions = {
-    conversationIds: number;
+    conversationIds: number[];
     pageSize: number;
 }
-export type GetMultiLatestConversationMessages = GetUnreadMessagesInConversations[];
+export type GetMultiLatestConversationMessages = GetUnreadMessagesInConversations;
 export type AddUsersToConversationOptions = {
     participantUserIds: number[];
     conversationId: number;

@@ -1,6 +1,7 @@
 import Client from "../client";
 import { PartialUser } from "./User";
 import { PartialGameUniverse } from "./Game";
+import { SendGameLinkMessageOptions, SendMessageOptions } from "../client/apis/ChatAPI";
 
 
 export interface ChatConversationOptions {
@@ -66,6 +67,85 @@ export class ChatConversation {
             forViewer: data.conversationTitle.titleForViewer,
             isDefaultTitle: data.conversationTitle.isDefaultTitle
         };
+    }
+
+    // eslint-disable-next-line @typescript-eslint/explicit-function-return-type
+    getMessages (amount = 100, startId?: string) {
+        return this.client.chat.getConversationMessages(
+            this.id,
+            amount,
+            startId
+        );
+    }
+
+    // eslint-disable-next-line @typescript-eslint/explicit-function-return-type
+    addUsers (users: number[]) {
+        return this.client.chat.addUsersToConversation(
+            this.id,
+            users
+        );
+    }
+
+    // eslint-disable-next-line @typescript-eslint/explicit-function-return-type
+    removeUser (userId: number) {
+        return this.client.chat.removeUserFromConversation(
+            this.id,
+            userId
+        );
+    }
+
+    // eslint-disable-next-line @typescript-eslint/explicit-function-return-type
+    markMessageRead (id: string) {
+        return this.client.chat.markMessageRead(
+            this.id,
+            id
+        );
+    }
+
+    // eslint-disable-next-line @typescript-eslint/explicit-function-return-type
+    markRead () {
+        return this.client.chat.markConversationsRead([
+            this.id
+        ]);
+    }
+
+    // eslint-disable-next-line @typescript-eslint/explicit-function-return-type
+    rename (name: string) {
+        return this.client.chat.renameGroupConversation(
+            this.id,
+            name
+        );
+    }
+
+    // eslint-disable-next-line @typescript-eslint/explicit-function-return-type
+    getUnreadMessages (amount = 100) {
+        return this.client.chat.getUnreadMessagesInConversations(
+            [this.id],
+            amount
+        );
+    }
+
+    // eslint-disable-next-line @typescript-eslint/explicit-function-return-type
+    getLatestMessages (amount = 100) {
+        return this.client.chat.getLatestMessagesInConversations(
+            [this.id],
+            amount
+        );
+    }
+
+    // eslint-disable-next-line @typescript-eslint/explicit-function-return-type
+    resetUniverse () {
+        return this.client.chat.resetConversationUniverse(this.id);
+    }
+
+    // eslint-disable-next-line @typescript-eslint/explicit-function-return-type
+    sendGameLinkMessage (options: SendGameLinkMessageOptions) {
+        return this.client.chat.sendGameLinkMessage(options);
+    }
+
+    // eslint-disable-next-line @typescript-eslint/explicit-function-return-type
+    sendMessage (options: SendMessageOptions) {
+        return this.client.chat.sendMessage(options);
     }
 }
 

@@ -6,6 +6,7 @@ import initStructures, { Structures } from "../structures";
 import { Group } from "../structures/Group";
 import * as ClientSocket from "./lib/ClientSocket/ClientSocket";
 import { PartialUser, User } from "../structures/User";
+import ChatManager from "./lib/ChatManager/ChatManager";
 
 
 export default class Client extends ClientBase {
@@ -14,6 +15,7 @@ export default class Client extends ClientBase {
     public rest: RESTController;
     public structures: Structures;
     public socket: ClientSocket.Socket;
+    public chat: ChatManager;
 
     constructor (options?: ClientOptions) {
         super(options);
@@ -23,6 +25,7 @@ export default class Client extends ClientBase {
         this.rest = new RESTController(this, this.options.rest);
         this.structures = initStructures();
         this.socket = new ClientSocket.Socket(this);
+        this.chat = new ChatManager(this);
 
         this.init();
     }
