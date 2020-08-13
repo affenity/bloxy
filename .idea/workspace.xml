@@ -26,12 +26,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a85767c4-bfb1-401b-832d-4f10d57a6f3a" name="Default Changelist" comment="Updated CatalogAPI.ts to remove response modifications">
-      <change beforePath="$PROJECT_DIR$/.circleci/config.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.circleci/config.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/client/apis/GeneralAPI.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/client/apis/GeneralAPI.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/client/apis/GroupsAPI.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/client/apis/GroupsAPI.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/structures/Group.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/structures/Group.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/tests/index.js" afterDir="false" />
     </list>
     <list id="2baa7156-334f-4736-a7ad-c82d073ffac9" name="Revert &quot;Added Auth API&quot;" comment="Revert &quot;Added Auth API&quot;&#10;&#10;This reverts commit 80c65c6b" />
     <list id="79d16524-19f3-4d6c-9b53-cc0c67aa0aac" name="Revert &quot;Added Auth API&quot;-2" comment="Revert &quot;Added Auth API&quot;&#10;&#10;This reverts commit 80c65c6b" />
@@ -118,15 +113,18 @@
       <command value="npm run build" />
     </option>
   </component>
-  <component name="RunManager" selected="Node.js.index.js">
-    <configuration name="client.test.js" type="JavaScriptTestRunnerJest" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="Jest.testing client">
+    <configuration name="testing client" type="JavaScriptTestRunnerJest" temporary="true" nameIsGenerated="true">
       <node-interpreter value="project" />
       <node-options value="" />
       <jest-package value="$PROJECT_DIR$/node_modules/jest" />
       <working-dir value="$PROJECT_DIR$" />
       <envs />
-      <scope-kind value="TEST_FILE" />
+      <scope-kind value="SUITE" />
       <test-file value="$PROJECT_DIR$/tests/client.test.js" />
+      <test-names>
+        <test-name value="testing client" />
+      </test-names>
       <method v="2" />
     </configuration>
     <configuration name="testing login function of client.should error because only username is provided" type="JavaScriptTestRunnerJest" temporary="true" nameIsGenerated="true">
@@ -160,19 +158,19 @@
       <method v="2" />
     </configuration>
     <list>
-      <item itemvalue="Jest.client.test.js" />
       <item itemvalue="Jest.testing login function of client.should error because only username is provided" />
       <item itemvalue="Node.js.index.js" />
       <item itemvalue="Node.js.postinstall.js" />
       <item itemvalue="npm.build" />
+      <item itemvalue="Jest.testing client" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Jest.testing client" />
         <item itemvalue="Node.js.index.js" />
         <item itemvalue="npm.build" />
         <item itemvalue="Node.js.postinstall.js" />
         <item itemvalue="Jest.testing login function of client.should error because only username is provided" />
-        <item itemvalue="Jest.client.test.js" />
       </list>
     </recent_temporary>
   </component>
@@ -216,7 +214,7 @@
       <workItem from="1597057894039" duration="803000" />
       <workItem from="1597145402431" duration="827000" />
       <workItem from="1597230347645" duration="819000" />
-      <workItem from="1597299499864" duration="10571000" />
+      <workItem from="1597299499864" duration="11233000" />
     </task>
     <task id="LOCAL−00001" summary="Updated">
       <created>1596387076571</created>
@@ -380,22 +378,22 @@
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
     <state x="739" y="267" key="FileChooserDialogImpl/-1920.0.1920.1050/1920.0.1920.1050/0.0.1920.1050@0.0.1920.1050" timestamp="1594638929773" />
-    <state width="1899" height="303" key="GridCell.Tab.0.bottom" timestamp="1597084472625">
+    <state width="1899" height="303" key="GridCell.Tab.0.bottom" timestamp="1597314105470">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
-    <state width="1899" height="303" key="GridCell.Tab.0.bottom/0.0.1920.1050/-1920.0.1920.1050/1920.0.1920.1050@0.0.1920.1050" timestamp="1597084472625" />
-    <state width="1899" height="303" key="GridCell.Tab.0.center" timestamp="1597084472624">
+    <state width="1899" height="303" key="GridCell.Tab.0.bottom/0.0.1920.1050/-1920.0.1920.1050/1920.0.1920.1050@0.0.1920.1050" timestamp="1597314105470" />
+    <state width="1899" height="303" key="GridCell.Tab.0.center" timestamp="1597314105469">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
-    <state width="1899" height="303" key="GridCell.Tab.0.center/0.0.1920.1050/-1920.0.1920.1050/1920.0.1920.1050@0.0.1920.1050" timestamp="1597084472624" />
-    <state width="1899" height="303" key="GridCell.Tab.0.left" timestamp="1597084472624">
+    <state width="1899" height="303" key="GridCell.Tab.0.center/0.0.1920.1050/-1920.0.1920.1050/1920.0.1920.1050@0.0.1920.1050" timestamp="1597314105469" />
+    <state width="1899" height="303" key="GridCell.Tab.0.left" timestamp="1597314105469">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
-    <state width="1899" height="303" key="GridCell.Tab.0.left/0.0.1920.1050/-1920.0.1920.1050/1920.0.1920.1050@0.0.1920.1050" timestamp="1597084472624" />
-    <state width="1899" height="303" key="GridCell.Tab.0.right" timestamp="1597084472625">
+    <state width="1899" height="303" key="GridCell.Tab.0.left/0.0.1920.1050/-1920.0.1920.1050/1920.0.1920.1050@0.0.1920.1050" timestamp="1597314105469" />
+    <state width="1899" height="303" key="GridCell.Tab.0.right" timestamp="1597314105469">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
-    <state width="1899" height="303" key="GridCell.Tab.0.right/0.0.1920.1050/-1920.0.1920.1050/1920.0.1920.1050@0.0.1920.1050" timestamp="1597084472625" />
+    <state width="1899" height="303" key="GridCell.Tab.0.right/0.0.1920.1050/-1920.0.1920.1050/1920.0.1920.1050@0.0.1920.1050" timestamp="1597314105469" />
     <state width="1399" height="344" key="GridCell.Tab.1.bottom" timestamp="1590265494502">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
