@@ -21,7 +21,8 @@ export const identifierNames = {
 export const StatusCodeReasons = {
     400: [
         "Bad Request (invalid values provided)",
-        "Invalid body type (content-type) sent"
+        "Invalid body type (content-type) sent",
+        "Bloxy sent an invalid request (from faulty code, feel free to check it out and submit an issue / PR)"
     ],
     401: [
         "You're not logged in (use .login on the client to log in)",

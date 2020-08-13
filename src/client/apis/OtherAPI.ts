@@ -57,7 +57,7 @@ export default class OtherAPI extends BaseAPI {
         return this.request({
             requiresAuth: false,
             request: {
-                path: `users/profile/profileheader-json?userId=${options.userId}`,
+                url: `https://www.roblox.com/users/profile/profileheader-json?userId=${options.userId}`,
                 responseOptions: {
                     allowedStatusCodes: [200]
                 }
