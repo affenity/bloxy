@@ -61,7 +61,8 @@ export default class AdConfigurationAPI extends BaseAPI {
             requiresAuth: false,
             request: {
                 path: "/v1/sponsored-games/create-ad/metadata"
-            }
+            },
+            json: true
         }).then(response => response.body as GetCreateAdMetaData);
     }
 
@@ -75,7 +76,8 @@ export default class AdConfigurationAPI extends BaseAPI {
                     startRowIndex: options.startRowIndex || 0,
                     count: options.count || 50
                 }
-            }
+            },
+            json: true
         }).then(response => response.body as GetSponsoredGames);
     }
 
@@ -86,7 +88,8 @@ export default class AdConfigurationAPI extends BaseAPI {
                 path: "/v1/sponsored-games/create-ad",
                 method: "POST",
                 json: options as any
-            }
+            },
+            json: true
         }).then(response => response.body as CreateAd);
     }
 
@@ -97,7 +100,8 @@ export default class AdConfigurationAPI extends BaseAPI {
                 path: "/v1/sponsored-games/run",
                 method: "POST",
                 json: options as any
-            }
+            },
+            json: true
         }).then(response => response.body as RunAd);
     }
 
@@ -108,7 +112,8 @@ export default class AdConfigurationAPI extends BaseAPI {
                 path: "/v1/sponsored-games/stop",
                 method: "POST",
                 json: options as any
-            }
+            },
+            json: true
         }).then(response => response.body as StopAd);
     }
 }

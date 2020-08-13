@@ -79,7 +79,8 @@ export default class AccountInformationAPI extends BaseAPI {
             requiresAuth: true,
             request: {
                 path: "v1/birthdate"
-            }
+            },
+            json: true
         }).then(response => response.body as GetUserBirthdate);
     }
 
@@ -93,7 +94,8 @@ export default class AccountInformationAPI extends BaseAPI {
                 responseOptions: {
                     allowedStatusCodes: [200]
                 }
-            }
+            },
+            json: true
         }).then(() => true as UpdateUserBirthdate);
     }
 
@@ -105,7 +107,8 @@ export default class AccountInformationAPI extends BaseAPI {
                 responseOptions: {
                     allowedStatusCodes: [200]
                 }
-            }
+            },
+            json: true
         }).then(response => response.body as GetUserDescription);
     }
 
@@ -119,7 +122,8 @@ export default class AccountInformationAPI extends BaseAPI {
                 responseOptions: {
                     allowedStatusCodes: [200]
                 }
-            }
+            },
+            json: true
         }).then(() => true as UpdateUserDescription);
     }
 
@@ -143,7 +147,8 @@ export default class AccountInformationAPI extends BaseAPI {
                 path: "v1/gender",
                 method: "POST",
                 json: options
-            }
+            },
+            json: true
         }).then(() => true as UpdateUserGender);
     }
 
@@ -193,7 +198,8 @@ export default class AccountInformationAPI extends BaseAPI {
                 path: "v1/phone",
                 method: "POST",
                 json: options
-            }
+            },
+            json: true
         }).then(() => true as SetPhoneNumber);
     }
 
@@ -207,7 +213,8 @@ export default class AccountInformationAPI extends BaseAPI {
                 responseOptions: {
                     allowedStatusCodes: [200]
                 }
-            }
+            },
+            json: true
         }).then(() => true as DeletePhone);
     }
 
@@ -221,7 +228,8 @@ export default class AccountInformationAPI extends BaseAPI {
                 responseOptions: {
                     allowedStatusCodes: [200]
                 }
-            }
+            },
+            json: true
         }).then(() => true as ResendPhoneCode);
     }
 
@@ -235,7 +243,8 @@ export default class AccountInformationAPI extends BaseAPI {
                 responseOptions: {
                     allowedStatusCodes: [200]
                 }
-            }
+            },
+            json: true
         }).then(() => true as VerifyPhone);
     }
 
@@ -262,7 +271,8 @@ export default class AccountInformationAPI extends BaseAPI {
                 responseOptions: {
                     allowedStatusCodes: [200]
                 }
-            }
+            },
+            json: true
         }).then(() => true as UpdateUserPromotionChannels);
     }
 
@@ -275,7 +285,8 @@ export default class AccountInformationAPI extends BaseAPI {
                 responseOptions: {
                     allowedStatusCodes: [200]
                 }
-            }
+            },
+            json: true
         }).then(() => true as RemoveStarCodeAffiliate);
     }
 

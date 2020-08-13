@@ -20,13 +20,10 @@
 </p>
 </div>
 
-# Warning
-You are currently viewing the dev version of bloxy, it can be unstable as it has not been tested properly.
-Additionally, in order to install the dev version, you need to type in: 
-
-```npm install visualizememe/bloxy#dev```
-
 ## About
+*This version is currently in development and may have unforeseen and/or untested bugs.
+If you find any, please, open up an issue / pull request, so we can make bloxy better together*
+
 
 A powerful Node.JS module that lets you interact with the Roblox Web API easily, fast and reliably.
 - It is object-oriented (OO)
@@ -36,14 +33,15 @@ A powerful Node.JS module that lets you interact with the Roblox Web API easily,
 
 ## Getting Started
 
-Bloxy has 4 dependencies:
+Bloxy has 5 dependencies:
 
-- [**request**](https://www.npmjs.com/package/request) - To easily deal with HTTP requests
-- [**node-cache**](https://www.npmjs.com/package/node-cache) - Used for caching
-- [**signalr-client**](https://www.npmjs.com/package/signalr-client) - To connect with a WebSocket endpoint
-- [**@hapi/joi**](https://npmjs.com/package/@hapi/joi) - To deal with type validation
+- [**lib**](https://www.npmjs.com/package/got) - To handle the HTTP requests (bloxy allows your own)
+- [**lodash**](https://www.npmjs.com/package/lodash) - For various purposes
+- [**signalr-client**](https://www.npmjs.com/package/signalr-client) - To connect with the WebSocket endpoints
+- [**tough-cookie**](https://npmjs.com/package/tough-cookie) - For everything cookie-related
+- [**tslib**](https://npmjs.com/package/tough-cookie) Necessary with built TypeScript projects :)
 
-Make sure you are able to install each and every one of these packages as they are all vital to the functionality of this module!
+Make sure you are able to install each one of these packages, as they are all vital to the functionality of this module!
 
 ### Prerequisites
 
@@ -70,15 +68,6 @@ Please, before making an issue or pull request, please make sure you have done t
 - **Asked for help in the *[Roblox API Community]()*** - Sometimes, even the best of us need help.
 - (Issues only) **Follow the style / template as shown in [example-issue]()** - Consistency works!
 
-## Versioning
-<details><summary>Release history</summary>
-
-| Version | Date | Description |
-| ------------ | -------- | ------------------ |
-| 4.0.0 | 21-07-2019 | v4 Release of bloxy (finally!) |
-
-</details>
-
 
 ## Examples
 Check out below for some examples of how to use bloxy!
@@ -91,34 +80,37 @@ Check out below for some examples of how to use bloxy!
 
 
 ```js
+// In an async environment
 const bloxy = require("bloxy");
-const roblox = new bloxy.Client({
-    cookie: ".ROBLOSECURITY"
+const client = new bloxy.Client({
+    credentials: {
+        cookie: "cookie"
+    }
 });
 
-roblox.login().then( (user) => {
-    console.log(`Logged in as ${roblox.user.id}`);
-    // --> "Logged in as 1234" 
-});
+const authenticatedUser = await client.login();
+console.log(`Logged in as ${authenticatedUser.id}`) // --> "Logged in as X"
 ```
 
 </details>
 
-<details><summary>Promoting a user</summary>
+<details><summary>Giving a user a certain role</summary>
 
 ```js
 const bloxy = require("bloxy");
-const roblox = new bloxy({
-    cookie: ""
+const client = new bloxy.Client({
+    credentials: {
+        cookie: "cookie"
+    }
 });
 
-roblox.login().then( async () => {
-    const group = await roblox.getGroup(12345);
-    const promoted = await group.promote(12345);
-    	
-    console.log(`Promoted user to ${promoted.name}`);
-    // --> "Promoted user to <name>"
-});
+await client.login();
+
+const group = await client.getGroup(3544434);
+await group.updateMember(
+    321, // User id
+    123 // Role id
+);
 ```
 </details>
 
