@@ -1,6 +1,6 @@
 {
   "name": "bloxy",
-  "version": "5.0.0-alpha3",
+  "version": "5.0.0-alpha4",
   "description": "A Node.JS library for interacting with the Roblox website and its API.",
   "main": "./dist/index.js",
   "bugs": {
@@ -36,6 +36,7 @@
   "author": "ScriptBased",
   "license": "MIT",
   "devDependencies": {
+    "@types/faker": "^4.1.12",
     "@types/got": "^9.6.11",
     "@types/lodash": "^4.14.157",
     "@types/node": "^12.12.50",
@@ -44,6 +45,7 @@
     "codacy-coverage": "^3.4.0",
     "eslint": "^6.8.0",
     "eslint-plugin-security": "^1.4.0",
+    "faker": "^4.1.0",
     "fast-check": "^2.1.0",
     "jest": "^26.4.0",
     "typescript": "^3.9.7"

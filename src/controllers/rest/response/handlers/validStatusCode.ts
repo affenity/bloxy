@@ -32,7 +32,7 @@ export default function validStatusCode (response: RESTResponse): boolean | Erro
     return isValid ? true : new BloxyHttpError({
         status: responseData.status,
         statusCode: responseData.statusCode,
-        message: `Invalid status code in response.`,
+        message: `Invalid status code in response. Body: ${responseData.body instanceof Object ? JSON.stringify(responseData.body) : responseData.body}`,
         name: "BloxyHttpInvalidStatusCodeError",
         possibleReasons: []
     });
