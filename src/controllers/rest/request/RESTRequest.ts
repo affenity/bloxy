@@ -32,6 +32,7 @@ class RESTRequest {
         await prepare(this, options || this.requestOptions);
         await Promise.all(this.controller.requestHandlers.map(handler => handler(this)));
 
+        // Console.log(this.requestOptions);
         const responseData = await this.controller.requester(this.requestOptions);
         const response = new RESTResponse(this.controller, this, responseData);
         return response.process();

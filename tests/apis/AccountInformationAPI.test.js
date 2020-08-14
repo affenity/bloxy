@@ -1,10 +1,12 @@
 const TEST_COOKIE = require("../getCookie");
 const bloxy = require("../../dist");
+const faker = require("faker");
 const client = new bloxy.Client({
     credentials: {
         cookie: TEST_COOKIE
     }
 });
+const { wait } = require("../util");
 
 beforeAll(async () => {
     return client.login(
@@ -19,13 +21,148 @@ describe("testing AccountInformationAPI", function () {
     it("should return proper information about star code affiliate", async () => {
         const codeData = await client.apis.accountInformationAPI.addStarCodeAffiliate({
             code: "BACON"
-        }).catch(() => null);
+        })
+            .catch(() => null);
 
-        console.log("DATA:", codeData);
+        return expect(codeData)
+            .toMatchObject({
+                userId: 66895609,
+                code: "BACON"
+            });
+    });
+    describe("should retrieve and update a user's birthdate", function () {
+        jest.setTimeout(10000);
+        const birthDate = {
+            birthDay: Math.floor((Math.random() * 29) + 1),
+            birthMonth: Math.floor((Math.random() * 11) + 1),
+            birthYear: Math.floor((Math.random() * 26) + 1980)
+        };
 
-        return expect(codeData).toMatchObject({
-            userId: 66895609,
-            code: "BACON"
+        describe("should should update the birthdate", function () {
+            it("execute", async function () {
+                const updatedBirthDate = await client.apis.accountInformationAPI.updateUserBirthdate(birthDate);
+
+                return expect(updatedBirthDate)
+                    .toStrictEqual(true);
+            });
+        });
+
+        describe("should get the new birthdate", function () {
+            it("should wait for a second to propagate changes", async function () {
+                await wait(2);
+                return expect(1)
+                    .toEqual(1);
+            });
+            it("execute", async function () {
+                const retrievedBirthDate = await client.apis.accountInformationAPI.getUserBirthdate();
+
+                return expect(retrievedBirthDate)
+                    .toStrictEqual(birthDate);
+            });
+        });
+    });
+    describe("should retrieve and update a user's description", function () {
+        const description = `Hello ${faker.lorem.words(10)}`;
+        console.log(`Description: ${description}`);
+
+        describe("should update the description", function () {
+            it("execute", async function () {
+                return expect(client.apis.accountInformationAPI.updateUserDescription({
+                    description
+                }))
+                    .resolves
+                    .toBeDefined();
+            });
+        });
+
+        describe("should retrieve the description", function () {
+            it("should retrieve the description and compare", async function () {
+                await wait(2);
+
+                const retrievedDescription = await client.apis.accountInformationAPI.getUserDescription();
+                console.log(retrievedDescription);
+
+                return expect(retrievedDescription.description.length)
+                    .toStrictEqual(description.length);
+            });
+        });
+    });
+    describe("should retrieve and update a user's gender", function () {
+        const gender = 1 + Math.floor(Math.random() * 3);
+        console.log(`Gender: ${gender}`);
+
+        describe("should update the user's gender", function () {
+            it("execute", function () {
+                return expect(client.apis.accountInformationAPI.updateUserGender({
+                    gender
+                }))
+                    .resolves
+                    .toBeDefined();
+            });
+        });
+
+        describe("should retrieve the user's gender", function () {
+            it("execute", async function () {
+                wait(8);
+                const retrievedGender = await client.apis.accountInformationAPI.getUserGender()
+                    .then(res => res.gender);
+
+                return expect(retrievedGender)
+                    .toEqual(gender);
+            });
+        });
+    });
+    describe("should get the verified phone number", function () {
+        it("execute", async function () {
+            const retrieved = await client.apis.accountInformationAPI.getVerifiedPhoneNumber();
+
+            return expect(retrieved)
+                .toMatchObject({
+                    verificationCodeLength: 6
+                });
+        });
+    });
+    describe("should retrieve and update the promotion channels", function () {
+        const promotionChannels = {
+            promotionChannelsVisibilityPrivacy: "AllUsers",
+            facebook: `https://facebook.com/${faker.lorem.words(1)}`,
+            twitch: `https://twitch.tv/${faker.lorem.words(1)}`,
+            twitter: `@${faker.lorem.word()}`,
+            youtube: null
+        };
+
+        describe("should update", function () {
+            it("execute", async function () {
+                const updatedValues = await client.apis.accountInformationAPI.updateUserPromotionChannels(promotionChannels);
+
+                return expect(updatedValues)
+                    .toMatchObject({});
+            });
+        });
+
+        it("should retrieve", async function () {
+            await wait(1);
+            const retrievedValues = await client.apis.accountInformationAPI.getSelfPromotionChannels();
+
+            return expect(retrievedValues)
+                .toStrictEqual(promotionChannels);
+        });
+
+        it("should retrieve \"externally\"", async function () {
+            await wait(1);
+            const retrievedValues = await client.apis.accountInformationAPI.getUserPromotionChannels({
+                userId: client.user.id
+            });
+
+            console.log("user values", retrievedValues);
+            const expected = {
+                ...promotionChannels
+            };
+
+            delete expected["promotionChannelsVisibilityPrivacy"];
+
+            return expect(retrievedValues)
+                .toMatchObject(expected);
         });
     });
 });
