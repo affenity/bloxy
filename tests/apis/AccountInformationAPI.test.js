@@ -18,18 +18,6 @@ beforeAll(async () => {
 });
 
 describe("testing AccountInformationAPI", function () {
-    it("should return proper information about star code affiliate", async () => {
-        const codeData = await client.apis.accountInformationAPI.addStarCodeAffiliate({
-            code: "BACON"
-        })
-            .catch(() => null);
-
-        return expect(codeData)
-            .toMatchObject({
-                userId: 66895609,
-                code: "BACON"
-            });
-    });
     describe("should retrieve and update a user's birthdate", function () {
         jest.setTimeout(10000);
         const birthDate = {
@@ -163,6 +151,43 @@ describe("testing AccountInformationAPI", function () {
 
             return expect(retrievedValues)
                 .toMatchObject(expected);
+        });
+    });
+    describe("should test star code affiliates", function () {
+        const STAR_CODES = [
+            { code: "BACON", userId: 66895609 },
+            { code: "Denis", userId: 121823922 },
+            { code: "RealKreek", userId: 140258990 }
+        ];
+        const chosenCode = STAR_CODES[Math.floor(Math.random() * STAR_CODES.length)];
+        const expected = {
+            code: chosenCode.code.toUpperCase(),
+            userId: chosenCode.userId
+        };
+
+        describe("should remove star code", function () {
+            it("removing", async function () {
+                return expect(client.apis.accountInformationAPI.removeStarCodeAffiliate())
+                    .resolves
+                    .toEqual(true);
+            });
+        });
+        describe("should add star code", function () {
+            it("should add", function () {
+                return expect(client.apis.accountInformationAPI.addStarCodeAffiliate({
+                    code: chosenCode.code
+                }))
+                    .resolves
+                    .toMatchObject(expected);
+            });
+        });
+        describe("should retrieve star code and match with chosen", function () {
+            it("should retrieve", async function () {
+                const retrieved = await client.apis.accountInformationAPI.getStarCodeAffiliate();
+
+                return expect(retrieved)
+                    .toMatchObject(expected);
+            });
         });
     });
 });
