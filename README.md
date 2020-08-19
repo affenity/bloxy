@@ -118,6 +118,18 @@ await group.updateMember(
 
 * **Sentanos** - *For helpful solutions and ideas* - [roblox-js](https://github.com/sentanos/roblox-js)
 
+## Documentation
+
+You can read the docs [here](https://github.com/Visualizememe/bloxy/wiki/BloxyClient)
+
+Here is a table of content of the docs:
+
+1. [Client Documentation](https://github.com/Visualizememe/bloxy/wiki/BloxyClient)
+2. [Class](https://github.com/Visualizememe/bloxy/wiki/Classes)
+3. [Getting started at using this API](https://github.com/Visualizememe/bloxy/wiki/Getting-started)
+4. [Group api](https://github.com/Visualizememe/bloxy/wiki/Group)
+5. [Using 2fa with the API](https://github.com/Visualizememe/bloxy/wiki/Using-2FA-(two-factor-authentication))
+
 
 ## License
 
