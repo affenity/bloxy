@@ -26,7 +26,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a85767c4-bfb1-401b-832d-4f10d57a6f3a" name="Default Changelist" comment="Updated CatalogAPI.ts to remove response modifications">
+      <change afterPath="$PROJECT_DIR$/tests/apis/AccountSettingsAPI.test.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tests/apis/AuthAPI.test.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tests/apis/AvatarAPI.test.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tests/apis/BadgesAPI.test.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/client/apis/AccountSettingsAPI.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/client/apis/AccountSettingsAPI.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/client/apis/BadgesAPI.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/client/apis/BadgesAPI.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tests/apis/AccountInformationAPI.test.js" beforeDir="false" afterPath="$PROJECT_DIR$/tests/apis/AccountInformationAPI.test.js" afterDir="false" />
     </list>
     <list id="2baa7156-334f-4736-a7ad-c82d073ffac9" name="Revert &quot;Added Auth API&quot;" comment="Revert &quot;Added Auth API&quot;&#10;&#10;This reverts commit 80c65c6b" />
@@ -219,6 +225,8 @@
       <workItem from="1597406501568" duration="13000" />
       <workItem from="1597406552539" duration="115000" />
       <workItem from="1597425856570" duration="9097000" />
+      <workItem from="1597497005086" duration="6137000" />
+      <workItem from="1597867458294" duration="6000" />
     </task>
     <task id="LOCAL−00001" summary="Updated">
       <created>1596387076571</created>
@@ -485,10 +493,10 @@
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
     <state x="441" y="212" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/0.0.1920.1050/-1920.0.1920.1050/1920.0.1920.1050@0.0.1920.1050" timestamp="1594980773661" />
-    <state x="-967" y="0" width="974" height="1057" key="dock-window-1" timestamp="1597436668915">
-      <screen x="-1920" y="0" width="1920" height="1050" />
+    <state x="1913" y="0" width="1029" height="1057" key="dock-window-1" timestamp="1597867459774">
+      <screen x="1920" y="0" width="1920" height="1050" />
     </state>
-    <state x="-967" y="0" width="974" height="1057" key="dock-window-1/0.0.1920.1050/-1920.0.1920.1050/1920.0.1920.1050@0.0.1920.1050" timestamp="1597436668915" />
+    <state x="1913" y="0" width="1029" height="1057" key="dock-window-1/0.0.1920.1050/-1920.0.1920.1050/1920.0.1920.1050@0.0.1920.1050" timestamp="1597867459774" />
     <state x="-967" y="0" width="974" height="1057" key="dock-window-2" timestamp="1597315677568">
       <screen x="-1920" y="0" width="1920" height="1050" />
     </state>
@@ -497,10 +505,10 @@
       <screen x="-1920" y="0" width="1920" height="1050" />
     </state>
     <state x="-967" y="0" width="974" height="1057" key="dock-window-3/0.0.1920.1050/-1920.0.1920.1050/1920.0.1920.1050@0.0.1920.1050" timestamp="1590243202998" />
-    <state x="662" y="115" width="583" height="849" key="find.popup" timestamp="1597440754007">
+    <state x="662" y="115" width="583" height="849" key="find.popup" timestamp="1597526002620">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
-    <state x="662" y="115" width="583" height="849" key="find.popup/0.0.1920.1050/-1920.0.1920.1050/1920.0.1920.1050@0.0.1920.1050" timestamp="1597440754007" />
+    <state x="662" y="115" width="583" height="849" key="find.popup/0.0.1920.1050/-1920.0.1920.1050/1920.0.1920.1050@0.0.1920.1050" timestamp="1597526002620" />
     <state x="2581" y="113" width="583" height="849" key="find.popup/0.0.1920.1050/-1920.0.1920.1050/1920.0.1920.1050@1920.0.1920.1050" timestamp="1597425929025" />
     <state x="609" y="274" width="700" height="530" key="recent.locations.popup" timestamp="1594935992169">
       <screen x="0" y="0" width="1920" height="1050" />
