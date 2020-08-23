@@ -1,0 +1,3498 @@
+
+
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      <link rel="shortcut icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-5.5.8">
+    
+    
+      
+        <title>Class: TradesAPI - Bloxy Docs</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.01afc2df.min.css">
+      
+      
+    
+    
+    
+      
+        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>body,input{font-family:"Roboto",-apple-system,BlinkMacSystemFont,Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono",SFMono-Regular,Consolas,Menlo,monospace}</style>
+      
+    
+    
+    
+    
+      
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#class-tradesapi" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid" aria-label="Header">
+    <a href="../.." title="Bloxy Docs" class="md-header-nav__button md-logo" aria-label="Bloxy Docs">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 003-3 3 3 0 00-3-3 3 3 0 00-3 3 3 3 0 003 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    <label class="md-header-nav__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header-nav__title" data-md-component="header-title">
+      
+        <div class="md-header-nav__ellipsis">
+          <span class="md-header-nav__topic md-ellipsis">
+            Bloxy Docs
+          </span>
+          <span class="md-header-nav__topic md-ellipsis">
+            
+              Class: TradesAPI
+            
+          </span>
+        </div>
+      
+    </div>
+    
+      <label class="md-header-nav__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0116 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 019.5 16 6.5 6.5 0 013 9.5 6.5 6.5 0 019.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" data-md-state="active">
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0116 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 019.5 16 6.5 6.5 0 013 9.5 6.5 6.5 0 019.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <button type="reset" class="md-search__icon md-icon" aria-label="Clear" data-md-component="search-reset" tabindex="-1">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+        
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Bloxy Docs" class="md-nav__button md-logo" aria-label="Bloxy Docs">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 003-3 3 3 0 00-3-3 3 3 0 00-3 3 3 3 0 003 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    Bloxy Docs
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../.." title="bloxy" class="md-nav__link">
+      bloxy
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../globals/" title="bloxy" class="md-nav__link">
+      bloxy
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3" checked>
+    
+    <label class="md-nav__link" for="nav-3">
+      Classes
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59 16.58L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.42z"/></svg>
+      </span>
+    </label>
+    <nav class="md-nav" aria-label="Classes" data-md-level="1">
+      <label class="md-nav__title" for="nav-3">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+        </span>
+        Classes
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../_client_apis_accountinformationapi_.accountinformationapi/" title="Class: AccountInformationAPI" class="md-nav__link">
+      Class: AccountInformationAPI
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../_client_apis_accountsettingsapi_.accountsettingsapi/" title="Class: AccountSettingsAPI" class="md-nav__link">
+      Class: AccountSettingsAPI
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../_client_apis_adconfigurationapi_.adconfigurationapi/" title="Class: AdConfigurationAPI" class="md-nav__link">
+      Class: AdConfigurationAPI
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../_client_apis_adsapi_.adsapi/" title="Class: AdsAPI" class="md-nav__link">
+      Class: AdsAPI
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../_client_apis_assetdeliveryapi_.assetdeliveryapi/" title="Class: AssetDeliveryAPI" class="md-nav__link">
+      Class: AssetDeliveryAPI
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../_client_apis_authapi_.authapi/" title="Class: AuthAPI" class="md-nav__link">
+      Class: AuthAPI
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../_client_apis_avatarapi_.avatarapi/" title="Class: AvatarAPI" class="md-nav__link">
+      Class: AvatarAPI
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../_client_apis_badgesapi_.avatarapi/" title="Class: AvatarAPI" class="md-nav__link">
+      Class: AvatarAPI
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../_client_apis_baseapi_.baseapi/" title="Class: BaseAPI" class="md-nav__link">
+      Class: BaseAPI
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../_client_apis_billingapi_.billingapi/" title="Class: BillingAPI" class="md-nav__link">
+      Class: BillingAPI
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../_client_apis_captchaapi_.captchaapi/" title="Class: CaptchaAPI" class="md-nav__link">
+      Class: CaptchaAPI
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../_client_apis_catalogapi_.catalogapi/" title="Class: CatalogAPI" class="md-nav__link">
+      Class: CatalogAPI
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../_client_apis_chatapi_.chatapi/" title="Class: ChatAPI" class="md-nav__link">
+      Class: ChatAPI
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../_client_apis_contactsapi_.contactsapi/" title="Class: ContactsAPI" class="md-nav__link">
+      Class: ContactsAPI
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../_client_apis_developapi_.developapi/" title="Class: DevelopAPI" class="md-nav__link">
+      Class: DevelopAPI
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../_client_apis_economyapi_.economyapi/" title="Class: EconomyAPI" class="md-nav__link">
+      Class: EconomyAPI
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../_client_apis_economycreatorstatsapi_.economycreatorstatsapi/" title="Class: EconomyCreatorStatsAPI" class="md-nav__link">
+      Class: EconomyCreatorStatsAPI
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../_client_apis_engagementpayoutsapi_.engagementpayoutsapi/" title="Class: EngagementPayoutsAPI" class="md-nav__link">
+      Class: EngagementPayoutsAPI
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../_client_apis_followingsapi_.followingsapi/" title="Class: FollowingsAPI" class="md-nav__link">
+      Class: FollowingsAPI
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../_client_apis_friendsapi_.friendsapi/" title="Class: FriendsAPI" class="md-nav__link">
+      Class: FriendsAPI
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../_client_apis_gameinternationalizationapi_.gameinternationalizationapi/" title="Class: GameInternationalizationAPI" class="md-nav__link">
+      Class: GameInternationalizationAPI
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../_client_apis_gamesapi_.gamesapi/" title="Class: GamesAPI" class="md-nav__link">
+      Class: GamesAPI
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../_client_apis_generalapi_.generalapi/" title="Class: GeneralAPI" class="md-nav__link">
+      Class: GeneralAPI
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../_client_apis_groupsapi_.groupsapi/" title="Class: GroupsAPI" class="md-nav__link">
+      Class: GroupsAPI
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../_client_apis_inventoryapi_.inventoryapi/" title="Class: InventoryAPI" class="md-nav__link">
+      Class: InventoryAPI
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../_client_apis_itemconfigurationapi_.inventoryapi/" title="Class: InventoryAPI" class="md-nav__link">
+      Class: InventoryAPI
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../_client_apis_localeapi_.localeapi/" title="Class: LocaleAPI" class="md-nav__link">
+      Class: LocaleAPI
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../_client_apis_metricsapi_.localeapi/" title="Class: LocaleAPI" class="md-nav__link">
+      Class: LocaleAPI
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../_client_apis_notificationsapi_.notificationsapi/" title="Class: NotificationsAPI" class="md-nav__link">
+      Class: NotificationsAPI
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../_client_apis_otherapi_.otherapi/" title="Class: OtherAPI" class="md-nav__link">
+      Class: OtherAPI
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../_client_apis_premiumfeaturesapi_.premiumfeaturesapi/" title="Class: PremiumFeaturesAPI" class="md-nav__link">
+      Class: PremiumFeaturesAPI
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../_client_apis_presenceapi_.presenceapi/" title="Class: PresenceAPI" class="md-nav__link">
+      Class: PresenceAPI
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../_client_apis_privatemessagesapi_.privatemessagesapi/" title="Class: PrivateMessagesAPI" class="md-nav__link">
+      Class: PrivateMessagesAPI
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../_client_apis_publishapi_.publishapi/" title="Class: PublishAPI" class="md-nav__link">
+      Class: PublishAPI
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../_client_apis_thumbnailsapi_.thumbnailsapi/" title="Class: ThumbnailsAPI" class="md-nav__link">
+      Class: ThumbnailsAPI
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+      
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        Class: TradesAPI
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 9h14V7H3v2m0 4h14v-2H3v2m0 4h14v-2H3v2m16 0h2v-2h-2v2m0-10v2h2V7h-2m0 6h2v-2h-2v2z"/></svg>
+        </span>
+      </label>
+    
+    <a href="./" title="Class: TradesAPI" class="md-nav__link md-nav__link--active">
+      Class: TradesAPI
+    </a>
+    
+      
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#hierarchy" class="md-nav__link">
+    Hierarchy
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#index" class="md-nav__link">
+    Index
+  </a>
+  
+    <nav class="md-nav" aria-label="Index">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#constructors" class="md-nav__link">
+    Constructors
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#properties" class="md-nav__link">
+    Properties
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#methods" class="md-nav__link">
+    Methods
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#constructors_1" class="md-nav__link">
+    Constructors
+  </a>
+  
+    <nav class="md-nav" aria-label="Constructors">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#constructor" class="md-nav__link">
+      constructor
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#properties_1" class="md-nav__link">
+    Properties
+  </a>
+  
+    <nav class="md-nav" aria-label="Properties">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#client" class="md-nav__link">
+      client
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#options" class="md-nav__link">
+      options
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#methods_1" class="md-nav__link">
+    Methods
+  </a>
+  
+    <nav class="md-nav" aria-label="Methods">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#accepttrade" class="md-nav__link">
+      acceptTrade
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cantradewith" class="md-nav__link">
+      canTradeWith
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#countertrade" class="md-nav__link">
+      counterTrade
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#declinetrade" class="md-nav__link">
+      declineTrade
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#gettrade" class="md-nav__link">
+      getTrade
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#gettradesbystatustype" class="md-nav__link">
+      getTradesByStatusType
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#gettradescountbystatustype" class="md-nav__link">
+      getTradesCountByStatusType
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#gettradesmetadata" class="md-nav__link">
+      getTradesMetaData
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#request" class="md-nav__link">
+      request
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sendtrade" class="md-nav__link">
+      sendTrade
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+    
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../_client_apis_translationrolesapi_.tradesapi/" title="Class: TradesAPI" class="md-nav__link">
+      Class: TradesAPI
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../_client_apis_usersapi_.usersapi/" title="Class: UsersAPI" class="md-nav__link">
+      Class: UsersAPI
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../_client_client_.client/" title="Class: Client" class="md-nav__link">
+      Class: Client
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../_client_clientbase_.clientbase.eventemitter/" title="Class: EventEmitter" class="md-nav__link">
+      Class: EventEmitter
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../_client_clientbase_.clientbase/" title="Class: ClientBase" class="md-nav__link">
+      Class: ClientBase
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../_client_lib_chatmanager_chatmanager_.chatmanager/" title="Class: ChatManager" class="md-nav__link">
+      Class: ChatManager
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../_client_lib_clientsocket_clientsocket_.socket.eventemitter/" title="Class: EventEmitter" class="md-nav__link">
+      Class: EventEmitter
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../_client_lib_clientsocket_clientsocket_.socket/" title="Class: Socket" class="md-nav__link">
+      Class: Socket
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../_controllers_rest_response_restresponse_.restresponse/" title="Class: RESTResponse" class="md-nav__link">
+      Class: RESTResponse
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../_controllers_rest_restcontroller_.restcontroller/" title="Class: RESTController" class="md-nav__link">
+      Class: RESTController
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../_structures_asset_.assetversion/" title="Class: AssetVersion" class="md-nav__link">
+      Class: AssetVersion
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../_structures_asset_.bundle/" title="Class: Bundle" class="md-nav__link">
+      Class: Bundle
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../_structures_asset_.collectibleasset/" title="Class: CollectibleAsset" class="md-nav__link">
+      Class: CollectibleAsset
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../_structures_asset_.cursorpage/" title="Class: CursorPage ‹**T**›" class="md-nav__link">
+      Class: CursorPage ‹**T**›
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../_structures_asset_.product/" title="Class: Product" class="md-nav__link">
+      Class: Product
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../_structures_asset_.trade/" title="Class: Trade" class="md-nav__link">
+      Class: Trade
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../_structures_chat_.chatconversation/" title="Class: ChatConversation" class="md-nav__link">
+      Class: ChatConversation
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../_structures_chat_.chatmessage/" title="Class: ChatMessage" class="md-nav__link">
+      Class: ChatMessage
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../_structures_chat_.chatmessagesent/" title="Class: ChatMessageSent" class="md-nav__link">
+      Class: ChatMessageSent
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../_structures_chat_.partialchatconversation/" title="Class: PartialChatConversation" class="md-nav__link">
+      Class: PartialChatConversation
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../_structures_clientuser_.clientuser/" title="Class: ClientUser" class="md-nav__link">
+      Class: ClientUser
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../_structures_game_.baseplace/" title="Class: BasePlace" class="md-nav__link">
+      Class: BasePlace
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../_structures_game_.gamebadge/" title="Class: GameBadge" class="md-nav__link">
+      Class: GameBadge
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../_structures_game_.gamebadgebase/" title="Class: GameBadgeBase" class="md-nav__link">
+      Class: GameBadgeBase
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../_structures_game_.gamemediadata/" title="Class: GameMediaData" class="md-nav__link">
+      Class: GameMediaData
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../_structures_game_.gamepass/" title="Class: GamePass" class="md-nav__link">
+      Class: GamePass
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../_structures_game_.gameuniverse/" title="Class: GameUniverse" class="md-nav__link">
+      Class: GameUniverse
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../_structures_game_.partialgamebadge/" title="Class: PartialGameBadge" class="md-nav__link">
+      Class: PartialGameBadge
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../_structures_game_.partialgameuniverse/" title="Class: PartialGameUniverse" class="md-nav__link">
+      Class: PartialGameUniverse
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../_structures_game_.partialplace/" title="Class: PartialPlace" class="md-nav__link">
+      Class: PartialPlace
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../_structures_game_.partialvipserver/" title="Class: PartialVIPServer" class="md-nav__link">
+      Class: PartialVIPServer
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../_structures_game_.place/" title="Class: Place" class="md-nav__link">
+      Class: Place
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../_structures_game_.vipserver/" title="Class: VIPServer" class="md-nav__link">
+      Class: VIPServer
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../_structures_group_.group/" title="Class: Group" class="md-nav__link">
+      Class: Group
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../_structures_group_.groupbase/" title="Class: GroupBase" class="md-nav__link">
+      Class: GroupBase
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../_structures_group_.groupjoinrequest/" title="Class: GroupJoinRequest" class="md-nav__link">
+      Class: GroupJoinRequest
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../_structures_group_.groupmember/" title="Class: GroupMember" class="md-nav__link">
+      Class: GroupMember
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../_structures_group_.grouprole/" title="Class: GroupRole" class="md-nav__link">
+      Class: GroupRole
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../_structures_group_.grouprolepermissions/" title="Class: GroupRolePermissions" class="md-nav__link">
+      Class: GroupRolePermissions
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../_structures_group_.groupshout/" title="Class: GroupShout" class="md-nav__link">
+      Class: GroupShout
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../_structures_group_.groupwallpost/" title="Class: GroupWallPost" class="md-nav__link">
+      Class: GroupWallPost
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../_structures_group_.partialgroup/" title="Class: PartialGroup" class="md-nav__link">
+      Class: PartialGroup
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../_structures_user_.friendrequest/" title="Class: FriendRequest" class="md-nav__link">
+      Class: FriendRequest
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../_structures_user_.partialuser/" title="Class: PartialUser" class="md-nav__link">
+      Class: PartialUser
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../_structures_user_.user/" title="Class: User" class="md-nav__link">
+      Class: User
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../_structures_user_.userbase/" title="Class: UserBase" class="md-nav__link">
+      Class: UserBase
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../_util_errors_errors_.bloxyhttperror/" title="Class: BloxyHttpError" class="md-nav__link">
+      Class: BloxyHttpError
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4">
+    
+    <label class="md-nav__link" for="nav-4">
+      Enums
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59 16.58L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.42z"/></svg>
+      </span>
+    </label>
+    <nav class="md-nav" aria-label="Enums" data-md-level="1">
+      <label class="md-nav__title" for="nav-4">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+        </span>
+        Enums
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../enums/_util_constants_.creatortype/" title="Enumeration: CreatorType" class="md-nav__link">
+      Enumeration: CreatorType
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../enums/_util_constants_.gamegenre/" title="Enumeration: GameGenre" class="md-nav__link">
+      Enumeration: GameGenre
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../enums/_util_constants_.morphavatartype/" title="Enumeration: MorphAvatarType" class="md-nav__link">
+      Enumeration: MorphAvatarType
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-5" type="checkbox" id="nav-5">
+    
+    <label class="md-nav__link" for="nav-5">
+      Interfaces
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59 16.58L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.42z"/></svg>
+      </span>
+    </label>
+    <nav class="md-nav" aria-label="Interfaces" data-md-level="1">
+      <label class="md-nav__title" for="nav-5">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+        </span>
+        Interfaces
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../interfaces/_client_clientbase_.clientcallbacks/" title="Interface: ClientCallbacks" class="md-nav__link">
+      Interface: ClientCallbacks
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../interfaces/_client_clientbase_.clientcredentialsoptions/" title="Interface: ClientCredentialsOptions" class="md-nav__link">
+      Interface: ClientCredentialsOptions
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../interfaces/_client_clientbase_.clientoptions/" title="Interface: ClientOptions" class="md-nav__link">
+      Interface: ClientOptions
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../interfaces/_client_clientbase_.clientsetup/" title="Interface: ClientSetup" class="md-nav__link">
+      Interface: ClientSetup
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../interfaces/_structures_asset_.assetversionoptions/" title="Interface: AssetVersionOptions" class="md-nav__link">
+      Interface: AssetVersionOptions
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../interfaces/_structures_asset_.bundleoptions/" title="Interface: BundleOptions" class="md-nav__link">
+      Interface: BundleOptions
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../interfaces/_structures_asset_.collectibleassetoptions/" title="Interface: CollectibleAssetOptions" class="md-nav__link">
+      Interface: CollectibleAssetOptions
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../interfaces/_structures_asset_.productoptions/" title="Interface: ProductOptions" class="md-nav__link">
+      Interface: ProductOptions
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../interfaces/_structures_asset_.structures/" title="Interface: Structures" class="md-nav__link">
+      Interface: Structures
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../interfaces/_structures_asset_.tradeoptions/" title="Interface: TradeOptions" class="md-nav__link">
+      Interface: TradeOptions
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../interfaces/_structures_chat_.chatconversationoptions/" title="Interface: ChatConversationOptions" class="md-nav__link">
+      Interface: ChatConversationOptions
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../interfaces/_structures_chat_.chatmessageoptions/" title="Interface: ChatMessageOptions" class="md-nav__link">
+      Interface: ChatMessageOptions
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../interfaces/_structures_chat_.chatmessagesentoptions/" title="Interface: ChatMessageSentOptions" class="md-nav__link">
+      Interface: ChatMessageSentOptions
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../interfaces/_structures_chat_.partialchatconversationoptions/" title="Interface: PartialChatConversationOptions" class="md-nav__link">
+      Interface: PartialChatConversationOptions
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../interfaces/_structures_chat_.structures/" title="Interface: Structures" class="md-nav__link">
+      Interface: Structures
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../interfaces/_structures_clientuser_.clientuseroptions/" title="Interface: ClientUserOptions" class="md-nav__link">
+      Interface: ClientUserOptions
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../interfaces/_structures_game_.baseplaceoptions/" title="Interface: BasePlaceOptions" class="md-nav__link">
+      Interface: BasePlaceOptions
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../interfaces/_structures_game_.gamebadgebaseoptions/" title="Interface: GameBadgeBaseOptions" class="md-nav__link">
+      Interface: GameBadgeBaseOptions
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../interfaces/_structures_game_.gamebadgeoptions/" title="Interface: GameBadgeOptions" class="md-nav__link">
+      Interface: GameBadgeOptions
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../interfaces/_structures_game_.gamemediadataoptions/" title="Interface: GameMediaDataOptions" class="md-nav__link">
+      Interface: GameMediaDataOptions
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../interfaces/_structures_game_.gamepassoptions/" title="Interface: GamePassOptions" class="md-nav__link">
+      Interface: GamePassOptions
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../interfaces/_structures_game_.gameuniverseoptions/" title="Interface: GameUniverseOptions" class="md-nav__link">
+      Interface: GameUniverseOptions
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../interfaces/_structures_game_.partialgameuniverseoptions/" title="Interface: PartialGameUniverseOptions" class="md-nav__link">
+      Interface: PartialGameUniverseOptions
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../interfaces/_structures_game_.partialplaceoptions/" title="Interface: PartialPlaceOptions" class="md-nav__link">
+      Interface: PartialPlaceOptions
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../interfaces/_structures_game_.partialvipserveroptions/" title="Interface: PartialVIPServerOptions" class="md-nav__link">
+      Interface: PartialVIPServerOptions
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../interfaces/_structures_game_.placeoptions/" title="Interface: PlaceOptions" class="md-nav__link">
+      Interface: PlaceOptions
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../interfaces/_structures_game_.structures/" title="Interface: Structures" class="md-nav__link">
+      Interface: Structures
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../interfaces/_structures_game_.vipserveroptions/" title="Interface: VIPServerOptions" class="md-nav__link">
+      Interface: VIPServerOptions
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../interfaces/_structures_group_.groupbaseoptions/" title="Interface: GroupBaseOptions" class="md-nav__link">
+      Interface: GroupBaseOptions
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../interfaces/_structures_group_.groupjoinrequestoptions/" title="Interface: GroupJoinRequestOptions" class="md-nav__link">
+      Interface: GroupJoinRequestOptions
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../interfaces/_structures_group_.groupmemberoptions/" title="Interface: GroupMemberOptions" class="md-nav__link">
+      Interface: GroupMemberOptions
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../interfaces/_structures_group_.groupoptions/" title="Interface: GroupOptions" class="md-nav__link">
+      Interface: GroupOptions
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../interfaces/_structures_group_.grouproleoptions/" title="Interface: GroupRoleOptions" class="md-nav__link">
+      Interface: GroupRoleOptions
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../interfaces/_structures_group_.grouprolepermissionsoptions/" title="Interface: GroupRolePermissionsOptions" class="md-nav__link">
+      Interface: GroupRolePermissionsOptions
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../interfaces/_structures_group_.groupshoutoptions/" title="Interface: GroupShoutOptions" class="md-nav__link">
+      Interface: GroupShoutOptions
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../interfaces/_structures_group_.groupwallpostoptions/" title="Interface: GroupWallPostOptions" class="md-nav__link">
+      Interface: GroupWallPostOptions
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../interfaces/_structures_group_.partialgroupoptions/" title="Interface: PartialGroupOptions" class="md-nav__link">
+      Interface: PartialGroupOptions
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../interfaces/_structures_group_.structures/" title="Interface: Structures" class="md-nav__link">
+      Interface: Structures
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../interfaces/_structures_user_.friendrequestoptions/" title="Interface: FriendRequestOptions" class="md-nav__link">
+      Interface: FriendRequestOptions
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../interfaces/_structures_user_.partialuseroptions/" title="Interface: PartialUserOptions" class="md-nav__link">
+      Interface: PartialUserOptions
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../interfaces/_structures_user_.userbaseoptions/" title="Interface: UserBaseOptions" class="md-nav__link">
+      Interface: UserBaseOptions
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../interfaces/_structures_user_.useroptions/" title="Interface: UserOptions" class="md-nav__link">
+      Interface: UserOptions
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../interfaces/_util_errors_errors_.bloxyhttperroroptions/" title="Interface: BloxyHttpErrorOptions" class="md-nav__link">
+      Interface: BloxyHttpErrorOptions
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-6" type="checkbox" id="nav-6">
+    
+    <label class="md-nav__link" for="nav-6">
+      Modules
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59 16.58L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.42z"/></svg>
+      </span>
+    </label>
+    <nav class="md-nav" aria-label="Modules" data-md-level="1">
+      <label class="md-nav__title" for="nav-6">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+        </span>
+        Modules
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../modules/_client_apis_accountinformationapi_/" title="Module: "client/apis/AccountInformationAPI"" class="md-nav__link">
+      Module: "client/apis/AccountInformationAPI"
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../modules/_client_apis_accountsettingsapi_/" title="Module: "client/apis/AccountSettingsAPI"" class="md-nav__link">
+      Module: "client/apis/AccountSettingsAPI"
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../modules/_client_apis_adconfigurationapi_/" title="Module: "client/apis/AdConfigurationAPI"" class="md-nav__link">
+      Module: "client/apis/AdConfigurationAPI"
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../modules/_client_apis_adsapi_/" title="Module: "client/apis/AdsAPI"" class="md-nav__link">
+      Module: "client/apis/AdsAPI"
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../modules/_client_apis_assetdeliveryapi_/" title="Module: "client/apis/AssetDeliveryAPI"" class="md-nav__link">
+      Module: "client/apis/AssetDeliveryAPI"
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../modules/_client_apis_authapi_/" title="Module: "client/apis/AuthAPI"" class="md-nav__link">
+      Module: "client/apis/AuthAPI"
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../modules/_client_apis_avatarapi_/" title="Module: "client/apis/AvatarAPI"" class="md-nav__link">
+      Module: "client/apis/AvatarAPI"
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../modules/_client_apis_badgesapi_/" title="Module: "client/apis/BadgesAPI"" class="md-nav__link">
+      Module: "client/apis/BadgesAPI"
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../modules/_client_apis_baseapi_/" title="Module: "client/apis/BaseAPI"" class="md-nav__link">
+      Module: "client/apis/BaseAPI"
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../modules/_client_apis_billingapi_/" title="Module: "client/apis/BillingAPI"" class="md-nav__link">
+      Module: "client/apis/BillingAPI"
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../modules/_client_apis_captchaapi_/" title="Module: "client/apis/CaptchaAPI"" class="md-nav__link">
+      Module: "client/apis/CaptchaAPI"
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../modules/_client_apis_catalogapi_/" title="Module: "client/apis/CatalogAPI"" class="md-nav__link">
+      Module: "client/apis/CatalogAPI"
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../modules/_client_apis_chatapi_/" title="Module: "client/apis/ChatAPI"" class="md-nav__link">
+      Module: "client/apis/ChatAPI"
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../modules/_client_apis_contactsapi_/" title="Module: "client/apis/ContactsAPI"" class="md-nav__link">
+      Module: "client/apis/ContactsAPI"
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../modules/_client_apis_developapi_/" title="Module: "client/apis/DevelopAPI"" class="md-nav__link">
+      Module: "client/apis/DevelopAPI"
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../modules/_client_apis_economyapi_/" title="Module: "client/apis/EconomyAPI"" class="md-nav__link">
+      Module: "client/apis/EconomyAPI"
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../modules/_client_apis_economycreatorstatsapi_/" title="Module: "client/apis/EconomyCreatorStatsAPI"" class="md-nav__link">
+      Module: "client/apis/EconomyCreatorStatsAPI"
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../modules/_client_apis_engagementpayoutsapi_/" title="Module: "client/apis/EngagementPayoutsAPI"" class="md-nav__link">
+      Module: "client/apis/EngagementPayoutsAPI"
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../modules/_client_apis_followingsapi_/" title="Module: "client/apis/FollowingsAPI"" class="md-nav__link">
+      Module: "client/apis/FollowingsAPI"
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../modules/_client_apis_friendsapi_/" title="Module: "client/apis/FriendsAPI"" class="md-nav__link">
+      Module: "client/apis/FriendsAPI"
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../modules/_client_apis_gameinternationalizationapi_/" title="Module: "client/apis/GameInternationalizationAPI"" class="md-nav__link">
+      Module: "client/apis/GameInternationalizationAPI"
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../modules/_client_apis_gamesapi_/" title="Module: "client/apis/GamesAPI"" class="md-nav__link">
+      Module: "client/apis/GamesAPI"
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../modules/_client_apis_generalapi_/" title="Module: "client/apis/GeneralAPI"" class="md-nav__link">
+      Module: "client/apis/GeneralAPI"
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../modules/_client_apis_groupsapi_/" title="Module: "client/apis/GroupsAPI"" class="md-nav__link">
+      Module: "client/apis/GroupsAPI"
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../modules/_client_apis_index_/" title="Module: "client/apis/index"" class="md-nav__link">
+      Module: "client/apis/index"
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../modules/_client_apis_inventoryapi_/" title="Module: "client/apis/InventoryAPI"" class="md-nav__link">
+      Module: "client/apis/InventoryAPI"
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../modules/_client_apis_itemconfigurationapi_/" title="Module: "client/apis/ItemConfigurationAPI"" class="md-nav__link">
+      Module: "client/apis/ItemConfigurationAPI"
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../modules/_client_apis_localeapi_/" title="Module: "client/apis/LocaleAPI"" class="md-nav__link">
+      Module: "client/apis/LocaleAPI"
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../modules/_client_apis_metricsapi_/" title="Module: "client/apis/MetricsAPI"" class="md-nav__link">
+      Module: "client/apis/MetricsAPI"
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../modules/_client_apis_notificationsapi_/" title="Module: "client/apis/NotificationsAPI"" class="md-nav__link">
+      Module: "client/apis/NotificationsAPI"
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../modules/_client_apis_otherapi_/" title="Module: "client/apis/OtherAPI"" class="md-nav__link">
+      Module: "client/apis/OtherAPI"
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../modules/_client_apis_premiumfeaturesapi_/" title="Module: "client/apis/PremiumFeaturesAPI"" class="md-nav__link">
+      Module: "client/apis/PremiumFeaturesAPI"
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../modules/_client_apis_presenceapi_/" title="Module: "client/apis/PresenceAPI"" class="md-nav__link">
+      Module: "client/apis/PresenceAPI"
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../modules/_client_apis_privatemessagesapi_/" title="Module: "client/apis/PrivateMessagesAPI"" class="md-nav__link">
+      Module: "client/apis/PrivateMessagesAPI"
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../modules/_client_apis_publishapi_/" title="Module: "client/apis/PublishAPI"" class="md-nav__link">
+      Module: "client/apis/PublishAPI"
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../modules/_client_apis_thumbnailsapi_/" title="Module: "client/apis/ThumbnailsAPI"" class="md-nav__link">
+      Module: "client/apis/ThumbnailsAPI"
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../modules/_client_apis_tradesapi_/" title="Module: "client/apis/TradesAPI"" class="md-nav__link">
+      Module: "client/apis/TradesAPI"
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../modules/_client_apis_translationrolesapi_/" title="Module: "client/apis/TranslationRolesAPI"" class="md-nav__link">
+      Module: "client/apis/TranslationRolesAPI"
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../modules/_client_apis_usersapi_/" title="Module: "client/apis/UsersAPI"" class="md-nav__link">
+      Module: "client/apis/UsersAPI"
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../modules/_client_client_/" title="Module: "client/Client"" class="md-nav__link">
+      Module: "client/Client"
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../modules/_client_clientbase_/" title="Module: "client/ClientBase"" class="md-nav__link">
+      Module: "client/ClientBase"
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../modules/_client_index_/" title="Module: "client/index"" class="md-nav__link">
+      Module: "client/index"
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../modules/_client_lib_chatmanager_chatmanager_/" title="Module: "client/lib/ChatManager/ChatManager"" class="md-nav__link">
+      Module: "client/lib/ChatManager/ChatManager"
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../modules/_client_lib_chatmanager_index_/" title="Module: "client/lib/ChatManager/index"" class="md-nav__link">
+      Module: "client/lib/ChatManager/index"
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../modules/_client_lib_clientsocket_clientsocket_/" title="Module: "client/lib/ClientSocket/ClientSocket"" class="md-nav__link">
+      Module: "client/lib/ClientSocket/ClientSocket"
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../modules/_client_lib_clientsocket_handlers_chatnotifications_/" title="Module: "client/lib/ClientSocket/handlers/chatNotifications"" class="md-nav__link">
+      Module: "client/lib/ClientSocket/handlers/chatNotifications"
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../modules/_client_lib_clientsocket_handlers_friendshipnotifications_/" title="Module: "client/lib/ClientSocket/handlers/friendShipnotifications"" class="md-nav__link">
+      Module: "client/lib/ClientSocket/handlers/friendShipnotifications"
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../modules/_client_lib_clientsocket_handlers_index_/" title="Module: "client/lib/ClientSocket/handlers/index"" class="md-nav__link">
+      Module: "client/lib/ClientSocket/handlers/index"
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../modules/_client_lib_clientsocket_handlers_messagenotifications_/" title="Module: "client/lib/ClientSocket/handlers/messageNotifications"" class="md-nav__link">
+      Module: "client/lib/ClientSocket/handlers/messageNotifications"
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../modules/_client_lib_clientsocket_handlers_presencebulknotifications_/" title="Module: "client/lib/ClientSocket/handlers/presenceBulkNotifications"" class="md-nav__link">
+      Module: "client/lib/ClientSocket/handlers/presenceBulkNotifications"
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../modules/_client_lib_clientsocket_index_/" title="Module: "client/lib/ClientSocket/index"" class="md-nav__link">
+      Module: "client/lib/ClientSocket/index"
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../modules/_controllers_index_/" title="Module: "controllers/index"" class="md-nav__link">
+      Module: "controllers/index"
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../modules/_controllers_rest_index_/" title="Module: "controllers/rest/index"" class="md-nav__link">
+      Module: "controllers/rest/index"
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../modules/_controllers_rest_lib_updatexcsrftoken_/" title="Module: "controllers/rest/lib/updateXCSRFToken"" class="md-nav__link">
+      Module: "controllers/rest/lib/updateXCSRFToken"
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../modules/_controllers_rest_response_handlers_index_/" title="Module: "controllers/rest/response/handlers/index"" class="md-nav__link">
+      Module: "controllers/rest/response/handlers/index"
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../modules/_controllers_rest_response_handlers_validbody_/" title="Module: "controllers/rest/response/handlers/validBody"" class="md-nav__link">
+      Module: "controllers/rest/response/handlers/validBody"
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../modules/_controllers_rest_response_handlers_validstatus_/" title="Module: "controllers/rest/response/handlers/validStatus"" class="md-nav__link">
+      Module: "controllers/rest/response/handlers/validStatus"
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../modules/_controllers_rest_response_handlers_validstatuscode_/" title="Module: "controllers/rest/response/handlers/validStatusCode"" class="md-nav__link">
+      Module: "controllers/rest/response/handlers/validStatusCode"
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../modules/_controllers_rest_response_index_/" title="Module: "controllers/rest/response/index"" class="md-nav__link">
+      Module: "controllers/rest/response/index"
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../modules/_controllers_rest_response_restresponse_/" title="Module: "controllers/rest/response/RESTResponse"" class="md-nav__link">
+      Module: "controllers/rest/response/RESTResponse"
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../modules/_controllers_rest_restcontroller_/" title="Module: "controllers/rest/RESTController"" class="md-nav__link">
+      Module: "controllers/rest/RESTController"
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../modules/_index_/" title="Module: "index"" class="md-nav__link">
+      Module: "index"
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../modules/_interfaces_apiinterfaces_/" title="Module: "interfaces/APIInterfaces"" class="md-nav__link">
+      Module: "interfaces/APIInterfaces"
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../modules/_interfaces_generalinterfaces_/" title="Module: "interfaces/GeneralInterfaces"" class="md-nav__link">
+      Module: "interfaces/GeneralInterfaces"
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../modules/_interfaces_restinterfaces_/" title="Module: "interfaces/RESTInterfaces"" class="md-nav__link">
+      Module: "interfaces/RESTInterfaces"
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../modules/_structures_asset_/" title="Module: "structures/Asset"" class="md-nav__link">
+      Module: "structures/Asset"
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../modules/_structures_chat_/" title="Module: "structures/Chat"" class="md-nav__link">
+      Module: "structures/Chat"
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../modules/_structures_clientuser_/" title="Module: "structures/ClientUser"" class="md-nav__link">
+      Module: "structures/ClientUser"
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../modules/_structures_game_/" title="Module: "structures/Game"" class="md-nav__link">
+      Module: "structures/Game"
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../modules/_structures_group_/" title="Module: "structures/Group"" class="md-nav__link">
+      Module: "structures/Group"
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../modules/_structures_index_/" title="Module: "structures/index"" class="md-nav__link">
+      Module: "structures/index"
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../modules/_structures_user_/" title="Module: "structures/User"" class="md-nav__link">
+      Module: "structures/User"
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../modules/_util_constants_/" title="Module: "util/constants"" class="md-nav__link">
+      Module: "util/constants"
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../modules/_util_converter_/" title="Module: "util/converter"" class="md-nav__link">
+      Module: "util/converter"
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../modules/_util_errors_errors_/" title="Module: "util/errors/errors"" class="md-nav__link">
+      Module: "util/errors/errors"
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../modules/_util_errors_index_/" title="Module: "util/errors/index"" class="md-nav__link">
+      Module: "util/errors/index"
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../modules/_util_errors_messages_/" title="Module: "util/errors/messages"" class="md-nav__link">
+      Module: "util/errors/messages"
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#hierarchy" class="md-nav__link">
+    Hierarchy
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#index" class="md-nav__link">
+    Index
+  </a>
+  
+    <nav class="md-nav" aria-label="Index">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#constructors" class="md-nav__link">
+    Constructors
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#properties" class="md-nav__link">
+    Properties
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#methods" class="md-nav__link">
+    Methods
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#constructors_1" class="md-nav__link">
+    Constructors
+  </a>
+  
+    <nav class="md-nav" aria-label="Constructors">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#constructor" class="md-nav__link">
+      constructor
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#properties_1" class="md-nav__link">
+    Properties
+  </a>
+  
+    <nav class="md-nav" aria-label="Properties">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#client" class="md-nav__link">
+      client
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#options" class="md-nav__link">
+      options
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#methods_1" class="md-nav__link">
+    Methods
+  </a>
+  
+    <nav class="md-nav" aria-label="Methods">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#accepttrade" class="md-nav__link">
+      acceptTrade
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cantradewith" class="md-nav__link">
+      canTradeWith
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#countertrade" class="md-nav__link">
+      counterTrade
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#declinetrade" class="md-nav__link">
+      declineTrade
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#gettrade" class="md-nav__link">
+      getTrade
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#gettradesbystatustype" class="md-nav__link">
+      getTradesByStatusType
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#gettradescountbystatustype" class="md-nav__link">
+      getTradesCountByStatusType
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#gettradesmetadata" class="md-nav__link">
+      getTradesMetaData
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#request" class="md-nav__link">
+      request
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sendtrade" class="md-nav__link">
+      sendTrade
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                  
+                
+                
+                <h1 id="class-tradesapi">Class: TradesAPI</h1>
+<h2 id="hierarchy">Hierarchy</h2>
+<ul>
+<li><a href="../_client_apis_baseapi_.baseapi/">BaseAPI</a></li>
+</ul>
+<p>↳ <strong>TradesAPI</strong></p>
+<h2 id="index">Index</h2>
+<h3 id="constructors">Constructors</h3>
+<ul>
+<li><a href="./#constructor">constructor</a></li>
+</ul>
+<h3 id="properties">Properties</h3>
+<ul>
+<li><a href="./#client">client</a></li>
+<li><a href="./#options">options</a></li>
+</ul>
+<h3 id="methods">Methods</h3>
+<ul>
+<li><a href="./#accepttrade">acceptTrade</a></li>
+<li><a href="./#cantradewith">canTradeWith</a></li>
+<li><a href="./#countertrade">counterTrade</a></li>
+<li><a href="./#declinetrade">declineTrade</a></li>
+<li><a href="./#gettrade">getTrade</a></li>
+<li><a href="./#gettradesbystatustype">getTradesByStatusType</a></li>
+<li><a href="./#gettradescountbystatustype">getTradesCountByStatusType</a></li>
+<li><a href="./#gettradesmetadata">getTradesMetaData</a></li>
+<li><a href="./#request">request</a></li>
+<li><a href="./#sendtrade">sendTrade</a></li>
+</ul>
+<h2 id="constructors_1">Constructors</h2>
+<h3 id="constructor"><a id="constructor" name="constructor"></a>  constructor</h3>
+<p>+ <strong>new TradesAPI</strong>(<code>client</code>: <a href="../_client_client_.client/">Client</a>): <em><a href="./">TradesAPI</a></em></p>
+<p><em>Overrides <a href="../_client_apis_baseapi_.baseapi/">BaseAPI</a>.<a href="../_client_apis_baseapi_.baseapi/#constructor">constructor</a></em></p>
+<p><strong>Parameters:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>client</code></td>
+<td><a href="../_client_client_.client/">Client</a></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Returns:</strong> <em><a href="./">TradesAPI</a></em></p>
+<h2 id="properties_1">Properties</h2>
+<h3 id="client"><a id="client" name="client"></a>  client</h3>
+<p>• <strong>client</strong>: <em><a href="../_client_client_.client/">Client</a></em></p>
+<p><em>Inherited from <a href="../_client_apis_developapi_.developapi/">DevelopAPI</a>.<a href="../_client_apis_developapi_.developapi/#client">client</a></em></p>
+<hr />
+<h3 id="options"><a id="options" name="options"></a>  options</h3>
+<p>• <strong>options</strong>: <em><a href="../../modules/_interfaces_apiinterfaces_/#baseapioptions">BaseAPIOptions</a></em></p>
+<p><em>Inherited from <a href="../_client_apis_developapi_.developapi/">DevelopAPI</a>.<a href="../_client_apis_developapi_.developapi/#options">options</a></em></p>
+<h2 id="methods_1">Methods</h2>
+<h3 id="accepttrade"><a id="accepttrade" name="accepttrade"></a>  acceptTrade</h3>
+<p>▸ <strong>acceptTrade</strong>(<code>options</code>: <a href="../../modules/_client_apis_tradesapi_/#accepttradeoptions">AcceptTradeOptions</a>): <em>Promise‹<a href="../../modules/_client_apis_tradesapi_/#accepttrade">AcceptTrade</a>›</em></p>
+<p><strong>Parameters:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>options</code></td>
+<td><a href="../../modules/_client_apis_tradesapi_/#accepttradeoptions">AcceptTradeOptions</a></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Returns:</strong> <em>Promise‹<a href="../../modules/_client_apis_tradesapi_/#accepttrade">AcceptTrade</a>›</em></p>
+<hr />
+<h3 id="cantradewith"><a id="cantradewith" name="cantradewith"></a>  canTradeWith</h3>
+<p>▸ <strong>canTradeWith</strong>(<code>options</code>: <a href="../../modules/_client_apis_tradesapi_/#canselftradewithuseroptions">CanSelfTradeWithUserOptions</a>): <em>Promise‹<a href="../../modules/_client_apis_tradesapi_/#canselftradewithuser">CanSelfTradeWithUser</a>›</em></p>
+<p><strong>Parameters:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>options</code></td>
+<td><a href="../../modules/_client_apis_tradesapi_/#canselftradewithuseroptions">CanSelfTradeWithUserOptions</a></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Returns:</strong> <em>Promise‹<a href="../../modules/_client_apis_tradesapi_/#canselftradewithuser">CanSelfTradeWithUser</a>›</em></p>
+<hr />
+<h3 id="countertrade"><a id="countertrade" name="countertrade"></a>  counterTrade</h3>
+<p>▸ <strong>counterTrade</strong>(<code>options</code>: <a href="../../modules/_client_apis_tradesapi_/#countertradeoptions">CounterTradeOptions</a>): <em>Promise‹<a href="../../modules/_client_apis_tradesapi_/#countertrade">CounterTrade</a>›</em></p>
+<p><strong>Parameters:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>options</code></td>
+<td><a href="../../modules/_client_apis_tradesapi_/#countertradeoptions">CounterTradeOptions</a></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Returns:</strong> <em>Promise‹<a href="../../modules/_client_apis_tradesapi_/#countertrade">CounterTrade</a>›</em></p>
+<hr />
+<h3 id="declinetrade"><a id="declinetrade" name="declinetrade"></a>  declineTrade</h3>
+<p>▸ <strong>declineTrade</strong>(<code>options</code>: <a href="../../modules/_client_apis_tradesapi_/#declinetradeoptions">DeclineTradeOptions</a>): <em>Promise‹<a href="../../modules/_client_apis_tradesapi_/#declinetrade">DeclineTrade</a>›</em></p>
+<p><strong>Parameters:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>options</code></td>
+<td><a href="../../modules/_client_apis_tradesapi_/#declinetradeoptions">DeclineTradeOptions</a></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Returns:</strong> <em>Promise‹<a href="../../modules/_client_apis_tradesapi_/#declinetrade">DeclineTrade</a>›</em></p>
+<hr />
+<h3 id="gettrade"><a id="gettrade" name="gettrade"></a>  getTrade</h3>
+<p>▸ <strong>getTrade</strong>(<code>options</code>: <a href="../../modules/_client_apis_tradesapi_/#gettradeoptions">GetTradeOptions</a>): <em>Promise‹<a href="../../modules/_client_apis_tradesapi_/#gettrade">GetTrade</a>›</em></p>
+<p><strong>Parameters:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>options</code></td>
+<td><a href="../../modules/_client_apis_tradesapi_/#gettradeoptions">GetTradeOptions</a></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Returns:</strong> <em>Promise‹<a href="../../modules/_client_apis_tradesapi_/#gettrade">GetTrade</a>›</em></p>
+<hr />
+<h3 id="gettradesbystatustype"><a id="gettradesbystatustype" name="gettradesbystatustype"></a>  getTradesByStatusType</h3>
+<p>▸ <strong>getTradesByStatusType</strong>(<code>options</code>: <a href="../../modules/_client_apis_tradesapi_/#gettradesbystatustypeoptions">GetTradesByStatusTypeOptions</a>): <em>Promise‹<a href="../../modules/_client_apis_tradesapi_/#gettradesbystatustype">GetTradesByStatusType</a>›</em></p>
+<p><strong>Parameters:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>options</code></td>
+<td><a href="../../modules/_client_apis_tradesapi_/#gettradesbystatustypeoptions">GetTradesByStatusTypeOptions</a></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Returns:</strong> <em>Promise‹<a href="../../modules/_client_apis_tradesapi_/#gettradesbystatustype">GetTradesByStatusType</a>›</em></p>
+<hr />
+<h3 id="gettradescountbystatustype"><a id="gettradescountbystatustype" name="gettradescountbystatustype"></a>  getTradesCountByStatusType</h3>
+<p>▸ <strong>getTradesCountByStatusType</strong>(<code>options</code>: <a href="../../modules/_client_apis_tradesapi_/#gettradescountbystatustypeoptions">GetTradesCountByStatusTypeOptions</a>): <em>Promise‹<a href="../../modules/_client_apis_tradesapi_/#gettradescountbystatustype">GetTradesCountByStatusType</a>›</em></p>
+<p><strong>Parameters:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>options</code></td>
+<td><a href="../../modules/_client_apis_tradesapi_/#gettradescountbystatustypeoptions">GetTradesCountByStatusTypeOptions</a></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Returns:</strong> <em>Promise‹<a href="../../modules/_client_apis_tradesapi_/#gettradescountbystatustype">GetTradesCountByStatusType</a>›</em></p>
+<hr />
+<h3 id="gettradesmetadata"><a id="gettradesmetadata" name="gettradesmetadata"></a>  getTradesMetaData</h3>
+<p>▸ <strong>getTradesMetaData</strong>(): <em>Promise‹<a href="../../modules/_client_apis_tradesapi_/#gettradesmetadata">GetTradesMetaData</a>›</em></p>
+<p><strong>Returns:</strong> <em>Promise‹<a href="../../modules/_client_apis_tradesapi_/#gettradesmetadata">GetTradesMetaData</a>›</em></p>
+<hr />
+<h3 id="request"><a id="request" name="request"></a>  request</h3>
+<p>▸ <strong>request</strong>(<code>options</code>: <a href="../../modules/_client_apis_baseapi_/#baseapirequestoptions">BaseAPIRequestOptions</a>): <em>Promise‹<a href="../../modules/_interfaces_restinterfaces_/#restresponsedatatype">RESTResponseDataType</a>›</em></p>
+<p><em>Inherited from <a href="../_client_apis_developapi_.developapi/">DevelopAPI</a>.<a href="../_client_apis_developapi_.developapi/#request">request</a></em></p>
+<p><strong>Parameters:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>options</code></td>
+<td><a href="../../modules/_client_apis_baseapi_/#baseapirequestoptions">BaseAPIRequestOptions</a></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Returns:</strong> <em>Promise‹<a href="../../modules/_interfaces_restinterfaces_/#restresponsedatatype">RESTResponseDataType</a>›</em></p>
+<hr />
+<h3 id="sendtrade"><a id="sendtrade" name="sendtrade"></a>  sendTrade</h3>
+<p>▸ <strong>sendTrade</strong>(<code>options</code>: <a href="../../modules/_client_apis_tradesapi_/#sendtradeoptions">SendTradeOptions</a>): <em>Promise‹<a href="../../modules/_client_apis_tradesapi_/#sendtrade">SendTrade</a>›</em></p>
+<p><strong>Parameters:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>options</code></td>
+<td><a href="../../modules/_client_apis_tradesapi_/#sendtradeoptions">SendTradeOptions</a></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Returns:</strong> <em>Promise‹<a href="../../modules/_client_apis_tradesapi_/#sendtrade">SendTrade</a>›</em></p>
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid" aria-label="Footer">
+        
+          <a href="../_client_apis_thumbnailsapi_.thumbnailsapi/" title="Class: ThumbnailsAPI" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-footer-nav__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+            </div>
+            <div class="md-footer-nav__title">
+              <div class="md-ellipsis">
+                <span class="md-footer-nav__direction">
+                  Previous
+                </span>
+                Class: ThumbnailsAPI
+              </div>
+            </div>
+          </a>
+        
+        
+          <a href="../_client_apis_translationrolesapi_.tradesapi/" title="Class: TradesAPI" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-footer-nav__title">
+              <div class="md-ellipsis">
+                <span class="md-footer-nav__direction">
+                  Next
+                </span>
+                Class: TradesAPI
+              </div>
+            </div>
+            <div class="md-footer-nav__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    </div>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+        Made with
+        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+          Material for MkDocs
+        </a>
+      </div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../../assets/javascripts/vendor.df0def68.min.js"></script>
+      <script src="../../assets/javascripts/bundle.ba57d267.min.js"></script><script id="__lang" type="application/json">{"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents"}</script>
+      
+      <script>
+        app = initialize({
+          base: "../..",
+          features: [],
+          search: Object.assign({
+            worker: "../../assets/javascripts/worker/search.fae956e7.min.js"
+          }, typeof search !== "undefined" && search)
+        })
+      </script>
+      
+    
+  </body>
+</html>
