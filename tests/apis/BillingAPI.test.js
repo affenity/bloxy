@@ -17,18 +17,13 @@ beforeAll(async () => {
         });
 });
 
-describe("testing BadgesAPI", function () {
-    it("should retrieve badge info", function () {
-        expect(client.apis.badgesAPI.getBadge({
-            badgeId: 2124564087
-        }))
+describe("testing BillingAPI", function () {
+    it("should retrieve developer exchange rate", function () {
+        return expect(client.apis.billingAPI.getDeveloperExchangeRate())
             .resolves
-            .toStrictEqual({
-                id: 2124564087,
-                created: "2020-06-20T13:45:20.717-05:00",
-                awardingUniverse: {
-                    id: 111958650
-                }
+            .toMatchObject({
+                rate: 0.0035,
+                "currency-code": "USD"
             });
     });
 });
