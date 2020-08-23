@@ -26,224 +26,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a85767c4-bfb1-401b-832d-4f10d57a6f3a" name="Default Changelist" comment="Updated CatalogAPI.ts to remove response modifications">
-      <change afterPath="$PROJECT_DIR$/docs/README.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/classes/_client_apis_accountinformationapi_.accountinformationapi.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/classes/_client_apis_accountsettingsapi_.accountsettingsapi.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/classes/_client_apis_adconfigurationapi_.adconfigurationapi.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/classes/_client_apis_adsapi_.adsapi.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/classes/_client_apis_assetdeliveryapi_.assetdeliveryapi.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/classes/_client_apis_authapi_.authapi.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/classes/_client_apis_avatarapi_.avatarapi.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/classes/_client_apis_badgesapi_.avatarapi.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/classes/_client_apis_baseapi_.baseapi.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/classes/_client_apis_billingapi_.billingapi.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/classes/_client_apis_captchaapi_.captchaapi.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/classes/_client_apis_catalogapi_.catalogapi.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/classes/_client_apis_chatapi_.chatapi.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/classes/_client_apis_contactsapi_.contactsapi.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/classes/_client_apis_developapi_.developapi.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/classes/_client_apis_economyapi_.economyapi.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/classes/_client_apis_economycreatorstatsapi_.economycreatorstatsapi.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/classes/_client_apis_engagementpayoutsapi_.engagementpayoutsapi.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/classes/_client_apis_followingsapi_.followingsapi.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/classes/_client_apis_friendsapi_.friendsapi.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/classes/_client_apis_gameinternationalizationapi_.gameinternationalizationapi.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/classes/_client_apis_gamesapi_.gamesapi.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/classes/_client_apis_generalapi_.generalapi.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/classes/_client_apis_groupsapi_.groupsapi.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/classes/_client_apis_inventoryapi_.inventoryapi.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/classes/_client_apis_itemconfigurationapi_.inventoryapi.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/classes/_client_apis_localeapi_.localeapi.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/classes/_client_apis_metricsapi_.localeapi.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/classes/_client_apis_notificationsapi_.notificationsapi.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/classes/_client_apis_otherapi_.otherapi.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/classes/_client_apis_premiumfeaturesapi_.premiumfeaturesapi.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/classes/_client_apis_presenceapi_.presenceapi.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/classes/_client_apis_privatemessagesapi_.privatemessagesapi.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/classes/_client_apis_publishapi_.publishapi.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/classes/_client_apis_thumbnailsapi_.thumbnailsapi.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/classes/_client_apis_tradesapi_.tradesapi.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/classes/_client_apis_translationrolesapi_.tradesapi.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/classes/_client_apis_usersapi_.usersapi.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/classes/_client_client_.client.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/classes/_client_clientbase_.clientbase.eventemitter.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/classes/_client_clientbase_.clientbase.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/classes/_client_lib_chatmanager_chatmanager_.chatmanager.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/classes/_client_lib_clientsocket_clientsocket_.socket.eventemitter.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/classes/_client_lib_clientsocket_clientsocket_.socket.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/classes/_controllers_rest_response_restresponse_.restresponse.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/classes/_controllers_rest_restcontroller_.restcontroller.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/classes/_structures_asset_.assetversion.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/classes/_structures_asset_.bundle.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/classes/_structures_asset_.collectibleasset.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/classes/_structures_asset_.cursorpage.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/classes/_structures_asset_.product.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/classes/_structures_asset_.trade.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/classes/_structures_chat_.chatconversation.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/classes/_structures_chat_.chatmessage.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/classes/_structures_chat_.chatmessagesent.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/classes/_structures_chat_.partialchatconversation.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/classes/_structures_clientuser_.clientuser.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/classes/_structures_game_.baseplace.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/classes/_structures_game_.gamebadge.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/classes/_structures_game_.gamebadgebase.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/classes/_structures_game_.gamemediadata.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/classes/_structures_game_.gamepass.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/classes/_structures_game_.gameuniverse.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/classes/_structures_game_.partialgamebadge.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/classes/_structures_game_.partialgameuniverse.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/classes/_structures_game_.partialplace.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/classes/_structures_game_.partialvipserver.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/classes/_structures_game_.place.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/classes/_structures_game_.vipserver.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/classes/_structures_group_.group.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/classes/_structures_group_.groupbase.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/classes/_structures_group_.groupjoinrequest.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/classes/_structures_group_.groupmember.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/classes/_structures_group_.grouprole.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/classes/_structures_group_.grouprolepermissions.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/classes/_structures_group_.groupshout.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/classes/_structures_group_.groupwallpost.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/classes/_structures_group_.partialgroup.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/classes/_structures_user_.friendrequest.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/classes/_structures_user_.partialuser.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/classes/_structures_user_.user.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/classes/_structures_user_.userbase.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/classes/_util_errors_errors_.bloxyhttperror.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/enums/_util_constants_.creatortype.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/enums/_util_constants_.gamegenre.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/enums/_util_constants_.morphavatartype.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/globals.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/interfaces/_client_clientbase_.clientcallbacks.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/interfaces/_client_clientbase_.clientcredentialsoptions.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/interfaces/_client_clientbase_.clientoptions.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/interfaces/_client_clientbase_.clientsetup.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/interfaces/_structures_asset_.assetversionoptions.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/interfaces/_structures_asset_.bundleoptions.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/interfaces/_structures_asset_.collectibleassetoptions.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/interfaces/_structures_asset_.productoptions.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/interfaces/_structures_asset_.structures.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/interfaces/_structures_asset_.tradeoptions.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/interfaces/_structures_chat_.chatconversationoptions.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/interfaces/_structures_chat_.chatmessageoptions.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/interfaces/_structures_chat_.chatmessagesentoptions.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/interfaces/_structures_chat_.partialchatconversationoptions.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/interfaces/_structures_chat_.structures.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/interfaces/_structures_clientuser_.clientuseroptions.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/interfaces/_structures_game_.baseplaceoptions.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/interfaces/_structures_game_.gamebadgebaseoptions.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/interfaces/_structures_game_.gamebadgeoptions.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/interfaces/_structures_game_.gamemediadataoptions.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/interfaces/_structures_game_.gamepassoptions.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/interfaces/_structures_game_.gameuniverseoptions.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/interfaces/_structures_game_.partialgameuniverseoptions.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/interfaces/_structures_game_.partialplaceoptions.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/interfaces/_structures_game_.partialvipserveroptions.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/interfaces/_structures_game_.placeoptions.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/interfaces/_structures_game_.structures.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/interfaces/_structures_game_.vipserveroptions.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/interfaces/_structures_group_.groupbaseoptions.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/interfaces/_structures_group_.groupjoinrequestoptions.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/interfaces/_structures_group_.groupmemberoptions.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/interfaces/_structures_group_.groupoptions.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/interfaces/_structures_group_.grouproleoptions.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/interfaces/_structures_group_.grouprolepermissionsoptions.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/interfaces/_structures_group_.groupshoutoptions.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/interfaces/_structures_group_.groupwallpostoptions.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/interfaces/_structures_group_.partialgroupoptions.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/interfaces/_structures_group_.structures.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/interfaces/_structures_user_.friendrequestoptions.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/interfaces/_structures_user_.partialuseroptions.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/interfaces/_structures_user_.userbaseoptions.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/interfaces/_structures_user_.useroptions.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/interfaces/_util_errors_errors_.bloxyhttperroroptions.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/modules/_client_apis_accountinformationapi_.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/modules/_client_apis_accountsettingsapi_.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/modules/_client_apis_adconfigurationapi_.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/modules/_client_apis_adsapi_.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/modules/_client_apis_assetdeliveryapi_.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/modules/_client_apis_authapi_.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/modules/_client_apis_avatarapi_.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/modules/_client_apis_badgesapi_.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/modules/_client_apis_baseapi_.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/modules/_client_apis_billingapi_.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/modules/_client_apis_captchaapi_.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/modules/_client_apis_catalogapi_.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/modules/_client_apis_chatapi_.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/modules/_client_apis_contactsapi_.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/modules/_client_apis_developapi_.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/modules/_client_apis_economyapi_.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/modules/_client_apis_economycreatorstatsapi_.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/modules/_client_apis_engagementpayoutsapi_.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/modules/_client_apis_followingsapi_.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/modules/_client_apis_friendsapi_.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/modules/_client_apis_gameinternationalizationapi_.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/modules/_client_apis_gamesapi_.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/modules/_client_apis_generalapi_.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/modules/_client_apis_groupsapi_.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/modules/_client_apis_index_.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/modules/_client_apis_inventoryapi_.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/modules/_client_apis_itemconfigurationapi_.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/modules/_client_apis_localeapi_.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/modules/_client_apis_metricsapi_.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/modules/_client_apis_notificationsapi_.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/modules/_client_apis_otherapi_.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/modules/_client_apis_premiumfeaturesapi_.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/modules/_client_apis_presenceapi_.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/modules/_client_apis_privatemessagesapi_.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/modules/_client_apis_publishapi_.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/modules/_client_apis_thumbnailsapi_.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/modules/_client_apis_tradesapi_.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/modules/_client_apis_translationrolesapi_.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/modules/_client_apis_usersapi_.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/modules/_client_client_.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/modules/_client_clientbase_.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/modules/_client_index_.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/modules/_client_lib_chatmanager_chatmanager_.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/modules/_client_lib_chatmanager_index_.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/modules/_client_lib_clientsocket_clientsocket_.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/modules/_client_lib_clientsocket_handlers_chatnotifications_.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/modules/_client_lib_clientsocket_handlers_friendshipnotifications_.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/modules/_client_lib_clientsocket_handlers_index_.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/modules/_client_lib_clientsocket_handlers_messagenotifications_.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/modules/_client_lib_clientsocket_handlers_presencebulknotifications_.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/modules/_client_lib_clientsocket_index_.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/modules/_controllers_index_.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/modules/_controllers_rest_index_.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/modules/_controllers_rest_lib_updatexcsrftoken_.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/modules/_controllers_rest_response_handlers_index_.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/modules/_controllers_rest_response_handlers_validbody_.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/modules/_controllers_rest_response_handlers_validstatus_.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/modules/_controllers_rest_response_handlers_validstatuscode_.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/modules/_controllers_rest_response_index_.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/modules/_controllers_rest_response_restresponse_.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/modules/_controllers_rest_restcontroller_.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/modules/_index_.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/modules/_interfaces_apiinterfaces_.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/modules/_interfaces_generalinterfaces_.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/modules/_interfaces_restinterfaces_.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/modules/_structures_asset_.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/modules/_structures_chat_.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/modules/_structures_clientuser_.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/modules/_structures_game_.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/modules/_structures_group_.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/modules/_structures_index_.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/modules/_structures_user_.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/modules/_util_constants_.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/modules/_util_converter_.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/modules/_util_errors_errors_.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/modules/_util_errors_index_.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/modules/_util_errors_messages_.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mkdocs.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tests/apis/BillingAPI.test.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tests/apis/CatalogAPI.test.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tests/apis/ChatAPI.test.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/bloxy.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/bloxy.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/apis/BadgesAPI.test.js" beforeDir="false" afterPath="$PROJECT_DIR$/tests/apis/BadgesAPI.test.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/tests/index.js" afterDir="false" />
     </list>
     <list id="2baa7156-334f-4736-a7ad-c82d073ffac9" name="Revert &quot;Added Auth API&quot;" comment="Revert &quot;Added Auth API&quot;&#10;&#10;This reverts commit 80c65c6b" />
     <list id="79d16524-19f3-4d6c-9b53-cc0c67aa0aac" name="Revert &quot;Added Auth API&quot;-2" comment="Revert &quot;Added Auth API&quot;&#10;&#10;This reverts commit 80c65c6b" />
@@ -332,7 +116,7 @@
       <command value="npm run build" />
     </option>
   </component>
-  <component name="RunManager" selected="npm.create-docs">
+  <component name="RunManager" selected="npm.prepare-windows">
     <configuration name="testing client" type="JavaScriptTestRunnerJest" temporary="true" nameIsGenerated="true">
       <node-interpreter value="project" />
       <node-options value="" />
@@ -388,8 +172,8 @@
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="npm.create-docs" />
         <item itemvalue="npm.prepare-windows" />
+        <item itemvalue="npm.create-docs" />
         <item itemvalue="Jest.testing client" />
         <item itemvalue="Node.js.index.js" />
         <item itemvalue="npm.build" />
@@ -444,7 +228,7 @@
       <workItem from="1597867458294" duration="287000" />
       <workItem from="1597867772526" duration="2094000" />
       <workItem from="1598107746888" duration="1071000" />
-      <workItem from="1598187065390" duration="8903000" />
+      <workItem from="1598187065390" duration="9099000" />
     </task>
     <task id="LOCAL−00001" summary="Updated">
       <created>1596387076571</created>
@@ -616,22 +400,22 @@
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
     <state x="739" y="267" key="FileChooserDialogImpl/-1920.0.1920.1050/1920.0.1920.1050/0.0.1920.1050@0.0.1920.1050" timestamp="1594638929773" />
-    <state width="1899" height="303" key="GridCell.Tab.0.bottom" timestamp="1598196376872">
+    <state width="1899" height="303" key="GridCell.Tab.0.bottom" timestamp="1598199035460">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
-    <state width="1899" height="303" key="GridCell.Tab.0.bottom/0.0.1920.1050/-1920.0.1920.1050/1920.0.1920.1050@0.0.1920.1050" timestamp="1598196376872" />
-    <state width="1899" height="303" key="GridCell.Tab.0.center" timestamp="1598196376872">
+    <state width="1899" height="303" key="GridCell.Tab.0.bottom/0.0.1920.1050/-1920.0.1920.1050/1920.0.1920.1050@0.0.1920.1050" timestamp="1598199035460" />
+    <state width="1899" height="303" key="GridCell.Tab.0.center" timestamp="1598199035460">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
-    <state width="1899" height="303" key="GridCell.Tab.0.center/0.0.1920.1050/-1920.0.1920.1050/1920.0.1920.1050@0.0.1920.1050" timestamp="1598196376872" />
-    <state width="1899" height="303" key="GridCell.Tab.0.left" timestamp="1598196376872">
+    <state width="1899" height="303" key="GridCell.Tab.0.center/0.0.1920.1050/-1920.0.1920.1050/1920.0.1920.1050@0.0.1920.1050" timestamp="1598199035460" />
+    <state width="1899" height="303" key="GridCell.Tab.0.left" timestamp="1598199035460">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
-    <state width="1899" height="303" key="GridCell.Tab.0.left/0.0.1920.1050/-1920.0.1920.1050/1920.0.1920.1050@0.0.1920.1050" timestamp="1598196376872" />
-    <state width="1899" height="303" key="GridCell.Tab.0.right" timestamp="1598196376872">
+    <state width="1899" height="303" key="GridCell.Tab.0.left/0.0.1920.1050/-1920.0.1920.1050/1920.0.1920.1050@0.0.1920.1050" timestamp="1598199035460" />
+    <state width="1899" height="303" key="GridCell.Tab.0.right" timestamp="1598199035460">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
-    <state width="1899" height="303" key="GridCell.Tab.0.right/0.0.1920.1050/-1920.0.1920.1050/1920.0.1920.1050@0.0.1920.1050" timestamp="1598196376872" />
+    <state width="1899" height="303" key="GridCell.Tab.0.right/0.0.1920.1050/-1920.0.1920.1050/1920.0.1920.1050@0.0.1920.1050" timestamp="1598199035460" />
     <state width="1399" height="344" key="GridCell.Tab.1.bottom" timestamp="1590265494502">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>

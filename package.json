@@ -1,6 +1,6 @@
 {
   "name": "bloxy",
-  "version": "5.0.0-alpha4",
+  "version": "5.0.0-alpha5",
   "description": "A Node.JS library for interacting with the Roblox website and its API.",
   "main": "./dist/index.js",
   "bugs": {
@@ -17,7 +17,7 @@
     "eslint": "eslint . --fix --ext .ts",
     "postinstall": "echo \"\nThank you for installing bloxy! \n\nNOTE: THIS VERSION IS A DEVELOPMENT. \nPLEASE, USE VERSION 4.0.0-alpha3 FOR THE LATEST ''STABLE'' VERSION OF BLOXY.\"",
     "prepublishOnly": "npm run build",
-    "create-docs": "typedoc --plugin typedoc-plugin-markdown --hideBreadcrumbs --hideSources --namedAnchors --includeDeclarations --excludeExternals --out docs src && mkdocs build -d docs --dirty",
+    "create-docs": "typedoc --plugin typedoc-plugin-markdown --hideBreadcrumbs --hideSources --namedAnchors --includeDeclarations --excludeExternals --out docs src && mkdocs gh-deploy",
     "prepare-windows": "npm install && npm run build && npm run create-docs && echo 'Finished'"
   },
   "types": "./dist/index.d.ts",
