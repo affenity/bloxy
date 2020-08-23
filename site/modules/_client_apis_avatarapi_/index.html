@@ -1,0 +1,4872 @@
+
+
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      <link rel="shortcut icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-5.5.8">
+    
+    
+      
+        <title>Module: "client/apis/AvatarAPI" - Bloxy Docs</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.01afc2df.min.css">
+      
+      
+    
+    
+    
+      
+        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>body,input{font-family:"Roboto",-apple-system,BlinkMacSystemFont,Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono",SFMono-Regular,Consolas,Menlo,monospace}</style>
+      
+    
+    
+    
+    
+      
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#module-clientapisavatarapi" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid" aria-label="Header">
+    <a href="../.." title="Bloxy Docs" class="md-header-nav__button md-logo" aria-label="Bloxy Docs">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 003-3 3 3 0 00-3-3 3 3 0 00-3 3 3 3 0 003 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    <label class="md-header-nav__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header-nav__title" data-md-component="header-title">
+      
+        <div class="md-header-nav__ellipsis">
+          <span class="md-header-nav__topic md-ellipsis">
+            Bloxy Docs
+          </span>
+          <span class="md-header-nav__topic md-ellipsis">
+            
+              Module: "client/apis/AvatarAPI"
+            
+          </span>
+        </div>
+      
+    </div>
+    
+      <label class="md-header-nav__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0116 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 019.5 16 6.5 6.5 0 013 9.5 6.5 6.5 0 019.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" data-md-state="active">
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0116 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 019.5 16 6.5 6.5 0 013 9.5 6.5 6.5 0 019.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <button type="reset" class="md-search__icon md-icon" aria-label="Clear" data-md-component="search-reset" tabindex="-1">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+        
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Bloxy Docs" class="md-nav__button md-logo" aria-label="Bloxy Docs">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 003-3 3 3 0 00-3-3 3 3 0 00-3 3 3 3 0 003 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    Bloxy Docs
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../.." title="bloxy" class="md-nav__link">
+      bloxy
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../globals/" title="bloxy" class="md-nav__link">
+      bloxy
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3">
+    
+    <label class="md-nav__link" for="nav-3">
+      Classes
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59 16.58L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.42z"/></svg>
+      </span>
+    </label>
+    <nav class="md-nav" aria-label="Classes" data-md-level="1">
+      <label class="md-nav__title" for="nav-3">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+        </span>
+        Classes
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../classes/_client_apis_accountinformationapi_.accountinformationapi/" title="Class: AccountInformationAPI" class="md-nav__link">
+      Class: AccountInformationAPI
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../classes/_client_apis_accountsettingsapi_.accountsettingsapi/" title="Class: AccountSettingsAPI" class="md-nav__link">
+      Class: AccountSettingsAPI
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../classes/_client_apis_adconfigurationapi_.adconfigurationapi/" title="Class: AdConfigurationAPI" class="md-nav__link">
+      Class: AdConfigurationAPI
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../classes/_client_apis_adsapi_.adsapi/" title="Class: AdsAPI" class="md-nav__link">
+      Class: AdsAPI
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../classes/_client_apis_assetdeliveryapi_.assetdeliveryapi/" title="Class: AssetDeliveryAPI" class="md-nav__link">
+      Class: AssetDeliveryAPI
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../classes/_client_apis_authapi_.authapi/" title="Class: AuthAPI" class="md-nav__link">
+      Class: AuthAPI
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../classes/_client_apis_avatarapi_.avatarapi/" title="Class: AvatarAPI" class="md-nav__link">
+      Class: AvatarAPI
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../classes/_client_apis_badgesapi_.avatarapi/" title="Class: AvatarAPI" class="md-nav__link">
+      Class: AvatarAPI
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../classes/_client_apis_baseapi_.baseapi/" title="Class: BaseAPI" class="md-nav__link">
+      Class: BaseAPI
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../classes/_client_apis_billingapi_.billingapi/" title="Class: BillingAPI" class="md-nav__link">
+      Class: BillingAPI
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../classes/_client_apis_captchaapi_.captchaapi/" title="Class: CaptchaAPI" class="md-nav__link">
+      Class: CaptchaAPI
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../classes/_client_apis_catalogapi_.catalogapi/" title="Class: CatalogAPI" class="md-nav__link">
+      Class: CatalogAPI
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../classes/_client_apis_chatapi_.chatapi/" title="Class: ChatAPI" class="md-nav__link">
+      Class: ChatAPI
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../classes/_client_apis_contactsapi_.contactsapi/" title="Class: ContactsAPI" class="md-nav__link">
+      Class: ContactsAPI
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../classes/_client_apis_developapi_.developapi/" title="Class: DevelopAPI" class="md-nav__link">
+      Class: DevelopAPI
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../classes/_client_apis_economyapi_.economyapi/" title="Class: EconomyAPI" class="md-nav__link">
+      Class: EconomyAPI
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../classes/_client_apis_economycreatorstatsapi_.economycreatorstatsapi/" title="Class: EconomyCreatorStatsAPI" class="md-nav__link">
+      Class: EconomyCreatorStatsAPI
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../classes/_client_apis_engagementpayoutsapi_.engagementpayoutsapi/" title="Class: EngagementPayoutsAPI" class="md-nav__link">
+      Class: EngagementPayoutsAPI
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../classes/_client_apis_followingsapi_.followingsapi/" title="Class: FollowingsAPI" class="md-nav__link">
+      Class: FollowingsAPI
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../classes/_client_apis_friendsapi_.friendsapi/" title="Class: FriendsAPI" class="md-nav__link">
+      Class: FriendsAPI
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../classes/_client_apis_gameinternationalizationapi_.gameinternationalizationapi/" title="Class: GameInternationalizationAPI" class="md-nav__link">
+      Class: GameInternationalizationAPI
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../classes/_client_apis_gamesapi_.gamesapi/" title="Class: GamesAPI" class="md-nav__link">
+      Class: GamesAPI
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../classes/_client_apis_generalapi_.generalapi/" title="Class: GeneralAPI" class="md-nav__link">
+      Class: GeneralAPI
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../classes/_client_apis_groupsapi_.groupsapi/" title="Class: GroupsAPI" class="md-nav__link">
+      Class: GroupsAPI
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../classes/_client_apis_inventoryapi_.inventoryapi/" title="Class: InventoryAPI" class="md-nav__link">
+      Class: InventoryAPI
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../classes/_client_apis_itemconfigurationapi_.inventoryapi/" title="Class: InventoryAPI" class="md-nav__link">
+      Class: InventoryAPI
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../classes/_client_apis_localeapi_.localeapi/" title="Class: LocaleAPI" class="md-nav__link">
+      Class: LocaleAPI
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../classes/_client_apis_metricsapi_.localeapi/" title="Class: LocaleAPI" class="md-nav__link">
+      Class: LocaleAPI
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../classes/_client_apis_notificationsapi_.notificationsapi/" title="Class: NotificationsAPI" class="md-nav__link">
+      Class: NotificationsAPI
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../classes/_client_apis_otherapi_.otherapi/" title="Class: OtherAPI" class="md-nav__link">
+      Class: OtherAPI
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../classes/_client_apis_premiumfeaturesapi_.premiumfeaturesapi/" title="Class: PremiumFeaturesAPI" class="md-nav__link">
+      Class: PremiumFeaturesAPI
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../classes/_client_apis_presenceapi_.presenceapi/" title="Class: PresenceAPI" class="md-nav__link">
+      Class: PresenceAPI
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../classes/_client_apis_privatemessagesapi_.privatemessagesapi/" title="Class: PrivateMessagesAPI" class="md-nav__link">
+      Class: PrivateMessagesAPI
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../classes/_client_apis_publishapi_.publishapi/" title="Class: PublishAPI" class="md-nav__link">
+      Class: PublishAPI
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../classes/_client_apis_thumbnailsapi_.thumbnailsapi/" title="Class: ThumbnailsAPI" class="md-nav__link">
+      Class: ThumbnailsAPI
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../classes/_client_apis_tradesapi_.tradesapi/" title="Class: TradesAPI" class="md-nav__link">
+      Class: TradesAPI
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../classes/_client_apis_translationrolesapi_.tradesapi/" title="Class: TradesAPI" class="md-nav__link">
+      Class: TradesAPI
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../classes/_client_apis_usersapi_.usersapi/" title="Class: UsersAPI" class="md-nav__link">
+      Class: UsersAPI
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../classes/_client_client_.client/" title="Class: Client" class="md-nav__link">
+      Class: Client
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../classes/_client_clientbase_.clientbase.eventemitter/" title="Class: EventEmitter" class="md-nav__link">
+      Class: EventEmitter
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../classes/_client_clientbase_.clientbase/" title="Class: ClientBase" class="md-nav__link">
+      Class: ClientBase
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../classes/_client_lib_chatmanager_chatmanager_.chatmanager/" title="Class: ChatManager" class="md-nav__link">
+      Class: ChatManager
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../classes/_client_lib_clientsocket_clientsocket_.socket.eventemitter/" title="Class: EventEmitter" class="md-nav__link">
+      Class: EventEmitter
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../classes/_client_lib_clientsocket_clientsocket_.socket/" title="Class: Socket" class="md-nav__link">
+      Class: Socket
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../classes/_controllers_rest_response_restresponse_.restresponse/" title="Class: RESTResponse" class="md-nav__link">
+      Class: RESTResponse
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../classes/_controllers_rest_restcontroller_.restcontroller/" title="Class: RESTController" class="md-nav__link">
+      Class: RESTController
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../classes/_structures_asset_.assetversion/" title="Class: AssetVersion" class="md-nav__link">
+      Class: AssetVersion
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../classes/_structures_asset_.bundle/" title="Class: Bundle" class="md-nav__link">
+      Class: Bundle
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../classes/_structures_asset_.collectibleasset/" title="Class: CollectibleAsset" class="md-nav__link">
+      Class: CollectibleAsset
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../classes/_structures_asset_.cursorpage/" title="Class: CursorPage ‹**T**›" class="md-nav__link">
+      Class: CursorPage ‹**T**›
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../classes/_structures_asset_.product/" title="Class: Product" class="md-nav__link">
+      Class: Product
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../classes/_structures_asset_.trade/" title="Class: Trade" class="md-nav__link">
+      Class: Trade
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../classes/_structures_chat_.chatconversation/" title="Class: ChatConversation" class="md-nav__link">
+      Class: ChatConversation
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../classes/_structures_chat_.chatmessage/" title="Class: ChatMessage" class="md-nav__link">
+      Class: ChatMessage
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../classes/_structures_chat_.chatmessagesent/" title="Class: ChatMessageSent" class="md-nav__link">
+      Class: ChatMessageSent
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../classes/_structures_chat_.partialchatconversation/" title="Class: PartialChatConversation" class="md-nav__link">
+      Class: PartialChatConversation
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../classes/_structures_clientuser_.clientuser/" title="Class: ClientUser" class="md-nav__link">
+      Class: ClientUser
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../classes/_structures_game_.baseplace/" title="Class: BasePlace" class="md-nav__link">
+      Class: BasePlace
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../classes/_structures_game_.gamebadge/" title="Class: GameBadge" class="md-nav__link">
+      Class: GameBadge
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../classes/_structures_game_.gamebadgebase/" title="Class: GameBadgeBase" class="md-nav__link">
+      Class: GameBadgeBase
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../classes/_structures_game_.gamemediadata/" title="Class: GameMediaData" class="md-nav__link">
+      Class: GameMediaData
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../classes/_structures_game_.gamepass/" title="Class: GamePass" class="md-nav__link">
+      Class: GamePass
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../classes/_structures_game_.gameuniverse/" title="Class: GameUniverse" class="md-nav__link">
+      Class: GameUniverse
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../classes/_structures_game_.partialgamebadge/" title="Class: PartialGameBadge" class="md-nav__link">
+      Class: PartialGameBadge
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../classes/_structures_game_.partialgameuniverse/" title="Class: PartialGameUniverse" class="md-nav__link">
+      Class: PartialGameUniverse
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../classes/_structures_game_.partialplace/" title="Class: PartialPlace" class="md-nav__link">
+      Class: PartialPlace
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../classes/_structures_game_.partialvipserver/" title="Class: PartialVIPServer" class="md-nav__link">
+      Class: PartialVIPServer
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../classes/_structures_game_.place/" title="Class: Place" class="md-nav__link">
+      Class: Place
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../classes/_structures_game_.vipserver/" title="Class: VIPServer" class="md-nav__link">
+      Class: VIPServer
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../classes/_structures_group_.group/" title="Class: Group" class="md-nav__link">
+      Class: Group
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../classes/_structures_group_.groupbase/" title="Class: GroupBase" class="md-nav__link">
+      Class: GroupBase
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../classes/_structures_group_.groupjoinrequest/" title="Class: GroupJoinRequest" class="md-nav__link">
+      Class: GroupJoinRequest
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../classes/_structures_group_.groupmember/" title="Class: GroupMember" class="md-nav__link">
+      Class: GroupMember
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../classes/_structures_group_.grouprole/" title="Class: GroupRole" class="md-nav__link">
+      Class: GroupRole
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../classes/_structures_group_.grouprolepermissions/" title="Class: GroupRolePermissions" class="md-nav__link">
+      Class: GroupRolePermissions
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../classes/_structures_group_.groupshout/" title="Class: GroupShout" class="md-nav__link">
+      Class: GroupShout
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../classes/_structures_group_.groupwallpost/" title="Class: GroupWallPost" class="md-nav__link">
+      Class: GroupWallPost
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../classes/_structures_group_.partialgroup/" title="Class: PartialGroup" class="md-nav__link">
+      Class: PartialGroup
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../classes/_structures_user_.friendrequest/" title="Class: FriendRequest" class="md-nav__link">
+      Class: FriendRequest
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../classes/_structures_user_.partialuser/" title="Class: PartialUser" class="md-nav__link">
+      Class: PartialUser
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../classes/_structures_user_.user/" title="Class: User" class="md-nav__link">
+      Class: User
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../classes/_structures_user_.userbase/" title="Class: UserBase" class="md-nav__link">
+      Class: UserBase
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../classes/_util_errors_errors_.bloxyhttperror/" title="Class: BloxyHttpError" class="md-nav__link">
+      Class: BloxyHttpError
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4">
+    
+    <label class="md-nav__link" for="nav-4">
+      Enums
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59 16.58L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.42z"/></svg>
+      </span>
+    </label>
+    <nav class="md-nav" aria-label="Enums" data-md-level="1">
+      <label class="md-nav__title" for="nav-4">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+        </span>
+        Enums
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../enums/_util_constants_.creatortype/" title="Enumeration: CreatorType" class="md-nav__link">
+      Enumeration: CreatorType
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../enums/_util_constants_.gamegenre/" title="Enumeration: GameGenre" class="md-nav__link">
+      Enumeration: GameGenre
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../enums/_util_constants_.morphavatartype/" title="Enumeration: MorphAvatarType" class="md-nav__link">
+      Enumeration: MorphAvatarType
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-5" type="checkbox" id="nav-5">
+    
+    <label class="md-nav__link" for="nav-5">
+      Interfaces
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59 16.58L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.42z"/></svg>
+      </span>
+    </label>
+    <nav class="md-nav" aria-label="Interfaces" data-md-level="1">
+      <label class="md-nav__title" for="nav-5">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+        </span>
+        Interfaces
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../interfaces/_client_clientbase_.clientcallbacks/" title="Interface: ClientCallbacks" class="md-nav__link">
+      Interface: ClientCallbacks
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../interfaces/_client_clientbase_.clientcredentialsoptions/" title="Interface: ClientCredentialsOptions" class="md-nav__link">
+      Interface: ClientCredentialsOptions
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../interfaces/_client_clientbase_.clientoptions/" title="Interface: ClientOptions" class="md-nav__link">
+      Interface: ClientOptions
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../interfaces/_client_clientbase_.clientsetup/" title="Interface: ClientSetup" class="md-nav__link">
+      Interface: ClientSetup
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../interfaces/_structures_asset_.assetversionoptions/" title="Interface: AssetVersionOptions" class="md-nav__link">
+      Interface: AssetVersionOptions
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../interfaces/_structures_asset_.bundleoptions/" title="Interface: BundleOptions" class="md-nav__link">
+      Interface: BundleOptions
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../interfaces/_structures_asset_.collectibleassetoptions/" title="Interface: CollectibleAssetOptions" class="md-nav__link">
+      Interface: CollectibleAssetOptions
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../interfaces/_structures_asset_.productoptions/" title="Interface: ProductOptions" class="md-nav__link">
+      Interface: ProductOptions
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../interfaces/_structures_asset_.structures/" title="Interface: Structures" class="md-nav__link">
+      Interface: Structures
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../interfaces/_structures_asset_.tradeoptions/" title="Interface: TradeOptions" class="md-nav__link">
+      Interface: TradeOptions
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../interfaces/_structures_chat_.chatconversationoptions/" title="Interface: ChatConversationOptions" class="md-nav__link">
+      Interface: ChatConversationOptions
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../interfaces/_structures_chat_.chatmessageoptions/" title="Interface: ChatMessageOptions" class="md-nav__link">
+      Interface: ChatMessageOptions
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../interfaces/_structures_chat_.chatmessagesentoptions/" title="Interface: ChatMessageSentOptions" class="md-nav__link">
+      Interface: ChatMessageSentOptions
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../interfaces/_structures_chat_.partialchatconversationoptions/" title="Interface: PartialChatConversationOptions" class="md-nav__link">
+      Interface: PartialChatConversationOptions
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../interfaces/_structures_chat_.structures/" title="Interface: Structures" class="md-nav__link">
+      Interface: Structures
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../interfaces/_structures_clientuser_.clientuseroptions/" title="Interface: ClientUserOptions" class="md-nav__link">
+      Interface: ClientUserOptions
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../interfaces/_structures_game_.baseplaceoptions/" title="Interface: BasePlaceOptions" class="md-nav__link">
+      Interface: BasePlaceOptions
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../interfaces/_structures_game_.gamebadgebaseoptions/" title="Interface: GameBadgeBaseOptions" class="md-nav__link">
+      Interface: GameBadgeBaseOptions
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../interfaces/_structures_game_.gamebadgeoptions/" title="Interface: GameBadgeOptions" class="md-nav__link">
+      Interface: GameBadgeOptions
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../interfaces/_structures_game_.gamemediadataoptions/" title="Interface: GameMediaDataOptions" class="md-nav__link">
+      Interface: GameMediaDataOptions
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../interfaces/_structures_game_.gamepassoptions/" title="Interface: GamePassOptions" class="md-nav__link">
+      Interface: GamePassOptions
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../interfaces/_structures_game_.gameuniverseoptions/" title="Interface: GameUniverseOptions" class="md-nav__link">
+      Interface: GameUniverseOptions
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../interfaces/_structures_game_.partialgameuniverseoptions/" title="Interface: PartialGameUniverseOptions" class="md-nav__link">
+      Interface: PartialGameUniverseOptions
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../interfaces/_structures_game_.partialplaceoptions/" title="Interface: PartialPlaceOptions" class="md-nav__link">
+      Interface: PartialPlaceOptions
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../interfaces/_structures_game_.partialvipserveroptions/" title="Interface: PartialVIPServerOptions" class="md-nav__link">
+      Interface: PartialVIPServerOptions
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../interfaces/_structures_game_.placeoptions/" title="Interface: PlaceOptions" class="md-nav__link">
+      Interface: PlaceOptions
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../interfaces/_structures_game_.structures/" title="Interface: Structures" class="md-nav__link">
+      Interface: Structures
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../interfaces/_structures_game_.vipserveroptions/" title="Interface: VIPServerOptions" class="md-nav__link">
+      Interface: VIPServerOptions
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../interfaces/_structures_group_.groupbaseoptions/" title="Interface: GroupBaseOptions" class="md-nav__link">
+      Interface: GroupBaseOptions
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../interfaces/_structures_group_.groupjoinrequestoptions/" title="Interface: GroupJoinRequestOptions" class="md-nav__link">
+      Interface: GroupJoinRequestOptions
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../interfaces/_structures_group_.groupmemberoptions/" title="Interface: GroupMemberOptions" class="md-nav__link">
+      Interface: GroupMemberOptions
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../interfaces/_structures_group_.groupoptions/" title="Interface: GroupOptions" class="md-nav__link">
+      Interface: GroupOptions
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../interfaces/_structures_group_.grouproleoptions/" title="Interface: GroupRoleOptions" class="md-nav__link">
+      Interface: GroupRoleOptions
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../interfaces/_structures_group_.grouprolepermissionsoptions/" title="Interface: GroupRolePermissionsOptions" class="md-nav__link">
+      Interface: GroupRolePermissionsOptions
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../interfaces/_structures_group_.groupshoutoptions/" title="Interface: GroupShoutOptions" class="md-nav__link">
+      Interface: GroupShoutOptions
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../interfaces/_structures_group_.groupwallpostoptions/" title="Interface: GroupWallPostOptions" class="md-nav__link">
+      Interface: GroupWallPostOptions
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../interfaces/_structures_group_.partialgroupoptions/" title="Interface: PartialGroupOptions" class="md-nav__link">
+      Interface: PartialGroupOptions
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../interfaces/_structures_group_.structures/" title="Interface: Structures" class="md-nav__link">
+      Interface: Structures
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../interfaces/_structures_user_.friendrequestoptions/" title="Interface: FriendRequestOptions" class="md-nav__link">
+      Interface: FriendRequestOptions
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../interfaces/_structures_user_.partialuseroptions/" title="Interface: PartialUserOptions" class="md-nav__link">
+      Interface: PartialUserOptions
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../interfaces/_structures_user_.userbaseoptions/" title="Interface: UserBaseOptions" class="md-nav__link">
+      Interface: UserBaseOptions
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../interfaces/_structures_user_.useroptions/" title="Interface: UserOptions" class="md-nav__link">
+      Interface: UserOptions
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../interfaces/_util_errors_errors_.bloxyhttperroroptions/" title="Interface: BloxyHttpErrorOptions" class="md-nav__link">
+      Interface: BloxyHttpErrorOptions
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-6" type="checkbox" id="nav-6" checked>
+    
+    <label class="md-nav__link" for="nav-6">
+      Modules
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59 16.58L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.42z"/></svg>
+      </span>
+    </label>
+    <nav class="md-nav" aria-label="Modules" data-md-level="1">
+      <label class="md-nav__title" for="nav-6">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+        </span>
+        Modules
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../_client_apis_accountinformationapi_/" title="Module: "client/apis/AccountInformationAPI"" class="md-nav__link">
+      Module: "client/apis/AccountInformationAPI"
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../_client_apis_accountsettingsapi_/" title="Module: "client/apis/AccountSettingsAPI"" class="md-nav__link">
+      Module: "client/apis/AccountSettingsAPI"
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../_client_apis_adconfigurationapi_/" title="Module: "client/apis/AdConfigurationAPI"" class="md-nav__link">
+      Module: "client/apis/AdConfigurationAPI"
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../_client_apis_adsapi_/" title="Module: "client/apis/AdsAPI"" class="md-nav__link">
+      Module: "client/apis/AdsAPI"
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../_client_apis_assetdeliveryapi_/" title="Module: "client/apis/AssetDeliveryAPI"" class="md-nav__link">
+      Module: "client/apis/AssetDeliveryAPI"
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../_client_apis_authapi_/" title="Module: "client/apis/AuthAPI"" class="md-nav__link">
+      Module: "client/apis/AuthAPI"
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+      
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        Module: "client/apis/AvatarAPI"
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 9h14V7H3v2m0 4h14v-2H3v2m0 4h14v-2H3v2m16 0h2v-2h-2v2m0-10v2h2V7h-2m0 6h2v-2h-2v2z"/></svg>
+        </span>
+      </label>
+    
+    <a href="./" title="Module: "client/apis/AvatarAPI"" class="md-nav__link md-nav__link--active">
+      Module: "client/apis/AvatarAPI"
+    </a>
+    
+      
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#index" class="md-nav__link">
+    Index
+  </a>
+  
+    <nav class="md-nav" aria-label="Index">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#classes" class="md-nav__link">
+    Classes
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#type-aliases" class="md-nav__link">
+    Type aliases
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#type-aliases_1" class="md-nav__link">
+    Type aliases
+  </a>
+  
+    <nav class="md-nav" aria-label="Type aliases">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#bodycolors" class="md-nav__link">
+      BodyColors
+  </a>
+  
+    <nav class="md-nav" aria-label="  BodyColors">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#type-declaration" class="md-nav__link">
+    Type declaration:
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bodyscales" class="md-nav__link">
+      BodyScales
+  </a>
+  
+    <nav class="md-nav" aria-label="  BodyScales">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#type-declaration_1" class="md-nav__link">
+    Type declaration:
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#colorpalette" class="md-nav__link">
+      ColorPalette
+  </a>
+  
+    <nav class="md-nav" aria-label="  ColorPalette">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#type-declaration_2" class="md-nav__link">
+    Type declaration:
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#createoutfit" class="md-nav__link">
+      CreateOutfit
+  </a>
+  
+    <nav class="md-nav" aria-label="  CreateOutfit">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#type-declaration_3" class="md-nav__link">
+    Type declaration:
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#createoutfitoptions" class="md-nav__link">
+      CreateOutfitOptions
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#deleteoutfit" class="md-nav__link">
+      DeleteOutfit
+  </a>
+  
+    <nav class="md-nav" aria-label="  DeleteOutfit">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#type-declaration_4" class="md-nav__link">
+    Type declaration:
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#deleteoutfitoptions" class="md-nav__link">
+      DeleteOutfitOptions
+  </a>
+  
+    <nav class="md-nav" aria-label="  DeleteOutfitOptions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#type-declaration_5" class="md-nav__link">
+    Type declaration:
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getavatarmetadata" class="md-nav__link">
+      GetAvatarMetadata
+  </a>
+  
+    <nav class="md-nav" aria-label="  GetAvatarMetadata">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#type-declaration_6" class="md-nav__link">
+    Type declaration:
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getavatarrules" class="md-nav__link">
+      GetAvatarRules
+  </a>
+  
+    <nav class="md-nav" aria-label="  GetAvatarRules">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#type-declaration_7" class="md-nav__link">
+    Type declaration:
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getoutfit" class="md-nav__link">
+      GetOutfit
+  </a>
+  
+    <nav class="md-nav" aria-label="  GetOutfit">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#type-declaration_8" class="md-nav__link">
+    Type declaration:
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getoutfitoptions" class="md-nav__link">
+      GetOutfitOptions
+  </a>
+  
+    <nav class="md-nav" aria-label="  GetOutfitOptions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#type-declaration_9" class="md-nav__link">
+    Type declaration:
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getrecentitems" class="md-nav__link">
+      GetRecentItems
+  </a>
+  
+    <nav class="md-nav" aria-label="  GetRecentItems">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#type-declaration_10" class="md-nav__link">
+    Type declaration:
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getrecentitemsoptions" class="md-nav__link">
+      GetRecentItemsOptions
+  </a>
+  
+    <nav class="md-nav" aria-label="  GetRecentItemsOptions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#type-declaration_11" class="md-nav__link">
+    Type declaration:
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getuseravatar" class="md-nav__link">
+      GetUserAvatar
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getuseravataroptions" class="md-nav__link">
+      GetUserAvatarOptions
+  </a>
+  
+    <nav class="md-nav" aria-label="  GetUserAvatarOptions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#type-declaration_12" class="md-nav__link">
+    Type declaration:
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getusercurrentlywearing" class="md-nav__link">
+      GetUserCurrentlyWearing
+  </a>
+  
+    <nav class="md-nav" aria-label="  GetUserCurrentlyWearing">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#type-declaration_13" class="md-nav__link">
+    Type declaration:
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getusercurrentlywearingoptions" class="md-nav__link">
+      GetUserCurrentlyWearingOptions
+  </a>
+  
+    <nav class="md-nav" aria-label="  GetUserCurrentlyWearingOptions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#type-declaration_14" class="md-nav__link">
+    Type declaration:
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getuseroutfits" class="md-nav__link">
+      GetUserOutfits
+  </a>
+  
+    <nav class="md-nav" aria-label="  GetUserOutfits">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#type-declaration_15" class="md-nav__link">
+    Type declaration:
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getuseroutfitsoptions" class="md-nav__link">
+      GetUserOutfitsOptions
+  </a>
+  
+    <nav class="md-nav" aria-label="  GetUserOutfitsOptions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#type-declaration_16" class="md-nav__link">
+    Type declaration:
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#redrawthumbnail" class="md-nav__link">
+      RedrawThumbnail
+  </a>
+  
+    <nav class="md-nav" aria-label="  RedrawThumbnail">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#type-declaration_17" class="md-nav__link">
+    Type declaration:
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#removeassetfromavatar" class="md-nav__link">
+      RemoveAssetFromAvatar
+  </a>
+  
+    <nav class="md-nav" aria-label="  RemoveAssetFromAvatar">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#type-declaration_18" class="md-nav__link">
+    Type declaration:
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#removeassetfromavataroptions" class="md-nav__link">
+      RemoveAssetFromAvatarOptions
+  </a>
+  
+    <nav class="md-nav" aria-label="  RemoveAssetFromAvatarOptions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#type-declaration_19" class="md-nav__link">
+    Type declaration:
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#scale" class="md-nav__link">
+      Scale
+  </a>
+  
+    <nav class="md-nav" aria-label="  Scale">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#type-declaration_20" class="md-nav__link">
+    Type declaration:
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setbodycolors" class="md-nav__link">
+      SetBodyColors
+  </a>
+  
+    <nav class="md-nav" aria-label="  SetBodyColors">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#type-declaration_21" class="md-nav__link">
+    Type declaration:
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setbodycolorsoptions" class="md-nav__link">
+      SetBodyColorsOptions
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setplayeravatarscales" class="md-nav__link">
+      SetPlayerAvatarScales
+  </a>
+  
+    <nav class="md-nav" aria-label="  SetPlayerAvatarScales">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#type-declaration_22" class="md-nav__link">
+    Type declaration:
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setplayeravatarscalesoptions" class="md-nav__link">
+      SetPlayerAvatarScalesOptions
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setplayeravatartype" class="md-nav__link">
+      SetPlayerAvatarType
+  </a>
+  
+    <nav class="md-nav" aria-label="  SetPlayerAvatarType">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#type-declaration_23" class="md-nav__link">
+    Type declaration:
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setplayeravatartypeoptions" class="md-nav__link">
+      SetPlayerAvatarTypeOptions
+  </a>
+  
+    <nav class="md-nav" aria-label="  SetPlayerAvatarTypeOptions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#type-declaration_24" class="md-nav__link">
+    Type declaration:
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setplayeravatarwearingassets" class="md-nav__link">
+      SetPlayerAvatarWearingAssets
+  </a>
+  
+    <nav class="md-nav" aria-label="  SetPlayerAvatarWearingAssets">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#type-declaration_25" class="md-nav__link">
+    Type declaration:
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setplayeravatarwearingassetsoptions" class="md-nav__link">
+      SetPlayerAvatarWearingAssetsOptions
+  </a>
+  
+    <nav class="md-nav" aria-label="  SetPlayerAvatarWearingAssetsOptions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#type-declaration_26" class="md-nav__link">
+    Type declaration:
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#updateoutfit" class="md-nav__link">
+      UpdateOutfit
+  </a>
+  
+    <nav class="md-nav" aria-label="  UpdateOutfit">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#type-declaration_27" class="md-nav__link">
+    Type declaration:
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#updateoutfitoptions" class="md-nav__link">
+      UpdateOutfitOptions
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#useravatar" class="md-nav__link">
+      UserAvatar
+  </a>
+  
+    <nav class="md-nav" aria-label="  UserAvatar">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#type-declaration_28" class="md-nav__link">
+    Type declaration:
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#wearassetonavatar" class="md-nav__link">
+      WearAssetOnAvatar
+  </a>
+  
+    <nav class="md-nav" aria-label="  WearAssetOnAvatar">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#type-declaration_29" class="md-nav__link">
+    Type declaration:
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#wearassetonavataroptions" class="md-nav__link">
+      WearAssetOnAvatarOptions
+  </a>
+  
+    <nav class="md-nav" aria-label="  WearAssetOnAvatarOptions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#type-declaration_30" class="md-nav__link">
+    Type declaration:
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#wearoutfit" class="md-nav__link">
+      WearOutfit
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#wearoutfitoptions" class="md-nav__link">
+      WearOutfitOptions
+  </a>
+  
+    <nav class="md-nav" aria-label="  WearOutfitOptions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#type-declaration_31" class="md-nav__link">
+    Type declaration:
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+    
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../_client_apis_badgesapi_/" title="Module: "client/apis/BadgesAPI"" class="md-nav__link">
+      Module: "client/apis/BadgesAPI"
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../_client_apis_baseapi_/" title="Module: "client/apis/BaseAPI"" class="md-nav__link">
+      Module: "client/apis/BaseAPI"
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../_client_apis_billingapi_/" title="Module: "client/apis/BillingAPI"" class="md-nav__link">
+      Module: "client/apis/BillingAPI"
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../_client_apis_captchaapi_/" title="Module: "client/apis/CaptchaAPI"" class="md-nav__link">
+      Module: "client/apis/CaptchaAPI"
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../_client_apis_catalogapi_/" title="Module: "client/apis/CatalogAPI"" class="md-nav__link">
+      Module: "client/apis/CatalogAPI"
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../_client_apis_chatapi_/" title="Module: "client/apis/ChatAPI"" class="md-nav__link">
+      Module: "client/apis/ChatAPI"
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../_client_apis_contactsapi_/" title="Module: "client/apis/ContactsAPI"" class="md-nav__link">
+      Module: "client/apis/ContactsAPI"
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../_client_apis_developapi_/" title="Module: "client/apis/DevelopAPI"" class="md-nav__link">
+      Module: "client/apis/DevelopAPI"
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../_client_apis_economyapi_/" title="Module: "client/apis/EconomyAPI"" class="md-nav__link">
+      Module: "client/apis/EconomyAPI"
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../_client_apis_economycreatorstatsapi_/" title="Module: "client/apis/EconomyCreatorStatsAPI"" class="md-nav__link">
+      Module: "client/apis/EconomyCreatorStatsAPI"
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../_client_apis_engagementpayoutsapi_/" title="Module: "client/apis/EngagementPayoutsAPI"" class="md-nav__link">
+      Module: "client/apis/EngagementPayoutsAPI"
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../_client_apis_followingsapi_/" title="Module: "client/apis/FollowingsAPI"" class="md-nav__link">
+      Module: "client/apis/FollowingsAPI"
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../_client_apis_friendsapi_/" title="Module: "client/apis/FriendsAPI"" class="md-nav__link">
+      Module: "client/apis/FriendsAPI"
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../_client_apis_gameinternationalizationapi_/" title="Module: "client/apis/GameInternationalizationAPI"" class="md-nav__link">
+      Module: "client/apis/GameInternationalizationAPI"
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../_client_apis_gamesapi_/" title="Module: "client/apis/GamesAPI"" class="md-nav__link">
+      Module: "client/apis/GamesAPI"
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../_client_apis_generalapi_/" title="Module: "client/apis/GeneralAPI"" class="md-nav__link">
+      Module: "client/apis/GeneralAPI"
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../_client_apis_groupsapi_/" title="Module: "client/apis/GroupsAPI"" class="md-nav__link">
+      Module: "client/apis/GroupsAPI"
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../_client_apis_index_/" title="Module: "client/apis/index"" class="md-nav__link">
+      Module: "client/apis/index"
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../_client_apis_inventoryapi_/" title="Module: "client/apis/InventoryAPI"" class="md-nav__link">
+      Module: "client/apis/InventoryAPI"
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../_client_apis_itemconfigurationapi_/" title="Module: "client/apis/ItemConfigurationAPI"" class="md-nav__link">
+      Module: "client/apis/ItemConfigurationAPI"
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../_client_apis_localeapi_/" title="Module: "client/apis/LocaleAPI"" class="md-nav__link">
+      Module: "client/apis/LocaleAPI"
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../_client_apis_metricsapi_/" title="Module: "client/apis/MetricsAPI"" class="md-nav__link">
+      Module: "client/apis/MetricsAPI"
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../_client_apis_notificationsapi_/" title="Module: "client/apis/NotificationsAPI"" class="md-nav__link">
+      Module: "client/apis/NotificationsAPI"
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../_client_apis_otherapi_/" title="Module: "client/apis/OtherAPI"" class="md-nav__link">
+      Module: "client/apis/OtherAPI"
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../_client_apis_premiumfeaturesapi_/" title="Module: "client/apis/PremiumFeaturesAPI"" class="md-nav__link">
+      Module: "client/apis/PremiumFeaturesAPI"
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../_client_apis_presenceapi_/" title="Module: "client/apis/PresenceAPI"" class="md-nav__link">
+      Module: "client/apis/PresenceAPI"
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../_client_apis_privatemessagesapi_/" title="Module: "client/apis/PrivateMessagesAPI"" class="md-nav__link">
+      Module: "client/apis/PrivateMessagesAPI"
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../_client_apis_publishapi_/" title="Module: "client/apis/PublishAPI"" class="md-nav__link">
+      Module: "client/apis/PublishAPI"
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../_client_apis_thumbnailsapi_/" title="Module: "client/apis/ThumbnailsAPI"" class="md-nav__link">
+      Module: "client/apis/ThumbnailsAPI"
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../_client_apis_tradesapi_/" title="Module: "client/apis/TradesAPI"" class="md-nav__link">
+      Module: "client/apis/TradesAPI"
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../_client_apis_translationrolesapi_/" title="Module: "client/apis/TranslationRolesAPI"" class="md-nav__link">
+      Module: "client/apis/TranslationRolesAPI"
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../_client_apis_usersapi_/" title="Module: "client/apis/UsersAPI"" class="md-nav__link">
+      Module: "client/apis/UsersAPI"
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../_client_client_/" title="Module: "client/Client"" class="md-nav__link">
+      Module: "client/Client"
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../_client_clientbase_/" title="Module: "client/ClientBase"" class="md-nav__link">
+      Module: "client/ClientBase"
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../_client_index_/" title="Module: "client/index"" class="md-nav__link">
+      Module: "client/index"
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../_client_lib_chatmanager_chatmanager_/" title="Module: "client/lib/ChatManager/ChatManager"" class="md-nav__link">
+      Module: "client/lib/ChatManager/ChatManager"
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../_client_lib_chatmanager_index_/" title="Module: "client/lib/ChatManager/index"" class="md-nav__link">
+      Module: "client/lib/ChatManager/index"
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../_client_lib_clientsocket_clientsocket_/" title="Module: "client/lib/ClientSocket/ClientSocket"" class="md-nav__link">
+      Module: "client/lib/ClientSocket/ClientSocket"
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../_client_lib_clientsocket_handlers_chatnotifications_/" title="Module: "client/lib/ClientSocket/handlers/chatNotifications"" class="md-nav__link">
+      Module: "client/lib/ClientSocket/handlers/chatNotifications"
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../_client_lib_clientsocket_handlers_friendshipnotifications_/" title="Module: "client/lib/ClientSocket/handlers/friendShipnotifications"" class="md-nav__link">
+      Module: "client/lib/ClientSocket/handlers/friendShipnotifications"
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../_client_lib_clientsocket_handlers_index_/" title="Module: "client/lib/ClientSocket/handlers/index"" class="md-nav__link">
+      Module: "client/lib/ClientSocket/handlers/index"
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../_client_lib_clientsocket_handlers_messagenotifications_/" title="Module: "client/lib/ClientSocket/handlers/messageNotifications"" class="md-nav__link">
+      Module: "client/lib/ClientSocket/handlers/messageNotifications"
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../_client_lib_clientsocket_handlers_presencebulknotifications_/" title="Module: "client/lib/ClientSocket/handlers/presenceBulkNotifications"" class="md-nav__link">
+      Module: "client/lib/ClientSocket/handlers/presenceBulkNotifications"
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../_client_lib_clientsocket_index_/" title="Module: "client/lib/ClientSocket/index"" class="md-nav__link">
+      Module: "client/lib/ClientSocket/index"
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../_controllers_index_/" title="Module: "controllers/index"" class="md-nav__link">
+      Module: "controllers/index"
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../_controllers_rest_index_/" title="Module: "controllers/rest/index"" class="md-nav__link">
+      Module: "controllers/rest/index"
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../_controllers_rest_lib_updatexcsrftoken_/" title="Module: "controllers/rest/lib/updateXCSRFToken"" class="md-nav__link">
+      Module: "controllers/rest/lib/updateXCSRFToken"
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../_controllers_rest_response_handlers_index_/" title="Module: "controllers/rest/response/handlers/index"" class="md-nav__link">
+      Module: "controllers/rest/response/handlers/index"
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../_controllers_rest_response_handlers_validbody_/" title="Module: "controllers/rest/response/handlers/validBody"" class="md-nav__link">
+      Module: "controllers/rest/response/handlers/validBody"
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../_controllers_rest_response_handlers_validstatus_/" title="Module: "controllers/rest/response/handlers/validStatus"" class="md-nav__link">
+      Module: "controllers/rest/response/handlers/validStatus"
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../_controllers_rest_response_handlers_validstatuscode_/" title="Module: "controllers/rest/response/handlers/validStatusCode"" class="md-nav__link">
+      Module: "controllers/rest/response/handlers/validStatusCode"
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../_controllers_rest_response_index_/" title="Module: "controllers/rest/response/index"" class="md-nav__link">
+      Module: "controllers/rest/response/index"
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../_controllers_rest_response_restresponse_/" title="Module: "controllers/rest/response/RESTResponse"" class="md-nav__link">
+      Module: "controllers/rest/response/RESTResponse"
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../_controllers_rest_restcontroller_/" title="Module: "controllers/rest/RESTController"" class="md-nav__link">
+      Module: "controllers/rest/RESTController"
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../_index_/" title="Module: "index"" class="md-nav__link">
+      Module: "index"
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../_interfaces_apiinterfaces_/" title="Module: "interfaces/APIInterfaces"" class="md-nav__link">
+      Module: "interfaces/APIInterfaces"
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../_interfaces_generalinterfaces_/" title="Module: "interfaces/GeneralInterfaces"" class="md-nav__link">
+      Module: "interfaces/GeneralInterfaces"
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../_interfaces_restinterfaces_/" title="Module: "interfaces/RESTInterfaces"" class="md-nav__link">
+      Module: "interfaces/RESTInterfaces"
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../_structures_asset_/" title="Module: "structures/Asset"" class="md-nav__link">
+      Module: "structures/Asset"
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../_structures_chat_/" title="Module: "structures/Chat"" class="md-nav__link">
+      Module: "structures/Chat"
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../_structures_clientuser_/" title="Module: "structures/ClientUser"" class="md-nav__link">
+      Module: "structures/ClientUser"
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../_structures_game_/" title="Module: "structures/Game"" class="md-nav__link">
+      Module: "structures/Game"
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../_structures_group_/" title="Module: "structures/Group"" class="md-nav__link">
+      Module: "structures/Group"
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../_structures_index_/" title="Module: "structures/index"" class="md-nav__link">
+      Module: "structures/index"
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../_structures_user_/" title="Module: "structures/User"" class="md-nav__link">
+      Module: "structures/User"
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../_util_constants_/" title="Module: "util/constants"" class="md-nav__link">
+      Module: "util/constants"
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../_util_converter_/" title="Module: "util/converter"" class="md-nav__link">
+      Module: "util/converter"
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../_util_errors_errors_/" title="Module: "util/errors/errors"" class="md-nav__link">
+      Module: "util/errors/errors"
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../_util_errors_index_/" title="Module: "util/errors/index"" class="md-nav__link">
+      Module: "util/errors/index"
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../_util_errors_messages_/" title="Module: "util/errors/messages"" class="md-nav__link">
+      Module: "util/errors/messages"
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#index" class="md-nav__link">
+    Index
+  </a>
+  
+    <nav class="md-nav" aria-label="Index">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#classes" class="md-nav__link">
+    Classes
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#type-aliases" class="md-nav__link">
+    Type aliases
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#type-aliases_1" class="md-nav__link">
+    Type aliases
+  </a>
+  
+    <nav class="md-nav" aria-label="Type aliases">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#bodycolors" class="md-nav__link">
+      BodyColors
+  </a>
+  
+    <nav class="md-nav" aria-label="  BodyColors">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#type-declaration" class="md-nav__link">
+    Type declaration:
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bodyscales" class="md-nav__link">
+      BodyScales
+  </a>
+  
+    <nav class="md-nav" aria-label="  BodyScales">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#type-declaration_1" class="md-nav__link">
+    Type declaration:
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#colorpalette" class="md-nav__link">
+      ColorPalette
+  </a>
+  
+    <nav class="md-nav" aria-label="  ColorPalette">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#type-declaration_2" class="md-nav__link">
+    Type declaration:
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#createoutfit" class="md-nav__link">
+      CreateOutfit
+  </a>
+  
+    <nav class="md-nav" aria-label="  CreateOutfit">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#type-declaration_3" class="md-nav__link">
+    Type declaration:
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#createoutfitoptions" class="md-nav__link">
+      CreateOutfitOptions
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#deleteoutfit" class="md-nav__link">
+      DeleteOutfit
+  </a>
+  
+    <nav class="md-nav" aria-label="  DeleteOutfit">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#type-declaration_4" class="md-nav__link">
+    Type declaration:
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#deleteoutfitoptions" class="md-nav__link">
+      DeleteOutfitOptions
+  </a>
+  
+    <nav class="md-nav" aria-label="  DeleteOutfitOptions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#type-declaration_5" class="md-nav__link">
+    Type declaration:
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getavatarmetadata" class="md-nav__link">
+      GetAvatarMetadata
+  </a>
+  
+    <nav class="md-nav" aria-label="  GetAvatarMetadata">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#type-declaration_6" class="md-nav__link">
+    Type declaration:
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getavatarrules" class="md-nav__link">
+      GetAvatarRules
+  </a>
+  
+    <nav class="md-nav" aria-label="  GetAvatarRules">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#type-declaration_7" class="md-nav__link">
+    Type declaration:
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getoutfit" class="md-nav__link">
+      GetOutfit
+  </a>
+  
+    <nav class="md-nav" aria-label="  GetOutfit">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#type-declaration_8" class="md-nav__link">
+    Type declaration:
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getoutfitoptions" class="md-nav__link">
+      GetOutfitOptions
+  </a>
+  
+    <nav class="md-nav" aria-label="  GetOutfitOptions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#type-declaration_9" class="md-nav__link">
+    Type declaration:
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getrecentitems" class="md-nav__link">
+      GetRecentItems
+  </a>
+  
+    <nav class="md-nav" aria-label="  GetRecentItems">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#type-declaration_10" class="md-nav__link">
+    Type declaration:
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getrecentitemsoptions" class="md-nav__link">
+      GetRecentItemsOptions
+  </a>
+  
+    <nav class="md-nav" aria-label="  GetRecentItemsOptions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#type-declaration_11" class="md-nav__link">
+    Type declaration:
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getuseravatar" class="md-nav__link">
+      GetUserAvatar
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getuseravataroptions" class="md-nav__link">
+      GetUserAvatarOptions
+  </a>
+  
+    <nav class="md-nav" aria-label="  GetUserAvatarOptions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#type-declaration_12" class="md-nav__link">
+    Type declaration:
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getusercurrentlywearing" class="md-nav__link">
+      GetUserCurrentlyWearing
+  </a>
+  
+    <nav class="md-nav" aria-label="  GetUserCurrentlyWearing">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#type-declaration_13" class="md-nav__link">
+    Type declaration:
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getusercurrentlywearingoptions" class="md-nav__link">
+      GetUserCurrentlyWearingOptions
+  </a>
+  
+    <nav class="md-nav" aria-label="  GetUserCurrentlyWearingOptions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#type-declaration_14" class="md-nav__link">
+    Type declaration:
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getuseroutfits" class="md-nav__link">
+      GetUserOutfits
+  </a>
+  
+    <nav class="md-nav" aria-label="  GetUserOutfits">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#type-declaration_15" class="md-nav__link">
+    Type declaration:
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getuseroutfitsoptions" class="md-nav__link">
+      GetUserOutfitsOptions
+  </a>
+  
+    <nav class="md-nav" aria-label="  GetUserOutfitsOptions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#type-declaration_16" class="md-nav__link">
+    Type declaration:
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#redrawthumbnail" class="md-nav__link">
+      RedrawThumbnail
+  </a>
+  
+    <nav class="md-nav" aria-label="  RedrawThumbnail">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#type-declaration_17" class="md-nav__link">
+    Type declaration:
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#removeassetfromavatar" class="md-nav__link">
+      RemoveAssetFromAvatar
+  </a>
+  
+    <nav class="md-nav" aria-label="  RemoveAssetFromAvatar">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#type-declaration_18" class="md-nav__link">
+    Type declaration:
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#removeassetfromavataroptions" class="md-nav__link">
+      RemoveAssetFromAvatarOptions
+  </a>
+  
+    <nav class="md-nav" aria-label="  RemoveAssetFromAvatarOptions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#type-declaration_19" class="md-nav__link">
+    Type declaration:
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#scale" class="md-nav__link">
+      Scale
+  </a>
+  
+    <nav class="md-nav" aria-label="  Scale">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#type-declaration_20" class="md-nav__link">
+    Type declaration:
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setbodycolors" class="md-nav__link">
+      SetBodyColors
+  </a>
+  
+    <nav class="md-nav" aria-label="  SetBodyColors">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#type-declaration_21" class="md-nav__link">
+    Type declaration:
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setbodycolorsoptions" class="md-nav__link">
+      SetBodyColorsOptions
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setplayeravatarscales" class="md-nav__link">
+      SetPlayerAvatarScales
+  </a>
+  
+    <nav class="md-nav" aria-label="  SetPlayerAvatarScales">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#type-declaration_22" class="md-nav__link">
+    Type declaration:
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setplayeravatarscalesoptions" class="md-nav__link">
+      SetPlayerAvatarScalesOptions
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setplayeravatartype" class="md-nav__link">
+      SetPlayerAvatarType
+  </a>
+  
+    <nav class="md-nav" aria-label="  SetPlayerAvatarType">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#type-declaration_23" class="md-nav__link">
+    Type declaration:
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setplayeravatartypeoptions" class="md-nav__link">
+      SetPlayerAvatarTypeOptions
+  </a>
+  
+    <nav class="md-nav" aria-label="  SetPlayerAvatarTypeOptions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#type-declaration_24" class="md-nav__link">
+    Type declaration:
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setplayeravatarwearingassets" class="md-nav__link">
+      SetPlayerAvatarWearingAssets
+  </a>
+  
+    <nav class="md-nav" aria-label="  SetPlayerAvatarWearingAssets">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#type-declaration_25" class="md-nav__link">
+    Type declaration:
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setplayeravatarwearingassetsoptions" class="md-nav__link">
+      SetPlayerAvatarWearingAssetsOptions
+  </a>
+  
+    <nav class="md-nav" aria-label="  SetPlayerAvatarWearingAssetsOptions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#type-declaration_26" class="md-nav__link">
+    Type declaration:
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#updateoutfit" class="md-nav__link">
+      UpdateOutfit
+  </a>
+  
+    <nav class="md-nav" aria-label="  UpdateOutfit">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#type-declaration_27" class="md-nav__link">
+    Type declaration:
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#updateoutfitoptions" class="md-nav__link">
+      UpdateOutfitOptions
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#useravatar" class="md-nav__link">
+      UserAvatar
+  </a>
+  
+    <nav class="md-nav" aria-label="  UserAvatar">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#type-declaration_28" class="md-nav__link">
+    Type declaration:
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#wearassetonavatar" class="md-nav__link">
+      WearAssetOnAvatar
+  </a>
+  
+    <nav class="md-nav" aria-label="  WearAssetOnAvatar">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#type-declaration_29" class="md-nav__link">
+    Type declaration:
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#wearassetonavataroptions" class="md-nav__link">
+      WearAssetOnAvatarOptions
+  </a>
+  
+    <nav class="md-nav" aria-label="  WearAssetOnAvatarOptions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#type-declaration_30" class="md-nav__link">
+    Type declaration:
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#wearoutfit" class="md-nav__link">
+      WearOutfit
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#wearoutfitoptions" class="md-nav__link">
+      WearOutfitOptions
+  </a>
+  
+    <nav class="md-nav" aria-label="  WearOutfitOptions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#type-declaration_31" class="md-nav__link">
+    Type declaration:
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                  
+                
+                
+                <h1 id="module-clientapisavatarapi">Module: "client/apis/AvatarAPI"</h1>
+<h2 id="index">Index</h2>
+<h3 id="classes">Classes</h3>
+<ul>
+<li><a href="../../classes/_client_apis_avatarapi_.avatarapi/">AvatarAPI</a></li>
+</ul>
+<h3 id="type-aliases">Type aliases</h3>
+<ul>
+<li><a href="./#bodycolors">BodyColors</a></li>
+<li><a href="./#bodyscales">BodyScales</a></li>
+<li><a href="./#colorpalette">ColorPalette</a></li>
+<li><a href="./#createoutfit">CreateOutfit</a></li>
+<li><a href="./#createoutfitoptions">CreateOutfitOptions</a></li>
+<li><a href="./#deleteoutfit">DeleteOutfit</a></li>
+<li><a href="./#deleteoutfitoptions">DeleteOutfitOptions</a></li>
+<li><a href="./#getavatarmetadata">GetAvatarMetadata</a></li>
+<li><a href="./#getavatarrules">GetAvatarRules</a></li>
+<li><a href="./#getoutfit">GetOutfit</a></li>
+<li><a href="./#getoutfitoptions">GetOutfitOptions</a></li>
+<li><a href="./#getrecentitems">GetRecentItems</a></li>
+<li><a href="./#getrecentitemsoptions">GetRecentItemsOptions</a></li>
+<li><a href="./#getuseravatar">GetUserAvatar</a></li>
+<li><a href="./#getuseravataroptions">GetUserAvatarOptions</a></li>
+<li><a href="./#getusercurrentlywearing">GetUserCurrentlyWearing</a></li>
+<li><a href="./#getusercurrentlywearingoptions">GetUserCurrentlyWearingOptions</a></li>
+<li><a href="./#getuseroutfits">GetUserOutfits</a></li>
+<li><a href="./#getuseroutfitsoptions">GetUserOutfitsOptions</a></li>
+<li><a href="./#redrawthumbnail">RedrawThumbnail</a></li>
+<li><a href="./#removeassetfromavatar">RemoveAssetFromAvatar</a></li>
+<li><a href="./#removeassetfromavataroptions">RemoveAssetFromAvatarOptions</a></li>
+<li><a href="./#scale">Scale</a></li>
+<li><a href="./#setbodycolors">SetBodyColors</a></li>
+<li><a href="./#setbodycolorsoptions">SetBodyColorsOptions</a></li>
+<li><a href="./#setplayeravatarscales">SetPlayerAvatarScales</a></li>
+<li><a href="./#setplayeravatarscalesoptions">SetPlayerAvatarScalesOptions</a></li>
+<li><a href="./#setplayeravatartype">SetPlayerAvatarType</a></li>
+<li><a href="./#setplayeravatartypeoptions">SetPlayerAvatarTypeOptions</a></li>
+<li><a href="./#setplayeravatarwearingassets">SetPlayerAvatarWearingAssets</a></li>
+<li><a href="./#setplayeravatarwearingassetsoptions">SetPlayerAvatarWearingAssetsOptions</a></li>
+<li><a href="./#updateoutfit">UpdateOutfit</a></li>
+<li><a href="./#updateoutfitoptions">UpdateOutfitOptions</a></li>
+<li><a href="./#useravatar">UserAvatar</a></li>
+<li><a href="./#wearassetonavatar">WearAssetOnAvatar</a></li>
+<li><a href="./#wearassetonavataroptions">WearAssetOnAvatarOptions</a></li>
+<li><a href="./#wearoutfit">WearOutfit</a></li>
+<li><a href="./#wearoutfitoptions">WearOutfitOptions</a></li>
+</ul>
+<h2 id="type-aliases_1">Type aliases</h2>
+<h3 id="bodycolors"><a id="bodycolors" name="bodycolors"></a>  BodyColors</h3>
+<p>Ƭ <strong>BodyColors</strong>: <em>object</em></p>
+<h4 id="type-declaration">Type declaration:</h4>
+<ul>
+<li>
+<p><strong>headColorId</strong>: <em>number</em></p>
+</li>
+<li>
+<p><strong>leftArmColorId</strong>: <em>number</em></p>
+</li>
+<li>
+<p><strong>leftLegColorId</strong>: <em>number</em></p>
+</li>
+<li>
+<p><strong>rightArmColorId</strong>: <em>number</em></p>
+</li>
+<li>
+<p><strong>rightLegColorId</strong>: <em>number</em></p>
+</li>
+<li>
+<p><strong>torsoColorId</strong>: <em>number</em></p>
+</li>
+</ul>
+<hr />
+<h3 id="bodyscales"><a id="bodyscales" name="bodyscales"></a>  BodyScales</h3>
+<p>Ƭ <strong>BodyScales</strong>: <em>object</em></p>
+<h4 id="type-declaration_1">Type declaration:</h4>
+<ul>
+<li>
+<p><strong>bodyType</strong>: <em>number</em></p>
+</li>
+<li>
+<p><strong>depth</strong>: <em>number</em></p>
+</li>
+<li>
+<p><strong>head</strong>: <em>number</em></p>
+</li>
+<li>
+<p><strong>height</strong>: <em>number</em></p>
+</li>
+<li>
+<p><strong>proportion</strong>: <em>number</em></p>
+</li>
+<li>
+<p><strong>width</strong>: <em>number</em></p>
+</li>
+</ul>
+<hr />
+<h3 id="colorpalette"><a id="colorpalette" name="colorpalette"></a>  ColorPalette</h3>
+<p>Ƭ <strong>ColorPalette</strong>: <em>object</em></p>
+<h4 id="type-declaration_2">Type declaration:</h4>
+<ul>
+<li>
+<p><strong>brickColorId</strong>: <em>number</em></p>
+</li>
+<li>
+<p><strong>hexColor</strong>: <em>string</em></p>
+</li>
+<li>
+<p><strong>name</strong>: <em>string</em></p>
+</li>
+</ul>
+<hr />
+<h3 id="createoutfit"><a id="createoutfit" name="createoutfit"></a>  CreateOutfit</h3>
+<p>Ƭ <strong>CreateOutfit</strong>: <em>object</em></p>
+<h4 id="type-declaration_3">Type declaration:</h4>
+<ul>
+<li><strong>success</strong>: <em>boolean</em></li>
+</ul>
+<hr />
+<h3 id="createoutfitoptions"><a id="createoutfitoptions" name="createoutfitoptions"></a>  CreateOutfitOptions</h3>
+<p>Ƭ <strong>CreateOutfitOptions</strong>: <em>Omit‹<a href="./#getoutfit">GetOutfit</a>, "id" | "isEditable"›</em></p>
+<hr />
+<h3 id="deleteoutfit"><a id="deleteoutfit" name="deleteoutfit"></a>  DeleteOutfit</h3>
+<p>Ƭ <strong>DeleteOutfit</strong>: <em>object</em></p>
+<h4 id="type-declaration_4">Type declaration:</h4>
+<ul>
+<li><strong>success</strong>: <em>boolean</em></li>
+</ul>
+<hr />
+<h3 id="deleteoutfitoptions"><a id="deleteoutfitoptions" name="deleteoutfitoptions"></a>  DeleteOutfitOptions</h3>
+<p>Ƭ <strong>DeleteOutfitOptions</strong>: <em>object</em></p>
+<h4 id="type-declaration_5">Type declaration:</h4>
+<ul>
+<li><strong>userOutfitId</strong>: <em>number</em></li>
+</ul>
+<hr />
+<h3 id="getavatarmetadata"><a id="getavatarmetadata" name="getavatarmetadata"></a>  GetAvatarMetadata</h3>
+<p>Ƭ <strong>GetAvatarMetadata</strong>: <em>object</em></p>
+<h4 id="type-declaration_6">Type declaration:</h4>
+<ul>
+<li>
+<p><strong>areThreeDeeThumbsEnabled</strong>: <em>boolean</em></p>
+</li>
+<li>
+<p><strong>enableDefaultClothingMessage</strong>: <em>boolean</em></p>
+</li>
+<li>
+<p><strong>isAvatarScaleEmbeddedInTab</strong>: <em>boolean</em></p>
+</li>
+<li>
+<p><strong>isBodyTypeScaleOutOfTab</strong>: <em>boolean</em></p>
+</li>
+<li>
+<p><strong>scaleBodyTypeIncrement</strong>: <em>number</em></p>
+</li>
+<li>
+<p><strong>scaleHeadIncrement</strong>: <em>number</em></p>
+</li>
+<li>
+<p><strong>scaleHeightIncrement</strong>: <em>number</em></p>
+</li>
+<li>
+<p><strong>scaleProportionIncrement</strong>: <em>number</em></p>
+</li>
+<li>
+<p><strong>scaleWidthIncrement</strong>: <em>number</em></p>
+</li>
+<li>
+<p><strong>showDefaultClothingMessageOnPageLoad</strong>: <em>boolean</em></p>
+</li>
+<li>
+<p><strong>supportProportionAndBodyType</strong>: <em>boolean</em></p>
+</li>
+</ul>
+<hr />
+<h3 id="getavatarrules"><a id="getavatarrules" name="getavatarrules"></a>  GetAvatarRules</h3>
+<p>Ƭ <strong>GetAvatarRules</strong>: <em>object</em></p>
+<h4 id="type-declaration_7">Type declaration:</h4>
+<ul>
+<li>
+<p><strong>basicBodyColorsPalette</strong>: <em><a href="./#colorpalette">ColorPalette</a>[]</em></p>
+</li>
+<li>
+<p><strong>bodyColorsPalette</strong>: <em><a href="./#colorpalette">ColorPalette</a>[]</em></p>
+</li>
+<li>
+<p><strong>bundlesEnabledForUser</strong>: <em>boolean</em></p>
+</li>
+<li>
+<p><strong>defaultClothingAssetLists</strong>(): <em>object</em></p>
+</li>
+<li>
+<p><strong>defaultPantAssetIds</strong>: <em>number[]</em></p>
+</li>
+<li>
+<p><strong>defaultShirtAssetIds</strong>: <em>number[]</em></p>
+</li>
+<li>
+<p><strong>emotesEnabledForUser</strong>: <em>boolean</em></p>
+</li>
+<li>
+<p><strong>minimumDeltaEBodyColorDifference</strong>: <em>number</em></p>
+</li>
+<li>
+<p><strong>playerAvatarTypes</strong>: <em>string[]</em></p>
+</li>
+<li>
+<p><strong>proportionsAndBodyTypeEnabledForUser</strong>: <em>boolean</em></p>
+</li>
+<li>
+<p><strong>scales</strong>(): <em>object</em></p>
+</li>
+<li>
+<p><strong>bodyType</strong>: <em><a href="./#scale">Scale</a></em></p>
+</li>
+<li>
+<p><strong>head</strong>: <em><a href="./#scale">Scale</a></em></p>
+</li>
+<li>
+<p><strong>height</strong>: <em><a href="./#scale">Scale</a></em></p>
+</li>
+<li>
+<p><strong>width</strong>: <em><a href="./#scale">Scale</a></em></p>
+</li>
+<li>
+<p><strong>wearableAssetTypes</strong>: <em>object[]</em></p>
+</li>
+</ul>
+<hr />
+<h3 id="getoutfit"><a id="getoutfit" name="getoutfit"></a>  GetOutfit</h3>
+<p>Ƭ <strong>GetOutfit</strong>: <em>object</em></p>
+<h4 id="type-declaration_8">Type declaration:</h4>
+<ul>
+<li>
+<p><strong>assets</strong>: <em>object[]</em></p>
+</li>
+<li>
+<p><strong>bodyColors</strong>: <em><a href="./#bodycolors">BodyColors</a></em></p>
+</li>
+<li>
+<p><strong>id</strong>: <em>number</em></p>
+</li>
+<li>
+<p><strong>isEditable</strong>: <em>boolean</em></p>
+</li>
+<li>
+<p><strong>name</strong>: <em>string</em></p>
+</li>
+<li>
+<p><strong>playerAvatarType</strong>: <em>string</em></p>
+</li>
+<li>
+<p><strong>scale</strong>(): <em>object</em></p>
+</li>
+<li>
+<p><strong>bodyType</strong>: <em>number</em></p>
+</li>
+<li>
+<p><strong>depth</strong>: <em>number</em></p>
+</li>
+<li>
+<p><strong>head</strong>: <em>number</em></p>
+</li>
+<li>
+<p><strong>height</strong>: <em>number</em></p>
+</li>
+<li>
+<p><strong>proportion</strong>: <em>number</em></p>
+</li>
+<li>
+<p><strong>width</strong>: <em>number</em></p>
+</li>
+</ul>
+<hr />
+<h3 id="getoutfitoptions"><a id="getoutfitoptions" name="getoutfitoptions"></a>  GetOutfitOptions</h3>
+<p>Ƭ <strong>GetOutfitOptions</strong>: <em>object</em></p>
+<h4 id="type-declaration_9">Type declaration:</h4>
+<ul>
+<li><strong>userOutfitId</strong>: <em>number</em></li>
+</ul>
+<hr />
+<h3 id="getrecentitems"><a id="getrecentitems" name="getrecentitems"></a>  GetRecentItems</h3>
+<p>Ƭ <strong>GetRecentItems</strong>: <em>object</em></p>
+<h4 id="type-declaration_10">Type declaration:</h4>
+<ul>
+<li>
+<p><strong>data</strong>: <em>object[]</em></p>
+</li>
+<li>
+<p><strong>total</strong>: <em>number</em></p>
+</li>
+</ul>
+<hr />
+<h3 id="getrecentitemsoptions"><a id="getrecentitemsoptions" name="getrecentitemsoptions"></a>  GetRecentItemsOptions</h3>
+<p>Ƭ <strong>GetRecentItemsOptions</strong>: <em>object</em></p>
+<h4 id="type-declaration_11">Type declaration:</h4>
+<ul>
+<li><strong>recentItemListType</strong>: <em>"All" | "Clothing" | "BodyParts" | "AvatarAnimations" | "Accessories" | "Outfits" | "Gear" | string</em></li>
+</ul>
+<hr />
+<h3 id="getuseravatar"><a id="getuseravatar" name="getuseravatar"></a>  GetUserAvatar</h3>
+<p>Ƭ <strong>GetUserAvatar</strong>: <em><a href="./#useravatar">UserAvatar</a></em></p>
+<hr />
+<h3 id="getuseravataroptions"><a id="getuseravataroptions" name="getuseravataroptions"></a>  GetUserAvatarOptions</h3>
+<p>Ƭ <strong>GetUserAvatarOptions</strong>: <em>object</em></p>
+<h4 id="type-declaration_12">Type declaration:</h4>
+<ul>
+<li><strong>userId</strong>: <em>number</em></li>
+</ul>
+<hr />
+<h3 id="getusercurrentlywearing"><a id="getusercurrentlywearing" name="getusercurrentlywearing"></a>  GetUserCurrentlyWearing</h3>
+<p>Ƭ <strong>GetUserCurrentlyWearing</strong>: <em>object</em></p>
+<h4 id="type-declaration_13">Type declaration:</h4>
+<ul>
+<li><strong>assetIds</strong>: <em>number[]</em></li>
+</ul>
+<hr />
+<h3 id="getusercurrentlywearingoptions"><a id="getusercurrentlywearingoptions" name="getusercurrentlywearingoptions"></a>  GetUserCurrentlyWearingOptions</h3>
+<p>Ƭ <strong>GetUserCurrentlyWearingOptions</strong>: <em>object</em></p>
+<h4 id="type-declaration_14">Type declaration:</h4>
+<ul>
+<li><strong>userId</strong>: <em>number</em></li>
+</ul>
+<hr />
+<h3 id="getuseroutfits"><a id="getuseroutfits" name="getuseroutfits"></a>  GetUserOutfits</h3>
+<p>Ƭ <strong>GetUserOutfits</strong>: <em>object</em></p>
+<h4 id="type-declaration_15">Type declaration:</h4>
+<ul>
+<li>
+<p><strong>data</strong>: <em>object[]</em></p>
+</li>
+<li>
+<p><strong>filteredCount</strong>: <em>number</em></p>
+</li>
+<li>
+<p><strong>total</strong>: <em>number</em></p>
+</li>
+</ul>
+<hr />
+<h3 id="getuseroutfitsoptions"><a id="getuseroutfitsoptions" name="getuseroutfitsoptions"></a>  GetUserOutfitsOptions</h3>
+<p>Ƭ <strong>GetUserOutfitsOptions</strong>: <em>object</em></p>
+<h4 id="type-declaration_16">Type declaration:</h4>
+<ul>
+<li>
+<p><strong>isEditable</strong>? : <em>undefined | false | true</em></p>
+</li>
+<li>
+<p><strong>itemsPerPage</strong>? : <em>undefined | number</em></p>
+</li>
+<li>
+<p><strong>page</strong>? : <em>undefined | number</em></p>
+</li>
+<li>
+<p><strong>userId</strong>: <em>number</em></p>
+</li>
+</ul>
+<hr />
+<h3 id="redrawthumbnail"><a id="redrawthumbnail" name="redrawthumbnail"></a>  RedrawThumbnail</h3>
+<p>Ƭ <strong>RedrawThumbnail</strong>: <em>object</em></p>
+<h4 id="type-declaration_17">Type declaration:</h4>
+<hr />
+<h3 id="removeassetfromavatar"><a id="removeassetfromavatar" name="removeassetfromavatar"></a>  RemoveAssetFromAvatar</h3>
+<p>Ƭ <strong>RemoveAssetFromAvatar</strong>: <em>object</em></p>
+<h4 id="type-declaration_18">Type declaration:</h4>
+<ul>
+<li><strong>success</strong>: <em>boolean</em></li>
+</ul>
+<hr />
+<h3 id="removeassetfromavataroptions"><a id="removeassetfromavataroptions" name="removeassetfromavataroptions"></a>  RemoveAssetFromAvatarOptions</h3>
+<p>Ƭ <strong>RemoveAssetFromAvatarOptions</strong>: <em>object</em></p>
+<h4 id="type-declaration_19">Type declaration:</h4>
+<ul>
+<li><strong>assetId</strong>: <em>number</em></li>
+</ul>
+<hr />
+<h3 id="scale"><a id="scale" name="scale"></a>  Scale</h3>
+<p>Ƭ <strong>Scale</strong>: <em>object</em></p>
+<h4 id="type-declaration_20">Type declaration:</h4>
+<ul>
+<li>
+<p><strong>increment</strong>: <em>number</em></p>
+</li>
+<li>
+<p><strong>max</strong>: <em>number</em></p>
+</li>
+<li>
+<p><strong>min</strong>: <em>number</em></p>
+</li>
+</ul>
+<hr />
+<h3 id="setbodycolors"><a id="setbodycolors" name="setbodycolors"></a>  SetBodyColors</h3>
+<p>Ƭ <strong>SetBodyColors</strong>: <em>object</em></p>
+<h4 id="type-declaration_21">Type declaration:</h4>
+<ul>
+<li><strong>success</strong>: <em>boolean</em></li>
+</ul>
+<hr />
+<h3 id="setbodycolorsoptions"><a id="setbodycolorsoptions" name="setbodycolorsoptions"></a>  SetBodyColorsOptions</h3>
+<p>Ƭ <strong>SetBodyColorsOptions</strong>: <em><a href="./#bodycolors">BodyColors</a></em></p>
+<hr />
+<h3 id="setplayeravatarscales"><a id="setplayeravatarscales" name="setplayeravatarscales"></a>  SetPlayerAvatarScales</h3>
+<p>Ƭ <strong>SetPlayerAvatarScales</strong>: <em>object</em></p>
+<h4 id="type-declaration_22">Type declaration:</h4>
+<ul>
+<li><strong>success</strong>: <em>boolean</em></li>
+</ul>
+<hr />
+<h3 id="setplayeravatarscalesoptions"><a id="setplayeravatarscalesoptions" name="setplayeravatarscalesoptions"></a>  SetPlayerAvatarScalesOptions</h3>
+<p>Ƭ <strong>SetPlayerAvatarScalesOptions</strong>: <em><a href="./#bodyscales">BodyScales</a></em></p>
+<hr />
+<h3 id="setplayeravatartype"><a id="setplayeravatartype" name="setplayeravatartype"></a>  SetPlayerAvatarType</h3>
+<p>Ƭ <strong>SetPlayerAvatarType</strong>: <em>object</em></p>
+<h4 id="type-declaration_23">Type declaration:</h4>
+<ul>
+<li><strong>success</strong>: <em>boolean</em></li>
+</ul>
+<hr />
+<h3 id="setplayeravatartypeoptions"><a id="setplayeravatartypeoptions" name="setplayeravatartypeoptions"></a>  SetPlayerAvatarTypeOptions</h3>
+<p>Ƭ <strong>SetPlayerAvatarTypeOptions</strong>: <em>object</em></p>
+<h4 id="type-declaration_24">Type declaration:</h4>
+<ul>
+<li><strong>playerAvatarType</strong>: <em>"R6" | "R15" | string</em></li>
+</ul>
+<hr />
+<h3 id="setplayeravatarwearingassets"><a id="setplayeravatarwearingassets" name="setplayeravatarwearingassets"></a>  SetPlayerAvatarWearingAssets</h3>
+<p>Ƭ <strong>SetPlayerAvatarWearingAssets</strong>: <em>object</em></p>
+<h4 id="type-declaration_25">Type declaration:</h4>
+<ul>
+<li>
+<p><strong>invalidAssetIds</strong>? : <em>number[]</em></p>
+</li>
+<li>
+<p><strong>invalidAssets</strong>? : <em>object[]</em></p>
+</li>
+<li>
+<p><strong>success</strong>: <em>boolean</em></p>
+</li>
+</ul>
+<hr />
+<h3 id="setplayeravatarwearingassetsoptions"><a id="setplayeravatarwearingassetsoptions" name="setplayeravatarwearingassetsoptions"></a>  SetPlayerAvatarWearingAssetsOptions</h3>
+<p>Ƭ <strong>SetPlayerAvatarWearingAssetsOptions</strong>: <em>object</em></p>
+<h4 id="type-declaration_26">Type declaration:</h4>
+<ul>
+<li><strong>assetIds</strong>: <em>number[]</em></li>
+</ul>
+<hr />
+<h3 id="updateoutfit"><a id="updateoutfit" name="updateoutfit"></a>  UpdateOutfit</h3>
+<p>Ƭ <strong>UpdateOutfit</strong>: <em>object</em></p>
+<h4 id="type-declaration_27">Type declaration:</h4>
+<ul>
+<li><strong>success</strong>: <em>boolean</em></li>
+</ul>
+<hr />
+<h3 id="updateoutfitoptions"><a id="updateoutfitoptions" name="updateoutfitoptions"></a>  UpdateOutfitOptions</h3>
+<p>Ƭ <strong>UpdateOutfitOptions</strong>: <em>Omit‹<a href="./#getoutfit">GetOutfit</a>, "isEditable"›</em></p>
+<hr />
+<h3 id="useravatar"><a id="useravatar" name="useravatar"></a>  UserAvatar</h3>
+<p>Ƭ <strong>UserAvatar</strong>: <em>object</em></p>
+<h4 id="type-declaration_28">Type declaration:</h4>
+<ul>
+<li>
+<p><strong>assets</strong>: <em>object[]</em></p>
+</li>
+<li>
+<p><strong>bodyColors</strong>: <em><a href="./#bodycolors">BodyColors</a></em></p>
+</li>
+<li>
+<p><strong>defaultPantsApplied</strong>: <em>boolean</em></p>
+</li>
+<li>
+<p><strong>defaultShirtApplied</strong>: <em>boolean</em></p>
+</li>
+<li>
+<p><strong>emotes</strong>: <em>object[]</em></p>
+</li>
+<li>
+<p><strong>playerAvatarType</strong>: <em>"R6" | "R15" | string</em></p>
+</li>
+<li>
+<p><strong>scales</strong>: <em><a href="./#bodyscales">BodyScales</a></em></p>
+</li>
+</ul>
+<hr />
+<h3 id="wearassetonavatar"><a id="wearassetonavatar" name="wearassetonavatar"></a>  WearAssetOnAvatar</h3>
+<p>Ƭ <strong>WearAssetOnAvatar</strong>: <em>object</em></p>
+<h4 id="type-declaration_29">Type declaration:</h4>
+<ul>
+<li><strong>success</strong>: <em>boolean</em></li>
+</ul>
+<hr />
+<h3 id="wearassetonavataroptions"><a id="wearassetonavataroptions" name="wearassetonavataroptions"></a>  WearAssetOnAvatarOptions</h3>
+<p>Ƭ <strong>WearAssetOnAvatarOptions</strong>: <em>object</em></p>
+<h4 id="type-declaration_30">Type declaration:</h4>
+<ul>
+<li><strong>assetId</strong>: <em>number</em></li>
+</ul>
+<hr />
+<h3 id="wearoutfit"><a id="wearoutfit" name="wearoutfit"></a>  WearOutfit</h3>
+<p>Ƭ <strong>WearOutfit</strong>: <em><a href="./#setplayeravatarwearingassets">SetPlayerAvatarWearingAssets</a></em></p>
+<hr />
+<h3 id="wearoutfitoptions"><a id="wearoutfitoptions" name="wearoutfitoptions"></a>  WearOutfitOptions</h3>
+<p>Ƭ <strong>WearOutfitOptions</strong>: <em>object</em></p>
+<h4 id="type-declaration_31">Type declaration:</h4>
+<ul>
+<li><strong>userOutfitId</strong>: <em>number</em></li>
+</ul>
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid" aria-label="Footer">
+        
+          <a href="../_client_apis_authapi_/" title="Module: "client/apis/AuthAPI"" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-footer-nav__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+            </div>
+            <div class="md-footer-nav__title">
+              <div class="md-ellipsis">
+                <span class="md-footer-nav__direction">
+                  Previous
+                </span>
+                Module: "client/apis/AuthAPI"
+              </div>
+            </div>
+          </a>
+        
+        
+          <a href="../_client_apis_badgesapi_/" title="Module: "client/apis/BadgesAPI"" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-footer-nav__title">
+              <div class="md-ellipsis">
+                <span class="md-footer-nav__direction">
+                  Next
+                </span>
+                Module: "client/apis/BadgesAPI"
+              </div>
+            </div>
+            <div class="md-footer-nav__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    </div>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+        Made with
+        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+          Material for MkDocs
+        </a>
+      </div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../../assets/javascripts/vendor.df0def68.min.js"></script>
+      <script src="../../assets/javascripts/bundle.ba57d267.min.js"></script><script id="__lang" type="application/json">{"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents"}</script>
+      
+      <script>
+        app = initialize({
+          base: "../..",
+          features: [],
+          search: Object.assign({
+            worker: "../../assets/javascripts/worker/search.fae956e7.min.js"
+          }, typeof search !== "undefined" && search)
+        })
+      </script>
+      
+    
+  </body>
+</html>
