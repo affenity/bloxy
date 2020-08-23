@@ -1,12 +1,12 @@
 import BaseAPI from "./BaseAPI";
 import Client from "../Client";
-import { GameBadge } from "../../structures/Game";
+import { GameBadgeOptions } from "../../structures/Game";
 
 
 export type GetBadgeOptions = {
     badgeId: number;
 }
-export type GetBadge = GameBadge;
+export type GetBadge = GameBadgeOptions;
 export type UpdateBadgeOptions = {
     id: number;
     name: string;
@@ -70,7 +70,7 @@ export default class AvatarAPI extends BaseAPI {
                 }
             },
             json: true
-        }).then(response => new GameBadge(response.body, this.client));
+        }).then(response => response.body);
     }
 
     updateBadge (options: UpdateBadgeOptions): Promise<UpdateBadge> {
@@ -98,10 +98,7 @@ export default class AvatarAPI extends BaseAPI {
                 }
             },
             json: true
-        }).then(response => ({
-            ...response.body,
-            data: response.body.data.map((data: any) => new GameBadge(data, this.client))
-        }));
+        }).then(response => response.body);
     }
 
     getUserBadges (options: GetUserBadgesOptions): Promise<GetUserBadges> {
@@ -115,10 +112,7 @@ export default class AvatarAPI extends BaseAPI {
                 }
             },
             json: true
-        }).then(response => ({
-            ...response.body,
-            data: response.body.data.map((data: any) => new GameBadge(data, this.client))
-        }));
+        }).then(response => response.body);
     }
 
     getUserBadgesAwardedDates (options: GetUserBadgesAwardedDatesOptions): Promise<GetUserBadgesAwardedDates> {
@@ -134,12 +128,7 @@ export default class AvatarAPI extends BaseAPI {
                 }
             },
             json: true
-        }).then(response => ({
-            data: response.body.data.map((data: any) => ({
-                badge: new GameBadge(data, this.client),
-                awardedDate: new Date(data.awardedDate)
-            }))
-        }));
+        }).then(response => response.body);
     }
 
     deleteBadgeFromUser (options: DeleteBadgeFromUserOptions): Promise<DeleteBadgeFromUser> {

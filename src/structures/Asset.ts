@@ -1,9 +1,23 @@
 import Client from "../client";
 import { CreatorType } from "../util/constants";
-import { PartialGameUniverse } from "./Game";
-import { PartialUser } from "./User";
+import { PartialGameUniverse, PartialGameUniverseOptions } from "./Game";
+import { PartialUser, PartialUserOptions } from "./User";
 import { ProductDetails } from "../client/apis/CatalogAPI";
-import { PartialGroup } from "./Group";
+import { PartialGroup, PartialGroupOptions } from "./Group";
+
+
+export interface Structures {
+    PartialUser: new (data: PartialUserOptions, client: Client) => PartialUser;
+    PartialGameUniverse: new (data: PartialGameUniverseOptions, client: Client) => PartialGameUniverse;
+    PartialGroup: new (data: PartialGroupOptions, client: Client) => PartialGroup;
+}
+
+
+const retrieveStructures = (): Structures => ({
+    PartialUser: require("./User").PartialUser,
+    PartialGameUniverse: require("./Game").PartialGameUniverse,
+    PartialGroup: require("./Group").PartialGroup
+});
 
 
 export interface AssetVersionOptions {
@@ -31,16 +45,19 @@ export class AssetVersion {
     public updated: Date;
 
     constructor (data: any, client: Client) {
+        const structures = retrieveStructures();
+
+
         this.client = client;
         this.id = data.Id;
         this.assetId = data.AssetId;
         this.versionNumber = data.VersionNumber;
         this.parentAssetVersionId = data.ParentAssetVersionId;
         this.creatorType = data.CreatorType;
-        this.creator = new PartialUser({
+        this.creator = new structures.PartialUser({
             id: data.CreatorTargetId
         }, this.client);
-        this.createdForUniverse = data.CreatingUniverseId ? new PartialGameUniverse({
+        this.createdForUniverse = data.CreatingUniverseId ? new structures.PartialGameUniverse({
             id: data.CreatingUniverseId
         }, client) : null;
         this.created = new Date(data.Created);
@@ -96,6 +113,8 @@ export class Bundle {
     };
 
     constructor (data: BundleOptions, client: Client) {
+        const structures = retrieveStructures();
+
         this.client = client;
         this.id = data.id;
         this.name = data.name;
@@ -108,10 +127,10 @@ export class Bundle {
             type: itemData.type
         }));
         this.creatorType = data.creator.type.toLowerCase() === "group" ? CreatorType.GROUP : CreatorType.USER;
-        this.creator = this.creatorType === CreatorType.USER ? new PartialUser({
+        this.creator = this.creatorType === CreatorType.USER ? new structures.PartialUser({
             id: data.creator.id,
             name: data.creator.name
-        }, client) : new PartialGroup({
+        }, client) : new structures.PartialGroup({
             id: data.creator.id,
             name: data.creator.name
         }, client);
@@ -164,6 +183,7 @@ export class CollectibleAsset {
     }
 }
 
+
 export type CursorPageOptions = {
     limit?: 10 | 25 | 50 | 100;
     cursor?: string;
@@ -174,6 +194,7 @@ type CursorPageResponse = {
     previousPageCursor: string | null;
     nextPageCursor: string | null;
 }
+
 
 export class CursorPage<T> {
     public client: Client;
@@ -280,6 +301,8 @@ export class Product {
     public minimumMembershipLevel: number;
 
     constructor (data: ProductOptions, client: Client) {
+        const structures = retrieveStructures();
+
         this.client = client;
         this.id = data.TargetId;
         this.type = data.ProductType;
@@ -288,7 +311,7 @@ export class Product {
         this.name = data.Name;
         this.description = data.Description;
         this.assetTypeId = data.AssetTypeId;
-        this.creator = new PartialUser({
+        this.creator = new structures.PartialUser({
             id: data.Creator.Id,
             name: data.Creator.Name
         }, client);
@@ -344,9 +367,11 @@ export class Trade {
     public status: string;
 
     constructor (data: TradeOptions, client: Client) {
+        const structures = retrieveStructures();
+
         this.client = client;
         this.id = data.id;
-        this.sender = new PartialUser({
+        this.sender = new structures.PartialUser({
             id: data.user.id,
             name: data.user.name
         }, client);
@@ -355,7 +380,7 @@ export class Trade {
         this.status = data.status;
         this.offers = data.offers.map(offerData => ({
             robux: offerData.robux,
-            user: new PartialUser({
+            user: new structures.PartialUser({
                 id: offerData.user.id,
                 name: offerData.user.name
             }, client),
