@@ -48,6 +48,7 @@
     "faker": "^4.1.0",
     "fast-check": "^2.1.0",
     "jest": "^26.4.0",
+    "madge": "^3.9.2",
     "typescript": "^3.9.7"
   },
   "dependencies": {

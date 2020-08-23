@@ -1,10 +1,25 @@
 import Client from "../client";
 import { CreatorType, GameGenre, MorphAvatarType } from "../util/constants";
-import { PartialGroup } from "./Group";
-import { PartialUser } from "./User";
+import { PartialGroup, PartialGroupOptions } from "./Group";
+import { PartialUser, PartialUserOptions } from "./User";
 import { GetPlaceStatisticsByTypeOptions } from "../client/apis/DevelopAPI";
 import { GetGameServersByTypeOptions } from "../client/apis/GamesAPI";
 
+
+interface Structures {
+    PartialUser: new (data: PartialUserOptions, client: Client) => PartialUser;
+    PartialGameUniverse: new (data: PartialGameUniverseOptions, client: Client) => PartialGameUniverse;
+    PartialGroup: new (data: PartialGroupOptions, client: Client) => PartialGroup;
+    PartialPlace: new (data: PartialPlaceOptions, client: Client) => PartialPlace;
+}
+
+
+const retrieveStructures = (): Structures => ({
+    PartialUser: require("./User").PartialUser,
+    PartialGameUniverse: require("./Game").PartialGameUniverse,
+    PartialGroup: require("./Group").PartialGroup,
+    PartialPlace: require("./Game").PartialPlace
+});
 
 export interface GameBadgeBaseOptions {
     id: number;
@@ -69,6 +84,8 @@ export class GameBadge {
     awardingUniverse: PartialGameUniverse;
 
     constructor (data: GameBadgeOptions, client: Client) {
+        const structures = retrieveStructures();
+
         this.client = client;
         this.id = data.id;
         this.name = data.name;
@@ -85,7 +102,7 @@ export class GameBadge {
             awardedCount: data.statistics.awardedCount,
             winRatePercentage: data.statistics.winRatePercentage
         };
-        this.awardingUniverse = new PartialGameUniverse({
+        this.awardingUniverse = new structures.PartialGameUniverse({
             id: data.awardingUniverse.id,
             rootPlace: {
                 id: data.awardingUniverse.rootPlaceId
@@ -217,6 +234,8 @@ export class Place extends BasePlace {
     public imageToken: string;
 
     constructor (data: PlaceOptions, client: Client) {
+        const structures = retrieveStructures();
+
         super({
             id: data.placeId,
             name: data.name
@@ -228,7 +247,7 @@ export class Place extends BasePlace {
         this.playable = data.isPlayable;
         this.prohibitedReason = data.reasonProhibited;
         this.prohibited = this.prohibitedReason.toLowerCase() !== "none";
-        this.universe = new PartialGameUniverse({
+        this.universe = new structures.PartialGameUniverse({
             id: data.universeId,
             rootPlace: {
                 id: data.universeRootPlaceId
@@ -273,10 +292,12 @@ export class PartialGameUniverse {
     public rootPlace: PartialPlace | null;
 
     constructor (data: PartialGameUniverseOptions, client: Client) {
+        const structures = retrieveStructures();
+
         this.client = client;
         this.id = data.id;
         this.name = data.name || null;
-        this.rootPlace = data.rootPlace ? new PartialPlace({
+        this.rootPlace = data.rootPlace ? new structures.PartialPlace({
             id: data.rootPlace.id,
             name: data.rootPlace.name || null
         }, client) : null;
@@ -331,18 +352,20 @@ export class GameUniverse {
     public genre: GameGenre;
 
     constructor (data: GameUniverseOptions, client: Client) {
+        const structures = retrieveStructures();
+
         this.client = client;
         this.id = data.id;
-        this.rootPlace = data.rootPlaceId ? new PartialPlace({
+        this.rootPlace = data.rootPlaceId ? new structures.PartialPlace({
             id: data.rootPlaceId
         }, client) : null;
         this.name = data.name;
         this.description = data.description;
         this.creatorType = data.creatorType.toLowerCase() === "group" ? CreatorType.GROUP : CreatorType.USER;
-        this.creator = this.creatorType === CreatorType.GROUP ? new PartialGroup({
+        this.creator = this.creatorType === CreatorType.GROUP ? new structures.PartialGroup({
             id: data.creator.id,
             name: data.creator.name
-        }, client) : new PartialUser({
+        }, client) : new structures.PartialUser({
             id: data.creator.id,
             name: data.creator.name
         }, client);
@@ -430,10 +453,12 @@ export class VIPServer {
     };
 
     constructor (data: VIPServerOptions, client: Client) {
+        const structures = retrieveStructures();
+
         this.client = client;
         this.id = data.id;
         this.name = data.name;
-        this.game = new PartialGameUniverse({
+        this.game = new structures.PartialGameUniverse({
             id: data.game.id,
             name: data.game.name,
             rootPlace: {
@@ -453,7 +478,7 @@ export class VIPServer {
             clanAllowed: data.permissions.clanAllowed,
             enemyClanId: data.permissions.enemyClanId,
             friendsAllowed: data.permissions.friendsAllowed,
-            users: data.permissions.users.map(userData => new PartialUser(userData, client))
+            users: data.permissions.users.map(userData => new structures.PartialUser(userData, client))
         };
     }
 }

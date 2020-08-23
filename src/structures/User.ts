@@ -101,10 +101,12 @@ export class UserBase {
     }
 
     getBadges (options?: Omit<GetUserBadgesOptions, "userId">): Promise<CursorPage<GetUserBadges["data"][0]>> {
+        const CursorPageClass = require("./Asset").CursorPage;
+
         return this.client.apis.badgesAPI.getUserBadges({
             ...options,
             userId: this.id
-        }).then(response => new CursorPage<GetUserBadges["data"][0]>(this.client, options || {}, response, this.getBadges));
+        }).then(response => new CursorPageClass(this.client, options || {}, response, this.getBadges) as CursorPage<GetUserBadges["data"][0]>);
     }
 
     getBadgesAwardedDates (badges: number[]): Promise<{ id: number; awardedAt: Date }[]> {
@@ -125,18 +127,22 @@ export class UserBase {
     }
 
     getBundles (options?: Omit<GetUserBundlesOptions, "userId">): Promise<CursorPage<GetUserBundles["data"][0]>> {
+        const CursorPageClass = require("./Asset").CursorPage;
+
         return this.client.apis.catalogAPI.getUserBundles({
             ...options,
             userId: this.id
-        }).then(response => new CursorPage(this.client, options || {}, response, this.getBundles));
+        }).then(response => new CursorPageClass(this.client, options || {}, response, this.getBundles));
     }
 
     getBundlesByType (bundleType: string, options?: Omit<GetUserBundlesOptions, "userId">): Promise<CursorPage<GetUserBundlesByType["data"][0]>> {
+        const CursorPageClass = require("./Asset").CursorPage;
+
         return this.client.apis.catalogAPI.getUserBundlesByType({
             ...options,
             userId: this.id,
             bundleType
-        }).then(response => new CursorPage(this.client, options || {}, response, this.getBundlesByType));
+        }).then(response => new CursorPageClass(this.client, options || {}, response, this.getBundlesByType));
     }
 
     addToChatConversation (conversationId: number): Promise<AddUsersToConversation> {
@@ -194,10 +200,12 @@ export class UserBase {
     }
 
     getFollowers (options?: Omit<GetUserFollowersOptions, "userId">): Promise<CursorPage<GetUserFollowers["data"][0]>> {
+        const CursorPageClass = require("./Asset").CursorPage;
+
         return this.client.apis.friendsAPI.getUserFollowers({
             ...options,
             userId: this.id
-        }).then(response => new CursorPage(this.client, options || {}, response, this.getFollowers));
+        }).then(response => new CursorPageClass(this.client, options || {}, response, this.getFollowers));
     }
 
     getFollowersCount (): Promise<number> {
@@ -207,10 +215,12 @@ export class UserBase {
     }
 
     getFollowing (options?: Omit<GetUserFollowingOptions, "userId">): Promise<CursorPage<GetUserFollowing["data"][0]>> {
+        const CursorPageClass = require("./Asset").CursorPage;
+
         return this.client.apis.friendsAPI.getUserFollowing({
             ...options,
             userId: this.id
-        }).then(response => new CursorPage(this.client, options || {}, response, this.getFollowing));
+        }).then(response => new CursorPageClass(this.client, options || {}, response, this.getFollowing));
     }
 
     getFollowingCount (): Promise<number> {
@@ -402,32 +412,40 @@ export class UserBase {
     }
 
     getCollectibles (options?: Omit<GetUserCollectiblesOptions, "userId">): Promise<CursorPage<GetUserCollectibles["data"][0]>> {
+        const CursorPageClass = require("./Asset").CursorPage;
+
         return this.client.apis.inventoryAPI.getUserCollectibles({
             ...options,
             userId: this.id
-        }).then(response => new CursorPage(this.client, options || {}, response, this.getCollectibles));
+        }).then(response => new CursorPageClass(this.client, options || {}, response, this.getCollectibles));
     }
 
     getItemsByTypeAndTargetId (itemType: GetUserItemsByTypeAndTargetIdOptions["itemType"], id: number): Promise<CursorPage<GetUserItemsByTypeAndTargetId["data"][0]>> {
+        const CursorPageClass = require("./Asset").CursorPage;
+
         return this.client.apis.inventoryAPI.getUserItemsByTypeAndTargetId({
             itemType,
             itemTargetId: id,
             userId: this.id
-        }).then(response => new CursorPage(this.client, {}, response, this.getItemsByTypeAndTargetId));
+        }).then(response => new CursorPageClass(this.client, {}, response, this.getItemsByTypeAndTargetId));
     }
 
     getInventory (options: Omit<GetUserInventoryOptions, "userId">): Promise<CursorPage<GetUserInventory["data"][0]>> {
+        const CursorPageClass = require("./Asset").CursorPage;
+
         return this.client.apis.inventoryAPI.getUserInventory({
             ...options,
             userId: this.id
-        }).then(response => new CursorPage(this.client, options, response, this.getInventory));
+        }).then(response => new CursorPageClass(this.client, options, response, this.getInventory));
     }
 
     getInventoryByAssetTypeId (options: Omit<GetUserInventoryByAssetTypeIdOptions, "userId">): Promise<CursorPage<GetUserInventoryByAssetTypeId["data"][0]>> {
+        const CursorPageClass = require("./Asset").CursorPage;
+
         return this.client.apis.inventoryAPI.getUserInventoryByAssetTypeId({
             ...options,
             userId: this.id
-        }).then(response => new CursorPage(this.client, options, response, this.getInventoryByAssetTypeId));
+        }).then(response => new CursorPageClass(this.client, options, response, this.getInventoryByAssetTypeId));
     }
 
     getUser = (): Promise<User> => this.client.getUser(this.id);
