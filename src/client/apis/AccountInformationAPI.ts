@@ -56,7 +56,9 @@ export declare type SetPhoneNumber = {};
 export declare type DeletePhone = {};
 export declare type ResendPhoneCode = {};
 export declare type VerifyPhone = {};
-export declare type GetUserPromotionChannels = UpdateUserPromotionChannelsOptions;
+export declare type GetSelfPromotionChannels = UpdateUserPromotionChannelsOptions;
+export declare type GetUserPromotionChannelsOptions = { userId: number }
+export declare type GetUserPromotionChannels = Omit<GetSelfPromotionChannels, "promotionChannelsVisibilityPrivacy">;
 export declare type UpdateUserPromotionChannels = {}
 export declare type RemoveStarCodeAffiliate = {}
 export declare type GetStarCodeAffiliate = {
@@ -248,7 +250,7 @@ export default class AccountInformationAPI extends BaseAPI {
         }).then(() => true as VerifyPhone);
     }
 
-    getUserPromotionChannels (): Promise<GetUserPromotionChannels> {
+    getSelfPromotionChannels (): Promise<GetSelfPromotionChannels> {
         return this.request({
             requiresAuth: true,
             request: {
@@ -258,7 +260,20 @@ export default class AccountInformationAPI extends BaseAPI {
                 }
             },
             json: true
-        }).then(response => response.body as GetUserPromotionChannels);
+        }).then(response => response.body as GetSelfPromotionChannels);
+    }
+
+    getUserPromotionChannels (options: GetUserPromotionChannelsOptions): Promise<GetUserPromotionChannels> {
+        return this.request({
+            requiresAuth: false,
+            request: {
+                path: `v1/users/${options.userId}/promotion-channels`,
+                responseOptions: {
+                    allowedStatusCodes: [200]
+                }
+            },
+            json: true
+        }).then(response => response.body);
     }
 
     updateUserPromotionChannels (options: UpdateUserPromotionChannelsOptions): Promise<UpdateUserPromotionChannels> {
@@ -273,7 +288,7 @@ export default class AccountInformationAPI extends BaseAPI {
                 }
             },
             json: true
-        }).then(() => true as UpdateUserPromotionChannels);
+        }).then(response => response.body as UpdateUserPromotionChannels);
     }
 
     removeStarCodeAffiliate (): Promise<RemoveStarCodeAffiliate> {

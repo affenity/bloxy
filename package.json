@@ -1,6 +1,6 @@
 {
   "name": "bloxy",
-  "version": "5.0.0-alpha3",
+  "version": "5.0.0-alpha4",
   "description": "A Node.JS library for interacting with the Roblox website and its API.",
   "main": "./dist/index.js",
   "bugs": {
@@ -13,11 +13,12 @@
   "scripts": {
     "test": "jest",
     "test-with-coverage": "jest --coverage && cat ./coverage/lcov.info | codacy-coverage",
-    "lint": "npm run lint",
     "build": "tsc --skipLibCheck",
     "eslint": "eslint . --fix --ext .ts",
     "postinstall": "echo \"\nThank you for installing bloxy! \n\nNOTE: THIS VERSION IS A DEVELOPMENT. \nPLEASE, USE VERSION 4.0.0-alpha3 FOR THE LATEST ''STABLE'' VERSION OF BLOXY.\"",
-    "prepublishOnly": "npm run build"
+    "prepublishOnly": "npm run build",
+    "create-docs": "typedoc --plugin typedoc-plugin-markdown --hideBreadcrumbs --hideSources --namedAnchors --includeDeclarations --excludeExternals --out docs src && mkdocs build -d docs --dirty",
+    "prepare-windows": "npm install && npm run build && npm run create-docs && echo 'Finished'"
   },
   "types": "./dist/index.d.ts",
   "keywords": [
@@ -36,6 +37,7 @@
   "author": "ScriptBased",
   "license": "MIT",
   "devDependencies": {
+    "@types/faker": "^4.1.12",
     "@types/got": "^9.6.11",
     "@types/lodash": "^4.14.157",
     "@types/node": "^12.12.50",
@@ -44,8 +46,12 @@
     "codacy-coverage": "^3.4.0",
     "eslint": "^6.8.0",
     "eslint-plugin-security": "^1.4.0",
+    "faker": "^4.1.0",
     "fast-check": "^2.1.0",
     "jest": "^26.4.0",
+    "typedoc": "^0.18.0",
+    "typedoc-plugin-markdown": "^2.4.1",
+    "typedoc-plugin-markdown-pages": "^0.3.0",
     "typescript": "^3.9.7"
   },
   "dependencies": {

@@ -1,7 +1,22 @@
 import Client from "../client";
-import { PartialUser } from "./User";
-import { PartialGameUniverse } from "./Game";
+import { PartialUser, PartialUserOptions } from "./User";
+import { PartialGameUniverse, PartialGameUniverseOptions } from "./Game";
 import { SendGameLinkMessageOptions, SendMessageOptions } from "../client/apis/ChatAPI";
+import { PartialGroupOptions, PartialGroup } from "./Group";
+
+
+interface Structures {
+    PartialUser: new (data: PartialUserOptions, client: Client) => PartialUser;
+    PartialGameUniverse: new (data: PartialGameUniverseOptions, client: Client) => PartialGameUniverse;
+    PartialGroup: new (data: PartialGroupOptions, client: Client) => PartialGroup;
+}
+
+
+const retrieveStructures = (): Structures => ({
+    PartialUser: require("./User").PartialUser,
+    PartialGameUniverse: require("./Game").PartialGameUniverse,
+    PartialGroup: require("./Group").PartialGroup
+});
 
 
 export interface ChatConversationOptions {
@@ -46,21 +61,23 @@ export class ChatConversation {
     public universe: PartialGameUniverse | null;
 
     constructor (data: ChatConversationOptions, client: Client) {
+        const structures = retrieveStructures();
+
         this.client = client;
         this.id = data.id;
         this.title = data.title;
-        this.initiator = new PartialUser({
+        this.initiator = new structures.PartialUser({
             id: data.initiator.targetId,
             name: data.initiator.name || undefined
         }, client);
         this.hasUnreadMessages = data.hasUnreadMessages;
-        this.members = data.participants.map(participantData => new PartialUser({
+        this.members = data.participants.map(participantData => new structures.PartialUser({
             id: participantData.targetId,
             name: participantData.name
         }, client));
         this.type = data.conversationType;
         this.lastUpdated = new Date(data.lastUpdated);
-        this.universe = data.conversationUniverse ? new PartialGameUniverse({
+        this.universe = data.conversationUniverse ? new structures.PartialGameUniverse({
             id: data.conversationUniverse
         }, client) : null;
         this.conversationTitle = {
@@ -204,9 +221,11 @@ export class ChatMessage {
     public content: string;
 
     constructor (data: ChatMessageOptions, client: Client) {
+        const structures = retrieveStructures();
+
         this.client = client;
         this.id = data.id;
-        this.sender = new PartialUser({
+        this.sender = new structures.PartialUser({
             id: data.senderTargetId
         }, client);
         this.sentAt = new Date(data.sent);

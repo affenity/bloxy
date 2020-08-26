@@ -237,7 +237,7 @@ export default class ClientUser extends PartialUser {
 
     // eslint-disable-next-line @typescript-eslint/explicit-function-return-type
     getPromotionChannels () {
-        return this.client.apis.accountInformationAPI.getUserPromotionChannels();
+        return this.client.apis.accountInformationAPI.getSelfPromotionChannels();
     }
 
     // eslint-disable-next-line @typescript-eslint/explicit-function-return-type

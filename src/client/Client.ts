@@ -2,10 +2,8 @@ import ClientBase, { ClientOptions } from "./ClientBase";
 import initAPIs, { APIs } from "./apis";
 import ClientUser from "../structures/ClientUser";
 import RESTController from "../controllers/rest";
-import initStructures, { Structures } from "../structures";
-import { Group } from "../structures/Group";
+import { Group, PartialUser, User } from "../structures";
 import * as ClientSocket from "./lib/ClientSocket/ClientSocket";
-import { PartialUser, User } from "../structures/User";
 import ChatManager from "./lib/ChatManager/ChatManager";
 
 
@@ -13,7 +11,6 @@ export default class Client extends ClientBase {
     public user: ClientUser | null;
     public apis: APIs;
     public rest: RESTController;
-    public structures: Structures;
     public socket: ClientSocket.Socket;
     public chat: ChatManager;
 
@@ -23,7 +20,6 @@ export default class Client extends ClientBase {
         this.user = null;
         this.apis = initAPIs(this);
         this.rest = new RESTController(this, this.options.rest);
-        this.structures = initStructures();
         this.socket = new ClientSocket.Socket(this);
         this.chat = new ChatManager(this);
 

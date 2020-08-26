@@ -1,7 +1,7 @@
 import Client from "../client";
 import { GetGroupUniversesOptions } from "../client/apis/DevelopAPI";
 import { CursorPage } from "./Asset";
-import { PartialGameUniverse } from "./Game";
+import { PartialGameUniverse, PartialGameUniverseOptions } from "./Game";
 import {
     GetGroupRevenueSummaryInTimeFrame,
     GetGroupRevenueSummaryInTimeFrameOptions,
@@ -76,6 +76,17 @@ import {
 import { PartialUser, PartialUserOptions, UserBase } from "./User";
 
 
+interface Structures {
+    PartialUser: new (data: PartialUserOptions, client: Client) => PartialUser;
+    PartialGameUniverse: new (data: PartialGameUniverseOptions, client: Client) => PartialGameUniverse;
+}
+
+
+const retrieveStructures = (): Structures => ({
+    PartialUser: require("./User").PartialUser,
+    PartialGameUniverse: require("./Game").PartialGameUniverse
+});
+
 type GroupRelationships<T extends "enemies" | "allies"> = Omit<GetGroupRelationships, "relatedGroups"> & {
     groupId: number;
     relationshipType: T;
@@ -107,10 +118,12 @@ export class GroupBase {
             ...options,
             groupId: this.id
         }).then(response => {
-            console.log(response);
-            return new CursorPage(this.client, options || {}, {
+            const CursorPageClass = require("./Asset").CursorPage;
+            const structures = retrieveStructures();
+
+            return new CursorPageClass(this.client, options || {}, {
                 ...response,
-                data: response.data.map(universeData => new PartialGameUniverse(({
+                data: response.data.map(universeData => new structures.PartialGameUniverse(({
                     id: universeData.id,
                     name: universeData.name,
                     rootPlace: universeData.rootPlaceId ? {
@@ -244,10 +257,12 @@ export class GroupBase {
     }
 
     getJoinRequests (options: Omit<GetJoinRequestsOptions, "groupId">): Promise<CursorPage<GroupJoinRequest>> {
+        const CursorPageClass = require("./Asset").CursorPage;
+
         return this.client.apis.groupsAPI.getJoinRequests({
             groupId: this.id,
             ...options
-        }).then(response => new CursorPage(
+        }).then(response => new CursorPageClass(
             this.client,
             options,
             response,
@@ -302,10 +317,12 @@ export class GroupBase {
     }
 
     getMembersWithRole (options: Omit<GetMembersWithRoleOptions, "groupId">): Promise<CursorPage<GroupMember>> {
+        const CursorPageClass = require("./Asset").CursorPage;
+
         return this.client.apis.groupsAPI.getMembersWithRole({
             groupId: this.id,
             ...options
-        }).then(response => new CursorPage(
+        }).then(response => new CursorPageClass(
             this.client,
             options,
             response,
@@ -314,10 +331,12 @@ export class GroupBase {
     }
 
     getMembers (options: Omit<GetMembersOptions, "groupId">): Promise<CursorPage<GroupMember>> {
+        const CursorPageClass = require("./Asset").CursorPage;
+
         return this.client.apis.groupsAPI.getMembers({
             groupId: this.id,
             ...options
-        }).then(response => new CursorPage(
+        }).then(response => new CursorPageClass(
             this.client,
             options,
             response,
@@ -498,10 +517,12 @@ export class GroupBase {
     }
 
     getWallPosts (options: Omit<GetWallPostsOptions, "groupId">): Promise<CursorPage<GroupWallPost>> {
+        const CursorPageClass = require("./Asset").CursorPage;
+
         return this.client.apis.groupsAPI.getWallPosts({
             groupId: this.id,
             ...options
-        }).then(response => new CursorPage(
+        }).then(response => new CursorPageClass(
             this.client,
             options,
             response,
@@ -700,9 +721,11 @@ export class GroupJoinRequest {
     public created: Date;
 
     constructor (data: GroupJoinRequestOptions, client: Client) {
+        const structures = retrieveStructures();
+
         this.client = client;
         this.id = data.id || null;
-        this.user = new PartialUser(data.user, client);
+        this.user = new structures.PartialUser(data.user, client);
         this.group = new PartialGroup(data.group, client);
         this.created = new Date(data.created);
     }
@@ -824,9 +847,11 @@ export class GroupShout {
     public group: PartialGroup;
 
     constructor (data: GroupShoutOptions, client: Client) {
+        const structures = retrieveStructures();
+
         this.client = client;
         this.content = data.content;
-        this.creator = new PartialUser(data.creator, client);
+        this.creator = new structures.PartialUser(data.creator, client);
         this.group = new PartialGroup({
             id: data.group.id,
             name: data.group.name
