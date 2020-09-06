@@ -75,7 +75,11 @@ export default class Client extends ClientBase {
         });
     }
 
-    getUser (userId: number): Promise<User> {
+    getUser (userId: number | string): Promise<User> {
+        if (typeof userId === "string") {
+            userId = parseInt(userId);
+        }
+
         return this.apis.otherAPI.getUserProfileHeader({
             userId
         }).then(data => new User({
@@ -118,16 +122,24 @@ export default class Client extends ClientBase {
         }).then(data => new PartialUser(data, this));
     }
 
-    getUsernameFromUserId (userId: number): Promise<PartialUser> {
+    getUsernameFromUserId (userId: number | string): Promise<PartialUser> {
+        if (typeof userId === "string") {
+            userId = parseInt(userId);
+        }
+
         return this.apis.generalApi.getUserById({
             userId
         }).then(data => new PartialUser(data, this));
     }
 
-    getUsersByUserIds (userIds: number[], excludeBannedUsers = false): Promise<PartialUser[]> {
+    getUsersByUserIds (userIds: number[] | string[], excludeBannedUsers = false): Promise<PartialUser[]> {
+        if (typeof userIds[0] === "string") {
+            userIds = (userIds as string[]).map((userId) => parseInt(userId));
+        }
+
         return this.apis.usersAPI.getUsersByIds({
             excludeBannedUsers,
-            userIds
+            userIds: userIds as number[]
         }).then(response => response.data.map(userData => new PartialUser(userData, this)));
     }
 
