@@ -37,7 +37,7 @@
   "author": "ScriptBased",
   "license": "MIT",
   "devDependencies": {
-    "@types/faker": "^4.1.12",
+    "@types/faker": "^5.1.0",
     "@types/got": "^9.6.11",
     "@types/lodash": "^4.14.157",
     "@types/node": "^14.6.4",
