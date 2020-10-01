@@ -1,6 +1,6 @@
 {
   "name": "bloxy",
-  "version": "5.0.1",
+  "version": "5.0.2",
   "description": "A Node.JS library for interacting with the Roblox website and its API.",
   "main": "./dist/index.js",
   "bugs": {
