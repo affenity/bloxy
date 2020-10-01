@@ -442,16 +442,7 @@ export default class AccountSettingsAPI extends BaseAPI {
     }
 
     getTwoStepStatus (): Promise<GetTwoStepStatus> {
-        return this.request({
-            requiresAuth: true,
-            request: {
-                path: "v1/twostepverification",
-                responseOptions: {
-                    allowedStatusCodes: [200]
-                }
-            },
-            json: true
-        }).then(response => response.body as GetTwoStepStatus);
+        throw new Error("This feature no longer works!");
     }
 
     updateTwoStepStatus (options: UpdateTwoStepStatusOptions): Promise<UpdateTwoStepStatus> {

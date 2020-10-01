@@ -27,7 +27,7 @@ describe("testing CatalogAPI", function () {
                 id: 192,
                 bundleType: "BodyParts",
                 product: {
-                    id: 369653941
+                    id: 369653841
                 },
                 creator: {
                     id: 1
