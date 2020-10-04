@@ -18,7 +18,7 @@ beforeAll(async () => {
 });
 
 describe("testing TwoStepVerificationAPI", function () {
-    it("should retreive metadata", function () {
+    it("should retrieve metadata", function () {
         return expect(
             client.apis.twpStepVerification.getMetaData({
                 userId: client.user.id
