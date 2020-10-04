@@ -17,7 +17,7 @@ beforeAll(async () => {
         });
 });
 
-describe("testing BadgesAPI", function () {
+describe("testing ChatAPI", function () {
     it("should retreive badge info", function () {
 
     });
