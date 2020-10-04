@@ -18,16 +18,6 @@ beforeAll(async () => {
 });
 
 describe("testing TwoStepVerificationAPI", function () {
-    const UNDER_MAINTENANCE_ERROR = {
-        errors: [
-            {
-                code: 7,
-                message: "Two step verification is currently under maintenance.",
-                userFacingMessage: "Something went wrong"
-            }
-        ]
-    };
-
     it("should retreive metadata", function () {
         return expect(
             client.apis.twpStepVerification.getMetaData({
@@ -65,8 +55,8 @@ describe("testing TwoStepVerificationAPI", function () {
                 code: "c"
             })
         )
-            .resolves
-            .toStrictEqual(UNDER_MAINTENANCE_ERROR);
+            .rejects
+            .toMatch("Two step verification is currently under maintenance.");
     });
 
     it("should error when attempting to disable, as it's WIP", function () {
@@ -75,8 +65,8 @@ describe("testing TwoStepVerificationAPI", function () {
                 password: ""
             })
         )
-            .resolves
-            .toStrictEqual(UNDER_MAINTENANCE_ERROR);
+            .rejects
+            .toMatch("Two step verification is currently under maintenance.");
     });
 
     it("should error when attempting to enable, as it's WIP", function () {
@@ -85,8 +75,8 @@ describe("testing TwoStepVerificationAPI", function () {
                 userId: client.user.id
             })
         )
-            .resolves
-            .toStrictEqual(UNDER_MAINTENANCE_ERROR);
+            .rejects
+            .toMatch("Two step verification is currently under maintenance.");
     });
 
     it("should error when attempting to verify and enable, as it's WIP", function () {
@@ -96,7 +86,7 @@ describe("testing TwoStepVerificationAPI", function () {
                 setupToken: "b"
             })
         )
-            .resolves
-            .toStrictEqual(UNDER_MAINTENANCE_ERROR);
+            .rejects
+            .toMatch("Two step verification is currently under maintenance.");
     });
 });

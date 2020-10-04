@@ -129,6 +129,7 @@ export default class TwoStepVerification extends BaseAPI {
             requiresAuth: true,
             request: {
                 path: `v1/users/${this.client.user!.id}/configuration/authenticator/disable`,
+                method: "POST",
                 responseOptions: {
                     allowedStatusCodes: [200]
                 },
