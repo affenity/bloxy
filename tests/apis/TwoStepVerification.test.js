@@ -58,7 +58,7 @@ describe("testing TwoStepVerificationAPI", function () {
     });
 
     it("should error when attepmting to verify, as it's not implemented yet", function () {
-        expect(
+        return expect(
             client.apis.twpStepVerification.verifyWithAuthenticator({
                 challengeId: "a",
                 actionType: "b",
@@ -70,7 +70,7 @@ describe("testing TwoStepVerificationAPI", function () {
     });
 
     it("should error when attempting to disable, as it's WIP", function () {
-        expect(
+        return expect(
             client.apis.twpStepVerification.disableAuthenticator({
                 password: ""
             })
@@ -80,7 +80,7 @@ describe("testing TwoStepVerificationAPI", function () {
     });
 
     it("should error when attempting to enable, as it's WIP", function () {
-        expect(
+        return expect(
             client.apis.twpStepVerification.enableAuthenticator({
                 userId: client.user.id
             })
@@ -90,7 +90,7 @@ describe("testing TwoStepVerificationAPI", function () {
     });
 
     it("should error when attempting to verify and enable, as it's WIP", function () {
-        expect(
+        return expect(
             client.apis.twpStepVerification.verifyAuthenticatorSetup({
                 code: "a",
                 setupToken: "b"
