@@ -36,6 +36,7 @@ import TradesAPI from "./TradesAPI";
 import TranslationRolesAPI from "./TranslationRolesAPI";
 import UsersAPI from "./UsersAPI";
 import OtherAPI from "./OtherAPI";
+import TwoStepVerification from "./TwoStepVerification";
 
 
 export declare type APIs = {
@@ -76,6 +77,7 @@ export declare type APIs = {
     translationRolesAPI: TranslationRolesAPI;
     usersAPI: UsersAPI;
     generalApi: GeneralAPI;
+    twpStepVerification: TwoStepVerification;
 };
 
 export default function initAPIs (client: Client): APIs {
@@ -116,6 +118,7 @@ export default function initAPIs (client: Client): APIs {
         thumbnailsAPI: new ThumbnailsAPI(client),
         tradesAPI: new TradesAPI(client),
         translationRolesAPI: new TranslationRolesAPI(client),
-        usersAPI: new UsersAPI(client)
+        usersAPI: new UsersAPI(client),
+        twpStepVerification: new TwoStepVerification(client)
     };
 }
