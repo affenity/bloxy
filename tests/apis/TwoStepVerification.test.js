@@ -34,6 +34,7 @@ describe("testing TwoStepVerificationAPI", function () {
                 userId: client.user.id
             })
         )
+            .resolves
             .toStrictEqual({
                 twoStepVerificationEnabled: true,
                 authenticatorEnabled: false,
@@ -49,6 +50,7 @@ describe("testing TwoStepVerificationAPI", function () {
                 userId: client.user.id
             })
         )
+            .resolves
             .toStrictEqual({
                 primaryMediaType: null,
                 methods: []
@@ -63,6 +65,7 @@ describe("testing TwoStepVerificationAPI", function () {
                 code: "c"
             })
         )
+            .resolves
             .toStrictEqual(UNDER_MAINTENANCE_ERROR);
     });
 
@@ -72,6 +75,7 @@ describe("testing TwoStepVerificationAPI", function () {
                 password: ""
             })
         )
+            .resolves
             .toStrictEqual(UNDER_MAINTENANCE_ERROR);
     });
 
@@ -81,6 +85,7 @@ describe("testing TwoStepVerificationAPI", function () {
                 userId: client.user.id
             })
         )
+            .resolves
             .toStrictEqual(UNDER_MAINTENANCE_ERROR);
     });
 
@@ -91,6 +96,7 @@ describe("testing TwoStepVerificationAPI", function () {
                 setupToken: "b"
             })
         )
+            .resolves
             .toStrictEqual(UNDER_MAINTENANCE_ERROR);
     });
 });
