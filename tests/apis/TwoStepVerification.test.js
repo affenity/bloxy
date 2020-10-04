@@ -56,27 +56,27 @@ describe("testing TwoStepVerificationAPI", function () {
             })
         )
             .rejects
-            .toMatch("Two step verification is currently under maintenance.");
+            .toThrowError("Two step verification is currently under maintenance.");
     });
 
-    it("should error when attempting to disable, as it's WIP", function () {
+    it("should error when attempting to disable authenticator, as it's WIP", function () {
         return expect(
             client.apis.twpStepVerification.disableAuthenticator({
                 password: ""
             })
         )
             .rejects
-            .toMatch("Two step verification is currently under maintenance.");
+            .toThrowError("Two step verification is currently under maintenance.");
     });
 
-    it("should error when attempting to enable, as it's WIP", function () {
+    it("should error when attempting to enable authenticator, as it's WIP", function () {
         return expect(
             client.apis.twpStepVerification.enableAuthenticator({
                 userId: client.user.id
             })
         )
             .rejects
-            .toMatch("Two step verification is currently under maintenance.");
+            .toThrowError("Two step verification is currently under maintenance.");
     });
 
     it("should error when attempting to verify and enable, as it's WIP", function () {
@@ -87,6 +87,6 @@ describe("testing TwoStepVerificationAPI", function () {
             })
         )
             .rejects
-            .toMatch("Two step verification is currently under maintenance.");
+            .toThrowError("Two step verification is currently under maintenance.");
     });
 });

@@ -144,6 +144,7 @@ export default class TwoStepVerification extends BaseAPI {
             requiresAuth: true,
             request: {
                 path: `v1/users/${this.client.user!.id}/configuration/authenticator/enable`,
+                method: "POST",
                 responseOptions: {
                     allowedStatusCodes: [200]
                 },
@@ -158,6 +159,7 @@ export default class TwoStepVerification extends BaseAPI {
             requiresAuth: true,
             request: {
                 path: `v1/users/${this.client.user!.id}/configuration/authenticator/disable`,
+                method: "POST",
                 responseOptions: {
                     allowedStatusCodes: [200]
                 },
@@ -186,6 +188,7 @@ export default class TwoStepVerification extends BaseAPI {
             requiresAuth: true,
             request: {
                 path: `v1/users/${this.client.user!.id}/challenges/email/verify`,
+                method: "POST",
                 responseOptions: {
                     allowedStatusCodes: [200]
                 },
@@ -200,6 +203,7 @@ export default class TwoStepVerification extends BaseAPI {
             requiresAuth: true,
             request: {
                 path: `v1/users/${this.client.user!.id}/configuration/email/disable`,
+                method: "POST",
                 responseOptions: {
                     allowedStatusCodes: [200]
                 },
@@ -214,6 +218,7 @@ export default class TwoStepVerification extends BaseAPI {
             requiresAuth: true,
             request: {
                 path: `v1/users/${this.client.user!.id}/configuration/email/enable`,
+                method: "POST",
                 responseOptions: {
                     allowedStatusCodes: [200]
                 },
