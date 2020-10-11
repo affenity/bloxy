@@ -3,7 +3,7 @@ import Client from "../../Client";
 // @ts-ignore
 import * as SignalR from "signalr-client";
 import { default as socketHandlers } from "./handlers";
-import EventEmitter from "events";
+import { EventEmitter } from "events";
 import { PartialChatConversation } from "../../../structures/Chat";
 import { PartialUser } from "../../../structures/User";
 
