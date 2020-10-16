@@ -1,4 +1,4 @@
-import EventEmitter from "events";
+import { EventEmitter } from "events";
 import lodash from "lodash";
 import { RESTControllerOptions } from "../interfaces/RESTInterfaces";
 
