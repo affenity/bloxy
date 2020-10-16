@@ -39,7 +39,7 @@ Bloxy has 5 dependencies:
 - [**lodash**](https://www.npmjs.com/package/lodash) - For various purposes
 - [**signalr-client**](https://www.npmjs.com/package/signalr-client) - To connect with the WebSocket endpoints
 - [**tough-cookie**](https://npmjs.com/package/tough-cookie) - For everything cookie-related
-- [**tslib**](https://npmjs.com/package/tough-cookie) Necessary with built TypeScript projects :)
+- [**tslib**](https://npmjs.com/package/tslib) Necessary with built TypeScript projects :)
 
 Make sure you are able to install each one of these packages, as they are all vital to the functionality of this module!
 
