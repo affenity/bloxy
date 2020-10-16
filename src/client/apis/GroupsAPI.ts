@@ -127,7 +127,7 @@ export type UpdateGroupDescription = {
 }
 export type UpdateGroupStatusOptions = {
     groupId: number;
-    status: string;
+    message: string;
 }
 export type UpdateGroupStatus = GroupOptions["shout"];
 export type UpdateGroupIconOptions = {

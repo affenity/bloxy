@@ -191,15 +191,6 @@ describe("testing AccountSettingsAPI", function () {
             .toThrowError("not have permission");
     });
 
-
-    it("should get two step status", function () {
-        return expect(client.apis.accountSettingsAPI.getTwoStepStatus())
-            .resolves
-            .toStrictEqual({
-                enabled: false
-            });
-    });
-
     it("should get contact upsell", function () {
         return expect(client.apis.accountSettingsAPI.getContactUpsell())
             .resolves

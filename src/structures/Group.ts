@@ -238,7 +238,7 @@ export class GroupBase {
     updateShout (shout: string): Promise<UpdateGroupStatus> {
         return this.client.apis.groupsAPI.updateGroupStatus({
             groupId: this.id,
-            status: shout
+            message: shout
         });
     }
 

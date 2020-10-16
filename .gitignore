@@ -5,3 +5,4 @@ src/tests/index.js
 dist
 docs
 site
+.idea
