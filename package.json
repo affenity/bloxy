@@ -39,16 +39,16 @@
   "devDependencies": {
     "@types/faker": "^5.1.2",
     "@types/got": "^9.6.11",
-    "@types/lodash": "^4.14.157",
-    "@types/node": "^14.6.4",
+    "@types/lodash": "^4.14.162",
+    "@types/node": "^14.11.10",
     "@typescript-eslint/eslint-plugin": "^4.2.0",
     "@typescript-eslint/parser": "^4.2.0",
     "codacy-coverage": "^3.4.0",
     "eslint": "^7.11.0",
     "eslint-plugin-security": "^1.4.0",
     "faker": "^5.1.0",
-    "fast-check": "^2.1.0",
-    "jest": "^26.4.0",
+    "fast-check": "^2.5.0",
+    "jest": "^26.5.3",
     "typedoc": "^0.19.1",
     "typedoc-plugin-markdown": "^3.0.9",
     "typedoc-plugin-markdown-pages": "^0.3.0",
@@ -59,6 +59,6 @@
     "lodash": "^4.17.19",
     "signalr-client": "0.0.19",
     "tough-cookie": "^4.0.0",
-    "tslib": "^2.0.0"
+    "tslib": "^2.0.3"
   }
 }
