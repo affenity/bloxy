@@ -1,5 +1,5 @@
 import Client from "../../Client";
-// eslint-disable-next-line @typescript-eslint/ban-ts-ignore
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-ignore
 import * as SignalR from "signalr-client";
 import { default as socketHandlers } from "./handlers";
