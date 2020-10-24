@@ -35,7 +35,9 @@ class RESTRequest {
         // Console.log(this.requestOptions);
         const responseData = await this.controller.requester(this.requestOptions);
         const response = new RESTResponse(this.controller, this, responseData);
-        return response.process();
+        const processedResponse = await response.process();
+
+        return processedResponse;
     }
 }
 

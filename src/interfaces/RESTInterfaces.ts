@@ -5,7 +5,7 @@ import RESTResponse from "../controllers/rest/response";
 
 export declare type RESTRequester = (requestOptions: RESTRequestOptions) => Promise<RESTResponseDataType>;
 export declare type RESTRequestHandler = (request: RESTRequest) => boolean | Error;
-export declare type RESTResponseHandler = (response: RESTResponse) => boolean | Error;
+export declare type RESTResponseHandler = (response: RESTResponse) => boolean | Error | Promise<RESTResponseDataType | undefined>;
 
 export declare type RESTControllerOptions = {
     requester: (requestOptions: RESTRequestOptions) => Promise<unknown>;

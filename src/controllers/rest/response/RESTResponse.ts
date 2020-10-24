@@ -14,11 +14,20 @@ export default class RESTResponse {
         this.controller = controller;
         this.request = request;
         this.responseData = responseData;
-        this.responseData.status = responseData.status;
+        // eslint-disable-next-line @typescript-eslint/ban-ts-ignore
+        // @ts-ignore
+        this.responseData.status = responseData.statusMessage;
     }
 
-    process (): RESTResponseDataType {
+    async process (): Promise<RESTResponseDataType> {
         const allProcessed = this.controller.responseHandlers.map(handler => handler(this));
+        const xcrfCheck = await allProcessed[0];
+
+        if (xcrfCheck && xcrfCheck !== true && !(xcrfCheck instanceof Error)) {
+            return xcrfCheck;
+        } else {
+            allProcessed.splice(0, 1);
+        }
 
         if (allProcessed.every(processed => processed === true)) {
             return this.responseData;
