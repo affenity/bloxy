@@ -7,7 +7,7 @@ export type PremiumUpsellCheckOptions = {
     universeId: number;
     placeId: number;
 }
-export type PremiumUpsellCheck = {}
+export type PremiumUpsellCheck = unknown
 export type ValidateUserMembershipOptions = {
     userId: number;
 }

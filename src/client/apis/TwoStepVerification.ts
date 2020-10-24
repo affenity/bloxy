@@ -34,7 +34,7 @@ export type AuthenticatorVerify = {
 export type AuthenticatorDisableOptions = {
     password: string;
 };
-export type AuthenticatorDisable = {};
+export type AuthenticatorDisable = unknown;
 export type AuthenticatorEnableOptions = {
     userId: number;
 };
@@ -47,7 +47,7 @@ export type AuthenticatorVerifySetupOptions = {
     setupToken: string;
     code: string;
 };
-export type AuthenticatorVerifySetup = {};
+export type AuthenticatorVerifySetup = unknown;
 export type EmailSendCodeOptions = {
     challengeId: string;
     actionType: string;
@@ -67,11 +67,11 @@ export type EmailVerify = {
 export type EmailDisableOptions = {
     password: string;
 }
-export type EmailDisable = {};
+export type EmailDisable = unknown;
 export type EmailEnableOptions = {
     userId: number;
 };
-export type EmailEnable = {};
+export type EmailEnable = unknown;
 
 export default class TwoStepVerification extends BaseAPI {
     constructor (client: Client) {

@@ -10,7 +10,7 @@ export type RecordThumbnailLoadOptions = {
     loadState: string;
     thumbnailType: string;
 }
-export type RecordThumbnailLoad = {}
+export type RecordThumbnailLoad = unknown
 export type RecordBundleLoadOptions = {
     bundleUrl: string;
     bundleName: string;
@@ -19,7 +19,7 @@ export type RecordBundleLoadOptions = {
     loadState: string;
     bundleContentType: string;
 }
-export type RecordBundleLoad = {}
+export type RecordBundleLoad = unknown
 
 export default class LocaleAPI extends BaseAPI {
     constructor (client: Client) {

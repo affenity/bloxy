@@ -21,6 +21,12 @@
       "always"
     ],
     "@typescript-eslint/no-non-null-assertion": "off",
+    "@typescript-eslint/explicit-member-accessibility": "off",
+    "@typescript-eslint/prefer-interface": "off",
+    "@typescript-eslint/explicit-function-return-type": "off",
+    "@typescript-eslint/no-var-requires": "off",
+    "@typescript-eslint/explicit-module-boundary-types": "off",
+    "@typescript-eslint/no-explicit-any": "off",
     "no-await-in-loop": "warn",
     "no-compare-neg-zero": "error",
     "no-template-curly-in-string": "error",

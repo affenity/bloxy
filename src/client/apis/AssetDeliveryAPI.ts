@@ -67,17 +67,17 @@ export type GetAssetById = {
     request?: unknown;
 };
 export type GetAssetByHashOptions = BaseAssetDeliveryOptions & { hash: string };
-export type GetAssetByHash = {};
+export type GetAssetByHash = unknown;
 export type GetAssetByAssetIdOptions = BaseAssetDeliveryOptions & { assetId: number };
-export type GetAssetByAssetId = {};
+export type GetAssetByAssetId = unknown;
 export type GetAssetVersionByAssetIdOptions = BaseAssetDeliveryOptions & { assetId: number; version: number }
-export type GetAssetVersionByAssetId = {};
+export type GetAssetVersionByAssetId = unknown;
 export type GetAssetByAssetVersionIdOptions = BaseAssetDeliveryOptions & { assetVersionId: number }
-export type GetAssetByAssetVersionId = {};
+export type GetAssetByAssetVersionId = unknown;
 export type GetAssetByMarAssetHashOptions = BaseAssetDeliveryOptions & { marAssetHash: string; marCheckSum: string }
-export type GetAssetByMarAssetHash = {};
+export type GetAssetByMarAssetHash = unknown;
 export type GetAssetByUserAssetIdOptions = BaseAssetDeliveryOptions & { userAssetId: number }
-export type GetAssetByUserAssetId = {}
+export type GetAssetByUserAssetId = unknown
 export type GetBatchAssetsOptions = {
     assetName: string;
     assetType: string;

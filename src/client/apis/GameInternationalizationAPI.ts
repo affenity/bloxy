@@ -57,7 +57,7 @@ export type UpdateGameSourceLanguageOptions = {
     gameId: number;
     languageCode: string;
 }
-export type UpdateGameSourceLanguage = {}
+export type UpdateGameSourceLanguage = unknown
 export type GetGameSupportedLanguagesOptions = {
     gameId: number;
 }
@@ -76,7 +76,7 @@ export type ModifyGameSupportedLanguagesOptions = {
     }[];
     gameId: number;
 };
-export type ModifyGameSupportedLanguages = {}
+export type ModifyGameSupportedLanguages = unknown
 export type GetGameAutomaticTranslationResultsOptions = {
     gameId: number;
 }

@@ -7,7 +7,7 @@ export type RegisterAppPresenceOptions = {
     placeId: number;
     disconnect: boolean;
 }
-export type RegisterAppPresence = {}
+export type RegisterAppPresence = unknown
 export type GetUsersPresencesOptions = {
     userIds: number[];
 }

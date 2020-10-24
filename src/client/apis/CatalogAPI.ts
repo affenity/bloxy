@@ -71,7 +71,7 @@ export type GetUserBundlesByType = GetUserBundles;
 export type UnpackBundleOptions = {
     bundleId: number;
 }
-export type UnpackBundle = {};
+export type UnpackBundle = unknown;
 export type GetAssetToCategory = Record<string, number>;
 export type GetAssetToSubCategory = GetAssetToCategory;
 export type GetCategories = GetAssetToCategory
@@ -94,7 +94,7 @@ export type RemoveSelfAssetFavoriteOptions = {
     userId: number;
     assetId: number;
 }
-export type RemoveSelfAssetFavorite = {}
+export type RemoveSelfAssetFavorite = unknown
 export type GetUserFavoriteAssetOptions = {
     userId: number;
     assetId: number;
@@ -108,12 +108,12 @@ export type FavoriteAssetOptions = {
     userId: number;
     assetId: number;
 }
-export type FavoriteAsset = {}
+export type FavoriteAsset = unknown
 export type RemoveFavoriteBundleOptions = {
     userId: number;
     bundleId: number;
 }
-export type RemoveFavoriteBundle = {}
+export type RemoveFavoriteBundle = unknown
 export type GetSelfFavoriteBundleOptions = {
     userId: number;
     bundleId: number;
@@ -127,7 +127,7 @@ export type FavoriteBundleOptions = {
     userId: number;
     bundleId: number;
 }
-export type FavoriteBundle = {}
+export type FavoriteBundle = unknown
 
 export default class CatalogAPI extends BaseAPI {
     constructor (client: Client) {

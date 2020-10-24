@@ -39,7 +39,7 @@ export type UpdateUserAccess = {
     role: "translator";
     revoke?: boolean;
 }
-export type UpdateUser = {}
+export type UpdateUser = unknown
 
 export default class TradesAPI extends BaseAPI {
     constructor (client: Client) {

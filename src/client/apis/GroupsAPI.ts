@@ -81,7 +81,7 @@ export type GetGroupSettings = {
     areGroupGamesVisible: boolean;
 }
 export type UpdateGroupSettingsOptions = GetGroupSettings;
-export type UpdateGroupSettings = {}
+export type UpdateGroupSettings = unknown
 export type GetGroupConfigurationMetaData = {
     groupConfiguration: {
         nameMaxLength: number;
@@ -134,12 +134,12 @@ export type UpdateGroupIconOptions = {
     groupId: number;
     files: unknown;
 }
-export type UpdateGroupIcon = {}
+export type UpdateGroupIcon = unknown
 export type DeclineJoinRequestsOptions = {
     groupId: number;
     userIds: number[];
 }
-export type DeclineJoinRequests = {}
+export type DeclineJoinRequests = unknown
 export type GetJoinRequestsOptions = {
     groupId: number;
     sortOrder?: "Asc" | "Desc";
@@ -162,12 +162,12 @@ export type AcceptJoinRequestsOptions = {
     groupId: number;
     userIds: number[];
 }
-export type AcceptJoinRequests = {}
+export type AcceptJoinRequests = unknown
 export type DeclineJoinRequestOptions = {
     groupId: number;
     userId: number;
 }
-export type DeclineJoinRequest = {}
+export type DeclineJoinRequest = unknown
 export type GetJoinRequestOptions = {
     groupId: number;
     userId: number;
@@ -177,7 +177,7 @@ export type AcceptJoinRequestOptions = {
     groupId: number;
     userId: number;
 }
-export type AcceptJoinRequest = {}
+export type AcceptJoinRequest = unknown
 export type GetSelfGroupMembershipOptions = {
     groupId: number;
 }
@@ -244,7 +244,7 @@ export type JoinGroupOptions = {
     captchaToken: string;
     captchaProvider: "PROVIDER_ARKOSELABS" | string;
 }
-export type JoinGroup = {}
+export type JoinGroup = unknown
 export type GetSelfPendingGroupJoins = {
     data: GroupOptions[];
 }
@@ -261,22 +261,22 @@ export type ChangeOwnerOptions = {
     groupId: number;
     userId: number;
 }
-export type ChangeOwner = {}
+export type ChangeOwner = unknown
 export type ClaimGroupOptions = {
     groupId: number;
 }
-export type ClaimGroup = {}
+export type ClaimGroup = unknown
 export type KickMemberOptions = {
     groupId: number;
     userId: number;
 }
-export type KickMember = {}
+export type KickMember = unknown
 export type UpdateMemberOptions = {
     groupId: number;
     userId: number;
     roleId: number;
 }
-export type UpdateMember = {}
+export type UpdateMember = unknown
 export type GetGroupPayoutsOptions = {
     groupId: number;
 }
@@ -299,9 +299,9 @@ export type PayoutMembersOptions = {
     }[];
     type: "FixedAmount" | "Percentage" | string;
 }
-export type PayoutMembers = {}
+export type PayoutMembers = unknown
 export type UpdateRecurringPayoutsOptions = PayoutMembersOptions
-export type UpdateRecurringPayouts = {}
+export type UpdateRecurringPayouts = unknown
 export type GetGroupRelationshipsOptions = {
     groupId: number;
     relationshipType: "enemies" | "allies";
@@ -320,25 +320,25 @@ export type DeclineRelationshipRequestsOptions = {
     relationshipType: GetGroupRelationshipsOptions["relationshipType"];
     withGroups: number[];
 }
-export type DeclineRelationshipRequests = {}
+export type DeclineRelationshipRequests = unknown
 export type GetRelationshipRequestsOptions = GetGroupRelationshipsOptions;
 export type GetRelationshipRequests = GetGroupRelationships;
 export type AcceptRelationshipRequestsOptions = DeclineRelationshipRequestsOptions
-export type AcceptRelationshipRequests = {}
+export type AcceptRelationshipRequests = unknown
 export type DeleteRelationshipOptions = Omit<DeclineRelationshipRequestsOptions, "withGroups"> & {
     withGroup: number;
 }
-export type DeleteRelationship = {}
+export type DeleteRelationship = unknown
 export type CreateRelationshipOptions = Omit<DeclineRelationshipRequestsOptions, "withGroups"> & {
     withGroup: number;
 }
-export type CreateRelationship = {}
+export type CreateRelationship = unknown
 export type DeclineRelationshipRequestOptions = Omit<DeclineRelationshipRequestsOptions, "withGroups"> & {
     withGroup: number;
 };
-export type DeclineRelationshipRequest = {}
+export type DeclineRelationshipRequest = unknown
 export type AcceptRelationshipRequestOptions = DeclineRelationshipRequestOptions;
-export type AcceptRelationshipRequest = {}
+export type AcceptRelationshipRequest = unknown
 export type GetRolePermissionsOptions = {
     groupId: number;
     roleId: number;
@@ -365,7 +365,7 @@ export type UpdateRolePermissionsOptions = {
     ManageClan: boolean;
     ManageGroupGames: boolean;
 }
-export type UpdateRolePermissions = {}
+export type UpdateRolePermissions = unknown
 export type GetGuestPermissionsOptions = {
     groupId: number;
 }
@@ -398,7 +398,7 @@ export type DeleteSocialLinkOptions = {
     groupId: number;
     id: number;
 }
-export type DeleteSocialLink = {}
+export type DeleteSocialLink = unknown
 export type UpdateSocialLinkOptions = {
     groupId: number;
     id: number;
@@ -406,7 +406,7 @@ export type UpdateSocialLinkOptions = {
     url: string;
     title: string;
 }
-export type UpdateSocialLink = {}
+export type UpdateSocialLink = unknown
 export type GetWallPostsOptions = {
     groupId: number;
     sortOrder?: "Asc" | "Desc";
@@ -440,12 +440,12 @@ export type DeleteWallPostOptions = {
     groupId: number;
     id: number;
 }
-export type DeleteWallPost = {}
+export type DeleteWallPost = unknown
 export type DeleteWallPostsByUserOptions = {
     groupId: number;
     userId: number;
 }
-export type DeleteWallPostsByUser = {}
+export type DeleteWallPostsByUser = unknown
 export type SearchGroupsByKeywordOptions = {
     keyword: string;
     limit?: 10 | 25 | 50 | 100;
@@ -499,11 +499,11 @@ export type GetUserPrimaryGroup = {
     role?: GroupRoleOptions;
     isPrimaryGroup?: boolean;
 }
-export type RemovePrimaryGroup = {};
+export type RemovePrimaryGroup = unknown;
 export type SetPrimaryGroupOptions = {
     groupId: number;
 }
-export type SetPrimaryGroup = {}
+export type SetPrimaryGroup = unknown
 export type CreateRoleOptions = {
     groupId: number;
     name: string;
@@ -516,7 +516,7 @@ export type DeleteRoleOptions = {
     groupId: number;
     roleId: number;
 }
-export type DeleteRole = {}
+export type DeleteRole = unknown
 export type UpdateRoleOptions = {
     groupId: number;
     roleId: number;

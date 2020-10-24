@@ -162,7 +162,7 @@ export type ToggleGameFavoriteOptions = {
     universeId: number;
     favorite: boolean;
 }
-export type ToggleGameFavorite = {};
+export type ToggleGameFavorite = unknown;
 export type GetGameFavoriteCountOptions = {
     universeId: number;
 }
@@ -208,7 +208,7 @@ export type SetSelfGameVoteOptions = {
     universeId: number;
     vote: boolean;
 }
-export type SetSelfGameVote = {}
+export type SetSelfGameVote = unknown
 export type CanSelfInviteUserToVIPServerOptions = {
     userId: number;
 }
