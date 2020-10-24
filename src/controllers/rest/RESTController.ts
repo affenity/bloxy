@@ -91,7 +91,7 @@ class RESTController {
     }
 
     /**
-     * Gets the existing xcsrf token if it's not more than 5 minutes old,
+     * Gets the existing XCSRF token if it's not older than set refresh interval,
      * otherwise, fetch a new one
      */
     async getXCSRFToken (): Promise<string | undefined> {
