@@ -68,7 +68,8 @@ export default class LocaleAPI extends BaseAPI {
                 qs: options
             },
             json: true
-        }).then(response => response.body);
+        })
+            .then(response => response.body);
     }
 
     getLocales (options: GetLocalesOptions): Promise<GetLocales> {
@@ -79,7 +80,8 @@ export default class LocaleAPI extends BaseAPI {
                 qs: options
             },
             json: true
-        }).then(response => response.body);
+        })
+            .then(response => response.body);
     }
 
     getSupportedLocales (): Promise<GetSupportedLocales> {
@@ -89,7 +91,8 @@ export default class LocaleAPI extends BaseAPI {
                 path: `v1/locales/supported-locales`
             },
             json: true
-        }).then(response => response.body);
+        })
+            .then(response => response.body);
     }
 
     getUserLocale (): Promise<GetUserLocale> {
@@ -99,7 +102,8 @@ export default class LocaleAPI extends BaseAPI {
                 path: `v1/locales/user-locale`
             },
             json: true
-        }).then(response => response.body);
+        })
+            .then(response => response.body);
     }
 
     getLocusSupportedLocales (): Promise<GetLocusSupportedLocales> {
@@ -109,7 +113,8 @@ export default class LocaleAPI extends BaseAPI {
                 path: `v1/locales/user-localization-locus-supported-locales`
             },
             json: true
-        }).then(response => response.body);
+        })
+            .then(response => response.body);
     }
 
     setUserLocale (options: SetUserLocaleOptions): Promise<SetUserLocale> {
@@ -121,6 +126,7 @@ export default class LocaleAPI extends BaseAPI {
                 json: options
             },
             json: true
-        }).then(response => response.body);
+        })
+            .then(response => response.body);
     }
 }

@@ -78,7 +78,8 @@ export class UserBase {
     getStatus (): Promise<string> {
         return this.client.apis.usersAPI.getUserStatus({
             userId: this.id
-        }).then(response => response.status);
+        })
+            .then(response => response.status);
     }
 
     getAvatar (): Promise<GetUserAvatar> {
@@ -106,17 +107,19 @@ export class UserBase {
         return this.client.apis.badgesAPI.getUserBadges({
             ...options,
             userId: this.id
-        }).then(response => new CursorPageClass(this.client, options || {}, response, this.getBadges) as CursorPage<GetUserBadges["data"][0]>);
+        })
+            .then(response => new CursorPageClass(this.client, options || {}, response, this.getBadges) as CursorPage<GetUserBadges["data"][0]>);
     }
 
     getBadgesAwardedDates (badges: number[]): Promise<{ id: number; awardedAt: Date }[]> {
         return this.client.apis.badgesAPI.getUserBadgesAwardedDates({
             badgeIds: badges,
             userId: this.id
-        }).then(response => response.data.map(badgeAwarded => ({
-            id: badgeAwarded.badgeId,
-            awardedAt: new Date(badgeAwarded.awardedDate)
-        })));
+        })
+            .then(response => response.data.map(badgeAwarded => ({
+                id: badgeAwarded.badgeId,
+                awardedAt: new Date(badgeAwarded.awardedDate)
+            })));
     }
 
     deleteBadge (badgeId: number): Promise<DeleteBadgeFromUser> {
@@ -132,7 +135,8 @@ export class UserBase {
         return this.client.apis.catalogAPI.getUserBundles({
             ...options,
             userId: this.id
-        }).then(response => new CursorPageClass(this.client, options || {}, response, this.getBundles));
+        })
+            .then(response => new CursorPageClass(this.client, options || {}, response, this.getBundles));
     }
 
     getBundlesByType (bundleType: string, options?: Omit<GetUserBundlesOptions, "userId">): Promise<CursorPage<GetUserBundlesByType["data"][0]>> {
@@ -142,7 +146,8 @@ export class UserBase {
             ...options,
             userId: this.id,
             bundleType
-        }).then(response => new CursorPageClass(this.client, options || {}, response, this.getBundlesByType));
+        })
+            .then(response => new CursorPageClass(this.client, options || {}, response, this.getBundlesByType));
     }
 
     addToChatConversation (conversationId: number): Promise<AddUsersToConversation> {
@@ -168,7 +173,8 @@ export class UserBase {
     getTag (): Promise<GetUsersTags[0]> {
         return this.client.apis.contactsAPI.getUsersTags({
             targetUserIds: [this.id]
-        }).then(response => response[0]);
+        })
+            .then(response => response[0]);
     }
 
     setPendingTag (tag: string): Promise<SetPendingUserTag> {
@@ -205,13 +211,15 @@ export class UserBase {
         return this.client.apis.friendsAPI.getUserFollowers({
             ...options,
             userId: this.id
-        }).then(response => new CursorPageClass(this.client, options || {}, response, this.getFollowers));
+        })
+            .then(response => new CursorPageClass(this.client, options || {}, response, this.getFollowers));
     }
 
     getFollowersCount (): Promise<number> {
         return this.client.apis.friendsAPI.getUserFollowersCount({
             userId: this.id
-        }).then(response => response.count);
+        })
+            .then(response => response.count);
     }
 
     getFollowing (options?: Omit<GetUserFollowingOptions, "userId">): Promise<CursorPage<GetUserFollowing["data"][0]>> {
@@ -220,25 +228,29 @@ export class UserBase {
         return this.client.apis.friendsAPI.getUserFollowing({
             ...options,
             userId: this.id
-        }).then(response => new CursorPageClass(this.client, options || {}, response, this.getFollowing));
+        })
+            .then(response => new CursorPageClass(this.client, options || {}, response, this.getFollowing));
     }
 
     getFollowingCount (): Promise<number> {
         return this.client.apis.friendsAPI.getUserFollowingCount({
             userId: this.id
-        }).then(response => response.count);
+        })
+            .then(response => response.count);
     }
 
     getFriends (): Promise<FriendRequest[]> {
         return this.client.apis.friendsAPI.getUserFriends({
             userId: this.id
-        }).then(response => response.data.map(friendRequest => new FriendRequest(friendRequest, this.client)));
+        })
+            .then(response => response.data.map(friendRequest => new FriendRequest(friendRequest, this.client)));
     }
 
     getFriendsCount (): Promise<number> {
         return this.client.apis.friendsAPI.getUserFriendsCount({
             userId: this.id
-        }).then(data => data.count);
+        })
+            .then(data => data.count);
     }
 
     getFriendsWithStatuses (userIds: number[]): Promise<GetUserFriendsWithStatuses> {
@@ -288,7 +300,8 @@ export class UserBase {
     canInviteToVIPServer (): Promise<boolean> {
         return this.client.apis.gamesAPI.canSelfInviteUserToVIPServer({
             userId: this.id
-        }).then(response => response.canInvite);
+        })
+            .then(response => response.canInvite);
     }
 
     awardBadge (badgeId: number, placeId: number): Promise<string> {
@@ -296,7 +309,8 @@ export class UserBase {
             badgeId,
             placeId,
             userId: this.id
-        }).then(response => response as unknown as string);
+        })
+            .then(response => response as unknown as string);
     }
 
     isFollowedByUser (userId: number): Promise<boolean> {
@@ -417,7 +431,8 @@ export class UserBase {
         return this.client.apis.inventoryAPI.getUserCollectibles({
             ...options,
             userId: this.id
-        }).then(response => new CursorPageClass(this.client, options || {}, response, this.getCollectibles));
+        })
+            .then(response => new CursorPageClass(this.client, options || {}, response, this.getCollectibles));
     }
 
     getItemsByTypeAndTargetId (itemType: GetUserItemsByTypeAndTargetIdOptions["itemType"], id: number): Promise<CursorPage<GetUserItemsByTypeAndTargetId["data"][0]>> {
@@ -427,7 +442,8 @@ export class UserBase {
             itemType,
             itemTargetId: id,
             userId: this.id
-        }).then(response => new CursorPageClass(this.client, {}, response, this.getItemsByTypeAndTargetId));
+        })
+            .then(response => new CursorPageClass(this.client, {}, response, this.getItemsByTypeAndTargetId));
     }
 
     getInventory (options: Omit<GetUserInventoryOptions, "userId">): Promise<CursorPage<GetUserInventory["data"][0]>> {
@@ -436,7 +452,8 @@ export class UserBase {
         return this.client.apis.inventoryAPI.getUserInventory({
             ...options,
             userId: this.id
-        }).then(response => new CursorPageClass(this.client, options, response, this.getInventory));
+        })
+            .then(response => new CursorPageClass(this.client, options, response, this.getInventory));
     }
 
     getInventoryByAssetTypeId (options: Omit<GetUserInventoryByAssetTypeIdOptions, "userId">): Promise<CursorPage<GetUserInventoryByAssetTypeId["data"][0]>> {
@@ -445,7 +462,8 @@ export class UserBase {
         return this.client.apis.inventoryAPI.getUserInventoryByAssetTypeId({
             ...options,
             userId: this.id
-        }).then(response => new CursorPageClass(this.client, options, response, this.getInventoryByAssetTypeId));
+        })
+            .then(response => new CursorPageClass(this.client, options, response, this.getInventoryByAssetTypeId));
     }
 
     getUser = (): Promise<User> => this.client.getUser(this.id);
@@ -466,7 +484,8 @@ export class UserBase {
     getPresence (): Promise<GetUsersPresences["userPresences"][0]> {
         return this.client.apis.presenceAPI.getUsersPresences({
             userIds: [this.id]
-        }).then(response => response.userPresences[0]);
+        })
+            .then(response => response.userPresences[0]);
     }
 
     sendMessage (options: Omit<SendMessageOptions, "userId">): Promise<SendMessage> {
@@ -480,27 +499,31 @@ export class UserBase {
         return this.client.apis.thumbnailsAPI.getUsersFullBodyAvatarImages({
             ...options,
             userIds: [this.id]
-        }).then(response => response.data[0]);
+        })
+            .then(response => response.data[0]);
     }
 
     getAvatarBustImage (options: Omit<GetUsersAvatarBustImagesOptions, "userIds">): Promise<GetUsersAvatarBustImages["data"][0]> {
         return this.client.apis.thumbnailsAPI.getUsersAvatarBustImages({
             ...options,
             userIds: [this.id]
-        }).then(response => response.data[0]);
+        })
+            .then(response => response.data[0]);
     }
 
     getAvatarHeadShotImage (options: Omit<GetUsersAvatarHeadShotsImagesOptions, "userIds">): Promise<GetUsersAvatarHeadShotsImages["data"][0]> {
         return this.client.apis.thumbnailsAPI.getUsersAvatarHeadShotImages({
             ...options,
             userIds: [this.id]
-        }).then(response => response.data[0]);
+        })
+            .then(response => response.data[0]);
     }
 
     getCanTrade (): Promise<boolean> {
         return this.client.apis.tradesAPI.canTradeWith({
             userId: this.id
-        }).then(response => response.canTrade);
+        })
+            .then(response => response.canTrade);
     }
 
     sendTrade (offers: Omit<SendTradeOptions["offers"][0], "userId">[]): Promise<SendTrade> {

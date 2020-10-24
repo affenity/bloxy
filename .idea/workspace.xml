@@ -26,11 +26,65 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a85767c4-bfb1-401b-832d-4f10d57a6f3a" name="Default Changelist" comment="Updated options type">
-      <change beforePath="$PROJECT_DIR$/.idea/bloxy.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/bloxy.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.eslintrc.json" beforeDir="false" afterPath="$PROJECT_DIR$/.eslintrc.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/codeStyles/Project.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/codeStyles/Project.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/client/lib/ClientSocket/ClientSocket.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/client/lib/ClientSocket/ClientSocket.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/client/Client.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/client/Client.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/client/apis/AccountInformationAPI.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/client/apis/AccountInformationAPI.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/client/apis/AccountSettingsAPI.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/client/apis/AccountSettingsAPI.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/client/apis/AdConfigurationAPI.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/client/apis/AdConfigurationAPI.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/client/apis/AdsAPI.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/client/apis/AdsAPI.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/client/apis/AssetDeliveryAPI.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/client/apis/AssetDeliveryAPI.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/client/apis/AuthAPI.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/client/apis/AuthAPI.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/client/apis/AvatarAPI.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/client/apis/AvatarAPI.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/client/apis/BadgesAPI.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/client/apis/BadgesAPI.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/client/apis/BillingAPI.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/client/apis/BillingAPI.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/client/apis/CaptchaAPI.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/client/apis/CaptchaAPI.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/client/apis/CatalogAPI.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/client/apis/CatalogAPI.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/client/apis/ChatAPI.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/client/apis/ChatAPI.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/client/apis/ContactsAPI.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/client/apis/ContactsAPI.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/client/apis/DevelopAPI.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/client/apis/DevelopAPI.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/client/apis/EconomyAPI.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/client/apis/EconomyAPI.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/client/apis/EconomyCreatorStatsAPI.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/client/apis/EconomyCreatorStatsAPI.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/client/apis/EngagementPayoutsAPI.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/client/apis/EngagementPayoutsAPI.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/client/apis/FollowingsAPI.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/client/apis/FollowingsAPI.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/client/apis/FriendsAPI.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/client/apis/FriendsAPI.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/client/apis/GameInternationalizationAPI.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/client/apis/GameInternationalizationAPI.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/client/apis/GamesAPI.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/client/apis/GamesAPI.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/client/apis/GeneralAPI.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/client/apis/GeneralAPI.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/client/apis/GroupsAPI.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/client/apis/GroupsAPI.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/client/apis/InventoryAPI.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/client/apis/InventoryAPI.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/client/apis/ItemConfigurationAPI.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/client/apis/ItemConfigurationAPI.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/client/apis/LocaleAPI.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/client/apis/LocaleAPI.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/client/apis/MetricsAPI.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/client/apis/MetricsAPI.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/client/apis/NotificationsAPI.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/client/apis/NotificationsAPI.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/client/apis/OtherAPI.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/client/apis/OtherAPI.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/client/apis/PremiumFeaturesAPI.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/client/apis/PremiumFeaturesAPI.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/client/apis/PresenceAPI.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/client/apis/PresenceAPI.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/client/apis/PrivateMessagesAPI.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/client/apis/PrivateMessagesAPI.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/client/apis/PublishAPI.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/client/apis/PublishAPI.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/client/apis/ThumbnailsAPI.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/client/apis/ThumbnailsAPI.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/client/apis/TradesAPI.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/client/apis/TradesAPI.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/client/apis/TranslationRolesAPI.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/client/apis/TranslationRolesAPI.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/client/apis/TwoStepVerification.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/client/apis/TwoStepVerification.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/client/apis/UsersAPI.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/client/apis/UsersAPI.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/client/lib/ChatManager/ChatManager.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/client/lib/ChatManager/ChatManager.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/client/lib/ClientSocket/handlers/chatNotifications.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/client/lib/ClientSocket/handlers/chatNotifications.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/client/lib/ClientSocket/handlers/friendShipnotifications.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/client/lib/ClientSocket/handlers/friendShipnotifications.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/client/lib/ClientSocket/handlers/messageNotifications.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/client/lib/ClientSocket/handlers/messageNotifications.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/controllers/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/controllers/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/controllers/rest/RESTController.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/controllers/rest/RESTController.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/controllers/rest/lib/updateXCSRFToken.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/controllers/rest/lib/updateXCSRFToken.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/controllers/rest/response/RESTResponse.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/controllers/rest/response/RESTResponse.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/controllers/rest/response/handlers/validStatus.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/controllers/rest/response/handlers/validStatus.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/interfaces/RESTInterfaces.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/interfaces/RESTInterfaces.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/structures/Chat.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/structures/Chat.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/structures/Game.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/structures/Game.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/structures/Group.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/structures/Group.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/structures/User.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/structures/User.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/util/constants.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/util/constants.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/util/converter.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/util/converter.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/util/errors/errors.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/util/errors/errors.ts" afterDir="false" />
     </list>
     <list id="2baa7156-334f-4736-a7ad-c82d073ffac9" name="Revert &quot;Added Auth API&quot;" comment="Revert &quot;Added Auth API&quot;&#10;&#10;This reverts commit 80c65c6b" />
     <list id="79d16524-19f3-4d6c-9b53-cc0c67aa0aac" name="Revert &quot;Added Auth API&quot;-2" comment="Revert &quot;Added Auth API&quot;&#10;&#10;This reverts commit 80c65c6b" />
@@ -101,7 +155,7 @@
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="nodejs.jest.jest_package" value="$PROJECT_DIR$/node_modules/jest" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="settings.editor.selected.configurable" value="settings.typescriptcompiler" />
+    <property name="settings.editor.selected.configurable" value="settings.javascript.linters.eslint" />
     <property name="ts.external.directory.path" value="E:\Personal\Open-Sourced Modules\bloxy\node_modules\typescript\lib" />
     <property name="ts.rename.search.for.dynamic.occurrences" value="true" />
     <property name="vue.rearranger.settings.migration" value="true" />
@@ -246,7 +300,8 @@
       <workItem from="1602974408915" duration="11000" />
       <workItem from="1603038883136" duration="37000" />
       <workItem from="1603567085195" duration="20000" />
-      <workItem from="1603567146670" duration="1268000" />
+      <workItem from="1603567146670" duration="1659000" />
+      <workItem from="1603568814889" duration="777000" />
     </task>
     <task id="LOCAL−00001" summary="Updated">
       <created>1596387076571</created>

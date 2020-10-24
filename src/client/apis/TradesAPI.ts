@@ -116,7 +116,8 @@ export default class TradesAPI extends BaseAPI {
                 path: `v1/trades/${options.tradeId}`
             },
             json: true
-        }).then(response => response.body);
+        })
+            .then(response => response.body);
     }
 
     getTradesByStatusType (options: GetTradesByStatusTypeOptions): Promise<GetTradesByStatusType> {
@@ -126,7 +127,8 @@ export default class TradesAPI extends BaseAPI {
                 path: `v1/trades/${options.tradeStatusType}`
             },
             json: true
-        }).then(response => response.body);
+        })
+            .then(response => response.body);
     }
 
     getTradesCountByStatusType (options: GetTradesCountByStatusTypeOptions): Promise<GetTradesCountByStatusType> {
@@ -136,7 +138,8 @@ export default class TradesAPI extends BaseAPI {
                 path: `v1/trades/${options.tradeStatusType}/count`
             },
             json: true
-        }).then(response => response.body);
+        })
+            .then(response => response.body);
     }
 
     getTradesMetaData (): Promise<GetTradesMetaData> {
@@ -146,7 +149,8 @@ export default class TradesAPI extends BaseAPI {
                 path: `v1/trades/metadata`
             },
             json: true
-        }).then(response => response.body);
+        })
+            .then(response => response.body);
     }
 
     canTradeWith (options: CanSelfTradeWithUserOptions): Promise<CanSelfTradeWithUser> {
@@ -156,7 +160,8 @@ export default class TradesAPI extends BaseAPI {
                 path: `v1/users/${options.userId}/can-trade-with`
             },
             json: true
-        }).then(response => response.body);
+        })
+            .then(response => response.body);
     }
 
     acceptTrade (options: AcceptTradeOptions): Promise<AcceptTrade> {
@@ -167,7 +172,8 @@ export default class TradesAPI extends BaseAPI {
                 method: "POST"
             },
             json: true
-        }).then(response => response.body);
+        })
+            .then(response => response.body);
     }
 
     counterTrade (options: CounterTradeOptions): Promise<CounterTrade> {
@@ -179,7 +185,8 @@ export default class TradesAPI extends BaseAPI {
                 json: options
             },
             json: true
-        }).then(response => response.body);
+        })
+            .then(response => response.body);
     }
 
     declineTrade (options: DeclineTradeOptions): Promise<DeclineTrade> {
@@ -190,7 +197,8 @@ export default class TradesAPI extends BaseAPI {
                 method: "POST"
             },
             json: true
-        }).then(response => response.body);
+        })
+            .then(response => response.body);
     }
 
     sendTrade (options: SendTradeOptions): Promise<SendTrade> {
@@ -202,6 +210,7 @@ export default class TradesAPI extends BaseAPI {
                 json: options
             },
             json: true
-        }).then(response => response.body);
+        })
+            .then(response => response.body);
     }
 }

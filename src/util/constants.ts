@@ -49,15 +49,18 @@ export const StatusCodeReasons = {
     ]
 };
 
+
 export enum CreatorType {
     USER = 1,
     GROUP = 2
 }
 
+
 export enum MorphAvatarType {
     R6 = "MorphToR6",
     R15 = "MorphToR15"
 }
+
 
 export enum GameGenre {
     FPS = "FPS"

@@ -50,7 +50,8 @@ export default class FollowingsAPI extends BaseAPI {
                 }
             },
             json: true
-        }).then(response => response.body);
+        })
+            .then(response => response.body);
     }
 
     getUserFollowingUniverseStatus (options: GetUserFollowingUniverseStatusOptions): Promise<GetUserFollowingUniverseStatus> {
@@ -63,7 +64,8 @@ export default class FollowingsAPI extends BaseAPI {
                 }
             },
             json: true
-        }).then(response => response.body);
+        })
+            .then(response => response.body);
     }
 
     unFollowUniverse (options: UnFollowUniverseOptions): Promise<UnFollowUniverse> {
@@ -77,7 +79,8 @@ export default class FollowingsAPI extends BaseAPI {
                 }
             },
             json: true
-        }).then(response => response.body);
+        })
+            .then(response => response.body);
     }
 
     followUniverse (options: FollowUniverseOptions): Promise<FollowUniverse> {
@@ -91,6 +94,7 @@ export default class FollowingsAPI extends BaseAPI {
                 }
             },
             json: true
-        }).then(response => response.body);
+        })
+            .then(response => response.body);
     }
 }

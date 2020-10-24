@@ -170,7 +170,8 @@ export default class GeneralAPI extends BaseAPI {
                 }
             },
             json: true
-        }).then(response => response.body);
+        })
+            .then(response => response.body);
     }
 
     awardBadge (options: AwardBadgeOptions): Promise<AwardBadge> {
@@ -184,7 +185,8 @@ export default class GeneralAPI extends BaseAPI {
                     allowedStatusCodes: [200]
                 }
             }
-        }).then(() => true);
+        })
+            .then(() => true);
     }
 
     getBalance (): Promise<GetBalance> {
@@ -193,7 +195,8 @@ export default class GeneralAPI extends BaseAPI {
             request: {
                 path: "currency/balance"
             }
-        }).then(response => response.body as GetBalance);
+        })
+            .then(response => response.body as GetBalance);
     }
 
     getUserFriends (options: GetUserFriendsOptions): Promise<GetUserFriends> {
@@ -209,7 +212,8 @@ export default class GeneralAPI extends BaseAPI {
                 }
             },
             json: true
-        }).then(response => response.body);
+        })
+            .then(response => response.body);
     }
 
     acceptFriendRequest (options: AcceptFriendRequestOptions): Promise<AcceptFriendRequest> {
@@ -225,7 +229,8 @@ export default class GeneralAPI extends BaseAPI {
                     allowedStatusCodes: [200]
                 }
             }
-        }).then(() => true as AcceptFriendRequest);
+        })
+            .then(() => true as AcceptFriendRequest);
     }
 
     declineFriendRequest (options: DeclineFriendRequestOptions): Promise<DeclineFriendRequest> {
@@ -241,7 +246,8 @@ export default class GeneralAPI extends BaseAPI {
                     allowedStatusCodes: [200]
                 }
             }
-        }).then(() => true as DeclineFriendRequest);
+        })
+            .then(() => true as DeclineFriendRequest);
     }
 
     sendFriendRequest (options: SendFriendRequestOptions): Promise<SendFriendRequest> {
@@ -257,7 +263,8 @@ export default class GeneralAPI extends BaseAPI {
                     allowedStatusCodes: [200]
                 }
             }
-        }).then(() => true as SendFriendRequest);
+        })
+            .then(() => true as SendFriendRequest);
     }
 
     getUserFriendsCount (options: GetUserFriendsCountOptions): Promise<GetUserFriendsCount> {
@@ -271,7 +278,8 @@ export default class GeneralAPI extends BaseAPI {
                 }
             },
             json: true
-        }).then(response => response.body.count);
+        })
+            .then(response => response.body.count);
     }
 
     unfriendUser (options: UnfriendUserOptions): Promise<UnfriendUser> {
@@ -287,7 +295,8 @@ export default class GeneralAPI extends BaseAPI {
                     allowedStatusCodes: [200]
                 }
             }
-        }).then(() => true as UnfriendUser);
+        })
+            .then(() => true as UnfriendUser);
     }
 
     isUserFollowing (options: IsUserFollowingOptions): Promise<IsUserFollowing> {
@@ -300,7 +309,8 @@ export default class GeneralAPI extends BaseAPI {
                     allowedStatusCodes: [200]
                 }
             }
-        }).then(response => response.body.isFollowing);
+        })
+            .then(response => response.body.isFollowing);
     }
 
     followUser (options: FollowUserOptions): Promise<FollowUser> {
@@ -316,7 +326,8 @@ export default class GeneralAPI extends BaseAPI {
                     allowedStatusCodes: [200]
                 }
             }
-        }).then(() => true as FollowUser);
+        })
+            .then(() => true as FollowUser);
     }
 
     unfollowUser (options: UnfollowUserOptions): Promise<UnfollowUser> {
@@ -332,7 +343,8 @@ export default class GeneralAPI extends BaseAPI {
                     allowedStatusCodes: [200]
                 }
             }
-        }).then(() => true as UnfollowUser);
+        })
+            .then(() => true as UnfollowUser);
     }
 
     getUserGroups (options: GetUserGroupsOptions): Promise<GetUserGroups> {
@@ -344,7 +356,8 @@ export default class GeneralAPI extends BaseAPI {
                     allowedStatusCodes: [200]
                 }
             }
-        }).then(response => response.body);
+        })
+            .then(response => response.body);
     }
 
     getGroup (options: GetGroupOptions): Promise<GetGroup> {
@@ -357,7 +370,8 @@ export default class GeneralAPI extends BaseAPI {
                 }
             },
             json: true
-        }).then(response => response.body);
+        })
+            .then(response => response.body);
     }
 
     getGroupAllies (options: GetGroupAlliesOptions): Promise<GetGroupAllies> {
@@ -373,7 +387,8 @@ export default class GeneralAPI extends BaseAPI {
                 }
             },
             json: true
-        }).then(response => response.body);
+        })
+            .then(response => response.body);
     }
 
     getGroupEnemies (options: GetGroupEnemiesOptions): Promise<GetGroupEnemies> {
@@ -389,7 +404,8 @@ export default class GeneralAPI extends BaseAPI {
                 }
             },
             json: true
-        }).then(response => response.body);
+        })
+            .then(response => response.body);
     }
 
     getIncomingItems (): Promise<GetIncomingItems> {
@@ -402,10 +418,11 @@ export default class GeneralAPI extends BaseAPI {
                 }
             },
             json: true
-        }).then((response: any) => ({
-            friendRequestsCount: response.body.friendRequestsCount,
-            unreadMessageCount: response.body.unreadMessageCount
-        }) as GetIncomingItems);
+        })
+            .then((response: any) => ({
+                friendRequestsCount: response.body.friendRequestsCount,
+                unreadMessageCount: response.body.unreadMessageCount
+            }) as GetIncomingItems);
     }
 
     getProductInfo (options: GetProductInfoOptions): Promise<GetProductInfo> {
@@ -419,7 +436,8 @@ export default class GeneralAPI extends BaseAPI {
                 }
             },
             json: true
-        }).then(response => response.body);
+        })
+            .then(response => response.body);
     }
 
     getGamePassProductInfo (options: GetGamePassProductInfoOptions): Promise<GetGamePassProductInfo> {
@@ -433,7 +451,8 @@ export default class GeneralAPI extends BaseAPI {
                 }
             },
             json: true
-        }).then(response => response.body);
+        })
+            .then(response => response.body);
     }
 
     userOwnsAsset (options: UserOwnsAssetOptions): Promise<UserOwnsAsset> {
@@ -446,7 +465,8 @@ export default class GeneralAPI extends BaseAPI {
                     allowedStatusCodes: [200]
                 }
             }
-        }).then(response => (response.body as string).includes("true") as UserOwnsAsset);
+        })
+            .then(response => (response.body as string).includes("true") as UserOwnsAsset);
     }
 
     getDeviceInfo (): Promise<GetDeviceInfo> {
@@ -458,11 +478,12 @@ export default class GeneralAPI extends BaseAPI {
                     allowedStatusCodes: [200]
                 }
             }
-        }).then(response => ({
-            deviceType: response.body.DeviceType,
-            operatingSystemType: response.body.OperationSystemType,
-            platformType: response.body.PlatformType
-        }) as GetDeviceInfo);
+        })
+            .then(response => ({
+                deviceType: response.body.DeviceType,
+                operatingSystemType: response.body.OperationSystemType,
+                platformType: response.body.PlatformType
+            }) as GetDeviceInfo);
     }
 
     blockUser (options: BlockUserOptions): Promise<BlockUser> {
@@ -477,7 +498,8 @@ export default class GeneralAPI extends BaseAPI {
                 }
             },
             json: true
-        }).then(response => response.body.success === true as BlockUser);
+        })
+            .then(response => response.body.success === true as BlockUser);
     }
 
     unblockUser (options: UnblockUserOptions): Promise<UnblockUser> {
@@ -492,7 +514,8 @@ export default class GeneralAPI extends BaseAPI {
                 }
             },
             json: true
-        }).then(response => response.body.success === true as UnblockUser);
+        })
+            .then(response => response.body.success === true as UnblockUser);
     }
 
     getUserById (options: GetUserByIdOptions): Promise<GetUserById> {
@@ -505,10 +528,11 @@ export default class GeneralAPI extends BaseAPI {
                 }
             },
             json: true
-        }).then(response => ({
-            id: response.body.Id,
-            name: response.body.Username
-        }) as GetUserById);
+        })
+            .then(response => ({
+                id: response.body.Id,
+                name: response.body.Username
+            }) as GetUserById);
     }
 
     getUserByUsername (options: GetUserByUsernameOptions): Promise<GetUserByUsername> {
@@ -522,10 +546,11 @@ export default class GeneralAPI extends BaseAPI {
                 }
             },
             json: true
-        }).then(response => ({
-            id: response.body.Id,
-            name: response.body.Username
-        }) as GetUserByUsername);
+        })
+            .then(response => ({
+                id: response.body.Id,
+                name: response.body.Username
+            }) as GetUserByUsername);
     }
 
     userCanManageAsset (options: UserCanManageAssetOptions): Promise<UserCanManageAsset> {
@@ -538,6 +563,7 @@ export default class GeneralAPI extends BaseAPI {
                 }
             },
             json: true
-        }).then(response => response.body.CanManage === true as UserCanManageAsset);
+        })
+            .then(response => response.body.CanManage === true as UserCanManageAsset);
     }
 }

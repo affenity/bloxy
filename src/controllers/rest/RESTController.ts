@@ -97,9 +97,10 @@ class RESTController {
     async getXCSRFToken (): Promise<string | undefined> {
         if (!this.options.xcsrf || (Date.now() - (this.options.xcsrfSet || 0)) >= (5 * 60 * 1000)) {
             // Refresh token
-            await this.fetchXCSRFToken().then(token => {
-                this.setXCSRFToken(token);
-            });
+            await this.fetchXCSRFToken()
+                .then(token => {
+                    this.setXCSRFToken(token);
+                });
         }
 
         return this.options.xcsrf;
@@ -203,5 +204,6 @@ class RESTController {
 
     }
 }
+
 
 export default RESTController;
