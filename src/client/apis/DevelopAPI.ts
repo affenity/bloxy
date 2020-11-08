@@ -133,7 +133,7 @@ export type UpdatePluginOptions = {
     description: string;
     commentsEnabled: boolean;
 }
-export type UpdatePlugin = {}
+export type UpdatePlugin = unknown
 export type SearchUniversesOptions = {
     q: string;
     sort?: ("+GameCreated" | "-GameCreated" | "+GameName" | "-GameName" | "+RootPlaceName" | "-RootPlaceName" | "+RootPlaceUpdated" | "-RootPlaceUpdated" | "+LastUpdated" | "-LastUpdated")[];
@@ -264,16 +264,16 @@ export type MultiGetUniversesPermissions = {
 export type ActivateUniverseOptions = {
     universeId: number;
 }
-export type ActivateUniverse = {}
+export type ActivateUniverse = unknown
 export type DeactivateUniverseOptions = {
     universeId: number;
 }
-export type DeactivateUniverse = {}
+export type DeactivateUniverse = unknown
 export type GenerateUniverseStatisticReportsByTimeOptions = {
     universeId: number;
     yearDashMonth: string;
 }
-export type GenerateUniverseStatisticReportsByTime = {}
+export type GenerateUniverseStatisticReportsByTime = unknown
 export type GetUniverseConfigurationOptions = {
     universeId: number;
 }
@@ -311,12 +311,12 @@ export type GetUniverseTeamCreateSettings = {
     isEnabled: boolean;
 }
 export type UpdateUniverseTeamCreateSettingsOptions = GetUniverseTeamCreateSettingsOptions;
-export type UpdateUniverseTeamCreateSettings = {}
+export type UpdateUniverseTeamCreateSettings = unknown
 export type RemoveUserFromUniverseTeamCreateOptions = {
     universeId: number;
     userId: number;
 }
-export type RemoveUserFromUniverseTeamCreate = {}
+export type RemoveUserFromUniverseTeamCreate = unknown
 export type GetUsersInUniverseTeamCreateOptions = {
     universeId: number;
     sortOrder?: "Asc" | "Desc";
@@ -381,14 +381,14 @@ export type CreateUniverseAliasOptions = {
     type: "Asset" | string;
     targetId: number;
 }
-export type CreateUniverseAlias = {}
+export type CreateUniverseAlias = unknown
 export type DeleteUniverseAliasOptions = {
     universeId: number;
     name: string;
 }
-export type DeleteUniverseAlias = {}
+export type DeleteUniverseAlias = unknown
 export type UpdateUniverseAliasOptions = CreateUniverseAliasOptions;
-export type UpdateUniverseAlias = {};
+export type UpdateUniverseAlias = unknown;
 export type CreateDeveloperProductOptions = {
     universeId: number;
     name: string;
@@ -411,7 +411,7 @@ export type UpdateDeveloperProductOptions = {
     IconImageAssetId?: number;
     PriceInRobux: number;
 }
-export type UpdateDeveloperProduct = {}
+export type UpdateDeveloperProduct = unknown
 
 export default class DevelopAPI extends BaseAPI {
     constructor (client: Client) {

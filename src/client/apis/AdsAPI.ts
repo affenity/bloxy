@@ -18,9 +18,9 @@ export declare type CreateGroupAdOptions = {
     file: unknown;
 };
 
-export declare type CreateAssetAd = {};
-export declare type CreateGamePassAd = {};
-export declare type CreateGroupAd = {};
+export declare type CreateAssetAd = unknown;
+export declare type CreateGamePassAd = unknown;
+export declare type CreateGroupAd = unknown;
 
 
 export default class AdsAPI extends BaseAPI {

@@ -6,17 +6,17 @@ export type ValidateDisplayNameNewUserOptions = {
     displayName: string;
     birthdate: string;
 }
-export type ValidateDisplayNameNewUser = {}
+export type ValidateDisplayNameNewUser = unknown
 export type ValidateDisplayNameExistingUserOptions = {
     userId: number;
     displayName: string;
 }
-export type ValidateDisplayNameExistingUser = {}
+export type ValidateDisplayNameExistingUser = unknown
 export type SetSelfDisplayNameOptions = {
     userId: number;
     newDisplayName: string;
 }
-export type SetSelfDisplayName = {}
+export type SetSelfDisplayName = unknown
 export type GetUserByIdOptions = {
     userId: number;
 }

@@ -13,7 +13,7 @@ export type SubmitDeveloperExchangeOptions = {
     password: string;
     robuxAmount: number;
 }
-export type SubmitDeveloperExchange = {}
+export type SubmitDeveloperExchange = unknown
 export type GetLuobuDeveloperExchangeBalance = {
     amount: number;
 }
@@ -36,7 +36,7 @@ export type SubmitLuobuDeveloperExchangeOptions = {
     email: string;
     amount: number;
 }
-export type SubmitLuobuDeveloperExchange = {}
+export type SubmitLuobuDeveloperExchange = unknown
 export type GetUserPaymentsOptions = {
     sortOrder?: "Asc" | "Desc";
     limit?: 10 | 25 | 50 | 100;
@@ -70,12 +70,12 @@ export type PurchaseAmazonProductOptions = {
     amazonUserId: string;
     isRetry: boolean;
 }
-export type PurchaseAmazonProduct = {}
+export type PurchaseAmazonProduct = unknown
 export type ValidateAmazonProductOptions = {
     productId: string;
     currency: string;
 }
-export type ValidateAmazonProduct = {}
+export type ValidateAmazonProduct = unknown
 export type PurchaseAppleProductOptions = PurchaseAmazonProductOptions;
 export type PurchaseAppleProduct = PurchaseAmazonProduct;
 export type ValidateAppleProductOptions = ValidateAmazonProductOptions;
@@ -83,7 +83,7 @@ export type ValidateAppleProduct = ValidateAmazonProduct;
 export type RedeemDigitalCodeOptions = {
     redemptionCode: string;
 }
-export type RedeemDigitalCode = {};
+export type RedeemDigitalCode = unknown;
 export type RedeemGameCardOptions = {
     pinCode: string;
     captchaToken: string;
@@ -101,7 +101,7 @@ export type ReverseGameCardOptions = {
     PinCode: string;
     UserId: number;
 }
-export type ReverseGameCard = {};
+export type ReverseGameCard = unknown;
 export type PurchaseGoogleProductOptions = {
     packageName: string;
     productId: string;
@@ -109,7 +109,7 @@ export type PurchaseGoogleProductOptions = {
     isRetry: boolean;
     orderId: string;
 };
-export type PurchaseGoogleProduct = {}
+export type PurchaseGoogleProduct = unknown
 export type ValidateGoogleProductOptions = ValidateAmazonProductOptions;
 export type ValidateGoogleProduct = ValidateAmazonProduct;
 export type SendXsollaWebhookOptions = unknown;

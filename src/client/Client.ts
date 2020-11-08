@@ -134,7 +134,7 @@ export default class Client extends ClientBase {
 
     getUsersByUserIds (userIds: number[] | string[], excludeBannedUsers = false): Promise<PartialUser[]> {
         if (typeof userIds[0] === "string") {
-            userIds = (userIds as string[]).map((userId) => parseInt(userId));
+            userIds = (userIds as string[]).map(userId => parseInt(userId));
         }
 
         return this.apis.usersAPI.getUsersByIds({

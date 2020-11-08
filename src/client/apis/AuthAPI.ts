@@ -23,7 +23,7 @@ export type Login = {
         ticket: string;
     };
 };
-export type Logout = {};
+export type Logout = unknown;
 export type GetCredentialsVerificationStatusOptions = {
     credentialType: "Email" | "Username" | "PhoneNumber";
     credentialValue: string;
@@ -37,7 +37,7 @@ export type SendCredentialsVerificationMessageOptions = {
     credentialValue: string;
     password: string;
 };
-export type SendCredentialsVerificationMessage = {};
+export type SendCredentialsVerificationMessage = unknown;
 export type GetMetaData = {
     isUpdateUsernameEnabled: boolean;
     ftuxAvatarAssetMap: string;
@@ -102,7 +102,7 @@ export type ChangeUserPasswordOptions = {
     currentPassword: string;
     newPassword: string;
 }
-export type ChangeUserPassword = {};
+export type ChangeUserPassword = unknown;
 export type GetRecoveryMetaData = {
     isOnPhone: boolean;
     codeLength: number;
@@ -128,7 +128,7 @@ export type RevertAccountOptions = {
 }
 export type RevertAccount = Login;
 export type GetSAMLMetaData = unknown;
-export type SAMLRequest = {}
+export type SAMLRequest = unknown
 export type GetTwoStepVerificationMetaData = {
     codeLength: number;
     loadingImageUrl: string;
@@ -151,7 +151,7 @@ export type VerifyTwoStepVerificationOptions = {
     rememberDevice: boolean;
     actionType: string;
 }
-export type VerifyTwoStepVerification = {}
+export type VerifyTwoStepVerification = unknown
 export type GetExistingUsernamesOptions = {
     username: string;
 }
@@ -200,7 +200,7 @@ export type ChangeUsernameOptions = {
     username: string;
     password: string;
 }
-export type ChangeUsername = {}
+export type ChangeUsername = unknown
 
 export default class AuthAPI extends BaseAPI {
     constructor (client: Client) {

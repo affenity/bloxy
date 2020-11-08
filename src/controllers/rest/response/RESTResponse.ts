@@ -14,9 +14,7 @@ export default class RESTResponse {
         this.controller = controller;
         this.request = request;
         this.responseData = responseData;
-        // eslint-disable-next-line @typescript-eslint/ban-ts-ignore
-        // @ts-ignore
-        this.responseData.status = responseData.statusMessage;
+        this.responseData.status = responseData.status;
     }
 
     process (): RESTResponseDataType {

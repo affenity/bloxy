@@ -65,7 +65,7 @@ export type GetItemTagsMetaData = {
 export type DeleteItemTagOptions = {
     itemTagId: number;
 }
-export type DeleteItemTag = {}
+export type DeleteItemTag = unknown
 export type GetTagsByTagIdsOptions = {
     tagIds: number[];
 }

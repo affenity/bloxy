@@ -124,7 +124,7 @@ export type WearAssetOnAvatarOptions = {
 export type WearAssetOnAvatar = {
     success: boolean;
 };
-export type RedrawThumbnail = {};
+export declare type RedrawThumbnail = unknown;
 export type SetBodyColorsOptions = BodyColors;
 export type SetBodyColors = {
     success: boolean;

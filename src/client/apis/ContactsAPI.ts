@@ -26,7 +26,7 @@ export type MatchContacts = {
     }[];
 }
 export type UpdateContactsOptions = MatchContacts;
-export type UpdateContacts = {};
+export type UpdateContacts = unknown;
 export type GetUsersTagsOptions = {
     targetUserIds: number[];
 }

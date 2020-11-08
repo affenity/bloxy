@@ -79,7 +79,7 @@ export type CanSelfTradeWithUser = {
 export type AcceptTradeOptions = {
     tradeId: number;
 }
-export type AcceptTrade = {}
+export type AcceptTrade = unknown
 export type CounterTradeOptions = {
     tradeId: number;
     offers: {
@@ -94,7 +94,7 @@ export type CounterTrade = {
 export type DeclineTradeOptions = {
     tradeId: number;
 }
-export type DeclineTrade = {}
+export type DeclineTrade = unknown
 export type SendTradeOptions = Omit<CounterTradeOptions, "tradeId">;
 export type SendTrade = {
     id: number;

@@ -42,7 +42,7 @@ export declare type UpdateUserDescription = boolean;
 export declare type GetUserGender = {
     gender: number;
 }
-export declare type UpdateUserGender = {}
+export declare type UpdateUserGender = unknown
 export declare type GetConsecutiveXboxLoginDays = {
     count: number;
 };
@@ -52,15 +52,15 @@ export declare type GetMetaData = {
     isPhoneNumberEnabled: boolean;
 }
 export declare type GetVerifiedPhoneNumber = SetPhoneNumberOptions;
-export declare type SetPhoneNumber = {};
-export declare type DeletePhone = {};
-export declare type ResendPhoneCode = {};
-export declare type VerifyPhone = {};
+export declare type SetPhoneNumber = unknown;
+export declare type DeletePhone = unknown;
+export declare type ResendPhoneCode = unknown;
+export declare type VerifyPhone = unknown;
 export declare type GetSelfPromotionChannels = UpdateUserPromotionChannelsOptions;
 export declare type GetUserPromotionChannelsOptions = { userId: number }
 export declare type GetUserPromotionChannels = Omit<GetSelfPromotionChannels, "promotionChannelsVisibilityPrivacy">;
-export declare type UpdateUserPromotionChannels = {}
-export declare type RemoveStarCodeAffiliate = {}
+export declare type UpdateUserPromotionChannels = unknown
+export declare type RemoveStarCodeAffiliate = unknown
 export declare type GetStarCodeAffiliate = {
     userId: number;
     name: string;

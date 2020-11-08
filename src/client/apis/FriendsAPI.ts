@@ -18,12 +18,12 @@ export type FindFriendByCode = {
     username: string;
     friendshipStatus: "NoFriendship" | string;
 }
-export type CheckSessionHealth = {}
+export type CheckSessionHealth = unknown
 export type RedeemNearbyFriendCodeOptions = {
     code: string;
 }
-export type RedeemNearbyFriendCode = {}
-export type DeleteSession = {}
+export type RedeemNearbyFriendCode = unknown
+export type DeleteSession = unknown
 export type GetOrCreateNearbySession = {
     code: string;
     expires: number;
@@ -35,7 +35,7 @@ export type RedeemQRCode = {
     userId: number;
     username: string;
 };
-export type DeleteQRCodeSession = {}
+export type DeleteQRCodeSession = unknown
 export type GetOrCreateQRCodeSession = GetOrCreateNearbySession;
 export type GetMetaDataOptions = {
     targetUserId: number;
@@ -141,13 +141,13 @@ export type GetUserFriendsWithStatuses = {
         status: "NotFriends" | string;
     }[];
 };
-export type DeclineAllFriendRequests = {}
+export type DeclineAllFriendRequests = unknown
 export type AcceptFriendRequestOptions = {
     userId: number;
 }
-export type AcceptFriendRequest = {}
+export type AcceptFriendRequest = unknown
 export type DeclineFriendRequestOptions = AcceptFriendRequestOptions;
-export type DeclineFriendRequest = {}
+export type DeclineFriendRequest = unknown
 export type FollowUserOptions = {
     userId: number;
 }
@@ -168,7 +168,7 @@ export type UnFollowUser = FollowUser;
 export type UnfriendUserOptions = {
     userId: number;
 }
-export type UnfriendUser = {}
+export type UnfriendUser = unknown
 export type GetSelfRecommendedUsers = {
     user: PartialUser;
     profileUrl: string;

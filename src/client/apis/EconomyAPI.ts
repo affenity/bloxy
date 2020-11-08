@@ -56,7 +56,7 @@ export type SetAssetCopiesOptions = {
     userAssetId: number;
     price: number;
 }
-export type SetAssetCopies = {}
+export type SetAssetCopies = unknown
 export type GetDeveloperExchangeAbility = {
     canCashOut: boolean;
     meetsPremiumRequirement: boolean;

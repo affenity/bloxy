@@ -1,6 +1,6 @@
 import RESTController from "../RESTController";
 
-export default async function updateXCSRFToken (restController: RESTController): Promise<string> {
+export default function updateXCSRFToken (restController: RESTController): Promise<string> {
     return restController.request({
         url: "https://auth.roblox.com/v2/login",
         method: "POST",

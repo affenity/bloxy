@@ -13,7 +13,7 @@ export type UpdateBadgeOptions = {
     description: string;
     enabled: boolean;
 };
-export type UpdateBadge = {};
+export type UpdateBadge = unknown;
 export type GetUniverseBadgesOptions = {
     universeId: number;
     limit?: 10 | 25 | 50 | 100;
@@ -46,7 +46,7 @@ export type DeleteBadgeFromUserOptions = {
     userId: number;
     badgeId: number;
 }
-export type DeleteBadgeFromUser = {};
+export type DeleteBadgeFromUser = unknown;
 export type DeleteBadgeFromSelfOptions = {
     badgeId: number;
 }

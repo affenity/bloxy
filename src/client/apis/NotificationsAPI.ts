@@ -29,21 +29,21 @@ export type GetRealtimeNotificationsSettings = {
 export type AllowNotificationSourceOptions = {
     sourceType: string;
 }
-export type AllowNotificationSource = {}
+export type AllowNotificationSource = unknown
 export type DisallowNotificationSourceOptions = AllowNotificationSourceOptions;
-export type DisallowNotificationSource = {}
+export type DisallowNotificationSource = unknown
 export type AllowNotificationsDestinationOptions = {
     destinationType: string;
 }
-export type AllowNotificationsDestination = {}
+export type AllowNotificationsDestination = unknown
 export type DisallowNotificationsDestinationOptions = AllowNotificationsDestinationOptions;
-export type DisallowNotificationsDestination = {}
+export type DisallowNotificationsDestination = unknown
 export type UpdateNotificationDestinationSettingsOptions = {
     notificationSourceType: string;
     destinationId: number;
     isEnabled: boolean;
 }
-export type UpdateNotificationDestinationSettings = {}
+export type UpdateNotificationDestinationSettings = unknown
 export type UpdateNotificationSettingsOptions = {
     updatedSettings: {
         notificationSourceType: string;
@@ -51,7 +51,7 @@ export type UpdateNotificationSettingsOptions = {
         isEnabled: boolean;
     }[];
 }
-export type UpdateNotificationSettings = {}
+export type UpdateNotificationSettings = unknown
 export type GetChromeNotificationsManifest = {
     name: string;
     gcm_sender_id: string;
