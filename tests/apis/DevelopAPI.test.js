@@ -25,12 +25,14 @@ describe("testing DevelopAPI", function () {
             name: `Test - music ${Date.now() / 1000}`,
             iconImageAssetId: 5874994712,
             description: `A developer product automatically created using bloxy at ${new Date().toISOString()}`
-        });
+        })
+            .catch(e => {
+                throw e;
+            });
 
         expect(createdProduct)
             .resolves
-            .not
-            .toThrow();
+            .toBeDefined();
         expect(createdProduct)
             .resolves
             .toMatchObject({
