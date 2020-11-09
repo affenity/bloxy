@@ -29,6 +29,10 @@ describe("testing DevelopAPI", function () {
 
         expect(createdProduct)
             .resolves
+            .not
+            .toThrow();
+        expect(createdProduct)
+            .resolves
             .toMatchObject({
                 name: String
             });
