@@ -2,7 +2,7 @@ import Client from "../client";
 import { PartialUser, PartialUserOptions } from "./User";
 import { PartialGameUniverse, PartialGameUniverseOptions } from "./Game";
 import { SendGameLinkMessageOptions, SendMessageOptions } from "../client/apis/ChatAPI";
-import { PartialGroupOptions, PartialGroup } from "./Group";
+import { PartialGroup, PartialGroupOptions } from "./Group";
 
 
 interface Structures {

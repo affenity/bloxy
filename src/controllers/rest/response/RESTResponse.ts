@@ -14,7 +14,6 @@ export default class RESTResponse {
         this.controller = controller;
         this.request = request;
         this.responseData = responseData;
-        this.responseData.status = responseData.status;
     }
 
     process (): RESTResponseDataType {

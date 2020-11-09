@@ -71,7 +71,7 @@ export declare type RESTRequestOptions = {
     /**
      * The JSON body
      */
-    json?: Array<unknown> | { [key: string]: unknown } | string;
+    json?: unknown[] | { [key: string]: unknown } | string;
     body?: unknown;
     /**
      * The form body

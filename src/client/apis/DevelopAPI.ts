@@ -432,7 +432,8 @@ export default class DevelopAPI extends BaseAPI {
                 }
             },
             json: true
-        }).then(response => response.body);
+        })
+            .then(response => response.body);
     }
 
     getGameTemplates (): Promise<GetGameTemplates> {
@@ -445,7 +446,8 @@ export default class DevelopAPI extends BaseAPI {
                 }
             },
             json: true
-        }).then(response => response.body.data);
+        })
+            .then(response => response.body.data);
     }
 
     getGameUpdatesHistory (options: GetGameUpdatesHistoryOptions): Promise<GetGameUpdatesHistory> {
@@ -458,7 +460,8 @@ export default class DevelopAPI extends BaseAPI {
                 }
             },
             json: true
-        }).then(response => response.body);
+        })
+            .then(response => response.body);
     }
 
     publishGameUpdateNotification (options: PublishGameNotificationOptions): Promise<PublishGameNotification> {
@@ -473,7 +476,8 @@ export default class DevelopAPI extends BaseAPI {
                 }
             },
             json: true
-        }).then(response => response.body);
+        })
+            .then(response => response.body);
     }
 
     filterGameUpdateNotificationText (options: FilterPublishGameNotificationOptions): Promise<FilterPublishGameNotification> {
@@ -488,7 +492,8 @@ export default class DevelopAPI extends BaseAPI {
                 }
             },
             json: true
-        }).then(response => response.body);
+        })
+            .then(response => response.body);
     }
 
     getGroupUniverses (options: GetGroupUniversesOptions): Promise<GetGroupUniverses> {
@@ -502,7 +507,8 @@ export default class DevelopAPI extends BaseAPI {
                 }
             },
             json: true
-        }).then(response => response.body);
+        })
+            .then(response => response.body);
     }
 
     getPlaceCompatibilities (options: GetPlaceCompatibilitiesOptions): Promise<GetPlaceCompatibilities> {
@@ -515,7 +521,8 @@ export default class DevelopAPI extends BaseAPI {
                 }
             },
             json: true
-        }).then(response => response.body);
+        })
+            .then(response => response.body);
     }
 
     updatePlaceConfiguration (options: UpdatePlaceConfigurationOptions): Promise<UpdatePlaceConfiguration> {
@@ -530,7 +537,8 @@ export default class DevelopAPI extends BaseAPI {
                 }
             },
             json: true
-        }).then(response => response.body);
+        })
+            .then(response => response.body);
     }
 
     getPlaceStatistics (options: GetPlaceStatisticsByTypeOptions): Promise<GetPlaceStatisticsByType> {
@@ -544,7 +552,8 @@ export default class DevelopAPI extends BaseAPI {
                 }
             },
             json: true
-        }).then(response => response.body);
+        })
+            .then(response => response.body);
     }
 
     getMultiPlugins (options: GetPluginsByIdOptions): Promise<GetPluginsById> {
@@ -560,7 +569,8 @@ export default class DevelopAPI extends BaseAPI {
                 }
             },
             json: true
-        }).then(response => response.body);
+        })
+            .then(response => response.body);
     }
 
     updatePlugin (options: UpdatePluginOptions): Promise<UpdatePlugin> {
@@ -575,7 +585,8 @@ export default class DevelopAPI extends BaseAPI {
                 }
             },
             json: true
-        }).then(response => response.body);
+        })
+            .then(response => response.body);
     }
 
     searchUniverses (options: SearchUniversesOptions): Promise<SearchUniverses> {
@@ -592,7 +603,8 @@ export default class DevelopAPI extends BaseAPI {
                 }
             },
             json: true
-        }).then(response => response.body);
+        })
+            .then(response => response.body);
     }
 
     searchToolbox (options: SearchToolboxOptions): Promise<SearchToolbox> {
@@ -606,7 +618,8 @@ export default class DevelopAPI extends BaseAPI {
                 }
             },
             json: true
-        }).then(response => response.body);
+        })
+            .then(response => response.body);
     }
 
     getUniverse (options: GetUniverseOptions): Promise<GetUniverse> {
@@ -619,7 +632,8 @@ export default class DevelopAPI extends BaseAPI {
                 }
             },
             json: true
-        }).then(response => response.body);
+        })
+            .then(response => response.body);
     }
 
     getSelfUniversePermissions (options: GetUniversePermissionsOptions): Promise<GetUniversePermissions> {
@@ -632,7 +646,8 @@ export default class DevelopAPI extends BaseAPI {
                 }
             },
             json: true
-        }).then(response => response.body);
+        })
+            .then(response => response.body);
     }
 
     getPlacesInUniverse (options: GetUniversePlacesOptions): Promise<GetUniversePlaces> {
@@ -646,7 +661,8 @@ export default class DevelopAPI extends BaseAPI {
                 }
             },
             json: true
-        }).then(response => response.body);
+        })
+            .then(response => response.body);
     }
 
     getUniverseStatisticReports (options: GetUniverseStatisticsReportsOptions): Promise<GetUniverseStatisticsReports> {
@@ -659,7 +675,8 @@ export default class DevelopAPI extends BaseAPI {
                 }
             },
             json: true
-        }).then(response => response.body);
+        })
+            .then(response => response.body);
     }
 
     getUniverseStatisticReportsByTime (options: GetUniverseStatisticsReportsByTimeOptions): Promise<GetUniverseStatisticsReportByTime> {
@@ -672,7 +689,8 @@ export default class DevelopAPI extends BaseAPI {
                 }
             },
             json: true
-        }).then(response => response.body);
+        })
+            .then(response => response.body);
     }
 
     downloadUniverseStatisticReportsByTime (options: DownloadUniverseStatisticsReportByTimeOptions): Promise<DownloadUniverseStatisticsReportByTime> {
@@ -685,7 +703,8 @@ export default class DevelopAPI extends BaseAPI {
                 }
             },
             json: true
-        }).then(response => response.body);
+        })
+            .then(response => response.body);
     }
 
     getMultiUniverses (options: MultiGetUniversesOptions): Promise<MultiGetUniverses> {
@@ -701,7 +720,8 @@ export default class DevelopAPI extends BaseAPI {
                 }
             },
             json: true
-        }).then(response => response.body);
+        })
+            .then(response => response.body);
     }
 
     getMultiUniversesPermissions (options: MultiGetUniversesPermissionsOptions): Promise<MultiGetUniversesPermissions> {
@@ -717,7 +737,8 @@ export default class DevelopAPI extends BaseAPI {
                 }
             },
             json: true
-        }).then(response => response.body);
+        })
+            .then(response => response.body);
     }
 
     activateUniverse (options: ActivateUniverseOptions): Promise<ActivateUniverse> {
@@ -731,7 +752,8 @@ export default class DevelopAPI extends BaseAPI {
                 }
             },
             json: true
-        }).then(response => response.body);
+        })
+            .then(response => response.body);
     }
 
     deactivateUniverse (options: DeactivateUniverseOptions): Promise<DeactivateUniverse> {
@@ -745,7 +767,8 @@ export default class DevelopAPI extends BaseAPI {
                 }
             },
             json: true
-        }).then(response => response.body);
+        })
+            .then(response => response.body);
     }
 
     generateUniverseStatisticReportsByTime (options: GenerateUniverseStatisticReportsByTimeOptions): Promise<GenerateUniverseStatisticReportsByTime> {
@@ -759,7 +782,8 @@ export default class DevelopAPI extends BaseAPI {
                 }
             },
             json: true
-        }).then(response => response.body);
+        })
+            .then(response => response.body);
     }
 
     getUniverseConfiguration (options: GetUniverseConfigurationOptions): Promise<GetUniverseConfiguration> {
@@ -772,7 +796,8 @@ export default class DevelopAPI extends BaseAPI {
                 }
             },
             json: true
-        }).then(response => response.body);
+        })
+            .then(response => response.body);
     }
 
     updateUniverseConfiguration (options: UpdateUniverseConfigurationOptions): Promise<UpdateUniverseConfiguration> {
@@ -787,7 +812,8 @@ export default class DevelopAPI extends BaseAPI {
                 }
             },
             json: true
-        }).then(response => response.body);
+        })
+            .then(response => response.body);
     }
 
     getUniverseVIPServersConfiguration (options: GetUniverseVIPServersConfigurationOptions): Promise<GetUniverseVIPServersConfiguration> {
@@ -800,7 +826,8 @@ export default class DevelopAPI extends BaseAPI {
                 }
             },
             json: true
-        }).then(response => response.body);
+        })
+            .then(response => response.body);
     }
 
     getUniverseTeamCreateSettings (options: GetUniverseTeamCreateSettingsOptions): Promise<GetUniverseTeamCreateSettings> {
@@ -813,7 +840,8 @@ export default class DevelopAPI extends BaseAPI {
                 }
             },
             json: true
-        }).then(response => response.body);
+        })
+            .then(response => response.body);
     }
 
     updateUniverseTeamCreateSettings (options: UpdateUniverseTeamCreateSettingsOptions): Promise<UpdateUniverseTeamCreateSettings> {
@@ -828,7 +856,8 @@ export default class DevelopAPI extends BaseAPI {
                 }
             },
             json: true
-        }).then(response => response.body);
+        })
+            .then(response => response.body);
     }
 
     removeUserFromUniverseTeamCreate (options: RemoveUserFromUniverseTeamCreateOptions): Promise<RemoveUserFromUniverseTeamCreate> {
@@ -843,7 +872,8 @@ export default class DevelopAPI extends BaseAPI {
                 }
             },
             json: true
-        }).then(response => response.body);
+        })
+            .then(response => response.body);
     }
 
     getUniverseTeamCreateMembers (options: GetUsersInUniverseTeamCreateOptions): Promise<GetUsersInUniverseTeamCreate> {
@@ -857,7 +887,8 @@ export default class DevelopAPI extends BaseAPI {
                 }
             },
             json: true
-        }).then(response => response.body);
+        })
+            .then(response => response.body);
     }
 
     getSelfUniversesTeamCreateAccess (options: GetSelfTeamCreateUniversesAccessOptions): Promise<GetSelfTeamCreateUniversesAccess> {
@@ -871,7 +902,8 @@ export default class DevelopAPI extends BaseAPI {
                 }
             },
             json: true
-        }).then(response => response.body);
+        })
+            .then(response => response.body);
     }
 
     getSelfManageableGroups (): Promise<GetSelfGroupsAccess> {
@@ -884,7 +916,8 @@ export default class DevelopAPI extends BaseAPI {
                 }
             },
             json: true
-        }).then(response => response.body);
+        })
+            .then(response => response.body);
     }
 
     getSelfNotificationStatisticReports (): Promise<GetNotificationsStatisticReports> {
@@ -897,7 +930,8 @@ export default class DevelopAPI extends BaseAPI {
                 }
             },
             json: true
-        }).then(response => response.body);
+        })
+            .then(response => response.body);
     }
 
     getStudioData (options: GetStudioDataOptions): Promise<GetStudioData> {
@@ -911,7 +945,8 @@ export default class DevelopAPI extends BaseAPI {
                 }
             },
             json: true
-        }).then(response => response.body);
+        })
+            .then(response => response.body);
     }
 
     setStudioData (options: SetStudioDataOptions): Promise<SetStudioData> {
@@ -929,7 +964,8 @@ export default class DevelopAPI extends BaseAPI {
                 }
             },
             json: true
-        }).then(response => response.body);
+        })
+            .then(response => response.body);
     }
 
     getSelfUniverses (options: GetSelfUniversesOptions): Promise<GetSelfUniverses> {
@@ -943,7 +979,8 @@ export default class DevelopAPI extends BaseAPI {
                 }
             },
             json: true
-        }).then(response => response.body);
+        })
+            .then(response => response.body);
     }
 
     createUniverseAlias (options: CreateUniverseAliasOptions): Promise<CreateUniverseAlias> {
@@ -956,7 +993,8 @@ export default class DevelopAPI extends BaseAPI {
                 }
             },
             json: true
-        }).then(response => response.body);
+        })
+            .then(response => response.body);
     }
 
     deleteUniverseAlias (options: DeleteUniverseAliasOptions): Promise<DeleteUniverseAlias> {
@@ -970,7 +1008,8 @@ export default class DevelopAPI extends BaseAPI {
                 }
             },
             json: true
-        }).then(response => response.body);
+        })
+            .then(response => response.body);
     }
 
     updateUniverseAlias (options: UpdateUniverseAliasOptions): Promise<UpdateUniverseAlias> {
@@ -985,7 +1024,8 @@ export default class DevelopAPI extends BaseAPI {
                 }
             },
             json: true
-        }).then(response => response.body);
+        })
+            .then(response => response.body);
     }
 
     createDeveloperProduct (options: CreateDeveloperProductOptions): Promise<CreateDeveloperProduct> {
@@ -994,13 +1034,14 @@ export default class DevelopAPI extends BaseAPI {
             request: {
                 path: `v1/universes/${options.universeId}/developerproducts`,
                 method: "POST",
-                json: options,
+                qs: options,
                 responseOptions: {
                     allowedStatusCodes: [200]
                 }
             },
             json: true
-        }).then(response => response.body);
+        })
+            .then(response => response.body);
     }
 
     updateDeveloperProduct (options: UpdateDeveloperProductOptions): Promise<UpdateDeveloperProduct> {
@@ -1015,6 +1056,7 @@ export default class DevelopAPI extends BaseAPI {
                 }
             },
             json: true
-        }).then(response => response.body);
+        })
+            .then(response => response.body);
     }
 }

@@ -73,7 +73,8 @@ export default class PublishAPI extends BaseAPI {
                 body: options.files
             },
             json: true
-        }).then(response => response.body);
+        })
+            .then(response => response.body);
     }
 
     publishAudio (options: PublishAudioOptions): Promise<PublishAudio> {
@@ -85,7 +86,8 @@ export default class PublishAPI extends BaseAPI {
                 json: options
             },
             json: true
-        }).then(response => response.body);
+        })
+            .then(response => response.body);
     }
 
     verifyAudio (options: VerifyAudioOptions): Promise<VerifyAudio> {
@@ -97,7 +99,8 @@ export default class PublishAPI extends BaseAPI {
                 json: options
             },
             json: true
-        }).then(response => response.body);
+        })
+            .then(response => response.body);
     }
 
     publishBadgeIcon (options: PublishBadgeIconOptions): Promise<PublishBadgeIcon> {
@@ -109,7 +112,8 @@ export default class PublishAPI extends BaseAPI {
                 body: options.files
             },
             json: true
-        }).then(response => response.body);
+        })
+            .then(response => response.body);
     }
 
     publishGamePassIcon (options: PublishGamePassIconOptions): Promise<PublishGamePassIcon> {
@@ -121,7 +125,8 @@ export default class PublishAPI extends BaseAPI {
                 body: options.files
             },
             json: true
-        }).then(response => response.body);
+        })
+            .then(response => response.body);
     }
 
     uploadGameThumbnail (options: UploadGameThumbnailOptions): Promise<UploadGameThumbnail> {
@@ -133,7 +138,8 @@ export default class PublishAPI extends BaseAPI {
                 body: options.files
             },
             json: true
-        }).then(response => response.body);
+        })
+            .then(response => response.body);
     }
 
     uploadPluginIcon (options: UploadPluginIconOptions): Promise<UploadPluginIcon> {
@@ -145,6 +151,7 @@ export default class PublishAPI extends BaseAPI {
                 body: options.files
             },
             json: true
-        }).then(response => response.body);
+        })
+            .then(response => response.body);
     }
 }

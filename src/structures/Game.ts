@@ -21,6 +21,7 @@ const retrieveStructures = (): Structures => ({
     PartialPlace: require("./Game").PartialPlace
 });
 
+
 export interface GameBadgeBaseOptions {
     id: number;
     name?: string;
@@ -423,11 +424,12 @@ export interface VIPServerOptions {
     permissions: {
         clanAllowed: boolean;
         enemyClanId: number | number;
-        friendsAllowed: boolean; users: Array<{
+        friendsAllowed: boolean;
+        users: {
             id: number;
             name: string;
             displayName: string;
-        }>;
+        }[];
     };
 }
 
