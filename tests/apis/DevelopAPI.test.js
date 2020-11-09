@@ -18,28 +18,17 @@ beforeAll(async () => {
 });
 
 describe("testing DevelopAPI", function () {
-    it("should create a developer product with no issue", function () {
-        const createdProduct = client.apis.developAPI.createDeveloperProduct({
+    it("should create a developer product with no issue", async function () {
+        const createdProduct = await client.apis.developAPI.createDeveloperProduct({
             universeId: 2021554667,
             priceInRobux: 10,
             name: `Test - music ${Date.now() / 1000}`,
             iconImageAssetId: 5874994712,
             description: `A developer product automatically created using bloxy at ${new Date().toISOString()}`
         })
-            .catch(e => {
-                throw e;
-            });
+            .catch(e => e);
 
-        expect(createdProduct)
-            .resolves
-            .toBeDefined();
-        expect(createdProduct)
-            .resolves
-            .toMatchObject({
-                name: String
-            });
-        expect(createdProduct)
-            .resolves
+        return expect(createdProduct)
             .toHaveProperty(["id", "name", "Description", "shopId", "iconImageAssetId"]);
     });
 });
