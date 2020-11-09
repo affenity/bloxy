@@ -29,7 +29,6 @@
       </indentOptions>
     </codeStyleSettings>
     <codeStyleSettings language="JavaScript">
-      <option name="INDENT_CASE_FROM_SWITCH" value="false" />
       <option name="ALIGN_MULTILINE_PARAMETERS" value="false" />
       <option name="ALIGN_MULTILINE_FOR" value="false" />
       <option name="SPACE_BEFORE_METHOD_PARENTHESES" value="true" />
@@ -42,7 +41,6 @@
     <codeStyleSettings language="TypeScript">
       <option name="BLANK_LINES_AFTER_IMPORTS" value="2" />
       <option name="BLANK_LINES_AROUND_CLASS" value="2" />
-      <option name="INDENT_CASE_FROM_SWITCH" value="false" />
       <option name="ALIGN_MULTILINE_PARAMETERS" value="false" />
       <option name="ALIGN_MULTILINE_FOR" value="false" />
       <option name="SPACE_BEFORE_METHOD_PARENTHESES" value="true" />
