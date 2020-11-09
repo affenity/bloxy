@@ -202,6 +202,24 @@ class RESTController {
     }
 
     /**
+     * Sets the amount of retries to be made to refresh XCSRF
+     * tokens on Token Validation errors
+     * @param {number} xcsrfRefreshMaxRetries Number of retries
+     */
+    setXCSRFTokenRefreshMaxRetries (xcsrfRefreshMaxRetries: number): void {
+        this.options.xcsrfRefreshMaxRetries = xcsrfRefreshMaxRetries;
+    }
+
+    /**
+     * Gets the amount of retries to be made to refresh XCSRF
+     * tokens on Token Validation errors
+     * @returns {number | undefined}
+     */
+    getXCSRFTokenRefreshMaxRetries (): number | undefined {
+        return this.options.xcsrfRefreshMaxRetries;
+    }
+
+    /**
      * Sets the options for the RESTController
      * @param {RESTControllerOptions} options The options to use
      * @returns {RESTControllerOptions}
