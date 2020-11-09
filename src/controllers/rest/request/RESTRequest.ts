@@ -17,7 +17,7 @@ class RESTRequest {
     public requestOptions: RESTRequestOptions;
 
     /**
-     * The amount of attempts to execute this request
+     * The amount of times this request has been executed
      */
     public attempts: number;
 
