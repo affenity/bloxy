@@ -1034,7 +1034,7 @@ export default class DevelopAPI extends BaseAPI {
             request: {
                 path: `v1/universes/${options.universeId}/developerproducts`,
                 method: "POST",
-                json: options,
+                qs: options,
                 responseOptions: {
                     allowedStatusCodes: [200]
                 }
