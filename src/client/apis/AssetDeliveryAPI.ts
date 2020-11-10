@@ -123,7 +123,8 @@ export default class AssetDeliveryAPI extends BaseAPI {
                     allowedStatusCodes: [200]
                 }
             }
-        }).then(response => convertToBaseAsset(response.body) as GetAssetByAlias);
+        })
+            .then(response => convertToBaseAsset(response.body) as GetAssetByAlias);
     }
 
     getAssetById (options: GetAssetByIdOptions): Promise<GetAssetById> {
@@ -144,10 +145,11 @@ export default class AssetDeliveryAPI extends BaseAPI {
                     allowedStatusCodes: [200]
                 }
             }
-        }).then(response => ({
-            location: response.body.Location || undefined,
-            request: response.body.Request
-        }) as GetAssetById);
+        })
+            .then(response => ({
+                location: response.body.Location || undefined,
+                request: response.body.Request
+            }) as GetAssetById);
     }
 
     getAssetByHash (options: GetAssetByHashOptions): Promise<GetAssetByHash> {
@@ -167,7 +169,8 @@ export default class AssetDeliveryAPI extends BaseAPI {
                     allowedStatusCodes: [200]
                 }
             }
-        }).then(response => convertToBaseAsset(response.body) as GetAssetByHash);
+        })
+            .then(response => convertToBaseAsset(response.body) as GetAssetByHash);
     }
 
     getAssetByAssetId (options: GetAssetByAssetIdOptions): Promise<GetAssetByAssetId> {
@@ -187,7 +190,8 @@ export default class AssetDeliveryAPI extends BaseAPI {
                     allowedStatusCodes: [200]
                 }
             }
-        }).then(response => convertToBaseAsset(response.body) as GetAssetByAssetId);
+        })
+            .then(response => convertToBaseAsset(response.body) as GetAssetByAssetId);
     }
 
     getAssetVersionByAssetId (options: GetAssetVersionByAssetIdOptions): Promise<GetAssetVersionByAssetId> {
@@ -207,7 +211,8 @@ export default class AssetDeliveryAPI extends BaseAPI {
                     allowedStatusCodes: [200]
                 }
             }
-        }).then(response => convertToBaseAsset(response.body) as GetAssetVersionByAssetId);
+        })
+            .then(response => convertToBaseAsset(response.body) as GetAssetVersionByAssetId);
     }
 
     getAssetByAssetVersionId (options: GetAssetByAssetVersionIdOptions): Promise<GetAssetByAssetVersionId> {
@@ -227,7 +232,8 @@ export default class AssetDeliveryAPI extends BaseAPI {
                     allowedStatusCodes: [200]
                 }
             }
-        }).then(response => convertToBaseAsset(response.body) as GetAssetByAssetVersionId);
+        })
+            .then(response => convertToBaseAsset(response.body) as GetAssetByAssetVersionId);
     }
 
     getAssetByMarAssetHash (options: GetAssetByMarAssetHashOptions): Promise<GetAssetByMarAssetHash> {
@@ -247,7 +253,8 @@ export default class AssetDeliveryAPI extends BaseAPI {
                     allowedStatusCodes: [200]
                 }
             }
-        }).then(response => convertToBaseAsset(response.body) as GetAssetByMarAssetHash);
+        })
+            .then(response => convertToBaseAsset(response.body) as GetAssetByMarAssetHash);
     }
 
     getAssetByUserAssetId (options: GetAssetByUserAssetIdOptions): Promise<GetAssetByUserAssetId> {
@@ -267,7 +274,8 @@ export default class AssetDeliveryAPI extends BaseAPI {
                     allowedStatusCodes: [200]
                 }
             }
-        }).then(response => convertToBaseAsset(response.body) as GetAssetByUserAssetId);
+        })
+            .then(response => convertToBaseAsset(response.body) as GetAssetByUserAssetId);
     }
 
     getBatchAssets (options: GetBatchAssetsOptions): Promise<GetBatchAssets> {
@@ -282,6 +290,7 @@ export default class AssetDeliveryAPI extends BaseAPI {
                     allowedStatusCodes: [200]
                 }
             }
-        }).then(response => response.body.map((value: BaseAssetRaw) => convertToBaseAsset(value)) as GetBatchAssets);
+        })
+            .then(response => response.body.map((value: BaseAssetRaw) => convertToBaseAsset(value)) as GetBatchAssets);
     }
 }

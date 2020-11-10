@@ -100,7 +100,8 @@ export default class UsersAPI extends BaseAPI {
                 }
             },
             json: true
-        }).then(response => response.body);
+        })
+            .then(response => response.body);
     }
 
     validateDisplayNameExistingUser (options: ValidateDisplayNameExistingUserOptions): Promise<ValidateDisplayNameExistingUser> {
@@ -114,7 +115,8 @@ export default class UsersAPI extends BaseAPI {
                 }
             },
             json: true
-        }).then(response => response.body);
+        })
+            .then(response => response.body);
     }
 
     setDisplayName (options: SetSelfDisplayNameOptions): Promise<SetSelfDisplayName> {
@@ -129,7 +131,8 @@ export default class UsersAPI extends BaseAPI {
                 }
             },
             json: true
-        }).then(response => response.body);
+        })
+            .then(response => response.body);
     }
 
     getUserById (options: GetUserByIdOptions): Promise<GetUserById> {
@@ -142,7 +145,8 @@ export default class UsersAPI extends BaseAPI {
                 }
             },
             json: true
-        }).then(response => response.body);
+        })
+            .then(response => response.body);
     }
 
     getAuthenticatedUserInformation (): Promise<GetSelfAuthenticatedUserInformation> {
@@ -156,7 +160,8 @@ export default class UsersAPI extends BaseAPI {
                 }
             },
             json: true
-        }).then(response => response.body);
+        })
+            .then(response => response.body);
     }
 
     getUsersByUsernames (options: GetUsersByUsernamesOptions): Promise<GetUsersByUsernames> {
@@ -171,7 +176,8 @@ export default class UsersAPI extends BaseAPI {
                 }
             },
             json: true
-        }).then(response => response.body);
+        })
+            .then(response => response.body);
     }
 
     getUsersByIds (options: GetUsersByUserIdsOptions): Promise<GetUsersByUserIds> {
@@ -186,7 +192,8 @@ export default class UsersAPI extends BaseAPI {
                 }
             },
             json: true
-        }).then(response => response.body);
+        })
+            .then(response => response.body);
     }
 
     getUserStatus (options: GetUserStatusOptions): Promise<GetUserStatus> {
@@ -199,7 +206,8 @@ export default class UsersAPI extends BaseAPI {
                 }
             },
             json: true
-        }).then(response => response.body);
+        })
+            .then(response => response.body);
     }
 
     updateStatus (options: UpdateSelfStatusOptions): Promise<UpdateSelfStatus> {
@@ -214,7 +222,8 @@ export default class UsersAPI extends BaseAPI {
                 }
             },
             json: true
-        }).then(response => response.body);
+        })
+            .then(response => response.body);
     }
 
     searchUsers (options: SearchUsersOptions): Promise<SearchUsers> {
@@ -228,6 +237,7 @@ export default class UsersAPI extends BaseAPI {
                 }
             },
             json: true
-        }).then(response => response.body);
+        })
+            .then(response => response.body);
     }
 }

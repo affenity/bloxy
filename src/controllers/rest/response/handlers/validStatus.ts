@@ -11,8 +11,10 @@ export default function validStatus (response: RESTResponse): boolean | Error {
         const allowedStatuses = responseOptions.allowedStatuses || [];
         const disallowedStatuses = responseOptions.disallowedStatuses || [];
 
-        const isAllowed = allowedStatuses.some(status => responseData.status.toLowerCase().includes(status));
-        const isDisallowed = disallowedStatuses.some(status => responseData.status.toLowerCase().includes(status));
+        const isAllowed = allowedStatuses.some(status => responseData.status.toLowerCase()
+            .includes(status));
+        const isDisallowed = disallowedStatuses.some(status => responseData.status.toLowerCase()
+            .includes(status));
 
         if (allowedStatuses.length > 0) {
             // Only these are allowed

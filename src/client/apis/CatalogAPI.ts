@@ -148,7 +148,8 @@ export default class CatalogAPI extends BaseAPI {
                 }
             },
             json: true
-        }).then(response => response.body);
+        })
+            .then(response => response.body);
     }
 
     getBundleDetails (options: GetBundleDetailsOptions): Promise<GetBundleDetails> {
@@ -162,7 +163,8 @@ export default class CatalogAPI extends BaseAPI {
                 }
             },
             json: true
-        }).then(response => response.body);
+        })
+            .then(response => response.body);
     }
 
     getBundleRecommendationsByBundleId (options: GetBundleRecommendationsByBundleIdOptions): Promise<GetBundleRecommendationsByBundleId> {
@@ -176,7 +178,8 @@ export default class CatalogAPI extends BaseAPI {
                 }
             },
             json: true
-        }).then(response => response.body);
+        })
+            .then(response => response.body);
     }
 
     getMultiBundleDetails (options: GetMultiBundleDetailsOptions): Promise<GetMultiBundleDetails> {
@@ -192,7 +195,8 @@ export default class CatalogAPI extends BaseAPI {
                 }
             },
             json: true
-        }).then(response => response.body);
+        })
+            .then(response => response.body);
     }
 
     getUserBundles (options: GetUserBundlesOptions): Promise<GetUserBundles> {
@@ -206,7 +210,8 @@ export default class CatalogAPI extends BaseAPI {
                 }
             },
             json: true
-        }).then(response => response.body);
+        })
+            .then(response => response.body);
     }
 
     getUserBundlesByType (options: GetUserBundlesByTypeOptions): Promise<GetUserBundlesByType> {
@@ -219,7 +224,8 @@ export default class CatalogAPI extends BaseAPI {
                 }
             },
             json: true
-        }).then(response => response.body);
+        })
+            .then(response => response.body);
     }
 
     unpackBundle (options: UnpackBundleOptions): Promise<UnpackBundle> {
@@ -233,7 +239,8 @@ export default class CatalogAPI extends BaseAPI {
                 }
             },
             json: true
-        }).then(response => response.body);
+        })
+            .then(response => response.body);
     }
 
     getAssetToCategory (): Promise<GetAssetToCategory> {
@@ -246,7 +253,8 @@ export default class CatalogAPI extends BaseAPI {
                 }
             },
             json: true
-        }).then(response => response.body);
+        })
+            .then(response => response.body);
     }
 
     getAssetToSubCategory (): Promise<GetAssetToSubCategory> {
@@ -259,7 +267,8 @@ export default class CatalogAPI extends BaseAPI {
                 }
             },
             json: true
-        }).then(response => response.body);
+        })
+            .then(response => response.body);
     }
 
     getCategories (): Promise<GetCategories> {
@@ -272,7 +281,8 @@ export default class CatalogAPI extends BaseAPI {
                 }
             },
             json: true
-        }).then(response => response.body);
+        })
+            .then(response => response.body);
     }
 
     getSubCategories (): Promise<GetSubCategories> {
@@ -285,7 +295,8 @@ export default class CatalogAPI extends BaseAPI {
                 }
             },
             json: true
-        }).then(response => response.body);
+        })
+            .then(response => response.body);
     }
 
     getAppStoreExclusiveBundles (options: GetAppStoreExclusiveBundlesOptions): Promise<GetAppStoreExclusiveBundles> {
@@ -298,7 +309,8 @@ export default class CatalogAPI extends BaseAPI {
                 }
             },
             json: true
-        }).then(response => response.body);
+        })
+            .then(response => response.body);
     }
 
     getAssetFavoriteCount (options: GetAssetFavoriteCountOptions): Promise<GetAssetFavoriteCount> {
@@ -311,7 +323,8 @@ export default class CatalogAPI extends BaseAPI {
                 }
             },
             json: true
-        }).then(response => response.body);
+        })
+            .then(response => response.body);
     }
 
     getBundleFavoriteCount (options: GetBundleFavoriteCountOptions): Promise<GetBundleFavoriteCount> {
@@ -324,7 +337,8 @@ export default class CatalogAPI extends BaseAPI {
                 }
             },
             json: true
-        }).then(response => response.body);
+        })
+            .then(response => response.body);
     }
 
     removeAssetFavorite (options: RemoveSelfAssetFavoriteOptions): Promise<RemoveSelfAssetFavorite> {
@@ -338,7 +352,8 @@ export default class CatalogAPI extends BaseAPI {
                 }
             },
             json: true
-        }).then(response => response.body);
+        })
+            .then(response => response.body);
     }
 
     getUserFavoriteAsset (options: GetUserFavoriteAssetOptions): Promise<GetUserFavoriteAsset> {
@@ -351,7 +366,8 @@ export default class CatalogAPI extends BaseAPI {
                 }
             },
             json: true
-        }).then(response => response.body);
+        })
+            .then(response => response.body);
     }
 
     favoriteAsset (options: FavoriteAssetOptions): Promise<FavoriteAsset> {
@@ -365,7 +381,8 @@ export default class CatalogAPI extends BaseAPI {
                 }
             },
             json: true
-        }).then(response => response.body);
+        })
+            .then(response => response.body);
     }
 
     removeBundleFavorite (options: RemoveFavoriteBundleOptions): Promise<RemoveFavoriteBundle> {
@@ -379,7 +396,8 @@ export default class CatalogAPI extends BaseAPI {
                 }
             },
             json: true
-        }).then(response => response.body);
+        })
+            .then(response => response.body);
     }
 
     getUserFavoriteBundle (options: GetSelfFavoriteBundleOptions): Promise<GetSelfFavoriteBundle> {
@@ -392,7 +410,8 @@ export default class CatalogAPI extends BaseAPI {
                 }
             },
             json: true
-        }).then(response => response.body);
+        })
+            .then(response => response.body);
     }
 
     favoriteBundle (options: FavoriteBundleOptions): Promise<FavoriteBundle> {
@@ -406,6 +425,7 @@ export default class CatalogAPI extends BaseAPI {
                 }
             },
             json: true
-        }).then(response => response.body);
+        })
+            .then(response => response.body);
     }
 }

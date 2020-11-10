@@ -70,7 +70,8 @@ export default class AvatarAPI extends BaseAPI {
                 }
             },
             json: true
-        }).then(response => response.body);
+        })
+            .then(response => response.body);
     }
 
     updateBadge (options: UpdateBadgeOptions): Promise<UpdateBadge> {
@@ -84,7 +85,8 @@ export default class AvatarAPI extends BaseAPI {
                 }
             },
             json: true
-        }).then(response => response.body);
+        })
+            .then(response => response.body);
     }
 
     getUniverseBadges (options: GetUniverseBadgesOptions): Promise<GetUniverseBadges> {
@@ -98,7 +100,8 @@ export default class AvatarAPI extends BaseAPI {
                 }
             },
             json: true
-        }).then(response => response.body);
+        })
+            .then(response => response.body);
     }
 
     getUserBadges (options: GetUserBadgesOptions): Promise<GetUserBadges> {
@@ -112,7 +115,8 @@ export default class AvatarAPI extends BaseAPI {
                 }
             },
             json: true
-        }).then(response => response.body);
+        })
+            .then(response => response.body);
     }
 
     getUserBadgesAwardedDates (options: GetUserBadgesAwardedDatesOptions): Promise<GetUserBadgesAwardedDates> {
@@ -128,7 +132,8 @@ export default class AvatarAPI extends BaseAPI {
                 }
             },
             json: true
-        }).then(response => response.body);
+        })
+            .then(response => response.body);
     }
 
     deleteBadgeFromUser (options: DeleteBadgeFromUserOptions): Promise<DeleteBadgeFromUser> {
@@ -142,7 +147,8 @@ export default class AvatarAPI extends BaseAPI {
                 }
             },
             json: true
-        }).then(response => response.body);
+        })
+            .then(response => response.body);
     }
 
     deleteBadgeFromSelf (options: DeleteBadgeFromSelfOptions): Promise<DeleteBadgeFromSelf> {
@@ -156,6 +162,7 @@ export default class AvatarAPI extends BaseAPI {
                 }
             },
             json: true
-        }).then(response => response.body);
+        })
+            .then(response => response.body);
     }
 }
