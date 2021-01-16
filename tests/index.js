@@ -1,12 +1,17 @@
 const cookie = require("./getCookie");
 
 (async () => {
-    const Bloxy = require("bloxy");
+    const Bloxy = require("../dist");
     const client = new Bloxy.Client({
-
+        credentials: {
+            cookie
+        }
     });
-    const group = await client.getGroup(3544434);
-    const funds = await group.getFunds();
+    await client.login();
+    const datastore = client.dataStoreManager.getDataStore(1523450240, "test123");
+    console.log(datastore.buildGetUrl());
+    console.log(datastore.buildPostDataForKey("boop"));
+    const data = await datastore.getAsync("boop");
 
-    console.log(`Group ${group.name} has ${funds} Robux in funds!`);
+    console.log(data);
 })();

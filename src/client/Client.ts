@@ -29,6 +29,10 @@ export default class Client extends ClientBase {
         this.init();
     }
 
+    public isLoggedIn (): boolean {
+        return this.user !== null;
+    }
+
     init (): void {
         if (this.options.rest) {
             this.rest.setOptions(this.options.rest);

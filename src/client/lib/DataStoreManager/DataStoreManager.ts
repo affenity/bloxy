@@ -11,6 +11,10 @@ export default class DataStoreManager {
     }
 
     getOrderedDataStore (placeId: number, name: string, scope?: string) {
+        if (!this.client.isLoggedIn()) {
+            throw new Error(`You must be logged in to be able to use data stores!`);
+        }
+
         return new OrderedDataStore(
             this,
             placeId,
@@ -21,6 +25,10 @@ export default class DataStoreManager {
     }
 
     getDataStore (placeId: number, name: string, scope?: string) {
+        if (!this.client.isLoggedIn()) {
+            throw new Error(`You must be logged in to be able to use data stores!`);
+        }
+
         return new GlobalDataStore(
             this,
             placeId,

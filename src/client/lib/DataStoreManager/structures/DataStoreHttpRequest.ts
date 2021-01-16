@@ -4,7 +4,9 @@ import { DataStoreRequestType } from "../util/constants";
 
 
 type DataStoreHttpRequestOptions = RESTRequestOptions & {
-    requestType: DataStoreRequestType
+    placeId: number;
+    requestType: DataStoreRequestType;
+    data: string;
 };
 
 export default class DataStoreHttpRequest {
@@ -14,9 +16,24 @@ export default class DataStoreHttpRequest {
     constructor (manager: DataStoreManager, options: DataStoreHttpRequestOptions) {
         this.initiator = manager;
         this.options = options;
+
+        // Adjusting the body
+        this.options.body = this.options.data.length === 0 ? " " : this.options.data;
+
+        // Always POST
+        this.options.method = this.options.method || "POST";
+        this.options.headers = this.options.headers || {};
+        this.options.headers = {
+            ...this.options.headers,
+            "Cache-Control": "no-cache",
+            "Content-Type": "application/x-www-form-urlencoded",
+            "Roblox-Place-Id": this.options.placeId,
+            Cookie: `.ROBLOSECURITY=${this.initiator.client.rest.getCookies("https://www.roblox.com/")}`
+        };
     }
 
     send (): Promise<RESTResponseDataType> {
+        console.log(this.options);
         return this.initiator.client.rest.request(this.options);
     }
 }
