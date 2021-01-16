@@ -25,6 +25,15 @@ export declare type RESTControllerOptions = {
      * The time in ms when the xcsrf was last set
      */
     xcsrfSet?: number;
+    /**
+     * Refresh interval in ms for XCSRF token updating
+     */
+    xcsrfRefreshInterval?: number;
+    /**
+     * The amount of retries to be made to refresh XCSRF
+     * tokens on Token Validation errors
+     */
+    xcsrfRefreshMaxRetries?: number;
 };
 
 export declare type RESTCreateCookieOptions = {
@@ -146,5 +155,7 @@ export const DefaultRESTControllerOptions = {
     userAgent: "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/51.0.2704.103 Safari/537.36",
     proxy: undefined,
     xcsrf: undefined,
-    xcsrfSet: undefined
+    xcsrfSet: undefined,
+    xcsrfRefreshInterval: 5 * 60 * 1000,
+    xcsrfRefreshMaxRetries: 4
 };

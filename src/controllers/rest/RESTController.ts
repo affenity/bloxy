@@ -91,11 +91,11 @@ class RESTController {
     }
 
     /**
-     * Gets the existing xcsrf token if it's not more than 5 minutes old,
+     * Gets the existing XCSRF token if it's not older than set refresh interval,
      * otherwise, fetch a new one
      */
     async getXCSRFToken (): Promise<string | undefined> {
-        if (!this.options.xcsrf || (Date.now() - (this.options.xcsrfSet || 0)) >= (5 * 60 * 1000)) {
+        if (!this.options.xcsrf || (Date.now() - (this.options.xcsrfSet || 0)) >= (this.options.xcsrfRefreshInterval || DefaultRESTControllerOptions.xcsrfRefreshInterval)) {
             // Refresh token
             await this.fetchXCSRFToken()
                 .then(token => {
@@ -184,6 +184,40 @@ class RESTController {
      */
     getUserAgent (): string | undefined {
         return this.options.userAgent;
+    }
+
+    /**
+     * Sets the XCSRF token refresh interval
+     * @param {number} xcsrfRefreshInterval The time in ms to use
+     */
+    setXCSRFTokenRefreshInterval (xcsrfRefreshInterval: number): void {
+        this.options.xcsrfRefreshInterval = xcsrfRefreshInterval;
+    }
+
+    /**
+     * Gets the XCSRF token refresh interval
+     * @returns {number | undefined}
+     */
+    getXCSRFTokenRefreshInterval (): number | undefined {
+        return this.options.xcsrfRefreshInterval;
+    }
+
+    /**
+     * Sets the amount of retries to be made to refresh XCSRF
+     * tokens on Token Validation errors
+     * @param {number} xcsrfRefreshMaxRetries Number of retries
+     */
+    setXCSRFTokenRefreshMaxRetries (xcsrfRefreshMaxRetries: number): void {
+        this.options.xcsrfRefreshMaxRetries = xcsrfRefreshMaxRetries;
+    }
+
+    /**
+     * Gets the amount of retries to be made to refresh XCSRF
+     * tokens on Token Validation errors
+     * @returns {number | undefined}
+     */
+    getXCSRFTokenRefreshMaxRetries (): number | undefined {
+        return this.options.xcsrfRefreshMaxRetries;
     }
 
     /**

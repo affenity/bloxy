@@ -686,7 +686,7 @@ export interface GroupOptions {
     memberCount: number;
     isBuildersClubOnly: boolean;
     publicEntryAllowed: boolean;
-    created?: string;
+    isLocked: boolean;
 }
 
 
@@ -695,6 +695,10 @@ export class Group extends GroupBase {
     public name: string;
     public owner: GroupMember | null;
     public shout: GroupShout | null;
+    public memberCount: number;
+    public isBuildersClubOnly: boolean;
+    public publicEntryAllowed: boolean;
+    public isLocked: boolean;
 
     constructor (data: GroupOptions, client: Client) {
         super(data, client);
@@ -716,6 +720,10 @@ export class Group extends GroupBase {
                 name: this.name || undefined
             }
         }, client) : null;
+        this.memberCount = data.memberCount;
+        this.isBuildersClubOnly = data.isBuildersClubOnly;
+        this.publicEntryAllowed = data.publicEntryAllowed;
+        this.isLocked = data.isLocked;
     }
 }
 
