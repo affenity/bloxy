@@ -18,16 +18,7 @@ beforeAll(async () => {
 });
 
 describe("testing DevelopAPI", function () {
-    describe("testing universe-related APIs", async () => {
-        const firstUniverseFound = await client.apis.developAPI.getSelfUniverses({
-            sortOrder: "Desc",
-            limit: 10
-        })
-            .then(response => response.data[0])
-            .catch(e => {
-                throw new Error(`Failed to retrieve first universe! ${e}`);
-            });
-
+    describe("testing universe-related APIs", () => {
         it(`should create a developer product in the first universe: ${firstUniverseFound.id}`, async function () {
             const createdProduct = await client.apis.developAPI.createDeveloperProduct({
                 universeId: 2021554667,
