@@ -3,6 +3,7 @@ import DataStoreManager from "../DataStoreManager";
 import DataStoreHttpRequest from "./DataStoreHttpRequest";
 import { DataStoreRequestType } from "../util/constants";
 import { checkKey, checkName, checkPlaceId, checkScope, checkValue } from "../util/checks";
+import { RESTResponseDataType } from "../../../../interfaces/RESTInterfaces";
 
 
 type DataStoreType = "OrderedDataStore" | "GlobalDataStore";
@@ -187,7 +188,6 @@ export default class GenericDataStore<DataType extends any> {
      */
     public async setAsync (key: string, value: DataType): Promise<DataType> {
         const serializedValue = this.serializeOutgoingData(value);
-        console.log(`Outgoing data: ${serializedValue}`);
         this.performPreflightChecks({
             key,
             value: serializedValue
@@ -209,7 +209,7 @@ export default class GenericDataStore<DataType extends any> {
         return this.parseIncomingData(parsedResponse.data as string);
     }
 
-    public async incrementAsync (key: string, delta = 1): Promise<boolean> {
+    public async incrementAsync (key: string, delta = 1): Promise<RESTResponseDataType> {
         this.performPreflightChecks({
             key
         });
@@ -220,13 +220,10 @@ export default class GenericDataStore<DataType extends any> {
             requestType: DataStoreRequestType.INCREMENT_ASYNC
         });
 
-        const response = await createdRequest.send();
-        console.log(response);
-
-        return true;
+        return createdRequest.send();
     }
 
-    public async removeAsync (key: string): Promise<boolean> {
+    public async removeAsync (key: string): Promise<RESTResponseDataType> {
         this.performPreflightChecks({
             key
         });
@@ -237,10 +234,7 @@ export default class GenericDataStore<DataType extends any> {
             requestType: DataStoreRequestType.SET_ASYNC
         });
 
-        const response = await createdRequest.send();
-        console.log(response);
-
-        return true;
+        return createdRequest.send();
     }
 
     public createQueryString (addition: Record<string, unknown>) {
