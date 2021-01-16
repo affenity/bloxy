@@ -16,9 +16,15 @@ class RESTRequest {
      */
     public requestOptions: RESTRequestOptions;
 
+    /**
+     * The amount of times this request has been executed
+     */
+    public attempts: number;
+
     constructor (controller: RESTController, options: RESTRequestOptions) {
         this.controller = controller;
         this.requestOptions = options;
+        this.attempts = 0;
     }
 
     setOptions (options: RESTRequestOptions): RESTRequestOptions {
@@ -34,6 +40,8 @@ class RESTRequest {
 
         // Console.log(this.requestOptions);
         const responseData = await this.controller.requester(this.requestOptions);
+        this.attempts++;
+
         const response = new RESTResponse(this.controller, this, responseData);
         return response.process();
     }

@@ -105,7 +105,7 @@ export default class TradesAPI extends BaseAPI {
     constructor (client: Client) {
         super({
             client,
-            baseUrl: "https://thumbnails.roblox.com/"
+            baseUrl: "https://trades.roblox.com/"
         });
     }
 

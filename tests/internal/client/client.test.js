@@ -1,5 +1,5 @@
-const bloxy = require("../../dist");
-const TEST_COOKIE = require("../getCookie");
+const bloxy = require("../../../dist");
+const TEST_COOKIE = require("../../getCookie");
 
 
 describe("testing client", function () {

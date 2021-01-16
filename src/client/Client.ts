@@ -5,6 +5,7 @@ import RESTController from "../controllers/rest";
 import { Group, PartialUser, User } from "../structures";
 import * as ClientSocket from "./lib/ClientSocket/ClientSocket";
 import ChatManager from "./lib/ChatManager/ChatManager";
+import DataStoreManager from "./lib/DataStoreManager/DataStoreManager";
 
 
 export default class Client extends ClientBase {
@@ -12,6 +13,7 @@ export default class Client extends ClientBase {
     public apis: APIs;
     public rest: RESTController;
     public socket: ClientSocket.Socket;
+    public dataStoreManager: DataStoreManager
     public chat: ChatManager;
 
     constructor (options?: ClientOptions) {
@@ -21,9 +23,14 @@ export default class Client extends ClientBase {
         this.apis = initAPIs(this);
         this.rest = new RESTController(this, this.options.rest);
         this.socket = new ClientSocket.Socket(this);
+        this.dataStoreManager = new DataStoreManager(this);
         this.chat = new ChatManager(this);
 
         this.init();
+    }
+
+    public isLoggedIn (): boolean {
+        return this.user !== null;
     }
 
     init (): void {
