@@ -32,3 +32,11 @@ export function checkScope (scope: string): boolean {
 
     return true;
 }
+
+export function checkValue (value: string): boolean {
+    if (value.length === 0 || value.length > DataStoreManagerConstants.DFInt.DataStoreMaxValueSize) {
+        throw new Error(`DataStore values cannot be blank or be more than ${DataStoreManagerConstants.DFInt.DataStoreMaxValueSize} characters!`);
+    }
+
+    return true;
+}

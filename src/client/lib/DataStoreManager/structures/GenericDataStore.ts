@@ -2,7 +2,7 @@ import * as querystring from "querystring";
 import DataStoreManager from "../DataStoreManager";
 import DataStoreHttpRequest from "./DataStoreHttpRequest";
 import { DataStoreRequestType } from "../util/constants";
-import { checkKey, checkName, checkPlaceId, checkScope } from "../util/checks";
+import { checkKey, checkName, checkPlaceId, checkScope, checkValue } from "../util/checks";
 
 
 type DataStoreType = "OrderedDataStore" | "GlobalDataStore";
@@ -22,7 +22,8 @@ export default class GenericDataStore<DataType extends any> {
     public placeId: number;
     public dataStoreType: DataStoreType;
     public advanced: {
-        dataConverter?: (data: string) => DataType;
+        parseData?: (data: string) => DataType;
+        serializeData?: (data: DataType) => string;
     };
 
     constructor (manager: DataStoreManager, dataStoreType: DataStoreType, placeId: number, name: string, scope: string | null, legacy = false) {
@@ -43,10 +44,12 @@ export default class GenericDataStore<DataType extends any> {
      * When data is retrieved from data stores, it will be returned unmodified
      * Using your own data converter will allow you to return it if you handle your data in a special way, such as
      * JSON parsing it etc.
-     * @param {(data: string) => DataType} converterFunction
+     * @param {(data: string) => DataType} parseDataFunction
+     * @param {(data: DataType) => string} serializeDataFunction
      */
-    public setDataConverter (converterFunction: (data: string) => DataType): void {
-        this.advanced.dataConverter = converterFunction;
+    public setDataConverters (parseDataFunction: (data: string) => DataType, serializeDataFunction: (data: DataType) => string): void {
+        this.advanced.parseData = parseDataFunction;
+        this.advanced.serializeData = serializeDataFunction;
     }
 
     buildPostDataForKey (key: string, index = 0): string {
@@ -60,20 +63,13 @@ export default class GenericDataStore<DataType extends any> {
     }
 
     buildGetUrl (): string {
-        const encodedQueryString = querystring.encode({
-            placeId: this.placeId,
-            type: this.dataStoreType === "GlobalDataStore" ? "standard" : this.dataStoreType,
-            scope: this.scope
-        });
+        const encodedQueryString = this.createQueryString({});
 
         return `${this.baseAPIUrl}getV2?${encodedQueryString}`;
     }
 
     buildSetUrl (key: string, valueLength: number): string {
-        const encodedQueryString = querystring.encode({
-            placeId: this.placeId,
-            type: this.dataStoreType === "GlobalDataStore" ? "standard" : this.dataStoreType,
-            scope: this.scope ? this.safeEncodeValue(this.scope) : undefined,
+        const encodedQueryString = this.createQueryString({
             key: this.legacy ? this.safeEncodeValue(key) : this.safeEncodeValue(this.name),
             target: this.legacy ? "" : this.safeEncodeValue(key),
             valueLength
@@ -87,10 +83,7 @@ export default class GenericDataStore<DataType extends any> {
     }
 
     buildSetIfUrl (key: string, valueLength: number, expectedValueLength: number): string {
-        const encodedQueryString = querystring.encode({
-            placeId: this.placeId,
-            type: this.dataStoreType === "GlobalDataStore" ? "standard" : this.dataStoreType,
-            scope: this.scope ? this.safeEncodeValue(this.scope) : undefined,
+        const encodedQueryString = this.createQueryString({
             key: this.legacy ? this.safeEncodeValue(key) : this.safeEncodeValue(this.name),
             target: this.legacy ? "" : this.safeEncodeValue(key),
             valueLength,
@@ -105,11 +98,8 @@ export default class GenericDataStore<DataType extends any> {
     }
 
     buildIncrementUrl (key: string, delta: number): string {
-        const encodedQueryString = querystring.encode({
-            placeId: this.placeId,
-            type: this.dataStoreType === "GlobalDataStore" ? "standard" : this.dataStoreType,
+        const encodedQueryString = this.createQueryString({
             key: this.legacy ? this.safeEncodeValue(key) : this.safeEncodeValue(this.name),
-            scope: this.scope ? this.safeEncodeValue(this.scope) : undefined,
             target: this.legacy ? "" : this.safeEncodeValue(key),
             value: delta
         });
@@ -122,11 +112,8 @@ export default class GenericDataStore<DataType extends any> {
     }
 
     buildRemoveUrl (key: string): string {
-        const encodedQueryString = querystring.encode({
-            placeId: this.placeId,
-            type: this.dataStoreType === "GlobalDataStore" ? "standard" : this.dataStoreType,
+        const encodedQueryString = this.createQueryString({
             key: this.legacy ? this.safeEncodeValue(key) : this.safeEncodeValue(this.name),
-            scope: this.scope ? this.safeEncodeValue(this.scope) : undefined,
             target: this.legacy ? "" : this.safeEncodeValue(key)
         });
 
@@ -137,20 +124,7 @@ export default class GenericDataStore<DataType extends any> {
         }
     }
 
-    public serializeData (data: any): [boolean, string] {
-        let isJSON = true;
-        let result = "";
-
-        try {
-            result = JSON.stringify(data);
-        } catch {
-            isJSON = false;
-        }
-
-        return [isJSON, result];
-    }
-
-    public deserializeData<Result extends any> (data: string): [boolean, Result | any] {
+    public parseRetrievedData<Result extends any> (data: string): [boolean, Result | any] {
         let result = "";
 
         if (data.length === 0) {
@@ -166,10 +140,17 @@ export default class GenericDataStore<DataType extends any> {
         return [true, result];
     }
 
+    /**
+     * Retrieves the value associated with the key (if any), otherwise returns null.
+     * Equivalent of DataStoreService:GetDataStore("name"):GetAsync("key");
+     * @param {string} key
+     * @returns {Promise<unknown>}
+     */
     public async getAsync (key: string): Promise<unknown> {
-        if (!checkKey(key)) {
+        this.performPreflightChecks({
+            key
+        });
 
-        }
         const createdRequest = new DataStoreHttpRequest(this.manager, {
             url: this.buildGetUrl(),
             placeId: this.placeId,
@@ -178,8 +159,7 @@ export default class GenericDataStore<DataType extends any> {
         });
 
         const response = await createdRequest.send();
-
-        const [parsedResponseSuccess, parsedResponse] = this.deserializeData<{
+        const [parsedResponseSuccess, parsedResponse] = this.parseRetrievedData<{
             data: {
                 Key: DataStoreKey;
                 Value: DataStoreValue;
@@ -191,13 +171,142 @@ export default class GenericDataStore<DataType extends any> {
         }
 
         if (parsedResponse.data && parsedResponse.data.length > 0) {
-            return this.handleRawData(parsedResponse.data[0].Value);
+            // Sending the returned data for internal processing
+            return this.parseIncomingData(parsedResponse.data[0].Value);
         } else {
             return null;
         }
     }
 
-    private performPreflightChecks (options: { key?: string; value?: DataType }) {
+    /**
+     * Sets a value in data stores to the given key.
+     * Equivalent of DataStoreService:GetDataStore("name"):SetAsync("key", "value")
+     * @param {string} key
+     * @param {DataType} value
+     * @returns {Promise<boolean>}
+     */
+    public async setAsync (key: string, value: DataType): Promise<DataType> {
+        const serializedValue = this.serializeOutgoingData(value);
+        console.log(`Outgoing data: ${serializedValue}`);
+        this.performPreflightChecks({
+            key,
+            value: serializedValue
+        });
+        const createdRequest = new DataStoreHttpRequest(this.manager, {
+            url: this.buildSetUrl(key, serializedValue.length),
+            placeId: this.placeId,
+            data: `value=${this.safeEncodeValue(serializedValue)}`,
+            requestType: DataStoreRequestType.SET_ASYNC
+        });
+
+        const response = await createdRequest.send();
+        const [parsedResponseSuccess, parsedResponse] = this.parseRetrievedData<{ data: string }>(response.body);
+
+        if (!parsedResponseSuccess || !parsedResponse) {
+            throw new Error(`Failed to parse response!`);
+        }
+
+        return this.parseIncomingData(parsedResponse.data as string);
+    }
+
+    public async incrementAsync (key: string, delta = 1): Promise<boolean> {
+        this.performPreflightChecks({
+            key
+        });
+        const createdRequest = new DataStoreHttpRequest(this.manager, {
+            url: this.buildIncrementUrl(key, delta),
+            placeId: this.placeId,
+            data: "",
+            requestType: DataStoreRequestType.INCREMENT_ASYNC
+        });
+
+        const response = await createdRequest.send();
+        console.log(response);
+
+        return true;
+    }
+
+    public async removeAsync (key: string): Promise<boolean> {
+        this.performPreflightChecks({
+            key
+        });
+        const createdRequest = new DataStoreHttpRequest(this.manager, {
+            url: this.buildRemoveUrl(key),
+            placeId: this.placeId,
+            data: "",
+            requestType: DataStoreRequestType.SET_ASYNC
+        });
+
+        const response = await createdRequest.send();
+        console.log(response);
+
+        return true;
+    }
+
+    public createQueryString (addition: Record<string, unknown>) {
+        return querystring.encode({
+            placeId: this.placeId,
+            type: this.dataStoreType === "GlobalDataStore" ? "standard" : "sorted",
+            scope: this.safeEncodeValue(this.scope),
+            ...addition
+        });
+    }
+
+    /**
+     * This will (possibly) use a custom provided converter function that turns string into DataType.
+     * @param {string} data
+     * @returns {DataType}
+     * @private
+     */
+    parseIncomingData (data: string): DataType {
+        if (this.advanced.parseData) {
+            return this.advanced.parseData(data);
+        } else {
+            return data as DataType;
+        }
+    }
+
+    /**
+     * This will (possibly) use a custom provided converter function that turns DataType into string so it can be saved
+     * to data stores
+     * @param {DataType} data
+     * @returns {string}
+     * @private
+     */
+    serializeOutgoingData (data: DataType): string {
+        let serializedStage1: string | DataType = "";
+
+        if (this.advanced.serializeData) {
+            serializedStage1 = this.advanced.serializeData(data);
+        } else {
+            serializedStage1 = data;
+        }
+
+        let serializedFinal: string | null = "";
+
+        try {
+            serializedFinal = JSON.stringify(serializedStage1);
+        } catch {
+            serializedFinal = null;
+        }
+
+        if (!serializedFinal) {
+            throw new Error(`Failed to serialize the data using JSON.stringify`);
+        }
+
+        return serializedFinal;
+    }
+
+    safeEncodeValue (input: string) {
+        return encodeURIComponent(input);
+    }
+
+    /**
+     * Performs various checks before sending any requests to make sure the requests are valid before sent
+     * @param {{key?: string, value?: DataType}} options
+     * @private
+     */
+    performPreflightChecks (options: { key?: string; value?: string }) {
         checkScope(this.scope);
         checkName(this.name);
         checkPlaceId(this.placeId);
@@ -206,29 +315,7 @@ export default class GenericDataStore<DataType extends any> {
             checkKey(options.key);
         }
         if (options.value !== undefined) {
-            this.isValueAllowed(options.value);
+            checkValue(options.value);
         }
-    }
-
-    private handleRawData (data: string): DataType {
-        if (this.advanced.dataConverter) {
-            return this.advanced.dataConverter(data);
-        } else {
-            return data as DataType;
-        }
-    }
-
-    private isValueAllowed (data: DataType): boolean {
-        const [serializedSuccess] = this.serializeData(data);
-
-        if (!serializedSuccess) {
-            throw new Error(`Invalid data, unable to serialize it!`);
-        } else {
-            return true;
-        }
-    }
-
-    private safeEncodeValue (input: string) {
-        return encodeURIComponent(input);
     }
 }

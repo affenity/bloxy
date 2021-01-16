@@ -28,12 +28,11 @@ export default class DataStoreHttpRequest {
             "Cache-Control": "no-cache",
             "Content-Type": "application/x-www-form-urlencoded",
             "Roblox-Place-Id": this.options.placeId,
-            Cookie: `.ROBLOSECURITY=${this.initiator.client.rest.getCookies("https://www.roblox.com/")}`
+            Cookie: this.initiator.client.rest.getCookies("https://www.roblox.com/")
         };
     }
 
     send (): Promise<RESTResponseDataType> {
-        console.log(this.options);
         return this.initiator.client.rest.request(this.options);
     }
 }
