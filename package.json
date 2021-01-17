@@ -60,7 +60,6 @@
     "lodash": "^4.17.20",
     "signalr-client": "0.0.20",
     "tough-cookie": "^4.0.0",
-    "tslib": "^2.1.0",
-    "websocket": "^1.0.33"
+    "tslib": "^2.1.0"
   }
 }
