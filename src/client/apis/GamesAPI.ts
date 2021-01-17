@@ -355,7 +355,6 @@ export default class GamesAPI extends BaseAPI {
         const placeIdsQueryString = `?${options.placeIds.map(x => `&placeIds=${x}`)
             .join("")}`;
 
-        console.log(placeIdsQueryString);
         return this.request({
             requiresAuth: true,
             request: {
