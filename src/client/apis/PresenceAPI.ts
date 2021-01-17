@@ -13,7 +13,7 @@ export type GetUsersPresencesOptions = {
 }
 export type GetUsersPresences = {
     userPresences: {
-        userPresenceType: "Offline" | string;
+        userPresenceType: number;
         lastLocation: string;
         placeId: number;
         rootPlaceId: number;
