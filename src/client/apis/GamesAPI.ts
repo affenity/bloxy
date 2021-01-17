@@ -352,13 +352,14 @@ export default class GamesAPI extends BaseAPI {
     }
 
     getMultiPlaces (options: MultiGetPlacesOptions): Promise<MultiGetPlaces> {
+        const placeIdsQueryString = `?${options.placeIds.map(x => `&placeIds=${x}`)
+            .join("")}`;
+
+        console.log(placeIdsQueryString);
         return this.request({
             requiresAuth: true,
             request: {
-                path: `v1/games/multiget-place-details`,
-                qs: {
-                    placeIds: options.placeIds.join(",")
-                },
+                path: `v1/games/multiget-place-details?${placeIdsQueryString}&_=`,
                 responseOptions: {
                     allowedStatusCodes: [200]
                 }

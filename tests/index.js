@@ -8,7 +8,4 @@ const cookie = require("./getCookie");
         }
     });
     await client.login();
-
-    const d = await client.apis.developAPI.getGameTemplates();
-    console.log(d);
 })();
