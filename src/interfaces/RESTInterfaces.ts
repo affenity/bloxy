@@ -125,8 +125,6 @@ export declare type RESTResponseOptions = {
 
 export declare type RESTResponseDataType = {
     body: any;
-    url: string;
-    requestUrl: string;
     status: string;
     statusCode: number;
     headers: Record<string, string>;
