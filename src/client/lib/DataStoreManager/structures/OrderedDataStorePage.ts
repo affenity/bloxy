@@ -17,7 +17,7 @@ export default class OrderedDataStorePage<DataType extends any> {
         this.startKey = data.result.data.ExclusiveStartKey;
     }
 
-    async fetchNextPage () {
+    fetchNextPage (): Promise<OrderedDataStorePage<DataType>> {
         if (!this.startKey) {
             throw new Error(`There is no next page!`);
         }
