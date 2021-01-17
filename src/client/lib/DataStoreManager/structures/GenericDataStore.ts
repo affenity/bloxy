@@ -209,7 +209,7 @@ export default class GenericDataStore<DataType extends any> {
         return this.parseIncomingData(parsedResponse.data as string);
     }
 
-    public async incrementAsync (key: string, delta = 1): Promise<RESTResponseDataType> {
+    public incrementAsync (key: string, delta = 1): Promise<RESTResponseDataType> {
         this.performPreflightChecks({
             key
         });
@@ -223,7 +223,7 @@ export default class GenericDataStore<DataType extends any> {
         return createdRequest.send();
     }
 
-    public async removeAsync (key: string): Promise<RESTResponseDataType> {
+    public removeAsync (key: string): Promise<RESTResponseDataType> {
         this.performPreflightChecks({
             key
         });
