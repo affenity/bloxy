@@ -145,6 +145,7 @@ describe("testing DevelopAPI", function () {
                 });
         });
         it("should retrieve root place compatibilities", async function () {
+            jest.setTimeout(15000);
             await firstUniverseFound;
             return expect(
                 client.apis.developAPI.getPlaceCompatibilities({

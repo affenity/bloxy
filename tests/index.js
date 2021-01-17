@@ -11,6 +11,11 @@ const cookie = require("./getCookie");
     const datastore = client.dataStoreManager;
 
     const testStore = datastore.getDataStore(1523450240, "test123");
+    const universes = await client.apis.developAPI.getSelfUniverses({
+        limit: 10
+    });
+
+    console.log(universes);
 
 
     const setValue = await testStore.setAsync("hello", "frick!");
