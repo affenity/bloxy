@@ -271,13 +271,11 @@ export default class GamesAPI extends BaseAPI {
     }
 
     getGames (options: GetGameUniversesOptions): Promise<GetGameUniverses> {
+        const universeIdsQueryString = `universeIds=${options.universeIds.join("&universeIds=")}`;
         return this.request({
             requiresAuth: true,
             request: {
-                path: `v1/games`,
-                qs: {
-                    universeIds: options.universeIds.join(",")
-                },
+                path: `v1/games?${universeIdsQueryString}`,
                 responseOptions: {
                     allowedStatusCodes: [200]
                 }
@@ -303,13 +301,11 @@ export default class GamesAPI extends BaseAPI {
     }
 
     getGamesProductInfo (options: GetGamesProductInfoOptions): Promise<GameGamesProductInfo> {
+        const universeIdsQueryString = `universeIds=${options.universeIds.join("&universeIds=")}`;
         return this.request({
             requiresAuth: true,
             request: {
-                path: `v1/games/games-product-info`,
-                qs: {
-                    universeIds: options.universeIds.join(",")
-                },
+                path: `v1/games/games-product-info?${universeIdsQueryString}`,
                 responseOptions: {
                     allowedStatusCodes: [200]
                 }
@@ -352,13 +348,12 @@ export default class GamesAPI extends BaseAPI {
     }
 
     getMultiPlaces (options: MultiGetPlacesOptions): Promise<MultiGetPlaces> {
-        const placeIdsQueryString = `?${options.placeIds.map(x => `&placeIds=${x}`)
-            .join("")}`;
+        const placeIdsQueryString = `placeIds=${options.placeIds.join("&placeIds=")}`;
 
         return this.request({
             requiresAuth: true,
             request: {
-                path: `v1/games/multiget-place-details?${placeIdsQueryString}&_=`,
+                path: `v1/games/multiget-place-details?${placeIdsQueryString}`,
                 responseOptions: {
                     allowedStatusCodes: [200]
                 }
@@ -369,13 +364,11 @@ export default class GamesAPI extends BaseAPI {
     }
 
     getMultiGamesPlayabilityStatus (options: MultiGetGameUniversesPlayabilityOptions): Promise<MultiGetGameUniversesPlayability> {
+        const universeIdsQueryString = `universeIds=${options.universeIds.join("&universeIds=")}`;
         return this.request({
             requiresAuth: true,
             request: {
-                path: `v1/games/multiget-playability-status`,
-                qs: {
-                    universeIds: options.universeIds.join(",")
-                },
+                path: `v1/games/multiget-playability-status?${universeIdsQueryString}`,
                 responseOptions: {
                     allowedStatusCodes: [200]
                 }
@@ -514,13 +507,11 @@ export default class GamesAPI extends BaseAPI {
     }
 
     getGamesVotes (options: GetGamesVotesOptions): Promise<GetGamesVotes> {
+        const universeIdsQueryString = `universeIds=${options.universeIds.join("&universeIds=")}`;
         return this.request({
             requiresAuth: true,
             request: {
-                path: `v1/games/votes`,
-                qs: {
-                    universeIds: options.universeIds.join(",")
-                },
+                path: `v1/games/votes?${universeIdsQueryString}`,
                 responseOptions: {
                     allowedStatusCodes: [200]
                 }
