@@ -13,7 +13,7 @@ export default class Client extends ClientBase {
     public apis: APIs;
     public rest: RESTController;
     public socket: ClientSocket.Socket;
-    public dataStoreManager: DataStoreManager
+    public dataStoreManager: DataStoreManager;
     public chat: ChatManager;
 
     constructor (options?: ClientOptions) {
@@ -39,7 +39,7 @@ export default class Client extends ClientBase {
         }
     }
 
-    login = async (cookie?: string): Promise<ClientUser> => {
+    public async login (cookie?: string): Promise<ClientUser> {
         cookie = cookie || (this.options.credentials || {}).cookie || undefined;
 
         if (!cookie) {
@@ -68,7 +68,7 @@ export default class Client extends ClientBase {
         this.emit("loggedIn");
 
         return this.user;
-    };
+    }
 
     getGroup (groupId: number): Promise<Group> {
         return this.apis.groupsAPI.getGroup({

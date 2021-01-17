@@ -8,18 +8,41 @@ const client = new bloxy.Client({
 });
 const { wait } = require("../util");
 
-beforeAll(async () => {
-    return client.login(
-        TEST_COOKIE
-    )
-        .then(clientUser => {
-            console.log(`Using test account ${clientUser.id} with name ${clientUser.name}`);
-        });
-});
-
 describe("testing DevelopAPI", function () {
+    beforeAll(() => {
+        return client.login(
+            TEST_COOKIE
+        )
+            .then(clientUser => {
+                console.log(`${new Date()} logged in!`);
+                console.log(`Using test account ${clientUser.id} with name ${clientUser.name}`);
+            })
+            .catch(e => {
+                console.log(`Error: ${e}`);
+            });
+    });
+
+    let firstUniverseFound;
+
+    it("fetching first universe found..", async () => {
+        console.log(`${new Date()} fetching universes..`);
+        firstUniverseFound = await client.apis.developAPI.getSelfUniverses({
+            sortOrder: "Desc",
+            limit: 10
+        })
+            .catch(e => e)
+            .then(response => {
+                return response.data[0];
+            })
+            .catch(e => {
+                throw new Error(`Failed to retrieve first universe! ${e}`);
+            });
+    });
+
     describe("testing universe-related APIs", () => {
-        it(`should create a developer product in the first universe: ${firstUniverseFound.id}`, async function () {
+        it(`should create a developer product in the first universe`, async function () {
+            await firstUniverseFound;
+
             const createdProduct = await client.apis.developAPI.createDeveloperProduct({
                 universeId: 2021554667,
                 priceInRobux: 10,
@@ -33,7 +56,8 @@ describe("testing DevelopAPI", function () {
                 .toHaveProperty(["id", "name", "Description", "shopId", "iconImageAssetId"]);
         });
 
-        it("should deactivate the universe", function () {
+        it("should deactivate the universe", async function () {
+            await firstUniverseFound;
             return expect(
                 client.apis.developAPI.deactivateUniverse({
                     universeId: firstUniverseFound.id
@@ -44,7 +68,8 @@ describe("testing DevelopAPI", function () {
                 .toThrow();
         });
 
-        it("should activate the universe", function () {
+        it("should activate the universe", async function () {
+            await firstUniverseFound;
             return expect(
                 client.apis.developAPI.activateUniverse({
                     universeId: firstUniverseFound.id
@@ -57,7 +82,7 @@ describe("testing DevelopAPI", function () {
         it("should filter \"fuck\"", function () {
             return expect(
                 client.apis.developAPI.filterGameUpdateNotificationText({
-                    text: `"fuck"`
+                    text: `fuck`
                 })
             )
                 .resolves
@@ -80,7 +105,8 @@ describe("testing DevelopAPI", function () {
                     moderationLevel: 1
                 });
         });
-        it("should get places in the universe found and root place id should be in one of them", function () {
+        it("should get places in the universe found and root place id should be in one of them", async function () {
+            await firstUniverseFound;
             return expect(
                 client.apis.developAPI.getPlacesInUniverse({
                     universeId: firstUniverseFound.id
@@ -98,7 +124,8 @@ describe("testing DevelopAPI", function () {
                     ]
                 });
         });
-        it("should test place statistics", function () {
+        it("should test place statistics", async function () {
+            await firstUniverseFound;
             return expect(
                 client.apis.developAPI.getPlaceStatistics({
                     placeId: firstUniverseFound.rootPlaceId
@@ -117,7 +144,8 @@ describe("testing DevelopAPI", function () {
                     }
                 });
         });
-        it("should retrieve root place compatibilities", function () {
+        it("should retrieve root place compatibilities", async function () {
+            await firstUniverseFound;
             return expect(
                 client.apis.developAPI.getPlaceCompatibilities({
                     placeId: firstUniverseFound.rootPlaceId
