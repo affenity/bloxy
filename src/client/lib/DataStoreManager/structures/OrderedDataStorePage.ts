@@ -7,7 +7,7 @@ export default class OrderedDataStorePage<DataType extends any> {
     public data: { key: string; value: number }[];
     public startKey: string | null;
 
-    constructor (orderedDataStore: OrderedDataStore<DataType>, data: { options: GetSortedUrlOptions, result: OrderedDataStoreResultType }) {
+    constructor (orderedDataStore: OrderedDataStore<DataType>, data: { options: GetSortedUrlOptions; result: OrderedDataStoreResultType }) {
         this.orderedDataStore = orderedDataStore;
         this.options = data.options;
         this.data = data.result.data.Entries.map(x => ({

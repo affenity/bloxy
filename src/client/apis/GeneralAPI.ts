@@ -422,7 +422,7 @@ export default class GeneralAPI extends BaseAPI {
             .then((response: any) => ({
                 friendRequestsCount: response.body.friendRequestsCount,
                 unreadMessageCount: response.body.unreadMessageCount
-            }) as GetIncomingItems);
+            }));
     }
 
     getProductInfo (options: GetProductInfoOptions): Promise<GetProductInfo> {
@@ -483,7 +483,7 @@ export default class GeneralAPI extends BaseAPI {
                 deviceType: response.body.DeviceType,
                 operatingSystemType: response.body.OperationSystemType,
                 platformType: response.body.PlatformType
-            }) as GetDeviceInfo);
+            }));
     }
 
     blockUser (options: BlockUserOptions): Promise<BlockUser> {
@@ -532,7 +532,7 @@ export default class GeneralAPI extends BaseAPI {
             .then(response => ({
                 id: response.body.Id,
                 name: response.body.Username
-            }) as GetUserById);
+            }));
     }
 
     getUserByUsername (options: GetUserByUsernameOptions): Promise<GetUserByUsername> {
@@ -550,7 +550,7 @@ export default class GeneralAPI extends BaseAPI {
             .then(response => ({
                 id: response.body.Id,
                 name: response.body.Username
-            }) as GetUserByUsername);
+            }));
     }
 
     userCanManageAsset (options: UserCanManageAssetOptions): Promise<UserCanManageAsset> {

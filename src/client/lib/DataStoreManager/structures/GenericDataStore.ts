@@ -76,11 +76,7 @@ export default class GenericDataStore<DataType extends any> {
             valueLength
         });
 
-        if (this.legacy) {
-            return `${this.baseAPIUrl}set?${encodedQueryString}`;
-        } else {
-            return `${this.baseAPIUrl}set?${encodedQueryString}`;
-        }
+        return `${this.baseAPIUrl}set?${encodedQueryString}`;
     }
 
     buildSetIfUrl (key: string, valueLength: number, expectedValueLength: number): string {
@@ -91,11 +87,7 @@ export default class GenericDataStore<DataType extends any> {
             expectedValueLength
         });
 
-        if (this.legacy) {
-            return `${this.baseAPIUrl}set?${encodedQueryString}`;
-        } else {
-            return `${this.baseAPIUrl}set?${encodedQueryString}`;
-        }
+        return `${this.baseAPIUrl}set?${encodedQueryString}`;
     }
 
     buildIncrementUrl (key: string, delta: number): string {
@@ -105,11 +97,7 @@ export default class GenericDataStore<DataType extends any> {
             value: delta
         });
 
-        if (this.legacy) {
-            return `${this.baseAPIUrl}increment?${encodedQueryString}`;
-        } else {
-            return `${this.baseAPIUrl}increment?${encodedQueryString}`;
-        }
+        return `${this.baseAPIUrl}increment?${encodedQueryString}`;
     }
 
     buildRemoveUrl (key: string): string {
@@ -118,11 +106,7 @@ export default class GenericDataStore<DataType extends any> {
             target: this.legacy ? "" : this.safeEncodeValue(key)
         });
 
-        if (this.legacy) {
-            return `${this.baseAPIUrl}increment?${encodedQueryString}`;
-        } else {
-            return `${this.baseAPIUrl}increment?${encodedQueryString}`;
-        }
+        return `${this.baseAPIUrl}increment?${encodedQueryString}`;
     }
 
     public parseRetrievedData<Result extends any> (data: string): [boolean, Result | any] {

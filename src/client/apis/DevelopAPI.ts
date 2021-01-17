@@ -600,9 +600,7 @@ export default class DevelopAPI extends BaseAPI {
 
     searchUniverses (options: SearchUniversesOptions): Promise<SearchUniverses> {
         const encodedQuery = `${options.q.search || ""} creator:${options.q.creator.slice(0, 1)
-            .toUpperCase() + options.q.creator.slice(1)} ${options.q.active ? `active:${options.q.active ? "True" : "False"}` : ""} ${options.q.archived ? `archived:${options.q.archived ? "True" : "False"}` : ""} ${options.q.groups ? `groups:${options.q.groups.join(",")}` : ""}`;
-
-        console.log(encodedQuery);
+            .toUpperCase() + options.q.creator.slice(1)} ${typeof options.q.active !== "undefined" ? `active:${options.q.active ? "True" : "False"}` : ""} ${options.q.archived ? `archived:${options.q.archived ? "True" : "False"}` : ""} ${options.q.groups ? `groups:${options.q.groups.join(",")}` : ""}`;
 
         return this.request({
             requiresAuth: false,
