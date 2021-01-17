@@ -124,7 +124,7 @@ describe("testing DevelopAPI", function () {
             const createdProduct = await client.apis.developAPI.createDeveloperProduct({
                 universeId: firstUniverseFound.id,
                 priceInRobux: 10,
-                name: `Test - ${faker.lorem.word()} ${Date.now() / 1000}`,
+                name: `Test - music ${(".").repeat(Math.floor(Math.random() * 50))}`,
                 iconImageAssetId: 5874994712,
                 description: `A developer product automatically created using bloxy at ${new Date().toISOString()}`
             })
