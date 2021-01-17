@@ -1,12 +1,14 @@
 const TEST_COOKIE = require("../getCookie");
 const bloxy = require("../../dist");
 const faker = require("faker");
+const schemas = require("../util/schemas");
 const client = new bloxy.Client({
     credentials: {
         cookie: TEST_COOKIE
     }
 });
 const { wait } = require("../util");
+const Joi = require("joi");
 
 describe("testing DevelopAPI", function () {
     beforeAll(() => {
@@ -39,21 +41,106 @@ describe("testing DevelopAPI", function () {
             });
     });
 
+    describe("testing standalone APIs", function () {
+        it("should return game templates, verifying the default Baseplate one", async function () {
+            const templates = await client.apis.developAPI.getGameTemplates();
+
+            return expect(templates)
+                .toContainEqual({
+                    gameTemplateType: "Generic",
+                    hasTutorials: false,
+                    universe: {
+                        id: 28220420,
+                        name: "Baseplate",
+                        description: "",
+                        isArchived: false,
+                        rootPlaceId: 95206881,
+                        isActive: true,
+                        privacyType: "Public",
+                        creatorType: "User",
+                        creatorTargetId: 998796,
+                        creatorName: "Templates",
+                        created: "2013-11-01T03:47:14.07-05:00",
+                        updated: "2019-07-08T11:53:21.81-05:00"
+                    }
+                });
+        });
+        it("should attempt to publish game update notification and fail", function () {
+            const d = client.apis.developAPI.publishGameUpdateNotification({
+                gameUpdateText: `hi`,
+                universeId: 1350045202
+            });
+
+            expect(d)
+                .rejects
+                .toThrow("Only one update allowed per week");
+        });
+        it("should get game's update history", async function () {
+            const d = await client.apis.developAPI.getGameUpdatesHistory({
+                universeId: 1350045202
+            });
+
+            console.log(d);
+
+            expect(true)
+                .toBe(true);
+        });
+        it("should get multiple plugins' information", async function () {
+            const d = await client.apis.developAPI.getMultiPlugins({
+                pluginIds: [6158541297, 6216851661]
+            });
+            const multiPluginsSchema = Joi.object({
+                data: Joi.array()
+                    .items(schemas.PluginDataSchema)
+            });
+
+            expect(multiPluginsSchema.validate(d))
+                .not
+                .toHaveProperty("error");
+        });
+        it("should search universes", async function () {
+            const d = await client.apis.developAPI.searchUniverses({
+                q: {
+                    creator: "user"
+                }
+            });
+            const schema = Joi.object({
+                previousPageCursor: Joi.allow(Joi.string(), null),
+                nextPageCursor: Joi.allow(Joi.string(), null),
+                data: Joi.array()
+                    .items(schemas.SearchUniverseDataSchema)
+            });
+
+            expect(schema.validate(d))
+                .not
+                .toHaveProperty("error");
+        });
+    });
+
     describe("testing universe-related APIs", () => {
         it(`should create a developer product in the first universe`, async function () {
             await firstUniverseFound;
 
             const createdProduct = await client.apis.developAPI.createDeveloperProduct({
-                universeId: 2021554667,
+                universeId: firstUniverseFound.id,
                 priceInRobux: 10,
-                name: `Test - music ${Date.now() / 1000}`,
+                name: `Test - ${faker.lorem.word()} ${Date.now() / 1000}`,
                 iconImageAssetId: 5874994712,
                 description: `A developer product automatically created using bloxy at ${new Date().toISOString()}`
             })
                 .catch(e => e);
 
-            return expect(createdProduct)
-                .toHaveProperty(["id", "name", "Description", "shopId", "iconImageAssetId"]);
+            console.log(createdProduct);
+            expect(createdProduct)
+                .toHaveProperty("id");
+            expect(createdProduct)
+                .toHaveProperty("name");
+            expect(createdProduct)
+                .toHaveProperty("Description");
+            expect(createdProduct)
+                .toHaveProperty("shopId");
+            expect(createdProduct)
+                .toHaveProperty("iconImageAssetId");
         });
 
         it("should deactivate the universe", async function () {
@@ -128,7 +215,9 @@ describe("testing DevelopAPI", function () {
             await firstUniverseFound;
             return expect(
                 client.apis.developAPI.getPlaceStatistics({
-                    placeId: firstUniverseFound.rootPlaceId
+                    placeId: firstUniverseFound.rootPlaceId,
+                    type: "Revenue",
+                    granularity: "Hourly"
                 })
             )
                 .resolves
@@ -147,20 +236,17 @@ describe("testing DevelopAPI", function () {
         it("should retrieve root place compatibilities", async function () {
             jest.setTimeout(15000);
             await firstUniverseFound;
-            return expect(
-                client.apis.developAPI.getPlaceCompatibilities({
-                    placeId: firstUniverseFound.rootPlaceId
-                })
-            )
-                .resolves
-                .toMatchObject({
-                    Compatibilities: [
-                        {
-                            status: "Unknown",
-                            platformName: "iPhone 11 Pro Max"
-                        }
-                    ]
+            const retrievedCompatibilities = await client.apis.developAPI.getPlaceCompatibilities({
+                placeId: firstUniverseFound.rootPlaceId
+            });
+
+            expect(retrievedCompatibilities.Compatibilities)
+                .toContainEqual({
+                    crashRatePercentage: "NaN",
+                    platformName: "iPhone 11 Pro Max",
+                    status: "Unknown"
                 });
+
         });
     });
 });
