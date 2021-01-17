@@ -2,6 +2,9 @@ import BaseAPI from "./BaseAPI";
 import Client from "../Client";
 
 
+export type GetAuthTicket = {
+    authTicket: string;
+};
 export type GetAuthMetaData = {
     cookieLawNoticeTimeout: number;
 };
@@ -208,6 +211,27 @@ export default class AuthAPI extends BaseAPI {
             client,
             baseUrl: "https://auth.roblox.com/"
         });
+    }
+
+    getAuthTicket (): Promise<GetAuthTicket> {
+        return this.request({
+            json: true,
+            requiresAuth: true,
+            request: {
+                path: "v1/authentication-ticket",
+                method: "POST",
+                headers: {
+                    referer: "https://www.roblox.com/",
+                    origin: "roblox.com"
+                },
+                responseOptions: {
+                    allowedStatusCodes: [200]
+                }
+            }
+        })
+            .then(response => ({
+                authTicket: response.headers["rbx-authentication-ticket"]
+            }));
     }
 
     getAuthMetaData (): Promise<GetAuthMetaData> {

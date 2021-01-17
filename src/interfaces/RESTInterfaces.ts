@@ -8,7 +8,7 @@ export declare type RESTRequestHandler = (request: RESTRequest) => boolean | Err
 export declare type RESTResponseHandler = (response: RESTResponse) => boolean | Error;
 
 export declare type RESTControllerOptions = {
-    requester: (requestOptions: RESTRequestOptions) => Promise<unknown>;
+    requester: (requestOptions: RESTRequestOptions) => Promise<RESTResponseDataType>;
     /**
      * If specified, the user agent that will be used for the requests
      */

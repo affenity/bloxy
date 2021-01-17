@@ -100,7 +100,7 @@ export type UpdatePlaceConfiguration = {
 export type GetPlaceStatisticsByTypeOptions = {
     placeId: number;
     type: "Revenue" | "RevenuePerVisit" | "AverageVisitLength" | "Visits";
-    granularity: "Hourly" | "Daily" | "Monthly";
+    granularity?: "Hourly" | "Daily" | "Monthly";
     divisionType?: "Device" | "Age";
     startTime?: string;
     endTime?: string;
@@ -135,16 +135,36 @@ export type UpdatePluginOptions = {
 }
 export type UpdatePlugin = unknown
 export type SearchUniversesOptions = {
-    q: string;
+    q: {
+        creator: "user" | "group" | "team";
+        archived?: boolean;
+        active?: boolean;
+        groups?: unknown[];
+        search?: string;
+    };
     sort?: ("+GameCreated" | "-GameCreated" | "+GameName" | "-GameName" | "+RootPlaceName" | "-RootPlaceName" | "+RootPlaceUpdated" | "-RootPlaceUpdated" | "+LastUpdated" | "-LastUpdated")[];
     sortOrder?: "Asc" | "Desc";
     limit?: 10 | 25 | 50 | 100;
     cursor?: string;
 }
+export type SearchUniverseData = {
+    id: number;
+    name: string;
+    description: string;
+    isArchived: boolean;
+    rootPlaceId: number;
+    isActive: boolean;
+    privacyType: "Public" | "Private";
+    creatorType: "User" | "Group";
+    creatorTargetId: number;
+    creatorName: string;
+    created: string;
+    updated: string;
+};
 export type SearchUniverses = {
-    previousPageCursor: string;
-    nextPageCursor: string;
-    data: GameUniverseOptions[];
+    previousPageCursor: string | null;
+    nextPageCursor: string | null;
+    data: SearchUniverseData[];
 }
 export type SearchToolboxOptions = {
     category: string;
@@ -421,19 +441,8 @@ export default class DevelopAPI extends BaseAPI {
         });
     }
 
-    getAssetsVoting (options: GetAssetsVoteInformationOptions): Promise<GetAssetsVoteInformation> {
-        return this.request({
-            requiresAuth: false,
-            request: {
-                path: `v1/assets/voting`,
-                qs: options,
-                responseOptions: {
-                    allowedStatusCodes: [200]
-                }
-            },
-            json: true
-        })
-            .then(response => response.body);
+    getAssetsVoting (): Promise<GetAssetsVoteInformation> {
+        throw new Error(`This endpoint is no longer available!`);
     }
 
     getGameTemplates (): Promise<GetGameTemplates> {
@@ -590,13 +599,18 @@ export default class DevelopAPI extends BaseAPI {
     }
 
     searchUniverses (options: SearchUniversesOptions): Promise<SearchUniverses> {
+        const encodedQuery = `${options.q.search || ""} creator:${options.q.creator.slice(0, 1)
+            .toUpperCase() + options.q.creator.slice(1)} ${typeof options.q.active !== "undefined" ? `active:${options.q.active ? "True" : "False"}` : ""} ${options.q.archived ? `archived:${options.q.archived ? "True" : "False"}` : ""} ${options.q.groups ? `groups:${options.q.groups.join(",")}` : ""}`;
+
         return this.request({
             requiresAuth: false,
             request: {
                 path: `v1/search/universes`,
                 qs: {
                     ...options,
-                    sort: (options.sort || []).join(",")
+                    sort: (options.sort || []).join(","),
+                    // End me, please...
+                    q: encodedQuery
                 },
                 responseOptions: {
                     allowedStatusCodes: [200]

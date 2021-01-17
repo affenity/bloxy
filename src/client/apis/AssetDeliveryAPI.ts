@@ -149,7 +149,7 @@ export default class AssetDeliveryAPI extends BaseAPI {
             .then(response => ({
                 location: response.body.Location || undefined,
                 request: response.body.Request
-            }) as GetAssetById);
+            }));
     }
 
     getAssetByHash (options: GetAssetByHashOptions): Promise<GetAssetByHash> {
