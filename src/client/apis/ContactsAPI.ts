@@ -71,38 +71,6 @@ export default class ContactsAPI extends BaseAPI {
             .then(response => response.body);
     }
 
-    matchContacts (options: MatchContactsOptions): Promise<MatchContacts> {
-        return this.request({
-            requiresAuth: false,
-            request: {
-                path: `v1/contacts/match`,
-                method: "POST",
-                json: options,
-                responseOptions: {
-                    allowedStatusCodes: [200]
-                }
-            },
-            json: true
-        })
-            .then(response => response.body);
-    }
-
-    updateContacts (options: UpdateContactsOptions): Promise<UpdateContacts> {
-        return this.request({
-            requiresAuth: false,
-            request: {
-                path: `1/contacts/update`,
-                method: "POST",
-                json: options,
-                responseOptions: {
-                    allowedStatusCodes: [200]
-                }
-            },
-            json: true
-        })
-            .then(response => response.body);
-    }
-
     getUsersTags (options: GetUsersTagsOptions): Promise<GetUsersTags> {
         return this.request({
             requiresAuth: true,

@@ -618,20 +618,4 @@ export default class FriendsAPI extends BaseAPI {
         })
             .then(response => response.body);
     }
-
-    updateContacts (options: UpdateContactsOptions): Promise<UpdateContacts> {
-        return this.request({
-            requiresAuth: true,
-            request: {
-                path: `v1/contacts/update`,
-                method: "POST",
-                json: options,
-                responseOptions: {
-                    allowedStatusCodes: [200]
-                }
-            },
-            json: true
-        })
-            .then(response => response.body);
-    }
 }

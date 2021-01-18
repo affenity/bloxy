@@ -463,10 +463,6 @@ export default class AccountSettingsAPI extends BaseAPI {
             .then(() => true);
     }
 
-    getTwoStepStatus (): Promise<GetTwoStepStatus> {
-        throw new Error("This feature no longer works!");
-    }
-
     updateTwoStepStatus (options: UpdateTwoStepStatusOptions): Promise<UpdateTwoStepStatus> {
         return this.request({
             requiresAuth: true,

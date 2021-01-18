@@ -441,9 +441,6 @@ export default class DevelopAPI extends BaseAPI {
         });
     }
 
-    getAssetsVoting (): Promise<GetAssetsVoteInformation> {
-        throw new Error(`This endpoint is no longer available!`);
-    }
 
     getGameTemplates (): Promise<GetGameTemplates> {
         return this.request({
