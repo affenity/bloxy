@@ -21,6 +21,8 @@ export default async function prepare (request: RESTRequest, options: RESTReques
     if (request.requestOptions.qs) {
         if (!request.requestOptions.url.includes("?")) {
             request.requestOptions.url += `?${querystring.stringify(request.requestOptions.qs as Record<string, string>)}`;
+        } else {
+            request.requestOptions.url += `&${querystring.stringify(request.requestOptions.qs as Record<string, string>)}`;
         }
     }
     if ((request.requestOptions.xcsrf !== false && request.requestOptions.method.toLowerCase() !== "get") || request.requestOptions.xcsrf === true) {
