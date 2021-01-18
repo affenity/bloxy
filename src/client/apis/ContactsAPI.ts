@@ -5,28 +5,6 @@ import Client from "../Client";
 export type GetContactsMetaData = {
     multiGetContactsMaxSize: number;
 }
-export type MatchContactsOptions = {
-    country: string;
-    contacts: {
-        sourceId: string;
-        fields: {
-            name: string;
-            value: string;
-        }[];
-    }[];
-}
-export type MatchContacts = {
-    contacts: {
-        sourceId: string;
-        contactUserId: number;
-        contactUsername: string;
-        friendshipStatus: "NoFriendship" | string;
-        sharedFriendsCount: number;
-        phoneNumber: string;
-    }[];
-}
-export type UpdateContactsOptions = MatchContacts;
-export type UpdateContacts = unknown;
 export type GetUsersTagsOptions = {
     targetUserIds: number[];
 }

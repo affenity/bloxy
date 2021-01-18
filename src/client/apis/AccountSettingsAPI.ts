@@ -90,9 +90,6 @@ export type UpdateUserTradeQualityFilterOptions = {
     tradeValue: string;
 };
 export type UpdateUserTradeQualityFilter = boolean;
-export type GetTwoStepStatus = {
-    enabled: boolean;
-}
 export type UpdateTwoStepStatusOptions = {
     enabled: boolean;
     password: string;

@@ -147,11 +147,6 @@ export default class ClientUser extends PartialUser {
     }
 
     // eslint-disable-next-line @typescript-eslint/explicit-function-return-type
-    getTwoStepStatus () {
-        return this.client.apis.accountSettingsAPI.getTwoStepStatus();
-    }
-
-    // eslint-disable-next-line @typescript-eslint/explicit-function-return-type
     updateTwoStepStatus (options: UpdateTwoStepStatusOptions) {
         return this.client.apis.accountSettingsAPI.updateTwoStepStatus(options);
     }
