@@ -106,6 +106,10 @@ export declare type RESTRequestOptions = {
      * If it should throw http errors if the statuscode is != 200
      */
     throwHttpErrors?: boolean;
+    /**
+     * If it should exclude the cookies from being included in the requests
+     */
+    excludeCookies?: boolean;
 };
 
 export declare type RESTResponseOptions = {

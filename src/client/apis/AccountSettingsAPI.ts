@@ -90,9 +90,6 @@ export type UpdateUserTradeQualityFilterOptions = {
     tradeValue: string;
 };
 export type UpdateUserTradeQualityFilter = boolean;
-export type GetTwoStepStatus = {
-    enabled: boolean;
-}
 export type UpdateTwoStepStatusOptions = {
     enabled: boolean;
     password: string;
@@ -461,10 +458,6 @@ export default class AccountSettingsAPI extends BaseAPI {
             json: true
         })
             .then(() => true);
-    }
-
-    getTwoStepStatus (): Promise<GetTwoStepStatus> {
-        throw new Error("This feature no longer works!");
     }
 
     updateTwoStepStatus (options: UpdateTwoStepStatusOptions): Promise<UpdateTwoStepStatus> {

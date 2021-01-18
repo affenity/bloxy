@@ -1,11 +1,5 @@
 import BaseAPI from "./BaseAPI";
 import Client from "../Client";
-import {
-    MatchContacts as ContactsAPIMatchContacts,
-    MatchContactsOptions as ContactsAPIMatchContactsOptions,
-    UpdateContacts as ContactsAPIUpdateContacts,
-    UpdateContactsOptions as ContactsAPIUpdateContactsOptions
-} from "./ContactsAPI";
 import { GetUserFriendsCount, GetUserFriendsCountOptions } from "./GeneralAPI";
 import { PartialUser } from "../../structures/User";
 
@@ -174,10 +168,6 @@ export type GetSelfRecommendedUsers = {
     profileUrl: string;
     presenceType: number;
 }[];
-export type MatchContactsOptions = ContactsAPIMatchContactsOptions
-export type MatchContacts = ContactsAPIMatchContacts
-export type UpdateContactsOptions = ContactsAPIUpdateContactsOptions;
-export type UpdateContacts = ContactsAPIUpdateContacts;
 
 export default class FriendsAPI extends BaseAPI {
     constructor (client: Client) {
@@ -594,38 +584,6 @@ export default class FriendsAPI extends BaseAPI {
             requiresAuth: true,
             request: {
                 path: `v1/recommended-users`,
-                responseOptions: {
-                    allowedStatusCodes: [200]
-                }
-            },
-            json: true
-        })
-            .then(response => response.body);
-    }
-
-    matchContacts (options: MatchContactsOptions): Promise<MatchContacts> {
-        return this.request({
-            requiresAuth: true,
-            request: {
-                path: `v1/contacts/match`,
-                method: "POST",
-                json: options,
-                responseOptions: {
-                    allowedStatusCodes: [200]
-                }
-            },
-            json: true
-        })
-            .then(response => response.body);
-    }
-
-    updateContacts (options: UpdateContactsOptions): Promise<UpdateContacts> {
-        return this.request({
-            requiresAuth: true,
-            request: {
-                path: `v1/contacts/update`,
-                method: "POST",
-                json: options,
                 responseOptions: {
                     allowedStatusCodes: [200]
                 }

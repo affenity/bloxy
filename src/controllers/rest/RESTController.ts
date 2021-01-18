@@ -121,11 +121,11 @@ class RESTController {
     /**
      * Adds a cookie to the cookie jar
      * @param {Cookie} cookie The cookie to add
-     * @param {string} domain The domain to add it for
+     * @param {?string} domain The domain to add it for
      * @param {Object} setCookieOptions Options for setting the cookie
      * @returns {Cookie}
      */
-    addCookie (cookie: Cookie, domain: string, setCookieOptions?: any): Cookie {
+    addCookie (cookie: Cookie, domain?: string, setCookieOptions?: any): Cookie {
         return this.cookieJar.setCookieSync(cookie, domain || "https://roblox.com", setCookieOptions || {});
     }
 

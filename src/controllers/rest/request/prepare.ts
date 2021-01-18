@@ -36,8 +36,13 @@ export default async function prepare (request: RESTRequest, options: RESTReques
         request.requestOptions.headers["content-type"] = "application/json";
         delete request.requestOptions.json;
     }
-    request.requestOptions.headers.Cookie = request.controller.cookieJar.getCookieStringSync(request.requestOptions.url);
+    if (!request.requestOptions.excludeCookies) {
+        request.requestOptions.headers.Cookie = request.controller.cookieJar.getCookieStringSync(request.requestOptions.url);
+    }
 
-    // Utilities
+    // -- Utilities
+
+    // Making sure the library does not throw errors if the request fails for some reason
+    // We want to handle any issues ourselves
     request.requestOptions.throwHttpErrors = false;
 }
