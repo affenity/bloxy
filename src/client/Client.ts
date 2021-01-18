@@ -58,7 +58,7 @@ export default class Client extends ClientBase {
             httpOnly: false
         });
 
-        this.rest.addCookie(createdCookie, "https://roblox.com");
+        this.rest.addCookie(createdCookie);
 
         const getAuthenticationData = await this.apis.usersAPI.getAuthenticatedUserInformation();
         this.user = new ClientUser({
