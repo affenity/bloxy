@@ -8,4 +8,5 @@ const cookie = require("./getCookie");
         }
     });
     await client.login();
+    console.log(`Logged in as ${client.user.name}`);
 })();
