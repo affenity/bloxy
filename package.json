@@ -1,7 +1,7 @@
 {
   "name": "bloxy",
   "private": false,
-  "version": "5.1.5",
+  "version": "5.2.0",
   "engines": {
     "node": ">=12.0.0"
   },
@@ -12,9 +12,10 @@
   },
   "repository": {
     "directory": "https://github.com",
-    "url": "https://github.com/visualizememe/bloxy#pre-dev",
+    "url": "https://github.com/visualizememe/bloxy",
     "type": "github"
   },
+  "homepage": "https://bloxy.js.org/",
   "scripts": {
     "test": "jest",
     "test-with-coverage": "jest --coverage && cat ./coverage/lcov.info | codacy-coverage",
