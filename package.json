@@ -65,5 +65,9 @@
     "signalr-client": "0.0.20",
     "tough-cookie": "^4.0.0",
     "tslib": "^2.1.0"
+  },
+  "jest": {
+    "collectCoverage": true,
+    "coverageDirectory": "./coverage/"
   }
 }
