@@ -466,7 +466,9 @@ export class UserBase {
             .then(response => new CursorPageClass(this.client, options, response, this.getInventoryByAssetTypeId));
     }
 
-    getUser = (): Promise<User> => this.client.getUser(this.id);
+    getUser (): Promise<User> {
+        return this.client.getUser(this.id);
+    }
 
     getPremiumMembership (): Promise<ValidateUserMembership> {
         return this.client.apis.premiumFeaturesAPI.validateUserMembership({

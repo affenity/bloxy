@@ -40,6 +40,10 @@ export default class Client extends ClientBase {
     }
 
     public async login (cookie?: string): Promise<ClientUser> {
+        this.log("info", {
+            name: "Client.login",
+            description: `Started login process..`
+        });
         cookie = cookie || (this.options.credentials || {}).cookie || undefined;
 
         if (!cookie) {
@@ -60,12 +64,22 @@ export default class Client extends ClientBase {
 
         this.rest.addCookie(createdCookie);
 
+        this.log("info", {
+            name: "Client.login",
+            description: `Added cookie to cookie jar, proceeding to fetching authenticated user information..`
+        });
+
         const getAuthenticationData = await this.apis.usersAPI.getAuthenticatedUserInformation();
         this.user = new ClientUser({
             id: getAuthenticationData.id,
             name: getAuthenticationData.name
         }, this);
         this.emit("loggedIn");
+
+        this.log("info", {
+            name: "Client.login",
+            description: `Successfully logged in as ${getAuthenticationData.name}`
+        });
 
         return this.user;
     }
