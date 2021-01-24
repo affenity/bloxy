@@ -10,7 +10,7 @@
 [![NPM](https://img.shields.io/npm/v/bloxy.svg?maxAge=3600&style=flat-square)](https://npmjs.com/package/bloxy)
 [![CircleCI](https://circleci.com/gh/Visualizememe/bloxy.svg?style=svg)](https://circleci.com/gh/Visualizememe/bloxy)
 [![codecov](https://codecov.io/gh/Visualizememe/bloxy/branch/main/graph/badge.svg)](https://codecov.io/gh/Visualizememe/bloxy)
-[![Codacy Badge](https://app.codacy.com/project/badge/Grade/4a69949081d1427db95bf450453adda2)](https://www.codacy.com/gh/Visualizememe/cloudflare-router/dashboard?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=Visualizememe/cloudflare-router&amp;utm_campaign=Badge_Grade)
+[![Codacy Badge](https://app.codacy.com/project/badge/Grade/9dee8c70dd8e402f9a2f97831b98a723)](https://www.codacy.com/gh/Visualizememe/bloxy/dashboard?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=Visualizememe/bloxy&amp;utm_campaign=Badge_Grade)
 [![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2FVisualizememe%2Fbloxy.svg?type=shield)](https://app.fossa.com/projects/git%2Bgithub.com%2FVisualizememe%2Fbloxy?ref=badge_shield)
 [![Dependencies Status](https://status.david-dm.org/gh/Visualizememe/bloxy.svg)](https://david-dm.org/Visualizememe/bloxy)
 <a href="https://discord.gg/EDXNdAT"><img src="https://img.shields.io/badge/discord-roblox%20api%20chat-blue.svg?style=flat-square&logo=discord" alt="Roblox API Discord"></a>
