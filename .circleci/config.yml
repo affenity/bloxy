@@ -10,7 +10,8 @@ jobs:
       - checkout
       - node/with-cache:
           steps:
-            - run: npm install
+            - run: npm ci
+            - run: npm install jest --save-dev
             - run: npm run build
             - run: npm run test
       - codecov/upload:
