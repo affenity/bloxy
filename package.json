@@ -9,23 +9,6 @@
   "exports": {
     "import": "./dist/index.js"
   },
-  "files": [
-    "dist",
-    "src",
-    ".circleci",
-    ".codecov.yml",
-    ".eslintignore",
-    ".eslintrc.json",
-    ".gitignore",
-    ".npmignore",
-    "CHANGELOG.md",
-    "mkdocs.yml",
-    "package.json",
-    "package-lock.json",
-    "README.md",
-    "sider.yml",
-    "tsconfig.json"
-  ],
   "description": "A Node.JS library for interacting with the Roblox website and its API.",
   "bugs": {
     "url": "https://github.com/visualizememe/bloxy/issues"
