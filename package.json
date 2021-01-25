@@ -1,11 +1,31 @@
 {
   "name": "bloxy",
   "private": false,
-  "version": "5.4.0",
+  "version": "5.4.1",
   "engines": {
     "node": ">=12.0.0"
   },
   "main": "./dist/index.js",
+  "exports": {
+    "import": "./dist/index.js"
+  },
+  "files": [
+    "dist",
+    "src",
+    ".circleci",
+    ".codecov.yml",
+    ".eslintignore",
+    ".eslintrc.json",
+    ".gitignore",
+    ".npmignore",
+    "CHANGELOG.md",
+    "mkdocs.yml",
+    "package.json",
+    "package-lock.json",
+    "README.md",
+    "sider.yml",
+    "tsconfig.json"
+  ],
   "description": "A Node.JS library for interacting with the Roblox website and its API.",
   "bugs": {
     "url": "https://github.com/visualizememe/bloxy/issues"
@@ -60,6 +80,7 @@
     "typescript": "^4.1.3"
   },
   "dependencies": {
+    "@skypack/package-check": "^0.2.2",
     "debug": "^4.3.1",
     "got": "^11.8.1",
     "lodash": "^4.17.20",
