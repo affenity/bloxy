@@ -118,6 +118,7 @@ describe("testing DevelopAPI", function () {
     });
 
     describe("testing universe-related APIs", () => {
+        /*
         it(`should create a developer product in the first universe`, async function () {
             await firstUniverseFound;
 
@@ -142,6 +143,7 @@ describe("testing DevelopAPI", function () {
             expect(createdProduct)
                 .toHaveProperty("iconImageAssetId");
         });
+         */
 
         it("should deactivate the universe", async function () {
             await firstUniverseFound;
