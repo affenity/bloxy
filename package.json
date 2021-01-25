@@ -10,9 +10,6 @@
   "bugs": {
     "url": "https://github.com/visualizememe/bloxy/issues"
   },
-  "files": [
-    "dist"
-  ],
   "repository": {
     "directory": "https://github.com",
     "url": "https://github.com/visualizememe/bloxy",
