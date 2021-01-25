@@ -13,6 +13,7 @@ jobs:
             - run: npm ci
             - run: npm install jest --save-dev
             - run: npm run build
+            - run: npm run package-check
             - run: npm run test
       - codecov/upload:
           file: "./coverage/clover.xml"
