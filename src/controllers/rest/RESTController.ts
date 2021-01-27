@@ -14,8 +14,8 @@ import {
 import updateXCSRFToken from "./lib/updateXCSRFToken";
 import RESTRequest from "./request";
 import lodash from "lodash";
-import got from "got";
 import responseHandlers from "./response/handlers";
+import getRequester from "./lib/getRequester";
 
 
 class RESTController {
@@ -53,7 +53,7 @@ class RESTController {
         /**
          * The function that's being used to perform the requests, can be modified
          */
-        this.requester = (this.options.requester || got) as RESTRequester;
+        this.requester = getRequester(this, this.options.requester || undefined) as RESTRequester;
 
         this.init();
     }
