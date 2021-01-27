@@ -13,9 +13,8 @@ import {
 } from "../../interfaces/RESTInterfaces";
 import updateXCSRFToken from "./lib/updateXCSRFToken";
 import RESTRequest from "./request";
-import lodash from "lodash";
-import got from "got";
 import responseHandlers from "./response/handlers";
+import getRequester from "./lib/getRequester";
 
 
 class RESTController {
@@ -53,7 +52,7 @@ class RESTController {
         /**
          * The function that's being used to perform the requests, can be modified
          */
-        this.requester = (this.options.requester || got) as RESTRequester;
+        this.requester = getRequester(this, this.options.requester || undefined) as RESTRequester;
 
         this.init();
     }
@@ -226,7 +225,7 @@ class RESTController {
      * @returns {RESTControllerOptions}
      */
     setOptions (options?: RESTControllerOptions): RESTControllerOptions {
-        this.options = lodash.merge(DefaultRESTControllerOptions, options || {}) as RESTControllerOptions;
+        this.options = utilMergeDeep(DefaultRESTControllerOptions, options || {}) as RESTControllerOptions;
 
         return this.options;
     }
