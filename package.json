@@ -21,7 +21,7 @@
     "test-with-coverage": "jest --coverage && cat ./coverage/lcov.info | codacy-coverage",
     "build": "tsc --skipLibCheck",
     "eslint": "eslint . --fix --ext .ts",
-    "postinstall": "echo \"\nThank you for installing bloxy! \n\nNOTE: THIS VERSION IS A DEVELOPMENT. \nPLEASE, USE VERSION 4.0.0-alpha3 FOR THE LATEST ''STABLE'' VERSION OF BLOXY.\"",
+    "postinstall": "npm install got && echo \"\nThank you for installing bloxy! Dependency 'got' has been installed automatically, uninstall it if you plan to use bloxy in a browser-related project!\"",
     "prepublishOnly": "npm run build",
     "create-docs": "typedoc --plugin typedoc-plugin-markdown --hideBreadcrumbs --namedAnchors --includeDeclarations --excludeExternals --out docs src && mkdocs gh-deploy",
     "prepare-windows": "npm install && npm run build && npm run create-docs && echo 'Finished'"
