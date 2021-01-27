@@ -1,4 +1,3 @@
-import lodash from "lodash";
 import {
     DefaultRESTRequestOptions,
     RESTRequestOptions,
@@ -7,6 +6,7 @@ import {
 import RESTController from "../RESTController";
 import prepare from "./prepare";
 import RESTResponse from "../response";
+import { utilMergeDeep } from "../../../util/utilFunctions";
 
 
 class RESTRequest {
@@ -30,7 +30,7 @@ class RESTRequest {
     setOptions (options: RESTRequestOptions): RESTRequestOptions {
         // As lodash overwrites all entries that are provided with each other, it also mutates the default
         // This way, it creates a clone of the default each time, so there's "new" default data each time
-        this.requestOptions = lodash.merge(JSON.parse(JSON.stringify(DefaultRESTRequestOptions)), options || {});
+        this.requestOptions = utilMergeDeep(JSON.parse(JSON.stringify(DefaultRESTRequestOptions)), options || {}) as RESTRequestOptions;
         return this.requestOptions;
     }
 

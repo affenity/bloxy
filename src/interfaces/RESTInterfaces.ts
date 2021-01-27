@@ -1,4 +1,3 @@
-import got from "got";
 import RESTRequest from "../controllers/rest/request";
 import RESTResponse from "../controllers/rest/response";
 
@@ -153,7 +152,6 @@ export const DefaultCreateCookieOptions = {
 };
 
 export const DefaultRESTControllerOptions = {
-    requester: got,
     userAgent: "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/51.0.2704.103 Safari/537.36",
     proxy: undefined,
     xcsrf: undefined,

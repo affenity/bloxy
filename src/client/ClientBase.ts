@@ -1,7 +1,7 @@
 import { EventEmitter } from "events";
-import lodash from "lodash";
 import { RESTControllerOptions } from "../interfaces/RESTInterfaces";
 import debug, { Debugger } from "debug";
+import { utilMergeDeep } from "../util/utilFunctions";
 
 
 export interface ClientCredentialsOptions {
@@ -57,12 +57,12 @@ export default class ClientBase extends EventEmitter {
     }
 
     public updateOptions (options?: ClientOptions): ClientOptions {
-        this.options = lodash.merge({
+        this.options = utilMergeDeep({
             credentials: {},
             rest: {},
             setup: {},
             callbacks: {}
-        } as ClientOptions, options || {});
+        } as ClientOptions, options || {}) as ClientOptions;
 
         return this.options;
     }
