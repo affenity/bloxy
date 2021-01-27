@@ -1,6 +1,7 @@
 import { EventEmitter } from "events";
 import { RESTControllerOptions } from "../interfaces/RESTInterfaces";
 import debug, { Debugger } from "debug";
+import { utilMergeDeep } from "../util/utilFunctions";
 
 
 export interface ClientCredentialsOptions {

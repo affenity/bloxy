@@ -1,5 +1,5 @@
 /* eslint-disable security/detect-object-injection */
-const utilMergeDeep = (baseObject: Record<any, any>, newObject: Record<any, any>) => {
+export const utilMergeDeep = (baseObject: Record<any, any>, newObject: Record<any, any>) => {
     const target = {};
     // Merge the object into the target object
     const internalMerger = (obj: Record<any, any>) => {

@@ -6,6 +6,7 @@ import {
 import RESTController from "../RESTController";
 import prepare from "./prepare";
 import RESTResponse from "../response";
+import { utilMergeDeep } from "../../../util/utilFunctions";
 
 
 class RESTRequest {
