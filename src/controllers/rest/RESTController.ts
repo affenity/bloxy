@@ -13,7 +13,6 @@ import {
 } from "../../interfaces/RESTInterfaces";
 import updateXCSRFToken from "./lib/updateXCSRFToken";
 import RESTRequest from "./request";
-import lodash from "lodash";
 import responseHandlers from "./response/handlers";
 import getRequester from "./lib/getRequester";
 
@@ -226,7 +225,7 @@ class RESTController {
      * @returns {RESTControllerOptions}
      */
     setOptions (options?: RESTControllerOptions): RESTControllerOptions {
-        this.options = lodash.merge(DefaultRESTControllerOptions, options || {}) as RESTControllerOptions;
+        this.options = utilMergeDeep(DefaultRESTControllerOptions, options || {}) as RESTControllerOptions;
 
         return this.options;
     }
