@@ -15,6 +15,7 @@ import updateXCSRFToken from "./lib/updateXCSRFToken";
 import RESTRequest from "./request";
 import responseHandlers from "./response/handlers";
 import getRequester from "./lib/getRequester";
+import { utilMergeDeep } from "../../util/utilFunctions";
 
 
 class RESTController {
