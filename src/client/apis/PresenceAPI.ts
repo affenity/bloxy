@@ -13,7 +13,7 @@ export type GetUsersPresencesOptions = {
 }
 export type GetUsersPresences = {
     userPresences: {
-        userPresenceType: "Offline" | string;
+        userPresenceType: number;
         lastLocation: string;
         placeId: number;
         rootPlaceId: number;
@@ -41,7 +41,8 @@ export default class PresenceAPI extends BaseAPI {
                 json: options
             },
             json: true
-        }).then(response => response.body);
+        })
+            .then(response => response.body);
     }
 
     getUsersPresences (options: GetUsersPresencesOptions): Promise<GetUsersPresences> {
@@ -53,6 +54,7 @@ export default class PresenceAPI extends BaseAPI {
                 json: options
             },
             json: true
-        }).then(response => response.body);
+        })
+            .then(response => response.body);
     }
 }

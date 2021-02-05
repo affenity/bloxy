@@ -10,5 +10,6 @@ export function generalIdentifierToNumber (identifier: string | number): number 
 
 export function convertObjectToValue (dataObject: Record<string, unknown>, namingConventions: string[]): unknown {
     // eslint-disable-next-line security/detect-object-injection
-    return namingConventions.map(name => dataObject[name] || null).find(value => !!value) as unknown;
+    return namingConventions.map(name => dataObject[name] || null)
+        .find(value => !!value) as unknown;
 }

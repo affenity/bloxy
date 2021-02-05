@@ -1,6 +1,6 @@
 import BaseAPI from "./BaseAPI";
 import Client from "../Client";
-import { GameUniverseOptions, PlaceOptions, VIPServerOptions, PartialGameUniverse } from "../../structures/Game";
+import { GameUniverseOptions, PartialGameUniverse, PlaceOptions, VIPServerOptions } from "../../structures/Game";
 
 
 export type GameServer = {
@@ -271,19 +271,18 @@ export default class GamesAPI extends BaseAPI {
     }
 
     getGames (options: GetGameUniversesOptions): Promise<GetGameUniverses> {
+        const universeIdsQueryString = `universeIds=${options.universeIds.join("&universeIds=")}`;
         return this.request({
             requiresAuth: true,
             request: {
-                path: `v1/games`,
-                qs: {
-                    universeIds: options.universeIds.join(",")
-                },
+                path: `v1/games?${universeIdsQueryString}`,
                 responseOptions: {
                     allowedStatusCodes: [200]
                 }
             },
             json: true
-        }).then(response => response.body);
+        })
+            .then(response => response.body);
     }
 
     getGameServersByType (options: GetGameServersByTypeOptions): Promise<GetGameServersByType> {
@@ -297,23 +296,23 @@ export default class GamesAPI extends BaseAPI {
                 }
             },
             json: true
-        }).then(response => response.body);
+        })
+            .then(response => response.body);
     }
 
     getGamesProductInfo (options: GetGamesProductInfoOptions): Promise<GameGamesProductInfo> {
+        const universeIdsQueryString = `universeIds=${options.universeIds.join("&universeIds=")}`;
         return this.request({
             requiresAuth: true,
             request: {
-                path: `v1/games/games-product-info`,
-                qs: {
-                    universeIds: options.universeIds.join(",")
-                },
+                path: `v1/games/games-product-info?${universeIdsQueryString}`,
                 responseOptions: {
                     allowedStatusCodes: [200]
                 }
             },
             json: true
-        }).then(response => response.body);
+        })
+            .then(response => response.body);
     }
 
     listGames (options: ListGamesOptions): Promise<ListGames> {
@@ -344,39 +343,39 @@ export default class GamesAPI extends BaseAPI {
                 }
             },
             json: true
-        }).then(response => response.body);
+        })
+            .then(response => response.body);
     }
 
     getMultiPlaces (options: MultiGetPlacesOptions): Promise<MultiGetPlaces> {
+        const placeIdsQueryString = `placeIds=${options.placeIds.join("&placeIds=")}`;
+
         return this.request({
             requiresAuth: true,
             request: {
-                path: `v1/games/multiget-place-details`,
-                qs: {
-                    placeIds: options.placeIds.join(",")
-                },
+                path: `v1/games/multiget-place-details?${placeIdsQueryString}`,
                 responseOptions: {
                     allowedStatusCodes: [200]
                 }
             },
             json: true
-        }).then(response => response.body);
+        })
+            .then(response => response.body);
     }
 
     getMultiGamesPlayabilityStatus (options: MultiGetGameUniversesPlayabilityOptions): Promise<MultiGetGameUniversesPlayability> {
+        const universeIdsQueryString = `universeIds=${options.universeIds.join("&universeIds=")}`;
         return this.request({
             requiresAuth: true,
             request: {
-                path: `v1/games/multiget-playability-status`,
-                qs: {
-                    universeIds: options.universeIds.join(",")
-                },
+                path: `v1/games/multiget-playability-status?${universeIdsQueryString}`,
                 responseOptions: {
                     allowedStatusCodes: [200]
                 }
             },
             json: true
-        }).then(response => response.body);
+        })
+            .then(response => response.body);
     }
 
     getGameRecommendationsByAlgorithm (options: GetGameRecommendationsByAlgorithmOptions): Promise<GetGameRecommendationsByAlgorithm> {
@@ -393,7 +392,8 @@ export default class GamesAPI extends BaseAPI {
                 }
             },
             json: true
-        }).then(response => response.body);
+        })
+            .then(response => response.body);
     }
 
     getGameRecommendationsByGame (options: GetGameRecommendationsByGameOptions): Promise<GetGameRecommendationsByGame> {
@@ -410,7 +410,8 @@ export default class GamesAPI extends BaseAPI {
                 }
             },
             json: true
-        }).then(response => response.body);
+        })
+            .then(response => response.body);
     }
 
     getGameSorts (options: GetGameSortsOptions): Promise<GetGameSorts> {
@@ -426,7 +427,8 @@ export default class GamesAPI extends BaseAPI {
                 }
             },
             json: true
-        }).then(response => response.body);
+        })
+            .then(response => response.body);
     }
 
     isGameFavorited (options: IsGameFavoritedOptions): Promise<IsGameFavorited> {
@@ -439,7 +441,8 @@ export default class GamesAPI extends BaseAPI {
                 }
             },
             json: true
-        }).then(response => response.body);
+        })
+            .then(response => response.body);
     }
 
     toggleGameFavorite (options: ToggleGameFavoriteOptions): Promise<ToggleGameFavorite> {
@@ -456,7 +459,8 @@ export default class GamesAPI extends BaseAPI {
                 }
             },
             json: true
-        }).then(response => response.body);
+        })
+            .then(response => response.body);
     }
 
     getGameFavoriteCount (options: GetGameFavoriteCountOptions): Promise<GetGameFavoriteCount> {
@@ -469,7 +473,8 @@ export default class GamesAPI extends BaseAPI {
                 }
             },
             json: true
-        }).then(response => response.body);
+        })
+            .then(response => response.body);
     }
 
     getGameGamePasses (options: GetGameGamePassesOptions): Promise<GetGameGamePasses> {
@@ -483,7 +488,8 @@ export default class GamesAPI extends BaseAPI {
                 }
             },
             json: true
-        }).then(response => response.body);
+        })
+            .then(response => response.body);
     }
 
     getSelfGameVote (options: GetSelfUniverseVoteStatusOptions): Promise<GetSelfUniverseVoteStatus> {
@@ -496,23 +502,23 @@ export default class GamesAPI extends BaseAPI {
                 }
             },
             json: true
-        }).then(response => response.body);
+        })
+            .then(response => response.body);
     }
 
     getGamesVotes (options: GetGamesVotesOptions): Promise<GetGamesVotes> {
+        const universeIdsQueryString = `universeIds=${options.universeIds.join("&universeIds=")}`;
         return this.request({
             requiresAuth: true,
             request: {
-                path: `v1/games/votes`,
-                qs: {
-                    universeIds: options.universeIds.join(",")
-                },
+                path: `v1/games/votes?${universeIdsQueryString}`,
                 responseOptions: {
                     allowedStatusCodes: [200]
                 }
             },
             json: true
-        }).then(response => response.body);
+        })
+            .then(response => response.body);
     }
 
     setSelfGameVote (options: SetSelfGameVoteOptions): Promise<SetSelfGameVote> {
@@ -529,7 +535,8 @@ export default class GamesAPI extends BaseAPI {
                 }
             },
             json: true
-        }).then(response => response.body);
+        })
+            .then(response => response.body);
     }
 
     canSelfInviteUserToVIPServer (options: CanSelfInviteUserToVIPServerOptions): Promise<CanSelfInviteUserToVIPServer> {
@@ -542,7 +549,8 @@ export default class GamesAPI extends BaseAPI {
                 }
             },
             json: true
-        }).then(response => response.body);
+        })
+            .then(response => response.body);
     }
 
     getVIPServer (options: GetVIPServerOptions): Promise<GetVIPServer> {
@@ -556,7 +564,8 @@ export default class GamesAPI extends BaseAPI {
                 }
             },
             json: true
-        }).then(response => response.body);
+        })
+            .then(response => response.body);
     }
 
     updateVIPServer (options: UpdateVIPServerOptions): Promise<UpdateVIPServer> {
@@ -571,7 +580,8 @@ export default class GamesAPI extends BaseAPI {
                 }
             },
             json: true
-        }).then(response => response.body);
+        })
+            .then(response => response.body);
     }
 
     createVIPServer (options: CreateVIPServerOptions): Promise<CreateVIPServer> {
@@ -586,7 +596,8 @@ export default class GamesAPI extends BaseAPI {
                 }
             },
             json: true
-        }).then(response => response.body);
+        })
+            .then(response => response.body);
     }
 
     updateVIPServerPermissions (options: UpdateVIPServerPermissionsOptions): Promise<UpdateVIPServerPermissions> {
@@ -601,7 +612,8 @@ export default class GamesAPI extends BaseAPI {
                 }
             },
             json: true
-        }).then(response => response.body);
+        })
+            .then(response => response.body);
     }
 
     updateVIPServerSubscription (options: UpdateVIPServerSubscriptionOptions): Promise<UpdateVIPServerSubscription> {
@@ -616,6 +628,7 @@ export default class GamesAPI extends BaseAPI {
                 }
             },
             json: true
-        }).then(response => response.body);
+        })
+            .then(response => response.body);
     }
 }

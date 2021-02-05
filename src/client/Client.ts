@@ -5,6 +5,7 @@ import RESTController from "../controllers/rest";
 import { Group, PartialUser, User } from "../structures";
 import * as ClientSocket from "./lib/ClientSocket/ClientSocket";
 import ChatManager from "./lib/ChatManager/ChatManager";
+import DataStoreManager from "./lib/DataStoreManager/DataStoreManager";
 
 
 export default class Client extends ClientBase {
@@ -12,6 +13,7 @@ export default class Client extends ClientBase {
     public apis: APIs;
     public rest: RESTController;
     public socket: ClientSocket.Socket;
+    public dataStoreManager: DataStoreManager;
     public chat: ChatManager;
 
     constructor (options?: ClientOptions) {
@@ -21,9 +23,14 @@ export default class Client extends ClientBase {
         this.apis = initAPIs(this);
         this.rest = new RESTController(this, this.options.rest);
         this.socket = new ClientSocket.Socket(this);
+        this.dataStoreManager = new DataStoreManager(this);
         this.chat = new ChatManager(this);
 
         this.init();
+    }
+
+    public isLoggedIn (): boolean {
+        return this.user !== null;
     }
 
     init (): void {
@@ -32,7 +39,11 @@ export default class Client extends ClientBase {
         }
     }
 
-    login = async (cookie?: string): Promise<ClientUser> => {
+    public async login (cookie?: string): Promise<ClientUser> {
+        this.log("info", {
+            name: "Client.login",
+            description: `Started login process..`
+        });
         cookie = cookie || (this.options.credentials || {}).cookie || undefined;
 
         if (!cookie) {
@@ -51,7 +62,12 @@ export default class Client extends ClientBase {
             httpOnly: false
         });
 
-        this.rest.addCookie(createdCookie, "https://roblox.com");
+        this.rest.addCookie(createdCookie);
+
+        this.log("info", {
+            name: "Client.login",
+            description: `Added cookie to cookie jar, proceeding to fetching authenticated user information..`
+        });
 
         const getAuthenticationData = await this.apis.usersAPI.getAuthenticatedUserInformation();
         this.user = new ClientUser({
@@ -60,19 +76,25 @@ export default class Client extends ClientBase {
         }, this);
         this.emit("loggedIn");
 
+        this.log("info", {
+            name: "Client.login",
+            description: `Successfully logged in as ${getAuthenticationData.name}`
+        });
+
         return this.user;
-    };
+    }
 
     getGroup (groupId: number): Promise<Group> {
         return this.apis.groupsAPI.getGroup({
             groupId
-        }).then(data => {
-            if (!data) {
-                throw new Error(`Group not found: ${groupId}`);
-            } else {
-                return new Group(data, this);
-            }
-        });
+        })
+            .then(data => {
+                if (!data) {
+                    throw new Error(`Group not found: ${groupId}`);
+                } else {
+                    return new Group(data, this);
+                }
+            });
     }
 
     getUser (userId: number | string): Promise<User> {
@@ -82,44 +104,46 @@ export default class Client extends ClientBase {
 
         return this.apis.otherAPI.getUserProfileHeader({
             userId
-        }).then(data => new User({
-            id: data.ProfileUserId,
-            name: data.ProfileUserName,
-            canFollow: data.CanBeFollowed,
-            canSeeInventory: data.CanSeeInventory,
-            canTrade: data.CanTrade,
-            incomingFriendRequest: data.IncomingFriendRequestPending,
-            sentFriendRequest: data.FriendRequestPending,
-            canMessage: data.CanMessage,
-            isViewerBlocked: data.IsViewerBlocked,
-            isVieweeBlocked: data.IsVieweeBlocked,
-            followingsCount: data.FollowingsCount,
-            followersCount: data.FollowersCount,
-            userPlaceId: data.UserPlaceId,
-            userStatusDate: data.UserStatusDate,
-            userStatus: data.UserStatus,
-            presenceType: data.UserPresenceType,
-            friendsCount: data.FriendsCount,
-            canFriend: data.MaySendFriendInvitation,
-            areFriends: data.AreFriends,
-            lastLocation: data.LastLocation,
-            canSeeFavorites: data.CanSeeFavorites,
-            headShotImage: {
-                final: data.HeadShotImage.Final,
-                endpointType: data.HeadShotImage.EndpointType,
-                retryUrl: data.HeadShotImage.RetryUrl,
-                url: data.HeadShotImage.Url,
-                userId: data.HeadShotImage.UserId
-            },
-            messagesDisabled: data.MessagesDisabled,
-            previousUsernames: data.PreviousUserNames
-        }, this));
+        })
+            .then(data => new User({
+                id: data.ProfileUserId,
+                name: data.ProfileUserName,
+                canFollow: data.CanBeFollowed,
+                canSeeInventory: data.CanSeeInventory,
+                canTrade: data.CanTrade,
+                incomingFriendRequest: data.IncomingFriendRequestPending,
+                sentFriendRequest: data.FriendRequestPending,
+                canMessage: data.CanMessage,
+                isViewerBlocked: data.IsViewerBlocked,
+                isVieweeBlocked: data.IsVieweeBlocked,
+                followingsCount: data.FollowingsCount,
+                followersCount: data.FollowersCount,
+                userPlaceId: data.UserPlaceId,
+                userStatusDate: data.UserStatusDate,
+                userStatus: data.UserStatus,
+                presenceType: data.UserPresenceType,
+                friendsCount: data.FriendsCount,
+                canFriend: data.MaySendFriendInvitation,
+                areFriends: data.AreFriends,
+                lastLocation: data.LastLocation,
+                canSeeFavorites: data.CanSeeFavorites,
+                headShotImage: {
+                    final: data.HeadShotImage.Final,
+                    endpointType: data.HeadShotImage.EndpointType,
+                    retryUrl: data.HeadShotImage.RetryUrl,
+                    url: data.HeadShotImage.Url,
+                    userId: data.HeadShotImage.UserId
+                },
+                messagesDisabled: data.MessagesDisabled,
+                previousUsernames: data.PreviousUserNames
+            }, this));
     }
 
     getUserIdFromUsername (username: string): Promise<PartialUser> {
         return this.apis.generalApi.getUserByUsername({
             username
-        }).then(data => new PartialUser(data, this));
+        })
+            .then(data => new PartialUser(data, this));
     }
 
     getUsernameFromUserId (userId: number | string): Promise<PartialUser> {
@@ -129,7 +153,8 @@ export default class Client extends ClientBase {
 
         return this.apis.generalApi.getUserById({
             userId
-        }).then(data => new PartialUser(data, this));
+        })
+            .then(data => new PartialUser(data, this));
     }
 
     getUsersByUserIds (userIds: number[] | string[], excludeBannedUsers = false): Promise<PartialUser[]> {
@@ -140,13 +165,15 @@ export default class Client extends ClientBase {
         return this.apis.usersAPI.getUsersByIds({
             excludeBannedUsers,
             userIds: userIds as number[]
-        }).then(response => response.data.map(userData => new PartialUser(userData, this)));
+        })
+            .then(response => response.data.map(userData => new PartialUser(userData, this)));
     }
 
     getUsersByUsernames (usernames: string[], excludeBannedUsers = false): Promise<PartialUser[]> {
         return this.apis.usersAPI.getUsersByUsernames({
             excludeBannedUsers,
             usernames
-        }).then(response => response.data.map(userData => new PartialUser(userData, this)));
+        })
+            .then(response => response.data.map(userData => new PartialUser(userData, this)));
     }
 }

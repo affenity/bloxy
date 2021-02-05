@@ -1,7 +1,6 @@
-package-lock.json
 node_modules
 coverage
-src/tests/index.js
+tests/index.js
 dist
 docs
 site

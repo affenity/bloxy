@@ -90,9 +90,6 @@ export type UpdateUserTradeQualityFilterOptions = {
     tradeValue: string;
 };
 export type UpdateUserTradeQualityFilter = boolean;
-export type GetTwoStepStatus = {
-    enabled: boolean;
-}
 export type UpdateTwoStepStatusOptions = {
     enabled: boolean;
     password: string;
@@ -140,11 +137,12 @@ export default class AccountSettingsAPI extends BaseAPI {
                 }
             },
             json: true
-        }).then(response => response.body.map((val: any) => ({
-            title: val.Title,
-            url: val.Url,
-            suffix: val.Suffix
-        })));
+        })
+            .then(response => response.body.map((val: any) => ({
+                title: val.Title,
+                url: val.Url,
+                suffix: val.Suffix
+            })));
     }
 
     getAppChatPrivacy (): Promise<GetAppChatPrivacy> {
@@ -157,7 +155,8 @@ export default class AccountSettingsAPI extends BaseAPI {
                 }
             },
             json: true
-        }).then(response => response.body);
+        })
+            .then(response => response.body);
     }
 
     updateAppChatPrivacy (options: UpdateAppChatPrivacyOptions): Promise<UpdateAppChatPrivacy> {
@@ -172,7 +171,8 @@ export default class AccountSettingsAPI extends BaseAPI {
                 json: options
             },
             json: true
-        }).then(response => response.body);
+        })
+            .then(response => response.body);
     }
 
     getGameChatPrivacy (): Promise<GetGameChatPrivacy> {
@@ -185,7 +185,8 @@ export default class AccountSettingsAPI extends BaseAPI {
                 }
             },
             json: true
-        }).then(response => response.body);
+        })
+            .then(response => response.body);
     }
 
     updateGameChatPrivacy (options: UpdateGameChatPrivacyOptions): Promise<UpdateGameChatPrivacy> {
@@ -200,7 +201,8 @@ export default class AccountSettingsAPI extends BaseAPI {
                 json: options
             },
             json: true
-        }).then(response => response.body);
+        })
+            .then(response => response.body);
     }
 
     getInventoryPrivacy (): Promise<GetInventoryPrivacy> {
@@ -213,7 +215,8 @@ export default class AccountSettingsAPI extends BaseAPI {
                 }
             },
             json: true
-        }).then(response => response.body);
+        })
+            .then(response => response.body);
     }
 
     updateInventoryPrivacy (options: UpdateInventoryPrivacyOptions): Promise<UpdateInventoryPrivacy> {
@@ -228,7 +231,8 @@ export default class AccountSettingsAPI extends BaseAPI {
                 json: options
             },
             json: true
-        }).then(response => response.body);
+        })
+            .then(response => response.body);
     }
 
     getUserPrivacy (): Promise<GetUserPrivacy> {
@@ -241,7 +245,8 @@ export default class AccountSettingsAPI extends BaseAPI {
                 }
             },
             json: true
-        }).then(response => response.body);
+        })
+            .then(response => response.body);
     }
 
     updateUserPrivacy (options: UpdateUserPrivacyOptions): Promise<UpdateUserPrivacy> {
@@ -256,7 +261,8 @@ export default class AccountSettingsAPI extends BaseAPI {
                 json: options
             },
             json: true
-        }).then(response => response.body);
+        })
+            .then(response => response.body);
     }
 
     getUserPrivacySettingsInfo (): Promise<GetUserPrivacySettingsInfo> {
@@ -269,7 +275,8 @@ export default class AccountSettingsAPI extends BaseAPI {
                 }
             },
             json: true
-        }).then(response => response.body as GetUserPrivacySettingsInfo);
+        })
+            .then(response => response.body as GetUserPrivacySettingsInfo);
     }
 
     getUserPrivateMessagePrivacy (): Promise<GetUserPrivateMessagePrivacy> {
@@ -282,7 +289,8 @@ export default class AccountSettingsAPI extends BaseAPI {
                 }
             },
             json: true
-        }).then(response => response.body as GetUserPrivateMessagePrivacy);
+        })
+            .then(response => response.body as GetUserPrivateMessagePrivacy);
     }
 
     updateUserPrivateMessagePrivacy (options: UpdateUserPrivateMessagePrivacyOptions): Promise<UpdateUserPrivateMessagePrivacy> {
@@ -297,7 +305,8 @@ export default class AccountSettingsAPI extends BaseAPI {
                 json: options
             },
             json: true
-        }).then(() => true as UpdateUserPrivateMessagePrivacy);
+        })
+            .then(() => true as UpdateUserPrivateMessagePrivacy);
     }
 
     getUserEmailStatus (): Promise<GetUserEmailStatus> {
@@ -310,7 +319,8 @@ export default class AccountSettingsAPI extends BaseAPI {
                 }
             },
             json: true
-        }).then(response => response.body as GetUserEmailStatus);
+        })
+            .then(response => response.body as GetUserEmailStatus);
     }
 
     updateUserEmail (options: UpdateUserEmailOptions): Promise<UpdateUserEmail> {
@@ -325,7 +335,8 @@ export default class AccountSettingsAPI extends BaseAPI {
                 json: options
             },
             json: true
-        }).then(() => true);
+        })
+            .then(() => true);
     }
 
     sendEmailVerification (): Promise<SendEmailVerification> {
@@ -339,7 +350,8 @@ export default class AccountSettingsAPI extends BaseAPI {
                 }
             },
             json: true
-        }).then(() => true);
+        })
+            .then(() => true);
     }
 
     getWebsiteTheme (): Promise<GetWebsiteTheme> {
@@ -352,7 +364,8 @@ export default class AccountSettingsAPI extends BaseAPI {
                 }
             },
             json: true
-        }).then(response => response.body as GetWebsiteTheme);
+        })
+            .then(response => response.body as GetWebsiteTheme);
     }
 
     updateWebsiteTheme (options: UpdateWebsiteThemeOptions): Promise<UpdateWebsiteTheme> {
@@ -369,7 +382,8 @@ export default class AccountSettingsAPI extends BaseAPI {
                 }
             },
             json: true
-        }).then(() => true);
+        })
+            .then(() => true);
     }
 
     getWebsiteThemes (): Promise<GetWebsiteThemes> {
@@ -382,7 +396,8 @@ export default class AccountSettingsAPI extends BaseAPI {
                 }
             },
             json: true
-        }).then(response => response.body as GetWebsiteThemes);
+        })
+            .then(response => response.body as GetWebsiteThemes);
     }
 
     getUserTradePrivacy (): Promise<GetUserTradePrivacy> {
@@ -395,7 +410,8 @@ export default class AccountSettingsAPI extends BaseAPI {
                 }
             },
             json: true
-        }).then(response => response.body as GetUserTradePrivacy);
+        })
+            .then(response => response.body as GetUserTradePrivacy);
     }
 
     updateUserTradePrivacy (options: UpdateUserTradePrivacyOptions): Promise<UpdateUserTradePrivacy> {
@@ -410,7 +426,8 @@ export default class AccountSettingsAPI extends BaseAPI {
                 json: options
             },
             json: true
-        }).then(response => response.body as UpdateUserTradePrivacy);
+        })
+            .then(response => response.body as UpdateUserTradePrivacy);
     }
 
     getUserTradeQualityFilter (): Promise<GetUserTradeQualityFilter> {
@@ -423,7 +440,8 @@ export default class AccountSettingsAPI extends BaseAPI {
                 }
             },
             json: true
-        }).then(response => response.body as GetUserTradeQualityFilter);
+        })
+            .then(response => response.body as GetUserTradeQualityFilter);
     }
 
     updateUserTradeQualityFilter (options: UpdateUserTradeQualityFilterOptions): Promise<UpdateUserTradeQualityFilter> {
@@ -438,11 +456,8 @@ export default class AccountSettingsAPI extends BaseAPI {
                 json: options
             },
             json: true
-        }).then(() => true);
-    }
-
-    getTwoStepStatus (): Promise<GetTwoStepStatus> {
-        throw new Error("This feature no longer works!");
+        })
+            .then(() => true);
     }
 
     updateTwoStepStatus (options: UpdateTwoStepStatusOptions): Promise<UpdateTwoStepStatus> {
@@ -457,7 +472,8 @@ export default class AccountSettingsAPI extends BaseAPI {
                 json: options
             },
             json: true
-        }).then(response => response.body as UpdateTwoStepStatus);
+        })
+            .then(response => response.body as UpdateTwoStepStatus);
     }
 
     getContactUpsell (): Promise<GetContactUpsell> {
@@ -470,7 +486,8 @@ export default class AccountSettingsAPI extends BaseAPI {
                 }
             },
             json: true
-        }).then(response => response.body as GetContactUpsell);
+        })
+            .then(response => response.body as GetContactUpsell);
     }
 
     updateContactUpsellSuppression (options: UpdateContactUpsellSuppressionOptions): Promise<UpdateContactUpsellSuppression> {
@@ -485,7 +502,8 @@ export default class AccountSettingsAPI extends BaseAPI {
                 json: options
             },
             json: true
-        }).then(() => true as UpdateContactUpsellSuppression);
+        })
+            .then(() => true as UpdateContactUpsellSuppression);
     }
 
     getIsXboxUsernameValid (options: GetIsXboxUsernameValidOptions): Promise<GetIsXboxUsernameValid> {
@@ -503,7 +521,8 @@ export default class AccountSettingsAPI extends BaseAPI {
                 }
             },
             json: true
-        }).then(response => response.body as GetIsXboxUsernameValid);
+        })
+            .then(response => response.body as GetIsXboxUsernameValid);
     }
 
     updateUserPromotionChannels (options: UpdateUserPromotionChannelsOptions): Promise<UpdateUserPromotionChannels> {
@@ -518,6 +537,7 @@ export default class AccountSettingsAPI extends BaseAPI {
                 json: options
             },
             json: true
-        }).then(() => true);
+        })
+            .then(() => true);
     }
 }

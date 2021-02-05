@@ -117,21 +117,22 @@ export class GroupBase {
         return this.client.apis.developAPI.getGroupUniverses({
             ...options,
             groupId: this.id
-        }).then(response => {
-            const CursorPageClass = require("./Asset").CursorPage;
-            const structures = retrieveStructures();
+        })
+            .then(response => {
+                const CursorPageClass = require("./Asset").CursorPage;
+                const structures = retrieveStructures();
 
-            return new CursorPageClass(this.client, options || {}, {
-                ...response,
-                data: response.data.map(universeData => new structures.PartialGameUniverse(({
-                    id: universeData.id,
-                    name: universeData.name,
-                    rootPlace: universeData.rootPlaceId ? {
-                        id: universeData.rootPlaceId
-                    } : undefined
-                }), this.client))
-            }, this.getUniverses);
-        });
+                return new CursorPageClass(this.client, options || {}, {
+                    ...response,
+                    data: response.data.map(universeData => new structures.PartialGameUniverse(({
+                        id: universeData.id,
+                        name: universeData.name,
+                        rootPlace: universeData.rootPlaceId ? {
+                            id: universeData.rootPlaceId
+                        } : undefined
+                    }), this.client))
+                }, this.getUniverses);
+            });
     }
 
     /**
@@ -150,7 +151,8 @@ export class GroupBase {
     getFunds (): Promise<number> {
         return this.client.apis.economyAPI.getGroupCurrency({
             groupId: this.id
-        }).then(response => response.robux);
+        })
+            .then(response => response.robux);
     }
 
     getRevenueSummaryInTimeFrame (timeFrame: GetGroupRevenueSummaryInTimeFrameOptions["timeFrame"]): Promise<GetGroupRevenueSummaryInTimeFrame> {
@@ -173,11 +175,12 @@ export class GroupBase {
             groupId: this.id,
             maxRows: maxItems,
             startRowIndex: startItem
-        }).then(response => ({
-            ...response,
-            relationshipType: "allies",
-            groups: response.relatedGroups.map(groupData => new Group(groupData, this.client))
-        }));
+        })
+            .then(response => ({
+                ...response,
+                relationshipType: "allies",
+                groups: response.relatedGroups.map(groupData => new Group(groupData, this.client))
+            }));
     }
 
     getEnemies (maxItems = 100, startItem?: number): Promise<GroupRelationships<"enemies">> {
@@ -186,11 +189,12 @@ export class GroupBase {
             groupId: this.id,
             maxRows: maxItems,
             startRowIndex: startItem
-        }).then(response => ({
-            ...response,
-            relationshipType: "enemies",
-            groups: response.relatedGroups.map(groupData => new Group(groupData, this.client))
-        }));
+        })
+            .then(response => ({
+                ...response,
+                relationshipType: "enemies",
+                groups: response.relatedGroups.map(groupData => new Group(groupData, this.client))
+            }));
     }
 
     getGroup (): Promise<Group> {
@@ -200,19 +204,21 @@ export class GroupBase {
     getIsMember (userId: number): Promise<GroupMember | null> {
         return this.client.apis.groupsAPI.getUserGroups({
             userId
-        }).then(response => {
-            const foundGroup = response.data.find(groupData => groupData.group.id === this.id);
+        })
+            .then(response => {
+                const foundGroup = response.data.find(groupData => groupData.group.id === this.id);
 
-            if (foundGroup) {
-                return new GroupMember({
-                    id: userId,
-                    role: foundGroup.role,
-                    group: foundGroup.group
-                }, this.client);
-            } else {
-                return null;
-            }
-        });
+                if (foundGroup) {
+                    // eslint-disable-next-line @typescript-eslint/no-use-before-define
+                    return new GroupMember({
+                        id: userId,
+                        role: foundGroup.role,
+                        group: foundGroup.group
+                    }, this.client);
+                } else {
+                    return null;
+                }
+            });
     }
 
     getSettings (): Promise<GetGroupSettings> {
@@ -262,12 +268,13 @@ export class GroupBase {
         return this.client.apis.groupsAPI.getJoinRequests({
             groupId: this.id,
             ...options
-        }).then(response => new CursorPageClass(
-            this.client,
-            options,
-            response,
-            this.getJoinRequests
-        ));
+        })
+            .then(response => new CursorPageClass(
+                this.client,
+                options,
+                response,
+                this.getJoinRequests
+            ));
     }
 
     acceptJoinRequests (options: Omit<AcceptJoinRequestsOptions, "groupId">): Promise<AcceptJoinRequests> {
@@ -307,13 +314,14 @@ export class GroupBase {
     getRoles (): Promise<GroupRole[]> {
         return this.client.apis.groupsAPI.getGroupRoles({
             groupId: this.id
-        }).then(response => response.roles.map(roleData => new GroupRole({
-            group: {
-                id: this.id,
-                name: this.name || undefined
-            },
-            ...roleData
-        }, this.client)));
+        })
+            .then(response => response.roles.map(roleData => new GroupRole({
+                group: {
+                    id: this.id,
+                    name: this.name || undefined
+                },
+                ...roleData
+            }, this.client)));
     }
 
     getMembersWithRole (options: Omit<GetMembersWithRoleOptions, "groupId">): Promise<CursorPage<GroupMember>> {
@@ -322,12 +330,13 @@ export class GroupBase {
         return this.client.apis.groupsAPI.getMembersWithRole({
             groupId: this.id,
             ...options
-        }).then(response => new CursorPageClass(
-            this.client,
-            options,
-            response,
-            this.getMembersWithRole
-        ));
+        })
+            .then(response => new CursorPageClass(
+                this.client,
+                options,
+                response,
+                this.getMembersWithRole
+            ));
     }
 
     getMembers (options: Omit<GetMembersOptions, "groupId">): Promise<CursorPage<GroupMember>> {
@@ -336,12 +345,13 @@ export class GroupBase {
         return this.client.apis.groupsAPI.getMembers({
             groupId: this.id,
             ...options
-        }).then(response => new CursorPageClass(
-            this.client,
-            options,
-            response,
-            this.getMembers
-        ));
+        })
+            .then(response => new CursorPageClass(
+                this.client,
+                options,
+                response,
+                this.getMembers
+            ));
     }
 
     join (options: Omit<JoinGroupOptions, "groupId">): Promise<JoinGroup> {
@@ -353,7 +363,8 @@ export class GroupBase {
     }
 
     getIsPendingJoin (): Promise<boolean> {
-        return this.client.apis.groupsAPI.getSelfPendingGroupJoins().then(response => (response.data.find(groupData => groupData.id === this.id) && true) || false);
+        return this.client.apis.groupsAPI.getSelfPendingGroupJoins()
+            .then(response => (response.data.find(groupData => groupData.id === this.id) && true) || false);
     }
 
     changeOwner (userId: number): Promise<ChangeOwner> {
@@ -522,12 +533,13 @@ export class GroupBase {
         return this.client.apis.groupsAPI.getWallPosts({
             groupId: this.id,
             ...options
-        }).then(response => new CursorPageClass(
-            this.client,
-            options,
-            response,
-            this.getWallPosts
-        ));
+        })
+            .then(response => new CursorPageClass(
+                this.client,
+                options,
+                response,
+                this.getWallPosts
+            ));
     }
 
     createWallPost (options: Omit<CreateWallPostOptions, "groupId">): Promise<CreateWallPost> {
@@ -547,15 +559,17 @@ export class GroupBase {
     getIsUserPrimaryGroup (userId: number): Promise<GroupMember | null> {
         return this.client.apis.groupsAPI.getUserPrimaryGroup({
             userId
-        }).then(response => response && response.group && response.role ? new GroupMember({
-            group: response.group,
-            role: {
-                id: response.role!.id!,
-                name: response.role!.name!,
-                rank: response.role!.rank!
-            },
-            id: userId
-        }, this.client) : null);
+        })
+            // eslint-disable-next-line @typescript-eslint/no-use-before-define
+            .then(response => response && response.group && response.role ? new GroupMember({
+                group: response.group,
+                role: {
+                    id: response.role!.id!,
+                    name: response.role!.name!,
+                    rank: response.role!.rank!
+                },
+                id: userId
+            }, this.client) : null);
     }
 
     removeAsPrimary (): Promise<RemovePrimaryGroup> {
@@ -630,6 +644,7 @@ export class GroupMember extends UserBase {
             id: data.id
         }, client);
         this.group = new PartialGroup(data.group, client);
+        // eslint-disable-next-line @typescript-eslint/no-use-before-define
         this.role = data.role ? new GroupRole({
             id: data.role.id,
             name: data.role.name,

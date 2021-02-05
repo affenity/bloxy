@@ -10,9 +10,13 @@ jobs:
       - checkout
       - node/with-cache:
           steps:
-            - run: npm install
+            - run: npm ci
+            - run: npm install jest --save-dev
             - run: npm run build
             - run: npm run test
+      - codecov/upload:
+          file: "./coverage/clover.xml"
+          token: bc55e615-594b-40a3-bf51-3e408a8e5f85
 workflows:
   build-and-test:
     jobs:

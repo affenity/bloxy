@@ -1,4 +1,3 @@
-import got from "got";
 import RESTRequest from "../controllers/rest/request";
 import RESTResponse from "../controllers/rest/response";
 
@@ -8,7 +7,7 @@ export declare type RESTRequestHandler = (request: RESTRequest) => boolean | Err
 export declare type RESTResponseHandler = (response: RESTResponse) => boolean | Error;
 
 export declare type RESTControllerOptions = {
-    requester: (requestOptions: RESTRequestOptions) => Promise<unknown>;
+    requester: (requestOptions: RESTRequestOptions) => Promise<RESTResponseDataType>;
     /**
      * If specified, the user agent that will be used for the requests
      */
@@ -29,6 +28,11 @@ export declare type RESTControllerOptions = {
      * Refresh interval in ms for XCSRF token updating
      */
     xcsrfRefreshInterval?: number;
+    /**
+     * The amount of retries to be made to refresh XCSRF
+     * tokens on Token Validation errors
+     */
+    xcsrfRefreshMaxRetries?: number;
 };
 
 export declare type RESTCreateCookieOptions = {
@@ -71,7 +75,7 @@ export declare type RESTRequestOptions = {
     /**
      * The JSON body
      */
-    json?: Array<unknown> | { [key: string]: unknown } | string;
+    json?: unknown[] | { [key: string]: unknown } | string;
     body?: unknown;
     /**
      * The form body
@@ -101,6 +105,10 @@ export declare type RESTRequestOptions = {
      * If it should throw http errors if the statuscode is != 200
      */
     throwHttpErrors?: boolean;
+    /**
+     * If it should exclude the cookies from being included in the requests
+     */
+    excludeCookies?: boolean;
 };
 
 export declare type RESTResponseOptions = {
@@ -120,8 +128,6 @@ export declare type RESTResponseOptions = {
 
 export declare type RESTResponseDataType = {
     body: any;
-    url: string;
-    requestUrl: string;
     status: string;
     statusCode: number;
     headers: Record<string, string>;
@@ -146,10 +152,10 @@ export const DefaultCreateCookieOptions = {
 };
 
 export const DefaultRESTControllerOptions = {
-    requester: got,
     userAgent: "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/51.0.2704.103 Safari/537.36",
     proxy: undefined,
     xcsrf: undefined,
     xcsrfSet: undefined,
-    xcsrfRefreshInterval: 5 * 60 * 1000
+    xcsrfRefreshInterval: 5 * 60 * 1000,
+    xcsrfRefreshMaxRetries: 4
 };

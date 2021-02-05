@@ -37,6 +37,7 @@ import TranslationRolesAPI from "./TranslationRolesAPI";
 import UsersAPI from "./UsersAPI";
 import OtherAPI from "./OtherAPI";
 import TwoStepVerification from "./TwoStepVerification";
+import DataAPI from "./DataAPI";
 
 
 export declare type APIs = {
@@ -53,6 +54,7 @@ export declare type APIs = {
     catalogAPI: CatalogAPI;
     chatAPI: ChatAPI;
     contactsAPI: ContactsAPI;
+    dataAPI: DataAPI;
     developAPI: DevelopAPI;
     economyAPI: EconomyAPI;
     economyCreatorStats: EconomyCreatorStatsAPI;
@@ -95,6 +97,7 @@ export default function initAPIs (client: Client): APIs {
         catalogAPI: new CatalogAPI(client),
         chatAPI: new ChatAPI(client),
         contactsAPI: new ContactsAPI(client),
+        dataAPI: new DataAPI(client),
         developAPI: new DevelopAPI(client),
         economyAPI: new EconomyAPI(client),
         economyCreatorStats: new EconomyCreatorStatsAPI(client),

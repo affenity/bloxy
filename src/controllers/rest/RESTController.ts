@@ -13,9 +13,9 @@ import {
 } from "../../interfaces/RESTInterfaces";
 import updateXCSRFToken from "./lib/updateXCSRFToken";
 import RESTRequest from "./request";
-import lodash from "lodash";
-import got from "got";
 import responseHandlers from "./response/handlers";
+import getRequester from "./lib/getRequester";
+import { utilMergeDeep } from "../../util/utilFunctions";
 
 
 class RESTController {
@@ -53,7 +53,7 @@ class RESTController {
         /**
          * The function that's being used to perform the requests, can be modified
          */
-        this.requester = (this.options.requester || got) as RESTRequester;
+        this.requester = getRequester(this, this.options.requester || undefined) as RESTRequester;
 
         this.init();
     }
@@ -97,9 +97,10 @@ class RESTController {
     async getXCSRFToken (): Promise<string | undefined> {
         if (!this.options.xcsrf || (Date.now() - (this.options.xcsrfSet || 0)) >= (this.options.xcsrfRefreshInterval || DefaultRESTControllerOptions.xcsrfRefreshInterval)) {
             // Refresh token
-            await this.fetchXCSRFToken().then(token => {
-                this.setXCSRFToken(token);
-            });
+            await this.fetchXCSRFToken()
+                .then(token => {
+                    this.setXCSRFToken(token);
+                });
         }
 
         return this.options.xcsrf;
@@ -120,11 +121,11 @@ class RESTController {
     /**
      * Adds a cookie to the cookie jar
      * @param {Cookie} cookie The cookie to add
-     * @param {string} domain The domain to add it for
+     * @param {?string} domain The domain to add it for
      * @param {Object} setCookieOptions Options for setting the cookie
      * @returns {Cookie}
      */
-    addCookie (cookie: Cookie, domain: string, setCookieOptions?: any): Cookie {
+    addCookie (cookie: Cookie, domain?: string, setCookieOptions?: any): Cookie {
         return this.cookieJar.setCookieSync(cookie, domain || "https://roblox.com", setCookieOptions || {});
     }
 
@@ -202,12 +203,30 @@ class RESTController {
     }
 
     /**
+     * Sets the amount of retries to be made to refresh XCSRF
+     * tokens on Token Validation errors
+     * @param {number} xcsrfRefreshMaxRetries Number of retries
+     */
+    setXCSRFTokenRefreshMaxRetries (xcsrfRefreshMaxRetries: number): void {
+        this.options.xcsrfRefreshMaxRetries = xcsrfRefreshMaxRetries;
+    }
+
+    /**
+     * Gets the amount of retries to be made to refresh XCSRF
+     * tokens on Token Validation errors
+     * @returns {number | undefined}
+     */
+    getXCSRFTokenRefreshMaxRetries (): number | undefined {
+        return this.options.xcsrfRefreshMaxRetries;
+    }
+
+    /**
      * Sets the options for the RESTController
      * @param {RESTControllerOptions} options The options to use
      * @returns {RESTControllerOptions}
      */
     setOptions (options?: RESTControllerOptions): RESTControllerOptions {
-        this.options = lodash.merge(DefaultRESTControllerOptions, options || {}) as RESTControllerOptions;
+        this.options = utilMergeDeep(DefaultRESTControllerOptions, options || {}) as RESTControllerOptions;
 
         return this.options;
     }
@@ -219,5 +238,6 @@ class RESTController {
 
     }
 }
+
 
 export default RESTController;

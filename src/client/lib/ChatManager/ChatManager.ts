@@ -39,7 +39,8 @@ export default class ChatManager {
             conversationId,
             pageSize: amount,
             exclusiveStartMessageId: startMessageId
-        }).then(response => response.map(chatData => new ChatMessage(chatData, this.client)));
+        })
+            .then(response => response.map(chatData => new ChatMessage(chatData, this.client)));
     }
 
     getUnreadConversationsCount (): Promise<number> {
@@ -50,7 +51,8 @@ export default class ChatManager {
     getConversations (conversations: number[]): Promise<ChatConversation[]> {
         return this.client.apis.chatAPI.getConversations({
             conversationIds: conversations
-        }).then(response => response.map(conversationData => new ChatConversation(conversationData, this.client)));
+        })
+            .then(response => response.map(conversationData => new ChatConversation(conversationData, this.client)));
     }
 
     addUsersToConversation (conversation: number, users: number[]): Promise<AddUsersToConversation> {
@@ -91,22 +93,24 @@ export default class ChatManager {
         return this.client.apis.chatAPI.getUnreadMessagesInConversations({
             conversationIds: conversations,
             pageSize: amount
-        }).then(response => Array.prototype.concat.apply(
-            [],
-            response.map(conversationData => conversationData.chatMessages
-                .map(chatData => new ChatMessage(chatData, this.client))
-            )));
+        })
+            .then(response => Array.prototype.concat.apply(
+                [],
+                response.map(conversationData => conversationData.chatMessages
+                    .map(chatData => new ChatMessage(chatData, this.client))
+                )));
     }
 
     getLatestMessagesInConversations (conversations: number[], amount = 100): Promise<ChatMessage[]> {
         return this.client.apis.chatAPI.getMultiLatestConversationMessages({
             conversationIds: conversations,
             pageSize: amount
-        }).then(response => Array.prototype.concat.apply(
-            [],
-            response.map(conversationData => conversationData.chatMessages
-                .map(chatData => new ChatMessage(chatData, this.client))
-            )));
+        })
+            .then(response => Array.prototype.concat.apply(
+                [],
+                response.map(conversationData => conversationData.chatMessages
+                    .map(chatData => new ChatMessage(chatData, this.client))
+                )));
     }
 
     resetConversationUniverse (conversation: number): Promise<ResetConversationUniverse> {

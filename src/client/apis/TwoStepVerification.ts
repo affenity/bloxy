@@ -92,7 +92,8 @@ export default class TwoStepVerification extends BaseAPI {
                 qs: options
             },
             json: true
-        }).then(response => response.body);
+        })
+            .then(response => response.body);
     }
 
     getConfiguration (options?: GetTwoStepConfigurationOptions): Promise<GetTwoStepVerificationMetaData> {
@@ -106,7 +107,8 @@ export default class TwoStepVerification extends BaseAPI {
                 qs: options
             },
             json: true
-        }).then(response => response.body);
+        })
+            .then(response => response.body);
     }
 
     verifyWithAuthenticator (options: AuthenticatorVerifyOptions): Promise<AuthenticatorVerify> {
@@ -121,7 +123,8 @@ export default class TwoStepVerification extends BaseAPI {
                 json: options
             },
             json: true
-        }).then(response => response.body);
+        })
+            .then(response => response.body);
     }
 
     disableAuthenticator (options: AuthenticatorDisableOptions): Promise<AuthenticatorDisable> {
@@ -136,7 +139,8 @@ export default class TwoStepVerification extends BaseAPI {
                 json: options
             },
             json: true
-        }).then(response => response.body);
+        })
+            .then(response => response.body);
     }
 
     enableAuthenticator (options: AuthenticatorEnableOptions): Promise<AuthenticatorEnable> {
@@ -151,7 +155,8 @@ export default class TwoStepVerification extends BaseAPI {
                 json: options
             },
             json: true
-        }).then(response => response.body);
+        })
+            .then(response => response.body);
     }
 
     verifyAuthenticatorSetup (options: AuthenticatorVerifySetupOptions): Promise<AuthenticatorVerifySetup> {
@@ -166,7 +171,8 @@ export default class TwoStepVerification extends BaseAPI {
                 json: options
             },
             json: true
-        }).then(response => response.body);
+        })
+            .then(response => response.body);
     }
 
     sendEmailCode (options: EmailSendCodeOptions): Promise<EmailSendCode> {
@@ -180,7 +186,8 @@ export default class TwoStepVerification extends BaseAPI {
                 json: options
             },
             json: true
-        }).then(response => response.body);
+        })
+            .then(response => response.body);
     }
 
     verifyEmail (options: EmailVerifyOptions): Promise<EmailVerify> {
@@ -195,7 +202,8 @@ export default class TwoStepVerification extends BaseAPI {
                 json: options
             },
             json: true
-        }).then(response => response.body);
+        })
+            .then(response => response.body);
     }
 
     disableEmail (options: EmailDisableOptions): Promise<EmailDisable> {
@@ -210,7 +218,8 @@ export default class TwoStepVerification extends BaseAPI {
                 json: options
             },
             json: true
-        }).then(response => response.body);
+        })
+            .then(response => response.body);
     }
 
     enableEmail (options: EmailEnableOptions): Promise<EmailEnable> {
@@ -225,6 +234,7 @@ export default class TwoStepVerification extends BaseAPI {
                 json: options
             },
             json: true
-        }).then(response => response.body);
+        })
+            .then(response => response.body);
     }
 }

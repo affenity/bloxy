@@ -83,7 +83,8 @@ export default class AccountInformationAPI extends BaseAPI {
                 path: "v1/birthdate"
             },
             json: true
-        }).then(response => response.body as GetUserBirthdate);
+        })
+            .then(response => response.body as GetUserBirthdate);
     }
 
     updateUserBirthdate (options: UpdateUserBirthdateOptions): Promise<UpdateUserBirthdate> {
@@ -98,7 +99,8 @@ export default class AccountInformationAPI extends BaseAPI {
                 }
             },
             json: true
-        }).then(() => true as UpdateUserBirthdate);
+        })
+            .then(() => true as UpdateUserBirthdate);
     }
 
     getUserDescription (): Promise<GetUserDescription> {
@@ -111,7 +113,8 @@ export default class AccountInformationAPI extends BaseAPI {
                 }
             },
             json: true
-        }).then(response => response.body as GetUserDescription);
+        })
+            .then(response => response.body as GetUserDescription);
     }
 
     updateUserDescription (options: UpdateUserDescriptionOptions): Promise<UpdateUserDescription> {
@@ -126,7 +129,8 @@ export default class AccountInformationAPI extends BaseAPI {
                 }
             },
             json: true
-        }).then(() => true as UpdateUserDescription);
+        })
+            .then(() => true as UpdateUserDescription);
     }
 
     getUserGender (): Promise<GetUserGender> {
@@ -139,7 +143,8 @@ export default class AccountInformationAPI extends BaseAPI {
                 }
             },
             json: true
-        }).then(response => response.body as GetUserGender);
+        })
+            .then(response => response.body as GetUserGender);
     }
 
     updateUserGender (options: UpdateUserGenderOptions): Promise<UpdateUserGender> {
@@ -151,7 +156,8 @@ export default class AccountInformationAPI extends BaseAPI {
                 json: options
             },
             json: true
-        }).then(() => true as UpdateUserGender);
+        })
+            .then(() => true as UpdateUserGender);
     }
 
     getConsecutiveXboxLoginDays (): Promise<GetConsecutiveXboxLoginDays> {
@@ -164,7 +170,8 @@ export default class AccountInformationAPI extends BaseAPI {
                 }
             },
             json: true
-        }).then(response => response.body as GetConsecutiveXboxLoginDays);
+        })
+            .then(response => response.body as GetConsecutiveXboxLoginDays);
     }
 
     getMetaData () {
@@ -177,7 +184,8 @@ export default class AccountInformationAPI extends BaseAPI {
                 }
             },
             json: true
-        }).then(response => response.body as GetMetaData);
+        })
+            .then(response => response.body as GetMetaData);
     }
 
     getVerifiedPhoneNumber (): Promise<GetVerifiedPhoneNumber> {
@@ -190,7 +198,8 @@ export default class AccountInformationAPI extends BaseAPI {
                 }
             },
             json: true
-        }).then(response => response.body as GetVerifiedPhoneNumber);
+        })
+            .then(response => response.body as GetVerifiedPhoneNumber);
     }
 
     setPhoneNumber (options: SetPhoneNumberOptions): Promise<SetPhoneNumber> {
@@ -202,7 +211,8 @@ export default class AccountInformationAPI extends BaseAPI {
                 json: options
             },
             json: true
-        }).then(() => true as SetPhoneNumber);
+        })
+            .then(() => true as SetPhoneNumber);
     }
 
     deletePhone (options: DeletePhoneOptions): Promise<DeletePhone> {
@@ -217,7 +227,8 @@ export default class AccountInformationAPI extends BaseAPI {
                 }
             },
             json: true
-        }).then(() => true as DeletePhone);
+        })
+            .then(() => true as DeletePhone);
     }
 
     resendPhoneCode (options: ResendPhoneCodeOptions): Promise<ResendPhoneCode> {
@@ -232,7 +243,8 @@ export default class AccountInformationAPI extends BaseAPI {
                 }
             },
             json: true
-        }).then(() => true as ResendPhoneCode);
+        })
+            .then(() => true as ResendPhoneCode);
     }
 
     verifyPhone (options: VerifyPhoneOptions): Promise<VerifyPhone> {
@@ -247,7 +259,8 @@ export default class AccountInformationAPI extends BaseAPI {
                 }
             },
             json: true
-        }).then(() => true as VerifyPhone);
+        })
+            .then(() => true as VerifyPhone);
     }
 
     getSelfPromotionChannels (): Promise<GetSelfPromotionChannels> {
@@ -260,7 +273,8 @@ export default class AccountInformationAPI extends BaseAPI {
                 }
             },
             json: true
-        }).then(response => response.body as GetSelfPromotionChannels);
+        })
+            .then(response => response.body as GetSelfPromotionChannels);
     }
 
     getUserPromotionChannels (options: GetUserPromotionChannelsOptions): Promise<GetUserPromotionChannels> {
@@ -273,7 +287,8 @@ export default class AccountInformationAPI extends BaseAPI {
                 }
             },
             json: true
-        }).then(response => response.body);
+        })
+            .then(response => response.body);
     }
 
     updateUserPromotionChannels (options: UpdateUserPromotionChannelsOptions): Promise<UpdateUserPromotionChannels> {
@@ -288,7 +303,8 @@ export default class AccountInformationAPI extends BaseAPI {
                 }
             },
             json: true
-        }).then(response => response.body as UpdateUserPromotionChannels);
+        })
+            .then(response => response.body as UpdateUserPromotionChannels);
     }
 
     removeStarCodeAffiliate (): Promise<RemoveStarCodeAffiliate> {
@@ -302,7 +318,8 @@ export default class AccountInformationAPI extends BaseAPI {
                 }
             },
             json: true
-        }).then(() => true as RemoveStarCodeAffiliate);
+        })
+            .then(() => true as RemoveStarCodeAffiliate);
     }
 
     getStarCodeAffiliate (): Promise<GetStarCodeAffiliate> {
@@ -315,7 +332,8 @@ export default class AccountInformationAPI extends BaseAPI {
                 }
             },
             json: true
-        }).then(response => response.body as GetStarCodeAffiliate);
+        })
+            .then(response => response.body as GetStarCodeAffiliate);
     }
 
     addStarCodeAffiliate (options: AddStarCodeAffiliateOptions): Promise<AddStarCodeAffiliate> {
@@ -330,6 +348,7 @@ export default class AccountInformationAPI extends BaseAPI {
                 }
             },
             json: true
-        }).then(response => response.body as AddStarCodeAffiliate);
+        })
+            .then(response => response.body as AddStarCodeAffiliate);
     }
 }

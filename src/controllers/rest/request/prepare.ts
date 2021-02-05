@@ -21,6 +21,8 @@ export default async function prepare (request: RESTRequest, options: RESTReques
     if (request.requestOptions.qs) {
         if (!request.requestOptions.url.includes("?")) {
             request.requestOptions.url += `?${querystring.stringify(request.requestOptions.qs as Record<string, string>)}`;
+        } else {
+            request.requestOptions.url += `&${querystring.stringify(request.requestOptions.qs as Record<string, string>)}`;
         }
     }
     if ((request.requestOptions.xcsrf !== false && request.requestOptions.method.toLowerCase() !== "get") || request.requestOptions.xcsrf === true) {
@@ -34,8 +36,13 @@ export default async function prepare (request: RESTRequest, options: RESTReques
         request.requestOptions.headers["content-type"] = "application/json";
         delete request.requestOptions.json;
     }
-    request.requestOptions.headers.Cookie = request.controller.cookieJar.getCookieStringSync(request.requestOptions.url);
+    if (!request.requestOptions.excludeCookies) {
+        request.requestOptions.headers.Cookie = request.controller.cookieJar.getCookieStringSync(request.requestOptions.url);
+    }
 
-    // Utilities
+    // -- Utilities
+
+    // Making sure the library does not throw errors if the request fails for some reason
+    // We want to handle any issues ourselves
     request.requestOptions.throwHttpErrors = false;
 }
