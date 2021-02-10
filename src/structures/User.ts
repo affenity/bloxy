@@ -53,6 +53,7 @@ import {
 } from "../client/apis/ThumbnailsAPI";
 import { SendTrade, SendTradeOptions } from "../client/apis/TradesAPI";
 import { UpdateUser, UpdateUserAccess } from "../client/apis/TranslationRolesAPI";
+import { EnumUserPresence } from "../interfaces/GeneralInterfaces";
 
 
 export interface UserBaseOptions {
@@ -593,7 +594,7 @@ export interface UserOptions {
     id: number;
     name: string;
     friendsCount: number;
-    presenceType: number;
+    presenceType: EnumUserPresence;
     lastLocation: string | null;
     userStatus: string | null;
     userStatusDate: string | null;
@@ -625,7 +626,7 @@ export interface UserOptions {
 
 export class User extends PartialUser {
     public friendsCount: number;
-    public presenceType: number;
+    public presenceType: EnumUserPresence;
     public lastLocation: string | null;
     public status: string | null;
     public statusDate: Date | null;

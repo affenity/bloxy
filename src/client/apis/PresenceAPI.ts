@@ -1,5 +1,6 @@
 import BaseAPI from "./BaseAPI";
 import Client from "../Client";
+import { EnumUserPresence } from "../../interfaces/GeneralInterfaces";
 
 
 export type RegisterAppPresenceOptions = {
@@ -13,7 +14,7 @@ export type GetUsersPresencesOptions = {
 }
 export type GetUsersPresences = {
     userPresences: {
-        userPresenceType: number;
+        userPresenceType: EnumUserPresence;
         lastLocation: string;
         placeId: number;
         rootPlaceId: number;
