@@ -1,3 +1,7 @@
+const { utilMergeDeep } = require("../../../dist/util/utilFunctions");
+const converter = require("../../../dist/util/converter");
+
+
 const bloxy = require("../../../dist");
 const TEST_COOKIE = require("../../getCookie");
 
@@ -32,6 +36,44 @@ describe("testing client", function () {
                     .not
                     .toThrow();
             });
+        });
+    });
+    describe("testing misc internal functions", function () {
+        it("should merge two objects and let the last object be dominating", async function () {
+            const merger1 = {
+                hello: "world",
+                world: {
+                    hello: "world"
+                }
+            };
+            const merger2 = {
+                hello: "bye",
+                world: {
+                    hi: "there"
+                }
+            };
+            const expectObj = {
+                hello: "bye",
+                world: {
+                    hello: "world",
+                    hi: "there"
+                }
+            };
+
+            const merged = utilMergeDeep(merger1, merger2);
+
+            expect(merged)
+                .toStrictEqual(expectObj);
+        });
+        it("should convert string to number using converter.generalIdentifierToNumber", async function () {
+            expect(
+                converter.generalIdentifierToNumber("5")
+            )
+                .toStrictEqual(5);
+            expect(
+                convertergeneralIdentifierToNumber(5)
+            )
+                .toStrictEqual(5);
         });
     });
 

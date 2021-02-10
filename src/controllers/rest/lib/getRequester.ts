@@ -2,8 +2,12 @@ import RESTController from "../RESTController";
 
 
 export default function getRequester (controller: RESTController, custom?: RESTController["requester"]) {
-    if (!controller.requester && custom === undefined) {
-        controller.requester = require("got");
+    if (!controller.requester && !controller.client.options.rest!.requester && custom === undefined) {
+        try {
+            controller.requester = require("got");
+        } catch (e) {
+
+        }
     } else {
         controller.requester = custom!;
     }
