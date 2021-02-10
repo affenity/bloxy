@@ -71,7 +71,7 @@ describe("testing client", function () {
             )
                 .toStrictEqual(5);
             expect(
-                convertergeneralIdentifierToNumber(5)
+                converter.generalIdentifierToNumber(5)
             )
                 .toStrictEqual(5);
         });
