@@ -22,7 +22,8 @@ export const StatusCodeReasons = {
     400: [
         "Bad Request (invalid values provided)",
         "Invalid body type (content-type) sent",
-        "Bloxy sent an invalid request (from faulty code, feel free to check it out and submit an issue / PR)"
+        "Bloxy sent an invalid request (from faulty code, feel free to check it out and submit an issue / PR)",
+        "(Roblox's fault for not saying) All data provided was valid but you don't have access to view the response or the requested data"
     ],
     401: [
         "You're not logged in (use .login on the client to log in)",
