@@ -23,8 +23,8 @@ export default class RESTResponse {
         if (allProcessed.every(processed => processed === true)) {
             return this.responseData;
         } else {
-            const error = allProcessed.find(error => error instanceof BloxyHttpError &&
-                error.name === "BloxyInvalidStatusError" && error.statusMessage.includes("Token Validation Failed"));
+            const error = allProcessed.find(error => error instanceof BloxyHttpError && error.name ===
+                "BloxyInvalidStatusMessageError" && error.statusMessage.includes("Token Validation Failed"));
 
             if (error) {
                 // 1 attempt = 0 retries

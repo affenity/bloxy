@@ -34,8 +34,8 @@ export default function validStatusMessage (response: RESTResponse): boolean | E
     return isValid ? true : new BloxyHttpError({
         statusCode: responseData.statusCode,
         statusMessage: responseData.statusMessage,
-        message: `Invalid status detected in response.`,
-        name: "BloxyHttpInvalidStatusError",
+        message: `Invalid status message detected in response.`,
+        name: "BloxyHttpInvalidStatusMessageError",
         possibleReasons: []
     });
 }
