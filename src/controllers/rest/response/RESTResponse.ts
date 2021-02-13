@@ -30,7 +30,7 @@ export default class RESTResponse {
                 if (this.request.attempts - 1 === this.controller.getXCSRFTokenRefreshMaxRetries()) {
                     throw error;
                 } else {
-                    await this.controller.fetchXCSRFToken();
+                    this.controller.options.xcsrf = undefined;
                     return this.request.send();
                 }
             }
