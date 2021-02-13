@@ -118,9 +118,6 @@ export default class AssetDeliveryAPI extends BaseAPI {
                 },
                 headers: {
                     ...generatedOptions.headers
-                },
-                responseOptions: {
-                    allowedStatusCodes: [200]
                 }
             }
         })
@@ -140,9 +137,6 @@ export default class AssetDeliveryAPI extends BaseAPI {
                 },
                 headers: {
                     ...generatedOptions.headers
-                },
-                responseOptions: {
-                    allowedStatusCodes: [200]
                 }
             }
         })
@@ -164,9 +158,6 @@ export default class AssetDeliveryAPI extends BaseAPI {
                 },
                 headers: {
                     ...generatedOptions.headers
-                },
-                responseOptions: {
-                    allowedStatusCodes: [200]
                 }
             }
         })
@@ -185,9 +176,6 @@ export default class AssetDeliveryAPI extends BaseAPI {
                 },
                 headers: {
                     ...generatedOptions.headers
-                },
-                responseOptions: {
-                    allowedStatusCodes: [200]
                 }
             }
         })
@@ -206,9 +194,6 @@ export default class AssetDeliveryAPI extends BaseAPI {
                 },
                 headers: {
                     ...generatedOptions.headers
-                },
-                responseOptions: {
-                    allowedStatusCodes: [200]
                 }
             }
         })
@@ -227,9 +212,6 @@ export default class AssetDeliveryAPI extends BaseAPI {
                 },
                 headers: {
                     ...generatedOptions.headers
-                },
-                responseOptions: {
-                    allowedStatusCodes: [200]
                 }
             }
         })
@@ -248,9 +230,6 @@ export default class AssetDeliveryAPI extends BaseAPI {
                 },
                 headers: {
                     ...generatedOptions.headers
-                },
-                responseOptions: {
-                    allowedStatusCodes: [200]
                 }
             }
         })
@@ -269,9 +248,6 @@ export default class AssetDeliveryAPI extends BaseAPI {
                 },
                 headers: {
                     ...generatedOptions.headers
-                },
-                responseOptions: {
-                    allowedStatusCodes: [200]
                 }
             }
         })
@@ -285,10 +261,7 @@ export default class AssetDeliveryAPI extends BaseAPI {
             request: {
                 path: "v1/assets/bath",
                 method: "POST",
-                json: options,
-                responseOptions: {
-                    allowedStatusCodes: [200]
-                }
+                json: options
             }
         })
             .then(response => response.body.map((value: BaseAssetRaw) => convertToBaseAsset(value)) as GetBatchAssets);

@@ -142,10 +142,7 @@ export default class CatalogAPI extends BaseAPI {
             requiresAuth: false,
             request: {
                 path: `v1/assets/${options.assetId}/bundles`,
-                qs: options,
-                responseOptions: {
-                    allowedStatusCodes: [200]
-                }
+                qs: options
             },
             json: true
         })
@@ -157,10 +154,7 @@ export default class CatalogAPI extends BaseAPI {
             requiresAuth: false,
             request: {
                 path: `v1/bundles/${options.bundleId}/details`,
-                qs: options,
-                responseOptions: {
-                    allowedStatusCodes: [200]
-                }
+                qs: options
             },
             json: true
         })
@@ -172,10 +166,7 @@ export default class CatalogAPI extends BaseAPI {
             requiresAuth: false,
             request: {
                 path: `v1/assets/${options.bundleId}/recommendations`,
-                qs: options,
-                responseOptions: {
-                    allowedStatusCodes: [200]
-                }
+                qs: options
             },
             json: true
         })
@@ -189,9 +180,6 @@ export default class CatalogAPI extends BaseAPI {
                 path: `v1/bundles/details`,
                 qs: {
                     bundleIds: options.bundleIds.join(",")
-                },
-                responseOptions: {
-                    allowedStatusCodes: [200]
                 }
             },
             json: true
@@ -204,10 +192,7 @@ export default class CatalogAPI extends BaseAPI {
             requiresAuth: false,
             request: {
                 path: `v1/users/${options.userId}/bundles`,
-                qs: options,
-                responseOptions: {
-                    allowedStatusCodes: [200]
-                }
+                qs: options
             },
             json: true
         })
@@ -218,10 +203,7 @@ export default class CatalogAPI extends BaseAPI {
         return this.request({
             requiresAuth: false,
             request: {
-                path: `v1/users/${options.userId}/bundles/${options.bundleType}`,
-                responseOptions: {
-                    allowedStatusCodes: [200]
-                }
+                path: `v1/users/${options.userId}/bundles/${options.bundleType}`
             },
             json: true
         })
@@ -233,10 +215,7 @@ export default class CatalogAPI extends BaseAPI {
             requiresAuth: false,
             request: {
                 path: `v1/bundles/${options.bundleId}/unpack`,
-                method: "POST",
-                responseOptions: {
-                    allowedStatusCodes: [200]
-                }
+                method: "POST"
             },
             json: true
         })
@@ -247,10 +226,7 @@ export default class CatalogAPI extends BaseAPI {
         return this.request({
             requiresAuth: false,
             request: {
-                path: `v1/asset-to-category`,
-                responseOptions: {
-                    allowedStatusCodes: [200]
-                }
+                path: `v1/asset-to-category`
             },
             json: true
         })
@@ -261,10 +237,7 @@ export default class CatalogAPI extends BaseAPI {
         return this.request({
             requiresAuth: false,
             request: {
-                path: `v1/asset-to-subcategory`,
-                responseOptions: {
-                    allowedStatusCodes: [200]
-                }
+                path: `v1/asset-to-subcategory`
             },
             json: true
         })
@@ -275,10 +248,7 @@ export default class CatalogAPI extends BaseAPI {
         return this.request({
             requiresAuth: false,
             request: {
-                path: `v1/categories`,
-                responseOptions: {
-                    allowedStatusCodes: [200]
-                }
+                path: `v1/categories`
             },
             json: true
         })
@@ -289,10 +259,7 @@ export default class CatalogAPI extends BaseAPI {
         return this.request({
             requiresAuth: false,
             request: {
-                path: `v1/subcategories`,
-                responseOptions: {
-                    allowedStatusCodes: [200]
-                }
+                path: `v1/subcategories`
             },
             json: true
         })
@@ -303,10 +270,7 @@ export default class CatalogAPI extends BaseAPI {
         return this.request({
             requiresAuth: false,
             request: {
-                path: `v1/exclusive-items/${options.appStoreType}/bundles`,
-                responseOptions: {
-                    allowedStatusCodes: [200]
-                }
+                path: `v1/exclusive-items/${options.appStoreType}/bundles`
             },
             json: true
         })
@@ -317,10 +281,7 @@ export default class CatalogAPI extends BaseAPI {
         return this.request({
             requiresAuth: false,
             request: {
-                path: `v1/favorites/assets/${options.assetId}/count`,
-                responseOptions: {
-                    allowedStatusCodes: [200]
-                }
+                path: `v1/favorites/assets/${options.assetId}/count`
             },
             json: true
         })
@@ -331,10 +292,7 @@ export default class CatalogAPI extends BaseAPI {
         return this.request({
             requiresAuth: false,
             request: {
-                path: `v1/favorites/bundles/${options.bundleId}/count`,
-                responseOptions: {
-                    allowedStatusCodes: [200]
-                }
+                path: `v1/favorites/bundles/${options.bundleId}/count`
             },
             json: true
         })
@@ -346,10 +304,7 @@ export default class CatalogAPI extends BaseAPI {
             requiresAuth: true,
             request: {
                 path: `v1/favorites/users/${options.userId}/assets/${options.assetId}/favorite`,
-                method: "DELETE",
-                responseOptions: {
-                    allowedStatusCodes: [200]
-                }
+                method: "DELETE"
             },
             json: true
         })
@@ -360,10 +315,7 @@ export default class CatalogAPI extends BaseAPI {
         return this.request({
             requiresAuth: false,
             request: {
-                path: `v1/favorites/users/${options.userId}/assets/${options.assetId}/favorite`,
-                responseOptions: {
-                    allowedStatusCodes: [200]
-                }
+                path: `v1/favorites/users/${options.userId}/assets/${options.assetId}/favorite`
             },
             json: true
         })
@@ -375,10 +327,7 @@ export default class CatalogAPI extends BaseAPI {
             requiresAuth: false,
             request: {
                 path: `v1/favorites/users/${options.userId}/assets/${options.assetId}/favorite`,
-                method: "POST",
-                responseOptions: {
-                    allowedStatusCodes: [200]
-                }
+                method: "POST"
             },
             json: true
         })
@@ -390,10 +339,7 @@ export default class CatalogAPI extends BaseAPI {
             requiresAuth: false,
             request: {
                 path: `v1/favorites/users/${options.userId}/bundles/${options.bundleId}/favorite`,
-                method: "DELETE",
-                responseOptions: {
-                    allowedStatusCodes: [200]
-                }
+                method: "DELETE"
             },
             json: true
         })
@@ -404,10 +350,7 @@ export default class CatalogAPI extends BaseAPI {
         return this.request({
             requiresAuth: false,
             request: {
-                path: `v1/favorites/users/${options.userId}/bundles/${options.bundleId}/favorite`,
-                responseOptions: {
-                    allowedStatusCodes: [200]
-                }
+                path: `v1/favorites/users/${options.userId}/bundles/${options.bundleId}/favorite`
             },
             json: true
         })
@@ -419,10 +362,7 @@ export default class CatalogAPI extends BaseAPI {
             requiresAuth: false,
             request: {
                 path: `v1/favorites/users/${options.userId}/bundles/${options.bundleId}/favorite`,
-                method: "POST",
-                responseOptions: {
-                    allowedStatusCodes: [200]
-                }
+                method: "POST"
             },
             json: true
         })

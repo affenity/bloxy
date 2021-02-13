@@ -275,10 +275,7 @@ export default class GamesAPI extends BaseAPI {
         return this.request({
             requiresAuth: true,
             request: {
-                path: `v1/games?${universeIdsQueryString}`,
-                responseOptions: {
-                    allowedStatusCodes: [200]
-                }
+                path: `v1/games?${universeIdsQueryString}`
             },
             json: true
         })
@@ -290,10 +287,7 @@ export default class GamesAPI extends BaseAPI {
             requiresAuth: true,
             request: {
                 path: `v1/games/${options.placeId}/servers/${options.serverType}`,
-                qs: options,
-                responseOptions: {
-                    allowedStatusCodes: [200]
-                }
+                qs: options
             },
             json: true
         })
@@ -305,10 +299,7 @@ export default class GamesAPI extends BaseAPI {
         return this.request({
             requiresAuth: true,
             request: {
-                path: `v1/games/games-product-info?${universeIdsQueryString}`,
-                responseOptions: {
-                    allowedStatusCodes: [200]
-                }
+                path: `v1/games/games-product-info?${universeIdsQueryString}`
             },
             json: true
         })
@@ -337,9 +328,6 @@ export default class GamesAPI extends BaseAPI {
                     "model.pageContext.pageId": options.pageContextPageId,
                     "model.pageContext.isSeeAllPage": options.pageContextSeeAll,
                     "model.sortPosition": options.sortPosition
-                },
-                responseOptions: {
-                    allowedStatusCodes: [200]
                 }
             },
             json: true
@@ -353,10 +341,7 @@ export default class GamesAPI extends BaseAPI {
         return this.request({
             requiresAuth: true,
             request: {
-                path: `v1/games/multiget-place-details?${placeIdsQueryString}`,
-                responseOptions: {
-                    allowedStatusCodes: [200]
-                }
+                path: `v1/games/multiget-place-details?${placeIdsQueryString}`
             },
             json: true
         })
@@ -368,10 +353,7 @@ export default class GamesAPI extends BaseAPI {
         return this.request({
             requiresAuth: true,
             request: {
-                path: `v1/games/multiget-playability-status?${universeIdsQueryString}`,
-                responseOptions: {
-                    allowedStatusCodes: [200]
-                }
+                path: `v1/games/multiget-playability-status?${universeIdsQueryString}`
             },
             json: true
         })
@@ -386,9 +368,6 @@ export default class GamesAPI extends BaseAPI {
                 qs: {
                     "model.paginationKey": options.paginationKey,
                     "model.maxRows": options.maxRows
-                },
-                responseOptions: {
-                    allowedStatusCodes: [200]
                 }
             },
             json: true
@@ -404,9 +383,6 @@ export default class GamesAPI extends BaseAPI {
                 qs: {
                     "model.paginationKey": options.paginationKey,
                     "model.maxRows": options.maxRows
-                },
-                responseOptions: {
-                    allowedStatusCodes: [200]
                 }
             },
             json: true
@@ -421,9 +397,6 @@ export default class GamesAPI extends BaseAPI {
                 path: `v1/games/sorts`,
                 qs: {
                     "model.gameSortsContext": options.gameSortsContext
-                },
-                responseOptions: {
-                    allowedStatusCodes: [200]
                 }
             },
             json: true
@@ -435,10 +408,7 @@ export default class GamesAPI extends BaseAPI {
         return this.request({
             requiresAuth: true,
             request: {
-                path: `v1/games/${options.universeId}/favorites`,
-                responseOptions: {
-                    allowedStatusCodes: [200]
-                }
+                path: `v1/games/${options.universeId}/favorites`
             },
             json: true
         })
@@ -453,9 +423,6 @@ export default class GamesAPI extends BaseAPI {
                 method: "POST",
                 json: {
                     isFavorited: options.favorite
-                },
-                responseOptions: {
-                    allowedStatusCodes: [200]
                 }
             },
             json: true
@@ -467,10 +434,7 @@ export default class GamesAPI extends BaseAPI {
         return this.request({
             requiresAuth: true,
             request: {
-                path: `v1/games/${options.universeId}/favorites/count`,
-                responseOptions: {
-                    allowedStatusCodes: [200]
-                }
+                path: `v1/games/${options.universeId}/favorites/count`
             },
             json: true
         })
@@ -482,10 +446,7 @@ export default class GamesAPI extends BaseAPI {
             requiresAuth: true,
             request: {
                 path: `v1/games/${options.universeId}/game-passes`,
-                qs: options,
-                responseOptions: {
-                    allowedStatusCodes: [200]
-                }
+                qs: options
             },
             json: true
         })
@@ -496,10 +457,7 @@ export default class GamesAPI extends BaseAPI {
         return this.request({
             requiresAuth: true,
             request: {
-                path: `v1/games/${options.universeId}/votes/user`,
-                responseOptions: {
-                    allowedStatusCodes: [200]
-                }
+                path: `v1/games/${options.universeId}/votes/user`
             },
             json: true
         })
@@ -511,10 +469,7 @@ export default class GamesAPI extends BaseAPI {
         return this.request({
             requiresAuth: true,
             request: {
-                path: `v1/games/votes?${universeIdsQueryString}`,
-                responseOptions: {
-                    allowedStatusCodes: [200]
-                }
+                path: `v1/games/votes?${universeIdsQueryString}`
             },
             json: true
         })
@@ -529,9 +484,6 @@ export default class GamesAPI extends BaseAPI {
                 method: "PATCH",
                 json: {
                     vote: options.vote
-                },
-                responseOptions: {
-                    allowedStatusCodes: [200]
                 }
             },
             json: true
@@ -543,10 +495,7 @@ export default class GamesAPI extends BaseAPI {
         return this.request({
             requiresAuth: true,
             request: {
-                path: `v1/vip-server/can-invite/${options.userId}`,
-                responseOptions: {
-                    allowedStatusCodes: [200]
-                }
+                path: `v1/vip-server/can-invite/${options.userId}`
             },
             json: true
         })
@@ -558,10 +507,7 @@ export default class GamesAPI extends BaseAPI {
             requiresAuth: true,
             request: {
                 path: `v1/vip-servers/${options.id}`,
-                qs: options,
-                responseOptions: {
-                    allowedStatusCodes: [200]
-                }
+                qs: options
             },
             json: true
         })
@@ -574,10 +520,7 @@ export default class GamesAPI extends BaseAPI {
             request: {
                 path: `v1/vip-servers/${options.id}`,
                 method: "PATCH",
-                json: options,
-                responseOptions: {
-                    allowedStatusCodes: [200]
-                }
+                json: options
             },
             json: true
         })
@@ -590,10 +533,7 @@ export default class GamesAPI extends BaseAPI {
             request: {
                 path: `v1/games/vip-servers/${options.universeId}`,
                 method: "POST",
-                json: options,
-                responseOptions: {
-                    allowedStatusCodes: [200]
-                }
+                json: options
             },
             json: true
         })
@@ -606,10 +546,7 @@ export default class GamesAPI extends BaseAPI {
             request: {
                 path: `v1/games/vip-servers/${options.id}/permissions`,
                 method: "PATCH",
-                json: options,
-                responseOptions: {
-                    allowedStatusCodes: [200]
-                }
+                json: options
             },
             json: true
         })
@@ -622,10 +559,7 @@ export default class GamesAPI extends BaseAPI {
             request: {
                 path: `v1/games/vip-servers/${options.id}/subscription`,
                 method: "PATCH",
-                json: options,
-                responseOptions: {
-                    allowedStatusCodes: [200]
-                }
+                json: options
             },
             json: true
         })

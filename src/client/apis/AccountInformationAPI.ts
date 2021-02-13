@@ -93,10 +93,7 @@ export default class AccountInformationAPI extends BaseAPI {
             request: {
                 path: "v1/birthdate",
                 method: "POST",
-                json: options,
-                responseOptions: {
-                    allowedStatusCodes: [200]
-                }
+                json: options
             },
             json: true
         })
@@ -107,10 +104,7 @@ export default class AccountInformationAPI extends BaseAPI {
         return this.request({
             requiresAuth: true,
             request: {
-                path: "v1/description",
-                responseOptions: {
-                    allowedStatusCodes: [200]
-                }
+                path: "v1/description"
             },
             json: true
         })
@@ -123,10 +117,7 @@ export default class AccountInformationAPI extends BaseAPI {
             request: {
                 path: "v1/description",
                 method: "POST",
-                json: options,
-                responseOptions: {
-                    allowedStatusCodes: [200]
-                }
+                json: options
             },
             json: true
         })
@@ -137,10 +128,7 @@ export default class AccountInformationAPI extends BaseAPI {
         return this.request({
             requiresAuth: true,
             request: {
-                path: "v1/gender",
-                responseOptions: {
-                    allowedStatusCodes: [200]
-                }
+                path: "v1/gender"
             },
             json: true
         })
@@ -164,10 +152,7 @@ export default class AccountInformationAPI extends BaseAPI {
         return this.request({
             requiresAuth: true,
             request: {
-                path: "v1/xbox-live/consecutive-login-days",
-                responseOptions: {
-                    allowedStatusCodes: [200]
-                }
+                path: "v1/xbox-live/consecutive-login-days"
             },
             json: true
         })
@@ -178,10 +163,7 @@ export default class AccountInformationAPI extends BaseAPI {
         return this.request({
             requiresAuth: false,
             request: {
-                path: "v1/metadata",
-                responseOptions: {
-                    allowedStatusCodes: [200]
-                }
+                path: "v1/metadata"
             },
             json: true
         })
@@ -192,10 +174,7 @@ export default class AccountInformationAPI extends BaseAPI {
         return this.request({
             requiresAuth: true,
             request: {
-                path: "v1/phone",
-                responseOptions: {
-                    allowedStatusCodes: [200]
-                }
+                path: "v1/phone"
             },
             json: true
         })
@@ -221,10 +200,7 @@ export default class AccountInformationAPI extends BaseAPI {
             request: {
                 path: "v1/phone/delete",
                 method: "POST",
-                json: options,
-                responseOptions: {
-                    allowedStatusCodes: [200]
-                }
+                json: options
             },
             json: true
         })
@@ -237,10 +213,7 @@ export default class AccountInformationAPI extends BaseAPI {
             request: {
                 path: "v1/phone/resend",
                 method: "POST",
-                json: options,
-                responseOptions: {
-                    allowedStatusCodes: [200]
-                }
+                json: options
             },
             json: true
         })
@@ -253,10 +226,7 @@ export default class AccountInformationAPI extends BaseAPI {
             request: {
                 path: "v1/phone/verify",
                 method: "POST",
-                json: options,
-                responseOptions: {
-                    allowedStatusCodes: [200]
-                }
+                json: options
             },
             json: true
         })
@@ -267,10 +237,7 @@ export default class AccountInformationAPI extends BaseAPI {
         return this.request({
             requiresAuth: true,
             request: {
-                path: "v1/promotion-channels",
-                responseOptions: {
-                    allowedStatusCodes: [200]
-                }
+                path: "v1/promotion-channels"
             },
             json: true
         })
@@ -281,10 +248,7 @@ export default class AccountInformationAPI extends BaseAPI {
         return this.request({
             requiresAuth: false,
             request: {
-                path: `v1/users/${options.userId}/promotion-channels`,
-                responseOptions: {
-                    allowedStatusCodes: [200]
-                }
+                path: `v1/users/${options.userId}/promotion-channels`
             },
             json: true
         })
@@ -297,10 +261,7 @@ export default class AccountInformationAPI extends BaseAPI {
             request: {
                 path: "v1/promotion-channels",
                 method: "POST",
-                json: options,
-                responseOptions: {
-                    allowedStatusCodes: [200]
-                }
+                json: options
             },
             json: true
         })
@@ -312,10 +273,7 @@ export default class AccountInformationAPI extends BaseAPI {
             requiresAuth: true,
             request: {
                 path: "v1/star-code-affiliates",
-                method: "DELETE",
-                responseOptions: {
-                    allowedStatusCodes: [200]
-                }
+                method: "DELETE"
             },
             json: true
         })
@@ -326,10 +284,7 @@ export default class AccountInformationAPI extends BaseAPI {
         return this.request({
             requiresAuth: true,
             request: {
-                path: "v1/star-code-affiliates",
-                responseOptions: {
-                    allowedStatusCodes: [200]
-                }
+                path: "v1/star-code-affiliates"
             },
             json: true
         })
@@ -342,10 +297,7 @@ export default class AccountInformationAPI extends BaseAPI {
             request: {
                 path: "v1/star-code-affiliates",
                 method: "POST",
-                json: options,
-                responseOptions: {
-                    allowedStatusCodes: [200]
-                }
+                json: options
             },
             json: true
         })

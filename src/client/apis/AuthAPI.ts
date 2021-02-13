@@ -223,9 +223,6 @@ export default class AuthAPI extends BaseAPI {
                 headers: {
                     referer: "https://www.roblox.com/",
                     origin: "roblox.com"
-                },
-                responseOptions: {
-                    allowedStatusCodes: [200]
                 }
             }
         })
@@ -239,10 +236,7 @@ export default class AuthAPI extends BaseAPI {
             json: true,
             requiresAuth: false,
             request: {
-                path: "v2/auth/metadata",
-                responseOptions: {
-                    allowedStatusCodes: [200]
-                }
+                path: "v2/auth/metadata"
             }
         })
             .then(response => response.body as GetAuthMetaData);
@@ -255,9 +249,6 @@ export default class AuthAPI extends BaseAPI {
             request: {
                 path: "v2/login",
                 method: "POST",
-                responseOptions: {
-                    allowedStatusCodes: [200]
-                },
                 json: options
             }
         })
@@ -270,10 +261,7 @@ export default class AuthAPI extends BaseAPI {
             requiresAuth: false,
             request: {
                 path: "v2/logout",
-                method: "POST",
-                responseOptions: {
-                    allowedStatusCodes: [200]
-                }
+                method: "POST"
             }
         })
             .then(response => response.body as Logout);
@@ -285,9 +273,6 @@ export default class AuthAPI extends BaseAPI {
             requiresAuth: false,
             request: {
                 path: "v2/credentials/verification",
-                responseOptions: {
-                    allowedStatusCodes: [200]
-                },
                 qs: {
                     "request.credentialType": options.credentialType,
                     "request.credentialValue": options.credentialValue,
@@ -305,9 +290,6 @@ export default class AuthAPI extends BaseAPI {
             request: {
                 path: "v2/credentials/verification/send",
                 method: "POST",
-                responseOptions: {
-                    allowedStatusCodes: [200]
-                },
                 json: options
             }
         })
@@ -319,10 +301,7 @@ export default class AuthAPI extends BaseAPI {
             json: true,
             requiresAuth: false,
             request: {
-                path: "v2/metadata",
-                responseOptions: {
-                    allowedStatusCodes: [200]
-                }
+                path: "v2/metadata"
             }
         })
             .then(response => response.body as GetMetaData);
@@ -333,10 +312,7 @@ export default class AuthAPI extends BaseAPI {
             json: true,
             requiresAuth: true,
             request: {
-                path: "v2/passwords/current-status",
-                responseOptions: {
-                    allowedStatusCodes: [200]
-                }
+                path: "v2/passwords/current-status"
             }
         })
             .then(response => response.body as GetCurrentPasswordStatus);
@@ -348,9 +324,6 @@ export default class AuthAPI extends BaseAPI {
             requiresAuth: false,
             request: {
                 path: "v2/passwords/reset",
-                responseOptions: {
-                    allowedStatusCodes: [200]
-                },
                 qs: {
                     "request.targetType": options.targetType,
                     "request.ticket": options.ticket
@@ -367,9 +340,6 @@ export default class AuthAPI extends BaseAPI {
             request: {
                 path: "v2/auth/metadata",
                 method: "POST",
-                responseOptions: {
-                    allowedStatusCodes: [200]
-                },
                 json: options
             }
         })
@@ -382,9 +352,6 @@ export default class AuthAPI extends BaseAPI {
             requiresAuth: false,
             request: {
                 path: "v2/passwords/validate",
-                responseOptions: {
-                    allowedStatusCodes: [200]
-                },
                 qs: {
                     "request.username": options.username,
                     "request.password": options.password
@@ -401,9 +368,6 @@ export default class AuthAPI extends BaseAPI {
             request: {
                 path: "v2/passwords/reset/send",
                 method: "POST",
-                responseOptions: {
-                    allowedStatusCodes: [200]
-                },
                 json: options
             }
         })
@@ -417,9 +381,6 @@ export default class AuthAPI extends BaseAPI {
             request: {
                 path: "v2/passwords/reset/verify",
                 method: "POST",
-                responseOptions: {
-                    allowedStatusCodes: [200]
-                },
                 json: options
             }
         })
@@ -433,9 +394,6 @@ export default class AuthAPI extends BaseAPI {
             request: {
                 path: "v2/user/passwords/change",
                 method: "POST",
-                responseOptions: {
-                    allowedStatusCodes: [200]
-                },
                 json: options
             }
         })
@@ -447,10 +405,7 @@ export default class AuthAPI extends BaseAPI {
             json: true,
             requiresAuth: false,
             request: {
-                path: "v2/recovery/metadata",
-                responseOptions: {
-                    allowedStatusCodes: [200]
-                }
+                path: "v2/recovery/metadata"
             }
         })
             .then(response => response.body as GetRecoveryMetaData);
@@ -462,9 +417,6 @@ export default class AuthAPI extends BaseAPI {
             requiresAuth: false,
             request: {
                 path: "v2/revert/account",
-                responseOptions: {
-                    allowedStatusCodes: [200]
-                },
                 qs: {
                     ticket: options.ticket
                 }
@@ -480,9 +432,6 @@ export default class AuthAPI extends BaseAPI {
             request: {
                 path: "v2/revert/account",
                 method: "POST",
-                responseOptions: {
-                    allowedStatusCodes: [200]
-                },
                 json: options
             }
         })
@@ -494,10 +443,7 @@ export default class AuthAPI extends BaseAPI {
             json: true,
             requiresAuth: false,
             request: {
-                path: "v2/saml/metadata",
-                responseOptions: {
-                    allowedStatusCodes: [200]
-                }
+                path: "v2/saml/metadata"
             }
         })
             .then(response => response.body as GetSAMLMetaData);
@@ -520,10 +466,7 @@ export default class AuthAPI extends BaseAPI {
             json: true,
             requiresAuth: false,
             request: {
-                path: "v2/twostepverification/metadata",
-                responseOptions: {
-                    allowedStatusCodes: [200]
-                }
+                path: "v2/twostepverification/metadata"
             }
         })
             .then(response => response.body as GetTwoStepVerificationMetaData);
@@ -536,9 +479,6 @@ export default class AuthAPI extends BaseAPI {
             request: {
                 path: "v2/twostepverification/resend",
                 method: "POST",
-                responseOptions: {
-                    allowedStatusCodes: [200]
-                },
                 json: options
             }
         })
@@ -552,9 +492,6 @@ export default class AuthAPI extends BaseAPI {
             request: {
                 path: "v2/twostepverification/verify",
                 method: "POST",
-                responseOptions: {
-                    allowedStatusCodes: [200]
-                },
                 json: options
             }
         })
@@ -567,9 +504,6 @@ export default class AuthAPI extends BaseAPI {
             requiresAuth: false,
             request: {
                 path: "v2/usernames",
-                responseOptions: {
-                    allowedStatusCodes: [200]
-                },
                 qs: {
                     username: options.username
                 }
@@ -584,9 +518,6 @@ export default class AuthAPI extends BaseAPI {
             requiresAuth: false,
             request: {
                 path: "v2/usernames/validate",
-                responseOptions: {
-                    allowedStatusCodes: [200]
-                },
                 qs: {
                     "request.username": options.username,
                     "request.birthday": options.birthday,
@@ -603,9 +534,6 @@ export default class AuthAPI extends BaseAPI {
             requiresAuth: false,
             request: {
                 path: "v2/twostepverification/metadata",
-                responseOptions: {
-                    allowedStatusCodes: [200]
-                },
                 json: options
             }
         })
@@ -619,9 +547,6 @@ export default class AuthAPI extends BaseAPI {
             request: {
                 path: "v2/twostepverification/metadata",
                 method: "POST",
-                responseOptions: {
-                    allowedStatusCodes: [200]
-                },
                 json: options
             }
         })
@@ -635,9 +560,6 @@ export default class AuthAPI extends BaseAPI {
             request: {
                 path: "v2/username",
                 method: "POST",
-                responseOptions: {
-                    allowedStatusCodes: [200]
-                },
                 json: options
             }
         })

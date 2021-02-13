@@ -182,10 +182,7 @@ export default class FriendsAPI extends BaseAPI {
         return this.request({
             requiresAuth: true,
             request: {
-                path: `v1/friends/verified/nearby/code/${options.code}`,
-                responseOptions: {
-                    allowedStatusCodes: [200]
-                }
+                path: `v1/friends/verified/nearby/code/${options.code}`
             },
             json: true
         })
@@ -196,10 +193,7 @@ export default class FriendsAPI extends BaseAPI {
         return this.request({
             requiresAuth: true,
             request: {
-                path: `v1/friends/verified/nearby/health`,
-                responseOptions: {
-                    allowedStatusCodes: [200]
-                }
+                path: `v1/friends/verified/nearby/health`
             },
             json: true
         })
@@ -211,10 +205,7 @@ export default class FriendsAPI extends BaseAPI {
             requiresAuth: true,
             request: {
                 path: `v1/friends/verified/nearby/code/${options.code}/redeem`,
-                method: "POST",
-                responseOptions: {
-                    allowedStatusCodes: [200]
-                }
+                method: "POST"
             },
             json: true
         })
@@ -226,10 +217,7 @@ export default class FriendsAPI extends BaseAPI {
             requiresAuth: true,
             request: {
                 path: `v1/friends/verified/nearby/session`,
-                method: "DELETE",
-                responseOptions: {
-                    allowedStatusCodes: [200]
-                }
+                method: "DELETE"
             },
             json: true
         })
@@ -241,10 +229,7 @@ export default class FriendsAPI extends BaseAPI {
             requiresAuth: true,
             request: {
                 path: `v1/friends/verified/nearby/session`,
-                method: "POST",
-                responseOptions: {
-                    allowedStatusCodes: [200]
-                }
+                method: "POST"
             },
             json: true
         })
@@ -256,10 +241,7 @@ export default class FriendsAPI extends BaseAPI {
             requiresAuth: true,
             request: {
                 path: `v1/friends/verified/qr/${options.code}/redeem`,
-                method: "POST",
-                responseOptions: {
-                    allowedStatusCodes: [200]
-                }
+                method: "POST"
             },
             json: true
         })
@@ -271,10 +253,7 @@ export default class FriendsAPI extends BaseAPI {
             requiresAuth: true,
             request: {
                 path: `v1/friends/verified/qr/session`,
-                method: "DELETE",
-                responseOptions: {
-                    allowedStatusCodes: [200]
-                }
+                method: "DELETE"
             },
             json: true
         })
@@ -286,10 +265,7 @@ export default class FriendsAPI extends BaseAPI {
             requiresAuth: true,
             request: {
                 path: `v1/friends/verified/qr/session`,
-                method: "POST",
-                responseOptions: {
-                    allowedStatusCodes: [200]
-                }
+                method: "POST"
             },
             json: true
         })
@@ -301,10 +277,7 @@ export default class FriendsAPI extends BaseAPI {
             requiresAuth: false,
             request: {
                 path: `v1/metadata`,
-                qs: options,
-                responseOptions: {
-                    allowedStatusCodes: [200]
-                }
+                qs: options
             },
             json: true
         })
@@ -315,10 +288,7 @@ export default class FriendsAPI extends BaseAPI {
         return this.request({
             requiresAuth: true,
             request: {
-                path: `v1/my/friends/count`,
-                responseOptions: {
-                    allowedStatusCodes: [200]
-                }
+                path: `v1/my/friends/count`
             },
             json: true
         })
@@ -330,10 +300,7 @@ export default class FriendsAPI extends BaseAPI {
             requiresAuth: true,
             request: {
                 path: `v1/my/friends/requests`,
-                qs: options,
-                responseOptions: {
-                    allowedStatusCodes: [200]
-                }
+                qs: options
             },
             json: true
         })
@@ -344,10 +311,7 @@ export default class FriendsAPI extends BaseAPI {
         return this.request({
             requiresAuth: true,
             request: {
-                path: `v1/user/friend-requests/count`,
-                responseOptions: {
-                    allowedStatusCodes: [200]
-                }
+                path: `v1/user/friend-requests/count`
             },
             json: true
         })
@@ -359,10 +323,7 @@ export default class FriendsAPI extends BaseAPI {
             requiresAuth: false,
             request: {
                 path: `v1/users/${options.userId}/followers`,
-                qs: options,
-                responseOptions: {
-                    allowedStatusCodes: [200]
-                }
+                qs: options
             },
             json: true
         })
@@ -373,10 +334,7 @@ export default class FriendsAPI extends BaseAPI {
         return this.request({
             requiresAuth: false,
             request: {
-                path: `v1/users/${options.userId}/followers/count`,
-                responseOptions: {
-                    allowedStatusCodes: [200]
-                }
+                path: `v1/users/${options.userId}/followers/count`
             },
             json: true
         })
@@ -388,10 +346,7 @@ export default class FriendsAPI extends BaseAPI {
             requiresAuth: false,
             request: {
                 path: `v1/users/${options.userId}/followings`,
-                qs: options,
-                responseOptions: {
-                    allowedStatusCodes: [200]
-                }
+                qs: options
             },
             json: true
         })
@@ -402,10 +357,7 @@ export default class FriendsAPI extends BaseAPI {
         return this.request({
             requiresAuth: false,
             request: {
-                path: `v1/users/${options.userId}/followings/count`,
-                responseOptions: {
-                    allowedStatusCodes: [200]
-                }
+                path: `v1/users/${options.userId}/followings/count`
             },
             json: true
         })
@@ -417,10 +369,7 @@ export default class FriendsAPI extends BaseAPI {
             requiresAuth: false,
             request: {
                 path: `v1/users/${options.userId}/friends`,
-                qs: options,
-                responseOptions: {
-                    allowedStatusCodes: [200]
-                }
+                qs: options
             },
             json: true
         })
@@ -431,10 +380,7 @@ export default class FriendsAPI extends BaseAPI {
         return this.request({
             requiresAuth: false,
             request: {
-                path: `v1/users/${options.userId}/friends/count`,
-                responseOptions: {
-                    allowedStatusCodes: [200]
-                }
+                path: `v1/users/${options.userId}/friends/count`
             },
             json: true
         })
@@ -445,10 +391,7 @@ export default class FriendsAPI extends BaseAPI {
         return this.request({
             requiresAuth: true,
             request: {
-                path: `v1/users/${options.userId}/friends/online`,
-                responseOptions: {
-                    allowedStatusCodes: [200]
-                }
+                path: `v1/users/${options.userId}/friends/online`
             },
             json: true
         })
@@ -462,9 +405,6 @@ export default class FriendsAPI extends BaseAPI {
                 path: `v1/users/${options.userId}/friends/statuses`,
                 qs: {
                     userIds: options.withUserIds.join(",")
-                },
-                responseOptions: {
-                    allowedStatusCodes: [200]
                 }
             },
             json: true
@@ -477,10 +417,7 @@ export default class FriendsAPI extends BaseAPI {
             requiresAuth: true,
             request: {
                 path: `v1/user/friend-requests/decline-all`,
-                method: "POST",
-                responseOptions: {
-                    allowedStatusCodes: [200]
-                }
+                method: "POST"
             },
             json: true
         })
@@ -492,10 +429,7 @@ export default class FriendsAPI extends BaseAPI {
             requiresAuth: true,
             request: {
                 path: `v1/users/${options.userId}/accept-friend-request`,
-                method: "POST",
-                responseOptions: {
-                    allowedStatusCodes: [200]
-                }
+                method: "POST"
             },
             json: true
         })
@@ -507,10 +441,7 @@ export default class FriendsAPI extends BaseAPI {
             requiresAuth: true,
             request: {
                 path: `v1/users/${options.userId}/decline-friend-request`,
-                method: "POST",
-                responseOptions: {
-                    allowedStatusCodes: [200]
-                }
+                method: "POST"
             },
             json: true
         })
@@ -522,10 +453,7 @@ export default class FriendsAPI extends BaseAPI {
             requiresAuth: true,
             request: {
                 path: `v1/users/${options.userId}/follow`,
-                method: "POST",
-                responseOptions: {
-                    allowedStatusCodes: [200]
-                }
+                method: "POST"
             },
             json: true
         })
@@ -540,9 +468,6 @@ export default class FriendsAPI extends BaseAPI {
                 method: "POST",
                 json: {
                     friendshipOriginSourceType: options.source || "Unknown"
-                },
-                responseOptions: {
-                    allowedStatusCodes: [200]
                 }
             },
             json: true
@@ -555,10 +480,7 @@ export default class FriendsAPI extends BaseAPI {
             requiresAuth: true,
             request: {
                 path: `v1/users/${options.userId}/unfollow`,
-                method: "POST",
-                responseOptions: {
-                    allowedStatusCodes: [200]
-                }
+                method: "POST"
             },
             json: true
         })
@@ -570,10 +492,7 @@ export default class FriendsAPI extends BaseAPI {
             requiresAuth: true,
             request: {
                 path: `v1/users/${options.userId}/unfriend`,
-                method: "POST",
-                responseOptions: {
-                    allowedStatusCodes: [200]
-                }
+                method: "POST"
             },
             json: true
         })
@@ -584,10 +503,7 @@ export default class FriendsAPI extends BaseAPI {
         return this.request({
             requiresAuth: true,
             request: {
-                path: `v1/recommended-users`,
-                responseOptions: {
-                    allowedStatusCodes: [200]
-                }
+                path: `v1/recommended-users`
             },
             json: true
         })

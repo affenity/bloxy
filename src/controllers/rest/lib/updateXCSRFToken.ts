@@ -8,9 +8,6 @@ export default function updateXCSRFToken (restController: RESTController): Promi
         xcsrf: false,
         checks: {
             xcsrf: false
-        },
-        responseOptions: {
-            allowedStatusCodes: [403]
         }
     })
         .then(response => {
