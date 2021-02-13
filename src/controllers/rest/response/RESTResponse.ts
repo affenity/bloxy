@@ -25,6 +25,7 @@ export default class RESTResponse {
         } else {
             const error = allProcessed.find(error => error instanceof BloxyHttpError &&
                 error.name === "BloxyInvalidStatusError" && error.status.includes("Token Validation Error"));
+
             if (error) {
                 // 1 attempt = 0 retries
                 if (this.request.attempts - 1 === this.controller.getXCSRFTokenRefreshMaxRetries()) {
