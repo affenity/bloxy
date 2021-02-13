@@ -142,7 +142,10 @@ export const DefaultRESTRequestOptions = {
         captcha: true
     },
     headers: {},
-    method: "GET"
+    method: "GET",
+    responseOptions: {
+        allowedStatusCodes: [200]
+    }
 };
 
 export const DefaultCreateCookieOptions = {
