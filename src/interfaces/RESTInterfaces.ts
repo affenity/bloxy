@@ -114,8 +114,8 @@ export declare type RESTRequestOptions = {
 export declare type RESTResponseOptions = {
     allowedStatusCodes?: number[];
     disallowedStatusCodes?: number[];
-    allowedStatuses?: string[];
-    disallowedStatuses?: string[];
+    allowedStatusMessages?: string[];
+    disallowedStatusMessages?: string[];
     onlyJSON?: boolean;
     checks?: {
         xcsrf?: boolean;

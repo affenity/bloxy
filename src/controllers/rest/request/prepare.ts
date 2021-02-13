@@ -33,7 +33,10 @@ export default async function prepare (request: RESTRequest, options: RESTReques
         if (!request.requestOptions.responseOptions) {
             request.requestOptions.responseOptions = {};
         }
-        request.requestOptions.responseOptions.disallowedStatuses = ["Token Validation Failed"];
+        if (!request.requestOptions.responseOptions.disallowedStatusMessages) {
+            request.requestOptions.responseOptions.disallowedStatusMessages = [];
+        }
+        request.requestOptions.responseOptions.disallowedStatusMessages.push("Token Validation Failed");
     }
     if (request.requestOptions.json) {
         request.requestOptions.body = typeof request.requestOptions.json === "string" ? request.requestOptions.json : JSON.stringify(request.requestOptions.json);

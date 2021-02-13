@@ -8,25 +8,25 @@ export default function validStatusMessage (response: RESTResponse): boolean | E
     let isValid = true;
 
     if (request.requestOptions.responseOptions && request.requestOptions.checks?.statusMessage) {
-        const allowedStatuses = responseOptions.allowedStatuses || [];
-        const disallowedStatuses = responseOptions.disallowedStatuses || [];
+        const allowedStatusMessages = responseOptions.allowedStatusMessages || [];
+        const disallowedStatusMessages = responseOptions.disallowedStatusMessages || [];
 
-        const isAllowed = allowedStatuses.some(status => responseData.statusMessage.toLowerCase()
-            .includes(status));
-        const isDisallowed = disallowedStatuses.some(status => responseData.statusMessage.toLowerCase()
-            .includes(status));
+        const isAllowed = allowedStatusMessages.some(statusMessage => responseData.statusMessage.toLowerCase()
+            .includes(statusMessage));
+        const isDisallowed = disallowedStatusMessages.some(statusMessage => responseData.statusMessage
+            .toLowerCase().includes(statusMessage));
 
-        if (allowedStatuses.length > 0) {
+        if (allowedStatusMessages.length > 0) {
             // Only these are allowed
             if (!isAllowed) {
                 isValid = false;
             }
-        } else if (allowedStatuses.length === 0 && disallowedStatuses.length > 0) {
+        } else if (allowedStatusMessages.length === 0 && disallowedStatusMessages.length > 0) {
             // Only these are disallowed
             if (isDisallowed) {
                 isValid = false;
             }
-        } else if (allowedStatuses.length === 0 && disallowedStatuses.length === 0) {
+        } else if (allowedStatusMessages.length === 0 && disallowedStatusMessages.length === 0) {
             // All status are allowed
         }
     }
