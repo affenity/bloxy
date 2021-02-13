@@ -133,6 +133,10 @@ export declare type RESTResponseDataType = {
     headers: Record<string, string>;
 };
 
+export const DefaultRESTResponseOptions = {
+    allowedStatusCodes: [200]
+};
+
 export const DefaultRESTRequestOptions = {
     checks: {
         xcsrf: true,
@@ -143,9 +147,7 @@ export const DefaultRESTRequestOptions = {
     },
     headers: {},
     method: "GET",
-    responseOptions: {
-        allowedStatusCodes: [200]
-    }
+    responseOptions: DefaultRESTResponseOptions
 };
 
 export const DefaultCreateCookieOptions = {
