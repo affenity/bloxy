@@ -1,5 +1,6 @@
 import BaseAPI from "./BaseAPI";
 import Client from "../Client";
+import { EnumUserPresence } from "../../interfaces/GeneralInterfaces";
 
 
 export type GetUserProfileHeaderOptions = {
@@ -11,7 +12,7 @@ export type GetUserProfileHeader = {
     ProfileUserName: string;
     ProfileDisplayName: string;
     FriendsCount: number;
-    UserPresenceType: number;
+    UserPresenceType: EnumUserPresence;
     LastLocation: string | null;
     UserStatus: string | null;
     UserStatusDate: string | null;

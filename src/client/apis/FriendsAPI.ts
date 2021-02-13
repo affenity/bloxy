@@ -2,6 +2,7 @@ import BaseAPI from "./BaseAPI";
 import Client from "../Client";
 import { GetUserFriendsCount, GetUserFriendsCountOptions } from "./GeneralAPI";
 import { PartialUser } from "../../structures/User";
+import { EnumUserPresence, UserPresence } from "../../interfaces/GeneralInterfaces";
 
 
 export type FindFriendByCodeOptions = {
@@ -117,7 +118,7 @@ export type GetUserOnlineFriends = {
         presence: {
             placeId: number | null;
             universeId: number | null;
-            UserPresenceType: string | null;
+            UserPresenceType: UserPresence | null;
             UserLocationType: string | null;
             lastLocation: string | null;
             gameInstanceId: string | null;
@@ -166,7 +167,7 @@ export type UnfriendUser = unknown
 export type GetSelfRecommendedUsers = {
     user: PartialUser;
     profileUrl: string;
-    presenceType: number;
+    presenceType: EnumUserPresence;
 }[];
 
 export default class FriendsAPI extends BaseAPI {
