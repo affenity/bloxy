@@ -119,7 +119,7 @@ export declare type RESTResponseOptions = {
     onlyJSON?: boolean;
     checks?: {
         xcsrf?: boolean;
-        status?: boolean;
+        statusMessage?: boolean;
         statusCode?: boolean;
         body?: boolean;
         captcha?: boolean;
@@ -128,7 +128,7 @@ export declare type RESTResponseOptions = {
 
 export declare type RESTResponseDataType = {
     body: any;
-    status: string;
+    statusMessage: string;
     statusCode: number;
     headers: Record<string, string>;
 };
@@ -140,7 +140,7 @@ export const DefaultRESTResponseOptions = {
 export const DefaultRESTRequestOptions = {
     checks: {
         xcsrf: true,
-        status: true,
+        statusMessage: true,
         statusCode: true,
         body: true,
         captcha: true

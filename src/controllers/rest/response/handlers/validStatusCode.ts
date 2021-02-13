@@ -7,7 +7,7 @@ export default function validStatusCode (response: RESTResponse): boolean | Erro
     let isValid = true;
     const responseOptions = request.requestOptions.responseOptions || {};
 
-    if (request.requestOptions.responseOptions && request.requestOptions.checks?.status) {
+    if (request.requestOptions.responseOptions && request.requestOptions.checks?.statusCode) {
         const allowedStatusCodes = responseOptions.allowedStatusCodes || [];
         const disallowedStatusCodes = responseOptions.disallowedStatusCodes || [];
 
@@ -30,7 +30,7 @@ export default function validStatusCode (response: RESTResponse): boolean | Erro
     }
 
     return isValid ? true : new BloxyHttpError({
-        status: responseData.status,
+        statusMessage: responseData.statusMessage,
         statusCode: responseData.statusCode,
         message: `Invalid status code in response. Body: ${responseData.body instanceof Object ? JSON.stringify(responseData.body) : responseData.body}`,
         name: "BloxyHttpInvalidStatusCodeError",
