@@ -23,21 +23,19 @@ export default class RESTResponse {
         if (allProcessed.every(processed => processed === true)) {
             return this.responseData;
         } else {
-            const error = allProcessed.find(processed => processed instanceof Error);
-
-            if (error && error instanceof BloxyHttpError) {
-                if (error.name === "BloxyHttpInvalidStatusCodeError" && error.statusCode === 403) {
-                    // 1 attempt = 0 retries
-                    if (this.request.attempts - 1 === this.controller.getXCSRFTokenRefreshMaxRetries()) {
-                        throw error;
-                    } else {
-                        await this.controller.fetchXCSRFToken();
-                        return this.request.send();
-                    }
+            const error = allProcessed.find(error => error instanceof BloxyHttpError &&
+                error.name === "BloxyInvalidStatusError" && error.status.includes("Token Validation Error"));
+            if (error) {
+                // 1 attempt = 0 retries
+                if (this.request.attempts - 1 === this.controller.getXCSRFTokenRefreshMaxRetries()) {
+                    throw error;
+                } else {
+                    await this.controller.fetchXCSRFToken();
+                    return this.request.send();
                 }
             }
 
-            throw error;
+            throw allProcessed.find(error => error instanceof Error);
         }
     }
 }
