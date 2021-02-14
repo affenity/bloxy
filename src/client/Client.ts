@@ -140,10 +140,17 @@ export default class Client extends ClientBase {
     }
 
     getUserIdFromUsername (username: string): Promise<PartialUser> {
-        return this.apis.generalApi.getUserByUsername({
-            username
+        return this.apis.usersAPI.getUsersByUsernames({
+            usernames: [username],
+            excludeBannedUsers: false
         })
-            .then(data => new PartialUser(data, this));
+            .then(response => {
+                if (response.data && response.data[0]) {
+                    return new PartialUser(response.data[0], this);
+                } else {
+                    throw new Error("Got invalid response from getUserIdFromUsername");
+                }
+            });
     }
 
     getUsernameFromUserId (userId: number | string): Promise<PartialUser> {
