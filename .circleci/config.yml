@@ -61,4 +61,7 @@ jobs:
 workflows:
   build-and-test:
     jobs:
+      - eslint
+      - build-typescript
       - build-and-test
+      - deploy-documentation
