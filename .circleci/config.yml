@@ -48,7 +48,7 @@ jobs:
       - run: npm run create-docs
       - run: git config --global user.name "Martin"
       - run: git config --global user.email "m@xnx.no"
-      - run: cd site && git init && git remote add origin https://github.com/Visualizememe/bloxy && git pull origin gh-pages && git add . && git commit -m "Updates" && git pull origin gh-pages && git push origin gh-pages
+      - run: cd site && git init && git remote add origin https://github.com/Visualizememe/blox && git add . && git commit -m "Updates"  && git pull origin gh-pages && git pull origin gh-pages && git push origin gh-pages
 workflows:
   build-and-test:
     jobs:
