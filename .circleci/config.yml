@@ -2,15 +2,16 @@ version: 2.1
 orbs:
   node: circleci/node@1.1.6
   codecov: codecov/codecov@1.0.2
+  python: circleci/python@1.3.2
 jobs:
   eslint:
     executor:
       name: node/default
     steps:
       - checkout
-      - run:
-          name: Runs ESLint and ensures there are no errors
-          command: eslint ./src/ --ext .ts
+      - node/with-cache:
+          - run: npm ci
+          - run: eslint ./src --ext .ts
   build-typescript:
     executor:
       name: node/default
@@ -35,24 +36,11 @@ jobs:
           token: bc55e615-594b-40a3-bf51-3e408a8e5f85
   deploy-documentation:
     executor:
-      name: node/default
+      name: python/default
     steps:
       - checkout
-      - run:
-          name: Prepares for Python install
-          command: sudo apt install software-properties-common
-      - run:
-          name: Adds deadsnakes repo
-          command: sudo add-apt-repository ppa:deadsnakes/ppa
-      - run:
-          name: Updates system
-          command: sudo apt update
-      - run:
-          name: Install python
-          command: sudo apt install python3.9 python3.9-venv python3.9-dev -y
-      - run:
-          name: Installs mkdocs and mkdocs-material
-          command: pip install mkdocs mkdocs-material
+      - python/default:
+          - run: pip install mkdocs mkdocs-material
       - node/with-cache:
           steps:
             - run: npm ci
