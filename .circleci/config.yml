@@ -38,7 +38,7 @@ jobs:
             - run: npm run build
   deploy-docs:
     executor:
-      name: python/default
+      name: ubuntu-2004:202010-01
     steps:
       - checkout
       - run: pip install mkdocs mkdocs-material
