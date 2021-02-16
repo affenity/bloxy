@@ -45,6 +45,10 @@ jobs:
       - run: python --version
       - run: node --version
       - run: npm ci
+      - run: git clone https://github.com/Visualizememe/bloxy site
+      - run: cd site
+      - run: git checkout gh-pages
+      - run: cd ..
       - run: npm run create-docs
 workflows:
   build-and-test:

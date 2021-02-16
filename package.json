@@ -23,7 +23,7 @@
     "eslint": "eslint . --ext .ts",
     "postinstall": "npm install got && echo \"\nThank you for installing bloxy! Dependency 'got' has been installed automatically, uninstall it if you plan to use bloxy in a browser-related project!\"",
     "prepublishOnly": "npm run build",
-    "create-docs": "typedoc --plugin typedoc-plugin-markdown --hideBreadcrumbs --namedAnchors --excludeExternals --out docs src && mkdocs build --clean",
+    "create-docs": "typedoc --plugin typedoc-plugin-markdown --hideBreadcrumbs --namedAnchors --excludeExternals --out docs src && mkdocs build",
     "prepare-windows": "npm install && npm run build && npm run create-docs && echo 'Finished'"
   },
   "types": "./dist/index.d.ts",
