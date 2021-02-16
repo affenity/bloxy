@@ -45,7 +45,6 @@ jobs:
       - run: python --version
       - run: node --version
       - run: npm ci
-      - run: cd site && git checkout gh-pages
       - run: npm run create-docs
       - run: git config --global user.name "Martin"
       - run: git config --global user.email "m@xnx.no"
