@@ -19,14 +19,14 @@ jobs:
           file: "./coverage/clover.xml"
           token: bc55e615-594b-40a3-bf51-3e408a8e5f85
   eslint:
-    executor: 
+    executor:
       name: node/default
     steps:
       - checkout
       - node/with-cache:
           steps:
-          - run: npm ci
-          - run: eslint ./src --ext .ts
+            - run: npm ci
+            - run: npm run eslint
   build-typescript:
     executor:
       name: node/default
@@ -42,9 +42,11 @@ jobs:
     steps:
       - checkout
       - run: pip install mkdocs mkdocs-material
+      - run: curl -fsSL https://deb.nodesource.com/setup_14.x | sudo -E bash -
+          sudo apt-get install -y nodejs
       - node/with-cache:
           steps:
-          - run: npm run create-docs
+            - run: npm run create-docs
 workflows:
   build-and-test:
     jobs:
