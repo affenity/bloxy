@@ -37,16 +37,14 @@ jobs:
             - run: npm ci
             - run: npm run build
   deploy-docs:
-    machine:
-      image: ubuntu-1604:202004-01 ubuntu-2004:202010-01
+    docker:
+      - image: cimg/python:3.9.1-node
     steps:
       - checkout
       - run: pip install mkdocs mkdocs-material
-      - run: curl -fsSL https://deb.nodesource.com/setup_14.x | sudo -E bash -
-          sudo apt-get install -y nodejs
-      - node/with-cache:
-          steps:
-            - run: npm run create-docs
+      - run: python --version
+      - run: node --version
+      - run: npm run create-docs
 workflows:
   build-and-test:
     jobs:
