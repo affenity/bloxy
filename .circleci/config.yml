@@ -44,6 +44,7 @@ jobs:
       - run: pip install mkdocs mkdocs-material
       - run: python --version
       - run: node --version
+      - run: npm ci
       - run: npm run create-docs
 workflows:
   build-and-test:
