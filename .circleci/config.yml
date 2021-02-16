@@ -45,12 +45,11 @@ jobs:
       - run: python --version
       - run: node --version
       - run: npm ci
-      - run: git clone https://github.com/Visualizememe/bloxy site
       - run: cd site && git checkout gh-pages
       - run: npm run create-docs
       - run: git config --global user.name "Martin"
       - run: git config --global user.email "m@xnx.no"
-      - run: cd site && git init && git add . && git commit -m "Updates" && git pull origin gh-pages && git push origin gh-pages
+      - run: cd site && git init && git remote add origin https://github.com/Visualizememe/bloxy && git pull origin gh-pages && git add . && git commit -m "Updates" && git pull origin gh-pages && git push origin gh-pages
 workflows:
   build-and-test:
     jobs:
