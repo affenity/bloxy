@@ -73,7 +73,7 @@ export type EmailEnableOptions = {
 };
 export type EmailEnable = unknown;
 
-export default class TwoStepVerification extends BaseAPI {
+export default class TwoStepVerificationAPI extends BaseAPI {
     constructor (client: Client) {
         super({
             client,
