@@ -205,9 +205,9 @@ export class CursorPage<T> {
         previous: string | null;
     };
     public data: T[];
-    public method: Function;
+    public method: any;
 
-    constructor (client: Client, options: CursorPageOptions, response: CursorPageResponse, method: Function) {
+    constructor (client: Client, options: CursorPageOptions, response: CursorPageResponse, method: any) {
         this.client = client;
         this.options = options;
         this.cursors = {

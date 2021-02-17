@@ -118,6 +118,8 @@ export type PartialGameBadgeOptions = GameBadgeBaseOptions;
 
 
 export class PartialGameBadge extends GameBadgeBase {
+    // Shut up eslint, it's not useless
+    // eslint-disable-next-line no-useless-constructor
     constructor (data: PartialGameBadgeOptions, client: Client) {
         super(data, client);
     }
