@@ -4507,309 +4507,341 @@
 </ul>
 <h2 id="type-aliases_1">Type aliases</h2>
 <h3 id="getassetowners">GetAssetOwners</h3>
-<p>Ƭ <strong>GetAssetOwners</strong>: { <code>data</code>: { <code>created</code>: <em>string</em> ; <code>id</code>: <em>number</em> ; <code>owner</code>: { <code>id</code>: <em>number</em> ; <code>name</code>: <em>string</em> ; <code>type</code>: <em>User</em> | <em>string</em>  } ; <code>serialNumber</code>: <em>number</em> ; <code>updated</code>: <em>string</em>  } ; <code>nextPageCursor</code>: <em>string</em> ; <code>previousPageCursor</code>: <em>string</em>  }</p>
+<p>Ƭ <strong>GetAssetOwners</strong>: <em>object</em></p>
 <h4 id="type-declaration">Type declaration:</h4>
 <table>
 <thead>
 <tr>
-<th>Name</th>
-<th>Type</th>
+<th align="left">Name</th>
+<th align="left">Type</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td><code>data</code></td>
-<td>{ <code>created</code>: <em>string</em> ; <code>id</code>: <em>number</em> ; <code>owner</code>: { <code>id</code>: <em>number</em> ; <code>name</code>: <em>string</em> ; <code>type</code>: <em>User</em> | <em>string</em>  } ; <code>serialNumber</code>: <em>number</em> ; <code>updated</code>: <em>string</em>  }</td>
+<td align="left"><code>data</code></td>
+<td align="left"><em>object</em></td>
 </tr>
 <tr>
-<td><code>nextPageCursor</code></td>
-<td><em>string</em></td>
+<td align="left"><code>data.created</code></td>
+<td align="left"><em>string</em></td>
 </tr>
 <tr>
-<td><code>previousPageCursor</code></td>
-<td><em>string</em></td>
+<td align="left"><code>data.id</code></td>
+<td align="left"><em>number</em></td>
+</tr>
+<tr>
+<td align="left"><code>data.owner</code></td>
+<td align="left"><em>object</em></td>
+</tr>
+<tr>
+<td align="left"><code>data.owner.id</code></td>
+<td align="left"><em>number</em></td>
+</tr>
+<tr>
+<td align="left"><code>data.owner.name</code></td>
+<td align="left"><em>string</em></td>
+</tr>
+<tr>
+<td align="left"><code>data.owner.type</code></td>
+<td align="left"><em>User</em> | <em>string</em></td>
+</tr>
+<tr>
+<td align="left"><code>data.serialNumber</code></td>
+<td align="left"><em>number</em></td>
+</tr>
+<tr>
+<td align="left"><code>data.updated</code></td>
+<td align="left"><em>string</em></td>
+</tr>
+<tr>
+<td align="left"><code>nextPageCursor</code></td>
+<td align="left"><em>string</em></td>
+</tr>
+<tr>
+<td align="left"><code>previousPageCursor</code></td>
+<td align="left"><em>string</em></td>
 </tr>
 </tbody>
 </table>
-<p>Defined in: <a href="https://github.com/Visualizememe/bloxy/blob/80e81c2/src/client/apis/InventoryAPI.ts#L53">client/apis/InventoryAPI.ts:53</a></p>
+<p>Defined in: <a href="https://github.com/Visualizememe/bloxy/blob/3b10da1/src/client/apis/InventoryAPI.ts#L53">client/apis/InventoryAPI.ts:53</a></p>
 <hr />
 <h3 id="getassetownersoptions">GetAssetOwnersOptions</h3>
-<p>Ƭ <strong>GetAssetOwnersOptions</strong>: { <code>assetId</code>: <em>number</em> ; <code>cursor?</code>: <em>string</em> ; <code>limit?</code>: <em>10</em> | <em>25</em> | <em>50</em> | <em>100</em> ; <code>sortOrder?</code>: <em>Asc</em> | <em>Desc</em>  }</p>
+<p>Ƭ <strong>GetAssetOwnersOptions</strong>: <em>object</em></p>
 <h4 id="type-declaration_1">Type declaration:</h4>
 <table>
 <thead>
 <tr>
-<th>Name</th>
-<th>Type</th>
+<th align="left">Name</th>
+<th align="left">Type</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td><code>assetId</code></td>
-<td><em>number</em></td>
+<td align="left"><code>assetId</code></td>
+<td align="left"><em>number</em></td>
 </tr>
 <tr>
-<td><code>cursor?</code></td>
-<td><em>string</em></td>
+<td align="left"><code>cursor</code>?</td>
+<td align="left"><em>string</em></td>
 </tr>
 <tr>
-<td><code>limit?</code></td>
-<td><em>10</em> | <em>25</em> | <em>50</em> | <em>100</em></td>
+<td align="left"><code>limit</code>?</td>
+<td align="left"><em>10</em> | <em>25</em> | <em>50</em> | <em>100</em></td>
 </tr>
 <tr>
-<td><code>sortOrder?</code></td>
-<td><em>Asc</em> | <em>Desc</em></td>
+<td align="left"><code>sortOrder</code>?</td>
+<td align="left"><em>Asc</em> | <em>Desc</em></td>
 </tr>
 </tbody>
 </table>
-<p>Defined in: <a href="https://github.com/Visualizememe/bloxy/blob/80e81c2/src/client/apis/InventoryAPI.ts#L47">client/apis/InventoryAPI.ts:47</a></p>
+<p>Defined in: <a href="https://github.com/Visualizememe/bloxy/blob/3b10da1/src/client/apis/InventoryAPI.ts#L47">client/apis/InventoryAPI.ts:47</a></p>
 <hr />
 <h3 id="getpackageassets">GetPackageAssets</h3>
-<p>Ƭ <strong>GetPackageAssets</strong>: { <code>assetIds</code>: <em>number</em>[]  }</p>
+<p>Ƭ <strong>GetPackageAssets</strong>: <em>object</em></p>
 <h4 id="type-declaration_2">Type declaration:</h4>
 <table>
 <thead>
 <tr>
-<th>Name</th>
-<th>Type</th>
+<th align="left">Name</th>
+<th align="left">Type</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td><code>assetIds</code></td>
-<td><em>number</em>[]</td>
+<td align="left"><code>assetIds</code></td>
+<td align="left"><em>number</em>[]</td>
 </tr>
 </tbody>
 </table>
-<p>Defined in: <a href="https://github.com/Visualizememe/bloxy/blob/80e81c2/src/client/apis/InventoryAPI.ts#L8">client/apis/InventoryAPI.ts:8</a></p>
+<p>Defined in: <a href="https://github.com/Visualizememe/bloxy/blob/3b10da1/src/client/apis/InventoryAPI.ts#L8">client/apis/InventoryAPI.ts:8</a></p>
 <hr />
 <h3 id="getpackageassetsoptions">GetPackageAssetsOptions</h3>
-<p>Ƭ <strong>GetPackageAssetsOptions</strong>: { <code>packageId</code>: <em>number</em>  }</p>
+<p>Ƭ <strong>GetPackageAssetsOptions</strong>: <em>object</em></p>
 <h4 id="type-declaration_3">Type declaration:</h4>
 <table>
 <thead>
 <tr>
-<th>Name</th>
-<th>Type</th>
+<th align="left">Name</th>
+<th align="left">Type</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td><code>packageId</code></td>
-<td><em>number</em></td>
+<td align="left"><code>packageId</code></td>
+<td align="left"><em>number</em></td>
 </tr>
 </tbody>
 </table>
-<p>Defined in: <a href="https://github.com/Visualizememe/bloxy/blob/80e81c2/src/client/apis/InventoryAPI.ts#L5">client/apis/InventoryAPI.ts:5</a></p>
+<p>Defined in: <a href="https://github.com/Visualizememe/bloxy/blob/3b10da1/src/client/apis/InventoryAPI.ts#L5">client/apis/InventoryAPI.ts:5</a></p>
 <hr />
 <h3 id="getusercollectibles">GetUserCollectibles</h3>
-<p>Ƭ <strong>GetUserCollectibles</strong>: { <code>data</code>: { <code>assetId</code>: <em>number</em> ; <code>assetStock</code>: <em>number</em> ; <code>buildersClubMembershipType</code>: <em>None</em> | <em>string</em> ; <code>name</code>: <em>string</em> ; <code>originalPrice</code>: <em>number</em> ; <code>recentAveragePrice</code>: <em>number</em> ; <code>serialNumber</code>: <em>number</em> ; <code>userAssetId</code>: <em>number</em>  }[] ; <code>nextPageCursor</code>: <em>string</em> ; <code>previousPageCursor</code>: <em>string</em>  }</p>
+<p>Ƭ <strong>GetUserCollectibles</strong>: <em>object</em></p>
 <h4 id="type-declaration_4">Type declaration:</h4>
 <table>
 <thead>
 <tr>
-<th>Name</th>
-<th>Type</th>
+<th align="left">Name</th>
+<th align="left">Type</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td><code>data</code></td>
-<td>{ <code>assetId</code>: <em>number</em> ; <code>assetStock</code>: <em>number</em> ; <code>buildersClubMembershipType</code>: <em>None</em> | <em>string</em> ; <code>name</code>: <em>string</em> ; <code>originalPrice</code>: <em>number</em> ; <code>recentAveragePrice</code>: <em>number</em> ; <code>serialNumber</code>: <em>number</em> ; <code>userAssetId</code>: <em>number</em>  }[]</td>
+<td align="left"><code>data</code></td>
+<td align="left">{ <code>assetId</code>: <em>number</em> ; <code>assetStock</code>: <em>number</em> ; <code>buildersClubMembershipType</code>: <em>None</em> | <em>string</em> ; <code>name</code>: <em>string</em> ; <code>originalPrice</code>: <em>number</em> ; <code>recentAveragePrice</code>: <em>number</em> ; <code>serialNumber</code>: <em>number</em> ; <code>userAssetId</code>: <em>number</em>  }[]</td>
 </tr>
 <tr>
-<td><code>nextPageCursor</code></td>
-<td><em>string</em></td>
+<td align="left"><code>nextPageCursor</code></td>
+<td align="left"><em>string</em></td>
 </tr>
 <tr>
-<td><code>previousPageCursor</code></td>
-<td><em>string</em></td>
+<td align="left"><code>previousPageCursor</code></td>
+<td align="left"><em>string</em></td>
 </tr>
 </tbody>
 </table>
-<p>Defined in: <a href="https://github.com/Visualizememe/bloxy/blob/80e81c2/src/client/apis/InventoryAPI.ts#L18">client/apis/InventoryAPI.ts:18</a></p>
+<p>Defined in: <a href="https://github.com/Visualizememe/bloxy/blob/3b10da1/src/client/apis/InventoryAPI.ts#L18">client/apis/InventoryAPI.ts:18</a></p>
 <hr />
 <h3 id="getusercollectiblesoptions">GetUserCollectiblesOptions</h3>
-<p>Ƭ <strong>GetUserCollectiblesOptions</strong>: { <code>assetType?</code>: <em>Image</em> | <em>TShirt</em> | <em>Audio</em> | <em>Mesh</em> | <em>Lua</em> | <em>HTML</em> | <em>Text</em> | <em>Hat</em> | <em>Place</em> | <em>Model</em> | <em>Shirt</em> | <em>Pants</em> | <em>Decal</em> | <em>Avatar</em> | <em>Head</em> | <em>Face</em> | <em>Gear</em> | <em>Badge</em> | <em>GroupEmblem</em> | <em>Animation</em> | <em>Arms</em> | <em>Legs</em> | <em>Torso</em> | <em>RightArm</em> | <em>LeftArm</em> | <em>LeftLeg</em> | <em>RightLeg</em> | <em>Package</em> | <em>YouTubeVideo</em> | <em>GamePass</em> | <em>App</em> | <em>Code</em> | <em>Plugin</em> | <em>SolidModel</em> | <em>MeshPart</em> | <em>HairAccessory</em> | <em>NeckAccessory</em> | <em>ShoulderAccessory</em> | <em>FrontAccessory</em> | <em>BackAccessory</em> | <em>WaistAccessory</em> | <em>ClimbAnimation</em> | <em>DeathAnimation</em> | <em>FallAnimation</em> | <em>IdleAnimation</em> | <em>JumpAnimation</em> | <em>RunAnimation</em> | <em>SwimAnimation</em> | <em>WalkAnimation</em> | <em>PoseAnimation</em> | <em>LocalizationTableManifest</em> | <em>LocalizationTableTranslation</em> | <em>EmoteAnimation</em> | <em>Video</em> | <em>TexturePack</em> ; <code>cursor?</code>: <em>string</em> ; <code>limit?</code>: <em>10</em> | <em>25</em> | <em>50</em> | <em>100</em> ; <code>sortOrder?</code>: <em>Asc</em> | <em>Desc</em> ; <code>userId</code>: <em>number</em>  }</p>
+<p>Ƭ <strong>GetUserCollectiblesOptions</strong>: <em>object</em></p>
 <h4 id="type-declaration_5">Type declaration:</h4>
 <table>
 <thead>
 <tr>
-<th>Name</th>
-<th>Type</th>
+<th align="left">Name</th>
+<th align="left">Type</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td><code>assetType?</code></td>
-<td><em>Image</em> | <em>TShirt</em> | <em>Audio</em> | <em>Mesh</em> | <em>Lua</em> | <em>HTML</em> | <em>Text</em> | <em>Hat</em> | <em>Place</em> | <em>Model</em> | <em>Shirt</em> | <em>Pants</em> | <em>Decal</em> | <em>Avatar</em> | <em>Head</em> | <em>Face</em> | <em>Gear</em> | <em>Badge</em> | <em>GroupEmblem</em> | <em>Animation</em> | <em>Arms</em> | <em>Legs</em> | <em>Torso</em> | <em>RightArm</em> | <em>LeftArm</em> | <em>LeftLeg</em> | <em>RightLeg</em> | <em>Package</em> | <em>YouTubeVideo</em> | <em>GamePass</em> | <em>App</em> | <em>Code</em> | <em>Plugin</em> | <em>SolidModel</em> | <em>MeshPart</em> | <em>HairAccessory</em> | <em>NeckAccessory</em> | <em>ShoulderAccessory</em> | <em>FrontAccessory</em> | <em>BackAccessory</em> | <em>WaistAccessory</em> | <em>ClimbAnimation</em> | <em>DeathAnimation</em> | <em>FallAnimation</em> | <em>IdleAnimation</em> | <em>JumpAnimation</em> | <em>RunAnimation</em> | <em>SwimAnimation</em> | <em>WalkAnimation</em> | <em>PoseAnimation</em> | <em>LocalizationTableManifest</em> | <em>LocalizationTableTranslation</em> | <em>EmoteAnimation</em> | <em>Video</em> | <em>TexturePack</em></td>
+<td align="left"><code>assetType</code>?</td>
+<td align="left"><em>Image</em> | <em>TShirt</em> | <em>Audio</em> | <em>Mesh</em> | <em>Lua</em> | <em>HTML</em> | <em>Text</em> | <em>Hat</em> | <em>Place</em> | <em>Model</em> | <em>Shirt</em> | <em>Pants</em> | <em>Decal</em> | <em>Avatar</em> | <em>Head</em> | <em>Face</em> | <em>Gear</em> | <em>Badge</em> | <em>GroupEmblem</em> | <em>Animation</em> | <em>Arms</em> | <em>Legs</em> | <em>Torso</em> | <em>RightArm</em> | <em>LeftArm</em> | <em>LeftLeg</em> | <em>RightLeg</em> | <em>Package</em> | <em>YouTubeVideo</em> | <em>GamePass</em> | <em>App</em> | <em>Code</em> | <em>Plugin</em> | <em>SolidModel</em> | <em>MeshPart</em> | <em>HairAccessory</em> | <em>NeckAccessory</em> | <em>ShoulderAccessory</em> | <em>FrontAccessory</em> | <em>BackAccessory</em> | <em>WaistAccessory</em> | <em>ClimbAnimation</em> | <em>DeathAnimation</em> | <em>FallAnimation</em> | <em>IdleAnimation</em> | <em>JumpAnimation</em> | <em>RunAnimation</em> | <em>SwimAnimation</em> | <em>WalkAnimation</em> | <em>PoseAnimation</em> | <em>LocalizationTableManifest</em> | <em>LocalizationTableTranslation</em> | <em>EmoteAnimation</em> | <em>Video</em> | <em>TexturePack</em></td>
 </tr>
 <tr>
-<td><code>cursor?</code></td>
-<td><em>string</em></td>
+<td align="left"><code>cursor</code>?</td>
+<td align="left"><em>string</em></td>
 </tr>
 <tr>
-<td><code>limit?</code></td>
-<td><em>10</em> | <em>25</em> | <em>50</em> | <em>100</em></td>
+<td align="left"><code>limit</code>?</td>
+<td align="left"><em>10</em> | <em>25</em> | <em>50</em> | <em>100</em></td>
 </tr>
 <tr>
-<td><code>sortOrder?</code></td>
-<td><em>Asc</em> | <em>Desc</em></td>
+<td align="left"><code>sortOrder</code>?</td>
+<td align="left"><em>Asc</em> | <em>Desc</em></td>
 </tr>
 <tr>
-<td><code>userId</code></td>
-<td><em>number</em></td>
+<td align="left"><code>userId</code></td>
+<td align="left"><em>number</em></td>
 </tr>
 </tbody>
 </table>
-<p>Defined in: <a href="https://github.com/Visualizememe/bloxy/blob/80e81c2/src/client/apis/InventoryAPI.ts#L11">client/apis/InventoryAPI.ts:11</a></p>
+<p>Defined in: <a href="https://github.com/Visualizememe/bloxy/blob/3b10da1/src/client/apis/InventoryAPI.ts#L11">client/apis/InventoryAPI.ts:11</a></p>
 <hr />
 <h3 id="getuserinventory">GetUserInventory</h3>
-<p>Ƭ <strong>GetUserInventory</strong>: { <code>data</code>: { <code>assetId</code>: <em>number</em> ; <code>assetType</code>: <a href="./#getusercollectiblesoptions"><em>GetUserCollectiblesOptions</em></a>[<em>assetType</em>] ; <code>created</code>: <em>string</em> ; <code>name</code>: <em>string</em>  }[] ; <code>nextPageCursor</code>: <em>string</em> ; <code>previousPageCursor</code>: <em>string</em>  }</p>
+<p>Ƭ <strong>GetUserInventory</strong>: <em>object</em></p>
 <h4 id="type-declaration_6">Type declaration:</h4>
 <table>
 <thead>
 <tr>
-<th>Name</th>
-<th>Type</th>
+<th align="left">Name</th>
+<th align="left">Type</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td><code>data</code></td>
-<td>{ <code>assetId</code>: <em>number</em> ; <code>assetType</code>: <a href="./#getusercollectiblesoptions"><em>GetUserCollectiblesOptions</em></a>[<em>assetType</em>] ; <code>created</code>: <em>string</em> ; <code>name</code>: <em>string</em>  }[]</td>
+<td align="left"><code>data</code></td>
+<td align="left">{ <code>assetId</code>: <em>number</em> ; <code>assetType</code>: <a href="./#getusercollectiblesoptions"><em>GetUserCollectiblesOptions</em></a>[<em>assetType</em>] ; <code>created</code>: <em>string</em> ; <code>name</code>: <em>string</em>  }[]</td>
 </tr>
 <tr>
-<td><code>nextPageCursor</code></td>
-<td><em>string</em></td>
+<td align="left"><code>nextPageCursor</code></td>
+<td align="left"><em>string</em></td>
 </tr>
 <tr>
-<td><code>previousPageCursor</code></td>
-<td><em>string</em></td>
+<td align="left"><code>previousPageCursor</code></td>
+<td align="left"><em>string</em></td>
 </tr>
 </tbody>
 </table>
-<p>Defined in: <a href="https://github.com/Visualizememe/bloxy/blob/80e81c2/src/client/apis/InventoryAPI.ts#L75">client/apis/InventoryAPI.ts:75</a></p>
+<p>Defined in: <a href="https://github.com/Visualizememe/bloxy/blob/3b10da1/src/client/apis/InventoryAPI.ts#L75">client/apis/InventoryAPI.ts:75</a></p>
 <hr />
 <h3 id="getuserinventorybyassettypeid">GetUserInventoryByAssetTypeId</h3>
-<p>Ƭ <strong>GetUserInventoryByAssetTypeId</strong>: { <code>data</code>: { <code>assetId</code>: <em>number</em> ; <code>assetName</code>: <em>string</em> ; <code>created</code>: <em>string</em> ; <code>owner</code>: { <code>buildersClubMembershipType</code>: <em>None</em> | <em>string</em> ; <code>userId</code>: <em>number</em> ; <code>username</code>: <em>string</em>  } ; <code>serialNumber</code>: <em>number</em> ; <code>updated</code>: <em>string</em> ; <code>userAssetId</code>: <em>number</em>  }[] ; <code>nextPageCursor</code>: <em>string</em> ; <code>previousPageCursor</code>: <em>string</em>  }</p>
+<p>Ƭ <strong>GetUserInventoryByAssetTypeId</strong>: <em>object</em></p>
 <h4 id="type-declaration_7">Type declaration:</h4>
 <table>
 <thead>
 <tr>
-<th>Name</th>
-<th>Type</th>
+<th align="left">Name</th>
+<th align="left">Type</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td><code>data</code></td>
-<td>{ <code>assetId</code>: <em>number</em> ; <code>assetName</code>: <em>string</em> ; <code>created</code>: <em>string</em> ; <code>owner</code>: { <code>buildersClubMembershipType</code>: <em>None</em> | <em>string</em> ; <code>userId</code>: <em>number</em> ; <code>username</code>: <em>string</em>  } ; <code>serialNumber</code>: <em>number</em> ; <code>updated</code>: <em>string</em> ; <code>userAssetId</code>: <em>number</em>  }[]</td>
+<td align="left"><code>data</code></td>
+<td align="left">{ <code>assetId</code>: <em>number</em> ; <code>assetName</code>: <em>string</em> ; <code>created</code>: <em>string</em> ; <code>owner</code>: { <code>buildersClubMembershipType</code>: <em>None</em> | <em>string</em> ; <code>userId</code>: <em>number</em> ; <code>username</code>: <em>string</em>  } ; <code>serialNumber</code>: <em>number</em> ; <code>updated</code>: <em>string</em> ; <code>userAssetId</code>: <em>number</em>  }[]</td>
 </tr>
 <tr>
-<td><code>nextPageCursor</code></td>
-<td><em>string</em></td>
+<td align="left"><code>nextPageCursor</code></td>
+<td align="left"><em>string</em></td>
 </tr>
 <tr>
-<td><code>previousPageCursor</code></td>
-<td><em>string</em></td>
+<td align="left"><code>previousPageCursor</code></td>
+<td align="left"><em>string</em></td>
 </tr>
 </tbody>
 </table>
-<p>Defined in: <a href="https://github.com/Visualizememe/bloxy/blob/80e81c2/src/client/apis/InventoryAPI.ts#L88">client/apis/InventoryAPI.ts:88</a></p>
+<p>Defined in: <a href="https://github.com/Visualizememe/bloxy/blob/3b10da1/src/client/apis/InventoryAPI.ts#L88">client/apis/InventoryAPI.ts:88</a></p>
 <hr />
 <h3 id="getuserinventorybyassettypeidoptions">GetUserInventoryByAssetTypeIdOptions</h3>
 <p>Ƭ <strong>GetUserInventoryByAssetTypeIdOptions</strong>: <em>Omit</em>&lt;<a href="./#getuserinventoryoptions"><em>GetUserInventoryOptions</em></a>, <em>assetTypes</em>> &amp; { <code>assetTypeId</code>: <em>number</em>  }</p>
-<p>Defined in: <a href="https://github.com/Visualizememe/bloxy/blob/80e81c2/src/client/apis/InventoryAPI.ts#L85">client/apis/InventoryAPI.ts:85</a></p>
+<p>Defined in: <a href="https://github.com/Visualizememe/bloxy/blob/3b10da1/src/client/apis/InventoryAPI.ts#L85">client/apis/InventoryAPI.ts:85</a></p>
 <hr />
 <h3 id="getuserinventoryoptions">GetUserInventoryOptions</h3>
-<p>Ƭ <strong>GetUserInventoryOptions</strong>: { <code>assetTypes</code>: <a href="./#getusercollectiblesoptions"><em>GetUserCollectiblesOptions</em></a>[<em>assetType</em>][] ; <code>cursor?</code>: <em>string</em> ; <code>limit?</code>: <em>10</em> | <em>25</em> | <em>50</em> | <em>100</em> ; <code>sortOrder?</code>: <em>Asc</em> | <em>Desc</em> ; <code>userId</code>: <em>number</em>  }</p>
+<p>Ƭ <strong>GetUserInventoryOptions</strong>: <em>object</em></p>
 <h4 id="type-declaration_8">Type declaration:</h4>
 <table>
 <thead>
 <tr>
-<th>Name</th>
-<th>Type</th>
+<th align="left">Name</th>
+<th align="left">Type</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td><code>assetTypes</code></td>
-<td><a href="./#getusercollectiblesoptions"><em>GetUserCollectiblesOptions</em></a>[<em>assetType</em>][]</td>
+<td align="left"><code>assetTypes</code></td>
+<td align="left"><a href="./#getusercollectiblesoptions"><em>GetUserCollectiblesOptions</em></a>[<em>assetType</em>][]</td>
 </tr>
 <tr>
-<td><code>cursor?</code></td>
-<td><em>string</em></td>
+<td align="left"><code>cursor</code>?</td>
+<td align="left"><em>string</em></td>
 </tr>
 <tr>
-<td><code>limit?</code></td>
-<td><em>10</em> | <em>25</em> | <em>50</em> | <em>100</em></td>
+<td align="left"><code>limit</code>?</td>
+<td align="left"><em>10</em> | <em>25</em> | <em>50</em> | <em>100</em></td>
 </tr>
 <tr>
-<td><code>sortOrder?</code></td>
-<td><em>Asc</em> | <em>Desc</em></td>
+<td align="left"><code>sortOrder</code>?</td>
+<td align="left"><em>Asc</em> | <em>Desc</em></td>
 </tr>
 <tr>
-<td><code>userId</code></td>
-<td><em>number</em></td>
+<td align="left"><code>userId</code></td>
+<td align="left"><em>number</em></td>
 </tr>
 </tbody>
 </table>
-<p>Defined in: <a href="https://github.com/Visualizememe/bloxy/blob/80e81c2/src/client/apis/InventoryAPI.ts#L68">client/apis/InventoryAPI.ts:68</a></p>
+<p>Defined in: <a href="https://github.com/Visualizememe/bloxy/blob/3b10da1/src/client/apis/InventoryAPI.ts#L68">client/apis/InventoryAPI.ts:68</a></p>
 <hr />
 <h3 id="getuseritemsbytypeandtargetid">GetUserItemsByTypeAndTargetId</h3>
-<p>Ƭ <strong>GetUserItemsByTypeAndTargetId</strong>: { <code>data</code>: { <code>Id</code>: <em>number</em> ; <code>InstanceId</code>: <em>number</em> ; <code>Name</code>: <em>string</em> ; <code>Type</code>: <a href="./#getuseritemsbytypeandtargetidoptions"><em>GetUserItemsByTypeAndTargetIdOptions</em></a>[<em>itemType</em>]  }[] ; <code>nextPageCursor</code>: <em>string</em> ; <code>previousPageCursor</code>: <em>string</em>  }</p>
+<p>Ƭ <strong>GetUserItemsByTypeAndTargetId</strong>: <em>object</em></p>
 <h4 id="type-declaration_9">Type declaration:</h4>
 <table>
 <thead>
 <tr>
-<th>Name</th>
-<th>Type</th>
+<th align="left">Name</th>
+<th align="left">Type</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td><code>data</code></td>
-<td>{ <code>Id</code>: <em>number</em> ; <code>InstanceId</code>: <em>number</em> ; <code>Name</code>: <em>string</em> ; <code>Type</code>: <a href="./#getuseritemsbytypeandtargetidoptions"><em>GetUserItemsByTypeAndTargetIdOptions</em></a>[<em>itemType</em>]  }[]</td>
+<td align="left"><code>data</code></td>
+<td align="left">{ <code>Id</code>: <em>number</em> ; <code>InstanceId</code>: <em>number</em> ; <code>Name</code>: <em>string</em> ; <code>Type</code>: <a href="./#getuseritemsbytypeandtargetidoptions"><em>GetUserItemsByTypeAndTargetIdOptions</em></a>[<em>itemType</em>]  }[]</td>
 </tr>
 <tr>
-<td><code>nextPageCursor</code></td>
-<td><em>string</em></td>
+<td align="left"><code>nextPageCursor</code></td>
+<td align="left"><em>string</em></td>
 </tr>
 <tr>
-<td><code>previousPageCursor</code></td>
-<td><em>string</em></td>
+<td align="left"><code>previousPageCursor</code></td>
+<td align="left"><em>string</em></td>
 </tr>
 </tbody>
 </table>
-<p>Defined in: <a href="https://github.com/Visualizememe/bloxy/blob/80e81c2/src/client/apis/InventoryAPI.ts#L37">client/apis/InventoryAPI.ts:37</a></p>
+<p>Defined in: <a href="https://github.com/Visualizememe/bloxy/blob/3b10da1/src/client/apis/InventoryAPI.ts#L37">client/apis/InventoryAPI.ts:37</a></p>
 <hr />
 <h3 id="getuseritemsbytypeandtargetidoptions">GetUserItemsByTypeAndTargetIdOptions</h3>
-<p>Ƭ <strong>GetUserItemsByTypeAndTargetIdOptions</strong>: { <code>itemTargetId</code>: <em>number</em> ; <code>itemType</code>: <em>Asset</em> | <em>GamePass</em> | <em>Badge</em> | <em>Bundle</em> ; <code>userId</code>: <em>number</em>  }</p>
+<p>Ƭ <strong>GetUserItemsByTypeAndTargetIdOptions</strong>: <em>object</em></p>
 <h4 id="type-declaration_10">Type declaration:</h4>
 <table>
 <thead>
 <tr>
-<th>Name</th>
-<th>Type</th>
+<th align="left">Name</th>
+<th align="left">Type</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td><code>itemTargetId</code></td>
-<td><em>number</em></td>
+<td align="left"><code>itemTargetId</code></td>
+<td align="left"><em>number</em></td>
 </tr>
 <tr>
-<td><code>itemType</code></td>
-<td><em>Asset</em> | <em>GamePass</em> | <em>Badge</em> | <em>Bundle</em></td>
+<td align="left"><code>itemType</code></td>
+<td align="left"><em>Asset</em> | <em>GamePass</em> | <em>Badge</em> | <em>Bundle</em></td>
 </tr>
 <tr>
-<td><code>userId</code></td>
-<td><em>number</em></td>
+<td align="left"><code>userId</code></td>
+<td align="left"><em>number</em></td>
 </tr>
 </tbody>
 </table>
-<p>Defined in: <a href="https://github.com/Visualizememe/bloxy/blob/80e81c2/src/client/apis/InventoryAPI.ts#L32">client/apis/InventoryAPI.ts:32</a></p>
+<p>Defined in: <a href="https://github.com/Visualizememe/bloxy/blob/3b10da1/src/client/apis/InventoryAPI.ts#L32">client/apis/InventoryAPI.ts:32</a></p>
                 
               
               

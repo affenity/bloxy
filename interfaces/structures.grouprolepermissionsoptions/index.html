@@ -2177,13 +2177,6 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#hierarchy" class="md-nav__link">
-    Hierarchy
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#table-of-contents" class="md-nav__link">
     Table of contents
   </a>
@@ -4025,13 +4018,6 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#hierarchy" class="md-nav__link">
-    Hierarchy
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#table-of-contents" class="md-nav__link">
     Table of contents
   </a>
@@ -4126,10 +4112,6 @@
                 
                 <h1 id="interface-grouprolepermissionsoptions">Interface: GroupRolePermissionsOptions</h1>
 <p><a href="../../modules/structures/">structures</a>.GroupRolePermissionsOptions</p>
-<h2 id="hierarchy">Hierarchy</h2>
-<ul>
-<li><strong>GroupRolePermissionsOptions</strong></li>
-</ul>
 <h2 id="table-of-contents">Table of contents</h2>
 <h3 id="properties">Properties</h3>
 <ul>
@@ -4140,73 +4122,145 @@
 <h2 id="properties_1">Properties</h2>
 <h3 id="groupid">groupId</h3>
 <p>• <strong>groupId</strong>: <em>number</em></p>
-<p>Defined in: <a href="https://github.com/Visualizememe/bloxy/blob/80e81c2/src/structures/Group.ts#L790">structures/Group.ts:790</a></p>
+<p>Defined in: <a href="https://github.com/Visualizememe/bloxy/blob/3b10da1/src/structures/Group.ts#L790">structures/Group.ts:790</a></p>
 <hr />
 <h3 id="permissions">permissions</h3>
-<p>• <strong>permissions</strong>: { <code>groupEconomyPermissions</code>: { <code>addGroupPlaces</code>: <em>boolean</em> ; <code>advertiseGroup</code>: <em>boolean</em> ; <code>createItems</code>: <em>boolean</em> ; <code>manageGroupGames</code>: <em>boolean</em> ; <code>manageItems</code>: <em>boolean</em> ; <code>spendGroupFunds</code>: <em>boolean</em> ; <code>viewGroupPayouts</code>: <em>boolean</em>  } ; <code>groupManagementPermissions</code>: { <code>manageClan</code>: <em>boolean</em> ; <code>manageRelationships</code>: <em>boolean</em> ; <code>viewAuditLogs</code>: <em>boolean</em>  } ; <code>groupMembershipPermissions</code>: { <code>changeRank</code>: <em>boolean</em> ; <code>inviteMembers</code>: <em>boolean</em> ; <code>removeMembers</code>: <em>boolean</em>  } ; <code>groupPostsPermissions</code>: { <code>deleteFromWall</code>: <em>boolean</em> ; <code>postToStatus</code>: <em>boolean</em> ; <code>postToWall</code>: <em>boolean</em> ; <code>viewStatus</code>: <em>boolean</em> ; <code>viewWall</code>: <em>boolean</em>  }  }</p>
+<p>• <strong>permissions</strong>: <em>object</em></p>
 <h4 id="type-declaration">Type declaration:</h4>
 <table>
 <thead>
 <tr>
-<th>Name</th>
-<th>Type</th>
+<th align="left">Name</th>
+<th align="left">Type</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td><code>groupEconomyPermissions</code></td>
-<td>{ <code>addGroupPlaces</code>: <em>boolean</em> ; <code>advertiseGroup</code>: <em>boolean</em> ; <code>createItems</code>: <em>boolean</em> ; <code>manageGroupGames</code>: <em>boolean</em> ; <code>manageItems</code>: <em>boolean</em> ; <code>spendGroupFunds</code>: <em>boolean</em> ; <code>viewGroupPayouts</code>: <em>boolean</em>  }</td>
+<td align="left"><code>groupEconomyPermissions</code></td>
+<td align="left"><em>object</em></td>
 </tr>
 <tr>
-<td><code>groupManagementPermissions</code></td>
-<td>{ <code>manageClan</code>: <em>boolean</em> ; <code>manageRelationships</code>: <em>boolean</em> ; <code>viewAuditLogs</code>: <em>boolean</em>  }</td>
+<td align="left"><code>groupEconomyPermissions.addGroupPlaces</code></td>
+<td align="left"><em>boolean</em></td>
 </tr>
 <tr>
-<td><code>groupMembershipPermissions</code></td>
-<td>{ <code>changeRank</code>: <em>boolean</em> ; <code>inviteMembers</code>: <em>boolean</em> ; <code>removeMembers</code>: <em>boolean</em>  }</td>
+<td align="left"><code>groupEconomyPermissions.advertiseGroup</code></td>
+<td align="left"><em>boolean</em></td>
 </tr>
 <tr>
-<td><code>groupPostsPermissions</code></td>
-<td>{ <code>deleteFromWall</code>: <em>boolean</em> ; <code>postToStatus</code>: <em>boolean</em> ; <code>postToWall</code>: <em>boolean</em> ; <code>viewStatus</code>: <em>boolean</em> ; <code>viewWall</code>: <em>boolean</em>  }</td>
+<td align="left"><code>groupEconomyPermissions.createItems</code></td>
+<td align="left"><em>boolean</em></td>
+</tr>
+<tr>
+<td align="left"><code>groupEconomyPermissions.manageGroupGames</code></td>
+<td align="left"><em>boolean</em></td>
+</tr>
+<tr>
+<td align="left"><code>groupEconomyPermissions.manageItems</code></td>
+<td align="left"><em>boolean</em></td>
+</tr>
+<tr>
+<td align="left"><code>groupEconomyPermissions.spendGroupFunds</code></td>
+<td align="left"><em>boolean</em></td>
+</tr>
+<tr>
+<td align="left"><code>groupEconomyPermissions.viewGroupPayouts</code></td>
+<td align="left"><em>boolean</em></td>
+</tr>
+<tr>
+<td align="left"><code>groupManagementPermissions</code></td>
+<td align="left"><em>object</em></td>
+</tr>
+<tr>
+<td align="left"><code>groupManagementPermissions.manageClan</code></td>
+<td align="left"><em>boolean</em></td>
+</tr>
+<tr>
+<td align="left"><code>groupManagementPermissions.manageRelationships</code></td>
+<td align="left"><em>boolean</em></td>
+</tr>
+<tr>
+<td align="left"><code>groupManagementPermissions.viewAuditLogs</code></td>
+<td align="left"><em>boolean</em></td>
+</tr>
+<tr>
+<td align="left"><code>groupMembershipPermissions</code></td>
+<td align="left"><em>object</em></td>
+</tr>
+<tr>
+<td align="left"><code>groupMembershipPermissions.changeRank</code></td>
+<td align="left"><em>boolean</em></td>
+</tr>
+<tr>
+<td align="left"><code>groupMembershipPermissions.inviteMembers</code></td>
+<td align="left"><em>boolean</em></td>
+</tr>
+<tr>
+<td align="left"><code>groupMembershipPermissions.removeMembers</code></td>
+<td align="left"><em>boolean</em></td>
+</tr>
+<tr>
+<td align="left"><code>groupPostsPermissions</code></td>
+<td align="left"><em>object</em></td>
+</tr>
+<tr>
+<td align="left"><code>groupPostsPermissions.deleteFromWall</code></td>
+<td align="left"><em>boolean</em></td>
+</tr>
+<tr>
+<td align="left"><code>groupPostsPermissions.postToStatus</code></td>
+<td align="left"><em>boolean</em></td>
+</tr>
+<tr>
+<td align="left"><code>groupPostsPermissions.postToWall</code></td>
+<td align="left"><em>boolean</em></td>
+</tr>
+<tr>
+<td align="left"><code>groupPostsPermissions.viewStatus</code></td>
+<td align="left"><em>boolean</em></td>
+</tr>
+<tr>
+<td align="left"><code>groupPostsPermissions.viewWall</code></td>
+<td align="left"><em>boolean</em></td>
 </tr>
 </tbody>
 </table>
-<p>Defined in: <a href="https://github.com/Visualizememe/bloxy/blob/80e81c2/src/structures/Group.ts#L798">structures/Group.ts:798</a></p>
+<p>Defined in: <a href="https://github.com/Visualizememe/bloxy/blob/3b10da1/src/structures/Group.ts#L798">structures/Group.ts:798</a></p>
 <hr />
 <h3 id="role">role</h3>
-<p>• <strong>role</strong>: { <code>description</code>: <em>string</em> ; <code>id</code>: <em>number</em> ; <code>memberCount</code>: <em>number</em> ; <code>name</code>: <em>string</em> ; <code>rank</code>: <em>number</em>  }</p>
+<p>• <strong>role</strong>: <em>object</em></p>
 <h4 id="type-declaration_1">Type declaration:</h4>
 <table>
 <thead>
 <tr>
-<th>Name</th>
-<th>Type</th>
+<th align="left">Name</th>
+<th align="left">Type</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td><code>description</code></td>
-<td><em>string</em></td>
+<td align="left"><code>description</code></td>
+<td align="left"><em>string</em></td>
 </tr>
 <tr>
-<td><code>id</code></td>
-<td><em>number</em></td>
+<td align="left"><code>id</code></td>
+<td align="left"><em>number</em></td>
 </tr>
 <tr>
-<td><code>memberCount</code></td>
-<td><em>number</em></td>
+<td align="left"><code>memberCount</code></td>
+<td align="left"><em>number</em></td>
 </tr>
 <tr>
-<td><code>name</code></td>
-<td><em>string</em></td>
+<td align="left"><code>name</code></td>
+<td align="left"><em>string</em></td>
 </tr>
 <tr>
-<td><code>rank</code></td>
-<td><em>number</em></td>
+<td align="left"><code>rank</code></td>
+<td align="left"><em>number</em></td>
 </tr>
 </tbody>
 </table>
-<p>Defined in: <a href="https://github.com/Visualizememe/bloxy/blob/80e81c2/src/structures/Group.ts#L791">structures/Group.ts:791</a></p>
+<p>Defined in: <a href="https://github.com/Visualizememe/bloxy/blob/3b10da1/src/structures/Group.ts#L791">structures/Group.ts:791</a></p>
                 
               
               
