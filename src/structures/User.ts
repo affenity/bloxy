@@ -584,6 +584,9 @@ export interface PartialUserOptions {
 
 
 export class PartialUser extends UserBase {
+    // Eslint, I'm getting tired of you complaining about useless constructors.
+    // You are useless
+    // eslint-disable-next-line no-useless-constructor
     constructor (data: PartialUserOptions, client: Client) {
         super(data, client);
     }

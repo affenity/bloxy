@@ -54,8 +54,6 @@ class RESTController {
          * The function that's being used to perform the requests, can be modified
          */
         this.requester = getRequester(this, this.options.requester || undefined) as RESTRequester;
-
-        this.init();
     }
 
     /**
@@ -229,13 +227,6 @@ class RESTController {
         this.options = utilMergeDeep(DefaultRESTControllerOptions, options || {}) as RESTControllerOptions;
 
         return this.options;
-    }
-
-    /**
-     * Initiates the RESTController
-     */
-    init (): void {
-
     }
 }
 
