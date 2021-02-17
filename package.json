@@ -20,10 +20,10 @@
     "test": "jest",
     "test-with-coverage": "jest --coverage && cat ./coverage/lcov.info | codacy-coverage",
     "build": "tsc --skipLibCheck",
-    "eslint": "eslint . --fix --ext .ts",
+    "eslint": "eslint . --ext .ts",
     "postinstall": "npm install got && echo \"\nThank you for installing bloxy! Dependency 'got' has been installed automatically, uninstall it if you plan to use bloxy in a browser-related project!\"",
     "prepublishOnly": "npm run build",
-    "create-docs": "typedoc --plugin typedoc-plugin-markdown --hideBreadcrumbs --namedAnchors --includeDeclarations --excludeExternals --out docs src && mkdocs gh-deploy",
+    "create-docs": "typedoc --plugin typedoc-plugin-markdown --hideBreadcrumbs --namedAnchors --excludeExternals --out docs src && mkdocs build",
     "prepare-windows": "npm install && npm run build && npm run create-docs && echo 'Finished'"
   },
   "types": "./dist/index.d.ts",
