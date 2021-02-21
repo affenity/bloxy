@@ -59,6 +59,7 @@ import { EnumUserPresence } from "../interfaces/GeneralInterfaces";
 export interface UserBaseOptions {
     id: number;
     name?: string | null;
+    displayName?: string;
     membership?: boolean;
 }
 
@@ -67,12 +68,14 @@ export class UserBase {
     public client: Client;
     public id: number;
     public name: string | null;
+    public displayName: string | null;
     public membership: unknown;
 
     constructor (data: UserBaseOptions, client: Client) {
         this.client = client;
         this.id = data.id;
         this.name = data.name || null;
+        this.displayName = data.displayName || null;
         this.membership = data.membership || null;
     }
 
@@ -580,6 +583,7 @@ export class FriendRequest {
 export interface PartialUserOptions {
     id: number;
     name?: string;
+    displayName?: string;
 }
 
 
@@ -596,6 +600,7 @@ export class PartialUser extends UserBase {
 export interface UserOptions {
     id: number;
     name: string;
+    displayName: string;
     friendsCount: number;
     presenceType: EnumUserPresence;
     lastLocation: string | null;
