@@ -108,6 +108,7 @@ export default class Client extends ClientBase {
             .then(data => new User({
                 id: data.ProfileUserId,
                 name: data.ProfileUserName,
+                displayName: data.ProfileDisplayName,
                 canFollow: data.CanBeFollowed,
                 canSeeInventory: data.CanSeeInventory,
                 canTrade: data.CanTrade,
