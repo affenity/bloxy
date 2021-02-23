@@ -10,7 +10,7 @@
       
       
       <link rel="shortcut icon" href="../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-6.2.8">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-7.0.0">
     
     
       
@@ -18,10 +18,10 @@
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.cb6bc1d0.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.a3f8f96a.min.css">
       
         
-        <link rel="stylesheet" href="../../assets/stylesheets/palette.39b8e14a.min.css">
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.7fa14f5b.min.css">
         
       
     
@@ -31,7 +31,7 @@
         
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
-        <style>body,input{font-family:"Roboto",-apple-system,BlinkMacSystemFont,Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono",SFMono-Regular,Consolas,Menlo,monospace}</style>
+        <style>:root{--md-text-font-family:"Roboto";--md-code-font-family:"Roboto Mono"}</style>
       
     
     
@@ -70,24 +70,24 @@
       
 
 <header class="md-header" data-md-component="header">
-  <nav class="md-header-nav md-grid" aria-label="Header">
-    <a href="../.." title="Bloxy Docs" class="md-header-nav__button md-logo" aria-label="Bloxy Docs">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Bloxy Docs" class="md-header__button md-logo" aria-label="Bloxy Docs">
       
   
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 003-3 3 3 0 00-3-3 3 3 0 00-3 3 3 3 0 003 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
 
     </a>
-    <label class="md-header-nav__button md-icon" for="__drawer">
+    <label class="md-header__button md-icon" for="__drawer">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
     </label>
-    <div class="md-header-nav__title" data-md-component="header-title">
-      <div class="md-header-nav__ellipsis">
-        <div class="md-header-nav__topic">
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
           <span class="md-ellipsis">
             Bloxy Docs
           </span>
         </div>
-        <div class="md-header-nav__topic">
+        <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
               Module: client/apis/GamesAPI
@@ -96,9 +96,12 @@
         </div>
       </div>
     </div>
+    <div class="md-header__options">
+      
+    </div>
     
-      <label class="md-header-nav__button md-icon" for="__search">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0116 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 019.5 16 6.5 6.5 0 013 9.5 6.5 6.5 0 019.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
       </label>
       
 <div class="md-search" data-md-component="search" role="dialog">
@@ -107,10 +110,10 @@
     <form class="md-search__form" name="search">
       <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" data-md-state="active" required>
       <label class="md-search__icon md-icon" for="__search">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0116 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 019.5 16 6.5 6.5 0 013 9.5 6.5 6.5 0 019.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
       </label>
-      <button type="reset" class="md-search__icon md-icon" aria-label="Clear" data-md-component="search-reset" tabindex="-1">
+      <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
       </button>
     </form>
@@ -141,7 +144,7 @@
           
             
               
-              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation" >
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
                 <div class="md-sidebar__scrollwrap">
                   <div class="md-sidebar__inner">
                     
@@ -154,7 +157,7 @@
     <a href="../.." title="Bloxy Docs" class="md-nav__button md-logo" aria-label="Bloxy Docs">
       
   
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 003-3 3 3 0 00-3-3 3 3 0 00-3 3 3 3 0 003 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
 
     </a>
     Bloxy Docs
@@ -3093,7 +3096,7 @@
       <span class="md-nav__icon md-icon"></span>
       Table of contents
     </label>
-    <ul class="md-nav__list" data-md-scrollfix>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
   <a href="#table-of-contents" class="md-nav__link">
@@ -4744,7 +4747,7 @@
             
             
               
-              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc" >
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
                 <div class="md-sidebar__scrollwrap">
                   <div class="md-sidebar__inner">
                     
@@ -4758,7 +4761,7 @@
       <span class="md-nav__icon md-icon"></span>
       Table of contents
     </label>
-    <ul class="md-nav__list" data-md-scrollfix>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
   <a href="#table-of-contents" class="md-nav__link">
@@ -5591,7 +5594,7 @@
               </div>
             
           
-          <div class="md-content">
+          <div class="md-content" data-md-component="content">
             <article class="md-content__inner md-typeset">
               
                 
@@ -5668,7 +5671,7 @@
 </tr>
 </tbody>
 </table>
-<p>Defined in: <a href="https://github.com/Visualizememe/bloxy/blob/e0648b9/src/client/apis/GamesAPI.ts#L215">client/apis/GamesAPI.ts:215</a></p>
+<p>Defined in: <a href="https://github.com/Visualizememe/bloxy/blob/351ca06/src/client/apis/GamesAPI.ts#L215">client/apis/GamesAPI.ts:215</a></p>
 <hr />
 <h3 id="canselfinviteusertovipserveroptions">CanSelfInviteUserToVIPServerOptions</h3>
 <p>Ƭ <strong>CanSelfInviteUserToVIPServerOptions</strong>: <em>object</em></p>
@@ -5687,11 +5690,11 @@
 </tr>
 </tbody>
 </table>
-<p>Defined in: <a href="https://github.com/Visualizememe/bloxy/blob/e0648b9/src/client/apis/GamesAPI.ts#L212">client/apis/GamesAPI.ts:212</a></p>
+<p>Defined in: <a href="https://github.com/Visualizememe/bloxy/blob/351ca06/src/client/apis/GamesAPI.ts#L212">client/apis/GamesAPI.ts:212</a></p>
 <hr />
 <h3 id="createvipserver">CreateVIPServer</h3>
 <p>Ƭ <strong>CreateVIPServer</strong>: <a href="./#gameserver"><em>GameServer</em></a></p>
-<p>Defined in: <a href="https://github.com/Visualizememe/bloxy/blob/e0648b9/src/client/apis/GamesAPI.ts#L234">client/apis/GamesAPI.ts:234</a></p>
+<p>Defined in: <a href="https://github.com/Visualizememe/bloxy/blob/351ca06/src/client/apis/GamesAPI.ts#L234">client/apis/GamesAPI.ts:234</a></p>
 <hr />
 <h3 id="createvipserveroptions">CreateVIPServerOptions</h3>
 <p>Ƭ <strong>CreateVIPServerOptions</strong>: <em>object</em></p>
@@ -5718,7 +5721,7 @@
 </tr>
 </tbody>
 </table>
-<p>Defined in: <a href="https://github.com/Visualizememe/bloxy/blob/e0648b9/src/client/apis/GamesAPI.ts#L229">client/apis/GamesAPI.ts:229</a></p>
+<p>Defined in: <a href="https://github.com/Visualizememe/bloxy/blob/351ca06/src/client/apis/GamesAPI.ts#L229">client/apis/GamesAPI.ts:229</a></p>
 <hr />
 <h3 id="gamegamesproductinfo">GameGamesProductInfo</h3>
 <p>Ƭ <strong>GameGamesProductInfo</strong>: <em>object</em></p>
@@ -5737,7 +5740,7 @@
 </tr>
 </tbody>
 </table>
-<p>Defined in: <a href="https://github.com/Visualizememe/bloxy/blob/e0648b9/src/client/apis/GamesAPI.ts#L36">client/apis/GamesAPI.ts:36</a></p>
+<p>Defined in: <a href="https://github.com/Visualizememe/bloxy/blob/351ca06/src/client/apis/GamesAPI.ts#L36">client/apis/GamesAPI.ts:36</a></p>
 <hr />
 <h3 id="gameserver">GameServer</h3>
 <p>Ƭ <strong>GameServer</strong>: <em>object</em></p>
@@ -5784,7 +5787,7 @@
 </tr>
 </tbody>
 </table>
-<p>Defined in: <a href="https://github.com/Visualizememe/bloxy/blob/e0648b9/src/client/apis/GamesAPI.ts#L6">client/apis/GamesAPI.ts:6</a></p>
+<p>Defined in: <a href="https://github.com/Visualizememe/bloxy/blob/351ca06/src/client/apis/GamesAPI.ts#L6">client/apis/GamesAPI.ts:6</a></p>
 <hr />
 <h3 id="getgamefavoritecount">GetGameFavoriteCount</h3>
 <p>Ƭ <strong>GetGameFavoriteCount</strong>: <em>object</em></p>
@@ -5803,7 +5806,7 @@
 </tr>
 </tbody>
 </table>
-<p>Defined in: <a href="https://github.com/Visualizememe/bloxy/blob/e0648b9/src/client/apis/GamesAPI.ts#L169">client/apis/GamesAPI.ts:169</a></p>
+<p>Defined in: <a href="https://github.com/Visualizememe/bloxy/blob/351ca06/src/client/apis/GamesAPI.ts#L169">client/apis/GamesAPI.ts:169</a></p>
 <hr />
 <h3 id="getgamefavoritecountoptions">GetGameFavoriteCountOptions</h3>
 <p>Ƭ <strong>GetGameFavoriteCountOptions</strong>: <em>object</em></p>
@@ -5822,7 +5825,7 @@
 </tr>
 </tbody>
 </table>
-<p>Defined in: <a href="https://github.com/Visualizememe/bloxy/blob/e0648b9/src/client/apis/GamesAPI.ts#L166">client/apis/GamesAPI.ts:166</a></p>
+<p>Defined in: <a href="https://github.com/Visualizememe/bloxy/blob/351ca06/src/client/apis/GamesAPI.ts#L166">client/apis/GamesAPI.ts:166</a></p>
 <hr />
 <h3 id="getgamegamepasses">GetGameGamePasses</h3>
 <p>Ƭ <strong>GetGameGamePasses</strong>: <em>object</em></p>
@@ -5849,7 +5852,7 @@
 </tr>
 </tbody>
 </table>
-<p>Defined in: <a href="https://github.com/Visualizememe/bloxy/blob/e0648b9/src/client/apis/GamesAPI.ts#L178">client/apis/GamesAPI.ts:178</a></p>
+<p>Defined in: <a href="https://github.com/Visualizememe/bloxy/blob/351ca06/src/client/apis/GamesAPI.ts#L178">client/apis/GamesAPI.ts:178</a></p>
 <hr />
 <h3 id="getgamegamepassesoptions">GetGameGamePassesOptions</h3>
 <p>Ƭ <strong>GetGameGamePassesOptions</strong>: <em>object</em></p>
@@ -5880,7 +5883,7 @@
 </tr>
 </tbody>
 </table>
-<p>Defined in: <a href="https://github.com/Visualizememe/bloxy/blob/e0648b9/src/client/apis/GamesAPI.ts#L172">client/apis/GamesAPI.ts:172</a></p>
+<p>Defined in: <a href="https://github.com/Visualizememe/bloxy/blob/351ca06/src/client/apis/GamesAPI.ts#L172">client/apis/GamesAPI.ts:172</a></p>
 <hr />
 <h3 id="getgamerecommendationsbyalgorithm">GetGameRecommendationsByAlgorithm</h3>
 <p>Ƭ <strong>GetGameRecommendationsByAlgorithm</strong>: <em>object</em></p>
@@ -5903,7 +5906,7 @@
 </tr>
 </tbody>
 </table>
-<p>Defined in: <a href="https://github.com/Visualizememe/bloxy/blob/e0648b9/src/client/apis/GamesAPI.ts#L112">client/apis/GamesAPI.ts:112</a></p>
+<p>Defined in: <a href="https://github.com/Visualizememe/bloxy/blob/351ca06/src/client/apis/GamesAPI.ts#L112">client/apis/GamesAPI.ts:112</a></p>
 <hr />
 <h3 id="getgamerecommendationsbyalgorithmoptions">GetGameRecommendationsByAlgorithmOptions</h3>
 <p>Ƭ <strong>GetGameRecommendationsByAlgorithmOptions</strong>: <em>object</em></p>
@@ -5930,11 +5933,11 @@
 </tr>
 </tbody>
 </table>
-<p>Defined in: <a href="https://github.com/Visualizememe/bloxy/blob/e0648b9/src/client/apis/GamesAPI.ts#L107">client/apis/GamesAPI.ts:107</a></p>
+<p>Defined in: <a href="https://github.com/Visualizememe/bloxy/blob/351ca06/src/client/apis/GamesAPI.ts#L107">client/apis/GamesAPI.ts:107</a></p>
 <hr />
 <h3 id="getgamerecommendationsbygame">GetGameRecommendationsByGame</h3>
 <p>Ƭ <strong>GetGameRecommendationsByGame</strong>: <a href="./#getgamerecommendationsbyalgorithm"><em>GetGameRecommendationsByAlgorithm</em></a></p>
-<p>Defined in: <a href="https://github.com/Visualizememe/bloxy/blob/e0648b9/src/client/apis/GamesAPI.ts#L121">client/apis/GamesAPI.ts:121</a></p>
+<p>Defined in: <a href="https://github.com/Visualizememe/bloxy/blob/351ca06/src/client/apis/GamesAPI.ts#L121">client/apis/GamesAPI.ts:121</a></p>
 <hr />
 <h3 id="getgamerecommendationsbygameoptions">GetGameRecommendationsByGameOptions</h3>
 <p>Ƭ <strong>GetGameRecommendationsByGameOptions</strong>: <em>object</em></p>
@@ -5961,7 +5964,7 @@
 </tr>
 </tbody>
 </table>
-<p>Defined in: <a href="https://github.com/Visualizememe/bloxy/blob/e0648b9/src/client/apis/GamesAPI.ts#L116">client/apis/GamesAPI.ts:116</a></p>
+<p>Defined in: <a href="https://github.com/Visualizememe/bloxy/blob/351ca06/src/client/apis/GamesAPI.ts#L116">client/apis/GamesAPI.ts:116</a></p>
 <hr />
 <h3 id="getgameserversbytype">GetGameServersByType</h3>
 <p>Ƭ <strong>GetGameServersByType</strong>: <em>object</em></p>
@@ -5988,7 +5991,7 @@
 </tr>
 </tbody>
 </table>
-<p>Defined in: <a href="https://github.com/Visualizememe/bloxy/blob/e0648b9/src/client/apis/GamesAPI.ts#L28">client/apis/GamesAPI.ts:28</a></p>
+<p>Defined in: <a href="https://github.com/Visualizememe/bloxy/blob/351ca06/src/client/apis/GamesAPI.ts#L28">client/apis/GamesAPI.ts:28</a></p>
 <hr />
 <h3 id="getgameserversbytypeoptions">GetGameServersByTypeOptions</h3>
 <p>Ƭ <strong>GetGameServersByTypeOptions</strong>: <em>object</em></p>
@@ -6023,7 +6026,7 @@
 </tr>
 </tbody>
 </table>
-<p>Defined in: <a href="https://github.com/Visualizememe/bloxy/blob/e0648b9/src/client/apis/GamesAPI.ts#L21">client/apis/GamesAPI.ts:21</a></p>
+<p>Defined in: <a href="https://github.com/Visualizememe/bloxy/blob/351ca06/src/client/apis/GamesAPI.ts#L21">client/apis/GamesAPI.ts:21</a></p>
 <hr />
 <h3 id="getgamesorts">GetGameSorts</h3>
 <p>Ƭ <strong>GetGameSorts</strong>: <em>object</em></p>
@@ -6062,7 +6065,7 @@
 </tr>
 </tbody>
 </table>
-<p>Defined in: <a href="https://github.com/Visualizememe/bloxy/blob/e0648b9/src/client/apis/GamesAPI.ts#L125">client/apis/GamesAPI.ts:125</a></p>
+<p>Defined in: <a href="https://github.com/Visualizememe/bloxy/blob/351ca06/src/client/apis/GamesAPI.ts#L125">client/apis/GamesAPI.ts:125</a></p>
 <hr />
 <h3 id="getgamesortsoptions">GetGameSortsOptions</h3>
 <p>Ƭ <strong>GetGameSortsOptions</strong>: <em>object</em></p>
@@ -6081,11 +6084,11 @@
 </tr>
 </tbody>
 </table>
-<p>Defined in: <a href="https://github.com/Visualizememe/bloxy/blob/e0648b9/src/client/apis/GamesAPI.ts#L122">client/apis/GamesAPI.ts:122</a></p>
+<p>Defined in: <a href="https://github.com/Visualizememe/bloxy/blob/351ca06/src/client/apis/GamesAPI.ts#L122">client/apis/GamesAPI.ts:122</a></p>
 <hr />
 <h3 id="getgameuniverses">GetGameUniverses</h3>
 <p>Ƭ <strong>GetGameUniverses</strong>: <a href="../../interfaces/structures_game.gameuniverseoptions/"><em>GameUniverseOptions</em></a>[]</p>
-<p>Defined in: <a href="https://github.com/Visualizememe/bloxy/blob/e0648b9/src/client/apis/GamesAPI.ts#L20">client/apis/GamesAPI.ts:20</a></p>
+<p>Defined in: <a href="https://github.com/Visualizememe/bloxy/blob/351ca06/src/client/apis/GamesAPI.ts#L20">client/apis/GamesAPI.ts:20</a></p>
 <hr />
 <h3 id="getgameuniversesoptions">GetGameUniversesOptions</h3>
 <p>Ƭ <strong>GetGameUniversesOptions</strong>: <em>object</em></p>
@@ -6104,7 +6107,7 @@
 </tr>
 </tbody>
 </table>
-<p>Defined in: <a href="https://github.com/Visualizememe/bloxy/blob/e0648b9/src/client/apis/GamesAPI.ts#L17">client/apis/GamesAPI.ts:17</a></p>
+<p>Defined in: <a href="https://github.com/Visualizememe/bloxy/blob/351ca06/src/client/apis/GamesAPI.ts#L17">client/apis/GamesAPI.ts:17</a></p>
 <hr />
 <h3 id="getgamesproductinfooptions">GetGamesProductInfoOptions</h3>
 <p>Ƭ <strong>GetGamesProductInfoOptions</strong>: <em>object</em></p>
@@ -6123,7 +6126,7 @@
 </tr>
 </tbody>
 </table>
-<p>Defined in: <a href="https://github.com/Visualizememe/bloxy/blob/e0648b9/src/client/apis/GamesAPI.ts#L33">client/apis/GamesAPI.ts:33</a></p>
+<p>Defined in: <a href="https://github.com/Visualizememe/bloxy/blob/351ca06/src/client/apis/GamesAPI.ts#L33">client/apis/GamesAPI.ts:33</a></p>
 <hr />
 <h3 id="getgamesvotes">GetGamesVotes</h3>
 <p>Ƭ <strong>GetGamesVotes</strong>: <em>object</em></p>
@@ -6142,7 +6145,7 @@
 </tr>
 </tbody>
 </table>
-<p>Defined in: <a href="https://github.com/Visualizememe/bloxy/blob/e0648b9/src/client/apis/GamesAPI.ts#L200">client/apis/GamesAPI.ts:200</a></p>
+<p>Defined in: <a href="https://github.com/Visualizememe/bloxy/blob/351ca06/src/client/apis/GamesAPI.ts#L200">client/apis/GamesAPI.ts:200</a></p>
 <hr />
 <h3 id="getgamesvotesoptions">GetGamesVotesOptions</h3>
 <p>Ƭ <strong>GetGamesVotesOptions</strong>: <em>object</em></p>
@@ -6161,7 +6164,7 @@
 </tr>
 </tbody>
 </table>
-<p>Defined in: <a href="https://github.com/Visualizememe/bloxy/blob/e0648b9/src/client/apis/GamesAPI.ts#L197">client/apis/GamesAPI.ts:197</a></p>
+<p>Defined in: <a href="https://github.com/Visualizememe/bloxy/blob/351ca06/src/client/apis/GamesAPI.ts#L197">client/apis/GamesAPI.ts:197</a></p>
 <hr />
 <h3 id="getselfuniversevotestatus">GetSelfUniverseVoteStatus</h3>
 <p>Ƭ <strong>GetSelfUniverseVoteStatus</strong>: <em>object</em></p>
@@ -6188,7 +6191,7 @@
 </tr>
 </tbody>
 </table>
-<p>Defined in: <a href="https://github.com/Visualizememe/bloxy/blob/e0648b9/src/client/apis/GamesAPI.ts#L192">client/apis/GamesAPI.ts:192</a></p>
+<p>Defined in: <a href="https://github.com/Visualizememe/bloxy/blob/351ca06/src/client/apis/GamesAPI.ts#L192">client/apis/GamesAPI.ts:192</a></p>
 <hr />
 <h3 id="getselfuniversevotestatusoptions">GetSelfUniverseVoteStatusOptions</h3>
 <p>Ƭ <strong>GetSelfUniverseVoteStatusOptions</strong>: <em>object</em></p>
@@ -6207,11 +6210,11 @@
 </tr>
 </tbody>
 </table>
-<p>Defined in: <a href="https://github.com/Visualizememe/bloxy/blob/e0648b9/src/client/apis/GamesAPI.ts#L189">client/apis/GamesAPI.ts:189</a></p>
+<p>Defined in: <a href="https://github.com/Visualizememe/bloxy/blob/351ca06/src/client/apis/GamesAPI.ts#L189">client/apis/GamesAPI.ts:189</a></p>
 <hr />
 <h3 id="getvipserver">GetVIPServer</h3>
 <p>Ƭ <strong>GetVIPServer</strong>: <a href="../../interfaces/structures_game.vipserveroptions/"><em>VIPServerOptions</em></a></p>
-<p>Defined in: <a href="https://github.com/Visualizememe/bloxy/blob/e0648b9/src/client/apis/GamesAPI.ts#L221">client/apis/GamesAPI.ts:221</a></p>
+<p>Defined in: <a href="https://github.com/Visualizememe/bloxy/blob/351ca06/src/client/apis/GamesAPI.ts#L221">client/apis/GamesAPI.ts:221</a></p>
 <hr />
 <h3 id="getvipserveroptions">GetVIPServerOptions</h3>
 <p>Ƭ <strong>GetVIPServerOptions</strong>: <em>object</em></p>
@@ -6230,7 +6233,7 @@
 </tr>
 </tbody>
 </table>
-<p>Defined in: <a href="https://github.com/Visualizememe/bloxy/blob/e0648b9/src/client/apis/GamesAPI.ts#L218">client/apis/GamesAPI.ts:218</a></p>
+<p>Defined in: <a href="https://github.com/Visualizememe/bloxy/blob/351ca06/src/client/apis/GamesAPI.ts#L218">client/apis/GamesAPI.ts:218</a></p>
 <hr />
 <h3 id="isgamefavorited">IsGameFavorited</h3>
 <p>Ƭ <strong>IsGameFavorited</strong>: <em>object</em></p>
@@ -6249,7 +6252,7 @@
 </tr>
 </tbody>
 </table>
-<p>Defined in: <a href="https://github.com/Visualizememe/bloxy/blob/e0648b9/src/client/apis/GamesAPI.ts#L158">client/apis/GamesAPI.ts:158</a></p>
+<p>Defined in: <a href="https://github.com/Visualizememe/bloxy/blob/351ca06/src/client/apis/GamesAPI.ts#L158">client/apis/GamesAPI.ts:158</a></p>
 <hr />
 <h3 id="isgamefavoritedoptions">IsGameFavoritedOptions</h3>
 <p>Ƭ <strong>IsGameFavoritedOptions</strong>: <em>object</em></p>
@@ -6268,7 +6271,7 @@
 </tr>
 </tbody>
 </table>
-<p>Defined in: <a href="https://github.com/Visualizememe/bloxy/blob/e0648b9/src/client/apis/GamesAPI.ts#L155">client/apis/GamesAPI.ts:155</a></p>
+<p>Defined in: <a href="https://github.com/Visualizememe/bloxy/blob/351ca06/src/client/apis/GamesAPI.ts#L155">client/apis/GamesAPI.ts:155</a></p>
 <hr />
 <h3 id="listgames">ListGames</h3>
 <p>Ƭ <strong>ListGames</strong>: <em>object</em></p>
@@ -6331,7 +6334,7 @@
 </tr>
 </tbody>
 </table>
-<p>Defined in: <a href="https://github.com/Visualizememe/bloxy/blob/e0648b9/src/client/apis/GamesAPI.ts#L63">client/apis/GamesAPI.ts:63</a></p>
+<p>Defined in: <a href="https://github.com/Visualizememe/bloxy/blob/351ca06/src/client/apis/GamesAPI.ts#L63">client/apis/GamesAPI.ts:63</a></p>
 <hr />
 <h3 id="listgamesoptions">ListGamesOptions</h3>
 <p>Ƭ <strong>ListGamesOptions</strong>: <em>object</em></p>
@@ -6410,11 +6413,11 @@
 </tr>
 </tbody>
 </table>
-<p>Defined in: <a href="https://github.com/Visualizememe/bloxy/blob/e0648b9/src/client/apis/GamesAPI.ts#L45">client/apis/GamesAPI.ts:45</a></p>
+<p>Defined in: <a href="https://github.com/Visualizememe/bloxy/blob/351ca06/src/client/apis/GamesAPI.ts#L45">client/apis/GamesAPI.ts:45</a></p>
 <hr />
 <h3 id="multigetgameuniversesplayability">MultiGetGameUniversesPlayability</h3>
 <p>Ƭ <strong>MultiGetGameUniversesPlayability</strong>: { <code>isPlayable</code>: <em>boolean</em> ; <code>playabilityStatus</code>: <em>UnplayableOtherReason</em> | <em>string</em> ; <code>universeId</code>: <em>number</em>  }[]</p>
-<p>Defined in: <a href="https://github.com/Visualizememe/bloxy/blob/e0648b9/src/client/apis/GamesAPI.ts#L102">client/apis/GamesAPI.ts:102</a></p>
+<p>Defined in: <a href="https://github.com/Visualizememe/bloxy/blob/351ca06/src/client/apis/GamesAPI.ts#L102">client/apis/GamesAPI.ts:102</a></p>
 <hr />
 <h3 id="multigetgameuniversesplayabilityoptions">MultiGetGameUniversesPlayabilityOptions</h3>
 <p>Ƭ <strong>MultiGetGameUniversesPlayabilityOptions</strong>: <em>object</em></p>
@@ -6433,11 +6436,11 @@
 </tr>
 </tbody>
 </table>
-<p>Defined in: <a href="https://github.com/Visualizememe/bloxy/blob/e0648b9/src/client/apis/GamesAPI.ts#L99">client/apis/GamesAPI.ts:99</a></p>
+<p>Defined in: <a href="https://github.com/Visualizememe/bloxy/blob/351ca06/src/client/apis/GamesAPI.ts#L99">client/apis/GamesAPI.ts:99</a></p>
 <hr />
 <h3 id="multigetplaces">MultiGetPlaces</h3>
 <p>Ƭ <strong>MultiGetPlaces</strong>: <a href="../../interfaces/structures_game.placeoptions/"><em>PlaceOptions</em></a>[]</p>
-<p>Defined in: <a href="https://github.com/Visualizememe/bloxy/blob/e0648b9/src/client/apis/GamesAPI.ts#L98">client/apis/GamesAPI.ts:98</a></p>
+<p>Defined in: <a href="https://github.com/Visualizememe/bloxy/blob/351ca06/src/client/apis/GamesAPI.ts#L98">client/apis/GamesAPI.ts:98</a></p>
 <hr />
 <h3 id="multigetplacesoptions">MultiGetPlacesOptions</h3>
 <p>Ƭ <strong>MultiGetPlacesOptions</strong>: <em>object</em></p>
@@ -6456,11 +6459,11 @@
 </tr>
 </tbody>
 </table>
-<p>Defined in: <a href="https://github.com/Visualizememe/bloxy/blob/e0648b9/src/client/apis/GamesAPI.ts#L95">client/apis/GamesAPI.ts:95</a></p>
+<p>Defined in: <a href="https://github.com/Visualizememe/bloxy/blob/351ca06/src/client/apis/GamesAPI.ts#L95">client/apis/GamesAPI.ts:95</a></p>
 <hr />
 <h3 id="setselfgamevote">SetSelfGameVote</h3>
 <p>Ƭ <strong>SetSelfGameVote</strong>: <em>unknown</em></p>
-<p>Defined in: <a href="https://github.com/Visualizememe/bloxy/blob/e0648b9/src/client/apis/GamesAPI.ts#L211">client/apis/GamesAPI.ts:211</a></p>
+<p>Defined in: <a href="https://github.com/Visualizememe/bloxy/blob/351ca06/src/client/apis/GamesAPI.ts#L211">client/apis/GamesAPI.ts:211</a></p>
 <hr />
 <h3 id="setselfgamevoteoptions">SetSelfGameVoteOptions</h3>
 <p>Ƭ <strong>SetSelfGameVoteOptions</strong>: <em>object</em></p>
@@ -6483,11 +6486,11 @@
 </tr>
 </tbody>
 </table>
-<p>Defined in: <a href="https://github.com/Visualizememe/bloxy/blob/e0648b9/src/client/apis/GamesAPI.ts#L207">client/apis/GamesAPI.ts:207</a></p>
+<p>Defined in: <a href="https://github.com/Visualizememe/bloxy/blob/351ca06/src/client/apis/GamesAPI.ts#L207">client/apis/GamesAPI.ts:207</a></p>
 <hr />
 <h3 id="togglegamefavorite">ToggleGameFavorite</h3>
 <p>Ƭ <strong>ToggleGameFavorite</strong>: <em>unknown</em></p>
-<p>Defined in: <a href="https://github.com/Visualizememe/bloxy/blob/e0648b9/src/client/apis/GamesAPI.ts#L165">client/apis/GamesAPI.ts:165</a></p>
+<p>Defined in: <a href="https://github.com/Visualizememe/bloxy/blob/351ca06/src/client/apis/GamesAPI.ts#L165">client/apis/GamesAPI.ts:165</a></p>
 <hr />
 <h3 id="togglegamefavoriteoptions">ToggleGameFavoriteOptions</h3>
 <p>Ƭ <strong>ToggleGameFavoriteOptions</strong>: <em>object</em></p>
@@ -6510,11 +6513,11 @@
 </tr>
 </tbody>
 </table>
-<p>Defined in: <a href="https://github.com/Visualizememe/bloxy/blob/e0648b9/src/client/apis/GamesAPI.ts#L161">client/apis/GamesAPI.ts:161</a></p>
+<p>Defined in: <a href="https://github.com/Visualizememe/bloxy/blob/351ca06/src/client/apis/GamesAPI.ts#L161">client/apis/GamesAPI.ts:161</a></p>
 <hr />
 <h3 id="updatevipserver">UpdateVIPServer</h3>
 <p>Ƭ <strong>UpdateVIPServer</strong>: <a href="../../interfaces/structures_game.vipserveroptions/"><em>VIPServerOptions</em></a></p>
-<p>Defined in: <a href="https://github.com/Visualizememe/bloxy/blob/e0648b9/src/client/apis/GamesAPI.ts#L228">client/apis/GamesAPI.ts:228</a></p>
+<p>Defined in: <a href="https://github.com/Visualizememe/bloxy/blob/351ca06/src/client/apis/GamesAPI.ts#L228">client/apis/GamesAPI.ts:228</a></p>
 <hr />
 <h3 id="updatevipserveroptions">UpdateVIPServerOptions</h3>
 <p>Ƭ <strong>UpdateVIPServerOptions</strong>: <em>object</em></p>
@@ -6545,7 +6548,7 @@
 </tr>
 </tbody>
 </table>
-<p>Defined in: <a href="https://github.com/Visualizememe/bloxy/blob/e0648b9/src/client/apis/GamesAPI.ts#L222">client/apis/GamesAPI.ts:222</a></p>
+<p>Defined in: <a href="https://github.com/Visualizememe/bloxy/blob/351ca06/src/client/apis/GamesAPI.ts#L222">client/apis/GamesAPI.ts:222</a></p>
 <hr />
 <h3 id="updatevipserverpermissions">UpdateVIPServerPermissions</h3>
 <p>Ƭ <strong>UpdateVIPServerPermissions</strong>: <em>object</em></p>
@@ -6576,7 +6579,7 @@
 </tr>
 </tbody>
 </table>
-<p>Defined in: <a href="https://github.com/Visualizememe/bloxy/blob/e0648b9/src/client/apis/GamesAPI.ts#L243">client/apis/GamesAPI.ts:243</a></p>
+<p>Defined in: <a href="https://github.com/Visualizememe/bloxy/blob/351ca06/src/client/apis/GamesAPI.ts#L243">client/apis/GamesAPI.ts:243</a></p>
 <hr />
 <h3 id="updatevipserverpermissionsoptions">UpdateVIPServerPermissionsOptions</h3>
 <p>Ƭ <strong>UpdateVIPServerPermissionsOptions</strong>: <em>object</em></p>
@@ -6615,7 +6618,7 @@
 </tr>
 </tbody>
 </table>
-<p>Defined in: <a href="https://github.com/Visualizememe/bloxy/blob/e0648b9/src/client/apis/GamesAPI.ts#L235">client/apis/GamesAPI.ts:235</a></p>
+<p>Defined in: <a href="https://github.com/Visualizememe/bloxy/blob/351ca06/src/client/apis/GamesAPI.ts#L235">client/apis/GamesAPI.ts:235</a></p>
 <hr />
 <h3 id="updatevipserversubscription">UpdateVIPServerSubscription</h3>
 <p>Ƭ <strong>UpdateVIPServerSubscription</strong>: <em>object</em></p>
@@ -6646,7 +6649,7 @@
 </tr>
 </tbody>
 </table>
-<p>Defined in: <a href="https://github.com/Visualizememe/bloxy/blob/e0648b9/src/client/apis/GamesAPI.ts#L258">client/apis/GamesAPI.ts:258</a></p>
+<p>Defined in: <a href="https://github.com/Visualizememe/bloxy/blob/351ca06/src/client/apis/GamesAPI.ts#L258">client/apis/GamesAPI.ts:258</a></p>
 <hr />
 <h3 id="updatevipserversubscriptionoptions">UpdateVIPServerSubscriptionOptions</h3>
 <p>Ƭ <strong>UpdateVIPServerSubscriptionOptions</strong>: <em>object</em></p>
@@ -6673,7 +6676,7 @@
 </tr>
 </tbody>
 </table>
-<p>Defined in: <a href="https://github.com/Visualizememe/bloxy/blob/e0648b9/src/client/apis/GamesAPI.ts#L253">client/apis/GamesAPI.ts:253</a></p>
+<p>Defined in: <a href="https://github.com/Visualizememe/bloxy/blob/351ca06/src/client/apis/GamesAPI.ts#L253">client/apis/GamesAPI.ts:253</a></p>
                 
               
               
@@ -6689,40 +6692,38 @@
         
 <footer class="md-footer">
   
-    <div class="md-footer-nav">
-      <nav class="md-footer-nav__inner md-grid" aria-label="Footer">
-        
-          <a href="../client_apis_gameinternationalizationapi/" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
-            <div class="md-footer-nav__button md-icon">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+    <nav class="md-footer__inner md-grid" aria-label="Footer">
+      
+        <a href="../client_apis_gameinternationalizationapi/" class="md-footer__link md-footer__link--prev" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              Module: client/apis/GameInternationalizationAPI
             </div>
-            <div class="md-footer-nav__title">
-              <div class="md-ellipsis">
-                <span class="md-footer-nav__direction">
-                  Previous
-                </span>
-                Module: client/apis/GameInternationalizationAPI
-              </div>
+          </div>
+        </a>
+      
+      
+        <a href="../client_apis_generalapi/" class="md-footer__link md-footer__link--next" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              Module: client/apis/GeneralAPI
             </div>
-          </a>
-        
-        
-          <a href="../client_apis_generalapi/" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
-            <div class="md-footer-nav__title">
-              <div class="md-ellipsis">
-                <span class="md-footer-nav__direction">
-                  Next
-                </span>
-                Module: client/apis/GeneralAPI
-              </div>
-            </div>
-            <div class="md-footer-nav__button md-icon">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
-            </div>
-          </a>
-        
-      </nav>
-    </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
   
   <div class="md-footer-meta md-typeset">
     <div class="md-footer-meta__inner md-grid">
@@ -6739,19 +6740,13 @@
 </footer>
       
     </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": "../..", "features": [], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing"}, "search": "../../assets/javascripts/workers/search.217ffd95.min.js", "version": null}</script>
     
-      <script src="../../assets/javascripts/vendor.18f0862e.min.js"></script>
-      <script src="../../assets/javascripts/bundle.994580cf.min.js"></script><script id="__lang" type="application/json">{"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing"}</script>
-      
-      <script>
-        app = initialize({
-          base: "../..",
-          features: [],
-          search: Object.assign({
-            worker: "../../assets/javascripts/worker/search.9c0e82ba.min.js"
-          }, typeof search !== "undefined" && search)
-        })
-      </script>
+    
+      <script src="../../assets/javascripts/bundle.926459b3.min.js"></script>
       
     
   </body>

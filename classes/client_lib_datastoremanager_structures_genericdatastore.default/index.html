@@ -10,7 +10,7 @@
       
       
       <link rel="shortcut icon" href="../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-6.2.8">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-7.0.0">
     
     
       
@@ -18,10 +18,10 @@
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.cb6bc1d0.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.a3f8f96a.min.css">
       
         
-        <link rel="stylesheet" href="../../assets/stylesheets/palette.39b8e14a.min.css">
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.7fa14f5b.min.css">
         
       
     
@@ -31,7 +31,7 @@
         
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
-        <style>body,input{font-family:"Roboto",-apple-system,BlinkMacSystemFont,Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono",SFMono-Regular,Consolas,Menlo,monospace}</style>
+        <style>:root{--md-text-font-family:"Roboto";--md-code-font-family:"Roboto Mono"}</style>
       
     
     
@@ -70,24 +70,24 @@
       
 
 <header class="md-header" data-md-component="header">
-  <nav class="md-header-nav md-grid" aria-label="Header">
-    <a href="../.." title="Bloxy Docs" class="md-header-nav__button md-logo" aria-label="Bloxy Docs">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Bloxy Docs" class="md-header__button md-logo" aria-label="Bloxy Docs">
       
   
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 003-3 3 3 0 00-3-3 3 3 0 00-3 3 3 3 0 003 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
 
     </a>
-    <label class="md-header-nav__button md-icon" for="__drawer">
+    <label class="md-header__button md-icon" for="__drawer">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
     </label>
-    <div class="md-header-nav__title" data-md-component="header-title">
-      <div class="md-header-nav__ellipsis">
-        <div class="md-header-nav__topic">
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
           <span class="md-ellipsis">
             Bloxy Docs
           </span>
         </div>
-        <div class="md-header-nav__topic">
+        <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
               Class: default<DataType\>
@@ -96,9 +96,12 @@
         </div>
       </div>
     </div>
+    <div class="md-header__options">
+      
+    </div>
     
-      <label class="md-header-nav__button md-icon" for="__search">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0116 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 019.5 16 6.5 6.5 0 013 9.5 6.5 6.5 0 019.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
       </label>
       
 <div class="md-search" data-md-component="search" role="dialog">
@@ -107,10 +110,10 @@
     <form class="md-search__form" name="search">
       <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" data-md-state="active" required>
       <label class="md-search__icon md-icon" for="__search">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0116 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 019.5 16 6.5 6.5 0 013 9.5 6.5 6.5 0 019.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
       </label>
-      <button type="reset" class="md-search__icon md-icon" aria-label="Clear" data-md-component="search-reset" tabindex="-1">
+      <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
       </button>
     </form>
@@ -141,7 +144,7 @@
           
             
               
-              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation" >
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
                 <div class="md-sidebar__scrollwrap">
                   <div class="md-sidebar__inner">
                     
@@ -154,7 +157,7 @@
     <a href="../.." title="Bloxy Docs" class="md-nav__button md-logo" aria-label="Bloxy Docs">
       
   
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 003-3 3 3 0 00-3-3 3 3 0 00-3 3 3 3 0 003 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
 
     </a>
     Bloxy Docs
@@ -816,7 +819,7 @@
       <span class="md-nav__icon md-icon"></span>
       Table of contents
     </label>
-    <ul class="md-nav__list" data-md-scrollfix>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
   <a href="#type-parameters" class="md-nav__link">
@@ -4438,7 +4441,7 @@
             
             
               
-              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc" >
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
                 <div class="md-sidebar__scrollwrap">
                   <div class="md-sidebar__inner">
                     
@@ -4452,7 +4455,7 @@
       <span class="md-nav__icon md-icon"></span>
       Table of contents
     </label>
-    <ul class="md-nav__list" data-md-scrollfix>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
   <a href="#type-parameters" class="md-nav__link">
@@ -4979,7 +4982,7 @@
               </div>
             
           
-          <div class="md-content">
+          <div class="md-content" data-md-component="content">
             <article class="md-content__inner md-typeset">
               
                 
@@ -5104,7 +5107,7 @@
 </tbody>
 </table>
 <p><strong>Returns:</strong> <a href="./"><em>default</em></a>&lt;DataType></p>
-<p>Defined in: <a href="https://github.com/Visualizememe/bloxy/blob/e0648b9/src/client/lib/DataStoreManager/structures/GenericDataStore.ts#L28">client/lib/DataStoreManager/structures/GenericDataStore.ts:28</a></p>
+<p>Defined in: <a href="https://github.com/Visualizememe/bloxy/blob/351ca06/src/client/lib/DataStoreManager/structures/GenericDataStore.ts#L28">client/lib/DataStoreManager/structures/GenericDataStore.ts:28</a></p>
 <h2 id="properties_1">Properties</h2>
 <h3 id="advanced">advanced</h3>
 <p>• <strong>advanced</strong>: <em>object</em></p>
@@ -5127,40 +5130,40 @@
 </tr>
 </tbody>
 </table>
-<p>Defined in: <a href="https://github.com/Visualizememe/bloxy/blob/e0648b9/src/client/lib/DataStoreManager/structures/GenericDataStore.ts#L25">client/lib/DataStoreManager/structures/GenericDataStore.ts:25</a></p>
+<p>Defined in: <a href="https://github.com/Visualizememe/bloxy/blob/351ca06/src/client/lib/DataStoreManager/structures/GenericDataStore.ts#L25">client/lib/DataStoreManager/structures/GenericDataStore.ts:25</a></p>
 <hr />
 <h3 id="baseapiurl">baseAPIUrl</h3>
 <p>• <strong>baseAPIUrl</strong>: <em>string</em></p>
-<p>Defined in: <a href="https://github.com/Visualizememe/bloxy/blob/e0648b9/src/client/lib/DataStoreManager/structures/GenericDataStore.ts#L22">client/lib/DataStoreManager/structures/GenericDataStore.ts:22</a></p>
+<p>Defined in: <a href="https://github.com/Visualizememe/bloxy/blob/351ca06/src/client/lib/DataStoreManager/structures/GenericDataStore.ts#L22">client/lib/DataStoreManager/structures/GenericDataStore.ts:22</a></p>
 <hr />
 <h3 id="datastoretype">dataStoreType</h3>
 <p>• <strong>dataStoreType</strong>: DataStoreType</p>
-<p>Defined in: <a href="https://github.com/Visualizememe/bloxy/blob/e0648b9/src/client/lib/DataStoreManager/structures/GenericDataStore.ts#L24">client/lib/DataStoreManager/structures/GenericDataStore.ts:24</a></p>
+<p>Defined in: <a href="https://github.com/Visualizememe/bloxy/blob/351ca06/src/client/lib/DataStoreManager/structures/GenericDataStore.ts#L24">client/lib/DataStoreManager/structures/GenericDataStore.ts:24</a></p>
 <hr />
 <h3 id="legacy">legacy</h3>
 <p>• <strong>legacy</strong>: <em>boolean</em></p>
-<p>Defined in: <a href="https://github.com/Visualizememe/bloxy/blob/e0648b9/src/client/lib/DataStoreManager/structures/GenericDataStore.ts#L21">client/lib/DataStoreManager/structures/GenericDataStore.ts:21</a></p>
+<p>Defined in: <a href="https://github.com/Visualizememe/bloxy/blob/351ca06/src/client/lib/DataStoreManager/structures/GenericDataStore.ts#L21">client/lib/DataStoreManager/structures/GenericDataStore.ts:21</a></p>
 <hr />
 <h3 id="manager">manager</h3>
 <p>• <strong>manager</strong>: <a href="../client_lib_datastoremanager_datastoremanager.default/"><em>default</em></a></p>
-<p>Defined in: <a href="https://github.com/Visualizememe/bloxy/blob/e0648b9/src/client/lib/DataStoreManager/structures/GenericDataStore.ts#L18">client/lib/DataStoreManager/structures/GenericDataStore.ts:18</a></p>
+<p>Defined in: <a href="https://github.com/Visualizememe/bloxy/blob/351ca06/src/client/lib/DataStoreManager/structures/GenericDataStore.ts#L18">client/lib/DataStoreManager/structures/GenericDataStore.ts:18</a></p>
 <hr />
 <h3 id="name">name</h3>
 <p>• <strong>name</strong>: <em>string</em></p>
-<p>Defined in: <a href="https://github.com/Visualizememe/bloxy/blob/e0648b9/src/client/lib/DataStoreManager/structures/GenericDataStore.ts#L19">client/lib/DataStoreManager/structures/GenericDataStore.ts:19</a></p>
+<p>Defined in: <a href="https://github.com/Visualizememe/bloxy/blob/351ca06/src/client/lib/DataStoreManager/structures/GenericDataStore.ts#L19">client/lib/DataStoreManager/structures/GenericDataStore.ts:19</a></p>
 <hr />
 <h3 id="placeid">placeId</h3>
 <p>• <strong>placeId</strong>: <em>number</em></p>
-<p>Defined in: <a href="https://github.com/Visualizememe/bloxy/blob/e0648b9/src/client/lib/DataStoreManager/structures/GenericDataStore.ts#L23">client/lib/DataStoreManager/structures/GenericDataStore.ts:23</a></p>
+<p>Defined in: <a href="https://github.com/Visualizememe/bloxy/blob/351ca06/src/client/lib/DataStoreManager/structures/GenericDataStore.ts#L23">client/lib/DataStoreManager/structures/GenericDataStore.ts:23</a></p>
 <hr />
 <h3 id="scope">scope</h3>
 <p>• <strong>scope</strong>: <em>string</em></p>
-<p>Defined in: <a href="https://github.com/Visualizememe/bloxy/blob/e0648b9/src/client/lib/DataStoreManager/structures/GenericDataStore.ts#L20">client/lib/DataStoreManager/structures/GenericDataStore.ts:20</a></p>
+<p>Defined in: <a href="https://github.com/Visualizememe/bloxy/blob/351ca06/src/client/lib/DataStoreManager/structures/GenericDataStore.ts#L20">client/lib/DataStoreManager/structures/GenericDataStore.ts:20</a></p>
 <h2 id="methods_1">Methods</h2>
 <h3 id="buildgeturl">buildGetUrl</h3>
 <p>▸ <strong>buildGetUrl</strong>(): <em>string</em></p>
 <p><strong>Returns:</strong> <em>string</em></p>
-<p>Defined in: <a href="https://github.com/Visualizememe/bloxy/blob/e0648b9/src/client/lib/DataStoreManager/structures/GenericDataStore.ts#L66">client/lib/DataStoreManager/structures/GenericDataStore.ts:66</a></p>
+<p>Defined in: <a href="https://github.com/Visualizememe/bloxy/blob/351ca06/src/client/lib/DataStoreManager/structures/GenericDataStore.ts#L66">client/lib/DataStoreManager/structures/GenericDataStore.ts:66</a></p>
 <hr />
 <h3 id="buildincrementurl">buildIncrementUrl</h3>
 <p>▸ <strong>buildIncrementUrl</strong>(<code>key</code>: <em>string</em>, <code>delta</code>: <em>number</em>): <em>string</em></p>
@@ -5184,7 +5187,7 @@
 </tbody>
 </table>
 <p><strong>Returns:</strong> <em>string</em></p>
-<p>Defined in: <a href="https://github.com/Visualizememe/bloxy/blob/e0648b9/src/client/lib/DataStoreManager/structures/GenericDataStore.ts#L93">client/lib/DataStoreManager/structures/GenericDataStore.ts:93</a></p>
+<p>Defined in: <a href="https://github.com/Visualizememe/bloxy/blob/351ca06/src/client/lib/DataStoreManager/structures/GenericDataStore.ts#L93">client/lib/DataStoreManager/structures/GenericDataStore.ts:93</a></p>
 <hr />
 <h3 id="buildpostdataforkey">buildPostDataForKey</h3>
 <p>▸ <strong>buildPostDataForKey</strong>(<code>key</code>: <em>string</em>, <code>index?</code>: <em>number</em>): <em>string</em></p>
@@ -5211,7 +5214,7 @@
 </tbody>
 </table>
 <p><strong>Returns:</strong> <em>string</em></p>
-<p>Defined in: <a href="https://github.com/Visualizememe/bloxy/blob/e0648b9/src/client/lib/DataStoreManager/structures/GenericDataStore.ts#L56">client/lib/DataStoreManager/structures/GenericDataStore.ts:56</a></p>
+<p>Defined in: <a href="https://github.com/Visualizememe/bloxy/blob/351ca06/src/client/lib/DataStoreManager/structures/GenericDataStore.ts#L56">client/lib/DataStoreManager/structures/GenericDataStore.ts:56</a></p>
 <hr />
 <h3 id="buildremoveurl">buildRemoveUrl</h3>
 <p>▸ <strong>buildRemoveUrl</strong>(<code>key</code>: <em>string</em>): <em>string</em></p>
@@ -5231,7 +5234,7 @@
 </tbody>
 </table>
 <p><strong>Returns:</strong> <em>string</em></p>
-<p>Defined in: <a href="https://github.com/Visualizememe/bloxy/blob/e0648b9/src/client/lib/DataStoreManager/structures/GenericDataStore.ts#L103">client/lib/DataStoreManager/structures/GenericDataStore.ts:103</a></p>
+<p>Defined in: <a href="https://github.com/Visualizememe/bloxy/blob/351ca06/src/client/lib/DataStoreManager/structures/GenericDataStore.ts#L103">client/lib/DataStoreManager/structures/GenericDataStore.ts:103</a></p>
 <hr />
 <h3 id="buildsetifurl">buildSetIfUrl</h3>
 <p>▸ <strong>buildSetIfUrl</strong>(<code>key</code>: <em>string</em>, <code>valueLength</code>: <em>number</em>, <code>expectedValueLength</code>: <em>number</em>): <em>string</em></p>
@@ -5259,7 +5262,7 @@
 </tbody>
 </table>
 <p><strong>Returns:</strong> <em>string</em></p>
-<p>Defined in: <a href="https://github.com/Visualizememe/bloxy/blob/e0648b9/src/client/lib/DataStoreManager/structures/GenericDataStore.ts#L82">client/lib/DataStoreManager/structures/GenericDataStore.ts:82</a></p>
+<p>Defined in: <a href="https://github.com/Visualizememe/bloxy/blob/351ca06/src/client/lib/DataStoreManager/structures/GenericDataStore.ts#L82">client/lib/DataStoreManager/structures/GenericDataStore.ts:82</a></p>
 <hr />
 <h3 id="buildseturl">buildSetUrl</h3>
 <p>▸ <strong>buildSetUrl</strong>(<code>key</code>: <em>string</em>, <code>valueLength</code>: <em>number</em>): <em>string</em></p>
@@ -5283,7 +5286,7 @@
 </tbody>
 </table>
 <p><strong>Returns:</strong> <em>string</em></p>
-<p>Defined in: <a href="https://github.com/Visualizememe/bloxy/blob/e0648b9/src/client/lib/DataStoreManager/structures/GenericDataStore.ts#L72">client/lib/DataStoreManager/structures/GenericDataStore.ts:72</a></p>
+<p>Defined in: <a href="https://github.com/Visualizememe/bloxy/blob/351ca06/src/client/lib/DataStoreManager/structures/GenericDataStore.ts#L72">client/lib/DataStoreManager/structures/GenericDataStore.ts:72</a></p>
 <hr />
 <h3 id="createquerystring">createQueryString</h3>
 <p>▸ <strong>createQueryString</strong>(<code>addition</code>: <em>Record</em>&lt;string, unknown>): <em>string</em></p>
@@ -5303,7 +5306,7 @@
 </tbody>
 </table>
 <p><strong>Returns:</strong> <em>string</em></p>
-<p>Defined in: <a href="https://github.com/Visualizememe/bloxy/blob/e0648b9/src/client/lib/DataStoreManager/structures/GenericDataStore.ts#L224">client/lib/DataStoreManager/structures/GenericDataStore.ts:224</a></p>
+<p>Defined in: <a href="https://github.com/Visualizememe/bloxy/blob/351ca06/src/client/lib/DataStoreManager/structures/GenericDataStore.ts#L224">client/lib/DataStoreManager/structures/GenericDataStore.ts:224</a></p>
 <hr />
 <h3 id="getasync">getAsync</h3>
 <p>▸ <strong>getAsync</strong>(<code>key</code>: <em>string</em>): <em>Promise</em>&lt;unknown></p>
@@ -5325,7 +5328,7 @@ Equivalent of DataStoreService:GetDataStore("name"):GetAsync("key");</p>
 </tbody>
 </table>
 <p><strong>Returns:</strong> <em>Promise</em>&lt;unknown></p>
-<p>Defined in: <a href="https://github.com/Visualizememe/bloxy/blob/e0648b9/src/client/lib/DataStoreManager/structures/GenericDataStore.ts#L134">client/lib/DataStoreManager/structures/GenericDataStore.ts:134</a></p>
+<p>Defined in: <a href="https://github.com/Visualizememe/bloxy/blob/351ca06/src/client/lib/DataStoreManager/structures/GenericDataStore.ts#L134">client/lib/DataStoreManager/structures/GenericDataStore.ts:134</a></p>
 <hr />
 <h3 id="incrementasync">incrementAsync</h3>
 <p>▸ <strong>incrementAsync</strong>(<code>key</code>: <em>string</em>, <code>delta?</code>: <em>number</em>): <em>Promise</em>&lt;<a href="../../modules/interfaces_restinterfaces/#restresponsedatatype"><em>RESTResponseDataType</em></a>></p>
@@ -5352,7 +5355,7 @@ Equivalent of DataStoreService:GetDataStore("name"):GetAsync("key");</p>
 </tbody>
 </table>
 <p><strong>Returns:</strong> <em>Promise</em>&lt;<a href="../../modules/interfaces_restinterfaces/#restresponsedatatype"><em>RESTResponseDataType</em></a>></p>
-<p>Defined in: <a href="https://github.com/Visualizememe/bloxy/blob/e0648b9/src/client/lib/DataStoreManager/structures/GenericDataStore.ts#L196">client/lib/DataStoreManager/structures/GenericDataStore.ts:196</a></p>
+<p>Defined in: <a href="https://github.com/Visualizememe/bloxy/blob/351ca06/src/client/lib/DataStoreManager/structures/GenericDataStore.ts#L196">client/lib/DataStoreManager/structures/GenericDataStore.ts:196</a></p>
 <hr />
 <h3 id="parseincomingdata">parseIncomingData</h3>
 <p>▸ <code>Private</code><strong>parseIncomingData</strong>(<code>data</code>: <em>string</em>): DataType</p>
@@ -5373,7 +5376,7 @@ Equivalent of DataStoreService:GetDataStore("name"):GetAsync("key");</p>
 </tbody>
 </table>
 <p><strong>Returns:</strong> DataType</p>
-<p>Defined in: <a href="https://github.com/Visualizememe/bloxy/blob/e0648b9/src/client/lib/DataStoreManager/structures/GenericDataStore.ts#L239">client/lib/DataStoreManager/structures/GenericDataStore.ts:239</a></p>
+<p>Defined in: <a href="https://github.com/Visualizememe/bloxy/blob/351ca06/src/client/lib/DataStoreManager/structures/GenericDataStore.ts#L239">client/lib/DataStoreManager/structures/GenericDataStore.ts:239</a></p>
 <hr />
 <h3 id="parseretrieveddata">parseRetrievedData</h3>
 <p>▸ <strong>parseRetrievedData</strong>&lt;Result>(<code>data</code>: <em>string</em>): [<em>boolean</em>, <em>any</em>]</p>
@@ -5408,7 +5411,7 @@ Equivalent of DataStoreService:GetDataStore("name"):GetAsync("key");</p>
 </tbody>
 </table>
 <p><strong>Returns:</strong> [<em>boolean</em>, <em>any</em>]</p>
-<p>Defined in: <a href="https://github.com/Visualizememe/bloxy/blob/e0648b9/src/client/lib/DataStoreManager/structures/GenericDataStore.ts#L112">client/lib/DataStoreManager/structures/GenericDataStore.ts:112</a></p>
+<p>Defined in: <a href="https://github.com/Visualizememe/bloxy/blob/351ca06/src/client/lib/DataStoreManager/structures/GenericDataStore.ts#L112">client/lib/DataStoreManager/structures/GenericDataStore.ts:112</a></p>
 <hr />
 <h3 id="performpreflightchecks">performPreflightChecks</h3>
 <p>▸ <code>Private</code><strong>performPreflightChecks</strong>(<code>options</code>: { <code>key?</code>: <em>undefined</em> | <em>string</em> ; <code>value?</code>: <em>undefined</em> | <em>string</em>  }): <em>void</em></p>
@@ -5437,7 +5440,7 @@ Equivalent of DataStoreService:GetDataStore("name"):GetAsync("key");</p>
 </tbody>
 </table>
 <p><strong>Returns:</strong> <em>void</em></p>
-<p>Defined in: <a href="https://github.com/Visualizememe/bloxy/blob/e0648b9/src/client/lib/DataStoreManager/structures/GenericDataStore.ts#L287">client/lib/DataStoreManager/structures/GenericDataStore.ts:287</a></p>
+<p>Defined in: <a href="https://github.com/Visualizememe/bloxy/blob/351ca06/src/client/lib/DataStoreManager/structures/GenericDataStore.ts#L287">client/lib/DataStoreManager/structures/GenericDataStore.ts:287</a></p>
 <hr />
 <h3 id="removeasync">removeAsync</h3>
 <p>▸ <strong>removeAsync</strong>(<code>key</code>: <em>string</em>): <em>Promise</em>&lt;<a href="../../modules/interfaces_restinterfaces/#restresponsedatatype"><em>RESTResponseDataType</em></a>></p>
@@ -5457,7 +5460,7 @@ Equivalent of DataStoreService:GetDataStore("name"):GetAsync("key");</p>
 </tbody>
 </table>
 <p><strong>Returns:</strong> <em>Promise</em>&lt;<a href="../../modules/interfaces_restinterfaces/#restresponsedatatype"><em>RESTResponseDataType</em></a>></p>
-<p>Defined in: <a href="https://github.com/Visualizememe/bloxy/blob/e0648b9/src/client/lib/DataStoreManager/structures/GenericDataStore.ts#L210">client/lib/DataStoreManager/structures/GenericDataStore.ts:210</a></p>
+<p>Defined in: <a href="https://github.com/Visualizememe/bloxy/blob/351ca06/src/client/lib/DataStoreManager/structures/GenericDataStore.ts#L210">client/lib/DataStoreManager/structures/GenericDataStore.ts:210</a></p>
 <hr />
 <h3 id="safeencodevalue">safeEncodeValue</h3>
 <p>▸ <strong>safeEncodeValue</strong>(<code>input</code>: <em>string</em>): <em>string</em></p>
@@ -5477,7 +5480,7 @@ Equivalent of DataStoreService:GetDataStore("name"):GetAsync("key");</p>
 </tbody>
 </table>
 <p><strong>Returns:</strong> <em>string</em></p>
-<p>Defined in: <a href="https://github.com/Visualizememe/bloxy/blob/e0648b9/src/client/lib/DataStoreManager/structures/GenericDataStore.ts#L278">client/lib/DataStoreManager/structures/GenericDataStore.ts:278</a></p>
+<p>Defined in: <a href="https://github.com/Visualizememe/bloxy/blob/351ca06/src/client/lib/DataStoreManager/structures/GenericDataStore.ts#L278">client/lib/DataStoreManager/structures/GenericDataStore.ts:278</a></p>
 <hr />
 <h3 id="serializeoutgoingdata">serializeOutgoingData</h3>
 <p>▸ <code>Private</code><strong>serializeOutgoingData</strong>(<code>data</code>: DataType): <em>string</em></p>
@@ -5499,7 +5502,7 @@ to data stores</p>
 </tbody>
 </table>
 <p><strong>Returns:</strong> <em>string</em></p>
-<p>Defined in: <a href="https://github.com/Visualizememe/bloxy/blob/e0648b9/src/client/lib/DataStoreManager/structures/GenericDataStore.ts#L254">client/lib/DataStoreManager/structures/GenericDataStore.ts:254</a></p>
+<p>Defined in: <a href="https://github.com/Visualizememe/bloxy/blob/351ca06/src/client/lib/DataStoreManager/structures/GenericDataStore.ts#L254">client/lib/DataStoreManager/structures/GenericDataStore.ts:254</a></p>
 <hr />
 <h3 id="setasync">setAsync</h3>
 <p>▸ <strong>setAsync</strong>(<code>key</code>: <em>string</em>, <code>value</code>: DataType): <em>Promise</em>&lt;DataType></p>
@@ -5525,7 +5528,7 @@ Equivalent of DataStoreService:GetDataStore("name"):SetAsync("key", "value")</p>
 </tbody>
 </table>
 <p><strong>Returns:</strong> <em>Promise</em>&lt;DataType></p>
-<p>Defined in: <a href="https://github.com/Visualizememe/bloxy/blob/e0648b9/src/client/lib/DataStoreManager/structures/GenericDataStore.ts#L173">client/lib/DataStoreManager/structures/GenericDataStore.ts:173</a></p>
+<p>Defined in: <a href="https://github.com/Visualizememe/bloxy/blob/351ca06/src/client/lib/DataStoreManager/structures/GenericDataStore.ts#L173">client/lib/DataStoreManager/structures/GenericDataStore.ts:173</a></p>
 <hr />
 <h3 id="setdataconverters">setDataConverters</h3>
 <p>▸ <strong>setDataConverters</strong>(<code>parseDataFunction</code>: (<code>data</code>: <em>string</em>) =&gt; DataType, <code>serializeDataFunction</code>: (<code>data</code>: DataType) =&gt; <em>string</em>): <em>void</em></p>
@@ -5552,7 +5555,7 @@ JSON parsing it etc.</p>
 </tbody>
 </table>
 <p><strong>Returns:</strong> <em>void</em></p>
-<p>Defined in: <a href="https://github.com/Visualizememe/bloxy/blob/e0648b9/src/client/lib/DataStoreManager/structures/GenericDataStore.ts#L51">client/lib/DataStoreManager/structures/GenericDataStore.ts:51</a></p>
+<p>Defined in: <a href="https://github.com/Visualizememe/bloxy/blob/351ca06/src/client/lib/DataStoreManager/structures/GenericDataStore.ts#L51">client/lib/DataStoreManager/structures/GenericDataStore.ts:51</a></p>
                 
               
               
@@ -5568,40 +5571,38 @@ JSON parsing it etc.</p>
         
 <footer class="md-footer">
   
-    <div class="md-footer-nav">
-      <nav class="md-footer-nav__inner md-grid" aria-label="Footer">
-        
-          <a href="../client_lib_datastoremanager_structures_datastorehttprequest.default/" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
-            <div class="md-footer-nav__button md-icon">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+    <nav class="md-footer__inner md-grid" aria-label="Footer">
+      
+        <a href="../client_lib_datastoremanager_structures_datastorehttprequest.default/" class="md-footer__link md-footer__link--prev" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              Class: default
             </div>
-            <div class="md-footer-nav__title">
-              <div class="md-ellipsis">
-                <span class="md-footer-nav__direction">
-                  Previous
-                </span>
-                Class: default
-              </div>
+          </div>
+        </a>
+      
+      
+        <a href="../client_lib_datastoremanager_structures_globaldatastore.default/" class="md-footer__link md-footer__link--next" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              Class: default<DataType\>
             </div>
-          </a>
-        
-        
-          <a href="../client_lib_datastoremanager_structures_globaldatastore.default/" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
-            <div class="md-footer-nav__title">
-              <div class="md-ellipsis">
-                <span class="md-footer-nav__direction">
-                  Next
-                </span>
-                Class: default<DataType\>
-              </div>
-            </div>
-            <div class="md-footer-nav__button md-icon">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
-            </div>
-          </a>
-        
-      </nav>
-    </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
   
   <div class="md-footer-meta md-typeset">
     <div class="md-footer-meta__inner md-grid">
@@ -5618,19 +5619,13 @@ JSON parsing it etc.</p>
 </footer>
       
     </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": "../..", "features": [], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing"}, "search": "../../assets/javascripts/workers/search.217ffd95.min.js", "version": null}</script>
     
-      <script src="../../assets/javascripts/vendor.18f0862e.min.js"></script>
-      <script src="../../assets/javascripts/bundle.994580cf.min.js"></script><script id="__lang" type="application/json">{"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing"}</script>
-      
-      <script>
-        app = initialize({
-          base: "../..",
-          features: [],
-          search: Object.assign({
-            worker: "../../assets/javascripts/worker/search.9c0e82ba.min.js"
-          }, typeof search !== "undefined" && search)
-        })
-      </script>
+    
+      <script src="../../assets/javascripts/bundle.926459b3.min.js"></script>
       
     
   </body>

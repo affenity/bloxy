@@ -10,7 +10,7 @@
       
       
       <link rel="shortcut icon" href="../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-6.2.8">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-7.0.0">
     
     
       
@@ -18,10 +18,10 @@
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.cb6bc1d0.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.a3f8f96a.min.css">
       
         
-        <link rel="stylesheet" href="../../assets/stylesheets/palette.39b8e14a.min.css">
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.7fa14f5b.min.css">
         
       
     
@@ -31,7 +31,7 @@
         
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
-        <style>body,input{font-family:"Roboto",-apple-system,BlinkMacSystemFont,Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono",SFMono-Regular,Consolas,Menlo,monospace}</style>
+        <style>:root{--md-text-font-family:"Roboto";--md-code-font-family:"Roboto Mono"}</style>
       
     
     
@@ -70,24 +70,24 @@
       
 
 <header class="md-header" data-md-component="header">
-  <nav class="md-header-nav md-grid" aria-label="Header">
-    <a href="../.." title="Bloxy Docs" class="md-header-nav__button md-logo" aria-label="Bloxy Docs">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Bloxy Docs" class="md-header__button md-logo" aria-label="Bloxy Docs">
       
   
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 003-3 3 3 0 00-3-3 3 3 0 00-3 3 3 3 0 003 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
 
     </a>
-    <label class="md-header-nav__button md-icon" for="__drawer">
+    <label class="md-header__button md-icon" for="__drawer">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
     </label>
-    <div class="md-header-nav__title" data-md-component="header-title">
-      <div class="md-header-nav__ellipsis">
-        <div class="md-header-nav__topic">
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
           <span class="md-ellipsis">
             Bloxy Docs
           </span>
         </div>
-        <div class="md-header-nav__topic">
+        <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
               Class: default
@@ -96,9 +96,12 @@
         </div>
       </div>
     </div>
+    <div class="md-header__options">
+      
+    </div>
     
-      <label class="md-header-nav__button md-icon" for="__search">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0116 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 019.5 16 6.5 6.5 0 013 9.5 6.5 6.5 0 019.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
       </label>
       
 <div class="md-search" data-md-component="search" role="dialog">
@@ -107,10 +110,10 @@
     <form class="md-search__form" name="search">
       <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" data-md-state="active" required>
       <label class="md-search__icon md-icon" for="__search">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0116 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 019.5 16 6.5 6.5 0 013 9.5 6.5 6.5 0 019.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
       </label>
-      <button type="reset" class="md-search__icon md-icon" aria-label="Clear" data-md-component="search-reset" tabindex="-1">
+      <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
       </button>
     </form>
@@ -141,7 +144,7 @@
           
             
               
-              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation" >
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
                 <div class="md-sidebar__scrollwrap">
                   <div class="md-sidebar__inner">
                     
@@ -154,7 +157,7 @@
     <a href="../.." title="Bloxy Docs" class="md-nav__button md-logo" aria-label="Bloxy Docs">
       
   
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 003-3 3 3 0 00-3-3 3 3 0 00-3 3 3 3 0 003 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
 
     </a>
     Bloxy Docs
@@ -528,7 +531,7 @@
       <span class="md-nav__icon md-icon"></span>
       Table of contents
     </label>
-    <ul class="md-nav__list" data-md-scrollfix>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
   <a href="#hierarchy" class="md-nav__link">
@@ -4536,7 +4539,7 @@
             
             
               
-              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc" >
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
                 <div class="md-sidebar__scrollwrap">
                   <div class="md-sidebar__inner">
                     
@@ -4550,7 +4553,7 @@
       <span class="md-nav__icon md-icon"></span>
       Table of contents
     </label>
-    <ul class="md-nav__list" data-md-scrollfix>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
   <a href="#hierarchy" class="md-nav__link">
@@ -5175,7 +5178,7 @@
               </div>
             
           
-          <div class="md-content">
+          <div class="md-content" data-md-component="content">
             <article class="md-content__inner md-typeset">
               
                 
@@ -5247,17 +5250,17 @@
 </table>
 <p><strong>Returns:</strong> <a href="./"><em>default</em></a></p>
 <p>Inherited from: <a href="../client_apis_baseapi.default/">default</a></p>
-<p>Defined in: <a href="https://github.com/Visualizememe/bloxy/blob/e0648b9/src/client/apis/GeneralAPI.ts#L155">client/apis/GeneralAPI.ts:155</a></p>
+<p>Defined in: <a href="https://github.com/Visualizememe/bloxy/blob/351ca06/src/client/apis/GeneralAPI.ts#L155">client/apis/GeneralAPI.ts:155</a></p>
 <h2 id="properties_1">Properties</h2>
 <h3 id="client">client</h3>
 <p>• <strong>client</strong>: <a href="../client_client.default/"><em>default</em></a></p>
 <p>Inherited from: <a href="../client_apis_baseapi.default/">default</a>.<a href="../client_apis_baseapi.default/#client">client</a></p>
-<p>Defined in: <a href="https://github.com/Visualizememe/bloxy/blob/e0648b9/src/client/apis/BaseAPI.ts#L25">client/apis/BaseAPI.ts:25</a></p>
+<p>Defined in: <a href="https://github.com/Visualizememe/bloxy/blob/351ca06/src/client/apis/BaseAPI.ts#L25">client/apis/BaseAPI.ts:25</a></p>
 <hr />
 <h3 id="options">options</h3>
 <p>• <strong>options</strong>: <a href="../../modules/interfaces_apiinterfaces/#baseapioptions"><em>BaseAPIOptions</em></a></p>
 <p>Inherited from: <a href="../client_apis_baseapi.default/">default</a>.<a href="../client_apis_baseapi.default/#options">options</a></p>
-<p>Defined in: <a href="https://github.com/Visualizememe/bloxy/blob/e0648b9/src/client/apis/BaseAPI.ts#L26">client/apis/BaseAPI.ts:26</a></p>
+<p>Defined in: <a href="https://github.com/Visualizememe/bloxy/blob/351ca06/src/client/apis/BaseAPI.ts#L26">client/apis/BaseAPI.ts:26</a></p>
 <h2 id="methods_1">Methods</h2>
 <h3 id="acceptfriendrequest">acceptFriendRequest</h3>
 <p>▸ <strong>acceptFriendRequest</strong>(<code>options</code>: <a href="../../modules/client_apis_generalapi/#acceptfriendrequestoptions"><em>AcceptFriendRequestOptions</em></a>): <em>Promise</em>&lt;boolean></p>
@@ -5277,7 +5280,7 @@
 </tbody>
 </table>
 <p><strong>Returns:</strong> <em>Promise</em>&lt;boolean></p>
-<p>Defined in: <a href="https://github.com/Visualizememe/bloxy/blob/e0648b9/src/client/apis/GeneralAPI.ts#L219">client/apis/GeneralAPI.ts:219</a></p>
+<p>Defined in: <a href="https://github.com/Visualizememe/bloxy/blob/351ca06/src/client/apis/GeneralAPI.ts#L219">client/apis/GeneralAPI.ts:219</a></p>
 <hr />
 <h3 id="awardbadge">awardBadge</h3>
 <p>▸ <strong>awardBadge</strong>(<code>options</code>: <a href="../../modules/client_apis_generalapi/#awardbadgeoptions"><em>AwardBadgeOptions</em></a>): <em>Promise</em>&lt;boolean></p>
@@ -5297,7 +5300,7 @@
 </tbody>
 </table>
 <p><strong>Returns:</strong> <em>Promise</em>&lt;boolean></p>
-<p>Defined in: <a href="https://github.com/Visualizememe/bloxy/blob/e0648b9/src/client/apis/GeneralAPI.ts#L177">client/apis/GeneralAPI.ts:177</a></p>
+<p>Defined in: <a href="https://github.com/Visualizememe/bloxy/blob/351ca06/src/client/apis/GeneralAPI.ts#L177">client/apis/GeneralAPI.ts:177</a></p>
 <hr />
 <h3 id="blockuser">blockUser</h3>
 <p>▸ <strong>blockUser</strong>(<code>options</code>: <a href="../../modules/client_apis_generalapi/#blockuseroptions"><em>BlockUserOptions</em></a>): <em>Promise</em>&lt;boolean></p>
@@ -5317,7 +5320,7 @@
 </tbody>
 </table>
 <p><strong>Returns:</strong> <em>Promise</em>&lt;boolean></p>
-<p>Defined in: <a href="https://github.com/Visualizememe/bloxy/blob/e0648b9/src/client/apis/GeneralAPI.ts#L489">client/apis/GeneralAPI.ts:489</a></p>
+<p>Defined in: <a href="https://github.com/Visualizememe/bloxy/blob/351ca06/src/client/apis/GeneralAPI.ts#L489">client/apis/GeneralAPI.ts:489</a></p>
 <hr />
 <h3 id="declinefriendrequest">declineFriendRequest</h3>
 <p>▸ <strong>declineFriendRequest</strong>(<code>options</code>: <a href="../../modules/client_apis_generalapi/#declinefriendrequestoptions"><em>DeclineFriendRequestOptions</em></a>): <em>Promise</em>&lt;boolean></p>
@@ -5337,7 +5340,7 @@
 </tbody>
 </table>
 <p><strong>Returns:</strong> <em>Promise</em>&lt;boolean></p>
-<p>Defined in: <a href="https://github.com/Visualizememe/bloxy/blob/e0648b9/src/client/apis/GeneralAPI.ts#L236">client/apis/GeneralAPI.ts:236</a></p>
+<p>Defined in: <a href="https://github.com/Visualizememe/bloxy/blob/351ca06/src/client/apis/GeneralAPI.ts#L236">client/apis/GeneralAPI.ts:236</a></p>
 <hr />
 <h3 id="followuser">followUser</h3>
 <p>▸ <strong>followUser</strong>(<code>options</code>: <a href="../../modules/client_apis_generalapi/#followuseroptions"><em>FollowUserOptions</em></a>): <em>Promise</em>&lt;boolean></p>
@@ -5357,7 +5360,7 @@
 </tbody>
 </table>
 <p><strong>Returns:</strong> <em>Promise</em>&lt;boolean></p>
-<p>Defined in: <a href="https://github.com/Visualizememe/bloxy/blob/e0648b9/src/client/apis/GeneralAPI.ts#L316">client/apis/GeneralAPI.ts:316</a></p>
+<p>Defined in: <a href="https://github.com/Visualizememe/bloxy/blob/351ca06/src/client/apis/GeneralAPI.ts#L316">client/apis/GeneralAPI.ts:316</a></p>
 <hr />
 <h3 id="getassetversions">getAssetVersions</h3>
 <p>▸ <strong>getAssetVersions</strong>(<code>options</code>: <em>number</em>): <em>Promise</em>&lt;<a href="../../modules/client_apis_generalapi/#getassetversions"><em>GetAssetVersions</em></a>></p>
@@ -5377,17 +5380,17 @@
 </tbody>
 </table>
 <p><strong>Returns:</strong> <em>Promise</em>&lt;<a href="../../modules/client_apis_generalapi/#getassetversions"><em>GetAssetVersions</em></a>></p>
-<p>Defined in: <a href="https://github.com/Visualizememe/bloxy/blob/e0648b9/src/client/apis/GeneralAPI.ts#L163">client/apis/GeneralAPI.ts:163</a></p>
+<p>Defined in: <a href="https://github.com/Visualizememe/bloxy/blob/351ca06/src/client/apis/GeneralAPI.ts#L163">client/apis/GeneralAPI.ts:163</a></p>
 <hr />
 <h3 id="getbalance">getBalance</h3>
 <p>▸ <strong>getBalance</strong>(): <em>Promise</em>&lt;<a href="../../modules/client_apis_generalapi/#getbalance"><em>GetBalance</em></a>></p>
 <p><strong>Returns:</strong> <em>Promise</em>&lt;<a href="../../modules/client_apis_generalapi/#getbalance"><em>GetBalance</em></a>></p>
-<p>Defined in: <a href="https://github.com/Visualizememe/bloxy/blob/e0648b9/src/client/apis/GeneralAPI.ts#L192">client/apis/GeneralAPI.ts:192</a></p>
+<p>Defined in: <a href="https://github.com/Visualizememe/bloxy/blob/351ca06/src/client/apis/GeneralAPI.ts#L192">client/apis/GeneralAPI.ts:192</a></p>
 <hr />
 <h3 id="getdeviceinfo">getDeviceInfo</h3>
 <p>▸ <strong>getDeviceInfo</strong>(): <em>Promise</em>&lt;<a href="../../modules/client_apis_generalapi/#getdeviceinfo"><em>GetDeviceInfo</em></a>></p>
 <p><strong>Returns:</strong> <em>Promise</em>&lt;<a href="../../modules/client_apis_generalapi/#getdeviceinfo"><em>GetDeviceInfo</em></a>></p>
-<p>Defined in: <a href="https://github.com/Visualizememe/bloxy/blob/e0648b9/src/client/apis/GeneralAPI.ts#L472">client/apis/GeneralAPI.ts:472</a></p>
+<p>Defined in: <a href="https://github.com/Visualizememe/bloxy/blob/351ca06/src/client/apis/GeneralAPI.ts#L472">client/apis/GeneralAPI.ts:472</a></p>
 <hr />
 <h3 id="getgamepassproductinfo">getGamePassProductInfo</h3>
 <p>▸ <strong>getGamePassProductInfo</strong>(<code>options</code>: <a href="../../modules/client_apis_generalapi/#getgamepassproductinfooptions"><em>GetGamePassProductInfoOptions</em></a>): <em>Promise</em>&lt;<a href="../../interfaces/structures_asset.productoptions/"><em>ProductOptions</em></a>></p>
@@ -5407,7 +5410,7 @@
 </tbody>
 </table>
 <p><strong>Returns:</strong> <em>Promise</em>&lt;<a href="../../interfaces/structures_asset.productoptions/"><em>ProductOptions</em></a>></p>
-<p>Defined in: <a href="https://github.com/Visualizememe/bloxy/blob/e0648b9/src/client/apis/GeneralAPI.ts#L443">client/apis/GeneralAPI.ts:443</a></p>
+<p>Defined in: <a href="https://github.com/Visualizememe/bloxy/blob/351ca06/src/client/apis/GeneralAPI.ts#L443">client/apis/GeneralAPI.ts:443</a></p>
 <hr />
 <h3 id="getgroup">getGroup</h3>
 <p>▸ <strong>getGroup</strong>(<code>options</code>: <a href="../../modules/client_apis_generalapi/#getgroupoptions"><em>GetGroupOptions</em></a>): <em>Promise</em>&lt;<a href="../../modules/client_apis_generalapi/#getgroup"><em>GetGroup</em></a>></p>
@@ -5427,7 +5430,7 @@
 </tbody>
 </table>
 <p><strong>Returns:</strong> <em>Promise</em>&lt;<a href="../../modules/client_apis_generalapi/#getgroup"><em>GetGroup</em></a>></p>
-<p>Defined in: <a href="https://github.com/Visualizememe/bloxy/blob/e0648b9/src/client/apis/GeneralAPI.ts#L363">client/apis/GeneralAPI.ts:363</a></p>
+<p>Defined in: <a href="https://github.com/Visualizememe/bloxy/blob/351ca06/src/client/apis/GeneralAPI.ts#L363">client/apis/GeneralAPI.ts:363</a></p>
 <hr />
 <h3 id="getgroupallies">getGroupAllies</h3>
 <p>▸ <strong>getGroupAllies</strong>(<code>options</code>: <a href="../../modules/client_apis_generalapi/#getgroupalliesoptions"><em>GetGroupAlliesOptions</em></a>): <em>Promise</em>&lt;<a href="../../modules/client_apis_generalapi/#getgroupallies"><em>GetGroupAllies</em></a>></p>
@@ -5447,7 +5450,7 @@
 </tbody>
 </table>
 <p><strong>Returns:</strong> <em>Promise</em>&lt;<a href="../../modules/client_apis_generalapi/#getgroupallies"><em>GetGroupAllies</em></a>></p>
-<p>Defined in: <a href="https://github.com/Visualizememe/bloxy/blob/e0648b9/src/client/apis/GeneralAPI.ts#L377">client/apis/GeneralAPI.ts:377</a></p>
+<p>Defined in: <a href="https://github.com/Visualizememe/bloxy/blob/351ca06/src/client/apis/GeneralAPI.ts#L377">client/apis/GeneralAPI.ts:377</a></p>
 <hr />
 <h3 id="getgroupenemies">getGroupEnemies</h3>
 <p>▸ <strong>getGroupEnemies</strong>(<code>options</code>: <a href="../../modules/client_apis_generalapi/#getgroupenemiesoptions"><em>GetGroupEnemiesOptions</em></a>): <em>Promise</em>&lt;<a href="../../modules/client_apis_generalapi/#getgroupallies"><em>GetGroupAllies</em></a>></p>
@@ -5467,12 +5470,12 @@
 </tbody>
 </table>
 <p><strong>Returns:</strong> <em>Promise</em>&lt;<a href="../../modules/client_apis_generalapi/#getgroupallies"><em>GetGroupAllies</em></a>></p>
-<p>Defined in: <a href="https://github.com/Visualizememe/bloxy/blob/e0648b9/src/client/apis/GeneralAPI.ts#L394">client/apis/GeneralAPI.ts:394</a></p>
+<p>Defined in: <a href="https://github.com/Visualizememe/bloxy/blob/351ca06/src/client/apis/GeneralAPI.ts#L394">client/apis/GeneralAPI.ts:394</a></p>
 <hr />
 <h3 id="getincomingitems">getIncomingItems</h3>
 <p>▸ <strong>getIncomingItems</strong>(): <em>Promise</em>&lt;<a href="../../modules/client_apis_generalapi/#getincomingitems"><em>GetIncomingItems</em></a>></p>
 <p><strong>Returns:</strong> <em>Promise</em>&lt;<a href="../../modules/client_apis_generalapi/#getincomingitems"><em>GetIncomingItems</em></a>></p>
-<p>Defined in: <a href="https://github.com/Visualizememe/bloxy/blob/e0648b9/src/client/apis/GeneralAPI.ts#L411">client/apis/GeneralAPI.ts:411</a></p>
+<p>Defined in: <a href="https://github.com/Visualizememe/bloxy/blob/351ca06/src/client/apis/GeneralAPI.ts#L411">client/apis/GeneralAPI.ts:411</a></p>
 <hr />
 <h3 id="getproductinfo">getProductInfo</h3>
 <p>▸ <strong>getProductInfo</strong>(<code>options</code>: <a href="../../modules/client_apis_generalapi/#getproductinfooptions"><em>GetProductInfoOptions</em></a>): <em>Promise</em>&lt;<a href="../../interfaces/structures_asset.productoptions/"><em>ProductOptions</em></a>></p>
@@ -5492,7 +5495,7 @@
 </tbody>
 </table>
 <p><strong>Returns:</strong> <em>Promise</em>&lt;<a href="../../interfaces/structures_asset.productoptions/"><em>ProductOptions</em></a>></p>
-<p>Defined in: <a href="https://github.com/Visualizememe/bloxy/blob/e0648b9/src/client/apis/GeneralAPI.ts#L428">client/apis/GeneralAPI.ts:428</a></p>
+<p>Defined in: <a href="https://github.com/Visualizememe/bloxy/blob/351ca06/src/client/apis/GeneralAPI.ts#L428">client/apis/GeneralAPI.ts:428</a></p>
 <hr />
 <h3 id="getuserbyid">getUserById</h3>
 <p>▸ <strong>getUserById</strong>(<code>options</code>: <a href="../../modules/client_apis_generalapi/#getuserbyidoptions"><em>GetUserByIdOptions</em></a>): <em>Promise</em>&lt;<a href="../../modules/client_apis_generalapi/#getuserbyid"><em>GetUserById</em></a>></p>
@@ -5512,7 +5515,7 @@
 </tbody>
 </table>
 <p><strong>Returns:</strong> <em>Promise</em>&lt;<a href="../../modules/client_apis_generalapi/#getuserbyid"><em>GetUserById</em></a>></p>
-<p>Defined in: <a href="https://github.com/Visualizememe/bloxy/blob/e0648b9/src/client/apis/GeneralAPI.ts#L521">client/apis/GeneralAPI.ts:521</a></p>
+<p>Defined in: <a href="https://github.com/Visualizememe/bloxy/blob/351ca06/src/client/apis/GeneralAPI.ts#L521">client/apis/GeneralAPI.ts:521</a></p>
 <hr />
 <h3 id="getuserbyusername">getUserByUsername</h3>
 <p>▸ <strong>getUserByUsername</strong>(<code>options</code>: <a href="../../modules/client_apis_generalapi/#getuserbyusernameoptions"><em>GetUserByUsernameOptions</em></a>): <em>Promise</em>&lt;<a href="../../modules/client_apis_generalapi/#getuserbyid"><em>GetUserById</em></a>></p>
@@ -5532,7 +5535,7 @@
 </tbody>
 </table>
 <p><strong>Returns:</strong> <em>Promise</em>&lt;<a href="../../modules/client_apis_generalapi/#getuserbyid"><em>GetUserById</em></a>></p>
-<p>Defined in: <a href="https://github.com/Visualizememe/bloxy/blob/e0648b9/src/client/apis/GeneralAPI.ts#L538">client/apis/GeneralAPI.ts:538</a></p>
+<p>Defined in: <a href="https://github.com/Visualizememe/bloxy/blob/351ca06/src/client/apis/GeneralAPI.ts#L538">client/apis/GeneralAPI.ts:538</a></p>
 <hr />
 <h3 id="getuserfriends">getUserFriends</h3>
 <p>▸ <strong>getUserFriends</strong>(<code>options</code>: <a href="../../modules/client_apis_generalapi/#getuserfriendsoptions"><em>GetUserFriendsOptions</em></a>): <em>Promise</em>&lt;<a href="../../modules/client_apis_generalapi/#getuserfriends"><em>GetUserFriends</em></a>></p>
@@ -5552,7 +5555,7 @@
 </tbody>
 </table>
 <p><strong>Returns:</strong> <em>Promise</em>&lt;<a href="../../modules/client_apis_generalapi/#getuserfriends"><em>GetUserFriends</em></a>></p>
-<p>Defined in: <a href="https://github.com/Visualizememe/bloxy/blob/e0648b9/src/client/apis/GeneralAPI.ts#L202">client/apis/GeneralAPI.ts:202</a></p>
+<p>Defined in: <a href="https://github.com/Visualizememe/bloxy/blob/351ca06/src/client/apis/GeneralAPI.ts#L202">client/apis/GeneralAPI.ts:202</a></p>
 <hr />
 <h3 id="getuserfriendscount">getUserFriendsCount</h3>
 <p>▸ <strong>getUserFriendsCount</strong>(<code>options</code>: <a href="../../modules/client_apis_generalapi/#getuserfriendscountoptions"><em>GetUserFriendsCountOptions</em></a>): <em>Promise</em>&lt;<a href="../../modules/client_apis_generalapi/#getuserfriendscount"><em>GetUserFriendsCount</em></a>></p>
@@ -5572,7 +5575,7 @@
 </tbody>
 </table>
 <p><strong>Returns:</strong> <em>Promise</em>&lt;<a href="../../modules/client_apis_generalapi/#getuserfriendscount"><em>GetUserFriendsCount</em></a>></p>
-<p>Defined in: <a href="https://github.com/Visualizememe/bloxy/blob/e0648b9/src/client/apis/GeneralAPI.ts#L270">client/apis/GeneralAPI.ts:270</a></p>
+<p>Defined in: <a href="https://github.com/Visualizememe/bloxy/blob/351ca06/src/client/apis/GeneralAPI.ts#L270">client/apis/GeneralAPI.ts:270</a></p>
 <hr />
 <h3 id="getusergroups">getUserGroups</h3>
 <p>▸ <strong>getUserGroups</strong>(<code>options</code>: <a href="../../modules/client_apis_generalapi/#getusergroupsoptions"><em>GetUserGroupsOptions</em></a>): <em>Promise</em>&lt;<a href="../../modules/client_apis_generalapi/#getusergroups"><em>GetUserGroups</em></a>></p>
@@ -5592,7 +5595,7 @@
 </tbody>
 </table>
 <p><strong>Returns:</strong> <em>Promise</em>&lt;<a href="../../modules/client_apis_generalapi/#getusergroups"><em>GetUserGroups</em></a>></p>
-<p>Defined in: <a href="https://github.com/Visualizememe/bloxy/blob/e0648b9/src/client/apis/GeneralAPI.ts#L350">client/apis/GeneralAPI.ts:350</a></p>
+<p>Defined in: <a href="https://github.com/Visualizememe/bloxy/blob/351ca06/src/client/apis/GeneralAPI.ts#L350">client/apis/GeneralAPI.ts:350</a></p>
 <hr />
 <h3 id="isuserfollowing">isUserFollowing</h3>
 <p>▸ <strong>isUserFollowing</strong>(<code>options</code>: <a href="../../modules/client_apis_generalapi/#isuserfollowingoptions"><em>IsUserFollowingOptions</em></a>): <em>Promise</em>&lt;boolean></p>
@@ -5612,7 +5615,7 @@
 </tbody>
 </table>
 <p><strong>Returns:</strong> <em>Promise</em>&lt;boolean></p>
-<p>Defined in: <a href="https://github.com/Visualizememe/bloxy/blob/e0648b9/src/client/apis/GeneralAPI.ts#L302">client/apis/GeneralAPI.ts:302</a></p>
+<p>Defined in: <a href="https://github.com/Visualizememe/bloxy/blob/351ca06/src/client/apis/GeneralAPI.ts#L302">client/apis/GeneralAPI.ts:302</a></p>
 <hr />
 <h3 id="request">request</h3>
 <p>▸ <strong>request</strong>(<code>options</code>: <a href="../../modules/client_apis_baseapi/#baseapirequestoptions"><em>BaseAPIRequestOptions</em></a>): <em>Promise</em>&lt;<a href="../../modules/interfaces_restinterfaces/#restresponsedatatype"><em>RESTResponseDataType</em></a>></p>
@@ -5633,7 +5636,7 @@
 </table>
 <p><strong>Returns:</strong> <em>Promise</em>&lt;<a href="../../modules/interfaces_restinterfaces/#restresponsedatatype"><em>RESTResponseDataType</em></a>></p>
 <p>Inherited from: <a href="../client_apis_baseapi.default/">default</a></p>
-<p>Defined in: <a href="https://github.com/Visualizememe/bloxy/blob/e0648b9/src/client/apis/BaseAPI.ts#L33">client/apis/BaseAPI.ts:33</a></p>
+<p>Defined in: <a href="https://github.com/Visualizememe/bloxy/blob/351ca06/src/client/apis/BaseAPI.ts#L33">client/apis/BaseAPI.ts:33</a></p>
 <hr />
 <h3 id="sendfriendrequest">sendFriendRequest</h3>
 <p>▸ <strong>sendFriendRequest</strong>(<code>options</code>: <a href="../../modules/client_apis_generalapi/#sendfriendrequestoptions"><em>SendFriendRequestOptions</em></a>): <em>Promise</em>&lt;boolean></p>
@@ -5653,7 +5656,7 @@
 </tbody>
 </table>
 <p><strong>Returns:</strong> <em>Promise</em>&lt;boolean></p>
-<p>Defined in: <a href="https://github.com/Visualizememe/bloxy/blob/e0648b9/src/client/apis/GeneralAPI.ts#L253">client/apis/GeneralAPI.ts:253</a></p>
+<p>Defined in: <a href="https://github.com/Visualizememe/bloxy/blob/351ca06/src/client/apis/GeneralAPI.ts#L253">client/apis/GeneralAPI.ts:253</a></p>
 <hr />
 <h3 id="unblockuser">unblockUser</h3>
 <p>▸ <strong>unblockUser</strong>(<code>options</code>: <a href="../../modules/client_apis_generalapi/#unblockuseroptions"><em>UnblockUserOptions</em></a>): <em>Promise</em>&lt;boolean></p>
@@ -5673,7 +5676,7 @@
 </tbody>
 </table>
 <p><strong>Returns:</strong> <em>Promise</em>&lt;boolean></p>
-<p>Defined in: <a href="https://github.com/Visualizememe/bloxy/blob/e0648b9/src/client/apis/GeneralAPI.ts#L505">client/apis/GeneralAPI.ts:505</a></p>
+<p>Defined in: <a href="https://github.com/Visualizememe/bloxy/blob/351ca06/src/client/apis/GeneralAPI.ts#L505">client/apis/GeneralAPI.ts:505</a></p>
 <hr />
 <h3 id="unfollowuser">unfollowUser</h3>
 <p>▸ <strong>unfollowUser</strong>(<code>options</code>: <a href="../../modules/client_apis_generalapi/#unfollowuseroptions"><em>UnfollowUserOptions</em></a>): <em>Promise</em>&lt;boolean></p>
@@ -5693,7 +5696,7 @@
 </tbody>
 </table>
 <p><strong>Returns:</strong> <em>Promise</em>&lt;boolean></p>
-<p>Defined in: <a href="https://github.com/Visualizememe/bloxy/blob/e0648b9/src/client/apis/GeneralAPI.ts#L333">client/apis/GeneralAPI.ts:333</a></p>
+<p>Defined in: <a href="https://github.com/Visualizememe/bloxy/blob/351ca06/src/client/apis/GeneralAPI.ts#L333">client/apis/GeneralAPI.ts:333</a></p>
 <hr />
 <h3 id="unfrienduser">unfriendUser</h3>
 <p>▸ <strong>unfriendUser</strong>(<code>options</code>: <a href="../../modules/client_apis_generalapi/#unfrienduseroptions"><em>UnfriendUserOptions</em></a>): <em>Promise</em>&lt;boolean></p>
@@ -5713,7 +5716,7 @@
 </tbody>
 </table>
 <p><strong>Returns:</strong> <em>Promise</em>&lt;boolean></p>
-<p>Defined in: <a href="https://github.com/Visualizememe/bloxy/blob/e0648b9/src/client/apis/GeneralAPI.ts#L285">client/apis/GeneralAPI.ts:285</a></p>
+<p>Defined in: <a href="https://github.com/Visualizememe/bloxy/blob/351ca06/src/client/apis/GeneralAPI.ts#L285">client/apis/GeneralAPI.ts:285</a></p>
 <hr />
 <h3 id="usercanmanageasset">userCanManageAsset</h3>
 <p>▸ <strong>userCanManageAsset</strong>(<code>options</code>: <a href="../../modules/client_apis_generalapi/#usercanmanageassetoptions"><em>UserCanManageAssetOptions</em></a>): <em>Promise</em>&lt;boolean></p>
@@ -5733,7 +5736,7 @@
 </tbody>
 </table>
 <p><strong>Returns:</strong> <em>Promise</em>&lt;boolean></p>
-<p>Defined in: <a href="https://github.com/Visualizememe/bloxy/blob/e0648b9/src/client/apis/GeneralAPI.ts#L556">client/apis/GeneralAPI.ts:556</a></p>
+<p>Defined in: <a href="https://github.com/Visualizememe/bloxy/blob/351ca06/src/client/apis/GeneralAPI.ts#L556">client/apis/GeneralAPI.ts:556</a></p>
 <hr />
 <h3 id="userownsasset">userOwnsAsset</h3>
 <p>▸ <strong>userOwnsAsset</strong>(<code>options</code>: <a href="../../modules/client_apis_generalapi/#userownsassetoptions"><em>UserOwnsAssetOptions</em></a>): <em>Promise</em>&lt;boolean></p>
@@ -5753,7 +5756,7 @@
 </tbody>
 </table>
 <p><strong>Returns:</strong> <em>Promise</em>&lt;boolean></p>
-<p>Defined in: <a href="https://github.com/Visualizememe/bloxy/blob/e0648b9/src/client/apis/GeneralAPI.ts#L458">client/apis/GeneralAPI.ts:458</a></p>
+<p>Defined in: <a href="https://github.com/Visualizememe/bloxy/blob/351ca06/src/client/apis/GeneralAPI.ts#L458">client/apis/GeneralAPI.ts:458</a></p>
                 
               
               
@@ -5769,40 +5772,38 @@
         
 <footer class="md-footer">
   
-    <div class="md-footer-nav">
-      <nav class="md-footer-nav__inner md-grid" aria-label="Footer">
-        
-          <a href="../client_apis_gamesapi.default/" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
-            <div class="md-footer-nav__button md-icon">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+    <nav class="md-footer__inner md-grid" aria-label="Footer">
+      
+        <a href="../client_apis_gamesapi.default/" class="md-footer__link md-footer__link--prev" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              Class: default
             </div>
-            <div class="md-footer-nav__title">
-              <div class="md-ellipsis">
-                <span class="md-footer-nav__direction">
-                  Previous
-                </span>
-                Class: default
-              </div>
+          </div>
+        </a>
+      
+      
+        <a href="../client_apis_groupsapi.default/" class="md-footer__link md-footer__link--next" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              Class: default
             </div>
-          </a>
-        
-        
-          <a href="../client_apis_groupsapi.default/" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
-            <div class="md-footer-nav__title">
-              <div class="md-ellipsis">
-                <span class="md-footer-nav__direction">
-                  Next
-                </span>
-                Class: default
-              </div>
-            </div>
-            <div class="md-footer-nav__button md-icon">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
-            </div>
-          </a>
-        
-      </nav>
-    </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
   
   <div class="md-footer-meta md-typeset">
     <div class="md-footer-meta__inner md-grid">
@@ -5819,19 +5820,13 @@
 </footer>
       
     </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": "../..", "features": [], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing"}, "search": "../../assets/javascripts/workers/search.217ffd95.min.js", "version": null}</script>
     
-      <script src="../../assets/javascripts/vendor.18f0862e.min.js"></script>
-      <script src="../../assets/javascripts/bundle.994580cf.min.js"></script><script id="__lang" type="application/json">{"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing"}</script>
-      
-      <script>
-        app = initialize({
-          base: "../..",
-          features: [],
-          search: Object.assign({
-            worker: "../../assets/javascripts/worker/search.9c0e82ba.min.js"
-          }, typeof search !== "undefined" && search)
-        })
-      </script>
+    
+      <script src="../../assets/javascripts/bundle.926459b3.min.js"></script>
       
     
   </body>
