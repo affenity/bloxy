@@ -613,6 +613,8 @@ export interface PartialGroupOptions {
 
 
 export class PartialGroup extends GroupBase {
+    // Shut up eslint, this is not useless either
+    // eslint-disable-next-line no-useless-constructor
     constructor (data: PartialGroupOptions, client: Client) {
         super(data, client);
     }

@@ -25,8 +25,8 @@ export interface ClientSetup {
 export interface ClientOptions {
     credentials?: ClientCredentialsOptions;
     rest?: RESTControllerOptions;
-    callbacks: ClientCallbacks;
-    setup: ClientSetup;
+    callbacks?: ClientCallbacks;
+    setup?: ClientSetup;
 }
 
 
