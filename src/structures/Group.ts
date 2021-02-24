@@ -201,7 +201,7 @@ export class GroupBase {
         return this.client.getGroup(this.id);
     }
 
-    getIsMember (userId: number): Promise<GroupMember | null> {
+    getMember (userId: number): Promise<GroupMember | null> {
         return this.client.apis.groupsAPI.getUserGroups({
             userId
         })
@@ -219,6 +219,11 @@ export class GroupBase {
                     return null;
                 }
             });
+    }
+
+    getIsMember (userId: number): Promise<GroupMember | null> {
+        console.warn(`group.getIsMember() is deprecated and may be removed in the future. Please switch to group.getMember`);
+        return this.getMember(userId);
     }
 
     getSettings (): Promise<GetGroupSettings> {
