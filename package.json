@@ -50,7 +50,7 @@
     "codacy-coverage": "^3.4.0",
     "eslint": "^7.20.0",
     "eslint-plugin-security": "^1.4.0",
-    "faker": "^5.1.0",
+    "faker": "^5.5.0",
     "fast-check": "^2.13.0",
     "got": "^11.8.1",
     "jest": "^26.6.3",
