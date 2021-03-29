@@ -52,7 +52,7 @@
     "eslint-plugin-security": "^1.4.0",
     "faker": "^5.1.0",
     "fast-check": "^2.13.0",
-    "got": "^11.8.1",
+    "got": "^11.8.2",
     "jest": "^26.6.3",
     "joi": "^17.3.0",
     "typedoc": "^0.20.27",
