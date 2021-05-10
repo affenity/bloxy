@@ -46,7 +46,7 @@
     "@types/tough-cookie": "^4.0.0",
     "@types/websocket": "^1.0.1",
     "@typescript-eslint/eslint-plugin": "^4.15.2",
-    "@typescript-eslint/parser": "^4.15.2",
+    "@typescript-eslint/parser": "^4.23.0",
     "codacy-coverage": "^3.4.0",
     "eslint": "^7.20.0",
     "eslint-plugin-security": "^1.4.0",
