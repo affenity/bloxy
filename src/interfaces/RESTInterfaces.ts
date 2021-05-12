@@ -114,12 +114,12 @@ export declare type RESTRequestOptions = {
 export declare type RESTResponseOptions = {
     allowedStatusCodes?: number[];
     disallowedStatusCodes?: number[];
-    allowedStatuses?: string[];
-    disallowedStatuses?: string[];
+    allowedStatusMessages?: string[];
+    disallowedStatusMessages?: string[];
     onlyJSON?: boolean;
     checks?: {
         xcsrf?: boolean;
-        status?: boolean;
+        statusMessage?: boolean;
         statusCode?: boolean;
         body?: boolean;
         captcha?: boolean;
@@ -128,21 +128,26 @@ export declare type RESTResponseOptions = {
 
 export declare type RESTResponseDataType = {
     body: any;
-    status: string;
+    statusMessage: string;
     statusCode: number;
     headers: Record<string, string>;
+};
+
+export const DefaultRESTResponseOptions = {
+    allowedStatusCodes: [200]
 };
 
 export const DefaultRESTRequestOptions = {
     checks: {
         xcsrf: true,
-        status: true,
+        statusMessage: true,
         statusCode: true,
         body: true,
         captcha: true
     },
     headers: {},
-    method: "GET"
+    method: "GET",
+    responseOptions: DefaultRESTResponseOptions
 };
 
 export const DefaultCreateCookieOptions = {

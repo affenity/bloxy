@@ -118,10 +118,7 @@ export default class GameInternationalizationAPI extends BaseAPI {
         return this.request({
             requiresAuth: true,
             request: {
-                path: `v1/name-description/games/${options.gameId}`,
-                responseOptions: {
-                    allowedStatusCodes: [200]
-                }
+                path: `v1/name-description/games/${options.gameId}`
             },
             json: true
         })
@@ -136,9 +133,6 @@ export default class GameInternationalizationAPI extends BaseAPI {
                 method: "PATCH",
                 json: {
                     data: options.data
-                },
-                responseOptions: {
-                    allowedStatusCodes: [200]
                 }
             },
             json: true
@@ -150,10 +144,7 @@ export default class GameInternationalizationAPI extends BaseAPI {
         return this.request({
             requiresAuth: true,
             request: {
-                path: `v1/name-description/metadata`,
-                responseOptions: {
-                    allowedStatusCodes: [200]
-                }
+                path: `v1/name-description/metadata`
             },
             json: true
         })
@@ -166,10 +157,7 @@ export default class GameInternationalizationAPI extends BaseAPI {
             request: {
                 path: `v1/name-description/games/${options.gameId}/history`,
                 method: "POST",
-                json: options,
-                responseOptions: {
-                    allowedStatusCodes: [200]
-                }
+                json: options
             },
             json: true
         })
@@ -180,10 +168,7 @@ export default class GameInternationalizationAPI extends BaseAPI {
         return this.request({
             requiresAuth: true,
             request: {
-                path: `v1/source-language/games/${options.gameId}`,
-                responseOptions: {
-                    allowedStatusCodes: [200]
-                }
+                path: `v1/source-language/games/${options.gameId}`
             },
             json: true
         })
@@ -198,9 +183,6 @@ export default class GameInternationalizationAPI extends BaseAPI {
                 method: "PATCH",
                 qs: {
                     languageCode: options.languageCode
-                },
-                responseOptions: {
-                    allowedStatusCodes: [200]
                 }
             },
             json: true
@@ -212,10 +194,7 @@ export default class GameInternationalizationAPI extends BaseAPI {
         return this.request({
             requiresAuth: true,
             request: {
-                path: `v1/supported-languages/games/${options.gameId}`,
-                responseOptions: {
-                    allowedStatusCodes: [200]
-                }
+                path: `v1/supported-languages/games/${options.gameId}`
             },
             json: true
         })
@@ -228,10 +207,7 @@ export default class GameInternationalizationAPI extends BaseAPI {
             request: {
                 path: `v1/supported-languages/games/${options.gameId}`,
                 method: "PATCH",
-                json: options.data,
-                responseOptions: {
-                    allowedStatusCodes: [200]
-                }
+                json: options.data
             },
             json: true
         })
@@ -242,10 +218,7 @@ export default class GameInternationalizationAPI extends BaseAPI {
         return this.request({
             requiresAuth: true,
             request: {
-                path: `v1/supported-languages/games/${options.gameId}/automatic-translation-status`,
-                responseOptions: {
-                    allowedStatusCodes: [200]
-                }
+                path: `v1/supported-languages/games/${options.gameId}/automatic-translation-status`
             },
             json: true
         })
@@ -256,10 +229,7 @@ export default class GameInternationalizationAPI extends BaseAPI {
         return this.request({
             requiresAuth: true,
             request: {
-                path: `v1/supported-languages/metadata`,
-                responseOptions: {
-                    allowedStatusCodes: [200]
-                }
+                path: `v1/supported-languages/metadata`
             },
             json: true
         })
@@ -273,10 +243,7 @@ export default class GameInternationalizationAPI extends BaseAPI {
                 path: `v1/supported-languages/games/${options.gameId}/languages/${options.languageCode}/automatic-translation-status`,
                 method: "PATCH",
                 json: String(options.enableAutomaticTranslation)
-                    .toString(),
-                responseOptions: {
-                    allowedStatusCodes: [200]
-                }
+                    .toString()
             },
             json: true
         })

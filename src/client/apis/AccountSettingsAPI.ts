@@ -131,10 +131,7 @@ export default class AccountSettingsAPI extends BaseAPI {
         return this.request({
             requiresAuth: false,
             request: {
-                path: "v1/account/settings/settings-groups",
-                responseOptions: {
-                    allowedStatusCodes: [200]
-                }
+                path: "v1/account/settings/settings-groups"
             },
             json: true
         })
@@ -149,10 +146,7 @@ export default class AccountSettingsAPI extends BaseAPI {
         return this.request({
             requiresAuth: true,
             request: {
-                path: "v1/app-chat-privacy",
-                responseOptions: {
-                    allowedStatusCodes: [200]
-                }
+                path: "v1/app-chat-privacy"
             },
             json: true
         })
@@ -165,9 +159,6 @@ export default class AccountSettingsAPI extends BaseAPI {
             request: {
                 path: "v1/app-chat-privacy",
                 method: "POST",
-                responseOptions: {
-                    allowedStatusCodes: [200]
-                },
                 json: options
             },
             json: true
@@ -179,10 +170,7 @@ export default class AccountSettingsAPI extends BaseAPI {
         return this.request({
             requiresAuth: true,
             request: {
-                path: "v1/game-chat-privacy",
-                responseOptions: {
-                    allowedStatusCodes: [200]
-                }
+                path: "v1/game-chat-privacy"
             },
             json: true
         })
@@ -195,9 +183,6 @@ export default class AccountSettingsAPI extends BaseAPI {
             request: {
                 path: "v1/game-chat-privacy",
                 method: "POST",
-                responseOptions: {
-                    allowedStatusCodes: [200]
-                },
                 json: options
             },
             json: true
@@ -209,10 +194,7 @@ export default class AccountSettingsAPI extends BaseAPI {
         return this.request({
             requiresAuth: true,
             request: {
-                path: "v1/inventory-privacy",
-                responseOptions: {
-                    allowedStatusCodes: [200]
-                }
+                path: "v1/inventory-privacy"
             },
             json: true
         })
@@ -225,9 +207,6 @@ export default class AccountSettingsAPI extends BaseAPI {
             request: {
                 path: "v1/inventory-privacy",
                 method: "POST",
-                responseOptions: {
-                    allowedStatusCodes: [200]
-                },
                 json: options
             },
             json: true
@@ -239,10 +218,7 @@ export default class AccountSettingsAPI extends BaseAPI {
         return this.request({
             requiresAuth: true,
             request: {
-                path: "v1/privacy",
-                responseOptions: {
-                    allowedStatusCodes: [200]
-                }
+                path: "v1/privacy"
             },
             json: true
         })
@@ -255,9 +231,6 @@ export default class AccountSettingsAPI extends BaseAPI {
             request: {
                 path: "v1/privacy",
                 method: "PATCH",
-                responseOptions: {
-                    allowedStatusCodes: [200]
-                },
                 json: options
             },
             json: true
@@ -269,10 +242,7 @@ export default class AccountSettingsAPI extends BaseAPI {
         return this.request({
             requiresAuth: true,
             request: {
-                path: "v1/privacy/info",
-                responseOptions: {
-                    allowedStatusCodes: [200]
-                }
+                path: "v1/privacy/info"
             },
             json: true
         })
@@ -283,10 +253,7 @@ export default class AccountSettingsAPI extends BaseAPI {
         return this.request({
             requiresAuth: true,
             request: {
-                path: "v1/private-message-privacy",
-                responseOptions: {
-                    allowedStatusCodes: [200]
-                }
+                path: "v1/private-message-privacy"
             },
             json: true
         })
@@ -299,9 +266,6 @@ export default class AccountSettingsAPI extends BaseAPI {
             request: {
                 path: "v1/private-message-privacy",
                 method: "POST",
-                responseOptions: {
-                    allowedStatusCodes: [200]
-                },
                 json: options
             },
             json: true
@@ -313,10 +277,7 @@ export default class AccountSettingsAPI extends BaseAPI {
         return this.request({
             requiresAuth: true,
             request: {
-                path: "v1/email",
-                responseOptions: {
-                    allowedStatusCodes: [200]
-                }
+                path: "v1/email"
             },
             json: true
         })
@@ -329,9 +290,6 @@ export default class AccountSettingsAPI extends BaseAPI {
             request: {
                 path: "v1/email",
                 method: "PATCH",
-                responseOptions: {
-                    allowedStatusCodes: [200]
-                },
                 json: options
             },
             json: true
@@ -344,10 +302,7 @@ export default class AccountSettingsAPI extends BaseAPI {
             requiresAuth: true,
             request: {
                 path: "v1/email/verify",
-                method: "POST",
-                responseOptions: {
-                    allowedStatusCodes: [200]
-                }
+                method: "POST"
             },
             json: true
         })
@@ -358,10 +313,7 @@ export default class AccountSettingsAPI extends BaseAPI {
         return this.request({
             requiresAuth: true,
             request: {
-                path: `v1/themes/User/${this.client.user!.id}`,
-                responseOptions: {
-                    allowedStatusCodes: [200]
-                }
+                path: `v1/themes/User/${this.client.user!.id}`
             },
             json: true
         })
@@ -374,9 +326,6 @@ export default class AccountSettingsAPI extends BaseAPI {
             request: {
                 path: `v1/themes/User/${this.client.user!.id}`,
                 method: "PATCH",
-                responseOptions: {
-                    allowedStatusCodes: [200]
-                },
                 json: {
                     themeType: options.themeType
                 }
@@ -390,10 +339,7 @@ export default class AccountSettingsAPI extends BaseAPI {
         return this.request({
             requiresAuth: true,
             request: {
-                path: "v1/themes/types",
-                responseOptions: {
-                    allowedStatusCodes: [200]
-                }
+                path: "v1/themes/types"
             },
             json: true
         })
@@ -404,10 +350,7 @@ export default class AccountSettingsAPI extends BaseAPI {
         return this.request({
             requiresAuth: true,
             request: {
-                path: "v1/trade-privacy",
-                responseOptions: {
-                    allowedStatusCodes: [200]
-                }
+                path: "v1/trade-privacy"
             },
             json: true
         })
@@ -420,9 +363,6 @@ export default class AccountSettingsAPI extends BaseAPI {
             request: {
                 path: "v1/trade-privacy",
                 method: "POST",
-                responseOptions: {
-                    allowedStatusCodes: [200]
-                },
                 json: options
             },
             json: true
@@ -434,10 +374,7 @@ export default class AccountSettingsAPI extends BaseAPI {
         return this.request({
             requiresAuth: true,
             request: {
-                path: "v1/trade-value",
-                responseOptions: {
-                    allowedStatusCodes: [200]
-                }
+                path: "v1/trade-value"
             },
             json: true
         })
@@ -450,9 +387,6 @@ export default class AccountSettingsAPI extends BaseAPI {
             request: {
                 path: "v1/trade-value",
                 method: "POST",
-                responseOptions: {
-                    allowedStatusCodes: [200]
-                },
                 json: options
             },
             json: true
@@ -466,9 +400,6 @@ export default class AccountSettingsAPI extends BaseAPI {
             request: {
                 path: "v1/email",
                 method: "PATCH",
-                responseOptions: {
-                    allowedStatusCodes: [200]
-                },
                 json: options
             },
             json: true
@@ -480,10 +411,7 @@ export default class AccountSettingsAPI extends BaseAPI {
         return this.request({
             requiresAuth: true,
             request: {
-                path: "v1/user/screens/contact-upsell",
-                responseOptions: {
-                    allowedStatusCodes: [200]
-                }
+                path: "v1/user/screens/contact-upsell"
             },
             json: true
         })
@@ -496,9 +424,6 @@ export default class AccountSettingsAPI extends BaseAPI {
             request: {
                 method: "POST",
                 path: "v1/user/screens/contact-upsell/suppress",
-                responseOptions: {
-                    allowedStatusCodes: [200]
-                },
                 json: options
             },
             json: true
@@ -511,9 +436,6 @@ export default class AccountSettingsAPI extends BaseAPI {
             requiresAuth: true,
             request: {
                 path: "v1/xbox/is-username-valid",
-                responseOptions: {
-                    allowedStatusCodes: [200]
-                },
                 qs: {
                     Authorization: options.authorization,
                     signature: options.signature,
@@ -531,9 +453,6 @@ export default class AccountSettingsAPI extends BaseAPI {
             request: {
                 path: "v1/promotion-channels",
                 method: "POST",
-                responseOptions: {
-                    allowedStatusCodes: [200]
-                },
                 json: options
             },
             json: true

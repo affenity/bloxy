@@ -195,10 +195,7 @@ export default class ChatAPI extends BaseAPI {
         return this.request({
             requiresAuth: true,
             request: {
-                path: `v2/chat-settings`,
-                responseOptions: {
-                    allowedStatusCodes: [200]
-                }
+                path: `v2/chat-settings`
             },
             json: true
         })
@@ -212,9 +209,6 @@ export default class ChatAPI extends BaseAPI {
                 path: `v2/get-conversations`,
                 qs: {
                     conversationIds: options.conversationIds.join(",")
-                },
-                responseOptions: {
-                    allowedStatusCodes: [200]
                 }
             },
             json: true
@@ -227,10 +221,7 @@ export default class ChatAPI extends BaseAPI {
             requiresAuth: true,
             request: {
                 path: `v2/get-messages`,
-                qs: options,
-                responseOptions: {
-                    allowedStatusCodes: [200]
-                }
+                qs: options
             },
             json: true
         })
@@ -244,9 +235,6 @@ export default class ChatAPI extends BaseAPI {
                 path: `v2/get-rollout-settings`,
                 qs: {
                     featureNames: options.featureNames.join(",")
-                },
-                responseOptions: {
-                    allowedStatusCodes: [200]
                 }
             },
             json: true
@@ -258,10 +246,7 @@ export default class ChatAPI extends BaseAPI {
         return this.request({
             requiresAuth: true,
             request: {
-                path: `v2/get-conversations`,
-                responseOptions: {
-                    allowedStatusCodes: [200]
-                }
+                path: `v2/get-conversations`
             },
             json: true
         })
@@ -276,9 +261,6 @@ export default class ChatAPI extends BaseAPI {
                 qs: {
                     conversationIds: options.conversationIds.join(","),
                     pageSize: options.pageSize
-                },
-                responseOptions: {
-                    allowedStatusCodes: [200]
                 }
             },
             json: true
@@ -291,10 +273,7 @@ export default class ChatAPI extends BaseAPI {
             requiresAuth: true,
             request: {
                 path: `v2/get-user-conversations`,
-                qs: options,
-                responseOptions: {
-                    allowedStatusCodes: [200]
-                }
+                qs: options
             },
             json: true
         })
@@ -305,10 +284,7 @@ export default class ChatAPI extends BaseAPI {
         return this.request({
             requiresAuth: true,
             request: {
-                path: `v2/metadata`,
-                responseOptions: {
-                    allowedStatusCodes: [200]
-                }
+                path: `v2/metadata`
             },
             json: true
         })
@@ -320,10 +296,7 @@ export default class ChatAPI extends BaseAPI {
             requiresAuth: true,
             request: {
                 path: `v2/multi-get-latest-messages`,
-                qs: options,
-                responseOptions: {
-                    allowedStatusCodes: [200]
-                }
+                qs: options
             },
             json: true
         })
@@ -336,10 +309,7 @@ export default class ChatAPI extends BaseAPI {
             request: {
                 path: `v2/add-to-conversation`,
                 method: "POST",
-                json: options,
-                responseOptions: {
-                    allowedStatusCodes: [200]
-                }
+                json: options
             },
             json: true
         })
@@ -352,10 +322,7 @@ export default class ChatAPI extends BaseAPI {
             request: {
                 path: `v2/mark-as-read`,
                 method: "POST",
-                json: options,
-                responseOptions: {
-                    allowedStatusCodes: [200]
-                }
+                json: options
             },
             json: true
         })
@@ -368,10 +335,7 @@ export default class ChatAPI extends BaseAPI {
             request: {
                 path: `v2/mark-as-seen`,
                 method: "POST",
-                json: options,
-                responseOptions: {
-                    allowedStatusCodes: [200]
-                }
+                json: options
             },
             json: true
         })
@@ -384,10 +348,7 @@ export default class ChatAPI extends BaseAPI {
             request: {
                 path: `v2/remove-from-conversation`,
                 method: "POST",
-                json: options,
-                responseOptions: {
-                    allowedStatusCodes: [200]
-                }
+                json: options
             },
             json: true
         })
@@ -400,10 +361,7 @@ export default class ChatAPI extends BaseAPI {
             request: {
                 path: `v2/rename-group-conversation`,
                 method: "POST",
-                json: options,
-                responseOptions: {
-                    allowedStatusCodes: [200]
-                }
+                json: options
             },
             json: true
         })
@@ -416,10 +374,7 @@ export default class ChatAPI extends BaseAPI {
             request: {
                 path: `v2/reset-conversation-universe`,
                 method: "POST",
-                json: options,
-                responseOptions: {
-                    allowedStatusCodes: [200]
-                }
+                json: options
             },
             json: true
         })
@@ -432,10 +387,7 @@ export default class ChatAPI extends BaseAPI {
             request: {
                 path: `v2/send-game-link-message`,
                 method: "POST",
-                json: options,
-                responseOptions: {
-                    allowedStatusCodes: [200]
-                }
+                json: options
             },
             json: true
         })
@@ -448,10 +400,7 @@ export default class ChatAPI extends BaseAPI {
             request: {
                 path: `v2/send-message`,
                 method: "POST",
-                json: options,
-                responseOptions: {
-                    allowedStatusCodes: [200]
-                }
+                json: options
             },
             json: true
         })
@@ -464,10 +413,7 @@ export default class ChatAPI extends BaseAPI {
             request: {
                 path: `v2/set-conversation-universe`,
                 method: "POST",
-                json: options,
-                responseOptions: {
-                    allowedStatusCodes: [200]
-                }
+                json: options
             },
             json: true
         })
@@ -480,10 +426,7 @@ export default class ChatAPI extends BaseAPI {
             request: {
                 path: `v2/start-cloud-edit-conversation`,
                 method: "POST",
-                json: options,
-                responseOptions: {
-                    allowedStatusCodes: [200]
-                }
+                json: options
             },
             json: true
         })
@@ -496,10 +439,7 @@ export default class ChatAPI extends BaseAPI {
             request: {
                 path: `v2/get-user-conversations`,
                 method: "POST",
-                json: options,
-                responseOptions: {
-                    allowedStatusCodes: [200]
-                }
+                json: options
             },
             json: true
         })
@@ -512,10 +452,7 @@ export default class ChatAPI extends BaseAPI {
             request: {
                 path: `v2/start-one-to-one-conversation`,
                 method: "POST",
-                json: options,
-                responseOptions: {
-                    allowedStatusCodes: [200]
-                }
+                json: options
             },
             json: true
         })
@@ -528,10 +465,7 @@ export default class ChatAPI extends BaseAPI {
             request: {
                 path: `v2/update-user-typing-status`,
                 method: "POST",
-                json: options,
-                responseOptions: {
-                    allowedStatusCodes: [200]
-                }
+                json: options
             },
             json: true
         })

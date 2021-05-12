@@ -44,10 +44,7 @@ export default class FollowingsAPI extends BaseAPI {
         return this.request({
             requiresAuth: true,
             request: {
-                path: `v1/users/${options.userId}/universes`,
-                responseOptions: {
-                    allowedStatusCodes: [200]
-                }
+                path: `v1/users/${options.userId}/universes`
             },
             json: true
         })
@@ -58,10 +55,7 @@ export default class FollowingsAPI extends BaseAPI {
         return this.request({
             requiresAuth: true,
             request: {
-                path: `v1/users/${options.userId}/universes/${options.universeId}/status`,
-                responseOptions: {
-                    allowedStatusCodes: [200]
-                }
+                path: `v1/users/${options.userId}/universes/${options.universeId}/status`
             },
             json: true
         })
@@ -73,10 +67,7 @@ export default class FollowingsAPI extends BaseAPI {
             requiresAuth: true,
             request: {
                 path: `v1/users/${options.userId}/universes/${options.universeId}`,
-                method: "DELETE",
-                responseOptions: {
-                    allowedStatusCodes: [200]
-                }
+                method: "DELETE"
             },
             json: true
         })
@@ -88,10 +79,7 @@ export default class FollowingsAPI extends BaseAPI {
             requiresAuth: true,
             request: {
                 path: `v1/users/${options.userId}/universes/${options.universeId}`,
-                method: "POST",
-                responseOptions: {
-                    allowedStatusCodes: [200]
-                }
+                method: "POST"
             },
             json: true
         })
