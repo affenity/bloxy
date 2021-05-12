@@ -99,10 +99,7 @@ export default class PrivateMessagesAPI extends BaseAPI {
         return this.request({
             requiresAuth: false,
             request: {
-                path: `v1/announcements`,
-                responseOptions: {
-                    allowedStatusCodes: [200]
-                }
+                path: `v1/announcements`
             },
             json: true
         })
@@ -113,10 +110,7 @@ export default class PrivateMessagesAPI extends BaseAPI {
         return this.request({
             requiresAuth: true,
             request: {
-                path: `v1/announcements/metadata`,
-                responseOptions: {
-                    allowedStatusCodes: [200]
-                }
+                path: `v1/announcements/metadata`
             },
             json: true
         })
@@ -128,10 +122,7 @@ export default class PrivateMessagesAPI extends BaseAPI {
             requiresAuth: true,
             request: {
                 path: `v1/messages`,
-                qs: options,
-                responseOptions: {
-                    allowedStatusCodes: [200]
-                }
+                qs: options
             },
             json: true
         })
@@ -142,10 +133,7 @@ export default class PrivateMessagesAPI extends BaseAPI {
         return this.request({
             requiresAuth: true,
             request: {
-                path: `v1/messages/${options.messageId}`,
-                responseOptions: {
-                    allowedStatusCodes: [200]
-                }
+                path: `v1/messages/${options.messageId}`
             },
             json: true
         })
@@ -156,10 +144,7 @@ export default class PrivateMessagesAPI extends BaseAPI {
         return this.request({
             requiresAuth: true,
             request: {
-                path: `v1/messages/unread/count`,
-                responseOptions: {
-                    allowedStatusCodes: [200]
-                }
+                path: `v1/messages/unread/count`
             },
             json: true
         })
@@ -172,10 +157,7 @@ export default class PrivateMessagesAPI extends BaseAPI {
             request: {
                 path: `v1/messages/archive`,
                 method: "POST",
-                json: options,
-                responseOptions: {
-                    allowedStatusCodes: [200]
-                }
+                json: options
             },
             json: true
         })
@@ -188,10 +170,7 @@ export default class PrivateMessagesAPI extends BaseAPI {
             request: {
                 path: `v1/messages/mark-read`,
                 method: "POST",
-                json: options,
-                responseOptions: {
-                    allowedStatusCodes: [200]
-                }
+                json: options
             },
             json: true
         })
@@ -204,10 +183,7 @@ export default class PrivateMessagesAPI extends BaseAPI {
             request: {
                 path: `v1/messages/mark-unread`,
                 method: "POST",
-                json: options,
-                responseOptions: {
-                    allowedStatusCodes: [200]
-                }
+                json: options
             },
             json: true
         })
@@ -220,10 +196,7 @@ export default class PrivateMessagesAPI extends BaseAPI {
             request: {
                 path: `v1/messages/send`,
                 method: "POST",
-                json: options,
-                responseOptions: {
-                    allowedStatusCodes: [200]
-                }
+                json: options
             },
             json: true
         })
@@ -236,10 +209,7 @@ export default class PrivateMessagesAPI extends BaseAPI {
             request: {
                 path: `v1/messages/unarchive`,
                 method: "POST",
-                json: options,
-                responseOptions: {
-                    allowedStatusCodes: [200]
-                }
+                json: options
             },
             json: true
         })

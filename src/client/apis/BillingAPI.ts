@@ -151,10 +151,7 @@ export default class BillingAPI extends BaseAPI {
         return this.request({
             requiresAuth: false,
             request: {
-                path: `v1/developer-exchange-rate`,
-                responseOptions: {
-                    allowedStatusCodes: [200]
-                }
+                path: `v1/developer-exchange-rate`
             },
             json: true
         })
@@ -167,10 +164,7 @@ export default class BillingAPI extends BaseAPI {
             request: {
                 path: `v1/developer-exchange-rate`,
                 method: "POST",
-                json: options,
-                responseOptions: {
-                    allowedStatusCodes: [200]
-                }
+                json: options
             },
             json: true
         })
@@ -181,10 +175,7 @@ export default class BillingAPI extends BaseAPI {
         return this.request({
             requiresAuth: true,
             request: {
-                path: `v1/luobu-developer-exchange/balance`,
-                responseOptions: {
-                    allowedStatusCodes: [200]
-                }
+                path: `v1/luobu-developer-exchange/balance`
             },
             json: true
         })
@@ -195,10 +186,7 @@ export default class BillingAPI extends BaseAPI {
         return this.request({
             requiresAuth: true,
             request: {
-                path: `v1/luobu-developer-exchange/eligibility`,
-                responseOptions: {
-                    allowedStatusCodes: [200]
-                }
+                path: `v1/luobu-developer-exchange/eligibility`
             },
             json: true
         })
@@ -209,10 +197,7 @@ export default class BillingAPI extends BaseAPI {
         return this.request({
             requiresAuth: true,
             request: {
-                path: `v1/luobu-developer-exchange/latest-request-status`,
-                responseOptions: {
-                    allowedStatusCodes: [200]
-                }
+                path: `v1/luobu-developer-exchange/latest-request-status`
             },
             json: true
         })
@@ -225,10 +210,7 @@ export default class BillingAPI extends BaseAPI {
             request: {
                 path: `v1/developer-exchange-rate/request`,
                 method: "POST",
-                json: options,
-                responseOptions: {
-                    allowedStatusCodes: [200]
-                }
+                json: options
             },
             json: true
         })
@@ -240,10 +222,7 @@ export default class BillingAPI extends BaseAPI {
             requiresAuth: false,
             request: {
                 path: `v1/user/payments`,
-                qs: options,
-                responseOptions: {
-                    allowedStatusCodes: [200]
-                }
+                qs: options
             },
             json: true
         })
@@ -256,10 +235,7 @@ export default class BillingAPI extends BaseAPI {
             request: {
                 path: `v1/amazon/purchase`,
                 method: "POST",
-                json: options,
-                responseOptions: {
-                    allowedStatusCodes: [200]
-                }
+                json: options
             },
             json: true
         })
@@ -272,10 +248,7 @@ export default class BillingAPI extends BaseAPI {
             request: {
                 path: `v1/amazon/validate`,
                 method: "POST",
-                json: options,
-                responseOptions: {
-                    allowedStatusCodes: [200]
-                }
+                json: options
             },
             json: true
         })
@@ -288,10 +261,7 @@ export default class BillingAPI extends BaseAPI {
             request: {
                 path: `v1/apple/purchase`,
                 method: "POST",
-                json: options,
-                responseOptions: {
-                    allowedStatusCodes: [200]
-                }
+                json: options
             },
             json: true
         })
@@ -304,10 +274,7 @@ export default class BillingAPI extends BaseAPI {
             request: {
                 path: `v1/apple/validate`,
                 method: "POST",
-                json: options,
-                responseOptions: {
-                    allowedStatusCodes: [200]
-                }
+                json: options
             },
             json: true
         })
@@ -320,10 +287,7 @@ export default class BillingAPI extends BaseAPI {
             request: {
                 path: `v1/digital-codes/redeem`,
                 method: "POST",
-                json: options,
-                responseOptions: {
-                    allowedStatusCodes: [200]
-                }
+                json: options
             },
             json: true
         })
@@ -336,10 +300,7 @@ export default class BillingAPI extends BaseAPI {
             request: {
                 path: `v1/gamecard/redeem`,
                 method: "POST",
-                json: options,
-                responseOptions: {
-                    allowedStatusCodes: [200]
-                }
+                json: options
             },
             json: true
         })
@@ -352,10 +313,7 @@ export default class BillingAPI extends BaseAPI {
             request: {
                 path: `v1/gamecard/reverse`,
                 method: "POST",
-                json: options,
-                responseOptions: {
-                    allowedStatusCodes: [200]
-                }
+                json: options
             },
             json: true
         })
@@ -368,10 +326,7 @@ export default class BillingAPI extends BaseAPI {
             request: {
                 path: `v1/google/purchase`,
                 method: "POST",
-                json: options,
-                responseOptions: {
-                    allowedStatusCodes: [200]
-                }
+                json: options
             },
             json: true
         })
@@ -384,10 +339,7 @@ export default class BillingAPI extends BaseAPI {
             request: {
                 path: `v1/google/validate`,
                 method: "POST",
-                json: options,
-                responseOptions: {
-                    allowedStatusCodes: [200]
-                }
+                json: options
             },
             json: true
         })
@@ -400,10 +352,7 @@ export default class BillingAPI extends BaseAPI {
             request: {
                 path: `v1/notifications/xsolla`,
                 method: "POST",
-                json: options as any,
-                responseOptions: {
-                    allowedStatusCodes: [200]
-                }
+                json: options as any
             },
             json: true
         })
@@ -416,10 +365,7 @@ export default class BillingAPI extends BaseAPI {
             request: {
                 path: `v1/payments/xsolla/iframe-token`,
                 method: "POST",
-                json: options,
-                responseOptions: {
-                    allowedStatusCodes: [200]
-                }
+                json: options
             },
             json: true
         })
@@ -432,10 +378,7 @@ export default class BillingAPI extends BaseAPI {
             request: {
                 path: `v1/payments/xsolla/incrementcounterbyagent`,
                 method: "POST",
-                json: options,
-                responseOptions: {
-                    allowedStatusCodes: [200]
-                }
+                json: options
             },
             json: true
         })
@@ -448,10 +391,7 @@ export default class BillingAPI extends BaseAPI {
             request: {
                 path: `v1/promocodes/redeem`,
                 method: "POST",
-                json: options,
-                responseOptions: {
-                    allowedStatusCodes: [200]
-                }
+                json: options
             },
             json: true
         })

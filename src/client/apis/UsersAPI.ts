@@ -94,10 +94,7 @@ export default class UsersAPI extends BaseAPI {
             requiresAuth: false,
             request: {
                 path: `v1/display-names/validate`,
-                qs: options,
-                responseOptions: {
-                    allowedStatusCodes: [200]
-                }
+                qs: options
             },
             json: true
         })
@@ -109,10 +106,7 @@ export default class UsersAPI extends BaseAPI {
             requiresAuth: true,
             request: {
                 path: `v1/users/${options.userId}/display-names/validate`,
-                qs: options,
-                responseOptions: {
-                    allowedStatusCodes: [200]
-                }
+                qs: options
             },
             json: true
         })
@@ -125,10 +119,7 @@ export default class UsersAPI extends BaseAPI {
             request: {
                 path: `v1/users/${options.userId}/display-names`,
                 method: "PATCH",
-                json: options,
-                responseOptions: {
-                    allowedStatusCodes: [200]
-                }
+                json: options
             },
             json: true
         })
@@ -139,10 +130,7 @@ export default class UsersAPI extends BaseAPI {
         return this.request({
             requiresAuth: false,
             request: {
-                path: `v1/users/${options.userId}`,
-                responseOptions: {
-                    allowedStatusCodes: [200]
-                }
+                path: `v1/users/${options.userId}`
             },
             json: true
         })
@@ -154,10 +142,7 @@ export default class UsersAPI extends BaseAPI {
             // This should actually be "true", but as it's needed in client.login, it's set to false
             requiresAuth: false,
             request: {
-                path: `v1/users/authenticated`,
-                responseOptions: {
-                    allowedStatusCodes: [200]
-                }
+                path: `v1/users/authenticated`
             },
             json: true
         })
@@ -170,10 +155,7 @@ export default class UsersAPI extends BaseAPI {
             request: {
                 path: `v1/usernames/users`,
                 method: "POST",
-                json: options,
-                responseOptions: {
-                    allowedStatusCodes: [200]
-                }
+                json: options
             },
             json: true
         })
@@ -186,10 +168,7 @@ export default class UsersAPI extends BaseAPI {
             request: {
                 path: `v1/users`,
                 method: "POST",
-                json: options,
-                responseOptions: {
-                    allowedStatusCodes: [200]
-                }
+                json: options
             },
             json: true
         })
@@ -200,10 +179,7 @@ export default class UsersAPI extends BaseAPI {
         return this.request({
             requiresAuth: false,
             request: {
-                path: `v1/users/${options.userId}/status`,
-                responseOptions: {
-                    allowedStatusCodes: [200]
-                }
+                path: `v1/users/${options.userId}/status`
             },
             json: true
         })
@@ -216,10 +192,7 @@ export default class UsersAPI extends BaseAPI {
             request: {
                 path: `v1/users/${options.userId}/status`,
                 method: "PATCH",
-                json: options,
-                responseOptions: {
-                    allowedStatusCodes: [200]
-                }
+                json: options
             },
             json: true
         })
@@ -231,10 +204,7 @@ export default class UsersAPI extends BaseAPI {
             requiresAuth: false,
             request: {
                 path: `v1/users/search`,
-                qs: options,
-                responseOptions: {
-                    allowedStatusCodes: [200]
-                }
+                qs: options
             },
             json: true
         })

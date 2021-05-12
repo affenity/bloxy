@@ -30,9 +30,6 @@ export default class EconomyCreatorStatsAPI extends BaseAPI {
                     "request.type": options.type,
                     "request.startTime": options.startTime,
                     "request.endTime": options.endTime
-                },
-                responseOptions: {
-                    allowedStatusCodes: [200]
                 }
             },
             json: true

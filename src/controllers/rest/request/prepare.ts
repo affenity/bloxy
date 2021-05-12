@@ -30,6 +30,13 @@ export default async function prepare (request: RESTRequest, options: RESTReques
             ...request.requestOptions.headers,
             "X-CSRF-TOKEN": await request.controller.getXCSRFToken()
         };
+        if (!request.requestOptions.responseOptions) {
+            request.requestOptions.responseOptions = {};
+        }
+        if (!request.requestOptions.responseOptions.disallowedStatusMessages) {
+            request.requestOptions.responseOptions.disallowedStatusMessages = [];
+        }
+        request.requestOptions.responseOptions.disallowedStatusMessages.push("Token Validation Failed");
     }
     if (request.requestOptions.json) {
         request.requestOptions.body = typeof request.requestOptions.json === "string" ? request.requestOptions.json : JSON.stringify(request.requestOptions.json);

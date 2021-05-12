@@ -53,10 +53,7 @@ export default class TradesAPI extends BaseAPI {
         return this.request({
             requiresAuth: true,
             request: {
-                path: `v1/game-localization-roles/games/${options.gameId}/current-user/roles`,
-                responseOptions: {
-                    allowedStatusCodes: [200]
-                }
+                path: `v1/game-localization-roles/games/${options.gameId}/current-user/roles`
             },
             json: true
         })
@@ -67,10 +64,7 @@ export default class TradesAPI extends BaseAPI {
         return this.request({
             requiresAuth: true,
             request: {
-                path: `v1/game-localization-roles/games/${options.gameId}/roles/${options.role}/assignees`,
-                responseOptions: {
-                    allowedStatusCodes: [200]
-                }
+                path: `v1/game-localization-roles/games/${options.gameId}/roles/${options.role}/assignees`
             },
             json: true
         })
@@ -81,10 +75,7 @@ export default class TradesAPI extends BaseAPI {
         return this.request({
             requiresAuth: true,
             request: {
-                path: `v1/game-localization-roles/roles/${options.role}/current-user`,
-                responseOptions: {
-                    allowedStatusCodes: [200]
-                }
+                path: `v1/game-localization-roles/roles/${options.role}/current-user`
             },
             json: true
         })
@@ -102,9 +93,6 @@ export default class TradesAPI extends BaseAPI {
                     assigneeType: "user",
                     role: "translator",
                     revoke: options.revoke !== undefined ? options.revoke : false
-                },
-                responseOptions: {
-                    allowedStatusCodes: [200]
                 }
             },
             json: true

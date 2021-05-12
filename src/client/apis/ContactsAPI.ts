@@ -39,10 +39,7 @@ export default class ContactsAPI extends BaseAPI {
         return this.request({
             requiresAuth: false,
             request: {
-                path: `v1/contacts/metadata`,
-                responseOptions: {
-                    allowedStatusCodes: [200]
-                }
+                path: `v1/contacts/metadata`
             },
             json: true
         })
@@ -55,10 +52,7 @@ export default class ContactsAPI extends BaseAPI {
             request: {
                 path: `v1/user/get-tags`,
                 method: "POST",
-                json: options,
-                responseOptions: {
-                    allowedStatusCodes: [200]
-                }
+                json: options
             },
             json: true
         })
@@ -71,10 +65,7 @@ export default class ContactsAPI extends BaseAPI {
             request: {
                 path: `v1/user/set-pending-tag`,
                 method: "POST",
-                json: options,
-                responseOptions: {
-                    allowedStatusCodes: [200]
-                }
+                json: options
             },
             json: true
         })
@@ -87,10 +78,7 @@ export default class ContactsAPI extends BaseAPI {
             request: {
                 path: `v1/user/tag`,
                 method: "POST",
-                json: options,
-                responseOptions: {
-                    allowedStatusCodes: [200]
-                }
+                json: options
             },
             json: true
         })

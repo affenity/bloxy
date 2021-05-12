@@ -23,10 +23,7 @@ export default class EngagementPayoutsAPI extends BaseAPI {
             requiresAuth: true,
             request: {
                 path: `v1/universe-payout-history`,
-                qs: options,
-                responseOptions: {
-                    allowedStatusCodes: [200]
-                }
+                qs: options
             },
             json: true
         })

@@ -169,10 +169,7 @@ export default class EconomyAPI extends BaseAPI {
         return this.request({
             requiresAuth: false,
             request: {
-                path: `v1/assets/${options.assetId}/resale-data`,
-                responseOptions: {
-                    allowedStatusCodes: [200]
-                }
+                path: `v1/assets/${options.assetId}/resale-data`
             },
             json: true
         })
@@ -184,10 +181,7 @@ export default class EconomyAPI extends BaseAPI {
             requiresAuth: false,
             request: {
                 path: `v1/assets/${options.assetId}/resellers`,
-                qs: options,
-                responseOptions: {
-                    allowedStatusCodes: [200]
-                }
+                qs: options
             },
             json: true
         })
@@ -198,10 +192,7 @@ export default class EconomyAPI extends BaseAPI {
         return this.request({
             requiresAuth: false,
             request: {
-                path: `v1/assets/${options.assetId}/users/${options.userId}/resellable-copies`,
-                responseOptions: {
-                    allowedStatusCodes: [200]
-                }
+                path: `v1/assets/${options.assetId}/users/${options.userId}/resellable-copies`
             },
             json: true
         })
@@ -212,10 +203,7 @@ export default class EconomyAPI extends BaseAPI {
         return this.request({
             requiresAuth: false,
             request: {
-                path: `v1/resale-tax-rate`,
-                responseOptions: {
-                    allowedStatusCodes: [200]
-                }
+                path: `v1/resale-tax-rate`
             },
             json: true
         })
@@ -230,9 +218,6 @@ export default class EconomyAPI extends BaseAPI {
                 method: "PATCH",
                 json: {
                     price: options.price
-                },
-                responseOptions: {
-                    allowedStatusCodes: [200]
                 }
             },
             json: true
@@ -244,10 +229,7 @@ export default class EconomyAPI extends BaseAPI {
         return this.request({
             requiresAuth: true,
             request: {
-                path: `v1/developer-exchange/cashoutAbility`,
-                responseOptions: {
-                    allowedStatusCodes: [200]
-                }
+                path: `v1/developer-exchange/cashoutAbility`
             },
             json: true
         })
@@ -258,10 +240,7 @@ export default class EconomyAPI extends BaseAPI {
         return this.request({
             requiresAuth: true,
             request: {
-                path: `v1/developer-exchange/help`,
-                responseOptions: {
-                    allowedStatusCodes: [200]
-                }
+                path: `v1/developer-exchange/help`
             },
             json: true
         })
@@ -273,10 +252,7 @@ export default class EconomyAPI extends BaseAPI {
             requiresAuth: true,
             request: {
                 path: `v1/developer-exchange/info`,
-                qs: options,
-                responseOptions: {
-                    allowedStatusCodes: [200]
-                }
+                qs: options
             },
             json: true
         })
@@ -289,10 +265,7 @@ export default class EconomyAPI extends BaseAPI {
             request: {
                 path: `v1/developer-exchange/submit`,
                 method: "POST",
-                json: options,
-                responseOptions: {
-                    allowedStatusCodes: [200]
-                }
+                json: options
             },
             json: true
         })
@@ -303,10 +276,7 @@ export default class EconomyAPI extends BaseAPI {
         return this.request({
             requiresAuth: true,
             request: {
-                path: `v1/groups/${options.groupId}/currency`,
-                responseOptions: {
-                    allowedStatusCodes: [200]
-                }
+                path: `v1/groups/${options.groupId}/currency`
             },
             json: true
         })
@@ -317,10 +287,7 @@ export default class EconomyAPI extends BaseAPI {
         return this.request({
             requiresAuth: true,
             request: {
-                path: `v1/users/${options.userId}/currency`,
-                responseOptions: {
-                    allowedStatusCodes: [200]
-                }
+                path: `v1/users/${options.userId}/currency`
             },
             json: true
         })
@@ -331,10 +298,7 @@ export default class EconomyAPI extends BaseAPI {
         return this.request({
             requiresAuth: false,
             request: {
-                path: `v1/groups/${options.groupId}/revenue/summary/${options.timeFrame}`,
-                responseOptions: {
-                    allowedStatusCodes: [200]
-                }
+                path: `v1/groups/${options.groupId}/revenue/summary/${options.timeFrame}`
             },
             json: true
         })
@@ -345,10 +309,7 @@ export default class EconomyAPI extends BaseAPI {
         return this.request({
             requiresAuth: false,
             request: {
-                path: `v1/users/${options.userId}/revenue/summary/${options.timeFrame}`,
-                responseOptions: {
-                    allowedStatusCodes: [200]
-                }
+                path: `v1/users/${options.userId}/revenue/summary/${options.timeFrame}`
             },
             json: true
         })
@@ -360,10 +321,7 @@ export default class EconomyAPI extends BaseAPI {
             requiresAuth: false,
             request: {
                 path: `v1/groups/${options.groupId}/transactions`,
-                qs: options,
-                responseOptions: {
-                    allowedStatusCodes: [200]
-                }
+                qs: options
             },
             json: true
         })
@@ -375,10 +333,7 @@ export default class EconomyAPI extends BaseAPI {
             requiresAuth: true,
             request: {
                 path: `v1/users/${options.userId}/transactions`,
-                qs: options,
-                responseOptions: {
-                    allowedStatusCodes: [200]
-                }
+                qs: options
             },
             json: true
         })

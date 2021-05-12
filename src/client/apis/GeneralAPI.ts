@@ -164,10 +164,7 @@ export default class GeneralAPI extends BaseAPI {
         return this.request({
             requiresAuth: true,
             request: {
-                path: `assets/${options}/versions`,
-                responseOptions: {
-                    allowedStatusCodes: [200]
-                }
+                path: `assets/${options}/versions`
             },
             json: true
         })
@@ -180,10 +177,7 @@ export default class GeneralAPI extends BaseAPI {
             request: {
                 path: "assets/award-badge",
                 method: "POST",
-                qs: options,
-                responseOptions: {
-                    allowedStatusCodes: [200]
-                }
+                qs: options
             }
         })
             .then(() => true);
@@ -206,9 +200,6 @@ export default class GeneralAPI extends BaseAPI {
                 path: `users/${options.userId}/friends`,
                 qs: {
                     page: options.page
-                },
-                responseOptions: {
-                    allowedStatusCodes: [200]
                 }
             },
             json: true
@@ -224,9 +215,6 @@ export default class GeneralAPI extends BaseAPI {
                 method: "POST",
                 qs: {
                     requesterUserId: options.userId
-                },
-                responseOptions: {
-                    allowedStatusCodes: [200]
                 }
             }
         })
@@ -241,9 +229,6 @@ export default class GeneralAPI extends BaseAPI {
                 method: "POST",
                 qs: {
                     requesterUserId: options.userId
-                },
-                responseOptions: {
-                    allowedStatusCodes: [200]
                 }
             }
         })
@@ -258,9 +243,6 @@ export default class GeneralAPI extends BaseAPI {
                 method: "POST",
                 qs: {
                     recipientUserId: options.userId
-                },
-                responseOptions: {
-                    allowedStatusCodes: [200]
                 }
             }
         })
@@ -272,10 +254,7 @@ export default class GeneralAPI extends BaseAPI {
             requiresAuth: false,
             request: {
                 path: "user/get-friendship-count",
-                qs: options,
-                responseOptions: {
-                    allowedStatusCodes: [200]
-                }
+                qs: options
             },
             json: true
         })
@@ -290,9 +269,6 @@ export default class GeneralAPI extends BaseAPI {
                 method: "POST",
                 qs: {
                     friendUserId: options.userId
-                },
-                responseOptions: {
-                    allowedStatusCodes: [200]
                 }
             }
         })
@@ -304,10 +280,7 @@ export default class GeneralAPI extends BaseAPI {
             requiresAuth: false,
             request: {
                 path: "user/following-exists",
-                qs: options,
-                responseOptions: {
-                    allowedStatusCodes: [200]
-                }
+                qs: options
             }
         })
             .then(response => response.body.isFollowing);
@@ -321,9 +294,6 @@ export default class GeneralAPI extends BaseAPI {
                 method: "POST",
                 qs: {
                     followedUserId: options.userId
-                },
-                responseOptions: {
-                    allowedStatusCodes: [200]
                 }
             }
         })
@@ -338,9 +308,6 @@ export default class GeneralAPI extends BaseAPI {
                 method: "POST",
                 qs: {
                     followedUserId: options.userId
-                },
-                responseOptions: {
-                    allowedStatusCodes: [200]
                 }
             }
         })
@@ -351,10 +318,7 @@ export default class GeneralAPI extends BaseAPI {
         return this.request({
             requiresAuth: false,
             request: {
-                path: `users/${options.userId}/groups`,
-                responseOptions: {
-                    allowedStatusCodes: [200]
-                }
+                path: `users/${options.userId}/groups`
             }
         })
             .then(response => response.body);
@@ -364,10 +328,7 @@ export default class GeneralAPI extends BaseAPI {
         return this.request({
             requiresAuth: false,
             request: {
-                path: `groups/${options.groupId}`,
-                responseOptions: {
-                    allowedStatusCodes: [200]
-                }
+                path: `groups/${options.groupId}`
             },
             json: true
         })
@@ -381,9 +342,6 @@ export default class GeneralAPI extends BaseAPI {
                 path: `groups/${options.groupId}/allies`,
                 qs: {
                     page: options.page
-                },
-                responseOptions: {
-                    allowedStatusCodes: [200]
                 }
             },
             json: true
@@ -398,9 +356,6 @@ export default class GeneralAPI extends BaseAPI {
                 path: `groups/${options.groupId}/enemies`,
                 qs: {
                     page: options.page
-                },
-                responseOptions: {
-                    allowedStatusCodes: [200]
                 }
             },
             json: true
@@ -412,10 +367,7 @@ export default class GeneralAPI extends BaseAPI {
         return this.request({
             requiresAuth: true,
             request: {
-                path: "incoming-items/counts",
-                responseOptions: {
-                    allowedStatusCodes: [200]
-                }
+                path: "incoming-items/counts"
             },
             json: true
         })
@@ -430,10 +382,7 @@ export default class GeneralAPI extends BaseAPI {
             requiresAuth: false,
             request: {
                 path: "marketplace/productinfo",
-                qs: options,
-                responseOptions: {
-                    allowedStatusCodes: [200]
-                }
+                qs: options
             },
             json: true
         })
@@ -445,10 +394,7 @@ export default class GeneralAPI extends BaseAPI {
             requiresAuth: false,
             request: {
                 path: "marketplace/game-pass-product-info",
-                qs: options,
-                responseOptions: {
-                    allowedStatusCodes: [200]
-                }
+                qs: options
             },
             json: true
         })
@@ -460,10 +406,7 @@ export default class GeneralAPI extends BaseAPI {
             requiresAuth: false,
             request: {
                 path: "ownership/hasasset",
-                qs: options,
-                responseOptions: {
-                    allowedStatusCodes: [200]
-                }
+                qs: options
             }
         })
             .then(response => (response.body as string).includes("true") as UserOwnsAsset);
@@ -473,10 +416,7 @@ export default class GeneralAPI extends BaseAPI {
         return this.request({
             requiresAuth: false,
             request: {
-                path: "reference/deviceinfo",
-                responseOptions: {
-                    allowedStatusCodes: [200]
-                }
+                path: "reference/deviceinfo"
             }
         })
             .then(response => ({
@@ -492,10 +432,7 @@ export default class GeneralAPI extends BaseAPI {
             request: {
                 path: "userblock/block",
                 qs: options,
-                method: "POST",
-                responseOptions: {
-                    allowedStatusCodes: [200]
-                }
+                method: "POST"
             },
             json: true
         })
@@ -508,10 +445,7 @@ export default class GeneralAPI extends BaseAPI {
             request: {
                 path: "userblock/unblock",
                 qs: options,
-                method: "POST",
-                responseOptions: {
-                    allowedStatusCodes: [200]
-                }
+                method: "POST"
             },
             json: true
         })
@@ -522,10 +456,7 @@ export default class GeneralAPI extends BaseAPI {
         return this.request({
             requiresAuth: false,
             request: {
-                path: `users/${options.userId}`,
-                responseOptions: {
-                    allowedStatusCodes: [200]
-                }
+                path: `users/${options.userId}`
             },
             json: true
         })
@@ -540,10 +471,7 @@ export default class GeneralAPI extends BaseAPI {
             requiresAuth: false,
             request: {
                 path: "users/get-by-username",
-                qs: options,
-                responseOptions: {
-                    allowedStatusCodes: [200]
-                }
+                qs: options
             },
             json: true
         })
@@ -557,10 +485,7 @@ export default class GeneralAPI extends BaseAPI {
         return this.request({
             requiresAuth: false,
             request: {
-                path: `users/${options.userId}/canmanage/${options.assetId}`,
-                responseOptions: {
-                    allowedStatusCodes: [200]
-                }
+                path: `users/${options.userId}/canmanage/${options.assetId}`
             },
             json: true
         })

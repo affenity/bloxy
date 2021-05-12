@@ -446,10 +446,7 @@ export default class DevelopAPI extends BaseAPI {
         return this.request({
             requiresAuth: false,
             request: {
-                path: `v1/gametemplates`,
-                responseOptions: {
-                    allowedStatusCodes: [200]
-                }
+                path: `v1/gametemplates`
             },
             json: true
         })
@@ -460,10 +457,7 @@ export default class DevelopAPI extends BaseAPI {
         return this.request({
             requiresAuth: false,
             request: {
-                path: `v1/gameUpdateNotifications/${options.universeId}`,
-                responseOptions: {
-                    allowedStatusCodes: [200]
-                }
+                path: `v1/gameUpdateNotifications/${options.universeId}`
             },
             json: true
         })
@@ -476,10 +470,7 @@ export default class DevelopAPI extends BaseAPI {
             request: {
                 path: `v1/gameUpdateNotifications/${options.universeId}`,
                 method: "POST",
-                json: `"${options.gameUpdateText}"`,
-                responseOptions: {
-                    allowedStatusCodes: [200]
-                }
+                json: `"${options.gameUpdateText}"`
             },
             json: true
         })
@@ -492,10 +483,7 @@ export default class DevelopAPI extends BaseAPI {
             request: {
                 path: `v1/gameUpdateNotifications/filter`,
                 method: "POST",
-                json: `"${options.text}"`,
-                responseOptions: {
-                    allowedStatusCodes: [200]
-                }
+                json: `"${options.text}"`
             },
             json: true
         })
@@ -507,10 +495,7 @@ export default class DevelopAPI extends BaseAPI {
             requiresAuth: false,
             request: {
                 path: `v1/groups/${options.groupId}/universes`,
-                qs: options,
-                responseOptions: {
-                    allowedStatusCodes: [200]
-                }
+                qs: options
             },
             json: true
         })
@@ -521,10 +506,7 @@ export default class DevelopAPI extends BaseAPI {
         return this.request({
             requiresAuth: false,
             request: {
-                path: `v1/places/${options.placeId}/compatibilities`,
-                responseOptions: {
-                    allowedStatusCodes: [200]
-                }
+                path: `v1/places/${options.placeId}/compatibilities`
             },
             json: true
         })
@@ -537,10 +519,7 @@ export default class DevelopAPI extends BaseAPI {
             request: {
                 path: `v1/places/${options.placeId}`,
                 method: "PATCH",
-                json: options,
-                responseOptions: {
-                    allowedStatusCodes: [200]
-                }
+                json: options
             },
             json: true
         })
@@ -552,10 +531,7 @@ export default class DevelopAPI extends BaseAPI {
             requiresAuth: false,
             request: {
                 path: `v1/places/${options.placeId}/stats/${options.type}`,
-                qs: options,
-                responseOptions: {
-                    allowedStatusCodes: [200]
-                }
+                qs: options
             },
             json: true
         })
@@ -569,9 +545,6 @@ export default class DevelopAPI extends BaseAPI {
                 path: `v1/plugins`,
                 qs: {
                     pluginIds: options.pluginIds.join(",")
-                },
-                responseOptions: {
-                    allowedStatusCodes: [200]
                 }
             },
             json: true
@@ -585,10 +558,7 @@ export default class DevelopAPI extends BaseAPI {
             request: {
                 path: `v1/plugins/${options.pluginId}`,
                 method: "PATCH",
-                json: options,
-                responseOptions: {
-                    allowedStatusCodes: [200]
-                }
+                json: options
             },
             json: true
         })
@@ -608,9 +578,6 @@ export default class DevelopAPI extends BaseAPI {
                     sort: (options.sort || []).join(","),
                     // End me, please...
                     q: encodedQuery
-                },
-                responseOptions: {
-                    allowedStatusCodes: [200]
                 }
             },
             json: true
@@ -623,10 +590,7 @@ export default class DevelopAPI extends BaseAPI {
             requiresAuth: false,
             request: {
                 path: `v1/toolbox/items`,
-                qs: options,
-                responseOptions: {
-                    allowedStatusCodes: [200]
-                }
+                qs: options
             },
             json: true
         })
@@ -637,10 +601,7 @@ export default class DevelopAPI extends BaseAPI {
         return this.request({
             requiresAuth: false,
             request: {
-                path: `v1/universes/${options.universeId}`,
-                responseOptions: {
-                    allowedStatusCodes: [200]
-                }
+                path: `v1/universes/${options.universeId}`
             },
             json: true
         })
@@ -651,10 +612,7 @@ export default class DevelopAPI extends BaseAPI {
         return this.request({
             requiresAuth: false,
             request: {
-                path: `v1/universes/${options.universeId}/permissions`,
-                responseOptions: {
-                    allowedStatusCodes: [200]
-                }
+                path: `v1/universes/${options.universeId}/permissions`
             },
             json: true
         })
@@ -666,10 +624,7 @@ export default class DevelopAPI extends BaseAPI {
             requiresAuth: false,
             request: {
                 path: `v1/universes/${options.universeId}/places`,
-                qs: options,
-                responseOptions: {
-                    allowedStatusCodes: [200]
-                }
+                qs: options
             },
             json: true
         })
@@ -680,10 +635,7 @@ export default class DevelopAPI extends BaseAPI {
         return this.request({
             requiresAuth: false,
             request: {
-                path: `v1/universes/${options.universeId}/statistic-reports`,
-                responseOptions: {
-                    allowedStatusCodes: [200]
-                }
+                path: `v1/universes/${options.universeId}/statistic-reports`
             },
             json: true
         })
@@ -694,10 +646,7 @@ export default class DevelopAPI extends BaseAPI {
         return this.request({
             requiresAuth: false,
             request: {
-                path: `v1/universes/${options.universeId}/statistic-reports/${options.yearDashMonth}`,
-                responseOptions: {
-                    allowedStatusCodes: [200]
-                }
+                path: `v1/universes/${options.universeId}/statistic-reports/${options.yearDashMonth}`
             },
             json: true
         })
@@ -708,10 +657,7 @@ export default class DevelopAPI extends BaseAPI {
         return this.request({
             requiresAuth: false,
             request: {
-                path: `v1/universes/${options.universeId}/statistic-reports/${options.yearDashMonth}/download`,
-                responseOptions: {
-                    allowedStatusCodes: [200]
-                }
+                path: `v1/universes/${options.universeId}/statistic-reports/${options.yearDashMonth}/download`
             },
             json: true
         })
@@ -725,9 +671,6 @@ export default class DevelopAPI extends BaseAPI {
                 path: `v1/universes/multiget`,
                 qs: {
                     ids: options.ids.join(",")
-                },
-                responseOptions: {
-                    allowedStatusCodes: [200]
                 }
             },
             json: true
@@ -742,9 +685,6 @@ export default class DevelopAPI extends BaseAPI {
                 path: `v1/universes/multiget/permissions`,
                 qs: {
                     ids: options.ids.join(",")
-                },
-                responseOptions: {
-                    allowedStatusCodes: [200]
                 }
             },
             json: true
@@ -757,10 +697,7 @@ export default class DevelopAPI extends BaseAPI {
             requiresAuth: false,
             request: {
                 path: `v1/universes/${options.universeId}/activate`,
-                method: "POST",
-                responseOptions: {
-                    allowedStatusCodes: [200]
-                }
+                method: "POST"
             },
             json: true
         })
@@ -772,10 +709,7 @@ export default class DevelopAPI extends BaseAPI {
             requiresAuth: false,
             request: {
                 path: `v1/universes/${options.universeId}/deactivate`,
-                method: "POST",
-                responseOptions: {
-                    allowedStatusCodes: [200]
-                }
+                method: "POST"
             },
             json: true
         })
@@ -787,10 +721,7 @@ export default class DevelopAPI extends BaseAPI {
             requiresAuth: false,
             request: {
                 path: `v1/universes/${options.universeId}/statistic-reports/${options.yearDashMonth}/generate`,
-                method: "POST",
-                responseOptions: {
-                    allowedStatusCodes: [200]
-                }
+                method: "POST"
             },
             json: true
         })
@@ -801,10 +732,7 @@ export default class DevelopAPI extends BaseAPI {
         return this.request({
             requiresAuth: false,
             request: {
-                path: `v1/universes/${options.universeId}/configuration`,
-                responseOptions: {
-                    allowedStatusCodes: [200]
-                }
+                path: `v1/universes/${options.universeId}/configuration`
             },
             json: true
         })
@@ -817,10 +745,7 @@ export default class DevelopAPI extends BaseAPI {
             request: {
                 path: `v1/universes/${options.universeId}/configuration`,
                 method: "PATCH",
-                json: options,
-                responseOptions: {
-                    allowedStatusCodes: [200]
-                }
+                json: options
             },
             json: true
         })
@@ -831,10 +756,7 @@ export default class DevelopAPI extends BaseAPI {
         return this.request({
             requiresAuth: false,
             request: {
-                path: `v1/universes/${options.universeId}/configuration/vip-servers`,
-                responseOptions: {
-                    allowedStatusCodes: [200]
-                }
+                path: `v1/universes/${options.universeId}/configuration/vip-servers`
             },
             json: true
         })
@@ -845,10 +767,7 @@ export default class DevelopAPI extends BaseAPI {
         return this.request({
             requiresAuth: false,
             request: {
-                path: `v1/universes/${options.universeId}/teamcreate`,
-                responseOptions: {
-                    allowedStatusCodes: [200]
-                }
+                path: `v1/universes/${options.universeId}/teamcreate`
             },
             json: true
         })
@@ -861,10 +780,7 @@ export default class DevelopAPI extends BaseAPI {
             request: {
                 path: `v1/universes/${options.universeId}/teamcreate`,
                 method: "PATCH",
-                json: options,
-                responseOptions: {
-                    allowedStatusCodes: [200]
-                }
+                json: options
             },
             json: true
         })
@@ -877,10 +793,7 @@ export default class DevelopAPI extends BaseAPI {
             request: {
                 path: `v1/universes/${options.universeId}/teamcreate/memberships`,
                 method: "DELETE",
-                json: options,
-                responseOptions: {
-                    allowedStatusCodes: [200]
-                }
+                json: options
             },
             json: true
         })
@@ -892,10 +805,7 @@ export default class DevelopAPI extends BaseAPI {
             requiresAuth: false,
             request: {
                 path: `v1/universes/${options.universeId}/teamcreate/memberships`,
-                qs: options,
-                responseOptions: {
-                    allowedStatusCodes: [200]
-                }
+                qs: options
             },
             json: true
         })
@@ -907,10 +817,7 @@ export default class DevelopAPI extends BaseAPI {
             requiresAuth: false,
             request: {
                 path: `v1/user/teamcreate/memberships`,
-                qs: options,
-                responseOptions: {
-                    allowedStatusCodes: [200]
-                }
+                qs: options
             },
             json: true
         })
@@ -921,10 +828,7 @@ export default class DevelopAPI extends BaseAPI {
         return this.request({
             requiresAuth: false,
             request: {
-                path: `v1/user/groups/canmanage`,
-                responseOptions: {
-                    allowedStatusCodes: [200]
-                }
+                path: `v1/user/groups/canmanage`
             },
             json: true
         })
@@ -935,10 +839,7 @@ export default class DevelopAPI extends BaseAPI {
         return this.request({
             requiresAuth: false,
             request: {
-                path: `v1/user/notifications/statistic-reports`,
-                responseOptions: {
-                    allowedStatusCodes: [200]
-                }
+                path: `v1/user/notifications/statistic-reports`
             },
             json: true
         })
@@ -950,10 +851,7 @@ export default class DevelopAPI extends BaseAPI {
             requiresAuth: false,
             request: {
                 path: `v1/user/studiodata`,
-                qs: options,
-                responseOptions: {
-                    allowedStatusCodes: [200]
-                }
+                qs: options
             },
             json: true
         })
@@ -969,9 +867,6 @@ export default class DevelopAPI extends BaseAPI {
                 json: options,
                 qs: {
                     clientKey: options.clientKey
-                },
-                responseOptions: {
-                    allowedStatusCodes: [200]
                 }
             },
             json: true
@@ -984,10 +879,7 @@ export default class DevelopAPI extends BaseAPI {
             requiresAuth: false,
             request: {
                 path: `v1/user/universes`,
-                qs: options,
-                responseOptions: {
-                    allowedStatusCodes: [200]
-                }
+                qs: options
             },
             json: true
         })
@@ -998,10 +890,7 @@ export default class DevelopAPI extends BaseAPI {
         return this.request({
             requiresAuth: false,
             request: {
-                path: `v1/universes/${options.targetId}/aliases`,
-                responseOptions: {
-                    allowedStatusCodes: [200]
-                }
+                path: `v1/universes/${options.targetId}/aliases`
             },
             json: true
         })
@@ -1013,10 +902,7 @@ export default class DevelopAPI extends BaseAPI {
             requiresAuth: false,
             request: {
                 path: `v1/universes/${options.universeId}/aliases/${options.name}`,
-                method: "DELETE",
-                responseOptions: {
-                    allowedStatusCodes: [200]
-                }
+                method: "DELETE"
             },
             json: true
         })
@@ -1029,10 +915,7 @@ export default class DevelopAPI extends BaseAPI {
             request: {
                 path: `v1/universes/${options.targetId}/aliases/${options.name}`,
                 method: "PATCH",
-                json: options,
-                responseOptions: {
-                    allowedStatusCodes: [200]
-                }
+                json: options
             },
             json: true
         })
@@ -1045,10 +928,7 @@ export default class DevelopAPI extends BaseAPI {
             request: {
                 path: `v1/universes/${options.universeId}/developerproducts`,
                 method: "POST",
-                qs: options,
-                responseOptions: {
-                    allowedStatusCodes: [200]
-                }
+                qs: options
             },
             json: true
         })
@@ -1061,10 +941,7 @@ export default class DevelopAPI extends BaseAPI {
             request: {
                 path: `v1/universes/${options.universeId}/developerproducts/${options.developerProductId}/update`,
                 method: "POST",
-                json: options,
-                responseOptions: {
-                    allowedStatusCodes: [200]
-                }
+                json: options
             },
             json: true
         })
