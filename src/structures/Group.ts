@@ -267,7 +267,7 @@ export class GroupBase {
         });
     }
 
-    getJoinRequests (options: Omit<GetJoinRequestsOptions, "groupId">): Promise<CursorPage<GroupJoinRequest>> {
+    getJoinRequests (options: Omit<GetJoinRequestsOptions, "groupId">): Promise<CursorPage<GetJoinRequest>> {
         const CursorPageClass = require("./Asset").CursorPage;
 
         return this.client.apis.groupsAPI.getJoinRequests({
@@ -741,26 +741,6 @@ export interface GroupJoinRequestOptions {
     group: PartialGroupOptions;
     created: string;
 }
-
-
-export class GroupJoinRequest {
-    public client: Client;
-    public id: number | null;
-    public user: PartialUser;
-    public group: PartialGroup;
-    public created: Date;
-
-    constructor (data: GroupJoinRequestOptions, client: Client) {
-        const structures = retrieveStructures();
-
-        this.client = client;
-        this.id = data.id || null;
-        this.user = new structures.PartialUser(data.user, client);
-        this.group = new PartialGroup(data.group, client);
-        this.created = new Date(data.created);
-    }
-}
-
 
 export interface GroupRoleOptions {
     id?: number;
