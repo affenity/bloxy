@@ -48,6 +48,7 @@ import {
     GetRolePermissions,
     GetSelfGroupMembership,
     GetSocialLinks,
+    GetWallPosts,
     GetWallPostsOptions,
     JoinGroup,
     JoinGroupOptions,
@@ -532,7 +533,7 @@ export class GroupBase {
         });
     }
 
-    getWallPosts (options: Omit<GetWallPostsOptions, "groupId">): Promise<CursorPage<GroupWallPost>> {
+    getWallPosts (options: Omit<GetWallPostsOptions, "groupId">): Promise<CursorPage<GetWallPosts>> {
         const CursorPageClass = require("./Asset").CursorPage;
 
         return this.client.apis.groupsAPI.getWallPosts({
@@ -907,26 +908,3 @@ export interface GroupWallPostOptions {
     updated: string;
 }
 
-
-export class GroupWallPost {
-    public client: Client;
-    public id: number;
-    public creator: GroupMember;
-    public content: string;
-    public created: Date;
-
-    constructor (data: GroupWallPostOptions, client: Client) {
-        this.client = client;
-        this.id = data.id;
-        this.content = data.body;
-        this.creator = new GroupMember({
-            group: {
-                id: data.group.id,
-                name: data.group.name
-            },
-            id: data.poster.userId,
-            name: data.poster.username
-        }, client);
-        this.created = new Date(data.created);
-    }
-}
