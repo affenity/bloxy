@@ -1,7 +1,7 @@
 import OrderedDataStore, { GetSortedUrlOptions, OrderedDataStoreResultType } from "./OrderedDataStore";
 
 
-export default class OrderedDataStorePage<DataType extends any> {
+export default class OrderedDataStorePage<DataType> {
     public orderedDataStore: OrderedDataStore<DataType>;
     public options: GetSortedUrlOptions;
     public data: { key: string; value: number }[];

@@ -17,14 +17,15 @@ export default class RESTResponse {
         this.responseData = responseData;
     }
 
+    // eslint-disable-next-line require-await
     async process (): Promise<RESTResponseDataType> {
         const allProcessed = this.controller.responseHandlers.map(handler => handler(this));
 
         if (allProcessed.every(processed => processed === true)) {
             return this.responseData;
         } else {
-            const error = allProcessed.find(error => error instanceof BloxyHttpError && error.name ===
-                "BloxyInvalidStatusMessageError" && error.statusMessage.includes("Token Validation Failed"));
+            const error = allProcessed.find(err => err instanceof BloxyHttpError && err.name ===
+                "BloxyInvalidStatusMessageError" && err.statusMessage.includes("Token Validation Failed"));
 
             if (error) {
                 // 1 attempt = 0 retries
@@ -36,7 +37,7 @@ export default class RESTResponse {
                 }
             }
 
-            throw allProcessed.find(error => error instanceof Error);
+            throw allProcessed.find(err => err instanceof Error);
         }
     }
 }

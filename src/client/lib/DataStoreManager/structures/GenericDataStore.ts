@@ -14,7 +14,7 @@ type DataStoreKey = {
 };
 type DataStoreValue = string;
 
-export default class GenericDataStore<DataType extends any> {
+export default class GenericDataStore<DataType> {
     public manager: DataStoreManager;
     public name: string;
     public scope: string;
@@ -109,7 +109,7 @@ export default class GenericDataStore<DataType extends any> {
         return `${this.baseAPIUrl}increment?${encodedQueryString}`;
     }
 
-    public parseRetrievedData<Result extends any> (data: string): [boolean, Result | any] {
+    public parseRetrievedData<Result> (data: string): [boolean, Result | any] {
         let result = "";
 
         if (data.length === 0) {
@@ -240,7 +240,7 @@ export default class GenericDataStore<DataType extends any> {
         if (this.advanced.parseData) {
             return this.advanced.parseData(data);
         } else {
-            return data as DataType;
+            return (data as unknown) as DataType;
         }
     }
 
