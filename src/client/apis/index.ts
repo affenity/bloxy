@@ -9,7 +9,6 @@ import AuthAPI from "./AuthAPI";
 import AvatarAPI from "./AvatarAPI";
 import BadgesAPI from "./BadgesAPI";
 import BillingAPI from "./BillingAPI";
-import CaptchaAPI from "./CaptchaAPI";
 import CatalogAPI from "./CatalogAPI";
 import ChatAPI from "./ChatAPI";
 import ContactsAPI from "./ContactsAPI";
@@ -50,7 +49,6 @@ export declare type APIs = {
     avatarAPI: AvatarAPI;
     badgesAPI: BadgesAPI;
     billingAPI: BillingAPI;
-    captchaAPI: CaptchaAPI;
     catalogAPI: CatalogAPI;
     chatAPI: ChatAPI;
     contactsAPI: ContactsAPI;
@@ -93,7 +91,6 @@ export default function initAPIs (client: Client): APIs {
         avatarAPI: new AvatarAPI(client),
         badgesAPI: new BadgesAPI(client),
         billingAPI: new BillingAPI(client),
-        captchaAPI: new CaptchaAPI(client),
         catalogAPI: new CatalogAPI(client),
         chatAPI: new ChatAPI(client),
         contactsAPI: new ContactsAPI(client),
