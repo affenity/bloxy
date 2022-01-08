@@ -24,7 +24,6 @@
     "prepublishOnly": "npm run build",
     "create-docs": "typedoc src && mkdocs build",
     "prepare-windows": "npm install && npm run build && npm run create-docs && echo 'Finished'",
-    "postinstall": "npm install got && echo 'The package got has been installed. You can now use the bloxy package.'"
   },
   "types": "./dist/index.d.ts",
   "keywords": [
