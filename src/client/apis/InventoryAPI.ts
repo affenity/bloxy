@@ -177,7 +177,7 @@ export default class InventoryAPI extends BaseAPI {
         path: `v1/packages/${options.packageId}/assets`
       },
       json: true
-    }).then(response => response.body);
+    }).then((response) => response.body);
   }
 
   getUserCollectibles (
@@ -190,7 +190,7 @@ export default class InventoryAPI extends BaseAPI {
         qs: options
       },
       json: true
-    }).then(response => response.body);
+    }).then((response) => response.body);
   }
 
   getUserItemsByTypeAndTargetId (
@@ -202,7 +202,7 @@ export default class InventoryAPI extends BaseAPI {
         path: `v1/users/${options.userId}/items/${options.itemType}/${options.itemTargetId}`
       },
       json: true
-    }).then(response => response.body);
+    }).then((response) => response.body);
   }
 
   getAssetOwners (options: GetAssetOwnersOptions): Promise<GetAssetOwners> {
@@ -213,7 +213,7 @@ export default class InventoryAPI extends BaseAPI {
         qs: options
       },
       json: true
-    }).then(response => response.body);
+    }).then((response) => response.body);
   }
 
   getUserInventory (
@@ -226,7 +226,7 @@ export default class InventoryAPI extends BaseAPI {
         qs: options
       },
       json: true
-    }).then(response => response.body);
+    }).then((response) => response.body);
   }
 
   getUserInventoryByAssetTypeId (
@@ -239,6 +239,6 @@ export default class InventoryAPI extends BaseAPI {
         qs: options
       },
       json: true
-    }).then(response => response.body);
+    }).then((response) => response.body);
   }
 }

@@ -124,7 +124,7 @@ export class Bundle {
     this.name = data.name;
     this.description = data.description;
     this.bundleType = data.bundleType;
-    this.items = data.items.map(itemData => ({
+    this.items = data.items.map((itemData) => ({
       owned: itemData.owned,
       id: itemData.id,
       name: itemData.name,
@@ -401,7 +401,7 @@ export class Trade {
     this.created = new Date(data.created);
     this.active = data.isActive;
     this.status = data.status;
-    this.offers = data.offers.map(offerData => ({
+    this.offers = data.offers.map((offerData) => ({
       robux: offerData.robux,
       user: new structures.PartialUser(
         {
@@ -411,7 +411,7 @@ export class Trade {
         client
       ),
       assets: offerData.userAssets.map(
-        assetData => new CollectibleAsset(assetData, client)
+        (assetData) => new CollectibleAsset(assetData, client)
       )
     }));
   }

@@ -62,7 +62,7 @@ export default class AdConfigurationAPI extends BaseAPI {
         path: "/v1/sponsored-games/create-ad/metadata"
       },
       json: true
-    }).then(response => response.body as GetCreateAdMetaData);
+    }).then((response) => response.body as GetCreateAdMetaData);
   }
 
   getSponsoredGames (
@@ -79,7 +79,7 @@ export default class AdConfigurationAPI extends BaseAPI {
         }
       },
       json: true
-    }).then(response => response.body as GetSponsoredGames);
+    }).then((response) => response.body as GetSponsoredGames);
   }
 
   createAd (options: CreateAdOptions): Promise<CreateAd> {
@@ -91,7 +91,7 @@ export default class AdConfigurationAPI extends BaseAPI {
         json: options as any
       },
       json: true
-    }).then(response => response.body as CreateAd);
+    }).then((response) => response.body as CreateAd);
   }
 
   runAd (options: RunAdOptions): Promise<RunAd> {
@@ -103,7 +103,7 @@ export default class AdConfigurationAPI extends BaseAPI {
         json: options as any
       },
       json: true
-    }).then(response => response.body as RunAd);
+    }).then((response) => response.body as RunAd);
   }
 
   stopAd (options: StopAdOptions): Promise<StopAd> {
@@ -115,6 +115,6 @@ export default class AdConfigurationAPI extends BaseAPI {
         json: options as any
       },
       json: true
-    }).then(response => response.body as StopAd);
+    }).then((response) => response.body as StopAd);
   }
 }

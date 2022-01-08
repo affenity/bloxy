@@ -12,7 +12,7 @@ export default function handleFriendshipNotifications (
         user: new PartialUser(
           {
             id: [message.UserId1, message.UserId2].filter(
-              id => id !== socket.client.user!.id
+              (id) => id !== socket.client.user!.id
             )[0]!
           },
           socket.client

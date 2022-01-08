@@ -236,7 +236,7 @@ export default class AvatarAPI extends BaseAPI {
         path: "v1/avatar"
       },
       json: true
-    }).then(response => response.body);
+    }).then((response) => response.body);
   }
 
   getAvatarMetaData (): Promise<GetAvatarMetadata> {
@@ -246,7 +246,7 @@ export default class AvatarAPI extends BaseAPI {
         path: "v1/avatar/metadata"
       },
       json: true
-    }).then(response => response.body);
+    }).then((response) => response.body);
   }
 
   getAvatarRules (): Promise<GetAvatarRules> {
@@ -256,7 +256,7 @@ export default class AvatarAPI extends BaseAPI {
         path: "v1/avatar-rules"
       },
       json: true
-    }).then(response => response.body);
+    }).then((response) => response.body);
   }
 
   getUserAvatar (options: GetUserAvatarOptions): Promise<GetUserAvatar> {
@@ -266,7 +266,7 @@ export default class AvatarAPI extends BaseAPI {
         path: `v1/users/${options.userId}/avatar`
       },
       json: true
-    }).then(response => response.body);
+    }).then((response) => response.body);
   }
 
   getUserCurrentlyWearing (
@@ -278,7 +278,7 @@ export default class AvatarAPI extends BaseAPI {
         path: `v1/users/${options.userId}/currently-wearing`
       },
       json: true
-    }).then(response => response.body);
+    }).then((response) => response.body);
   }
 
   getUserOutfits (options: GetUserOutfitsOptions): Promise<GetUserOutfits> {
@@ -288,7 +288,7 @@ export default class AvatarAPI extends BaseAPI {
         path: `v1/users/${options.userId}/outfits`
       },
       json: true
-    }).then(response => response.body);
+    }).then((response) => response.body);
   }
 
   removeAssetFromAvatar (
@@ -301,7 +301,7 @@ export default class AvatarAPI extends BaseAPI {
         method: "POST"
       },
       json: true
-    }).then(response => response.body);
+    }).then((response) => response.body);
   }
 
   wearAssetOnAvatar (
@@ -314,7 +314,7 @@ export default class AvatarAPI extends BaseAPI {
         method: "POST"
       },
       json: true
-    }).then(response => response.body);
+    }).then((response) => response.body);
   }
 
   redrawThumbnail (): Promise<RedrawThumbnail> {
@@ -325,7 +325,7 @@ export default class AvatarAPI extends BaseAPI {
         method: "POST"
       },
       json: true
-    }).then(response => response.body);
+    }).then((response) => response.body);
   }
 
   setSelfAvatarBodyColors (
@@ -339,7 +339,7 @@ export default class AvatarAPI extends BaseAPI {
         json: options
       },
       json: true
-    }).then(response => response.body);
+    }).then((response) => response.body);
   }
 
   setSelfAvatarType (
@@ -353,7 +353,7 @@ export default class AvatarAPI extends BaseAPI {
         json: options
       },
       json: true
-    }).then(response => response.body);
+    }).then((response) => response.body);
   }
 
   setSelfAvatarScales (
@@ -367,7 +367,7 @@ export default class AvatarAPI extends BaseAPI {
         json: options
       },
       json: true
-    }).then(response => response.body);
+    }).then((response) => response.body);
   }
 
   setSelfWearingAssets (
@@ -381,7 +381,7 @@ export default class AvatarAPI extends BaseAPI {
         json: options
       },
       json: true
-    }).then(response => response.body);
+    }).then((response) => response.body);
   }
 
   getOutfit (options: GetOutfitOptions): Promise<GetOutfit> {
@@ -391,7 +391,7 @@ export default class AvatarAPI extends BaseAPI {
         path: `v1/outfits/${options.userOutfitId}/details`
       },
       json: true
-    }).then(response => response.body);
+    }).then((response) => response.body);
   }
 
   deleteOutfit (options: DeleteOutfitOptions): Promise<DeleteOutfit> {
@@ -402,7 +402,7 @@ export default class AvatarAPI extends BaseAPI {
         method: "POST"
       },
       json: true
-    }).then(response => response.body);
+    }).then((response) => response.body);
   }
 
   updateOutfit (options: UpdateOutfitOptions): Promise<UpdateOutfit> {
@@ -414,7 +414,7 @@ export default class AvatarAPI extends BaseAPI {
         json: options
       },
       json: true
-    }).then(response => response.body);
+    }).then((response) => response.body);
   }
 
   wearOutfit (options: WearOutfitOptions): Promise<WearOutfit> {
@@ -425,7 +425,7 @@ export default class AvatarAPI extends BaseAPI {
         method: "POST"
       },
       json: true
-    }).then(response => response.body);
+    }).then((response) => response.body);
   }
 
   createOutfit (options: CreateOutfitOptions): Promise<CreateOutfit> {
@@ -437,7 +437,7 @@ export default class AvatarAPI extends BaseAPI {
         json: options
       },
       json: true
-    }).then(response => response.body);
+    }).then((response) => response.body);
   }
 
   getRecentlyUsed (options: GetRecentItemsOptions): Promise<GetRecentItems> {
@@ -447,6 +447,6 @@ export default class AvatarAPI extends BaseAPI {
         path: `v1/recent-items/${options.recentItemListType}/list`
       },
       json: true
-    }).then(response => response.body);
+    }).then((response) => response.body);
   }
 }

@@ -29,6 +29,6 @@ export default class DataAPI extends BaseAPI {
           Accept: "application/json"
         }
       }
-    }).then(response => response.body);
+    }).then((response) => response.body);
   }
 }

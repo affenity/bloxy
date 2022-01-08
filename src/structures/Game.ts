@@ -502,7 +502,7 @@ export class VIPServer {
       enemyClanId: data.permissions.enemyClanId,
       friendsAllowed: data.permissions.friendsAllowed,
       users: data.permissions.users.map(
-        userData => new structures.PartialUser(userData, client)
+        (userData) => new structures.PartialUser(userData, client)
       )
     };
   }

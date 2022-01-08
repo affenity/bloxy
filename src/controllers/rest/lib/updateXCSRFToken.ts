@@ -15,7 +15,7 @@ export default function updateXCSRFToken (
         allowedStatusCodes: [403]
       }
     })
-    .then(response => {
+    .then((response) => {
       const foundXcsrfToken = response.headers["x-csrf-token"];
 
       if (!foundXcsrfToken) {

@@ -6,7 +6,7 @@ export default function updateHeaders (response: RESTResponse): boolean {
     const setCookieHeader = response.responseData.headers["set-cookie"];
 
     if (Array.isArray(setCookieHeader)) {
-      setCookieHeader.forEach(toSetCookie => {
+      setCookieHeader.forEach((toSetCookie) => {
         const parsedCookie = Cookie.parse(toSetCookie);
 
         if (parsedCookie) {

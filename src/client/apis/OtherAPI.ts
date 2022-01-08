@@ -62,6 +62,6 @@ export default class OtherAPI extends BaseAPI {
         url: `https://www.roblox.com/users/profile/profileheader-json?userId=${options.userId}`
       },
       json: true
-    }).then(response => response.body);
+    }).then((response) => response.body);
   }
 }

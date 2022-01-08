@@ -133,7 +133,7 @@ export default class AccountSettingsAPI extends BaseAPI {
         path: "v1/account/settings/settings-groups"
       },
       json: true
-    }).then(response =>
+    }).then((response) =>
       response.body.map((val: any) => ({
         title: val.Title,
         url: val.Url,
@@ -149,7 +149,7 @@ export default class AccountSettingsAPI extends BaseAPI {
         path: "v1/app-chat-privacy"
       },
       json: true
-    }).then(response => response.body);
+    }).then((response) => response.body);
   }
 
   updateAppChatPrivacy (
@@ -163,7 +163,7 @@ export default class AccountSettingsAPI extends BaseAPI {
         json: options
       },
       json: true
-    }).then(response => response.body);
+    }).then((response) => response.body);
   }
 
   getGameChatPrivacy (): Promise<GetGameChatPrivacy> {
@@ -173,7 +173,7 @@ export default class AccountSettingsAPI extends BaseAPI {
         path: "v1/game-chat-privacy"
       },
       json: true
-    }).then(response => response.body);
+    }).then((response) => response.body);
   }
 
   updateGameChatPrivacy (
@@ -187,7 +187,7 @@ export default class AccountSettingsAPI extends BaseAPI {
         json: options
       },
       json: true
-    }).then(response => response.body);
+    }).then((response) => response.body);
   }
 
   getInventoryPrivacy (): Promise<GetInventoryPrivacy> {
@@ -197,7 +197,7 @@ export default class AccountSettingsAPI extends BaseAPI {
         path: "v1/inventory-privacy"
       },
       json: true
-    }).then(response => response.body);
+    }).then((response) => response.body);
   }
 
   updateInventoryPrivacy (
@@ -211,7 +211,7 @@ export default class AccountSettingsAPI extends BaseAPI {
         json: options
       },
       json: true
-    }).then(response => response.body);
+    }).then((response) => response.body);
   }
 
   getUserPrivacy (): Promise<GetUserPrivacy> {
@@ -221,7 +221,7 @@ export default class AccountSettingsAPI extends BaseAPI {
         path: "v1/privacy"
       },
       json: true
-    }).then(response => response.body);
+    }).then((response) => response.body);
   }
 
   updateUserPrivacy (
@@ -235,7 +235,7 @@ export default class AccountSettingsAPI extends BaseAPI {
         json: options
       },
       json: true
-    }).then(response => response.body);
+    }).then((response) => response.body);
   }
 
   getUserPrivacySettingsInfo (): Promise<GetUserPrivacySettingsInfo> {
@@ -245,7 +245,7 @@ export default class AccountSettingsAPI extends BaseAPI {
         path: "v1/privacy/info"
       },
       json: true
-    }).then(response => response.body as GetUserPrivacySettingsInfo);
+    }).then((response) => response.body as GetUserPrivacySettingsInfo);
   }
 
   getUserPrivateMessagePrivacy (): Promise<GetUserPrivateMessagePrivacy> {
@@ -255,7 +255,7 @@ export default class AccountSettingsAPI extends BaseAPI {
         path: "v1/private-message-privacy"
       },
       json: true
-    }).then(response => response.body as GetUserPrivateMessagePrivacy);
+    }).then((response) => response.body as GetUserPrivateMessagePrivacy);
   }
 
   updateUserPrivateMessagePrivacy (
@@ -279,7 +279,7 @@ export default class AccountSettingsAPI extends BaseAPI {
         path: "v1/email"
       },
       json: true
-    }).then(response => response.body as GetUserEmailStatus);
+    }).then((response) => response.body as GetUserEmailStatus);
   }
 
   updateUserEmail (options: UpdateUserEmailOptions): Promise<UpdateUserEmail> {
@@ -312,7 +312,7 @@ export default class AccountSettingsAPI extends BaseAPI {
         path: `v1/themes/User/${this.client.user!.id}`
       },
       json: true
-    }).then(response => response.body as GetWebsiteTheme);
+    }).then((response) => response.body as GetWebsiteTheme);
   }
 
   updateWebsiteTheme (
@@ -338,7 +338,7 @@ export default class AccountSettingsAPI extends BaseAPI {
         path: "v1/themes/types"
       },
       json: true
-    }).then(response => response.body as GetWebsiteThemes);
+    }).then((response) => response.body as GetWebsiteThemes);
   }
 
   getUserTradePrivacy (): Promise<GetUserTradePrivacy> {
@@ -348,7 +348,7 @@ export default class AccountSettingsAPI extends BaseAPI {
         path: "v1/trade-privacy"
       },
       json: true
-    }).then(response => response.body as GetUserTradePrivacy);
+    }).then((response) => response.body as GetUserTradePrivacy);
   }
 
   updateUserTradePrivacy (
@@ -362,7 +362,7 @@ export default class AccountSettingsAPI extends BaseAPI {
         json: options
       },
       json: true
-    }).then(response => response.body as UpdateUserTradePrivacy);
+    }).then((response) => response.body as UpdateUserTradePrivacy);
   }
 
   getUserTradeQualityFilter (): Promise<GetUserTradeQualityFilter> {
@@ -372,7 +372,7 @@ export default class AccountSettingsAPI extends BaseAPI {
         path: "v1/trade-value"
       },
       json: true
-    }).then(response => response.body as GetUserTradeQualityFilter);
+    }).then((response) => response.body as GetUserTradeQualityFilter);
   }
 
   updateUserTradeQualityFilter (
@@ -400,7 +400,7 @@ export default class AccountSettingsAPI extends BaseAPI {
         json: options
       },
       json: true
-    }).then(response => response.body as UpdateTwoStepStatus);
+    }).then((response) => response.body as UpdateTwoStepStatus);
   }
 
   getContactUpsell (): Promise<GetContactUpsell> {
@@ -410,7 +410,7 @@ export default class AccountSettingsAPI extends BaseAPI {
         path: "v1/user/screens/contact-upsell"
       },
       json: true
-    }).then(response => response.body as GetContactUpsell);
+    }).then((response) => response.body as GetContactUpsell);
   }
 
   updateContactUpsellSuppression (
@@ -441,7 +441,7 @@ export default class AccountSettingsAPI extends BaseAPI {
         }
       },
       json: true
-    }).then(response => response.body as GetIsXboxUsernameValid);
+    }).then((response) => response.body as GetIsXboxUsernameValid);
   }
 
   updateUserPromotionChannels (

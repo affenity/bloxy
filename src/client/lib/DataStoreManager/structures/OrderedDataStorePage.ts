@@ -15,7 +15,7 @@ export default class OrderedDataStorePage<DataType> {
   ) {
     this.orderedDataStore = orderedDataStore;
     this.options = data.options;
-    this.data = data.result.data.Entries.map(x => ({
+    this.data = data.result.data.Entries.map((x) => ({
       key: x.Target,
       value: x.Value
     }));

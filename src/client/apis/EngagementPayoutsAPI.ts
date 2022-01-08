@@ -26,6 +26,6 @@ export default class EngagementPayoutsAPI extends BaseAPI {
         qs: options
       },
       json: true
-    }).then(response => response.body);
+    }).then((response) => response.body);
   }
 }

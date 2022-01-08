@@ -462,7 +462,7 @@ export default class DevelopAPI extends BaseAPI {
         path: `v1/gametemplates`
       },
       json: true
-    }).then(response => response.body.data);
+    }).then((response) => response.body.data);
   }
 
   getGameUpdatesHistory (
@@ -474,7 +474,7 @@ export default class DevelopAPI extends BaseAPI {
         path: `v1/gameUpdateNotifications/${options.universeId}`
       },
       json: true
-    }).then(response => response.body);
+    }).then((response) => response.body);
   }
 
   publishGameUpdateNotification (
@@ -488,7 +488,7 @@ export default class DevelopAPI extends BaseAPI {
         json: `"${options.gameUpdateText}"`
       },
       json: true
-    }).then(response => response.body);
+    }).then((response) => response.body);
   }
 
   filterGameUpdateNotificationText (
@@ -502,7 +502,7 @@ export default class DevelopAPI extends BaseAPI {
         json: `"${options.text}"`
       },
       json: true
-    }).then(response => response.body);
+    }).then((response) => response.body);
   }
 
   getGroupUniverses (
@@ -515,7 +515,7 @@ export default class DevelopAPI extends BaseAPI {
         qs: options
       },
       json: true
-    }).then(response => response.body);
+    }).then((response) => response.body);
   }
 
   getPlaceCompatibilities (
@@ -527,7 +527,7 @@ export default class DevelopAPI extends BaseAPI {
         path: `v1/places/${options.placeId}/compatibilities`
       },
       json: true
-    }).then(response => response.body);
+    }).then((response) => response.body);
   }
 
   updatePlaceConfiguration (
@@ -541,7 +541,7 @@ export default class DevelopAPI extends BaseAPI {
         json: options
       },
       json: true
-    }).then(response => response.body);
+    }).then((response) => response.body);
   }
 
   getPlaceStatistics (
@@ -554,7 +554,7 @@ export default class DevelopAPI extends BaseAPI {
         qs: options
       },
       json: true
-    }).then(response => response.body);
+    }).then((response) => response.body);
   }
 
   getMultiPlugins (options: GetPluginsByIdOptions): Promise<GetPluginsById> {
@@ -567,7 +567,7 @@ export default class DevelopAPI extends BaseAPI {
         }
       },
       json: true
-    }).then(response => response.body);
+    }).then((response) => response.body);
   }
 
   updatePlugin (options: UpdatePluginOptions): Promise<UpdatePlugin> {
@@ -579,7 +579,7 @@ export default class DevelopAPI extends BaseAPI {
         json: options
       },
       json: true
-    }).then(response => response.body);
+    }).then((response) => response.body);
   }
 
   searchUniverses (options: SearchUniversesOptions): Promise<SearchUniverses> {
@@ -607,7 +607,7 @@ export default class DevelopAPI extends BaseAPI {
         }
       },
       json: true
-    }).then(response => response.body);
+    }).then((response) => response.body);
   }
 
   searchToolbox (options: SearchToolboxOptions): Promise<SearchToolbox> {
@@ -618,7 +618,7 @@ export default class DevelopAPI extends BaseAPI {
         qs: options
       },
       json: true
-    }).then(response => response.body);
+    }).then((response) => response.body);
   }
 
   getUniverse (options: GetUniverseOptions): Promise<GetUniverse> {
@@ -628,7 +628,7 @@ export default class DevelopAPI extends BaseAPI {
         path: `v1/universes/${options.universeId}`
       },
       json: true
-    }).then(response => response.body);
+    }).then((response) => response.body);
   }
 
   getSelfUniversePermissions (
@@ -640,7 +640,7 @@ export default class DevelopAPI extends BaseAPI {
         path: `v1/universes/${options.universeId}/permissions`
       },
       json: true
-    }).then(response => response.body);
+    }).then((response) => response.body);
   }
 
   getPlacesInUniverse (
@@ -653,7 +653,7 @@ export default class DevelopAPI extends BaseAPI {
         qs: options
       },
       json: true
-    }).then(response => response.body);
+    }).then((response) => response.body);
   }
 
   getUniverseStatisticReports (
@@ -665,7 +665,7 @@ export default class DevelopAPI extends BaseAPI {
         path: `v1/universes/${options.universeId}/statistic-reports`
       },
       json: true
-    }).then(response => response.body);
+    }).then((response) => response.body);
   }
 
   getUniverseStatisticReportsByTime (
@@ -677,7 +677,7 @@ export default class DevelopAPI extends BaseAPI {
         path: `v1/universes/${options.universeId}/statistic-reports/${options.yearDashMonth}`
       },
       json: true
-    }).then(response => response.body);
+    }).then((response) => response.body);
   }
 
   downloadUniverseStatisticReportsByTime (
@@ -689,7 +689,7 @@ export default class DevelopAPI extends BaseAPI {
         path: `v1/universes/${options.universeId}/statistic-reports/${options.yearDashMonth}/download`
       },
       json: true
-    }).then(response => response.body);
+    }).then((response) => response.body);
   }
 
   getMultiUniverses (
@@ -704,7 +704,7 @@ export default class DevelopAPI extends BaseAPI {
         }
       },
       json: true
-    }).then(response => response.body);
+    }).then((response) => response.body);
   }
 
   getMultiUniversesPermissions (
@@ -719,7 +719,7 @@ export default class DevelopAPI extends BaseAPI {
         }
       },
       json: true
-    }).then(response => response.body);
+    }).then((response) => response.body);
   }
 
   activateUniverse (
@@ -732,7 +732,7 @@ export default class DevelopAPI extends BaseAPI {
         method: "POST"
       },
       json: true
-    }).then(response => response.body);
+    }).then((response) => response.body);
   }
 
   deactivateUniverse (
@@ -745,7 +745,7 @@ export default class DevelopAPI extends BaseAPI {
         method: "POST"
       },
       json: true
-    }).then(response => response.body);
+    }).then((response) => response.body);
   }
 
   generateUniverseStatisticReportsByTime (
@@ -758,7 +758,7 @@ export default class DevelopAPI extends BaseAPI {
         method: "POST"
       },
       json: true
-    }).then(response => response.body);
+    }).then((response) => response.body);
   }
 
   getUniverseConfiguration (
@@ -770,7 +770,7 @@ export default class DevelopAPI extends BaseAPI {
         path: `v1/universes/${options.universeId}/configuration`
       },
       json: true
-    }).then(response => response.body);
+    }).then((response) => response.body);
   }
 
   updateUniverseConfiguration (
@@ -784,7 +784,7 @@ export default class DevelopAPI extends BaseAPI {
         json: options
       },
       json: true
-    }).then(response => response.body);
+    }).then((response) => response.body);
   }
 
   getUniverseVIPServersConfiguration (
@@ -796,7 +796,7 @@ export default class DevelopAPI extends BaseAPI {
         path: `v1/universes/${options.universeId}/configuration/vip-servers`
       },
       json: true
-    }).then(response => response.body);
+    }).then((response) => response.body);
   }
 
   getUniverseTeamCreateSettings (
@@ -808,7 +808,7 @@ export default class DevelopAPI extends BaseAPI {
         path: `v1/universes/${options.universeId}/teamcreate`
       },
       json: true
-    }).then(response => response.body);
+    }).then((response) => response.body);
   }
 
   updateUniverseTeamCreateSettings (
@@ -822,7 +822,7 @@ export default class DevelopAPI extends BaseAPI {
         json: options
       },
       json: true
-    }).then(response => response.body);
+    }).then((response) => response.body);
   }
 
   removeUserFromUniverseTeamCreate (
@@ -836,7 +836,7 @@ export default class DevelopAPI extends BaseAPI {
         json: options
       },
       json: true
-    }).then(response => response.body);
+    }).then((response) => response.body);
   }
 
   getUniverseTeamCreateMembers (
@@ -849,7 +849,7 @@ export default class DevelopAPI extends BaseAPI {
         qs: options
       },
       json: true
-    }).then(response => response.body);
+    }).then((response) => response.body);
   }
 
   getSelfUniversesTeamCreateAccess (
@@ -862,7 +862,7 @@ export default class DevelopAPI extends BaseAPI {
         qs: options
       },
       json: true
-    }).then(response => response.body);
+    }).then((response) => response.body);
   }
 
   getSelfManageableGroups (): Promise<GetSelfGroupsAccess> {
@@ -872,7 +872,7 @@ export default class DevelopAPI extends BaseAPI {
         path: `v1/user/groups/canmanage`
       },
       json: true
-    }).then(response => response.body);
+    }).then((response) => response.body);
   }
 
   getSelfNotificationStatisticReports (): Promise<GetNotificationsStatisticReports> {
@@ -882,7 +882,7 @@ export default class DevelopAPI extends BaseAPI {
         path: `v1/user/notifications/statistic-reports`
       },
       json: true
-    }).then(response => response.body);
+    }).then((response) => response.body);
   }
 
   getStudioData (options: GetStudioDataOptions): Promise<GetStudioData> {
@@ -893,7 +893,7 @@ export default class DevelopAPI extends BaseAPI {
         qs: options
       },
       json: true
-    }).then(response => response.body);
+    }).then((response) => response.body);
   }
 
   setStudioData (options: SetStudioDataOptions): Promise<SetStudioData> {
@@ -908,7 +908,7 @@ export default class DevelopAPI extends BaseAPI {
         }
       },
       json: true
-    }).then(response => response.body);
+    }).then((response) => response.body);
   }
 
   getSelfUniverses (
@@ -921,7 +921,7 @@ export default class DevelopAPI extends BaseAPI {
         qs: options
       },
       json: true
-    }).then(response => response.body);
+    }).then((response) => response.body);
   }
 
   createUniverseAlias (
@@ -933,7 +933,7 @@ export default class DevelopAPI extends BaseAPI {
         path: `v1/universes/${options.targetId}/aliases`
       },
       json: true
-    }).then(response => response.body);
+    }).then((response) => response.body);
   }
 
   deleteUniverseAlias (
@@ -946,7 +946,7 @@ export default class DevelopAPI extends BaseAPI {
         method: "DELETE"
       },
       json: true
-    }).then(response => response.body);
+    }).then((response) => response.body);
   }
 
   updateUniverseAlias (
@@ -960,7 +960,7 @@ export default class DevelopAPI extends BaseAPI {
         json: options
       },
       json: true
-    }).then(response => response.body);
+    }).then((response) => response.body);
   }
 
   createDeveloperProduct (
@@ -974,7 +974,7 @@ export default class DevelopAPI extends BaseAPI {
         qs: options
       },
       json: true
-    }).then(response => response.body);
+    }).then((response) => response.body);
   }
 
   updateDeveloperProduct (
@@ -988,6 +988,6 @@ export default class DevelopAPI extends BaseAPI {
         json: options
       },
       json: true
-    }).then(response => response.body);
+    }).then((response) => response.body);
   }
 }

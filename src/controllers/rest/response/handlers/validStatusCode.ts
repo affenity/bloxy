@@ -16,10 +16,10 @@ export default function validStatusCode (
     const disallowedStatusCodes = responseOptions.disallowedStatusCodes || [];
 
     const isAllowed = allowedStatusCodes.some(
-      statusCode => responseData.statusCode === statusCode
+      (statusCode) => responseData.statusCode === statusCode
     );
     const isDisallowed = disallowedStatusCodes.some(
-      statusCode => responseData.statusCode === statusCode
+      (statusCode) => responseData.statusCode === statusCode
     );
 
     if (allowedStatusCodes.length > 0) {

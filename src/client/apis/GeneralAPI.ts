@@ -166,7 +166,7 @@ export default class GeneralAPI extends BaseAPI {
         path: `assets/${options}/versions`
       },
       json: true
-    }).then(response => response.body);
+    }).then((response) => response.body);
   }
 
   awardBadge (options: AwardBadgeOptions): Promise<AwardBadge> {
@@ -186,7 +186,7 @@ export default class GeneralAPI extends BaseAPI {
       request: {
         path: "currency/balance"
       }
-    }).then(response => response.body as GetBalance);
+    }).then((response) => response.body as GetBalance);
   }
 
   getUserFriends (options: GetUserFriendsOptions): Promise<GetUserFriends> {
@@ -199,7 +199,7 @@ export default class GeneralAPI extends BaseAPI {
         }
       },
       json: true
-    }).then(response => response.body);
+    }).then((response) => response.body);
   }
 
   acceptFriendRequest (
@@ -257,7 +257,7 @@ export default class GeneralAPI extends BaseAPI {
         qs: options
       },
       json: true
-    }).then(response => response.body.count);
+    }).then((response) => response.body.count);
   }
 
   unfriendUser (options: UnfriendUserOptions): Promise<UnfriendUser> {
@@ -280,7 +280,7 @@ export default class GeneralAPI extends BaseAPI {
         path: "user/following-exists",
         qs: options
       }
-    }).then(response => response.body.isFollowing);
+    }).then((response) => response.body.isFollowing);
   }
 
   followUser (options: FollowUserOptions): Promise<FollowUser> {
@@ -315,7 +315,7 @@ export default class GeneralAPI extends BaseAPI {
       request: {
         path: `users/${options.userId}/groups`
       }
-    }).then(response => response.body);
+    }).then((response) => response.body);
   }
 
   getGroup (options: GetGroupOptions): Promise<GetGroup> {
@@ -325,7 +325,7 @@ export default class GeneralAPI extends BaseAPI {
         path: `groups/${options.groupId}`
       },
       json: true
-    }).then(response => response.body);
+    }).then((response) => response.body);
   }
 
   getGroupAllies (options: GetGroupAlliesOptions): Promise<GetGroupAllies> {
@@ -338,7 +338,7 @@ export default class GeneralAPI extends BaseAPI {
         }
       },
       json: true
-    }).then(response => response.body);
+    }).then((response) => response.body);
   }
 
   getGroupEnemies (options: GetGroupEnemiesOptions): Promise<GetGroupEnemies> {
@@ -351,7 +351,7 @@ export default class GeneralAPI extends BaseAPI {
         }
       },
       json: true
-    }).then(response => response.body);
+    }).then((response) => response.body);
   }
 
   getIncomingItems (): Promise<GetIncomingItems> {
@@ -375,7 +375,7 @@ export default class GeneralAPI extends BaseAPI {
         qs: options
       },
       json: true
-    }).then(response => response.body);
+    }).then((response) => response.body);
   }
 
   getGamePassProductInfo (
@@ -388,7 +388,7 @@ export default class GeneralAPI extends BaseAPI {
         qs: options
       },
       json: true
-    }).then(response => response.body);
+    }).then((response) => response.body);
   }
 
   userOwnsAsset (options: UserOwnsAssetOptions): Promise<UserOwnsAsset> {
@@ -399,7 +399,7 @@ export default class GeneralAPI extends BaseAPI {
         qs: options
       }
     }).then(
-      response => (response.body as string).includes("true") as UserOwnsAsset
+      (response) => (response.body as string).includes("true") as UserOwnsAsset
     );
   }
 
@@ -409,7 +409,7 @@ export default class GeneralAPI extends BaseAPI {
       request: {
         path: "reference/deviceinfo"
       }
-    }).then(response => ({
+    }).then((response) => ({
       deviceType: response.body.DeviceType,
       operatingSystemType: response.body.OperationSystemType,
       platformType: response.body.PlatformType
@@ -425,7 +425,7 @@ export default class GeneralAPI extends BaseAPI {
         method: "POST"
       },
       json: true
-    }).then(response => response.body.success === (true as BlockUser));
+    }).then((response) => response.body.success === (true as BlockUser));
   }
 
   unblockUser (options: UnblockUserOptions): Promise<UnblockUser> {
@@ -437,7 +437,7 @@ export default class GeneralAPI extends BaseAPI {
         method: "POST"
       },
       json: true
-    }).then(response => response.body.success === (true as UnblockUser));
+    }).then((response) => response.body.success === (true as UnblockUser));
   }
 
   getUserById (options: GetUserByIdOptions): Promise<GetUserById> {
@@ -447,7 +447,7 @@ export default class GeneralAPI extends BaseAPI {
         path: `users/${options.userId}`
       },
       json: true
-    }).then(response => ({
+    }).then((response) => ({
       id: response.body.Id,
       name: response.body.Username
     }));
@@ -463,7 +463,7 @@ export default class GeneralAPI extends BaseAPI {
         qs: options
       },
       json: true
-    }).then(response => ({
+    }).then((response) => ({
       id: response.body.Id,
       name: response.body.Username
     }));
@@ -479,7 +479,7 @@ export default class GeneralAPI extends BaseAPI {
       },
       json: true
     }).then(
-      response => response.body.CanManage === (true as UserCanManageAsset)
+      (response) => response.body.CanManage === (true as UserCanManageAsset)
     );
   }
 }

@@ -71,7 +71,7 @@ class RESTController {
    */
 
   fetchXCSRFToken (): Promise<string> {
-    return updateXCSRFToken(this).then(xcsrfToken => {
+    return updateXCSRFToken(this).then((xcsrfToken) => {
       this.setXCSRFToken(xcsrfToken);
       return xcsrfToken;
     });
@@ -98,7 +98,7 @@ class RESTController {
           DefaultRESTControllerOptions.xcsrfRefreshInterval)
     ) {
       // Refresh token
-      await this.fetchXCSRFToken().then(token => {
+      await this.fetchXCSRFToken().then((token) => {
         this.setXCSRFToken(token);
       });
     }

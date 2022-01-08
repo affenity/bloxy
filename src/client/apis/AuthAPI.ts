@@ -223,7 +223,7 @@ export default class AuthAPI extends BaseAPI {
           origin: "roblox.com"
         }
       }
-    }).then(response => ({
+    }).then((response) => ({
       authTicket: response.headers["rbx-authentication-ticket"]
     }));
   }
@@ -235,7 +235,7 @@ export default class AuthAPI extends BaseAPI {
       request: {
         path: "v2/auth/metadata"
       }
-    }).then(response => response.body as GetAuthMetaData);
+    }).then((response) => response.body as GetAuthMetaData);
   }
 
   login (options: LoginOptions): Promise<Login> {
@@ -247,7 +247,7 @@ export default class AuthAPI extends BaseAPI {
         method: "POST",
         json: options
       }
-    }).then(response => response.body as Login);
+    }).then((response) => response.body as Login);
   }
 
   logout (): Promise<Logout> {
@@ -258,7 +258,7 @@ export default class AuthAPI extends BaseAPI {
         path: "v2/logout",
         method: "POST"
       }
-    }).then(response => response.body as Logout);
+    }).then((response) => response.body as Logout);
   }
 
   getCredentialsVerificationStatus (
@@ -275,7 +275,7 @@ export default class AuthAPI extends BaseAPI {
           "request.password": options.password
         }
       }
-    }).then(response => response.body as GetCredentialsVerificationStatus);
+    }).then((response) => response.body as GetCredentialsVerificationStatus);
   }
 
   sendCredentialsVerificationMessage (
@@ -289,7 +289,7 @@ export default class AuthAPI extends BaseAPI {
         method: "POST",
         json: options
       }
-    }).then(response => response.body as SendCredentialsVerificationMessage);
+    }).then((response) => response.body as SendCredentialsVerificationMessage);
   }
 
   getMetaData (): Promise<GetMetaData> {
@@ -299,7 +299,7 @@ export default class AuthAPI extends BaseAPI {
       request: {
         path: "v2/metadata"
       }
-    }).then(response => response.body as GetMetaData);
+    }).then((response) => response.body as GetMetaData);
   }
 
   getCurrentUserPasswordStatus (): Promise<GetCurrentPasswordStatus> {
@@ -309,7 +309,7 @@ export default class AuthAPI extends BaseAPI {
       request: {
         path: "v2/passwords/current-status"
       }
-    }).then(response => response.body as GetCurrentPasswordStatus);
+    }).then((response) => response.body as GetCurrentPasswordStatus);
   }
 
   getPasswordResetMetaData (
@@ -325,7 +325,7 @@ export default class AuthAPI extends BaseAPI {
           "request.ticket": options.ticket
         }
       }
-    }).then(response => response.body as GetPasswordResetMetaData);
+    }).then((response) => response.body as GetPasswordResetMetaData);
   }
 
   resetPassword (options: ResetPasswordOptions): Promise<ResetPassword> {
@@ -337,7 +337,7 @@ export default class AuthAPI extends BaseAPI {
         method: "POST",
         json: options
       }
-    }).then(response => response.body as ResetPassword);
+    }).then((response) => response.body as ResetPassword);
   }
 
   validatePassword (
@@ -353,7 +353,7 @@ export default class AuthAPI extends BaseAPI {
           "request.password": options.password
         }
       }
-    }).then(response => response.body as ValidatePassword);
+    }).then((response) => response.body as ValidatePassword);
   }
 
   sendPasswordReset (
@@ -367,7 +367,7 @@ export default class AuthAPI extends BaseAPI {
         method: "POST",
         json: options
       }
-    }).then(response => response.body as SendPasswordReset);
+    }).then((response) => response.body as SendPasswordReset);
   }
 
   verifyPasswordReset (
@@ -381,7 +381,7 @@ export default class AuthAPI extends BaseAPI {
         method: "POST",
         json: options
       }
-    }).then(response => response.body as VerifyPasswordReset);
+    }).then((response) => response.body as VerifyPasswordReset);
   }
 
   changeUserPassword (
@@ -395,7 +395,7 @@ export default class AuthAPI extends BaseAPI {
         method: "POST",
         json: options
       }
-    }).then(response => response.body as ChangeUserPassword);
+    }).then((response) => response.body as ChangeUserPassword);
   }
 
   getRecoveryMetaData (): Promise<GetRecoveryMetaData> {
@@ -405,7 +405,7 @@ export default class AuthAPI extends BaseAPI {
       request: {
         path: "v2/recovery/metadata"
       }
-    }).then(response => response.body as GetRecoveryMetaData);
+    }).then((response) => response.body as GetRecoveryMetaData);
   }
 
   getRevertAccountInfo (
@@ -420,7 +420,7 @@ export default class AuthAPI extends BaseAPI {
           ticket: options.ticket
         }
       }
-    }).then(response => response.body as RevertAccountInfo);
+    }).then((response) => response.body as RevertAccountInfo);
   }
 
   revertAccount (options: RevertAccountOptions): Promise<RevertAccount> {
@@ -432,7 +432,7 @@ export default class AuthAPI extends BaseAPI {
         method: "POST",
         json: options
       }
-    }).then(response => response.body as RevertAccount);
+    }).then((response) => response.body as RevertAccount);
   }
 
   getSAMLMetaData (): Promise<GetSAMLMetaData> {
@@ -442,7 +442,7 @@ export default class AuthAPI extends BaseAPI {
       request: {
         path: "v2/saml/metadata"
       }
-    }).then(response => response.body as GetSAMLMetaData);
+    }).then((response) => response.body as GetSAMLMetaData);
   }
 
   samlAuthenticate (): Promise<SAMLRequest> {
@@ -453,7 +453,7 @@ export default class AuthAPI extends BaseAPI {
         path: "v2/saml/login",
         method: "POST"
       }
-    }).then(response => response.body as SAMLRequest);
+    }).then((response) => response.body as SAMLRequest);
   }
 
   getTwoStepVerificationMetaData (): Promise<GetTwoStepVerificationMetaData> {
@@ -463,7 +463,7 @@ export default class AuthAPI extends BaseAPI {
       request: {
         path: "v2/twostepverification/metadata"
       }
-    }).then(response => response.body as GetTwoStepVerificationMetaData);
+    }).then((response) => response.body as GetTwoStepVerificationMetaData);
   }
 
   resendTwoStepVerificationCode (
@@ -477,7 +477,7 @@ export default class AuthAPI extends BaseAPI {
         method: "POST",
         json: options
       }
-    }).then(response => response.body as ResendTwoStepVerification);
+    }).then((response) => response.body as ResendTwoStepVerification);
   }
 
   verifyTwoStepCode (
@@ -491,7 +491,7 @@ export default class AuthAPI extends BaseAPI {
         method: "POST",
         json: options
       }
-    }).then(response => response.body as VerifyTwoStepVerification);
+    }).then((response) => response.body as VerifyTwoStepVerification);
   }
 
   getExistingUsernames (
@@ -506,7 +506,7 @@ export default class AuthAPI extends BaseAPI {
           username: options.username
         }
       }
-    }).then(response => response.body as GetExistingUsernames);
+    }).then((response) => response.body as GetExistingUsernames);
   }
 
   validateUsername (
@@ -523,7 +523,7 @@ export default class AuthAPI extends BaseAPI {
           "request.context": options.context
         }
       }
-    }).then(response => response.body as ValidateUsername);
+    }).then((response) => response.body as ValidateUsername);
   }
 
   recoverUsernames (
@@ -536,7 +536,7 @@ export default class AuthAPI extends BaseAPI {
         path: "v2/twostepverification/metadata",
         json: options
       }
-    }).then(response => response.body as RecoverUsernames);
+    }).then((response) => response.body as RecoverUsernames);
   }
 
   signUp (options: SignUpOptions): Promise<SignUp> {
@@ -548,7 +548,7 @@ export default class AuthAPI extends BaseAPI {
         method: "POST",
         json: options
       }
-    }).then(response => response.body as SignUp);
+    }).then((response) => response.body as SignUp);
   }
 
   changeUserUsername (options: ChangeUsernameOptions): Promise<ChangeUsername> {
@@ -560,6 +560,6 @@ export default class AuthAPI extends BaseAPI {
         method: "POST",
         json: options
       }
-    }).then(response => response.body as ChangeUsername);
+    }).then((response) => response.body as ChangeUsername);
   }
 }

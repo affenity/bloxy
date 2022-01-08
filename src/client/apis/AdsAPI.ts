@@ -43,7 +43,7 @@ export default class AdsAPI extends BaseAPI {
           assetId: options.assetId
         }
       }
-    }).then(response => response.body as CreateAssetAd);
+    }).then((response) => response.body as CreateAssetAd);
   }
 
   createGamePassAd (
@@ -62,7 +62,7 @@ export default class AdsAPI extends BaseAPI {
           gamePassId: options.gamePassId
         }
       }
-    }).then(response => response.body as CreateGamePassAd);
+    }).then((response) => response.body as CreateGamePassAd);
   }
 
   createGroupAd (options: CreateGroupAdOptions): Promise<CreateAssetAd> {
@@ -79,6 +79,6 @@ export default class AdsAPI extends BaseAPI {
           groupId: options.groupId
         }
       }
-    }).then(response => response.body as CreateGroupAd);
+    }).then((response) => response.body as CreateGroupAd);
   }
 }

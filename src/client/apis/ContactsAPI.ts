@@ -41,7 +41,7 @@ export default class ContactsAPI extends BaseAPI {
         path: `v1/contacts/metadata`
       },
       json: true
-    }).then(response => response.body);
+    }).then((response) => response.body);
   }
 
   getUsersTags (options: GetUsersTagsOptions): Promise<GetUsersTags> {
@@ -53,7 +53,7 @@ export default class ContactsAPI extends BaseAPI {
         json: options
       },
       json: true
-    }).then(response => response.body);
+    }).then((response) => response.body);
   }
 
   setPendingUserTag (
@@ -67,7 +67,7 @@ export default class ContactsAPI extends BaseAPI {
         json: options
       },
       json: true
-    }).then(response => response.body);
+    }).then((response) => response.body);
   }
 
   setUserTag (options: SetUserTagOptions): Promise<SetUserTag> {
@@ -79,6 +79,6 @@ export default class ContactsAPI extends BaseAPI {
         json: options
       },
       json: true
-    }).then(response => response.body);
+    }).then((response) => response.body);
   }
 }

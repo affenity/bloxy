@@ -34,6 +34,6 @@ export default class EconomyCreatorStatsAPI extends BaseAPI {
         }
       },
       json: true
-    }).then(response => response.body);
+    }).then((response) => response.body);
   }
 }

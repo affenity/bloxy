@@ -53,7 +53,7 @@ export default class BaseAPI {
 
     return this.options.client.rest
       .request(options.request as RESTRequestOptions)
-      .then(response => {
+      .then((response) => {
         if (options.json && !(response.body instanceof Object)) {
           response.body = JSON.parse(response.body);
         }

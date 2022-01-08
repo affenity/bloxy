@@ -109,7 +109,7 @@ export class UserBase {
       .getUserStatus({
         userId: this.id
       })
-      .then(response => response.status);
+      .then((response) => response.status);
   }
 
   getAvatar (): Promise<GetUserAvatar> {
@@ -144,7 +144,7 @@ export class UserBase {
         userId: this.id
       })
       .then(
-        response =>
+        (response) =>
           new CursorPageClass(
             this.client,
             options || {},
@@ -162,8 +162,8 @@ export class UserBase {
         badgeIds: badges,
         userId: this.id
       })
-      .then(response =>
-        response.data.map(badgeAwarded => ({
+      .then((response) =>
+        response.data.map((badgeAwarded) => ({
           id: badgeAwarded.badgeId,
           awardedAt: new Date(badgeAwarded.awardedDate)
         }))
@@ -188,7 +188,7 @@ export class UserBase {
         userId: this.id
       })
       .then(
-        response =>
+        (response) =>
           new CursorPageClass(
             this.client,
             options || {},
@@ -211,7 +211,7 @@ export class UserBase {
         bundleType
       })
       .then(
-        response =>
+        (response) =>
           new CursorPageClass(
             this.client,
             options || {},
@@ -250,7 +250,7 @@ export class UserBase {
       .getUsersTags({
         targetUserIds: [this.id]
       })
-      .then(response => response[0]);
+      .then((response) => response[0]);
   }
 
   setPendingTag (tag: string): Promise<SetPendingUserTag> {
@@ -296,7 +296,7 @@ export class UserBase {
         userId: this.id
       })
       .then(
-        response =>
+        (response) =>
           new CursorPageClass(
             this.client,
             options || {},
@@ -311,7 +311,7 @@ export class UserBase {
       .getUserFollowersCount({
         userId: this.id
       })
-      .then(response => response.count);
+      .then((response) => response.count);
   }
 
   getFollowing (
@@ -325,7 +325,7 @@ export class UserBase {
         userId: this.id
       })
       .then(
-        response =>
+        (response) =>
           new CursorPageClass(
             this.client,
             options || {},
@@ -340,7 +340,7 @@ export class UserBase {
       .getUserFollowingCount({
         userId: this.id
       })
-      .then(response => response.count);
+      .then((response) => response.count);
   }
 
   getFriends (): Promise<FriendRequest[]> {
@@ -348,9 +348,9 @@ export class UserBase {
       .getUserFriends({
         userId: this.id
       })
-      .then(response =>
+      .then((response) =>
         response.data.map(
-          friendRequest => new FriendRequest(friendRequest, this.client)
+          (friendRequest) => new FriendRequest(friendRequest, this.client)
         )
       );
   }
@@ -360,7 +360,7 @@ export class UserBase {
       .getUserFriendsCount({
         userId: this.id
       })
-      .then(data => data.count);
+      .then((data) => data.count);
   }
 
   getFriendsWithStatuses (
@@ -414,7 +414,7 @@ export class UserBase {
       .canSelfInviteUserToVIPServer({
         userId: this.id
       })
-      .then(response => response.canInvite);
+      .then((response) => response.canInvite);
   }
 
   awardBadge (badgeId: number, placeId: number): Promise<string> {
@@ -424,7 +424,7 @@ export class UserBase {
         placeId,
         userId: this.id
       })
-      .then(response => response as unknown as string);
+      .then((response) => response as unknown as string);
   }
 
   isFollowedByUser (userId: number): Promise<boolean> {
@@ -550,7 +550,7 @@ export class UserBase {
         userId: this.id
       })
       .then(
-        response =>
+        (response) =>
           new CursorPageClass(
             this.client,
             options || {},
@@ -573,7 +573,7 @@ export class UserBase {
         userId: this.id
       })
       .then(
-        response =>
+        (response) =>
           new CursorPageClass(
             this.client,
             {},
@@ -594,7 +594,7 @@ export class UserBase {
         userId: this.id
       })
       .then(
-        response =>
+        (response) =>
           new CursorPageClass(this.client, options, response, this.getInventory)
       );
   }
@@ -610,7 +610,7 @@ export class UserBase {
         userId: this.id
       })
       .then(
-        response =>
+        (response) =>
           new CursorPageClass(
             this.client,
             options,
@@ -644,7 +644,7 @@ export class UserBase {
       .getUsersPresences({
         userIds: [this.id]
       })
-      .then(response => response.userPresences[0]);
+      .then((response) => response.userPresences[0]);
   }
 
   sendMessage (
@@ -664,7 +664,7 @@ export class UserBase {
         ...options,
         userIds: [this.id]
       })
-      .then(response => response.data[0]);
+      .then((response) => response.data[0]);
   }
 
   getAvatarBustImage (
@@ -675,7 +675,7 @@ export class UserBase {
         ...options,
         userIds: [this.id]
       })
-      .then(response => response.data[0]);
+      .then((response) => response.data[0]);
   }
 
   getAvatarHeadShotImage (
@@ -686,7 +686,7 @@ export class UserBase {
         ...options,
         userIds: [this.id]
       })
-      .then(response => response.data[0]);
+      .then((response) => response.data[0]);
   }
 
   getCanTrade (): Promise<boolean> {
@@ -694,14 +694,14 @@ export class UserBase {
       .canTradeWith({
         userId: this.id
       })
-      .then(response => response.canTrade);
+      .then((response) => response.canTrade);
   }
 
   sendTrade (
     offers: Omit<SendTradeOptions["offers"][0], "userId">[]
   ): Promise<SendTrade> {
     return this.client.apis.tradesAPI.sendTrade({
-      offers: offers.map(offerData => ({
+      offers: offers.map((offerData) => ({
         userId: this.id,
         robux: offerData.robux,
         userAssetIds: offerData.userAssetIds

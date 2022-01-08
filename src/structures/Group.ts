@@ -123,7 +123,7 @@ export class GroupBase {
         ...options,
         groupId: this.id
       })
-      .then(response => {
+      .then((response) => {
         const CursorPageClass = require("./Asset").CursorPage;
         const structures = retrieveStructures();
 
@@ -133,7 +133,7 @@ export class GroupBase {
           {
             ...response,
             data: response.data.map(
-              universeData =>
+              (universeData) =>
                 new structures.PartialGameUniverse(
                   {
                     id: universeData.id,
@@ -160,7 +160,7 @@ export class GroupBase {
   canSelfManage (): Promise<boolean> {
     return this.client.apis.developAPI
       .getSelfManageableGroups()
-      .then(response => !!response.data.find(data => data.id === this.id));
+      .then((response) => !!response.data.find((data) => data.id === this.id));
   }
 
   /**
@@ -172,7 +172,7 @@ export class GroupBase {
       .getGroupCurrency({
         groupId: this.id
       })
-      .then(response => response.robux);
+      .then((response) => response.robux);
   }
 
   getRevenueSummaryInTimeFrame (
@@ -204,11 +204,11 @@ export class GroupBase {
         maxRows: maxItems,
         startRowIndex: startItem
       })
-      .then(response => ({
+      .then((response) => ({
         ...response,
         relationshipType: "allies",
         groups: response.relatedGroups.map(
-          groupData => new Group(groupData, this.client)
+          (groupData) => new Group(groupData, this.client)
         )
       }));
   }
@@ -224,11 +224,11 @@ export class GroupBase {
         maxRows: maxItems,
         startRowIndex: startItem
       })
-      .then(response => ({
+      .then((response) => ({
         ...response,
         relationshipType: "enemies",
         groups: response.relatedGroups.map(
-          groupData => new Group(groupData, this.client)
+          (groupData) => new Group(groupData, this.client)
         )
       }));
   }
@@ -242,9 +242,9 @@ export class GroupBase {
       .getUserGroups({
         userId
       })
-      .then(response => {
+      .then((response) => {
         const foundGroup = response.data.find(
-          groupData => groupData.group.id === this.id
+          (groupData) => groupData.group.id === this.id
         );
 
         if (foundGroup) {
@@ -324,7 +324,7 @@ export class GroupBase {
         ...options
       })
       .then(
-        response =>
+        (response) =>
           new CursorPageClass(
             this.client,
             options,
@@ -375,9 +375,9 @@ export class GroupBase {
       .getGroupRoles({
         groupId: this.id
       })
-      .then(response =>
+      .then((response) =>
         response.roles.map(
-          roleData =>
+          (roleData) =>
             new GroupRole(
               {
                 group: {
@@ -403,7 +403,7 @@ export class GroupBase {
         ...options
       })
       .then(
-        response =>
+        (response) =>
           new CursorPageClass(
             this.client,
             options,
@@ -424,7 +424,7 @@ export class GroupBase {
         ...options
       })
       .then(
-        response =>
+        (response) =>
           new CursorPageClass(this.client, options, response, this.getMembers)
       );
   }
@@ -441,8 +441,8 @@ export class GroupBase {
     return this.client.apis.groupsAPI
       .getSelfPendingGroupJoins()
       .then(
-        response =>
-          (response.data.find(groupData => groupData.id === this.id) &&
+        (response) =>
+          (response.data.find((groupData) => groupData.id === this.id) &&
             true) ||
           false
       );
@@ -648,7 +648,7 @@ export class GroupBase {
         ...options
       })
       .then(
-        response =>
+        (response) =>
           new CursorPageClass(this.client, options, response, this.getWallPosts)
       );
   }
@@ -676,7 +676,7 @@ export class GroupBase {
           userId
         })
         // eslint-disable-next-line @typescript-eslint/no-use-before-define
-        .then(response =>
+        .then((response) =>
           response && response.group && response.role ?
             new GroupMember(
               {

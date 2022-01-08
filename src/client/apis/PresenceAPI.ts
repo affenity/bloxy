@@ -43,7 +43,7 @@ export default class PresenceAPI extends BaseAPI {
         json: options
       },
       json: true
-    }).then(response => response.body);
+    }).then((response) => response.body);
   }
 
   getUsersPresences (
@@ -57,6 +57,6 @@ export default class PresenceAPI extends BaseAPI {
         json: options
       },
       json: true
-    }).then(response => response.body);
+    }).then((response) => response.body);
   }
 }

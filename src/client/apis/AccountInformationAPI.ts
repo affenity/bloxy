@@ -86,7 +86,7 @@ export default class AccountInformationAPI extends BaseAPI {
         path: "v1/birthdate"
       },
       json: true
-    }).then(response => response.body as GetUserBirthdate);
+    }).then((response) => response.body as GetUserBirthdate);
   }
 
   updateUserBirthdate (
@@ -110,7 +110,7 @@ export default class AccountInformationAPI extends BaseAPI {
         path: "v1/description"
       },
       json: true
-    }).then(response => response.body as GetUserDescription);
+    }).then((response) => response.body as GetUserDescription);
   }
 
   updateUserDescription (
@@ -134,7 +134,7 @@ export default class AccountInformationAPI extends BaseAPI {
         path: "v1/gender"
       },
       json: true
-    }).then(response => response.body as GetUserGender);
+    }).then((response) => response.body as GetUserGender);
   }
 
   updateUserGender (
@@ -158,7 +158,7 @@ export default class AccountInformationAPI extends BaseAPI {
         path: "v1/xbox-live/consecutive-login-days"
       },
       json: true
-    }).then(response => response.body as GetConsecutiveXboxLoginDays);
+    }).then((response) => response.body as GetConsecutiveXboxLoginDays);
   }
 
   getMetaData () {
@@ -168,7 +168,7 @@ export default class AccountInformationAPI extends BaseAPI {
         path: "v1/metadata"
       },
       json: true
-    }).then(response => response.body as GetMetaData);
+    }).then((response) => response.body as GetMetaData);
   }
 
   getVerifiedPhoneNumber (): Promise<GetVerifiedPhoneNumber> {
@@ -178,7 +178,7 @@ export default class AccountInformationAPI extends BaseAPI {
         path: "v1/phone"
       },
       json: true
-    }).then(response => response.body as GetVerifiedPhoneNumber);
+    }).then((response) => response.body as GetVerifiedPhoneNumber);
   }
 
   setPhoneNumber (options: SetPhoneNumberOptions): Promise<SetPhoneNumber> {
@@ -236,7 +236,7 @@ export default class AccountInformationAPI extends BaseAPI {
         path: "v1/promotion-channels"
       },
       json: true
-    }).then(response => response.body as GetSelfPromotionChannels);
+    }).then((response) => response.body as GetSelfPromotionChannels);
   }
 
   getUserPromotionChannels (
@@ -248,7 +248,7 @@ export default class AccountInformationAPI extends BaseAPI {
         path: `v1/users/${options.userId}/promotion-channels`
       },
       json: true
-    }).then(response => response.body);
+    }).then((response) => response.body);
   }
 
   updateUserPromotionChannels (
@@ -262,7 +262,7 @@ export default class AccountInformationAPI extends BaseAPI {
         json: options
       },
       json: true
-    }).then(response => response.body as UpdateUserPromotionChannels);
+    }).then((response) => response.body as UpdateUserPromotionChannels);
   }
 
   removeStarCodeAffiliate (): Promise<RemoveStarCodeAffiliate> {
@@ -283,7 +283,7 @@ export default class AccountInformationAPI extends BaseAPI {
         path: "v1/star-code-affiliates"
       },
       json: true
-    }).then(response => response.body as GetStarCodeAffiliate);
+    }).then((response) => response.body as GetStarCodeAffiliate);
   }
 
   addStarCodeAffiliate (
@@ -297,6 +297,6 @@ export default class AccountInformationAPI extends BaseAPI {
         json: options
       },
       json: true
-    }).then(response => response.body as AddStarCodeAffiliate);
+    }).then((response) => response.body as AddStarCodeAffiliate);
   }
 }

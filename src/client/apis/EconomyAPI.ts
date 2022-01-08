@@ -187,7 +187,7 @@ export default class EconomyAPI extends BaseAPI {
         path: `v1/assets/${options.assetId}/resale-data`
       },
       json: true
-    }).then(response => response.body);
+    }).then((response) => response.body);
   }
 
   getAssetResellers (
@@ -200,7 +200,7 @@ export default class EconomyAPI extends BaseAPI {
         qs: options
       },
       json: true
-    }).then(response => response.body);
+    }).then((response) => response.body);
   }
 
   getUserResellableAssetCopies (
@@ -212,7 +212,7 @@ export default class EconomyAPI extends BaseAPI {
         path: `v1/assets/${options.assetId}/users/${options.userId}/resellable-copies`
       },
       json: true
-    }).then(response => response.body);
+    }).then((response) => response.body);
   }
 
   getResaleTaxRate (): Promise<GetResaleTaxRate> {
@@ -222,7 +222,7 @@ export default class EconomyAPI extends BaseAPI {
         path: `v1/resale-tax-rate`
       },
       json: true
-    }).then(response => response.body);
+    }).then((response) => response.body);
   }
 
   setAssetCopiesForSale (
@@ -238,7 +238,7 @@ export default class EconomyAPI extends BaseAPI {
         }
       },
       json: true
-    }).then(response => response.body);
+    }).then((response) => response.body);
   }
 
   getDeveloperExchangeAbility (): Promise<GetDeveloperExchangeAbility> {
@@ -248,7 +248,7 @@ export default class EconomyAPI extends BaseAPI {
         path: `v1/developer-exchange/cashoutAbility`
       },
       json: true
-    }).then(response => response.body);
+    }).then((response) => response.body);
   }
 
   getDeveloperExchangeHelp (): Promise<GetDeveloperExchangeHelp> {
@@ -258,7 +258,7 @@ export default class EconomyAPI extends BaseAPI {
         path: `v1/developer-exchange/help`
       },
       json: true
-    }).then(response => response.body);
+    }).then((response) => response.body);
   }
 
   getDeveloperExchangeInfo (
@@ -271,7 +271,7 @@ export default class EconomyAPI extends BaseAPI {
         qs: options
       },
       json: true
-    }).then(response => response.body);
+    }).then((response) => response.body);
   }
 
   submitDeveloperExchange (
@@ -285,7 +285,7 @@ export default class EconomyAPI extends BaseAPI {
         json: options
       },
       json: true
-    }).then(response => response.body);
+    }).then((response) => response.body);
   }
 
   getGroupCurrency (
@@ -297,7 +297,7 @@ export default class EconomyAPI extends BaseAPI {
         path: `v1/groups/${options.groupId}/currency`
       },
       json: true
-    }).then(response => response.body);
+    }).then((response) => response.body);
   }
 
   getSelfCurrency (options: GetSelfCurrencyOptions): Promise<GetSelfCurrency> {
@@ -307,7 +307,7 @@ export default class EconomyAPI extends BaseAPI {
         path: `v1/users/${options.userId}/currency`
       },
       json: true
-    }).then(response => response.body);
+    }).then((response) => response.body);
   }
 
   getGroupRevenueByTime (
@@ -319,7 +319,7 @@ export default class EconomyAPI extends BaseAPI {
         path: `v1/groups/${options.groupId}/revenue/summary/${options.timeFrame}`
       },
       json: true
-    }).then(response => response.body);
+    }).then((response) => response.body);
   }
 
   getSelfRevenueSummaryByTIme (
@@ -331,7 +331,7 @@ export default class EconomyAPI extends BaseAPI {
         path: `v1/users/${options.userId}/revenue/summary/${options.timeFrame}`
       },
       json: true
-    }).then(response => response.body);
+    }).then((response) => response.body);
   }
 
   getGroupTransactions (
@@ -344,7 +344,7 @@ export default class EconomyAPI extends BaseAPI {
         qs: options
       },
       json: true
-    }).then(response => response.body);
+    }).then((response) => response.body);
   }
 
   getSelfTransactions (
@@ -357,6 +357,6 @@ export default class EconomyAPI extends BaseAPI {
         qs: options
       },
       json: true
-    }).then(response => response.body);
+    }).then((response) => response.body);
   }
 }

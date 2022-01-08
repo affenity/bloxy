@@ -22,15 +22,15 @@ export default class RESTResponse {
 
   // eslint-disable-next-line require-await
   async process (): Promise<RESTResponseDataType> {
-    const allProcessed = this.controller.responseHandlers.map(handler =>
+    const allProcessed = this.controller.responseHandlers.map((handler) =>
       handler(this)
     );
 
-    if (allProcessed.every(processed => processed === true)) {
+    if (allProcessed.every((processed) => processed === true)) {
       return this.responseData;
     } else {
       const error = allProcessed.find(
-        err =>
+        (err) =>
           err instanceof BloxyHttpError &&
           err.name === "BloxyInvalidStatusMessageError" &&
           err.statusMessage.includes("Token Validation Failed")
@@ -49,7 +49,7 @@ export default class RESTResponse {
         }
       }
 
-      throw allProcessed.find(err => err instanceof Error);
+      throw allProcessed.find((err) => err instanceof Error);
     }
   }
 }

@@ -152,7 +152,7 @@ export default class BillingAPI extends BaseAPI {
         path: `v1/developer-exchange-rate`
       },
       json: true
-    }).then(response => response.body);
+    }).then((response) => response.body);
   }
 
   submitDeveloperExchange (
@@ -166,7 +166,7 @@ export default class BillingAPI extends BaseAPI {
         json: options
       },
       json: true
-    }).then(response => response.body);
+    }).then((response) => response.body);
   }
 
   getLuobuDeveloperExchangeBalance (): Promise<GetLuobuDeveloperExchangeBalance> {
@@ -176,7 +176,7 @@ export default class BillingAPI extends BaseAPI {
         path: `v1/luobu-developer-exchange/balance`
       },
       json: true
-    }).then(response => response.body);
+    }).then((response) => response.body);
   }
 
   getLuobuDeveloperExchangeEligibility (): Promise<GetLuobuDeveloperExchangeEligibility> {
@@ -186,7 +186,7 @@ export default class BillingAPI extends BaseAPI {
         path: `v1/luobu-developer-exchange/eligibility`
       },
       json: true
-    }).then(response => response.body);
+    }).then((response) => response.body);
   }
 
   getLuobuDeveloperExchangeLatestRequestStatus (): Promise<GetLatestLuobuDeveloperExchangeStatus> {
@@ -196,7 +196,7 @@ export default class BillingAPI extends BaseAPI {
         path: `v1/luobu-developer-exchange/latest-request-status`
       },
       json: true
-    }).then(response => response.body);
+    }).then((response) => response.body);
   }
 
   submitLuobuDeveloperExchange (
@@ -210,7 +210,7 @@ export default class BillingAPI extends BaseAPI {
         json: options
       },
       json: true
-    }).then(response => response.body);
+    }).then((response) => response.body);
   }
 
   getUserPaymentsHistory (
@@ -223,7 +223,7 @@ export default class BillingAPI extends BaseAPI {
         qs: options
       },
       json: true
-    }).then(response => response.body);
+    }).then((response) => response.body);
   }
 
   purchaseAmazonProduct (
@@ -237,7 +237,7 @@ export default class BillingAPI extends BaseAPI {
         json: options
       },
       json: true
-    }).then(response => response.body);
+    }).then((response) => response.body);
   }
 
   validateAmazonProduct (
@@ -251,7 +251,7 @@ export default class BillingAPI extends BaseAPI {
         json: options
       },
       json: true
-    }).then(response => response.body);
+    }).then((response) => response.body);
   }
 
   purchaseAppleProduct (
@@ -265,7 +265,7 @@ export default class BillingAPI extends BaseAPI {
         json: options
       },
       json: true
-    }).then(response => response.body);
+    }).then((response) => response.body);
   }
 
   validateAppleProduct (
@@ -279,7 +279,7 @@ export default class BillingAPI extends BaseAPI {
         json: options
       },
       json: true
-    }).then(response => response.body);
+    }).then((response) => response.body);
   }
 
   redeemDigitalCode (
@@ -293,7 +293,7 @@ export default class BillingAPI extends BaseAPI {
         json: options
       },
       json: true
-    }).then(response => response.body);
+    }).then((response) => response.body);
   }
 
   redeemGameCard (options: RedeemGameCardOptions): Promise<RedeemGameCard> {
@@ -305,7 +305,7 @@ export default class BillingAPI extends BaseAPI {
         json: options
       },
       json: true
-    }).then(response => response.body);
+    }).then((response) => response.body);
   }
 
   reverseGameCard (options: ReverseGameCardOptions): Promise<ReverseGameCard> {
@@ -317,7 +317,7 @@ export default class BillingAPI extends BaseAPI {
         json: options
       },
       json: true
-    }).then(response => response.body);
+    }).then((response) => response.body);
   }
 
   purchaseGoogleProduct (
@@ -331,7 +331,7 @@ export default class BillingAPI extends BaseAPI {
         json: options
       },
       json: true
-    }).then(response => response.body);
+    }).then((response) => response.body);
   }
 
   validateGoogleProduct (
@@ -345,7 +345,7 @@ export default class BillingAPI extends BaseAPI {
         json: options
       },
       json: true
-    }).then(response => response.body);
+    }).then((response) => response.body);
   }
 
   sendXsollaWebhook (
@@ -359,7 +359,7 @@ export default class BillingAPI extends BaseAPI {
         json: options as any
       },
       json: true
-    }).then(response => response.body);
+    }).then((response) => response.body);
   }
 
   getXsollaIFrameToken (
@@ -373,7 +373,7 @@ export default class BillingAPI extends BaseAPI {
         json: options
       },
       json: true
-    }).then(response => response.body);
+    }).then((response) => response.body);
   }
 
   incrementCounterByAgent (
@@ -387,7 +387,7 @@ export default class BillingAPI extends BaseAPI {
         json: options
       },
       json: true
-    }).then(response => response.body);
+    }).then((response) => response.body);
   }
 
   redeemPromoCode (options: RedeemPromoCodeOptions): Promise<RedeemPromoCode> {
@@ -399,6 +399,6 @@ export default class BillingAPI extends BaseAPI {
         json: options
       },
       json: true
-    }).then(response => response.body);
+    }).then((response) => response.body);
   }
 }

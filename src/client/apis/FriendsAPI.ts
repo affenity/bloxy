@@ -189,7 +189,7 @@ export default class FriendsAPI extends BaseAPI {
         path: `v1/friends/verified/nearby/code/${options.code}`
       },
       json: true
-    }).then(response => response.body);
+    }).then((response) => response.body);
   }
 
   checkSessionHealth (): Promise<CheckSessionHealth> {
@@ -199,7 +199,7 @@ export default class FriendsAPI extends BaseAPI {
         path: `v1/friends/verified/nearby/health`
       },
       json: true
-    }).then(response => response.body);
+    }).then((response) => response.body);
   }
 
   redeemFriendCode (
@@ -212,7 +212,7 @@ export default class FriendsAPI extends BaseAPI {
         method: "POST"
       },
       json: true
-    }).then(response => response.body);
+    }).then((response) => response.body);
   }
 
   deleteFriendSession (): Promise<DeleteSession> {
@@ -223,7 +223,7 @@ export default class FriendsAPI extends BaseAPI {
         method: "DELETE"
       },
       json: true
-    }).then(response => response.body);
+    }).then((response) => response.body);
   }
 
   getSession (): Promise<FindFriendByCode> {
@@ -234,7 +234,7 @@ export default class FriendsAPI extends BaseAPI {
         method: "POST"
       },
       json: true
-    }).then(response => response.body);
+    }).then((response) => response.body);
   }
 
   redeemFriendQRCode (options: RedeemQRCodeOptions): Promise<RedeemQRCode> {
@@ -245,7 +245,7 @@ export default class FriendsAPI extends BaseAPI {
         method: "POST"
       },
       json: true
-    }).then(response => response.body);
+    }).then((response) => response.body);
   }
 
   deleteFriendQRSession (): Promise<DeleteQRCodeSession> {
@@ -256,7 +256,7 @@ export default class FriendsAPI extends BaseAPI {
         method: "DELETE"
       },
       json: true
-    }).then(response => response.body);
+    }).then((response) => response.body);
   }
 
   getFriendQRSession (): Promise<GetOrCreateQRCodeSession> {
@@ -267,7 +267,7 @@ export default class FriendsAPI extends BaseAPI {
         method: "POST"
       },
       json: true
-    }).then(response => response.body);
+    }).then((response) => response.body);
   }
 
   getMetaData (options: GetMetaDataOptions): Promise<GetMetaData> {
@@ -278,7 +278,7 @@ export default class FriendsAPI extends BaseAPI {
         qs: options
       },
       json: true
-    }).then(response => response.body);
+    }).then((response) => response.body);
   }
 
   getSelfFriendsCount (): Promise<GetSelfFriendsCount> {
@@ -288,7 +288,7 @@ export default class FriendsAPI extends BaseAPI {
         path: `v1/my/friends/count`
       },
       json: true
-    }).then(response => response.body);
+    }).then((response) => response.body);
   }
 
   getSelfFriendRequests (
@@ -301,7 +301,7 @@ export default class FriendsAPI extends BaseAPI {
         qs: options
       },
       json: true
-    }).then(response => response.body);
+    }).then((response) => response.body);
   }
 
   getSelfFriendRequestsCount (): Promise<GetSelfFriendRequestsCount> {
@@ -311,7 +311,7 @@ export default class FriendsAPI extends BaseAPI {
         path: `v1/user/friend-requests/count`
       },
       json: true
-    }).then(response => response.body);
+    }).then((response) => response.body);
   }
 
   getUserFollowers (
@@ -324,7 +324,7 @@ export default class FriendsAPI extends BaseAPI {
         qs: options
       },
       json: true
-    }).then(response => response.body);
+    }).then((response) => response.body);
   }
 
   getUserFollowersCount (
@@ -336,7 +336,7 @@ export default class FriendsAPI extends BaseAPI {
         path: `v1/users/${options.userId}/followers/count`
       },
       json: true
-    }).then(response => response.body);
+    }).then((response) => response.body);
   }
 
   getUserFollowing (
@@ -349,7 +349,7 @@ export default class FriendsAPI extends BaseAPI {
         qs: options
       },
       json: true
-    }).then(response => response.body);
+    }).then((response) => response.body);
   }
 
   getUserFollowingCount (
@@ -361,7 +361,7 @@ export default class FriendsAPI extends BaseAPI {
         path: `v1/users/${options.userId}/followings/count`
       },
       json: true
-    }).then(response => response.body);
+    }).then((response) => response.body);
   }
 
   getUserFriends (options: GetUserFriendsOptions): Promise<GetUserFriends> {
@@ -372,7 +372,7 @@ export default class FriendsAPI extends BaseAPI {
         qs: options
       },
       json: true
-    }).then(response => response.body);
+    }).then((response) => response.body);
   }
 
   getUserFriendsCount (
@@ -384,7 +384,7 @@ export default class FriendsAPI extends BaseAPI {
         path: `v1/users/${options.userId}/friends/count`
       },
       json: true
-    }).then(response => response.body);
+    }).then((response) => response.body);
   }
 
   getUserFriendsOnline (
@@ -396,7 +396,7 @@ export default class FriendsAPI extends BaseAPI {
         path: `v1/users/${options.userId}/friends/online`
       },
       json: true
-    }).then(response => response.body);
+    }).then((response) => response.body);
   }
 
   getUserFriendsWithStatuses (
@@ -411,7 +411,7 @@ export default class FriendsAPI extends BaseAPI {
         }
       },
       json: true
-    }).then(response => response.body);
+    }).then((response) => response.body);
   }
 
   declineAllFriendRequests (): Promise<DeclineAllFriendRequests> {
@@ -422,7 +422,7 @@ export default class FriendsAPI extends BaseAPI {
         method: "POST"
       },
       json: true
-    }).then(response => response.body);
+    }).then((response) => response.body);
   }
 
   acceptFriendRequest (
@@ -435,7 +435,7 @@ export default class FriendsAPI extends BaseAPI {
         method: "POST"
       },
       json: true
-    }).then(response => response.body);
+    }).then((response) => response.body);
   }
 
   declineFriendRequest (
@@ -448,7 +448,7 @@ export default class FriendsAPI extends BaseAPI {
         method: "POST"
       },
       json: true
-    }).then(response => response.body);
+    }).then((response) => response.body);
   }
 
   followUser (options: FollowUserOptions): Promise<FollowUser> {
@@ -459,7 +459,7 @@ export default class FriendsAPI extends BaseAPI {
         method: "POST"
       },
       json: true
-    }).then(response => response.body);
+    }).then((response) => response.body);
   }
 
   sendFriendRequest (
@@ -475,7 +475,7 @@ export default class FriendsAPI extends BaseAPI {
         }
       },
       json: true
-    }).then(response => response.body);
+    }).then((response) => response.body);
   }
 
   unFollowUser (options: UnFollowUserOptions): Promise<UnFollowUser> {
@@ -486,7 +486,7 @@ export default class FriendsAPI extends BaseAPI {
         method: "POST"
       },
       json: true
-    }).then(response => response.body);
+    }).then((response) => response.body);
   }
 
   unfriendUser (options: UnfriendUserOptions): Promise<UnfriendUser> {
@@ -497,7 +497,7 @@ export default class FriendsAPI extends BaseAPI {
         method: "POST"
       },
       json: true
-    }).then(response => response.body);
+    }).then((response) => response.body);
   }
 
   getRecommendedUsers (): Promise<GetSelfRecommendedUsers> {
@@ -507,6 +507,6 @@ export default class FriendsAPI extends BaseAPI {
         path: `v1/recommended-users`
       },
       json: true
-    }).then(response => response.body);
+    }).then((response) => response.body);
   }
 }

@@ -57,7 +57,7 @@ export default class TradesAPI extends BaseAPI {
         path: `v1/game-localization-roles/games/${options.gameId}/current-user/roles`
       },
       json: true
-    }).then(response => response.body);
+    }).then((response) => response.body);
   }
 
   getGameRoleAssignees (
@@ -69,7 +69,7 @@ export default class TradesAPI extends BaseAPI {
         path: `v1/game-localization-roles/games/${options.gameId}/roles/${options.role}/assignees`
       },
       json: true
-    }).then(response => response.body);
+    }).then((response) => response.body);
   }
 
   getSelfGamesAccessByRole (
@@ -81,7 +81,7 @@ export default class TradesAPI extends BaseAPI {
         path: `v1/game-localization-roles/roles/${options.role}/current-user`
       },
       json: true
-    }).then(response => response.body);
+    }).then((response) => response.body);
   }
 
   updateUserAccess (options: UpdateUserAccess): Promise<UpdateUser> {
@@ -98,6 +98,6 @@ export default class TradesAPI extends BaseAPI {
         }
       },
       json: true
-    }).then(response => response.body);
+    }).then((response) => response.body);
   }
 }

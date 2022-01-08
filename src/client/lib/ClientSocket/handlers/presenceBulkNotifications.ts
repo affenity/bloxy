@@ -10,7 +10,7 @@ export default function handlePresenceBulkNotifications (
     throw new Error("Presence bulk notification message was not an array");
   }
 
-  message.forEach(presenceUpdated => {
+  message.forEach((presenceUpdated) => {
     socket.emit(
       "userPresenceChanged",
       new PartialUser(

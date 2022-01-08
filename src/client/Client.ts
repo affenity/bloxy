@@ -92,7 +92,7 @@ export default class Client extends ClientBase {
       .getGroup({
         groupId
       })
-      .then(data => {
+      .then((data) => {
         if (!data) {
           throw new Error(`Group not found: ${groupId}`);
         } else {
@@ -111,7 +111,7 @@ export default class Client extends ClientBase {
         userId
       })
       .then(
-        data =>
+        (data) =>
           new User(
             {
               id: data.ProfileUserId,
@@ -157,7 +157,7 @@ export default class Client extends ClientBase {
         usernames: [username],
         excludeBannedUsers: false
       })
-      .then(response => {
+      .then((response) => {
         if (response.data && response.data[0]) {
           return new PartialUser(response.data[0], this);
         } else {
@@ -175,7 +175,7 @@ export default class Client extends ClientBase {
       .getUserById({
         userId
       })
-      .then(data => new PartialUser(data, this));
+      .then((data) => new PartialUser(data, this));
   }
 
   getUsersByUserIds (
@@ -183,7 +183,7 @@ export default class Client extends ClientBase {
     excludeBannedUsers = false
   ): Promise<PartialUser[]> {
     if (typeof userIds[0] === "string") {
-      userIds = (userIds as string[]).map(userId => parseInt(userId));
+      userIds = (userIds as string[]).map((userId) => parseInt(userId));
     }
 
     return this.apis.usersAPI
@@ -191,8 +191,8 @@ export default class Client extends ClientBase {
         excludeBannedUsers,
         userIds: userIds as number[]
       })
-      .then(response =>
-        response.data.map(userData => new PartialUser(userData, this))
+      .then((response) =>
+        response.data.map((userData) => new PartialUser(userData, this))
       );
   }
 
@@ -205,8 +205,8 @@ export default class Client extends ClientBase {
         excludeBannedUsers,
         usernames
       })
-      .then(response =>
-        response.data.map(userData => new PartialUser(userData, this))
+      .then((response) =>
+        response.data.map((userData) => new PartialUser(userData, this))
       );
   }
 }

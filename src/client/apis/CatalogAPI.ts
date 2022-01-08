@@ -144,7 +144,7 @@ export default class CatalogAPI extends BaseAPI {
         qs: options
       },
       json: true
-    }).then(response => response.body);
+    }).then((response) => response.body);
   }
 
   getBundleDetails (
@@ -157,7 +157,7 @@ export default class CatalogAPI extends BaseAPI {
         qs: options
       },
       json: true
-    }).then(response => response.body);
+    }).then((response) => response.body);
   }
 
   getBundleRecommendationsByBundleId (
@@ -170,7 +170,7 @@ export default class CatalogAPI extends BaseAPI {
         qs: options
       },
       json: true
-    }).then(response => response.body);
+    }).then((response) => response.body);
   }
 
   getMultiBundleDetails (
@@ -185,7 +185,7 @@ export default class CatalogAPI extends BaseAPI {
         }
       },
       json: true
-    }).then(response => response.body);
+    }).then((response) => response.body);
   }
 
   getUserBundles (options: GetUserBundlesOptions): Promise<GetUserBundles> {
@@ -196,7 +196,7 @@ export default class CatalogAPI extends BaseAPI {
         qs: options
       },
       json: true
-    }).then(response => response.body);
+    }).then((response) => response.body);
   }
 
   getUserBundlesByType (
@@ -208,7 +208,7 @@ export default class CatalogAPI extends BaseAPI {
         path: `v1/users/${options.userId}/bundles/${options.bundleType}`
       },
       json: true
-    }).then(response => response.body);
+    }).then((response) => response.body);
   }
 
   unpackBundle (options: UnpackBundleOptions): Promise<UnpackBundle> {
@@ -219,7 +219,7 @@ export default class CatalogAPI extends BaseAPI {
         method: "POST"
       },
       json: true
-    }).then(response => response.body);
+    }).then((response) => response.body);
   }
 
   getAssetToCategory (): Promise<GetAssetToCategory> {
@@ -229,7 +229,7 @@ export default class CatalogAPI extends BaseAPI {
         path: `v1/asset-to-category`
       },
       json: true
-    }).then(response => response.body);
+    }).then((response) => response.body);
   }
 
   getAssetToSubCategory (): Promise<GetAssetToSubCategory> {
@@ -239,7 +239,7 @@ export default class CatalogAPI extends BaseAPI {
         path: `v1/asset-to-subcategory`
       },
       json: true
-    }).then(response => response.body);
+    }).then((response) => response.body);
   }
 
   getCategories (): Promise<GetCategories> {
@@ -249,7 +249,7 @@ export default class CatalogAPI extends BaseAPI {
         path: `v1/categories`
       },
       json: true
-    }).then(response => response.body);
+    }).then((response) => response.body);
   }
 
   getSubCategories (): Promise<GetSubCategories> {
@@ -259,7 +259,7 @@ export default class CatalogAPI extends BaseAPI {
         path: `v1/subcategories`
       },
       json: true
-    }).then(response => response.body);
+    }).then((response) => response.body);
   }
 
   getAppStoreExclusiveBundles (
@@ -271,7 +271,7 @@ export default class CatalogAPI extends BaseAPI {
         path: `v1/exclusive-items/${options.appStoreType}/bundles`
       },
       json: true
-    }).then(response => response.body);
+    }).then((response) => response.body);
   }
 
   getAssetFavoriteCount (
@@ -283,7 +283,7 @@ export default class CatalogAPI extends BaseAPI {
         path: `v1/favorites/assets/${options.assetId}/count`
       },
       json: true
-    }).then(response => response.body);
+    }).then((response) => response.body);
   }
 
   getBundleFavoriteCount (
@@ -295,7 +295,7 @@ export default class CatalogAPI extends BaseAPI {
         path: `v1/favorites/bundles/${options.bundleId}/count`
       },
       json: true
-    }).then(response => response.body);
+    }).then((response) => response.body);
   }
 
   removeAssetFavorite (
@@ -308,7 +308,7 @@ export default class CatalogAPI extends BaseAPI {
         method: "DELETE"
       },
       json: true
-    }).then(response => response.body);
+    }).then((response) => response.body);
   }
 
   getUserFavoriteAsset (
@@ -320,7 +320,7 @@ export default class CatalogAPI extends BaseAPI {
         path: `v1/favorites/users/${options.userId}/assets/${options.assetId}/favorite`
       },
       json: true
-    }).then(response => response.body);
+    }).then((response) => response.body);
   }
 
   favoriteAsset (options: FavoriteAssetOptions): Promise<FavoriteAsset> {
@@ -331,7 +331,7 @@ export default class CatalogAPI extends BaseAPI {
         method: "POST"
       },
       json: true
-    }).then(response => response.body);
+    }).then((response) => response.body);
   }
 
   removeBundleFavorite (
@@ -344,7 +344,7 @@ export default class CatalogAPI extends BaseAPI {
         method: "DELETE"
       },
       json: true
-    }).then(response => response.body);
+    }).then((response) => response.body);
   }
 
   getUserFavoriteBundle (
@@ -356,7 +356,7 @@ export default class CatalogAPI extends BaseAPI {
         path: `v1/favorites/users/${options.userId}/bundles/${options.bundleId}/favorite`
       },
       json: true
-    }).then(response => response.body);
+    }).then((response) => response.body);
   }
 
   favoriteBundle (options: FavoriteBundleOptions): Promise<FavoriteBundle> {
@@ -367,6 +367,6 @@ export default class CatalogAPI extends BaseAPI {
         method: "POST"
       },
       json: true
-    }).then(response => response.body);
+    }).then((response) => response.body);
   }
 }

@@ -34,7 +34,7 @@ export default class ChatManager {
 
   getConversation (conversationId: number): Promise<ChatConversation | null> {
     return this.getConversations([conversationId]).then(
-      data => data[0] || null
+      (data) => data[0] || null
     );
   }
 
@@ -49,15 +49,15 @@ export default class ChatManager {
         pageSize: amount,
         exclusiveStartMessageId: startMessageId
       })
-      .then(response =>
-        response.map(chatData => new ChatMessage(chatData, this.client))
+      .then((response) =>
+        response.map((chatData) => new ChatMessage(chatData, this.client))
       );
   }
 
   getUnreadConversationsCount (): Promise<number> {
     return this.client.apis.chatAPI
       .getUnreadConversationCount()
-      .then(response => response.count);
+      .then((response) => response.count);
   }
 
   getConversations (conversations: number[]): Promise<ChatConversation[]> {
@@ -65,9 +65,9 @@ export default class ChatManager {
       .getConversations({
         conversationIds: conversations
       })
-      .then(response =>
+      .then((response) =>
         response.map(
-          conversationData =>
+          (conversationData) =>
             new ChatConversation(conversationData, this.client)
         )
       );
@@ -130,12 +130,12 @@ export default class ChatManager {
         conversationIds: conversations,
         pageSize: amount
       })
-      .then(response =>
+      .then((response) =>
         Array.prototype.concat.apply(
           [],
-          response.map(conversationData =>
+          response.map((conversationData) =>
             conversationData.chatMessages.map(
-              chatData => new ChatMessage(chatData, this.client)
+              (chatData) => new ChatMessage(chatData, this.client)
             )
           )
         )
@@ -151,12 +151,12 @@ export default class ChatManager {
         conversationIds: conversations,
         pageSize: amount
       })
-      .then(response =>
+      .then((response) =>
         Array.prototype.concat.apply(
           [],
-          response.map(conversationData =>
+          response.map((conversationData) =>
             conversationData.chatMessages.map(
-              chatData => new ChatMessage(chatData, this.client)
+              (chatData) => new ChatMessage(chatData, this.client)
             )
           )
         )
@@ -176,13 +176,13 @@ export default class ChatManager {
   ): Promise<ChatMessageSent> {
     return this.client.apis.chatAPI
       .sendGameLinkMessage(options)
-      .then(response => new ChatMessageSent(response, this.client));
+      .then((response) => new ChatMessageSent(response, this.client));
   }
 
   sendMessage (options: SendMessageOptions): Promise<ChatMessageSent> {
     return this.client.apis.chatAPI
       .sendMessage(options)
-      .then(response => new ChatMessageSent(response, this.client));
+      .then((response) => new ChatMessageSent(response, this.client));
   }
 
   setConversationUniverse (

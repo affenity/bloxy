@@ -25,7 +25,7 @@ export class BloxyHttpError extends Error {
     }, status message: ${options.statusMessage}. ${
       options.possibleReasons.length > 0 ?
         `Possible reasons:\n${options.possibleReasons
-          .map(r => `- ${r}`)
+          .map((r) => `- ${r}`)
           .join("\n")}\n\n` :
         ""
     }`;

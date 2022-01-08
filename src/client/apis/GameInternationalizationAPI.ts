@@ -120,7 +120,7 @@ export default class GameInternationalizationAPI extends BaseAPI {
         path: `v1/name-description/games/${options.gameId}`
       },
       json: true
-    }).then(response => response.body);
+    }).then((response) => response.body);
   }
 
   updateGameInfo (options: UpdateGameInfoOptions): Promise<UpdateGameInfo> {
@@ -134,7 +134,7 @@ export default class GameInternationalizationAPI extends BaseAPI {
         }
       },
       json: true
-    }).then(response => response.body);
+    }).then((response) => response.body);
   }
 
   getNameDescriptionMetaData (): Promise<GetNameDescriptionMetaData> {
@@ -144,7 +144,7 @@ export default class GameInternationalizationAPI extends BaseAPI {
         path: `v1/name-description/metadata`
       },
       json: true
-    }).then(response => response.body);
+    }).then((response) => response.body);
   }
 
   getGameInfoHistory (
@@ -158,7 +158,7 @@ export default class GameInternationalizationAPI extends BaseAPI {
         json: options
       },
       json: true
-    }).then(response => response.body);
+    }).then((response) => response.body);
   }
 
   getGameSourceLanguage (
@@ -170,7 +170,7 @@ export default class GameInternationalizationAPI extends BaseAPI {
         path: `v1/source-language/games/${options.gameId}`
       },
       json: true
-    }).then(response => response.body);
+    }).then((response) => response.body);
   }
 
   updateGameSourceLanguage (
@@ -186,7 +186,7 @@ export default class GameInternationalizationAPI extends BaseAPI {
         }
       },
       json: true
-    }).then(response => response.body);
+    }).then((response) => response.body);
   }
 
   getGameSupportedLanguages (
@@ -198,7 +198,7 @@ export default class GameInternationalizationAPI extends BaseAPI {
         path: `v1/supported-languages/games/${options.gameId}`
       },
       json: true
-    }).then(response => response.body);
+    }).then((response) => response.body);
   }
 
   modifyGameSupportedLanguages (
@@ -212,7 +212,7 @@ export default class GameInternationalizationAPI extends BaseAPI {
         json: options.data
       },
       json: true
-    }).then(response => response.body);
+    }).then((response) => response.body);
   }
 
   getGameAutomaticTranslationStatus (
@@ -224,7 +224,7 @@ export default class GameInternationalizationAPI extends BaseAPI {
         path: `v1/supported-languages/games/${options.gameId}/automatic-translation-status`
       },
       json: true
-    }).then(response => response.body);
+    }).then((response) => response.body);
   }
 
   getSupportedLanguagesMetaData (): Promise<GetSupportedLanguagesMetaData> {
@@ -234,7 +234,7 @@ export default class GameInternationalizationAPI extends BaseAPI {
         path: `v1/supported-languages/metadata`
       },
       json: true
-    }).then(response => response.body);
+    }).then((response) => response.body);
   }
 
   toggleGameAutomaticTranslation (
@@ -248,6 +248,6 @@ export default class GameInternationalizationAPI extends BaseAPI {
         json: String(options.enableAutomaticTranslation).toString()
       },
       json: true
-    }).then(response => response.body);
+    }).then((response) => response.body);
   }
 }

@@ -16,10 +16,10 @@ export default function validStatusMessage (
     const disallowedStatusMessages =
       responseOptions.disallowedStatusMessages || [];
 
-    const isAllowed = allowedStatusMessages.some(statusMessage =>
+    const isAllowed = allowedStatusMessages.some((statusMessage) =>
       responseData.statusMessage.toLowerCase().includes(statusMessage)
     );
-    const isDisallowed = disallowedStatusMessages.some(statusMessage =>
+    const isDisallowed = disallowedStatusMessages.some((statusMessage) =>
       responseData.statusMessage.toLowerCase().includes(statusMessage)
     );
 

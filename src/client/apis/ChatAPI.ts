@@ -198,7 +198,7 @@ export default class ChatAPI extends BaseAPI {
         path: `v2/chat-settings`
       },
       json: true
-    }).then(response => response.body);
+    }).then((response) => response.body);
   }
 
   getConversations (
@@ -213,7 +213,7 @@ export default class ChatAPI extends BaseAPI {
         }
       },
       json: true
-    }).then(response => response.body);
+    }).then((response) => response.body);
   }
 
   getConversationMessages (
@@ -226,7 +226,7 @@ export default class ChatAPI extends BaseAPI {
         qs: options
       },
       json: true
-    }).then(response => response.body);
+    }).then((response) => response.body);
   }
 
   getRolloutSettings (
@@ -241,7 +241,7 @@ export default class ChatAPI extends BaseAPI {
         }
       },
       json: true
-    }).then(response => response.body);
+    }).then((response) => response.body);
   }
 
   getUnreadConversationCount (): Promise<GetUnreadConversationCount> {
@@ -251,7 +251,7 @@ export default class ChatAPI extends BaseAPI {
         path: `v2/get-conversations`
       },
       json: true
-    }).then(response => response.body);
+    }).then((response) => response.body);
   }
 
   getUnreadMessagesInConversations (
@@ -267,7 +267,7 @@ export default class ChatAPI extends BaseAPI {
         }
       },
       json: true
-    }).then(response => response.body);
+    }).then((response) => response.body);
   }
 
   getUserConversations (
@@ -280,7 +280,7 @@ export default class ChatAPI extends BaseAPI {
         qs: options
       },
       json: true
-    }).then(response => response.body);
+    }).then((response) => response.body);
   }
 
   getMetaData (): Promise<GetMetaData> {
@@ -290,7 +290,7 @@ export default class ChatAPI extends BaseAPI {
         path: `v2/metadata`
       },
       json: true
-    }).then(response => response.body);
+    }).then((response) => response.body);
   }
 
   getMultiLatestConversationMessages (
@@ -303,7 +303,7 @@ export default class ChatAPI extends BaseAPI {
         qs: options
       },
       json: true
-    }).then(response => response.body);
+    }).then((response) => response.body);
   }
 
   addUsersToConversation (
@@ -317,7 +317,7 @@ export default class ChatAPI extends BaseAPI {
         json: options
       },
       json: true
-    }).then(response => response.body);
+    }).then((response) => response.body);
   }
 
   markConversationMessagesRead (
@@ -331,7 +331,7 @@ export default class ChatAPI extends BaseAPI {
         json: options
       },
       json: true
-    }).then(response => response.body);
+    }).then((response) => response.body);
   }
 
   markConversationsSeen (
@@ -345,7 +345,7 @@ export default class ChatAPI extends BaseAPI {
         json: options
       },
       json: true
-    }).then(response => response.body);
+    }).then((response) => response.body);
   }
 
   removeUserFromConversation (
@@ -359,7 +359,7 @@ export default class ChatAPI extends BaseAPI {
         json: options
       },
       json: true
-    }).then(response => response.body);
+    }).then((response) => response.body);
   }
 
   renameGroupConversation (
@@ -373,7 +373,7 @@ export default class ChatAPI extends BaseAPI {
         json: options
       },
       json: true
-    }).then(response => response.body);
+    }).then((response) => response.body);
   }
 
   resetConversationUniverse (
@@ -387,7 +387,7 @@ export default class ChatAPI extends BaseAPI {
         json: options
       },
       json: true
-    }).then(response => response.body);
+    }).then((response) => response.body);
   }
 
   sendGameLinkMessage (
@@ -401,7 +401,7 @@ export default class ChatAPI extends BaseAPI {
         json: options
       },
       json: true
-    }).then(response => response.body);
+    }).then((response) => response.body);
   }
 
   sendMessage (options: SendMessageOptions): Promise<SendMessage> {
@@ -413,7 +413,7 @@ export default class ChatAPI extends BaseAPI {
         json: options
       },
       json: true
-    }).then(response => response.body);
+    }).then((response) => response.body);
   }
 
   setConversationUniverse (
@@ -427,7 +427,7 @@ export default class ChatAPI extends BaseAPI {
         json: options
       },
       json: true
-    }).then(response => response.body);
+    }).then((response) => response.body);
   }
 
   startCloudEditConversation (
@@ -441,7 +441,7 @@ export default class ChatAPI extends BaseAPI {
         json: options
       },
       json: true
-    }).then(response => response.body);
+    }).then((response) => response.body);
   }
 
   startGroupConversation (
@@ -455,7 +455,7 @@ export default class ChatAPI extends BaseAPI {
         json: options
       },
       json: true
-    }).then(response => response.body);
+    }).then((response) => response.body);
   }
 
   startOneToOneConversation (
@@ -469,7 +469,7 @@ export default class ChatAPI extends BaseAPI {
         json: options
       },
       json: true
-    }).then(response => response.body);
+    }).then((response) => response.body);
   }
 
   updateUserTypingStatus (
@@ -483,6 +483,6 @@ export default class ChatAPI extends BaseAPI {
         json: options
       },
       json: true
-    }).then(response => response.body);
+    }).then((response) => response.body);
   }
 }

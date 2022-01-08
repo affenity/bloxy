@@ -66,7 +66,7 @@ export default class AvatarAPI extends BaseAPI {
         path: `v1/badges/${options.badgeId}`
       },
       json: true
-    }).then(response => response.body);
+    }).then((response) => response.body);
   }
 
   updateBadge (options: UpdateBadgeOptions): Promise<UpdateBadge> {
@@ -77,7 +77,7 @@ export default class AvatarAPI extends BaseAPI {
         method: "PATCH"
       },
       json: true
-    }).then(response => response.body);
+    }).then((response) => response.body);
   }
 
   getUniverseBadges (
@@ -90,7 +90,7 @@ export default class AvatarAPI extends BaseAPI {
         qs: options
       },
       json: true
-    }).then(response => response.body);
+    }).then((response) => response.body);
   }
 
   getUserBadges (options: GetUserBadgesOptions): Promise<GetUserBadges> {
@@ -101,7 +101,7 @@ export default class AvatarAPI extends BaseAPI {
         qs: options
       },
       json: true
-    }).then(response => response.body);
+    }).then((response) => response.body);
   }
 
   getUserBadgesAwardedDates (
@@ -116,7 +116,7 @@ export default class AvatarAPI extends BaseAPI {
         }
       },
       json: true
-    }).then(response => response.body);
+    }).then((response) => response.body);
   }
 
   deleteBadgeFromUser (
@@ -129,7 +129,7 @@ export default class AvatarAPI extends BaseAPI {
         method: "DELETE"
       },
       json: true
-    }).then(response => response.body);
+    }).then((response) => response.body);
   }
 
   deleteBadgeFromSelf (
@@ -142,6 +142,6 @@ export default class AvatarAPI extends BaseAPI {
         method: "DELETE"
       },
       json: true
-    }).then(response => response.body);
+    }).then((response) => response.body);
   }
 }

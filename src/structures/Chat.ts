@@ -77,7 +77,7 @@ export class ChatConversation {
     );
     this.hasUnreadMessages = data.hasUnreadMessages;
     this.members = data.participants.map(
-      participantData =>
+      (participantData) =>
         new structures.PartialUser(
           {
             id: participantData.targetId,

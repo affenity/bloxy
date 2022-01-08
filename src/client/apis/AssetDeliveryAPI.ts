@@ -33,7 +33,7 @@ export type BaseAssetRaw = {
 const convertToBaseAsset = (options: BaseAssetRaw): BaseAsset => ({
   errors:
     typeof options.Errors !== "undefined" ?
-      options.Errors.map(v => ({
+      options.Errors.map((v) => ({
         message: v.Message,
         code: v.Code
       })) :
@@ -147,7 +147,7 @@ export default class AssetDeliveryAPI extends BaseAPI {
           ...generatedOptions.headers
         }
       }
-    }).then(response => convertToBaseAsset(response.body) as GetAssetByAlias);
+    }).then((response) => convertToBaseAsset(response.body) as GetAssetByAlias);
   }
 
   getAssetById (options: GetAssetByIdOptions): Promise<GetAssetById> {
@@ -165,7 +165,7 @@ export default class AssetDeliveryAPI extends BaseAPI {
           ...generatedOptions.headers
         }
       }
-    }).then(response => ({
+    }).then((response) => ({
       location: response.body.Location || undefined,
       request: response.body.Request
     }));
@@ -185,7 +185,7 @@ export default class AssetDeliveryAPI extends BaseAPI {
           ...generatedOptions.headers
         }
       }
-    }).then(response => convertToBaseAsset(response.body) as GetAssetByHash);
+    }).then((response) => convertToBaseAsset(response.body) as GetAssetByHash);
   }
 
   getAssetByAssetId (
@@ -205,7 +205,7 @@ export default class AssetDeliveryAPI extends BaseAPI {
         }
       }
     }).then(
-      response => convertToBaseAsset(response.body) as GetAssetByAssetId
+      (response) => convertToBaseAsset(response.body) as GetAssetByAssetId
     );
   }
 
@@ -226,7 +226,7 @@ export default class AssetDeliveryAPI extends BaseAPI {
         }
       }
     }).then(
-      response =>
+      (response) =>
         convertToBaseAsset(response.body) as GetAssetVersionByAssetId
     );
   }
@@ -248,7 +248,7 @@ export default class AssetDeliveryAPI extends BaseAPI {
         }
       }
     }).then(
-      response =>
+      (response) =>
         convertToBaseAsset(response.body) as GetAssetByAssetVersionId
     );
   }
@@ -270,7 +270,7 @@ export default class AssetDeliveryAPI extends BaseAPI {
         }
       }
     }).then(
-      response => convertToBaseAsset(response.body) as GetAssetByMarAssetHash
+      (response) => convertToBaseAsset(response.body) as GetAssetByMarAssetHash
     );
   }
 
@@ -291,7 +291,7 @@ export default class AssetDeliveryAPI extends BaseAPI {
         }
       }
     }).then(
-      response => convertToBaseAsset(response.body) as GetAssetByUserAssetId
+      (response) => convertToBaseAsset(response.body) as GetAssetByUserAssetId
     );
   }
 
@@ -305,7 +305,7 @@ export default class AssetDeliveryAPI extends BaseAPI {
         json: options
       }
     }).then(
-      response =>
+      (response) =>
         response.body.map((value: BaseAssetRaw) =>
           convertToBaseAsset(value)
         ) as GetBatchAssets

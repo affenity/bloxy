@@ -100,7 +100,7 @@ export default class PrivateMessagesAPI extends BaseAPI {
         path: `v1/announcements`
       },
       json: true
-    }).then(response => response.body);
+    }).then((response) => response.body);
   }
 
   getAnnouncementsMetaData (): Promise<GetAnnouncementsMetaData> {
@@ -110,7 +110,7 @@ export default class PrivateMessagesAPI extends BaseAPI {
         path: `v1/announcements/metadata`
       },
       json: true
-    }).then(response => response.body);
+    }).then((response) => response.body);
   }
 
   getMessages (options: GetMessagesOptions): Promise<GetMessages> {
@@ -121,7 +121,7 @@ export default class PrivateMessagesAPI extends BaseAPI {
         qs: options
       },
       json: true
-    }).then(response => response.body);
+    }).then((response) => response.body);
   }
 
   getMessage (options: GetMessageOptions): Promise<GetMessage> {
@@ -131,7 +131,7 @@ export default class PrivateMessagesAPI extends BaseAPI {
         path: `v1/messages/${options.messageId}`
       },
       json: true
-    }).then(response => response.body);
+    }).then((response) => response.body);
   }
 
   getUnreadMessagesCount (): Promise<GetUnreadMessagesCount> {
@@ -141,7 +141,7 @@ export default class PrivateMessagesAPI extends BaseAPI {
         path: `v1/messages/unread/count`
       },
       json: true
-    }).then(response => response.body);
+    }).then((response) => response.body);
   }
 
   archiveMessages (options: ArchiveMessagesOptions): Promise<ArchiveMessages> {
@@ -153,7 +153,7 @@ export default class PrivateMessagesAPI extends BaseAPI {
         json: options
       },
       json: true
-    }).then(response => response.body);
+    }).then((response) => response.body);
   }
 
   markMessagesRead (
@@ -167,7 +167,7 @@ export default class PrivateMessagesAPI extends BaseAPI {
         json: options
       },
       json: true
-    }).then(response => response.body);
+    }).then((response) => response.body);
   }
 
   markMessagesUnread (
@@ -181,7 +181,7 @@ export default class PrivateMessagesAPI extends BaseAPI {
         json: options
       },
       json: true
-    }).then(response => response.body);
+    }).then((response) => response.body);
   }
 
   sendMessage (options: SendMessageOptions): Promise<SendMessage> {
@@ -193,7 +193,7 @@ export default class PrivateMessagesAPI extends BaseAPI {
         json: options
       },
       json: true
-    }).then(response => response.body);
+    }).then((response) => response.body);
   }
 
   unArchiveMessages (
@@ -207,6 +207,6 @@ export default class PrivateMessagesAPI extends BaseAPI {
         json: options
       },
       json: true
-    }).then(response => response.body);
+    }).then((response) => response.body);
   }
 }

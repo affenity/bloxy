@@ -48,7 +48,7 @@ export default class FollowingsAPI extends BaseAPI {
         path: `v1/users/${options.userId}/universes`
       },
       json: true
-    }).then(response => response.body);
+    }).then((response) => response.body);
   }
 
   getUserFollowingUniverseStatus (
@@ -60,7 +60,7 @@ export default class FollowingsAPI extends BaseAPI {
         path: `v1/users/${options.userId}/universes/${options.universeId}/status`
       },
       json: true
-    }).then(response => response.body);
+    }).then((response) => response.body);
   }
 
   unFollowUniverse (
@@ -73,7 +73,7 @@ export default class FollowingsAPI extends BaseAPI {
         method: "DELETE"
       },
       json: true
-    }).then(response => response.body);
+    }).then((response) => response.body);
   }
 
   followUniverse (options: FollowUniverseOptions): Promise<FollowUniverse> {
@@ -84,6 +84,6 @@ export default class FollowingsAPI extends BaseAPI {
         method: "POST"
       },
       json: true
-    }).then(response => response.body);
+    }).then((response) => response.body);
   }
 }

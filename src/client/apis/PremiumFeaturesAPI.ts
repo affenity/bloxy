@@ -30,7 +30,7 @@ export default class PremiumFeaturesAPI extends BaseAPI {
         qs: options
       },
       json: true
-    }).then(response => response.body);
+    }).then((response) => response.body);
   }
 
   validateUserMembership (
@@ -42,6 +42,6 @@ export default class PremiumFeaturesAPI extends BaseAPI {
         path: `v1/users/${options.userId}/validate-membership`
       },
       json: true
-    }).then(response => response.body);
+    }).then((response) => response.body);
   }
 }
