@@ -1,120 +1,135 @@
 import BaseAPI from "./BaseAPI";
 import Client from "../Client";
+import { ISOString } from "../../types/GeneralTypes";
 
-export declare type GetSponsoredGamesOptions = {
-  groupId?: number;
-  startRowIndex?: number;
-  count?: number;
-};
+// Utility types
+export declare type AdConfigurationTargetGender = unknown;
+export declare type AdConfigurationTargetAgeBracket = unknown;
+export declare type AdConfigurationTargetDeviceType = unknown;
 
-export declare type CreateAdOptions = unknown;
-export declare type RunAdOptions = unknown;
-export declare type StopAdOptions = unknown;
+// SponsoredGames
+export declare interface AdConfigurationSponsoredGame {
+  adId: number;
+  adSetId: number;
+  adName: string;
+  adStatus: unknown;
+  creativeType: unknown;
+  creativeTargetId: number;
+  creativeUrl: string;
+  bidAmountInRobux: number;
+  budgetInRobux: number;
+  adSetStatus: unknown;
+  startDate: ISOString;
+  endDate: ISOString;
+  targetGender: AdConfigurationTargetGender;
+  targetAgeBracket: AdConfigurationTargetAgeBracket;
+  targetDeviceType: AdConfigurationTargetDeviceType;
+  campaignTargetType: unknown;
+  campaignTargetId: number;
+  totalSpendInRobux: number;
+  totalImpressions: number;
+  totalClicks: number;
+  totalConversions: number;
+  impressionConversions: number;
+  clickConversions: number;
+}
+export declare interface AdConfigurationSponsoredGames {
+  sponsoredGames: AdConfigurationSponsoredGame[];
+  previousPageCursor: string;
+  nextPageCursor: string;
+}
 
-export declare type GetCreateAdMetaData = {
+export declare interface AdConfigurationUniverse {
+  id: number;
+  name: string;
+}
+export declare interface AdConfigurationUniverses {
+  universes: AdConfigurationUniverse[];
+}
+export declare interface AdConfigurationCreateSponsoredGameAd {
   universeId: number;
-  universeCreatorType: string;
-  universeCreatorTargetId: number;
-  areNativeAdsForPhoneEnabled: boolean;
-  areNativeAdsForTabletEnabled: boolean;
-  areNativeAdsForDesktopEnabled: boolean;
-  areNativeAdsForConsoleEnabled: boolean;
-};
-export declare type GetSponsoredGames = {
-  sponsoredGames: {
-    adId: number;
-    universeName: string;
-    universeRootPlaceId: number;
-    targetDeviceType: string;
-    totalBid: number;
-    totalImpressions: number;
-    totalClicks: number;
-    campaign: {
-      bid: number;
-      clicks: number;
-      impressions: 0;
-      isRunning: boolean;
-    };
-    gameIconUrl: string;
-    costPerImpressionEstimate: number;
-  };
-  nextPageStartRowIndex: number;
-  creatorType: "User" | "Group";
-  isErroneous: boolean;
-  minimumBidAmount: number;
-};
-export declare type CreateAd = unknown;
-export declare type RunAd = unknown;
-export declare type StopAd = unknown;
+  targetGender: AdConfigurationTargetGender;
+  targetAgeBracket: AdConfigurationTargetAgeBracket;
+  targetDeviceType: AdConfigurationTargetDeviceType;
+  budgetInRobux: number;
+  startDate: ISOString;
+  endDate: ISOString;
+  adName: string;
+  bidAmountInRobux: number;
+}
+export declare interface AdConfigurationStopSponsoredGameAd {
+  adSetId: number;
+}
 
 export default class AdConfigurationAPI extends BaseAPI {
-  constructor (client: Client) {
+  constructor(client: Client) {
     super({
       baseUrl: "https://adconfiguration.roblox.com/",
       client
     });
   }
 
-  getCreateAdMetaData (): Promise<GetCreateAdMetaData> {
-    return this.request({
-      requiresAuth: false,
-      request: {
-        path: "/v1/sponsored-games/create-ad/metadata"
-      },
-      json: true
-    }).then((response) => response.body as GetCreateAdMetaData);
-  }
-
-  getSponsoredGames (
-    options: GetSponsoredGamesOptions
-  ): Promise<GetSponsoredGames> {
+  getSponsoredGames(options: {
+    universeId: number;
+    includeReportingStats?: boolean;
+    isArchived?: boolean;
+    pageCursor?: string;
+  }): Promise<AdConfigurationSponsoredGames> {
     return this.request({
       requiresAuth: true,
       request: {
-        path: "/v1/sponsored-games/sponsored-games",
+        url: "v2/sponsored-games",
+        method: "GET",
         qs: {
-          groupId: options.groupId || null,
-          startRowIndex: options.startRowIndex || 0,
-          count: options.count || 50
+          universeId: options.universeId,
+          includeReportingStats: options.includeReportingStats,
+          isArchived: options.isArchived,
+          pageCursor: options.pageCursor
         }
       },
       json: true
-    }).then((response) => response.body as GetSponsoredGames);
+    }).then((response) => response.body);
   }
 
-  createAd (options: CreateAdOptions): Promise<CreateAd> {
+  getUniverses(options: {
+    groupId?: number;
+  }): Promise<AdConfigurationUniverses> {
     return this.request({
       requiresAuth: true,
       request: {
-        path: "/v1/sponsored-games/create-ad",
-        method: "POST",
-        json: options as any
+        url: "v2/sponsored-games/universes",
+        method: "GET",
+        qs: {
+          groupId: options.groupId
+        }
       },
       json: true
-    }).then((response) => response.body as CreateAd);
+    }).then((response) => response.body);
   }
 
-  runAd (options: RunAdOptions): Promise<RunAd> {
+  createSponsor(
+    options: AdConfigurationCreateSponsoredGameAd
+  ): Promise<boolean> {
     return this.request({
       requiresAuth: true,
       request: {
-        path: "/v1/sponsored-games/run",
+        url: "v2/sponsored-games/create",
         method: "POST",
-        json: options as any
+        json: options
       },
       json: true
-    }).then((response) => response.body as RunAd);
+    }).then(() => true);
   }
 
-  stopAd (options: StopAdOptions): Promise<StopAd> {
+  stopSponsor(options: AdConfigurationStopSponsoredGameAd): Promise<boolean> {
     return this.request({
       requiresAuth: true,
       request: {
-        path: "/v1/sponsored-games/stop",
+        url: "v2/sponsored-games/stop",
         method: "POST",
-        json: options as any
+        json: options
       },
       json: true
-    }).then((response) => response.body as StopAd);
+    }).then(() => true);
   }
 }

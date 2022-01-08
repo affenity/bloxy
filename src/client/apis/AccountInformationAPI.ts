@@ -1,97 +1,88 @@
 import BaseAPI from "./BaseAPI";
 import Client from "../Client";
+import { Privacy } from "../../types/GeneralTypes";
 
-export declare type UpdateUserBirthdateOptions = GetUserBirthdate;
-export declare type UpdateUserDescriptionOptions = {
+// AccountInformation
+export declare interface UserAccountBirthdate {
+  birthDay: number;
+  birthMonth: number;
+  birthYear: number;
+}
+export declare interface UserAccountDescription {
   description: string;
-};
-export declare type UpdateUserGenderOptions = {
+}
+export declare interface UserAccountGender {
   gender: number;
-};
-export declare type SetPhoneNumberOptions = {
-  countryCode: string;
-  prefix: string;
-  phone: string;
-  password: string;
-};
-export declare type DeletePhoneOptions = SetPhoneNumberOptions;
-export declare type ResendPhoneCodeOptions = SetPhoneNumberOptions;
-export declare type VerifyPhoneOptions = SetPhoneNumberOptions;
-export declare type AddStarCodeAffiliateOptions = {
-  code: string;
-};
-export declare type UpdateUserPromotionChannelsOptions = {
+}
+export declare interface UserAccountXboxConsecutiveLoginDays {
+  count: number;
+}
+
+// Metadata
+export declare interface UserAccountMetaData {
+  isAllowedNotificationsEndpointDisabled: boolean;
+  isAccountSettingsPolicyEnabled: boolean;
+  isPhoneNumberEnabled: boolean;
+  MaxUserDescriptionLength: number;
+  isUserDescriptionEnabled: boolean;
+  isUserBlockEndpointsUpdated: boolean;
+  isIDVerificationEnabled: boolean;
+  isPasswordRequiredForAgingDown: boolean;
+  homePageUpsellCardVariation: string;
+}
+
+// PromotionChannel
+export declare interface UserAccountOwnPromotionChannels {
+  promotionChannelsVisibilityPrivacy: Privacy;
   facebook: string;
   twitter: string;
   youtube: string;
   twitch: string;
-  promotionChannelsVisibilityPrivacy: string;
-};
-
-export declare type GetUserBirthdate = {
-  birthMonth: number;
-  birthDay: number;
-  birthYear: number;
-};
-export declare type UpdateUserBirthdate = boolean;
-export declare type GetUserDescription = {
-  description: string;
-};
-export declare type UpdateUserDescription = boolean;
-export declare type GetUserGender = {
-  gender: number;
-};
-export declare type UpdateUserGender = unknown;
-export declare type GetConsecutiveXboxLoginDays = {
-  count: number;
-};
-export declare type GetMetaData = {
-  isAllowedNotificationsEndpointDisabled: boolean;
-  isAccountSettingsPolicyEnabled: boolean;
-  isPhoneNumberEnabled: boolean;
-};
-export declare type GetVerifiedPhoneNumber = SetPhoneNumberOptions;
-export declare type SetPhoneNumber = unknown;
-export declare type DeletePhone = unknown;
-export declare type ResendPhoneCode = unknown;
-export declare type VerifyPhone = unknown;
-export declare type GetSelfPromotionChannels =
-  UpdateUserPromotionChannelsOptions;
-export declare type GetUserPromotionChannelsOptions = { userId: number };
-export declare type GetUserPromotionChannels = Omit<
-GetSelfPromotionChannels,
-"promotionChannelsVisibilityPrivacy"
+  guilded: string;
+}
+export declare type UserAccountPromotionChannels = Omit<
+  UserAccountOwnPromotionChannels,
+  "promotionChannelsVisibilityPrivacy"
 >;
-export declare type UpdateUserPromotionChannels = unknown;
-export declare type RemoveStarCodeAffiliate = unknown;
-export declare type GetStarCodeAffiliate = {
+
+// StarCodeAffiliate
+export declare interface UserAccountStarCodeAffiliate {
   userId: number;
   name: string;
   code: string;
-};
-export declare type AddStarCodeAffiliate = GetStarCodeAffiliate;
+}
+export declare interface UserAccountSetStarCodeAffiliate {
+  code: string;
+}
+
+// RobloxBadges
+export declare interface UserAccountRobloxBadge {
+  id: number;
+  name: string;
+  description: string;
+  imageUrl: string;
+}
+export declare type UserAccountRobloxBadges = UserAccountRobloxBadge[];
 
 export default class AccountInformationAPI extends BaseAPI {
-  constructor (client: Client) {
+  constructor(client: Client) {
     super({
       baseUrl: "https://accountinformation.roblox.com/",
       client
     });
   }
 
-  getUserBirthdate (): Promise<GetUserBirthdate> {
+  getUserBirthdate(): Promise<UserAccountBirthdate> {
     return this.request({
       requiresAuth: true,
       request: {
         path: "v1/birthdate"
       },
       json: true
-    }).then((response) => response.body as GetUserBirthdate);
+    }).then((response) => response.body);
   }
 
-  updateUserBirthdate (
-    options: UpdateUserBirthdateOptions
-  ): Promise<UpdateUserBirthdate> {
+  updateUserBirthdate(options: UserAccountBirthdate): Promise<boolean> {
     return this.request({
       requiresAuth: true,
       request: {
@@ -100,22 +91,20 @@ export default class AccountInformationAPI extends BaseAPI {
         json: options
       },
       json: true
-    }).then(() => true as UpdateUserBirthdate);
+    }).then(() => true);
   }
 
-  getUserDescription (): Promise<GetUserDescription> {
+  getUserDescription(): Promise<UserAccountDescription> {
     return this.request({
       requiresAuth: true,
       request: {
         path: "v1/description"
       },
       json: true
-    }).then((response) => response.body as GetUserDescription);
+    }).then((response) => response.body);
   }
 
-  updateUserDescription (
-    options: UpdateUserDescriptionOptions
-  ): Promise<UpdateUserDescription> {
+  updateUserDescription(options: UserAccountDescription): Promise<boolean> {
     return this.request({
       requiresAuth: true,
       request: {
@@ -124,22 +113,20 @@ export default class AccountInformationAPI extends BaseAPI {
         json: options
       },
       json: true
-    }).then(() => true as UpdateUserDescription);
+    }).then(() => true);
   }
 
-  getUserGender (): Promise<GetUserGender> {
+  getUserGender(): Promise<UserAccountGender> {
     return this.request({
       requiresAuth: true,
       request: {
         path: "v1/gender"
       },
       json: true
-    }).then((response) => response.body as GetUserGender);
+    }).then((response) => response.body);
   }
 
-  updateUserGender (
-    options: UpdateUserGenderOptions
-  ): Promise<UpdateUserGender> {
+  updateUserGender(options: UserAccountGender): Promise<boolean> {
     return this.request({
       requiresAuth: true,
       request: {
@@ -148,100 +135,42 @@ export default class AccountInformationAPI extends BaseAPI {
         json: options
       },
       json: true
-    }).then(() => true as UpdateUserGender);
+    }).then(() => true);
   }
 
-  getConsecutiveXboxLoginDays (): Promise<GetConsecutiveXboxLoginDays> {
+  getConsecutiveXboxLoginDays(): Promise<UserAccountXboxConsecutiveLoginDays> {
     return this.request({
       requiresAuth: true,
       request: {
         path: "v1/xbox-live/consecutive-login-days"
       },
       json: true
-    }).then((response) => response.body as GetConsecutiveXboxLoginDays);
+    }).then((response) => response.body);
   }
 
-  getMetaData () {
+  getMetaData(): Promise<UserAccountMetaData> {
     return this.request({
       requiresAuth: false,
       request: {
         path: "v1/metadata"
       },
       json: true
-    }).then((response) => response.body as GetMetaData);
+    }).then((response) => response.body);
   }
 
-  getVerifiedPhoneNumber (): Promise<GetVerifiedPhoneNumber> {
-    return this.request({
-      requiresAuth: true,
-      request: {
-        path: "v1/phone"
-      },
-      json: true
-    }).then((response) => response.body as GetVerifiedPhoneNumber);
-  }
-
-  setPhoneNumber (options: SetPhoneNumberOptions): Promise<SetPhoneNumber> {
-    return this.request({
-      requiresAuth: true,
-      request: {
-        path: "v1/phone",
-        method: "POST",
-        json: options
-      },
-      json: true
-    }).then(() => true as SetPhoneNumber);
-  }
-
-  deletePhone (options: DeletePhoneOptions): Promise<DeletePhone> {
-    return this.request({
-      requiresAuth: true,
-      request: {
-        path: "v1/phone/delete",
-        method: "POST",
-        json: options
-      },
-      json: true
-    }).then(() => true as DeletePhone);
-  }
-
-  resendPhoneCode (options: ResendPhoneCodeOptions): Promise<ResendPhoneCode> {
-    return this.request({
-      requiresAuth: true,
-      request: {
-        path: "v1/phone/resend",
-        method: "POST",
-        json: options
-      },
-      json: true
-    }).then(() => true as ResendPhoneCode);
-  }
-
-  verifyPhone (options: VerifyPhoneOptions): Promise<VerifyPhone> {
-    return this.request({
-      requiresAuth: true,
-      request: {
-        path: "v1/phone/verify",
-        method: "POST",
-        json: options
-      },
-      json: true
-    }).then(() => true as VerifyPhone);
-  }
-
-  getSelfPromotionChannels (): Promise<GetSelfPromotionChannels> {
+  getSelfPromotionChannels(): Promise<UserAccountOwnPromotionChannels> {
     return this.request({
       requiresAuth: true,
       request: {
         path: "v1/promotion-channels"
       },
       json: true
-    }).then((response) => response.body as GetSelfPromotionChannels);
+    }).then((response) => response.body);
   }
 
-  getUserPromotionChannels (
-    options: GetUserPromotionChannelsOptions
-  ): Promise<GetUserPromotionChannels> {
+  getUserPromotionChannels(options: {
+    userId: number;
+  }): Promise<UserAccountPromotionChannels> {
     return this.request({
       requiresAuth: false,
       request: {
@@ -251,9 +180,9 @@ export default class AccountInformationAPI extends BaseAPI {
     }).then((response) => response.body);
   }
 
-  updateUserPromotionChannels (
-    options: UpdateUserPromotionChannelsOptions
-  ): Promise<UpdateUserPromotionChannels> {
+  updateUserPromotionChannels(
+    options: UserAccountOwnPromotionChannels
+  ): Promise<boolean> {
     return this.request({
       requiresAuth: true,
       request: {
@@ -262,10 +191,10 @@ export default class AccountInformationAPI extends BaseAPI {
         json: options
       },
       json: true
-    }).then((response) => response.body as UpdateUserPromotionChannels);
+    }).then(() => true);
   }
 
-  removeStarCodeAffiliate (): Promise<RemoveStarCodeAffiliate> {
+  removeStarCodeAffiliate(): Promise<boolean> {
     return this.request({
       requiresAuth: true,
       request: {
@@ -273,22 +202,22 @@ export default class AccountInformationAPI extends BaseAPI {
         method: "DELETE"
       },
       json: true
-    }).then(() => true as RemoveStarCodeAffiliate);
+    }).then(() => true);
   }
 
-  getStarCodeAffiliate (): Promise<GetStarCodeAffiliate> {
+  getStarCodeAffiliate(): Promise<UserAccountStarCodeAffiliate> {
     return this.request({
       requiresAuth: true,
       request: {
         path: "v1/star-code-affiliates"
       },
       json: true
-    }).then((response) => response.body as GetStarCodeAffiliate);
+    }).then((response) => response.body);
   }
 
-  addStarCodeAffiliate (
-    options: AddStarCodeAffiliateOptions
-  ): Promise<AddStarCodeAffiliate> {
+  addStarCodeAffiliate(
+    options: UserAccountSetStarCodeAffiliate
+  ): Promise<UserAccountStarCodeAffiliate> {
     return this.request({
       requiresAuth: true,
       request: {
@@ -297,6 +226,19 @@ export default class AccountInformationAPI extends BaseAPI {
         json: options
       },
       json: true
-    }).then((response) => response.body as AddStarCodeAffiliate);
+    }).then((response) => response.body);
+  }
+
+  getRobloxBadges(options: {
+    userId: number;
+  }): Promise<UserAccountRobloxBadges> {
+    return this.request({
+      requiresAuth: false,
+      request: {
+        path: `v1/users/${options.userId}/roblox-badges`,
+        method: "GET"
+      },
+      json: true
+    }).then((response) => response.body);
   }
 }
