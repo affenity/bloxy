@@ -32,7 +32,7 @@ export class GameBadgeBase {
   public id: number;
   public name: string | null;
 
-  constructor (data: GameBadgeBaseOptions, client: Client) {
+  constructor(data: GameBadgeBaseOptions, client: Client) {
     this.client = client;
     this.id = data.id;
     this.name = data.name || null;
@@ -81,7 +81,7 @@ export class GameBadge {
   };
   awardingUniverse: PartialGameUniverse;
 
-  constructor (data: GameBadgeOptions, client: Client) {
+  constructor(data: GameBadgeOptions, client: Client) {
     const structures = retrieveStructures();
 
     this.client = client;
@@ -118,7 +118,7 @@ export type PartialGameBadgeOptions = GameBadgeBaseOptions;
 export class PartialGameBadge extends GameBadgeBase {
   // Shut up eslint, it's not useless
   // eslint-disable-next-line no-useless-constructor
-  constructor (data: PartialGameBadgeOptions, client: Client) {
+  constructor(data: PartialGameBadgeOptions, client: Client) {
     super(data, client);
   }
 }
@@ -139,7 +139,7 @@ export class GamePass {
   public productId: number;
   public price: number;
 
-  constructor (data: GamePassOptions, client: Client) {
+  constructor(data: GamePassOptions, client: Client) {
     this.client = client;
     this.id = data.id;
     this.name = data.name;
@@ -159,33 +159,33 @@ export class BasePlace {
   public id: number;
   public name: string | null;
 
-  constructor (options: BasePlaceOptions, client: Client) {
+  constructor(options: BasePlaceOptions, client: Client) {
     this.client = client;
     this.id = options.id;
     this.name = options.name || null;
   }
 
-  getCompatibilities () {
+  getCompatibilities() {
     return this.client.apis.developAPI.getPlaceCompatibilities({
       placeId: this.id
     });
   }
 
-  updatePlaceConfiguration (options: { name: string; description: string }) {
+  updatePlaceConfiguration(options: { name: string; description: string }) {
     return this.client.apis.developAPI.updatePlaceConfiguration({
       placeId: this.id,
       ...options
     });
   }
 
-  getStatistics (options: Omit<GetPlaceStatisticsByTypeOptions, "placeId">) {
+  getStatistics(options: Omit<GetPlaceStatisticsByTypeOptions, "placeId">) {
     return this.client.apis.developAPI.getPlaceStatistics({
       placeId: this.id,
       ...options
     });
   }
 
-  awardBadge (userId: number, badgeId: number) {
+  awardBadge(userId: number, badgeId: number) {
     return this.client.apis.generalApi.awardBadge({
       placeId: this.id,
       badgeId,
@@ -193,7 +193,7 @@ export class BasePlace {
     });
   }
 
-  getGameServers (options: Omit<GetGameServersByTypeOptions, "placeId">) {
+  getGameServers(options: Omit<GetGameServersByTypeOptions, "placeId">) {
     return this.client.apis.gamesAPI.getGameServersByType({
       placeId: this.id,
       ...options
@@ -228,7 +228,7 @@ export class Place extends BasePlace {
   public price: number;
   public imageToken: string;
 
-  constructor (data: PlaceOptions, client: Client) {
+  constructor(data: PlaceOptions, client: Client) {
     const structures = retrieveStructures();
 
     super(
@@ -265,7 +265,7 @@ interface PartialPlaceOptions {
 }
 
 export class PartialPlace extends BasePlace {
-  constructor (data: PartialPlaceOptions, client: Client) {
+  constructor(data: PartialPlaceOptions, client: Client) {
     super(
       {
         id: data.id,
@@ -291,21 +291,21 @@ export class PartialGameUniverse {
   public name: string | null;
   public rootPlace: PartialPlace | null;
 
-  constructor (data: PartialGameUniverseOptions, client: Client) {
+  constructor(data: PartialGameUniverseOptions, client: Client) {
     const structures = retrieveStructures();
 
     this.client = client;
     this.id = data.id;
     this.name = data.name || null;
-    this.rootPlace = data.rootPlace ?
-      new structures.PartialPlace(
-        {
-          id: data.rootPlace.id,
-          name: data.rootPlace.name || null
-        },
-        client
-      ) :
-      null;
+    this.rootPlace = data.rootPlace
+      ? new structures.PartialPlace(
+          {
+            id: data.rootPlace.id,
+            name: data.rootPlace.name || null
+          },
+          client
+        )
+      : null;
   }
 }
 
@@ -354,41 +354,41 @@ export class GameUniverse {
   public avatarType: MorphAvatarType;
   public genre: GameGenre;
 
-  constructor (data: GameUniverseOptions, client: Client) {
+  constructor(data: GameUniverseOptions, client: Client) {
     const structures = retrieveStructures();
 
     this.client = client;
     this.id = data.id;
-    this.rootPlace = data.rootPlaceId ?
-      new structures.PartialPlace(
-        {
-          id: data.rootPlaceId
-        },
-        client
-      ) :
-      null;
+    this.rootPlace = data.rootPlaceId
+      ? new structures.PartialPlace(
+          {
+            id: data.rootPlaceId
+          },
+          client
+        )
+      : null;
     this.name = data.name;
     this.description = data.description;
     this.creatorType =
-      data.creatorType.toLowerCase() === "group" ?
-        CreatorType.GROUP :
-        CreatorType.USER;
+      data.creatorType.toLowerCase() === "group"
+        ? CreatorType.GROUP
+        : CreatorType.USER;
     this.creator =
-      this.creatorType === CreatorType.GROUP ?
-        new structures.PartialGroup(
-          {
-            id: data.creator.id,
-            name: data.creator.name
-          },
-          client
-        ) :
-        new structures.PartialUser(
-          {
-            id: data.creator.id,
-            name: data.creator.name
-          },
-          client
-        );
+      this.creatorType === CreatorType.GROUP
+        ? new structures.PartialGroup(
+            {
+              id: data.creator.id,
+              name: data.creator.name
+            },
+            client
+          )
+        : new structures.PartialUser(
+            {
+              id: data.creator.id,
+              name: data.creator.name
+            },
+            client
+          );
     this.price = data.price;
     this.allowedGearGenres = data.allowedGearGenres;
     this.allowedGearCategories = data.allowedGearCategories;
@@ -400,9 +400,9 @@ export class GameUniverse {
     this.studioAccessToAPIsEnabled = data.studioAccessToApisAllowed;
     this.createVIPServersEnabled = data.createVipServersAllowed;
     this.avatarType =
-      data.universeAvatarType.toLowerCase() === "morphtor6" ?
-        MorphAvatarType.R6 :
-        MorphAvatarType.R15;
+      data.universeAvatarType.toLowerCase() === "morphtor6"
+        ? MorphAvatarType.R6
+        : MorphAvatarType.R15;
     this.genre = data.genre as GameGenre;
   }
 }
@@ -415,7 +415,7 @@ export class PartialVIPServer {
   public client: Client;
   public id: number;
 
-  constructor (data: PartialVIPServerOptions, client: Client) {
+  constructor(data: PartialVIPServerOptions, client: Client) {
     this.client = client;
     this.id = data.id;
   }
@@ -442,7 +442,7 @@ export interface VIPServerOptions {
   };
   permissions: {
     clanAllowed: boolean;
-    enemyClanId: number | number;
+    enemyClanId: number;
     friendsAllowed: boolean;
     users: {
       id: number;
@@ -472,7 +472,7 @@ export class VIPServer {
     users: PartialUser[];
   };
 
-  constructor (data: VIPServerOptions, client: Client) {
+  constructor(data: VIPServerOptions, client: Client) {
     const structures = retrieveStructures();
 
     this.client = client;
@@ -526,7 +526,7 @@ export class GameMediaData {
   public videoTitle: string | null;
   public approved: boolean;
 
-  constructor (data: GameMediaDataOptions, client: Client) {
+  constructor(data: GameMediaDataOptions, client: Client) {
     this.client = client;
     this.assetTypeId = data.assetTypeId;
     this.assetType = data.assetType;

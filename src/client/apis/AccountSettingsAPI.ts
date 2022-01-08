@@ -3,46 +3,46 @@ import Client from "../Client";
 import { Privacy } from "../../types/GeneralTypes";
 
 // Accounts
-export interface AccountSettingsMetaData {
+export type AccountSettingsMetaData = {
   isAccountsRestrictionsSpamBugFixEnabled: boolean;
   maximumParentalControlsMonthlySpendLimitInUSD: number;
   isParentalMonthlyLimitInUIEnabled: boolean;
   isParentalNotificationSettingsInUIEnabled: boolean;
-}
-export interface AccountSettingsGroup {
+};
+export type AccountSettingsGroup = {
   title: string;
   url: string;
   suffix: string;
-}
+};
 export type AccountSettingsGroups = AccountSettingsGroup[];
 
 // PrivacySettings
-export interface AccountSettingsAppChatPrivacy {
+export type AccountSettingsAppChatPrivacy = {
   appChatPrivacy: Omit<Privacy, "AllUsers" | "Followers" | "Following"> | "All";
-}
-export interface AccountSettingsGameChatPrivacy {
+};
+export type AccountSettingsGameChatPrivacy = {
   gameChatPrivacy: Omit<Privacy, "Followers" | "Following" | "Friends">;
-}
-export interface AccountSettingsInventoryPrivacy {
+};
+export type AccountSettingsInventoryPrivacy = {
   inventoryPrivacy: Privacy;
-}
-export interface AccountSettingsPrivacy {
+};
+export type AccountSettingsPrivacy = {
   phoneDiscovery: Omit<Privacy, "Followers" | "Following" | "Friends">;
-}
-export interface AccountSettingsPrivacyInfo {
+};
+export type AccountSettingsPrivacyInfo = {
   isPhoneDiscoveryEnabled: boolean;
-}
-export interface AccountSettingsPrivateMessagePrivacy {
+};
+export type AccountSettingsPrivateMessagePrivacy = {
   privateMessagePrivacy: Privacy;
-}
-export interface AccountSettingsVisibilityPrivacy {
+};
+export type AccountSettingsVisibilityPrivacy = {
   visibilityPrivacy: number;
-}
+};
 
 // BlockUser
-export interface AccountSettingsBlockUser {
+export type AccountSettingsBlockUser = {
   userId: number;
-}
+};
 
 export default class AccountSettingsAPI extends BaseAPI {
   constructor(client: Client) {

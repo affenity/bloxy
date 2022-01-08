@@ -3,6 +3,7 @@ import Client from "../Client";
 
 export type GetContactsMetaData = {
   multiGetContactsMaxSize: number;
+  multiGetContactsCacheTTLinMS: number;
 };
 export type GetUsersTagsOptions = {
   targetUserIds: number[];
@@ -27,14 +28,14 @@ export type SetUserTag = {
 };
 
 export default class ContactsAPI extends BaseAPI {
-  constructor (client: Client) {
+  constructor(client: Client) {
     super({
       client,
       baseUrl: "https://contacts.roblox.com/"
     });
   }
 
-  getContactsMetaData (): Promise<GetContactsMetaData> {
+  getContactsMetaData(): Promise<GetContactsMetaData> {
     return this.request({
       requiresAuth: false,
       request: {
@@ -44,7 +45,7 @@ export default class ContactsAPI extends BaseAPI {
     }).then((response) => response.body);
   }
 
-  getUsersTags (options: GetUsersTagsOptions): Promise<GetUsersTags> {
+  getUsersTags(options: GetUsersTagsOptions): Promise<GetUsersTags> {
     return this.request({
       requiresAuth: true,
       request: {
@@ -56,7 +57,7 @@ export default class ContactsAPI extends BaseAPI {
     }).then((response) => response.body);
   }
 
-  setPendingUserTag (
+  setPendingUserTag(
     options: SetPendingUserTagOptions
   ): Promise<SetPendingUserTag> {
     return this.request({
@@ -70,7 +71,7 @@ export default class ContactsAPI extends BaseAPI {
     }).then((response) => response.body);
   }
 
-  setUserTag (options: SetUserTagOptions): Promise<SetUserTag> {
+  setUserTag(options: SetUserTagOptions): Promise<SetUserTag> {
     return this.request({
       requiresAuth: false,
       request: {

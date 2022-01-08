@@ -70,13 +70,13 @@ export default class GenericDataStore<DataType> {
 
   buildPostDataForKey (key: string, index = 0): string {
     const encodedQueryString = querystring.encode({
-      [`qkeys[${index}].scope`]: this.scope ?
-        this.safeEncodeValue(this.scope) :
-        "",
+      [`qkeys[${index}].scope`]: this.scope
+        ? this.safeEncodeValue(this.scope)
+        : "",
       [`qkeys[${index}].target`]: this.legacy ? "" : this.safeEncodeValue(key),
-      [`qkeys[${index}].key`]: this.legacy ?
-        this.safeEncodeValue(key) :
-        this.safeEncodeValue(this.name)
+      [`qkeys[${index}].key`]: this.legacy
+        ? this.safeEncodeValue(key)
+        : this.safeEncodeValue(this.name)
     });
 
     return `&${encodedQueryString}`;
@@ -90,9 +90,9 @@ export default class GenericDataStore<DataType> {
 
   buildSetUrl (key: string, valueLength: number): string {
     const encodedQueryString = this.createQueryString({
-      key: this.legacy ?
-        this.safeEncodeValue(key) :
-        this.safeEncodeValue(this.name),
+      key: this.legacy
+        ? this.safeEncodeValue(key)
+        : this.safeEncodeValue(this.name),
       target: this.legacy ? "" : this.safeEncodeValue(key),
       valueLength
     });
@@ -106,9 +106,9 @@ export default class GenericDataStore<DataType> {
     expectedValueLength: number
   ): string {
     const encodedQueryString = this.createQueryString({
-      key: this.legacy ?
-        this.safeEncodeValue(key) :
-        this.safeEncodeValue(this.name),
+      key: this.legacy
+        ? this.safeEncodeValue(key)
+        : this.safeEncodeValue(this.name),
       target: this.legacy ? "" : this.safeEncodeValue(key),
       valueLength,
       expectedValueLength
@@ -119,9 +119,9 @@ export default class GenericDataStore<DataType> {
 
   buildIncrementUrl (key: string, delta: number): string {
     const encodedQueryString = this.createQueryString({
-      key: this.legacy ?
-        this.safeEncodeValue(key) :
-        this.safeEncodeValue(this.name),
+      key: this.legacy
+        ? this.safeEncodeValue(key)
+        : this.safeEncodeValue(this.name),
       target: this.legacy ? "" : this.safeEncodeValue(key),
       value: delta
     });
@@ -131,9 +131,9 @@ export default class GenericDataStore<DataType> {
 
   buildRemoveUrl (key: string): string {
     const encodedQueryString = this.createQueryString({
-      key: this.legacy ?
-        this.safeEncodeValue(key) :
-        this.safeEncodeValue(this.name),
+      key: this.legacy
+        ? this.safeEncodeValue(key)
+        : this.safeEncodeValue(this.name),
       target: this.legacy ? "" : this.safeEncodeValue(key)
     });
 

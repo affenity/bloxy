@@ -20,8 +20,8 @@ export default class DataStoreHttpRequest {
     this.options = options;
 
     // Adjusting the body
-    this.options.body =
-      this.options.data.length === 0 ? " " : this.options.data;
+    this.options.body
+      = this.options.data.length === 0 ? " " : this.options.data;
 
     // Always POST
     this.options.method = this.options.method || "POST";

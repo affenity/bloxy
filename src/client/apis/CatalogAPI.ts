@@ -129,14 +129,14 @@ export type FavoriteBundleOptions = {
 export type FavoriteBundle = unknown;
 
 export default class CatalogAPI extends BaseAPI {
-  constructor (client: Client) {
+  constructor(client: Client) {
     super({
       client,
       baseUrl: "https://catalog.roblox.com/"
     });
   }
 
-  getAssetBundles (options: GetAssetBundlesOptions): Promise<GetAssetBundles> {
+  getAssetBundles(options: GetAssetBundlesOptions): Promise<GetAssetBundles> {
     return this.request({
       requiresAuth: false,
       request: {
@@ -147,7 +147,7 @@ export default class CatalogAPI extends BaseAPI {
     }).then((response) => response.body);
   }
 
-  getBundleDetails (
+  getBundleDetails(
     options: GetBundleDetailsOptions
   ): Promise<GetBundleDetails> {
     return this.request({
@@ -160,7 +160,7 @@ export default class CatalogAPI extends BaseAPI {
     }).then((response) => response.body);
   }
 
-  getBundleRecommendationsByBundleId (
+  getBundleRecommendationsByBundleId(
     options: GetBundleRecommendationsByBundleIdOptions
   ): Promise<GetBundleRecommendationsByBundleId> {
     return this.request({
@@ -173,7 +173,7 @@ export default class CatalogAPI extends BaseAPI {
     }).then((response) => response.body);
   }
 
-  getMultiBundleDetails (
+  getMultiBundleDetails(
     options: GetMultiBundleDetailsOptions
   ): Promise<GetMultiBundleDetails> {
     return this.request({
@@ -188,7 +188,7 @@ export default class CatalogAPI extends BaseAPI {
     }).then((response) => response.body);
   }
 
-  getUserBundles (options: GetUserBundlesOptions): Promise<GetUserBundles> {
+  getUserBundles(options: GetUserBundlesOptions): Promise<GetUserBundles> {
     return this.request({
       requiresAuth: false,
       request: {
@@ -199,7 +199,7 @@ export default class CatalogAPI extends BaseAPI {
     }).then((response) => response.body);
   }
 
-  getUserBundlesByType (
+  getUserBundlesByType(
     options: GetUserBundlesByTypeOptions
   ): Promise<GetUserBundlesByType> {
     return this.request({
@@ -211,7 +211,7 @@ export default class CatalogAPI extends BaseAPI {
     }).then((response) => response.body);
   }
 
-  unpackBundle (options: UnpackBundleOptions): Promise<UnpackBundle> {
+  unpackBundle(options: UnpackBundleOptions): Promise<UnpackBundle> {
     return this.request({
       requiresAuth: false,
       request: {
@@ -222,7 +222,7 @@ export default class CatalogAPI extends BaseAPI {
     }).then((response) => response.body);
   }
 
-  getAssetToCategory (): Promise<GetAssetToCategory> {
+  getAssetToCategory(): Promise<GetAssetToCategory> {
     return this.request({
       requiresAuth: false,
       request: {
@@ -232,7 +232,7 @@ export default class CatalogAPI extends BaseAPI {
     }).then((response) => response.body);
   }
 
-  getAssetToSubCategory (): Promise<GetAssetToSubCategory> {
+  getAssetToSubCategory(): Promise<GetAssetToSubCategory> {
     return this.request({
       requiresAuth: false,
       request: {
@@ -242,7 +242,7 @@ export default class CatalogAPI extends BaseAPI {
     }).then((response) => response.body);
   }
 
-  getCategories (): Promise<GetCategories> {
+  getCategories(): Promise<GetCategories> {
     return this.request({
       requiresAuth: false,
       request: {
@@ -252,7 +252,7 @@ export default class CatalogAPI extends BaseAPI {
     }).then((response) => response.body);
   }
 
-  getSubCategories (): Promise<GetSubCategories> {
+  getSubCategories(): Promise<GetSubCategories> {
     return this.request({
       requiresAuth: false,
       request: {
@@ -262,7 +262,7 @@ export default class CatalogAPI extends BaseAPI {
     }).then((response) => response.body);
   }
 
-  getAppStoreExclusiveBundles (
+  getAppStoreExclusiveBundles(
     options: GetAppStoreExclusiveBundlesOptions
   ): Promise<GetAppStoreExclusiveBundles> {
     return this.request({
@@ -274,7 +274,7 @@ export default class CatalogAPI extends BaseAPI {
     }).then((response) => response.body);
   }
 
-  getAssetFavoriteCount (
+  getAssetFavoriteCount(
     options: GetAssetFavoriteCountOptions
   ): Promise<GetAssetFavoriteCount> {
     return this.request({
@@ -286,7 +286,7 @@ export default class CatalogAPI extends BaseAPI {
     }).then((response) => response.body);
   }
 
-  getBundleFavoriteCount (
+  getBundleFavoriteCount(
     options: GetBundleFavoriteCountOptions
   ): Promise<GetBundleFavoriteCount> {
     return this.request({
@@ -298,7 +298,7 @@ export default class CatalogAPI extends BaseAPI {
     }).then((response) => response.body);
   }
 
-  removeAssetFavorite (
+  removeAssetFavorite(
     options: RemoveSelfAssetFavoriteOptions
   ): Promise<RemoveSelfAssetFavorite> {
     return this.request({
@@ -311,7 +311,7 @@ export default class CatalogAPI extends BaseAPI {
     }).then((response) => response.body);
   }
 
-  getUserFavoriteAsset (
+  getUserFavoriteAsset(
     options: GetUserFavoriteAssetOptions
   ): Promise<GetUserFavoriteAsset> {
     return this.request({
@@ -323,7 +323,7 @@ export default class CatalogAPI extends BaseAPI {
     }).then((response) => response.body);
   }
 
-  favoriteAsset (options: FavoriteAssetOptions): Promise<FavoriteAsset> {
+  favoriteAsset(options: FavoriteAssetOptions): Promise<FavoriteAsset> {
     return this.request({
       requiresAuth: false,
       request: {
@@ -334,7 +334,7 @@ export default class CatalogAPI extends BaseAPI {
     }).then((response) => response.body);
   }
 
-  removeBundleFavorite (
+  removeBundleFavorite(
     options: RemoveFavoriteBundleOptions
   ): Promise<RemoveFavoriteBundle> {
     return this.request({
@@ -347,7 +347,7 @@ export default class CatalogAPI extends BaseAPI {
     }).then((response) => response.body);
   }
 
-  getUserFavoriteBundle (
+  getUserFavoriteBundle(
     options: GetSelfFavoriteBundleOptions
   ): Promise<GetSelfFavoriteBundle> {
     return this.request({
@@ -359,7 +359,7 @@ export default class CatalogAPI extends BaseAPI {
     }).then((response) => response.body);
   }
 
-  favoriteBundle (options: FavoriteBundleOptions): Promise<FavoriteBundle> {
+  favoriteBundle(options: FavoriteBundleOptions): Promise<FavoriteBundle> {
     return this.request({
       requiresAuth: false,
       request: {

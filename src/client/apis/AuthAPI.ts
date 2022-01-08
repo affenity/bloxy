@@ -1,7 +1,27 @@
 import BaseAPI from "./BaseAPI";
 import Client from "../Client";
 
-export type GetAuthTicket = {
+// AccountPin
+export type AuthPin = {
+  pin: string;
+};
+
+// Metadata
+export type AuthMetaData = {
+  isUpdateUsernameEnabled: boolean;
+  ftuxAvatarAssetMap: string;
+  isEmailUpsellAtLogoutEnabled: boolean;
+  shouldFetchEmailUpsellIXPValuesAtLogout: boolean;
+  isAccountRecoveryPromptEnabled: boolean;
+  isContactMethodRequiredAtSignup: boolean;
+  isUserAgreementsSignupIntegrationEnabled: boolean;
+  isRetypePasswordRequired: boolean;
+  arePasswordFieldsPlaintext: boolean;
+  isKoreaIdVerificationEnabled: boolean;
+  isSignupButtonGreenColorEnabled: boolean;
+};
+
+export type AuthTicket = {
   authTicket: string;
 };
 export type GetAuthMetaData = {
@@ -204,14 +224,37 @@ export type ChangeUsernameOptions = {
 export type ChangeUsername = unknown;
 
 export default class AuthAPI extends BaseAPI {
-  constructor (client: Client) {
+  constructor(client: Client) {
     super({
       client,
       baseUrl: "https://auth.roblox.com/"
     });
   }
 
-  getAuthTicket (): Promise<GetAuthTicket> {
+  unlockPin(options: AuthPin): Promise<boolean> {
+    return this.request({
+      requiresAuth: true,
+      request: {
+        path: "v1/account/pin/unlock",
+        method: "POST",
+        json: options
+      },
+      json: true
+    }).then(() => true);
+  }
+
+  lockPin(): Promise<boolean> {
+    return this.request({
+      requiresAuth: true,
+      request: {
+        path: "v1/account/pin/lock",
+        method: "POST"
+      },
+      json: true
+    }).then(() => true);
+  }
+
+  getAuthTicket(): Promise<AuthTicket> {
     return this.request({
       json: true,
       requiresAuth: true,
@@ -228,81 +271,34 @@ export default class AuthAPI extends BaseAPI {
     }));
   }
 
-  getAuthMetaData (): Promise<GetAuthMetaData> {
-    return this.request({
-      json: true,
-      requiresAuth: false,
-      request: {
-        path: "v2/auth/metadata"
-      }
-    }).then((response) => response.body as GetAuthMetaData);
-  }
-
-  login (options: LoginOptions): Promise<Login> {
-    return this.request({
-      json: true,
-      requiresAuth: false,
-      request: {
-        path: "v2/login",
-        method: "POST",
-        json: options
-      }
-    }).then((response) => response.body as Login);
-  }
-
-  logout (): Promise<Logout> {
-    return this.request({
-      json: true,
-      requiresAuth: false,
-      request: {
-        path: "v2/logout",
-        method: "POST"
-      }
-    }).then((response) => response.body as Logout);
-  }
-
-  getCredentialsVerificationStatus (
-    options: GetCredentialsVerificationStatusOptions
-  ): Promise<GetCredentialsVerificationStatus> {
-    return this.request({
-      json: true,
-      requiresAuth: false,
-      request: {
-        path: "v2/credentials/verification",
-        qs: {
-          "request.credentialType": options.credentialType,
-          "request.credentialValue": options.credentialValue,
-          "request.password": options.password
-        }
-      }
-    }).then((response) => response.body as GetCredentialsVerificationStatus);
-  }
-
-  sendCredentialsVerificationMessage (
-    options: SendCredentialsVerificationMessageOptions
-  ): Promise<SendCredentialsVerificationMessage> {
-    return this.request({
-      json: true,
-      requiresAuth: false,
-      request: {
-        path: "v2/credentials/verification/send",
-        method: "POST",
-        json: options
-      }
-    }).then((response) => response.body as SendCredentialsVerificationMessage);
-  }
-
-  getMetaData (): Promise<GetMetaData> {
+  getMetaData(): Promise<AuthMetaData> {
     return this.request({
       json: true,
       requiresAuth: false,
       request: {
         path: "v2/metadata"
       }
-    }).then((response) => response.body as GetMetaData);
+    }).then((response) => ({
+      isUpdateUsernameEnabled: response.body.isUpdateUsernameEnabled,
+      ftuxAvatarAssetMap: response.body.ftuxAvatarAssetMap,
+      isEmailUpsellAtLogoutEnabled: response.body.IsEmailUpsellAtLogoutEnabled,
+      shouldFetchEmailUpsellIXPValuesAtLogout:
+        response.body.ShouldFetchEmailUpsellIXPValuesAtLogout,
+      isAccountRecoveryPromptEnabled:
+        response.body.IsAccountRecoveryPromptEnabled,
+      isContactMethodRequiredAtSignup:
+        response.body.IsContactMethodRequiredAtSignup,
+      isUserAgreementsSignupIntegrationEnabled:
+        response.body.IsUserAgreementsSignupIntegrationEnabled,
+      isRetypePasswordRequired: response.body.IsRetypePasswordRequired,
+      arePasswordFieldsPlaintext: response.body.ArePasswordFieldsPlaintext,
+      isKoreaIdVerificationEnabled: response.body.IsKoreaIdVerificationEnabled,
+      isSignupButtonGreenColorEnabled:
+        response.body.IsSignupButtonGreenColorEnabled
+    }));
   }
 
-  getCurrentUserPasswordStatus (): Promise<GetCurrentPasswordStatus> {
+  getCurrentUserPasswordStatus(): Promise<GetCurrentPasswordStatus> {
     return this.request({
       json: true,
       requiresAuth: true,
@@ -312,7 +308,7 @@ export default class AuthAPI extends BaseAPI {
     }).then((response) => response.body as GetCurrentPasswordStatus);
   }
 
-  getPasswordResetMetaData (
+  getPasswordResetMetaData(
     options: GetPasswordResetMetaDataOptions
   ): Promise<GetPasswordResetMetaData> {
     return this.request({
@@ -328,7 +324,7 @@ export default class AuthAPI extends BaseAPI {
     }).then((response) => response.body as GetPasswordResetMetaData);
   }
 
-  resetPassword (options: ResetPasswordOptions): Promise<ResetPassword> {
+  resetPassword(options: ResetPasswordOptions): Promise<ResetPassword> {
     return this.request({
       json: true,
       requiresAuth: false,
@@ -340,7 +336,7 @@ export default class AuthAPI extends BaseAPI {
     }).then((response) => response.body as ResetPassword);
   }
 
-  validatePassword (
+  validatePassword(
     options: ValidatePasswordOptions
   ): Promise<ValidatePassword> {
     return this.request({
@@ -356,7 +352,7 @@ export default class AuthAPI extends BaseAPI {
     }).then((response) => response.body as ValidatePassword);
   }
 
-  sendPasswordReset (
+  sendPasswordReset(
     options: SendPasswordResetOptions
   ): Promise<SendPasswordReset> {
     return this.request({
@@ -370,7 +366,7 @@ export default class AuthAPI extends BaseAPI {
     }).then((response) => response.body as SendPasswordReset);
   }
 
-  verifyPasswordReset (
+  verifyPasswordReset(
     options: VerifyPasswordResetOptions
   ): Promise<VerifyPasswordReset> {
     return this.request({
@@ -384,7 +380,7 @@ export default class AuthAPI extends BaseAPI {
     }).then((response) => response.body as VerifyPasswordReset);
   }
 
-  changeUserPassword (
+  changeUserPassword(
     options: ChangeUserPasswordOptions
   ): Promise<ChangeUserPassword> {
     return this.request({
@@ -398,7 +394,7 @@ export default class AuthAPI extends BaseAPI {
     }).then((response) => response.body as ChangeUserPassword);
   }
 
-  getRecoveryMetaData (): Promise<GetRecoveryMetaData> {
+  getRecoveryMetaData(): Promise<GetRecoveryMetaData> {
     return this.request({
       json: true,
       requiresAuth: false,
@@ -408,7 +404,7 @@ export default class AuthAPI extends BaseAPI {
     }).then((response) => response.body as GetRecoveryMetaData);
   }
 
-  getRevertAccountInfo (
+  getRevertAccountInfo(
     options: RevertAccountInfoOptions
   ): Promise<RevertAccountInfo> {
     return this.request({
@@ -423,7 +419,7 @@ export default class AuthAPI extends BaseAPI {
     }).then((response) => response.body as RevertAccountInfo);
   }
 
-  revertAccount (options: RevertAccountOptions): Promise<RevertAccount> {
+  revertAccount(options: RevertAccountOptions): Promise<RevertAccount> {
     return this.request({
       json: true,
       requiresAuth: false,
@@ -435,7 +431,7 @@ export default class AuthAPI extends BaseAPI {
     }).then((response) => response.body as RevertAccount);
   }
 
-  getSAMLMetaData (): Promise<GetSAMLMetaData> {
+  getSAMLMetaData(): Promise<GetSAMLMetaData> {
     return this.request({
       json: true,
       requiresAuth: false,
@@ -445,7 +441,7 @@ export default class AuthAPI extends BaseAPI {
     }).then((response) => response.body as GetSAMLMetaData);
   }
 
-  samlAuthenticate (): Promise<SAMLRequest> {
+  samlAuthenticate(): Promise<SAMLRequest> {
     return this.request({
       json: true,
       requiresAuth: false,
@@ -456,7 +452,7 @@ export default class AuthAPI extends BaseAPI {
     }).then((response) => response.body as SAMLRequest);
   }
 
-  getTwoStepVerificationMetaData (): Promise<GetTwoStepVerificationMetaData> {
+  getTwoStepVerificationMetaData(): Promise<GetTwoStepVerificationMetaData> {
     return this.request({
       json: true,
       requiresAuth: false,
@@ -466,7 +462,7 @@ export default class AuthAPI extends BaseAPI {
     }).then((response) => response.body as GetTwoStepVerificationMetaData);
   }
 
-  resendTwoStepVerificationCode (
+  resendTwoStepVerificationCode(
     options: ResendTwoStepVerificationOptions
   ): Promise<ResendTwoStepVerification> {
     return this.request({
@@ -480,7 +476,7 @@ export default class AuthAPI extends BaseAPI {
     }).then((response) => response.body as ResendTwoStepVerification);
   }
 
-  verifyTwoStepCode (
+  verifyTwoStepCode(
     options: VerifyTwoStepVerificationOptions
   ): Promise<VerifyTwoStepVerification> {
     return this.request({
@@ -494,7 +490,7 @@ export default class AuthAPI extends BaseAPI {
     }).then((response) => response.body as VerifyTwoStepVerification);
   }
 
-  getExistingUsernames (
+  getExistingUsernames(
     options: GetExistingUsernamesOptions
   ): Promise<GetExistingUsernames> {
     return this.request({
@@ -509,7 +505,7 @@ export default class AuthAPI extends BaseAPI {
     }).then((response) => response.body as GetExistingUsernames);
   }
 
-  validateUsername (
+  validateUsername(
     options: ValidateUsernameOptions
   ): Promise<ValidateUsername> {
     return this.request({
@@ -526,7 +522,7 @@ export default class AuthAPI extends BaseAPI {
     }).then((response) => response.body as ValidateUsername);
   }
 
-  recoverUsernames (
+  recoverUsernames(
     options: RecoverUsernamesOptions
   ): Promise<RecoverUsernames> {
     return this.request({
@@ -539,7 +535,7 @@ export default class AuthAPI extends BaseAPI {
     }).then((response) => response.body as RecoverUsernames);
   }
 
-  signUp (options: SignUpOptions): Promise<SignUp> {
+  signUp(options: SignUpOptions): Promise<SignUp> {
     return this.request({
       json: true,
       requiresAuth: false,
@@ -551,7 +547,7 @@ export default class AuthAPI extends BaseAPI {
     }).then((response) => response.body as SignUp);
   }
 
-  changeUserUsername (options: ChangeUsernameOptions): Promise<ChangeUsername> {
+  changeUserUsername(options: ChangeUsernameOptions): Promise<ChangeUsername> {
     return this.request({
       json: true,
       requiresAuth: true,

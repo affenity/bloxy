@@ -9,12 +9,12 @@ export default function validStatusMessage (
   let isValid = true;
 
   if (
-    request.requestOptions.responseOptions &&
-    request.requestOptions.checks?.statusMessage
+    request.requestOptions.responseOptions
+    && request.requestOptions.checks?.statusMessage
   ) {
     const allowedStatusMessages = responseOptions.allowedStatusMessages || [];
-    const disallowedStatusMessages =
-      responseOptions.disallowedStatusMessages || [];
+    const disallowedStatusMessages
+      = responseOptions.disallowedStatusMessages || [];
 
     const isAllowed = allowedStatusMessages.some((statusMessage) =>
       responseData.statusMessage.toLowerCase().includes(statusMessage)
@@ -29,24 +29,24 @@ export default function validStatusMessage (
         isValid = false;
       }
     } else if (
-      allowedStatusMessages.length === 0 &&
-      disallowedStatusMessages.length > 0
+      allowedStatusMessages.length === 0
+      && disallowedStatusMessages.length > 0
     ) {
       // Only these are disallowed
       if (isDisallowed) {
         isValid = false;
       }
     } else if (
-      allowedStatusMessages.length === 0 &&
-      disallowedStatusMessages.length === 0
+      allowedStatusMessages.length === 0
+      && disallowedStatusMessages.length === 0
     ) {
       // All status are allowed
     }
   }
 
-  return isValid ?
-    true :
-    new BloxyHttpError({
+  return isValid
+    ? true
+    : new BloxyHttpError({
       statusCode: responseData.statusCode,
       statusMessage: responseData.statusMessage,
       message: `Invalid status message detected in response.`,

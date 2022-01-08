@@ -184,14 +184,14 @@ export type UpdateUserTypingStatus = {
 };
 
 export default class ChatAPI extends BaseAPI {
-  constructor (client: Client) {
+  constructor(client: Client) {
     super({
       client,
       baseUrl: "https://chat.roblox.com/"
     });
   }
 
-  getChatSettings (): Promise<GetChatSettings> {
+  getChatSettings(): Promise<GetChatSettings> {
     return this.request({
       requiresAuth: true,
       request: {
@@ -201,7 +201,7 @@ export default class ChatAPI extends BaseAPI {
     }).then((response) => response.body);
   }
 
-  getConversations (
+  getConversations(
     options: GetConversationsOptions
   ): Promise<GetConversations> {
     return this.request({
@@ -216,7 +216,7 @@ export default class ChatAPI extends BaseAPI {
     }).then((response) => response.body);
   }
 
-  getConversationMessages (
+  getConversationMessages(
     options: GetConversationMessagesOptions
   ): Promise<GetConversationMessages> {
     return this.request({
@@ -229,7 +229,7 @@ export default class ChatAPI extends BaseAPI {
     }).then((response) => response.body);
   }
 
-  getRolloutSettings (
+  getRolloutSettings(
     options: GetRolloutSettingsOptions
   ): Promise<GetRolloutSettings> {
     return this.request({
@@ -244,17 +244,17 @@ export default class ChatAPI extends BaseAPI {
     }).then((response) => response.body);
   }
 
-  getUnreadConversationCount (): Promise<GetUnreadConversationCount> {
+  getUnreadConversationCount(): Promise<GetUnreadConversationCount> {
     return this.request({
       requiresAuth: true,
       request: {
-        path: `v2/get-conversations`
+        path: `v2/get-conversation-count`
       },
       json: true
     }).then((response) => response.body);
   }
 
-  getUnreadMessagesInConversations (
+  getUnreadMessagesInConversations(
     options: GetUnreadMessagesInConversationsOptions
   ): Promise<GetUnreadMessagesInConversations> {
     return this.request({
@@ -270,7 +270,7 @@ export default class ChatAPI extends BaseAPI {
     }).then((response) => response.body);
   }
 
-  getUserConversations (
+  getUserConversations(
     options: GetUserConversationsOptions
   ): Promise<GetUserConversations> {
     return this.request({
@@ -283,7 +283,7 @@ export default class ChatAPI extends BaseAPI {
     }).then((response) => response.body);
   }
 
-  getMetaData (): Promise<GetMetaData> {
+  getMetaData(): Promise<GetMetaData> {
     return this.request({
       requiresAuth: true,
       request: {
@@ -293,7 +293,7 @@ export default class ChatAPI extends BaseAPI {
     }).then((response) => response.body);
   }
 
-  getMultiLatestConversationMessages (
+  getMultiLatestConversationMessages(
     options: GetMultiLatestConversationMessagesOptions
   ): Promise<GetMultiLatestConversationMessages> {
     return this.request({
@@ -306,7 +306,7 @@ export default class ChatAPI extends BaseAPI {
     }).then((response) => response.body);
   }
 
-  addUsersToConversation (
+  addUsersToConversation(
     options: AddUsersToConversationOptions
   ): Promise<AddUsersToConversation> {
     return this.request({
@@ -320,7 +320,7 @@ export default class ChatAPI extends BaseAPI {
     }).then((response) => response.body);
   }
 
-  markConversationMessagesRead (
+  markConversationMessagesRead(
     options: MarkMessageInConversationAsReadOptions
   ): Promise<MarkMessageInConversationAsRead> {
     return this.request({
@@ -334,7 +334,7 @@ export default class ChatAPI extends BaseAPI {
     }).then((response) => response.body);
   }
 
-  markConversationsSeen (
+  markConversationsSeen(
     options: MarkConversationsAsSeenOptions
   ): Promise<MarkConversationsAsSeen> {
     return this.request({
@@ -348,7 +348,7 @@ export default class ChatAPI extends BaseAPI {
     }).then((response) => response.body);
   }
 
-  removeUserFromConversation (
+  removeUserFromConversation(
     options: RemoveUserFromConversationOptions
   ): Promise<RemoveUserFromConversation> {
     return this.request({
@@ -362,7 +362,7 @@ export default class ChatAPI extends BaseAPI {
     }).then((response) => response.body);
   }
 
-  renameGroupConversation (
+  renameGroupConversation(
     options: RenameGroupConversationOptions
   ): Promise<RenameGroupConversation> {
     return this.request({
@@ -376,7 +376,7 @@ export default class ChatAPI extends BaseAPI {
     }).then((response) => response.body);
   }
 
-  resetConversationUniverse (
+  resetConversationUniverse(
     options: ResetConversationUniverseOptions
   ): Promise<ResetConversationUniverse> {
     return this.request({
@@ -390,7 +390,7 @@ export default class ChatAPI extends BaseAPI {
     }).then((response) => response.body);
   }
 
-  sendGameLinkMessage (
+  sendGameLinkMessage(
     options: SendGameLinkMessageOptions
   ): Promise<SendGameLinkMessage> {
     return this.request({
@@ -404,7 +404,7 @@ export default class ChatAPI extends BaseAPI {
     }).then((response) => response.body);
   }
 
-  sendMessage (options: SendMessageOptions): Promise<SendMessage> {
+  sendMessage(options: SendMessageOptions): Promise<SendMessage> {
     return this.request({
       requiresAuth: true,
       request: {
@@ -416,7 +416,7 @@ export default class ChatAPI extends BaseAPI {
     }).then((response) => response.body);
   }
 
-  setConversationUniverse (
+  setConversationUniverse(
     options: SetConversationUniverseOptions
   ): Promise<SetConversationUniverse> {
     return this.request({
@@ -430,7 +430,7 @@ export default class ChatAPI extends BaseAPI {
     }).then((response) => response.body);
   }
 
-  startCloudEditConversation (
+  startCloudEditConversation(
     options: StartCloudEditConversationOptions
   ): Promise<StartCloudEditConversation> {
     return this.request({
@@ -444,7 +444,7 @@ export default class ChatAPI extends BaseAPI {
     }).then((response) => response.body);
   }
 
-  startGroupConversation (
+  startGroupConversation(
     options: StartGroupConversationOptions
   ): Promise<StartGroupConversation> {
     return this.request({
@@ -458,7 +458,7 @@ export default class ChatAPI extends BaseAPI {
     }).then((response) => response.body);
   }
 
-  startOneToOneConversation (
+  startOneToOneConversation(
     options: StartOneToOneConversationOptions
   ): Promise<StartOneToOneConversation> {
     return this.request({
@@ -472,7 +472,7 @@ export default class ChatAPI extends BaseAPI {
     }).then((response) => response.body);
   }
 
-  updateUserTypingStatus (
+  updateUserTypingStatus(
     options: UpdateUserTypingStatusOptions
   ): Promise<UpdateUserTypingStatus> {
     return this.request({

@@ -68,8 +68,8 @@ export default class Client extends ClientBase {
       description: `Added cookie to cookie jar, proceeding to fetching authenticated user information..`
     });
 
-    const getAuthenticationData =
-      await this.apis.usersAPI.getAuthenticatedUserInformation();
+    const getAuthenticationData
+      = await this.apis.usersAPI.getAuthenticatedUserInformation();
     this.user = new ClientUser(
       {
         id: getAuthenticationData.id,

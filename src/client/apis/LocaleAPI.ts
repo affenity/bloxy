@@ -52,14 +52,14 @@ export type SetUserLocale = {
 };
 
 export default class LocaleAPI extends BaseAPI {
-  constructor (client: Client) {
+  constructor(client: Client) {
     super({
       client,
       baseUrl: "https://locale.roblox.com/"
     });
   }
 
-  getCountryRegions (
+  getCountryRegions(
     options: GetCountryRegionsOptions
   ): Promise<GetCountryRegions> {
     return this.request({
@@ -72,7 +72,7 @@ export default class LocaleAPI extends BaseAPI {
     }).then((response) => response.body);
   }
 
-  getLocales (options: GetLocalesOptions): Promise<GetLocales> {
+  getLocales(options: GetLocalesOptions): Promise<GetLocales> {
     return this.request({
       requiresAuth: false,
       request: {
@@ -83,7 +83,7 @@ export default class LocaleAPI extends BaseAPI {
     }).then((response) => response.body);
   }
 
-  getSupportedLocales (): Promise<GetSupportedLocales> {
+  getSupportedLocales(): Promise<GetSupportedLocales> {
     return this.request({
       requiresAuth: false,
       request: {
@@ -93,7 +93,17 @@ export default class LocaleAPI extends BaseAPI {
     }).then((response) => response.body);
   }
 
-  getUserLocale (): Promise<GetUserLocale> {
+  getSupportedLocalsForCreators(): Promise<GetSupportedLocales> {
+    return this.request({
+      requiresAuth: false,
+      request: {
+        path: `v1/locales/supported-locales-for-creators`
+      },
+      json: true
+    }).then((response) => response.body);
+  }
+
+  getUserLocale(): Promise<GetUserLocale> {
     return this.request({
       requiresAuth: true,
       request: {
@@ -103,7 +113,7 @@ export default class LocaleAPI extends BaseAPI {
     }).then((response) => response.body);
   }
 
-  getLocusSupportedLocales (): Promise<GetLocusSupportedLocales> {
+  getLocusSupportedLocales(): Promise<GetLocusSupportedLocales> {
     return this.request({
       requiresAuth: false,
       request: {
@@ -113,7 +123,7 @@ export default class LocaleAPI extends BaseAPI {
     }).then((response) => response.body);
   }
 
-  setUserLocale (options: SetUserLocaleOptions): Promise<SetUserLocale> {
+  setUserLocale(options: SetUserLocaleOptions): Promise<SetUserLocale> {
     return this.request({
       requiresAuth: true,
       request: {

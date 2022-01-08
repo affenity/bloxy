@@ -10,7 +10,7 @@ export type RecordThumbnailLoadOptions = {
   thumbnailType: string;
 };
 export type RecordThumbnailLoad = unknown;
-export type RecordBundleLoadOptions = {
+export type ReportBundleLoadOptions = {
   bundleUrl: string;
   bundleName: string;
   loadTimeInMilliseconds: number;
@@ -18,17 +18,17 @@ export type RecordBundleLoadOptions = {
   loadState: string;
   bundleContentType: string;
 };
-export type RecordBundleLoad = unknown;
+export type ReportBundleLoad = unknown;
 
 export default class LocaleAPI extends BaseAPI {
-  constructor (client: Client) {
+  constructor(client: Client) {
     super({
       client,
       baseUrl: "https://metrics.roblox.com/"
     });
   }
 
-  getThumbnailsMetaData (): Promise<GetThumbnailsMetaData> {
+  getThumbnailsMetaData(): Promise<GetThumbnailsMetaData> {
     return this.request({
       requiresAuth: false,
       request: {
@@ -38,7 +38,7 @@ export default class LocaleAPI extends BaseAPI {
     }).then((response) => response.body);
   }
 
-  recordThumbnailLoad (
+  recordThumbnailLoad(
     options: RecordThumbnailLoadOptions
   ): Promise<RecordThumbnailLoad> {
     return this.request({
@@ -52,13 +52,13 @@ export default class LocaleAPI extends BaseAPI {
     }).then((response) => response.body);
   }
 
-  recordBundleLoad (
-    options: RecordBundleLoadOptions
-  ): Promise<RecordBundleLoad> {
+  recordBundleLoad(
+    options: ReportBundleLoadOptions
+  ): Promise<ReportBundleLoad> {
     return this.request({
       requiresAuth: false,
       request: {
-        path: `v1/thumbnails/metadata`,
+        path: `v1/bundle-metrics/report`,
         method: "POST",
         json: options
       },

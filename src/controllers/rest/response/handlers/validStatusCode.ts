@@ -9,8 +9,8 @@ export default function validStatusCode (
   const responseOptions = request.requestOptions.responseOptions || {};
 
   if (
-    request.requestOptions.responseOptions &&
-    request.requestOptions.checks?.statusCode
+    request.requestOptions.responseOptions
+    && request.requestOptions.checks?.statusCode
   ) {
     const allowedStatusCodes = responseOptions.allowedStatusCodes || [];
     const disallowedStatusCodes = responseOptions.disallowedStatusCodes || [];
@@ -28,30 +28,30 @@ export default function validStatusCode (
         isValid = false;
       }
     } else if (
-      allowedStatusCodes.length === 0 &&
-      disallowedStatusCodes.length > 0
+      allowedStatusCodes.length === 0
+      && disallowedStatusCodes.length > 0
     ) {
       // Only these are disallowed
       if (isDisallowed) {
         isValid = false;
       }
     } else if (
-      allowedStatusCodes.length === 0 &&
-      disallowedStatusCodes.length === 0
+      allowedStatusCodes.length === 0
+      && disallowedStatusCodes.length === 0
     ) {
       // All status are allowed
     }
   }
 
-  return isValid ?
-    true :
-    new BloxyHttpError({
+  return isValid
+    ? true
+    : new BloxyHttpError({
       statusMessage: responseData.statusMessage,
       statusCode: responseData.statusCode,
       message: `Invalid status code in response. Body: ${
-        responseData.body instanceof Object ?
-          JSON.stringify(responseData.body) :
-          responseData.body
+        responseData.body instanceof Object
+          ? JSON.stringify(responseData.body)
+          : responseData.body
       }`,
       name: "BloxyHttpInvalidStatusCodeError",
       possibleReasons: []

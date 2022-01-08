@@ -79,16 +79,21 @@ export type SearchUsers = {
     displayName: string;
   }[];
 };
+export type UserNameHistory = {
+  previousPageCursor: string;
+  nextPageCursor: string;
+  data: { name: string }[];
+};
 
 export default class UsersAPI extends BaseAPI {
-  constructor (client: Client) {
+  constructor(client: Client) {
     super({
       client,
       baseUrl: "https://users.roblox.com/"
     });
   }
 
-  validateDisplayNameNewUser (
+  validateDisplayNameNewUser(
     options: ValidateDisplayNameNewUserOptions
   ): Promise<ValidateDisplayNameNewUser> {
     return this.request({
@@ -101,7 +106,7 @@ export default class UsersAPI extends BaseAPI {
     }).then((response) => response.body);
   }
 
-  validateDisplayNameExistingUser (
+  validateDisplayNameExistingUser(
     options: ValidateDisplayNameExistingUserOptions
   ): Promise<ValidateDisplayNameExistingUser> {
     return this.request({
@@ -114,7 +119,7 @@ export default class UsersAPI extends BaseAPI {
     }).then((response) => response.body);
   }
 
-  setDisplayName (
+  setDisplayName(
     options: SetSelfDisplayNameOptions
   ): Promise<SetSelfDisplayName> {
     return this.request({
@@ -128,7 +133,7 @@ export default class UsersAPI extends BaseAPI {
     }).then((response) => response.body);
   }
 
-  getUserById (options: GetUserByIdOptions): Promise<GetUserById> {
+  getUserById(options: GetUserByIdOptions): Promise<GetUserById> {
     return this.request({
       requiresAuth: false,
       request: {
@@ -138,7 +143,7 @@ export default class UsersAPI extends BaseAPI {
     }).then((response) => response.body);
   }
 
-  getAuthenticatedUserInformation (): Promise<GetSelfAuthenticatedUserInformation> {
+  getAuthenticatedUserInformation(): Promise<GetSelfAuthenticatedUserInformation> {
     return this.request({
       // This should actually be "true", but as it's needed in client.login, it's set to false
       requiresAuth: false,
@@ -149,7 +154,7 @@ export default class UsersAPI extends BaseAPI {
     }).then((response) => response.body);
   }
 
-  getUsersByUsernames (
+  getUsersByUsernames(
     options: GetUsersByUsernamesOptions
   ): Promise<GetUsersByUsernames> {
     return this.request({
@@ -163,7 +168,7 @@ export default class UsersAPI extends BaseAPI {
     }).then((response) => response.body);
   }
 
-  getUsersByIds (options: GetUsersByUserIdsOptions): Promise<GetUsersByUserIds> {
+  getUsersByIds(options: GetUsersByUserIdsOptions): Promise<GetUsersByUserIds> {
     return this.request({
       requiresAuth: false,
       request: {
@@ -175,29 +180,18 @@ export default class UsersAPI extends BaseAPI {
     }).then((response) => response.body);
   }
 
-  getUserStatus (options: GetUserStatusOptions): Promise<GetUserStatus> {
+  getUserNameHistory(options: { userId: number }): Promise<UserNameHistory> {
     return this.request({
       requiresAuth: false,
       request: {
-        path: `v1/users/${options.userId}/status`
+        path: `v1/users/${options.userId}/username-history`,
+        method: "GET"
       },
       json: true
     }).then((response) => response.body);
   }
 
-  updateStatus (options: UpdateSelfStatusOptions): Promise<UpdateSelfStatus> {
-    return this.request({
-      requiresAuth: true,
-      request: {
-        path: `v1/users/${options.userId}/status`,
-        method: "PATCH",
-        json: options
-      },
-      json: true
-    }).then((response) => response.body);
-  }
-
-  searchUsers (options: SearchUsersOptions): Promise<SearchUsers> {
+  searchUsers(options: SearchUsersOptions): Promise<SearchUsers> {
     return this.request({
       requiresAuth: false,
       request: {

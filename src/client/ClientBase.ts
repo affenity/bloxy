@@ -67,12 +67,12 @@ export default class ClientBase extends EventEmitter {
   }
 
   public log (level: "info" | "warn" | "error", data: DebugData): void {
-    const loggerToUse =
-      level === "info" ?
-        this.debugger.info :
-        level === "error" ?
-          this.debugger.error :
-          this.debugger.warn;
+    const loggerToUse
+      = level === "info"
+        ? this.debugger.info
+        : level === "error"
+          ? this.debugger.error
+          : this.debugger.warn;
 
     loggerToUse(
       `[${new Date().toISOString()}] ${data.name}: ${data.description}`

@@ -32,22 +32,22 @@ export type BaseAssetRaw = {
 
 const convertToBaseAsset = (options: BaseAssetRaw): BaseAsset => ({
   errors:
-    typeof options.Errors !== "undefined" ?
-      options.Errors.map((v) => ({
+    typeof options.Errors !== "undefined"
+      ? options.Errors.map((v) => ({
         message: v.Message,
         code: v.Code
-      })) :
-      undefined,
+      }))
+      : undefined,
   isArchived:
     typeof options.IsArchived !== "undefined" ? options.IsArchived : undefined,
   isCopyrightProtected:
-    typeof options.IsCopyrightProtected !== "undefined" ?
-      options.IsCopyrightProtected :
-      undefined,
+    typeof options.IsCopyrightProtected !== "undefined"
+      ? options.IsCopyrightProtected
+      : undefined,
   isHashDynamic:
-    typeof options.IsHashDynamic !== "undefined" ?
-      options.IsHashDynamic :
-      undefined,
+    typeof options.IsHashDynamic !== "undefined"
+      ? options.IsHashDynamic
+      : undefined,
   location:
     typeof options.Location !== "undefined" ? options.Location : undefined,
   requestId:

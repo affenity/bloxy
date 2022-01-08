@@ -56,14 +56,17 @@ export type UploadPluginIcon = {
 };
 
 export default class PublishAPI extends BaseAPI {
-  constructor (client: Client) {
+  constructor(client: Client) {
     super({
       client,
       baseUrl: "https://publish.roblox.com/"
     });
   }
 
-  uploadAssets (options: UploadAssetsOptions): Promise<UploadAssets> {
+  /**
+   * @hidden
+   */
+  uploadAssets(options: UploadAssetsOptions): Promise<UploadAssets> {
     return this.request({
       requiresAuth: false,
       request: {
@@ -75,7 +78,7 @@ export default class PublishAPI extends BaseAPI {
     }).then((response) => response.body);
   }
 
-  publishAudio (options: PublishAudioOptions): Promise<PublishAudio> {
+  publishAudio(options: PublishAudioOptions): Promise<PublishAudio> {
     return this.request({
       requiresAuth: false,
       request: {
@@ -87,7 +90,7 @@ export default class PublishAPI extends BaseAPI {
     }).then((response) => response.body);
   }
 
-  verifyAudio (options: VerifyAudioOptions): Promise<VerifyAudio> {
+  verifyAudio(options: VerifyAudioOptions): Promise<VerifyAudio> {
     return this.request({
       requiresAuth: false,
       request: {
@@ -99,7 +102,7 @@ export default class PublishAPI extends BaseAPI {
     }).then((response) => response.body);
   }
 
-  publishBadgeIcon (
+  publishBadgeIcon(
     options: PublishBadgeIconOptions
   ): Promise<PublishBadgeIcon> {
     return this.request({
@@ -113,7 +116,10 @@ export default class PublishAPI extends BaseAPI {
     }).then((response) => response.body);
   }
 
-  publishGamePassIcon (
+  /**
+   * @hidden
+   */
+  publishGamePassIcon(
     options: PublishGamePassIconOptions
   ): Promise<PublishGamePassIcon> {
     return this.request({
@@ -127,7 +133,7 @@ export default class PublishAPI extends BaseAPI {
     }).then((response) => response.body);
   }
 
-  uploadGameThumbnail (
+  uploadGameThumbnail(
     options: UploadGameThumbnailOptions
   ): Promise<UploadGameThumbnail> {
     return this.request({
@@ -141,7 +147,7 @@ export default class PublishAPI extends BaseAPI {
     }).then((response) => response.body);
   }
 
-  uploadPluginIcon (
+  uploadPluginIcon(
     options: UploadPluginIconOptions
   ): Promise<UploadPluginIcon> {
     return this.request({

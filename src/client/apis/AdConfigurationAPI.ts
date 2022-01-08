@@ -3,12 +3,12 @@ import Client from "../Client";
 import { ISOString } from "../../types/GeneralTypes";
 
 // Utility types
-export declare type AdConfigurationTargetGender = unknown;
-export declare type AdConfigurationTargetAgeBracket = unknown;
-export declare type AdConfigurationTargetDeviceType = unknown;
+export type AdConfigurationTargetGender = unknown;
+export type AdConfigurationTargetAgeBracket = unknown;
+export type AdConfigurationTargetDeviceType = unknown;
 
 // SponsoredGames
-export declare interface AdConfigurationSponsoredGame {
+export type AdConfigurationSponsoredGame = {
   adId: number;
   adSetId: number;
   adName: string;
@@ -32,21 +32,21 @@ export declare interface AdConfigurationSponsoredGame {
   totalConversions: number;
   impressionConversions: number;
   clickConversions: number;
-}
-export declare interface AdConfigurationSponsoredGames {
+};
+export type AdConfigurationSponsoredGames = {
   sponsoredGames: AdConfigurationSponsoredGame[];
   previousPageCursor: string;
   nextPageCursor: string;
-}
+};
 
-export declare interface AdConfigurationUniverse {
+export type AdConfigurationUniverse = {
   id: number;
   name: string;
-}
-export declare interface AdConfigurationUniverses {
+};
+export type AdConfigurationUniverses = {
   universes: AdConfigurationUniverse[];
-}
-export declare interface AdConfigurationCreateSponsoredGameAd {
+};
+export type AdConfigurationCreateSponsoredGameAd = {
   universeId: number;
   targetGender: AdConfigurationTargetGender;
   targetAgeBracket: AdConfigurationTargetAgeBracket;
@@ -56,8 +56,8 @@ export declare interface AdConfigurationCreateSponsoredGameAd {
   endDate: ISOString;
   adName: string;
   bidAmountInRobux: number;
-}
-export declare interface AdConfigurationStopSponsoredGameAd {
+};
+export interface AdConfigurationStopSponsoredGameAd {
   adSetId: number;
 }
 

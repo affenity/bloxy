@@ -6,9 +6,9 @@ export default function getRequester (
   customRequester?: RESTController["requester"]
 ) {
   if (
-    !controller.requester &&
-    !controller.client.options.rest!.requester &&
-    customRequester === undefined
+    !controller.requester
+    && !controller.client.options.rest!.requester
+    && customRequester === undefined
   ) {
     let requester: null | any;
 

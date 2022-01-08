@@ -1,6 +1,26 @@
 import BaseAPI from "./BaseAPI";
 import Client from "../Client";
 
+export type CanViewInventory = {
+  canView: boolean;
+};
+export type InventoryItem = {
+  name: string;
+  displayName: string;
+  filter: string;
+  id: number;
+  type: string;
+  categoryType: string;
+};
+export type InventoryCategory = {
+  name: string;
+  displayName: string;
+  categoryType: string;
+  items: InventoryItem[];
+};
+export type InventoryCategories = {
+  categories: InventoryCategory[];
+};
 export type GetPackageAssetsOptions = {
   packageId: number;
 };
@@ -10,61 +30,61 @@ export type GetPackageAssets = {
 export type GetUserCollectiblesOptions = {
   userId: number;
   assetType?:
-  | "Image"
-  | "TShirt"
-  | "Audio"
-  | "Mesh"
-  | "Lua"
-  | "HTML"
-  | "Text"
-  | "Hat"
-  | "Place"
-  | "Model"
-  | "Shirt"
-  | "Pants"
-  | "Decal"
-  | "Avatar"
-  | "Head"
-  | "Face"
-  | "Gear"
-  | "Badge"
-  | "GroupEmblem"
-  | "Animation"
-  | "Arms"
-  | "Legs"
-  | "Torso"
-  | "RightArm"
-  | "LeftArm"
-  | "LeftLeg"
-  | "RightLeg"
-  | "Package"
-  | "YouTubeVideo"
-  | "GamePass"
-  | "App"
-  | "Code"
-  | "Plugin"
-  | "SolidModel"
-  | "MeshPart"
-  | "HairAccessory"
-  | "NeckAccessory"
-  | "ShoulderAccessory"
-  | "FrontAccessory"
-  | "BackAccessory"
-  | "WaistAccessory"
-  | "ClimbAnimation"
-  | "DeathAnimation"
-  | "FallAnimation"
-  | "IdleAnimation"
-  | "JumpAnimation"
-  | "RunAnimation"
-  | "SwimAnimation"
-  | "WalkAnimation"
-  | "PoseAnimation"
-  | "LocalizationTableManifest"
-  | "LocalizationTableTranslation"
-  | "EmoteAnimation"
-  | "Video"
-  | "TexturePack";
+    | "Image"
+    | "TShirt"
+    | "Audio"
+    | "Mesh"
+    | "Lua"
+    | "HTML"
+    | "Text"
+    | "Hat"
+    | "Place"
+    | "Model"
+    | "Shirt"
+    | "Pants"
+    | "Decal"
+    | "Avatar"
+    | "Head"
+    | "Face"
+    | "Gear"
+    | "Badge"
+    | "GroupEmblem"
+    | "Animation"
+    | "Arms"
+    | "Legs"
+    | "Torso"
+    | "RightArm"
+    | "LeftArm"
+    | "LeftLeg"
+    | "RightLeg"
+    | "Package"
+    | "YouTubeVideo"
+    | "GamePass"
+    | "App"
+    | "Code"
+    | "Plugin"
+    | "SolidModel"
+    | "MeshPart"
+    | "HairAccessory"
+    | "NeckAccessory"
+    | "ShoulderAccessory"
+    | "FrontAccessory"
+    | "BackAccessory"
+    | "WaistAccessory"
+    | "ClimbAnimation"
+    | "DeathAnimation"
+    | "FallAnimation"
+    | "IdleAnimation"
+    | "JumpAnimation"
+    | "RunAnimation"
+    | "SwimAnimation"
+    | "WalkAnimation"
+    | "PoseAnimation"
+    | "LocalizationTableManifest"
+    | "LocalizationTableTranslation"
+    | "EmoteAnimation"
+    | "Video"
+    | "TexturePack";
   sortOrder?: "Asc" | "Desc";
   limit?: 10 | 25 | 50 | 100;
   cursor?: string;
@@ -137,8 +157,8 @@ export type GetUserInventory = {
   }[];
 };
 export type GetUserInventoryByAssetTypeIdOptions = Omit<
-GetUserInventoryOptions,
-"assetTypes"
+  GetUserInventoryOptions,
+  "assetTypes"
 > & {
   assetTypeId: number;
 };
@@ -161,14 +181,14 @@ export type GetUserInventoryByAssetTypeId = {
 };
 
 export default class InventoryAPI extends BaseAPI {
-  constructor (client: Client) {
+  constructor(client: Client) {
     super({
       client,
       baseUrl: "https://inventory.roblox.com/"
     });
   }
 
-  getPackageAssets (
+  getPackageAssets(
     options: GetPackageAssetsOptions
   ): Promise<GetPackageAssets> {
     return this.request({
@@ -180,7 +200,7 @@ export default class InventoryAPI extends BaseAPI {
     }).then((response) => response.body);
   }
 
-  getUserCollectibles (
+  getUserCollectibles(
     options: GetUserCollectiblesOptions
   ): Promise<GetUserCollectibles> {
     return this.request({
@@ -193,7 +213,7 @@ export default class InventoryAPI extends BaseAPI {
     }).then((response) => response.body);
   }
 
-  getUserItemsByTypeAndTargetId (
+  getUserItemsByTypeAndTargetId(
     options: GetUserItemsByTypeAndTargetIdOptions
   ): Promise<GetUserItemsByTypeAndTargetId> {
     return this.request({
@@ -205,7 +225,39 @@ export default class InventoryAPI extends BaseAPI {
     }).then((response) => response.body);
   }
 
-  getAssetOwners (options: GetAssetOwnersOptions): Promise<GetAssetOwners> {
+  canViewInventory(options: { userId: number }): Promise<CanViewInventory> {
+    return this.request({
+      requiresAuth: false,
+      request: {
+        path: `v1/users/${options.userId}/can-view-inventory`
+      },
+      json: true
+    }).then((response) => response.body);
+  }
+
+  getCategories(options: { userId: number }): Promise<InventoryCategories> {
+    return this.request({
+      requiresAuth: false,
+      request: {
+        path: `v1/users/${options.userId}/categories`
+      },
+      json: true
+    }).then((response) => response.body);
+  }
+
+  getCategoriesFavorites(options: {
+    userId: number;
+  }): Promise<InventoryCategories> {
+    return this.request({
+      requiresAuth: false,
+      request: {
+        path: `v1/users/${options.userId}/categories/favorites`
+      },
+      json: true
+    }).then((response) => response.body);
+  }
+
+  getAssetOwners(options: GetAssetOwnersOptions): Promise<GetAssetOwners> {
     return this.request({
       requiresAuth: false,
       request: {
@@ -216,7 +268,7 @@ export default class InventoryAPI extends BaseAPI {
     }).then((response) => response.body);
   }
 
-  getUserInventory (
+  getUserInventory(
     options: GetUserInventoryOptions
   ): Promise<GetUserInventory> {
     return this.request({
@@ -229,7 +281,7 @@ export default class InventoryAPI extends BaseAPI {
     }).then((response) => response.body);
   }
 
-  getUserInventoryByAssetTypeId (
+  getUserInventoryByAssetTypeId(
     options: GetUserInventoryByAssetTypeIdOptions
   ): Promise<GetUserInventoryByAssetTypeId> {
     return this.request({

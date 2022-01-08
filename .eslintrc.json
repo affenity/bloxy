@@ -100,13 +100,7 @@
         "allowArrowFunctions": true
       }
     ],
-    "indent": [
-      "error",
-      2,
-      {
-        "SwitchCase": 1
-      }
-    ],
+    "indent": "off",
     "key-spacing": "error",
     "keyword-spacing": "error",
     "max-depth": "error",
@@ -148,7 +142,7 @@
     "nonblock-statement-body-position": "error",
     "object-curly-spacing": ["error", "always"],
     "operator-assignment": "error",
-    "operator-linebreak": ["error", "after"],
+    "operator-linebreak": "off",
     "padded-blocks": ["error", "never"],
     "quote-props": ["error", "as-needed"],
     "quotes": [

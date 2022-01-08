@@ -74,8 +74,8 @@ export default class OrderedDataStore<
     const encodedQueryString = this.createQueryString({
       key: this.safeEncodeValue(this.name),
       pageSize:
-        options.pageSize ||
-        DataStoreManagerConstants.DFInt.DataStoreMaxPageSize,
+        options.pageSize
+        || DataStoreManagerConstants.DFInt.DataStoreMaxPageSize,
       ascending: options.ascending ? "True" : "False",
       inclusiveMinValue: options.minValue,
       inclusiveMaxValue: options.maxValue,

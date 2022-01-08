@@ -3,23 +3,23 @@ import Client from "../Client";
 import { Privacy } from "../../types/GeneralTypes";
 
 // AccountInformation
-export declare interface UserAccountBirthdate {
+export type UserAccountBirthdate = {
   birthDay: number;
   birthMonth: number;
   birthYear: number;
-}
-export declare interface UserAccountDescription {
+};
+export type UserAccountDescription = {
   description: string;
-}
-export declare interface UserAccountGender {
+};
+export type UserAccountGender = {
   gender: number;
-}
-export declare interface UserAccountXboxConsecutiveLoginDays {
+};
+export type UserAccountXboxConsecutiveLoginDays = {
   count: number;
-}
+};
 
 // Metadata
-export declare interface UserAccountMetaData {
+export type UserAccountMetaData = {
   isAllowedNotificationsEndpointDisabled: boolean;
   isAccountSettingsPolicyEnabled: boolean;
   isPhoneNumberEnabled: boolean;
@@ -29,39 +29,39 @@ export declare interface UserAccountMetaData {
   isIDVerificationEnabled: boolean;
   isPasswordRequiredForAgingDown: boolean;
   homePageUpsellCardVariation: string;
-}
+};
 
 // PromotionChannel
-export declare interface UserAccountOwnPromotionChannels {
+export type UserAccountOwnPromotionChannels = {
   promotionChannelsVisibilityPrivacy: Privacy;
   facebook: string;
   twitter: string;
   youtube: string;
   twitch: string;
   guilded: string;
-}
+};
 export declare type UserAccountPromotionChannels = Omit<
   UserAccountOwnPromotionChannels,
   "promotionChannelsVisibilityPrivacy"
 >;
 
 // StarCodeAffiliate
-export declare interface UserAccountStarCodeAffiliate {
+export type UserAccountStarCodeAffiliate = {
   userId: number;
   name: string;
   code: string;
-}
-export declare interface UserAccountSetStarCodeAffiliate {
+};
+export type UserAccountSetStarCodeAffiliate = {
   code: string;
-}
+};
 
 // RobloxBadges
-export declare interface UserAccountRobloxBadge {
+export type UserAccountRobloxBadge = {
   id: number;
   name: string;
   description: string;
   imageUrl: string;
-}
+};
 export declare type UserAccountRobloxBadges = UserAccountRobloxBadge[];
 
 export default class AccountInformationAPI extends BaseAPI {

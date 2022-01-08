@@ -92,10 +92,10 @@ class RESTController {
    */
   async getXCSRFToken (): Promise<string | undefined> {
     if (
-      !this.options.xcsrf ||
-      Date.now() - (this.options.xcsrfSet || 0) >=
-        (this.options.xcsrfRefreshInterval ||
-          DefaultRESTControllerOptions.xcsrfRefreshInterval)
+      !this.options.xcsrf
+      || Date.now() - (this.options.xcsrfSet || 0)
+        >= (this.options.xcsrfRefreshInterval
+          || DefaultRESTControllerOptions.xcsrfRefreshInterval)
     ) {
       // Refresh token
       await this.fetchXCSRFToken().then((token) => {

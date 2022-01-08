@@ -89,8 +89,8 @@ const retrieveStructures = (): Structures => ({
 });
 
 type GroupRelationships<T extends "enemies" | "allies"> = Omit<
-GetGroupRelationships,
-"relatedGroups"
+  GetGroupRelationships,
+  "relatedGroups"
 > & {
   groupId: number;
   relationshipType: T;
@@ -109,13 +109,13 @@ export class GroupBase {
   public id: number;
   public name: string | null;
 
-  constructor (data: GroupBaseOptions, client: Client) {
+  constructor(data: GroupBaseOptions, client: Client) {
     this.client = client;
     this.id = data.id;
     this.name = data.name || null;
   }
 
-  getUniverses (
+  getUniverses(
     options?: Omit<GetGroupUniversesOptions, "groupId">
   ): Promise<CursorPage<PartialGameUniverse>> {
     return this.client.apis.developAPI
@@ -138,11 +138,11 @@ export class GroupBase {
                   {
                     id: universeData.id,
                     name: universeData.name,
-                    rootPlace: universeData.rootPlaceId ?
-                      {
-                        id: universeData.rootPlaceId
-                      } :
-                      undefined
+                    rootPlace: universeData.rootPlaceId
+                      ? {
+                          id: universeData.rootPlaceId
+                        }
+                      : undefined
                   },
                   this.client
                 )
@@ -157,7 +157,7 @@ export class GroupBase {
    * Returns whether the authenticated user can manage the group or not
    * @returns {Promise<boolean>}
    */
-  canSelfManage (): Promise<boolean> {
+  canSelfManage(): Promise<boolean> {
     return this.client.apis.developAPI
       .getSelfManageableGroups()
       .then((response) => !!response.data.find((data) => data.id === this.id));
@@ -167,7 +167,7 @@ export class GroupBase {
    * Gets the currently available funds in the group
    * @returns {Promise<number>}
    */
-  getFunds (): Promise<number> {
+  getFunds(): Promise<number> {
     return this.client.apis.economyAPI
       .getGroupCurrency({
         groupId: this.id
@@ -175,7 +175,7 @@ export class GroupBase {
       .then((response) => response.robux);
   }
 
-  getRevenueSummaryInTimeFrame (
+  getRevenueSummaryInTimeFrame(
     timeFrame: GetGroupRevenueSummaryInTimeFrameOptions["timeFrame"]
   ): Promise<GetGroupRevenueSummaryInTimeFrame> {
     return this.client.apis.economyAPI.getGroupRevenueByTime({
@@ -184,7 +184,7 @@ export class GroupBase {
     });
   }
 
-  getTransactions (
+  getTransactions(
     options: Omit<GetGroupTransactionsOptions, "groupId">
   ): Promise<GetGroupTransactions> {
     return this.client.apis.economyAPI.getGroupTransactions({
@@ -193,7 +193,7 @@ export class GroupBase {
     });
   }
 
-  getAllies (
+  getAllies(
     maxItems = 100,
     startItem?: number
   ): Promise<GroupRelationships<"allies">> {
@@ -213,7 +213,7 @@ export class GroupBase {
       }));
   }
 
-  getEnemies (
+  getEnemies(
     maxItems = 100,
     startItem?: number
   ): Promise<GroupRelationships<"enemies">> {
@@ -233,11 +233,11 @@ export class GroupBase {
       }));
   }
 
-  getGroup (): Promise<Group> {
+  getGroup(): Promise<Group> {
     return this.client.getGroup(this.id);
   }
 
-  getMember (userId: number): Promise<GroupMember | null> {
+  getMember(userId: number): Promise<GroupMember | null> {
     return this.client.apis.groupsAPI
       .getUserGroups({
         userId
@@ -263,20 +263,20 @@ export class GroupBase {
       });
   }
 
-  getIsMember (userId: number): Promise<GroupMember | null> {
+  getIsMember(userId: number): Promise<GroupMember | null> {
     console.warn(
       `group.getIsMember() is deprecated and may be removed in the future. Please switch to group.getMember`
     );
     return this.getMember(userId);
   }
 
-  getSettings (): Promise<GetGroupSettings> {
+  getSettings(): Promise<GetGroupSettings> {
     return this.client.apis.groupsAPI.getGroupSettings({
       groupId: this.id
     });
   }
 
-  updateSettings (
+  updateSettings(
     options: Omit<UpdateGroupSettingsOptions, "groupId">
   ): Promise<UpdateGroupSettings> {
     return this.client.apis.groupsAPI.updateGroupSettings({
@@ -285,35 +285,35 @@ export class GroupBase {
     });
   }
 
-  updateDescription (description: string): Promise<UpdateGroupDescription> {
+  updateDescription(description: string): Promise<UpdateGroupDescription> {
     return this.client.apis.groupsAPI.updateGroupDescription({
       description,
       groupId: this.id
     });
   }
 
-  updateShout (shout: string): Promise<UpdateGroupStatus> {
+  updateShout(shout: string): Promise<UpdateGroupStatus> {
     return this.client.apis.groupsAPI.updateGroupStatus({
       groupId: this.id,
       message: shout
     });
   }
 
-  updateIcon (file: unknown): Promise<UpdateGroupIcon> {
+  updateIcon(file: unknown): Promise<UpdateGroupIcon> {
     return this.client.apis.groupsAPI.updateGroupIcon({
       files: file,
       groupId: this.id
     });
   }
 
-  declineJoinRequests (userIds: number[]): Promise<DeclineJoinRequests> {
+  declineJoinRequests(userIds: number[]): Promise<DeclineJoinRequests> {
     return this.client.apis.groupsAPI.declineJoinRequests({
       groupId: this.id,
       userIds
     });
   }
 
-  getJoinRequests (
+  getJoinRequests(
     options: Omit<GetJoinRequestsOptions, "groupId">
   ): Promise<CursorPage<GroupJoinRequest>> {
     const CursorPageClass = require("./Asset").CursorPage;
@@ -334,7 +334,7 @@ export class GroupBase {
       );
   }
 
-  acceptJoinRequests (
+  acceptJoinRequests(
     options: Omit<AcceptJoinRequestsOptions, "groupId">
   ): Promise<AcceptJoinRequests> {
     return this.client.apis.groupsAPI.acceptJoinRequests({
@@ -343,34 +343,34 @@ export class GroupBase {
     });
   }
 
-  declineJoinRequest (userId: number): Promise<DeclineJoinRequest> {
+  declineJoinRequest(userId: number): Promise<DeclineJoinRequest> {
     return this.client.apis.groupsAPI.declineJoinRequest({
       groupId: this.id,
       userId
     });
   }
 
-  getJoinRequest (userId: number): Promise<GetJoinRequest> {
+  getJoinRequest(userId: number): Promise<GetJoinRequest> {
     return this.client.apis.groupsAPI.getJoinRequest({
       groupId: this.id,
       userId
     });
   }
 
-  acceptJoinRequest (userId: number): Promise<AcceptJoinRequest> {
+  acceptJoinRequest(userId: number): Promise<AcceptJoinRequest> {
     return this.client.apis.groupsAPI.acceptJoinRequest({
       groupId: this.id,
       userId
     });
   }
 
-  getSelfMembership (): Promise<GetSelfGroupMembership> {
+  getSelfMembership(): Promise<GetSelfGroupMembership> {
     return this.client.apis.groupsAPI.getSelfGroupMembership({
       groupId: this.id
     });
   }
 
-  getRoles (): Promise<GroupRole[]> {
+  getRoles(): Promise<GroupRole[]> {
     return this.client.apis.groupsAPI
       .getGroupRoles({
         groupId: this.id
@@ -392,7 +392,7 @@ export class GroupBase {
       );
   }
 
-  getMembersWithRole (
+  getMembersWithRole(
     options: Omit<GetMembersWithRoleOptions, "groupId">
   ): Promise<CursorPage<GroupMember>> {
     const CursorPageClass = require("./Asset").CursorPage;
@@ -413,7 +413,7 @@ export class GroupBase {
       );
   }
 
-  getMembers (
+  getMembers(
     options: Omit<GetMembersOptions, "groupId">
   ): Promise<CursorPage<GroupMember>> {
     const CursorPageClass = require("./Asset").CursorPage;
@@ -429,7 +429,7 @@ export class GroupBase {
       );
   }
 
-  join (options: Omit<JoinGroupOptions, "groupId">): Promise<JoinGroup> {
+  join(options: Omit<JoinGroupOptions, "groupId">): Promise<JoinGroup> {
     return this.client.apis.groupsAPI.joinGroup({
       groupId: this.id,
       ...options,
@@ -437,7 +437,7 @@ export class GroupBase {
     });
   }
 
-  getIsPendingJoin (): Promise<boolean> {
+  getIsPendingJoin(): Promise<boolean> {
     return this.client.apis.groupsAPI
       .getSelfPendingGroupJoins()
       .then(
@@ -448,27 +448,27 @@ export class GroupBase {
       );
   }
 
-  changeOwner (userId: number): Promise<ChangeOwner> {
+  changeOwner(userId: number): Promise<ChangeOwner> {
     return this.client.apis.groupsAPI.changeGroupOwner({
       groupId: this.id,
       userId
     });
   }
 
-  claim (): Promise<ClaimGroup> {
+  claim(): Promise<ClaimGroup> {
     return this.client.apis.groupsAPI.claimGroup({
       groupId: this.id
     });
   }
 
-  kickMember (userId: number): Promise<KickMember> {
+  kickMember(userId: number): Promise<KickMember> {
     return this.client.apis.groupsAPI.kickMember({
       groupId: this.id,
       userId
     });
   }
 
-  updateMember (userId: number, roleId: number): Promise<UpdateMember> {
+  updateMember(userId: number, roleId: number): Promise<UpdateMember> {
     return this.client.apis.groupsAPI.updateMember({
       groupId: this.id,
       roleId,
@@ -476,13 +476,13 @@ export class GroupBase {
     });
   }
 
-  getPayouts (): Promise<GetGroupPayouts> {
+  getPayouts(): Promise<GetGroupPayouts> {
     return this.client.apis.groupsAPI.getGroupPayouts({
       groupId: this.id
     });
   }
 
-  payoutMembers (
+  payoutMembers(
     options: Omit<PayoutMembersOptions, "groupId">
   ): Promise<PayoutMembers> {
     return this.client.apis.groupsAPI.payoutMembers({
@@ -491,7 +491,7 @@ export class GroupBase {
     });
   }
 
-  updateRecurringPayouts (
+  updateRecurringPayouts(
     options: Omit<UpdateRecurringPayoutsOptions, "groupId">
   ): Promise<UpdateRecurringPayouts> {
     return this.client.apis.groupsAPI.updateRecurringPayouts({
@@ -500,7 +500,7 @@ export class GroupBase {
     });
   }
 
-  getRelationships (
+  getRelationships(
     options: Omit<GetGroupRelationshipsOptions, "groupId">
   ): Promise<GetGroupRelationships> {
     return this.client.apis.groupsAPI.getGroupRelationships({
@@ -509,7 +509,7 @@ export class GroupBase {
     });
   }
 
-  declineRelationshipRequests (
+  declineRelationshipRequests(
     options: Omit<DeclineRelationshipRequestsOptions, "groupId">
   ): Promise<DeclineRelationshipRequests> {
     return this.client.apis.groupsAPI.declineRelationshipRequests({
@@ -518,7 +518,7 @@ export class GroupBase {
     });
   }
 
-  getRelationshipRequests (
+  getRelationshipRequests(
     options: Omit<GetRelationshipRequestsOptions, "groupId">
   ): Promise<GetRelationshipRequests> {
     return this.client.apis.groupsAPI.getRelationshipRequests({
@@ -527,7 +527,7 @@ export class GroupBase {
     });
   }
 
-  acceptRelationshipRequests (
+  acceptRelationshipRequests(
     options: Omit<AcceptRelationshipRequestsOptions, "groupId">
   ): Promise<AcceptRelationshipRequests> {
     return this.client.apis.groupsAPI.acceptRelationshipRequests({
@@ -536,7 +536,7 @@ export class GroupBase {
     });
   }
 
-  deleteRelationship (
+  deleteRelationship(
     options: Omit<DeleteRelationshipOptions, "groupId">
   ): Promise<DeleteRelationship> {
     return this.client.apis.groupsAPI.deleteRelationship({
@@ -545,7 +545,7 @@ export class GroupBase {
     });
   }
 
-  createRelationship (
+  createRelationship(
     options: Omit<CreateRelationshipOptions, "groupId">
   ): Promise<CreateRelationship> {
     return this.client.apis.groupsAPI.createRelationship({
@@ -554,7 +554,7 @@ export class GroupBase {
     });
   }
 
-  acceptRelationshipRequest (
+  acceptRelationshipRequest(
     type: "enemies" | "allies",
     withGroup: number
   ): Promise<AcceptRelationshipRequest> {
@@ -565,7 +565,7 @@ export class GroupBase {
     });
   }
 
-  declineRelationshipRequest (
+  declineRelationshipRequest(
     type: "enemies" | "allies",
     withGroup: number
   ): Promise<DeclineRelationshipRequest> {
@@ -576,14 +576,14 @@ export class GroupBase {
     });
   }
 
-  getRolePermissions (roleId: number): Promise<GetRolePermissions> {
+  getRolePermissions(roleId: number): Promise<GetRolePermissions> {
     return this.client.apis.groupsAPI.getRolePermissions({
       groupId: this.id,
       roleId
     });
   }
 
-  updateRolePermissions (
+  updateRolePermissions(
     roleId: number,
     permissions: Omit<UpdateRolePermissionsOptions, "groupId" | "roleId">
   ): Promise<UpdateRolePermissions> {
@@ -594,25 +594,25 @@ export class GroupBase {
     });
   }
 
-  getGuestPermissions (): Promise<GetGuestPermissions> {
+  getGuestPermissions(): Promise<GetGuestPermissions> {
     return this.client.apis.groupsAPI.getGuestPermissions({
       groupId: this.id
     });
   }
 
-  getAllRolesPermissions (): Promise<GetAllRolesPermissions> {
+  getAllRolesPermissions(): Promise<GetAllRolesPermissions> {
     return this.client.apis.groupsAPI.getAllRolesPermissions({
       groupId: this.id
     });
   }
 
-  getSocialLinks (): Promise<GetSocialLinks> {
+  getSocialLinks(): Promise<GetSocialLinks> {
     return this.client.apis.groupsAPI.getSocialLinks({
       groupId: this.id
     });
   }
 
-  createSocialLink (
+  createSocialLink(
     options: Omit<PostSocialLinkOptions, "groupId">
   ): Promise<PostSocialLink> {
     return this.client.apis.groupsAPI.createSocialLink({
@@ -621,14 +621,14 @@ export class GroupBase {
     });
   }
 
-  deleteSocialLink (id: number): Promise<DeleteSocialLink> {
+  deleteSocialLink(id: number): Promise<DeleteSocialLink> {
     return this.client.apis.groupsAPI.deleteSocialLink({
       groupId: this.id,
       id
     });
   }
 
-  updateSocialLink (
+  updateSocialLink(
     options: Omit<UpdateSocialLinkOptions, "groupId">
   ): Promise<UpdateSocialLink> {
     return this.client.apis.groupsAPI.updateSocialLink({
@@ -637,7 +637,7 @@ export class GroupBase {
     });
   }
 
-  getWallPosts (
+  getWallPosts(
     options: Omit<GetWallPostsOptions, "groupId">
   ): Promise<CursorPage<GroupWallPost>> {
     const CursorPageClass = require("./Asset").CursorPage;
@@ -653,7 +653,7 @@ export class GroupBase {
       );
   }
 
-  createWallPost (
+  createWallPost(
     options: Omit<CreateWallPostOptions, "groupId">
   ): Promise<CreateWallPost> {
     return this.client.apis.groupsAPI.createWallPost({
@@ -662,14 +662,14 @@ export class GroupBase {
     });
   }
 
-  deleteWallPost (id: number): Promise<DeleteWallPost> {
+  deleteWallPost(id: number): Promise<DeleteWallPost> {
     return this.client.apis.groupsAPI.deleteWallPost({
       groupId: this.id,
       id
     });
   }
 
-  getIsUserPrimaryGroup (userId: number): Promise<GroupMember | null> {
+  getIsUserPrimaryGroup(userId: number): Promise<GroupMember | null> {
     return (
       this.client.apis.groupsAPI
         .getUserPrimaryGroup({
@@ -677,49 +677,49 @@ export class GroupBase {
         })
         // eslint-disable-next-line @typescript-eslint/no-use-before-define
         .then((response) =>
-          response && response.group && response.role ?
-            new GroupMember(
-              {
-                group: response.group,
-                role: {
-                  id: response.role!.id!,
-                  name: response.role!.name!,
-                  rank: response.role!.rank!
+          response && response.group && response.role
+            ? new GroupMember(
+                {
+                  group: response.group,
+                  role: {
+                    id: response.role!.id!,
+                    name: response.role!.name!,
+                    rank: response.role!.rank!
+                  },
+                  id: userId
                 },
-                id: userId
-              },
-              this.client
-            ) :
-            null
+                this.client
+              )
+            : null
         )
     );
   }
 
-  removeAsPrimary (): Promise<RemovePrimaryGroup> {
+  removeAsPrimary(): Promise<RemovePrimaryGroup> {
     return this.client.apis.groupsAPI.removePrimaryGroup();
   }
 
-  setAsPrimary (): Promise<SetPrimaryGroup> {
+  setAsPrimary(): Promise<SetPrimaryGroup> {
     return this.client.apis.groupsAPI.setPrimaryGroup({
       groupId: this.id
     });
   }
 
-  createRole (options: Omit<CreateRoleOptions, "groupId">): Promise<CreateRole> {
+  createRole(options: Omit<CreateRoleOptions, "groupId">): Promise<CreateRole> {
     return this.client.apis.groupsAPI.createRole({
       groupId: this.id,
       ...options
     });
   }
 
-  deleteRole (roleId: number): Promise<DeleteRole> {
+  deleteRole(roleId: number): Promise<DeleteRole> {
     return this.client.apis.groupsAPI.deleteRole({
       groupId: this.id,
       roleId
     });
   }
 
-  updateRole (
+  updateRole(
     roleId: number,
     options: Omit<UpdateRoleOptions, "groupId" | "roleId">
   ): Promise<UpdateRole> {
@@ -739,7 +739,7 @@ export interface PartialGroupOptions {
 export class PartialGroup extends GroupBase {
   // Shut up eslint, this is not useless either
   // eslint-disable-next-line no-useless-constructor
-  constructor (data: PartialGroupOptions, client: Client) {
+  constructor(data: PartialGroupOptions, client: Client) {
     super(data, client);
   }
 }
@@ -762,7 +762,7 @@ export class GroupMember extends UserBase {
   public group: PartialGroup;
   public role: GroupRole | null;
 
-  constructor (data: GroupMemberOptions, client: Client) {
+  constructor(data: GroupMemberOptions, client: Client) {
     super(
       {
         name: data.name,
@@ -772,24 +772,20 @@ export class GroupMember extends UserBase {
     );
     this.group = new PartialGroup(data.group, client);
     // eslint-disable-next-line @typescript-eslint/no-use-before-define
-    this.role = data.role ?
-      new GroupRole(
-        {
-          id: data.role.id,
-          name: data.role.name,
-          rank: data.role.rank,
-          group: {
-            name: this.name || undefined,
-            id: this.id
-          }
-        },
-        client
-      ) :
-      null;
-  }
-
-  kick (): Promise<unknown> {
-    return this.kickFromGroup(this.id);
+    this.role = data.role
+      ? new GroupRole(
+          {
+            id: data.role.id,
+            name: data.role.name,
+            rank: data.role.rank,
+            group: {
+              name: this.name || undefined,
+              id: this.id
+            }
+          },
+          client
+        )
+      : null;
   }
 }
 
@@ -830,36 +826,36 @@ export class Group extends GroupBase {
   public publicEntryAllowed: boolean;
   public isLocked: boolean;
 
-  constructor (data: GroupOptions, client: Client) {
+  constructor(data: GroupOptions, client: Client) {
     super(data, client);
     this.description = data.description;
     this.name = data.name;
-    this.owner = data.owner ?
-      new GroupMember(
-        {
-          id: data.owner.userId,
-          name: data.owner.username,
-          group: this
-        },
-        client
-      ) :
-      null;
-    this.shout = data.shout ?
-      new GroupShout(
-        {
-          content: data.shout.body,
-          creator: {
-            id: data.shout.poster.userId,
-            username: data.shout.poster.username
+    this.owner = data.owner
+      ? new GroupMember(
+          {
+            id: data.owner.userId,
+            name: data.owner.username,
+            group: this
           },
-          group: {
-            id: this.id,
-            name: this.name || undefined
-          }
-        },
-        client
-      ) :
-      null;
+          client
+        )
+      : null;
+    this.shout = data.shout
+      ? new GroupShout(
+          {
+            content: data.shout.body,
+            creator: {
+              id: data.shout.poster.userId,
+              username: data.shout.poster.username
+            },
+            group: {
+              id: this.id,
+              name: this.name || undefined
+            }
+          },
+          client
+        )
+      : null;
     this.memberCount = data.memberCount;
     this.isBuildersClubOnly = data.isBuildersClubOnly;
     this.publicEntryAllowed = data.publicEntryAllowed;
@@ -881,7 +877,7 @@ export class GroupJoinRequest {
   public group: PartialGroup;
   public created: Date;
 
-  constructor (data: GroupJoinRequestOptions, client: Client) {
+  constructor(data: GroupJoinRequestOptions, client: Client) {
     const structures = retrieveStructures();
 
     this.client = client;
@@ -909,7 +905,7 @@ export class GroupRole {
   public rank: number | null;
   public group: PartialGroup;
 
-  constructor (data: GroupRoleOptions, client: Client) {
+  constructor(data: GroupRoleOptions, client: Client) {
     this.client = client;
     this.id = data.id || null;
     this.name = data.name || null;
@@ -969,7 +965,7 @@ export class GroupRolePermissions {
   public role: GroupRole;
   public permissions: GroupRolePermissionsOptions["permissions"];
 
-  constructor (data: GroupRolePermissionsOptions, client: Client) {
+  constructor(data: GroupRolePermissionsOptions, client: Client) {
     this.client = client;
     this.group = new PartialGroup(
       {
@@ -1010,7 +1006,7 @@ export class GroupShout {
   public creator: PartialUser;
   public group: PartialGroup;
 
-  constructor (data: GroupShoutOptions, client: Client) {
+  constructor(data: GroupShoutOptions, client: Client) {
     const structures = retrieveStructures();
 
     this.client = client;
@@ -1050,7 +1046,7 @@ export class GroupWallPost {
   public content: string;
   public created: Date;
 
-  constructor (data: GroupWallPostOptions, client: Client) {
+  constructor(data: GroupWallPostOptions, client: Client) {
     this.client = client;
     this.id = data.id;
     this.content = data.body;

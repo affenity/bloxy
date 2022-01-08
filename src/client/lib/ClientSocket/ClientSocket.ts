@@ -108,10 +108,10 @@ export class Socket extends EventEmitter {
           3,
           true
         );
-        this.socket.headers.Cookie =
-          this.client.rest.cookieJar.getCookieStringSync("https://roblox.com");
-        const maxRetries =
-          this.client.options.setup?.websocket?.maxRetries ?? 3;
+        this.socket.headers.Cookie
+          = this.client.rest.cookieJar.getCookieStringSync("https://roblox.com");
+        const maxRetries
+          = this.client.options.setup?.websocket?.maxRetries ?? 3;
 
         const attemptReconnect = (): unknown => connectSocket(++retries);
         const onError = (error: Error): void => {
@@ -162,12 +162,12 @@ export class Socket extends EventEmitter {
           message
         });
 
-        const parsedMessage = !(message instanceof Object) ?
-          JSON.parse(message) :
-          message;
-        const messageType = parsedMessage.Type ?
-          parsedMessage.Type.toLowerCase() :
-          null;
+        const parsedMessage = !(message instanceof Object)
+          ? JSON.parse(message)
+          : message;
+        const messageType = parsedMessage.Type
+          ? parsedMessage.Type.toLowerCase()
+          : null;
         const socketHandler = socketHandlers.get(name.toLowerCase());
 
         if (socketHandler) {

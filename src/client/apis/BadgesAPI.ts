@@ -2,6 +2,12 @@ import BaseAPI from "./BaseAPI";
 import Client from "../Client";
 import { GameBadgeOptions } from "../../structures/Game";
 
+export type BadgeMetaData = {
+  badgeCreationPrice: number;
+  maxBadgeNameLength: number;
+  maxBadgeDescriptionLength: number;
+};
+
 export type GetBadgeOptions = {
   badgeId: number;
 };
@@ -52,14 +58,24 @@ export type DeleteBadgeFromSelfOptions = {
 export type DeleteBadgeFromSelf = DeleteBadgeFromUser;
 
 export default class AvatarAPI extends BaseAPI {
-  constructor (client: Client) {
+  constructor(client: Client) {
     super({
       client,
       baseUrl: "https://badges.roblox.com/"
     });
   }
 
-  getBadge (options: GetBadgeOptions): Promise<GetBadge> {
+  getMetaData(): Promise<BadgeMetaData> {
+    return this.request({
+      requiresAuth: false,
+      request: {
+        path: "v1/badges/metadata"
+      },
+      json: true
+    }).then((response) => response.body);
+  }
+
+  getBadge(options: GetBadgeOptions): Promise<GetBadge> {
     return this.request({
       requiresAuth: false,
       request: {
@@ -69,7 +85,7 @@ export default class AvatarAPI extends BaseAPI {
     }).then((response) => response.body);
   }
 
-  updateBadge (options: UpdateBadgeOptions): Promise<UpdateBadge> {
+  updateBadge(options: UpdateBadgeOptions): Promise<UpdateBadge> {
     return this.request({
       requiresAuth: false,
       request: {
@@ -80,7 +96,7 @@ export default class AvatarAPI extends BaseAPI {
     }).then((response) => response.body);
   }
 
-  getUniverseBadges (
+  getUniverseBadges(
     options: GetUniverseBadgesOptions
   ): Promise<GetUniverseBadges> {
     return this.request({
@@ -93,7 +109,7 @@ export default class AvatarAPI extends BaseAPI {
     }).then((response) => response.body);
   }
 
-  getUserBadges (options: GetUserBadgesOptions): Promise<GetUserBadges> {
+  getUserBadges(options: GetUserBadgesOptions): Promise<GetUserBadges> {
     return this.request({
       requiresAuth: false,
       request: {
@@ -104,7 +120,7 @@ export default class AvatarAPI extends BaseAPI {
     }).then((response) => response.body);
   }
 
-  getUserBadgesAwardedDates (
+  getUserBadgesAwardedDates(
     options: GetUserBadgesAwardedDatesOptions
   ): Promise<GetUserBadgesAwardedDates> {
     return this.request({
@@ -119,7 +135,7 @@ export default class AvatarAPI extends BaseAPI {
     }).then((response) => response.body);
   }
 
-  deleteBadgeFromUser (
+  deleteBadgeFromUser(
     options: DeleteBadgeFromUserOptions
   ): Promise<DeleteBadgeFromUser> {
     return this.request({
@@ -132,7 +148,7 @@ export default class AvatarAPI extends BaseAPI {
     }).then((response) => response.body);
   }
 
-  deleteBadgeFromSelf (
+  deleteBadgeFromSelf(
     options: DeleteBadgeFromSelfOptions
   ): Promise<DeleteBadgeFromSelf> {
     return this.request({

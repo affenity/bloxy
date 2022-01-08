@@ -86,14 +86,14 @@ export type UnArchiveMessagesOptions = ArchiveMessagesOptions;
 export type UnArchiveMessages = ArchiveMessages;
 
 export default class PrivateMessagesAPI extends BaseAPI {
-  constructor (client: Client) {
+  constructor(client: Client) {
     super({
       client,
       baseUrl: "https://privatemessages.roblox.com/"
     });
   }
 
-  getAnnouncements (): Promise<GetAnnouncements> {
+  getAnnouncements(): Promise<GetAnnouncements> {
     return this.request({
       requiresAuth: false,
       request: {
@@ -103,7 +103,7 @@ export default class PrivateMessagesAPI extends BaseAPI {
     }).then((response) => response.body);
   }
 
-  getAnnouncementsMetaData (): Promise<GetAnnouncementsMetaData> {
+  getAnnouncementsMetaData(): Promise<GetAnnouncementsMetaData> {
     return this.request({
       requiresAuth: true,
       request: {
@@ -113,7 +113,7 @@ export default class PrivateMessagesAPI extends BaseAPI {
     }).then((response) => response.body);
   }
 
-  getMessages (options: GetMessagesOptions): Promise<GetMessages> {
+  getMessages(options: GetMessagesOptions): Promise<GetMessages> {
     return this.request({
       requiresAuth: true,
       request: {
@@ -124,7 +124,7 @@ export default class PrivateMessagesAPI extends BaseAPI {
     }).then((response) => response.body);
   }
 
-  getMessage (options: GetMessageOptions): Promise<GetMessage> {
+  getMessage(options: GetMessageOptions): Promise<GetMessage> {
     return this.request({
       requiresAuth: true,
       request: {
@@ -134,7 +134,17 @@ export default class PrivateMessagesAPI extends BaseAPI {
     }).then((response) => response.body);
   }
 
-  getUnreadMessagesCount (): Promise<GetUnreadMessagesCount> {
+  canMessage(options: { userId: number }): Promise<boolean> {
+    return this.request({
+      requiresAuth: true,
+      request: {
+        path: `v1/messages/${options.userId}/can-message`
+      },
+      json: true
+    }).then((response) => response.body.canMessage);
+  }
+
+  getUnreadMessagesCount(): Promise<GetUnreadMessagesCount> {
     return this.request({
       requiresAuth: true,
       request: {
@@ -144,7 +154,7 @@ export default class PrivateMessagesAPI extends BaseAPI {
     }).then((response) => response.body);
   }
 
-  archiveMessages (options: ArchiveMessagesOptions): Promise<ArchiveMessages> {
+  archiveMessages(options: ArchiveMessagesOptions): Promise<ArchiveMessages> {
     return this.request({
       requiresAuth: true,
       request: {
@@ -156,7 +166,7 @@ export default class PrivateMessagesAPI extends BaseAPI {
     }).then((response) => response.body);
   }
 
-  markMessagesRead (
+  markMessagesRead(
     options: MarkMessagesReadOptions
   ): Promise<MarkMessagesRead> {
     return this.request({
@@ -170,7 +180,7 @@ export default class PrivateMessagesAPI extends BaseAPI {
     }).then((response) => response.body);
   }
 
-  markMessagesUnread (
+  markMessagesUnread(
     options: MarkMessagesUnreadOptions
   ): Promise<MarkMessagesUnread> {
     return this.request({
@@ -184,7 +194,7 @@ export default class PrivateMessagesAPI extends BaseAPI {
     }).then((response) => response.body);
   }
 
-  sendMessage (options: SendMessageOptions): Promise<SendMessage> {
+  sendMessage(options: SendMessageOptions): Promise<SendMessage> {
     return this.request({
       requiresAuth: true,
       request: {
@@ -196,7 +206,7 @@ export default class PrivateMessagesAPI extends BaseAPI {
     }).then((response) => response.body);
   }
 
-  unArchiveMessages (
+  unArchiveMessages(
     options: UnArchiveMessagesOptions
   ): Promise<UnArchiveMessages> {
     return this.request({
