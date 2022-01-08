@@ -38,87 +38,86 @@ import OtherAPI from "./OtherAPI";
 import TwoStepVerificationAPI from "./TwoStepVerificationAPI";
 import DataAPI from "./DataAPI";
 
-
 export declare type APIs = {
-    accountInformationAPI: AccountInformationAPI;
-    accountSettingsAPI: AccountSettingsAPI;
-    adConfigurationAPI: AdConfigurationAPI;
-    adsAPI: AdsAPI;
-    assetDeliveryAPI: AssetDeliveryAPI;
-    authAPI: AuthAPI;
-    avatarAPI: AvatarAPI;
-    badgesAPI: BadgesAPI;
-    billingAPI: BillingAPI;
-    catalogAPI: CatalogAPI;
-    chatAPI: ChatAPI;
-    contactsAPI: ContactsAPI;
-    dataAPI: DataAPI;
-    developAPI: DevelopAPI;
-    economyAPI: EconomyAPI;
-    economyCreatorStats: EconomyCreatorStatsAPI;
-    engagementPayouts: EngagementPayoutsAPI;
-    followingsAPI: FollowingsAPI;
-    friendsAPI: FriendsAPI;
-    gamesAPI: GamesAPI;
-    gameInternationalizationAPI: GameInternationalizationAPI;
-    groupsAPI: GroupsAPI;
-    inventoryAPI: InventoryAPI;
-    itemConfigurationAPI: ItemConfigurationAPI;
-    localeAPI: LocaleAPI;
-    metricsAPI: MetricsAPI;
-    notificationsAPI: NotificationsAPI;
-    otherAPI: OtherAPI;
-    premiumFeaturesAPI: PremiumFeaturesAPI;
-    presenceAPI: PresenceAPI;
-    privateMessagesAPI: PrivateMessagesAPI;
-    publishAPI: PublishAPI;
-    thumbnailsAPI: ThumbnailsAPI;
-    tradesAPI: TradesAPI;
-    translationRolesAPI: TranslationRolesAPI;
-    usersAPI: UsersAPI;
-    generalApi: GeneralAPI;
-    twpStepVerification: TwoStepVerificationAPI;
+  accountInformationAPI: AccountInformationAPI;
+  accountSettingsAPI: AccountSettingsAPI;
+  adConfigurationAPI: AdConfigurationAPI;
+  adsAPI: AdsAPI;
+  assetDeliveryAPI: AssetDeliveryAPI;
+  authAPI: AuthAPI;
+  avatarAPI: AvatarAPI;
+  badgesAPI: BadgesAPI;
+  billingAPI: BillingAPI;
+  catalogAPI: CatalogAPI;
+  chatAPI: ChatAPI;
+  contactsAPI: ContactsAPI;
+  dataAPI: DataAPI;
+  developAPI: DevelopAPI;
+  economyAPI: EconomyAPI;
+  economyCreatorStats: EconomyCreatorStatsAPI;
+  engagementPayouts: EngagementPayoutsAPI;
+  followingsAPI: FollowingsAPI;
+  friendsAPI: FriendsAPI;
+  gamesAPI: GamesAPI;
+  gameInternationalizationAPI: GameInternationalizationAPI;
+  groupsAPI: GroupsAPI;
+  inventoryAPI: InventoryAPI;
+  itemConfigurationAPI: ItemConfigurationAPI;
+  localeAPI: LocaleAPI;
+  metricsAPI: MetricsAPI;
+  notificationsAPI: NotificationsAPI;
+  otherAPI: OtherAPI;
+  premiumFeaturesAPI: PremiumFeaturesAPI;
+  presenceAPI: PresenceAPI;
+  privateMessagesAPI: PrivateMessagesAPI;
+  publishAPI: PublishAPI;
+  thumbnailsAPI: ThumbnailsAPI;
+  tradesAPI: TradesAPI;
+  translationRolesAPI: TranslationRolesAPI;
+  usersAPI: UsersAPI;
+  generalApi: GeneralAPI;
+  twpStepVerification: TwoStepVerificationAPI;
 };
 
 export default function initAPIs (client: Client): APIs {
-    return {
-        accountInformationAPI: new AccountInformationAPI(client),
-        accountSettingsAPI: new AccountSettingsAPI(client),
-        adConfigurationAPI: new AdConfigurationAPI(client),
-        adsAPI: new AdsAPI(client),
-        assetDeliveryAPI: new AssetDeliveryAPI(client),
-        authAPI: new AuthAPI(client),
-        avatarAPI: new AvatarAPI(client),
-        badgesAPI: new BadgesAPI(client),
-        billingAPI: new BillingAPI(client),
-        catalogAPI: new CatalogAPI(client),
-        chatAPI: new ChatAPI(client),
-        contactsAPI: new ContactsAPI(client),
-        dataAPI: new DataAPI(client),
-        developAPI: new DevelopAPI(client),
-        economyAPI: new EconomyAPI(client),
-        economyCreatorStats: new EconomyCreatorStatsAPI(client),
-        engagementPayouts: new EngagementPayoutsAPI(client),
-        followingsAPI: new FollowingsAPI(client),
-        friendsAPI: new FriendsAPI(client),
-        gamesAPI: new GamesAPI(client),
-        gameInternationalizationAPI: new GameInternationalizationAPI(client),
-        groupsAPI: new GroupsAPI(client),
-        inventoryAPI: new InventoryAPI(client),
-        itemConfigurationAPI: new ItemConfigurationAPI(client),
-        localeAPI: new LocaleAPI(client),
-        metricsAPI: new MetricsAPI(client),
-        generalApi: new GeneralAPI(client),
-        notificationsAPI: new NotificationsAPI(client),
-        otherAPI: new OtherAPI(client),
-        premiumFeaturesAPI: new PremiumFeaturesAPI(client),
-        presenceAPI: new PresenceAPI(client),
-        privateMessagesAPI: new PrivateMessagesAPI(client),
-        publishAPI: new PublishAPI(client),
-        thumbnailsAPI: new ThumbnailsAPI(client),
-        tradesAPI: new TradesAPI(client),
-        translationRolesAPI: new TranslationRolesAPI(client),
-        usersAPI: new UsersAPI(client),
-        twpStepVerification: new TwoStepVerificationAPI(client)
-    };
+  return {
+    accountInformationAPI: new AccountInformationAPI(client),
+    accountSettingsAPI: new AccountSettingsAPI(client),
+    adConfigurationAPI: new AdConfigurationAPI(client),
+    adsAPI: new AdsAPI(client),
+    assetDeliveryAPI: new AssetDeliveryAPI(client),
+    authAPI: new AuthAPI(client),
+    avatarAPI: new AvatarAPI(client),
+    badgesAPI: new BadgesAPI(client),
+    billingAPI: new BillingAPI(client),
+    catalogAPI: new CatalogAPI(client),
+    chatAPI: new ChatAPI(client),
+    contactsAPI: new ContactsAPI(client),
+    dataAPI: new DataAPI(client),
+    developAPI: new DevelopAPI(client),
+    economyAPI: new EconomyAPI(client),
+    economyCreatorStats: new EconomyCreatorStatsAPI(client),
+    engagementPayouts: new EngagementPayoutsAPI(client),
+    followingsAPI: new FollowingsAPI(client),
+    friendsAPI: new FriendsAPI(client),
+    gamesAPI: new GamesAPI(client),
+    gameInternationalizationAPI: new GameInternationalizationAPI(client),
+    groupsAPI: new GroupsAPI(client),
+    inventoryAPI: new InventoryAPI(client),
+    itemConfigurationAPI: new ItemConfigurationAPI(client),
+    localeAPI: new LocaleAPI(client),
+    metricsAPI: new MetricsAPI(client),
+    generalApi: new GeneralAPI(client),
+    notificationsAPI: new NotificationsAPI(client),
+    otherAPI: new OtherAPI(client),
+    premiumFeaturesAPI: new PremiumFeaturesAPI(client),
+    presenceAPI: new PresenceAPI(client),
+    privateMessagesAPI: new PrivateMessagesAPI(client),
+    publishAPI: new PublishAPI(client),
+    thumbnailsAPI: new ThumbnailsAPI(client),
+    tradesAPI: new TradesAPI(client),
+    translationRolesAPI: new TranslationRolesAPI(client),
+    usersAPI: new UsersAPI(client),
+    twpStepVerification: new TwoStepVerificationAPI(client)
+  };
 }

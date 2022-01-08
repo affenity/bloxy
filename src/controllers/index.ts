@@ -1,8 +1,7 @@
 import rest from "./rest";
 
-
 const controllers = {
-    rest
+  rest
 };
 
 export default controllers;

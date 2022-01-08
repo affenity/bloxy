@@ -1,3 +1,3 @@
 export default function validBody (): boolean {
-    return true;
+  return true;
 }
