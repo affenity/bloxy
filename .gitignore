@@ -5,3 +5,7 @@ dist
 docs
 site
 .idea
+.nyc_output
+
+# temporary
+tests_jest
