@@ -32,7 +32,7 @@ export default class RESTResponse {
       const error = allProcessed.find(
         (err) =>
           err instanceof BloxyHttpError
-          && err.name === "BloxyInvalidStatusMessageError"
+          && err.name === "BloxyHttpInvalidStatusMessageError"
           && err.statusMessage.includes("Token Validation Failed")
       );
 
