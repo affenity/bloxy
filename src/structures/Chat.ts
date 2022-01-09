@@ -1,4 +1,4 @@
-import Client from "../client";
+import { Client } from "../client";
 import { PartialUser, PartialUserOptions } from "./User";
 import { PartialGameUniverse, PartialGameUniverseOptions } from "./Game";
 import {

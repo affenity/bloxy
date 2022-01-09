@@ -1,4 +1,4 @@
-import Client from "../client";
+import { Client } from "../client";
 import { PartialUser } from "./User";
 
 export interface ClientUserOptions {
@@ -6,7 +6,7 @@ export interface ClientUserOptions {
   name: string;
 }
 
-export default class ClientUser extends PartialUser {
+export class ClientUser extends PartialUser {
   public client: Client;
 
   constructor(data: ClientUserOptions, client: Client) {

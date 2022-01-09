@@ -1,26 +1,25 @@
-import RESTResponse from "../RESTResponse";
+import { RESTResponse } from "../RESTResponse";
 import { BloxyHttpError } from "../../../../util/errors/errors";
 
-export default function validStatusMessage (
-  response: RESTResponse
-): boolean | Error {
+export function validStatusMessage(response: RESTResponse): boolean | Error {
   const { request, responseData } = response;
   const responseOptions = request.requestOptions.responseOptions || {};
   let isValid = true;
 
   if (
-    request.requestOptions.responseOptions
-    && request.requestOptions.checks?.statusMessage
+    request.requestOptions.responseOptions &&
+    request.requestOptions.checks?.statusMessage
   ) {
     const allowedStatusMessages = responseOptions.allowedStatusMessages || [];
-    const disallowedStatusMessages
-      = responseOptions.disallowedStatusMessages || [];
+    const disallowedStatusMessages =
+      responseOptions.disallowedStatusMessages || [];
 
-    const isAllowed = allowedStatusMessages.some((statusMessage) =>
+    const isAllowed = allowedStatusMessages.some((statusMessage: string) =>
       responseData.statusMessage.toLowerCase().includes(statusMessage)
     );
-    const isDisallowed = disallowedStatusMessages.some((statusMessage) =>
-      responseData.statusMessage.toLowerCase().includes(statusMessage)
+    const isDisallowed = disallowedStatusMessages.some(
+      (statusMessage: string) =>
+        responseData.statusMessage.toLowerCase().includes(statusMessage)
     );
 
     if (allowedStatusMessages.length > 0) {
@@ -29,16 +28,16 @@ export default function validStatusMessage (
         isValid = false;
       }
     } else if (
-      allowedStatusMessages.length === 0
-      && disallowedStatusMessages.length > 0
+      allowedStatusMessages.length === 0 &&
+      disallowedStatusMessages.length > 0
     ) {
       // Only these are disallowed
       if (isDisallowed) {
         isValid = false;
       }
     } else if (
-      allowedStatusMessages.length === 0
-      && disallowedStatusMessages.length === 0
+      allowedStatusMessages.length === 0 &&
+      disallowedStatusMessages.length === 0
     ) {
       // All status are allowed
     }
@@ -47,10 +46,10 @@ export default function validStatusMessage (
   return isValid
     ? true
     : new BloxyHttpError({
-      statusCode: responseData.statusCode,
-      statusMessage: responseData.statusMessage,
-      message: `Invalid status message detected in response.`,
-      name: "BloxyHttpInvalidStatusMessageError",
-      possibleReasons: []
-    });
+        statusCode: responseData.statusCode,
+        statusMessage: responseData.statusMessage,
+        message: `Invalid status message detected in response.`,
+        name: "BloxyHttpInvalidStatusMessageError",
+        possibleReasons: []
+      });
 }

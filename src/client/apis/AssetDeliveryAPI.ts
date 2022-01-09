@@ -1,5 +1,5 @@
-import BaseAPI from "./BaseAPI";
-import Client from "../Client";
+import { BaseAPI } from "./BaseAPI";
+import { Client } from "../Client";
 
 export type AssetDeliveryBaseOptions = {
   acceptEncoding: string;
@@ -135,7 +135,7 @@ export type AssetDeliveryGetBatchAssetsOptions = {
 };
 export type AssetDeliveryGetBatchAssets = AssetDeliveryBaseAsset[];
 
-export default class AssetDeliveryAPI extends BaseAPI {
+export class AssetDeliveryAPI extends BaseAPI {
   constructor(client: Client) {
     super({
       baseUrl: "https://assetdelivery.roblox.com/",

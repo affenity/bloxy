@@ -1,5 +1,5 @@
-import BaseAPI from "./BaseAPI";
-import Client from "../Client";
+import { BaseAPI } from "./BaseAPI";
+import { Client } from "../Client";
 import { EnumUserPresence } from "../../interfaces/GeneralInterfaces";
 
 export type PresenceRegisterAppPresenceOptions = {
@@ -24,7 +24,7 @@ export type PresenceGetUsersPresences = {
   }[];
 };
 
-export default class PresenceAPI extends BaseAPI {
+export class PresenceAPI extends BaseAPI {
   constructor(client: Client) {
     super({
       client,

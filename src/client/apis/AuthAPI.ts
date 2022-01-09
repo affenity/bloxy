@@ -1,5 +1,5 @@
-import BaseAPI from "./BaseAPI";
-import Client from "../Client";
+import { BaseAPI } from "./BaseAPI";
+import { Client } from "../Client";
 import { UsernamePasswordOption } from "../../types/GenericOptionTypes";
 
 // AccountPin
@@ -218,7 +218,7 @@ export type AuthResetPassword = AuthLogin & {
 };
 export type AuthRevertAccount = AuthResetPassword;
 
-export default class AuthAPI extends BaseAPI {
+export class AuthAPI extends BaseAPI {
   constructor(client: Client) {
     super({
       client,

@@ -1,1 +1,1 @@
-export { default } from "./RESTResponse";
+export { RESTResponse } from "./RESTResponse";

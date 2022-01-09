@@ -1,4 +1,4 @@
-import Client from "../../Client";
+import { Client } from "../../Client";
 import {
   ChatAddUsersToConversation,
   ChatGetChatSettings,
@@ -21,7 +21,7 @@ import {
   ChatMessageSent
 } from "../../../structures/Chat";
 
-export default class ChatManager {
+export class ChatManager {
   public client: Client;
 
   constructor(client: Client) {

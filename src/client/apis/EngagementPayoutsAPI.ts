@@ -1,5 +1,5 @@
-import BaseAPI from "./BaseAPI";
-import Client from "../Client";
+import { BaseAPI } from "./BaseAPI";
+import { Client } from "../Client";
 
 export type EngagementPayoutsGetUniversePayoutHistoryOptions = {
   universeId: number;
@@ -8,7 +8,7 @@ export type EngagementPayoutsGetUniversePayoutHistoryOptions = {
 };
 export type EngagementPayoutsGetUniversePayoutHistory = unknown;
 
-export default class EngagementPayoutsAPI extends BaseAPI {
+export class EngagementPayoutsAPI extends BaseAPI {
   constructor(client: Client) {
     super({
       client,

@@ -3,7 +3,7 @@ import {
   RESTRequestOptions,
   RESTResponseDataType
 } from "../../interfaces/RESTInterfaces";
-import Client from "../Client";
+import { Client } from "../Client";
 
 export type BaseAPIRequestOptions = {
   /**
@@ -23,7 +23,7 @@ export type BaseAPIRequestOptions = {
   json?: boolean;
 };
 
-export default class BaseAPI {
+export class BaseAPI {
   public client: Client;
   public options: BaseAPIOptions;
 

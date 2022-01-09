@@ -1,5 +1,5 @@
-import BaseAPI from "./BaseAPI";
-import Client from "../Client";
+import { BaseAPI } from "./BaseAPI";
+import { Client } from "../Client";
 
 export type DataUploadDataOptions = {
   assetId: number;
@@ -7,7 +7,7 @@ export type DataUploadDataOptions = {
 };
 export type DataUploadDataResult = unknown;
 
-export default class DataAPI extends BaseAPI {
+export class DataAPI extends BaseAPI {
   constructor(client: Client) {
     super({
       client,

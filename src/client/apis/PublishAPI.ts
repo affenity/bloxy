@@ -1,5 +1,5 @@
-import BaseAPI from "./BaseAPI";
-import Client from "../Client";
+import { BaseAPI } from "./BaseAPI";
+import { Client } from "../Client";
 
 export type PublishUploadAssetsOptions = {
   files: unknown;
@@ -55,7 +55,7 @@ export type PublishUploadPluginIcon = {
   targetId: number;
 };
 
-export default class PublishAPI extends BaseAPI {
+export class PublishAPI extends BaseAPI {
   constructor(client: Client) {
     super({
       client,

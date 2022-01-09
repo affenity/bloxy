@@ -1,5 +1,5 @@
-import BaseAPI from "./BaseAPI";
-import Client from "../Client";
+import { BaseAPI } from "./BaseAPI";
+import { Client } from "../Client";
 
 export type ChatPartialConversationData = {
   id: number;
@@ -242,7 +242,7 @@ export type ChatSendGameLinkMessageOptions = {
   decorators: string[];
 };
 
-export default class ChatAPI extends BaseAPI {
+export class ChatAPI extends BaseAPI {
   constructor(client: Client) {
     super({
       client,

@@ -1,7 +1,7 @@
-import RESTResponse from "../RESTResponse";
+import { RESTResponse } from "../RESTResponse";
 import { Cookie } from "tough-cookie";
 
-export default function updateHeaders (response: RESTResponse): boolean {
+export function updateHeaders(response: RESTResponse): boolean {
   if (response.responseData.headers["set-cookie"]) {
     const setCookieHeader = response.responseData.headers["set-cookie"];
 

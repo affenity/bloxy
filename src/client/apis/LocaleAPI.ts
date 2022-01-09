@@ -1,5 +1,5 @@
-import BaseAPI from "./BaseAPI";
-import Client from "../Client";
+import { BaseAPI } from "./BaseAPI";
+import { Client } from "../Client";
 
 export type LocaleGetCountryRegionsOptions = {
   locale: string;
@@ -51,7 +51,7 @@ export type LocaleSetUserLocale = {
   success: boolean;
 };
 
-export default class LocaleAPI extends BaseAPI {
+export class LocaleAPI extends BaseAPI {
   constructor(client: Client) {
     super({
       client,

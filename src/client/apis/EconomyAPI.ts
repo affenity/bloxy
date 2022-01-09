@@ -1,5 +1,5 @@
-import BaseAPI from "./BaseAPI";
-import Client from "../Client";
+import { BaseAPI } from "./BaseAPI";
+import { Client } from "../Client";
 import { BillingSubmitDeveloperExchangeOptions } from "./BillingAPI";
 
 export type EconomyGetAssetResaleDataOptions = {
@@ -170,7 +170,7 @@ export type EconomyGetSelfTransactionsOptions = Omit<
 };
 export type EconomyGetSelfTransactions = EconomyGetGroupTransactions;
 
-export default class EconomyAPI extends BaseAPI {
+export class EconomyAPI extends BaseAPI {
   constructor(client: Client) {
     super({
       client,

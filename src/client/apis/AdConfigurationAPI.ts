@@ -1,5 +1,5 @@
-import BaseAPI from "./BaseAPI";
-import Client from "../Client";
+import { BaseAPI } from "./BaseAPI";
+import { Client } from "../Client";
 import { ISOString } from "../../types/GenericTypes";
 import { GroupIdOption } from "../..";
 
@@ -68,7 +68,7 @@ export type AdConfigurationGetSponsoredGamesOptions = {
   pageCursor?: string;
 };
 
-export default class AdConfigurationAPI extends BaseAPI {
+export class AdConfigurationAPI extends BaseAPI {
   constructor(client: Client) {
     super({
       baseUrl: "https://adconfiguration.roblox.com/",

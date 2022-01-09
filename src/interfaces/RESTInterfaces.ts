@@ -1,5 +1,5 @@
-import RESTRequest from "../controllers/rest/request";
-import RESTResponse from "../controllers/rest/response";
+import { RESTRequest } from "../controllers/rest/request";
+import { RESTResponse } from "../controllers/rest/response";
 
 export declare type RESTRequester = (
   requestOptions: RESTRequestOptions

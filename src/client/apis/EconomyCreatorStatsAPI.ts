@@ -1,5 +1,5 @@
-import BaseAPI from "./BaseAPI";
-import Client from "../Client";
+import { BaseAPI } from "./BaseAPI";
+import { Client } from "../Client";
 
 export type EconomyCreatorStatsGetUniverseStatsOptions = {
   universeId: number;
@@ -12,7 +12,7 @@ export type EconomyCreatorStatsGetUniverseStats = {
   data: unknown;
 };
 
-export default class EconomyCreatorStatsAPI extends BaseAPI {
+export class EconomyCreatorStatsAPI extends BaseAPI {
   constructor(client: Client) {
     super({
       client,

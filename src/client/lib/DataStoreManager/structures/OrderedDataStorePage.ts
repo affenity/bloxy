@@ -1,15 +1,16 @@
-import OrderedDataStore, {
+import {
+  OrderedDataStore,
   GetSortedUrlOptions,
   OrderedDataStoreResultType
 } from "./OrderedDataStore";
 
-export default class OrderedDataStorePage<DataType> {
+export class OrderedDataStorePage<DataType> {
   public orderedDataStore: OrderedDataStore<DataType>;
   public options: GetSortedUrlOptions;
   public data: { key: string; value: number }[];
   public startKey: string | null;
 
-  constructor (
+  constructor(
     orderedDataStore: OrderedDataStore<DataType>,
     data: { options: GetSortedUrlOptions; result: OrderedDataStoreResultType }
   ) {
@@ -22,7 +23,7 @@ export default class OrderedDataStorePage<DataType> {
     this.startKey = data.result.data.ExclusiveStartKey;
   }
 
-  fetchNextPage (): Promise<OrderedDataStorePage<DataType>> {
+  fetchNextPage(): Promise<OrderedDataStorePage<DataType>> {
     if (!this.startKey) {
       throw new Error(`There is no next page!`);
     }

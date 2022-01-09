@@ -1,5 +1,5 @@
-import BaseAPI from "./BaseAPI";
-import Client from "../Client";
+import { BaseAPI } from "./BaseAPI";
+import { Client } from "../Client";
 import { AssetIdOption, SortOption, UserIdOption } from "../..";
 
 export type CatalogProductDetails = {
@@ -98,7 +98,7 @@ export type CatalogFavoriteBundleOptions = UserIdOption & {
   bundleId: number;
 };
 
-export default class CatalogAPI extends BaseAPI {
+export class CatalogAPI extends BaseAPI {
   constructor(client: Client) {
     super({
       client,

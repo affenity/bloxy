@@ -1,6 +1,6 @@
 import * as querystring from "querystring";
-import DataStoreManager from "../DataStoreManager";
-import DataStoreHttpRequest from "./DataStoreHttpRequest";
+import { DataStoreManager } from "../DataStoreManager";
+import { DataStoreHttpRequest } from "./DataStoreHttpRequest";
 import { DataStoreRequestType } from "../util/constants";
 import {
   checkKey,
@@ -19,7 +19,7 @@ type DataStoreKey = {
 };
 type DataStoreValue = string;
 
-export default class GenericDataStore<DataType> {
+export class GenericDataStore<DataType> {
   public manager: DataStoreManager;
   public name: string;
   public scope: string;
@@ -32,7 +32,7 @@ export default class GenericDataStore<DataType> {
     serializeData?: (data: DataType) => string;
   };
 
-  constructor (
+  constructor(
     manager: DataStoreManager,
     dataStoreType: DataStoreType,
     placeId: number,
@@ -60,7 +60,7 @@ export default class GenericDataStore<DataType> {
    * @param {(data: string) => DataType} parseDataFunction
    * @param {(data: DataType) => string} serializeDataFunction
    */
-  public setDataConverters (
+  public setDataConverters(
     parseDataFunction: (data: string) => DataType,
     serializeDataFunction: (data: DataType) => string
   ): void {
@@ -68,7 +68,7 @@ export default class GenericDataStore<DataType> {
     this.advanced.serializeData = serializeDataFunction;
   }
 
-  buildPostDataForKey (key: string, index = 0): string {
+  buildPostDataForKey(key: string, index = 0): string {
     const encodedQueryString = querystring.encode({
       [`qkeys[${index}].scope`]: this.scope
         ? this.safeEncodeValue(this.scope)
@@ -82,13 +82,13 @@ export default class GenericDataStore<DataType> {
     return `&${encodedQueryString}`;
   }
 
-  buildGetUrl (): string {
+  buildGetUrl(): string {
     const encodedQueryString = this.createQueryString({});
 
     return `${this.baseAPIUrl}getV2?${encodedQueryString}`;
   }
 
-  buildSetUrl (key: string, valueLength: number): string {
+  buildSetUrl(key: string, valueLength: number): string {
     const encodedQueryString = this.createQueryString({
       key: this.legacy
         ? this.safeEncodeValue(key)
@@ -100,7 +100,7 @@ export default class GenericDataStore<DataType> {
     return `${this.baseAPIUrl}set?${encodedQueryString}`;
   }
 
-  buildSetIfUrl (
+  buildSetIfUrl(
     key: string,
     valueLength: number,
     expectedValueLength: number
@@ -117,7 +117,7 @@ export default class GenericDataStore<DataType> {
     return `${this.baseAPIUrl}set?${encodedQueryString}`;
   }
 
-  buildIncrementUrl (key: string, delta: number): string {
+  buildIncrementUrl(key: string, delta: number): string {
     const encodedQueryString = this.createQueryString({
       key: this.legacy
         ? this.safeEncodeValue(key)
@@ -129,7 +129,7 @@ export default class GenericDataStore<DataType> {
     return `${this.baseAPIUrl}increment?${encodedQueryString}`;
   }
 
-  buildRemoveUrl (key: string): string {
+  buildRemoveUrl(key: string): string {
     const encodedQueryString = this.createQueryString({
       key: this.legacy
         ? this.safeEncodeValue(key)
@@ -140,7 +140,7 @@ export default class GenericDataStore<DataType> {
     return `${this.baseAPIUrl}increment?${encodedQueryString}`;
   }
 
-  public parseRetrievedData<Result> (data: string): [boolean, Result | any] {
+  public parseRetrievedData<Result>(data: string): [boolean, Result | any] {
     let result = "";
 
     if (data.length === 0) {
@@ -162,7 +162,7 @@ export default class GenericDataStore<DataType> {
    * @param {string} key
    * @returns {Promise<unknown>}
    */
-  public async getAsync (key: string): Promise<unknown> {
+  public async getAsync(key: string): Promise<unknown> {
     this.performPreflightChecks({
       key
     });
@@ -201,7 +201,7 @@ export default class GenericDataStore<DataType> {
    * @param {DataType} value
    * @returns {Promise<boolean>}
    */
-  public async setAsync (key: string, value: DataType): Promise<DataType> {
+  public async setAsync(key: string, value: DataType): Promise<DataType> {
     const serializedValue = this.serializeOutgoingData(value);
     this.performPreflightChecks({
       key,
@@ -226,7 +226,7 @@ export default class GenericDataStore<DataType> {
     return this.parseIncomingData(parsedResponse.data as string);
   }
 
-  public incrementAsync (key: string, delta = 1): Promise<RESTResponseDataType> {
+  public incrementAsync(key: string, delta = 1): Promise<RESTResponseDataType> {
     this.performPreflightChecks({
       key
     });
@@ -240,7 +240,7 @@ export default class GenericDataStore<DataType> {
     return createdRequest.send();
   }
 
-  public removeAsync (key: string): Promise<RESTResponseDataType> {
+  public removeAsync(key: string): Promise<RESTResponseDataType> {
     this.performPreflightChecks({
       key
     });
@@ -254,7 +254,7 @@ export default class GenericDataStore<DataType> {
     return createdRequest.send();
   }
 
-  public createQueryString (addition: Record<string, unknown>) {
+  public createQueryString(addition: Record<string, unknown>) {
     return querystring.encode({
       placeId: this.placeId,
       type: this.dataStoreType === "GlobalDataStore" ? "standard" : "sorted",
@@ -269,7 +269,7 @@ export default class GenericDataStore<DataType> {
    * @returns {DataType}
    * @private
    */
-  parseIncomingData (data: string): DataType {
+  parseIncomingData(data: string): DataType {
     if (this.advanced.parseData) {
       return this.advanced.parseData(data);
     } else {
@@ -284,7 +284,7 @@ export default class GenericDataStore<DataType> {
    * @returns {string}
    * @private
    */
-  serializeOutgoingData (data: DataType): string {
+  serializeOutgoingData(data: DataType): string {
     let serializedStage1: string | DataType = "";
 
     if (this.advanced.serializeData) {
@@ -308,7 +308,7 @@ export default class GenericDataStore<DataType> {
     return serializedFinal;
   }
 
-  safeEncodeValue (input: string) {
+  safeEncodeValue(input: string) {
     return encodeURIComponent(input);
   }
 
@@ -317,7 +317,7 @@ export default class GenericDataStore<DataType> {
    * @param {{key?: string, value?: DataType}} options
    * @private
    */
-  performPreflightChecks (options: { key?: string; value?: string }) {
+  performPreflightChecks(options: { key?: string; value?: string }) {
     checkScope(this.scope);
     checkName(this.name);
     checkPlaceId(this.placeId);

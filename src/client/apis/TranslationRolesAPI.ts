@@ -1,5 +1,5 @@
-import BaseAPI from "./BaseAPI";
-import Client from "../Client";
+import { BaseAPI } from "./BaseAPI";
+import { Client } from "../Client";
 
 export type TranslationRolesGetSelfGameRolesOptions = {
   gameId: number;
@@ -40,7 +40,7 @@ export type TranslationRolesUpdateUserAccess = {
 };
 export type TranslationRolesUpdateUser = unknown;
 
-export default class TradesAPI extends BaseAPI {
+export class TranslationRolesAPI extends BaseAPI {
   constructor(client: Client) {
     super({
       client,

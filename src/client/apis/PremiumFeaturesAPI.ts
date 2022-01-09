@@ -1,5 +1,5 @@
-import BaseAPI from "./BaseAPI";
-import Client from "../Client";
+import { BaseAPI } from "./BaseAPI";
+import { Client } from "../Client";
 
 export type PremiumFeaturesUpsellCheckOptions = {
   userId: number;
@@ -12,7 +12,7 @@ export type PremiumFeaturesValidateUserMembershipOptions = {
 };
 export type PremiumFeaturesValidateUserMembership = boolean;
 
-export default class PremiumFeaturesAPI extends BaseAPI {
+export class PremiumFeaturesAPI extends BaseAPI {
   constructor(client: Client) {
     super({
       client,

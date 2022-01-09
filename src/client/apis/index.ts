@@ -1,40 +1,40 @@
-import Client from "../Client";
-import GeneralAPI from "./GeneralAPI";
-import AccountInformationAPI from "./AccountInformationAPI";
-import AccountSettingsAPI from "./AccountSettingsAPI";
-import AdConfigurationAPI from "./AdConfigurationAPI";
-import AssetDeliveryAPI from "./AssetDeliveryAPI";
-import AuthAPI from "./AuthAPI";
-import AvatarAPI from "./AvatarAPI";
-import BadgesAPI from "./BadgesAPI";
-import BillingAPI from "./BillingAPI";
-import CatalogAPI from "./CatalogAPI";
-import ChatAPI from "./ChatAPI";
-import ContactsAPI from "./ContactsAPI";
-import DevelopAPI from "./DevelopAPI";
-import EconomyAPI from "./EconomyAPI";
-import EconomyCreatorStatsAPI from "./EconomyCreatorStatsAPI";
-import EngagementPayoutsAPI from "./EngagementPayoutsAPI";
-import FollowingsAPI from "./FollowingsAPI";
-import FriendsAPI from "./FriendsAPI";
-import GamesAPI from "./GamesAPI";
-import GameInternationalizationAPI from "./GameInternationalizationAPI";
-import GroupsAPI from "./GroupsAPI";
-import InventoryAPI from "./InventoryAPI";
-import ItemConfigurationAPI from "./ItemConfigurationAPI";
-import LocaleAPI from "./LocaleAPI";
-import MetricsAPI from "./MetricsAPI";
-import NotificationsAPI from "./NotificationsAPI";
-import PremiumFeaturesAPI from "./PremiumFeaturesAPI";
-import PresenceAPI from "./PresenceAPI";
-import PrivateMessagesAPI from "./PrivateMessagesAPI";
-import PublishAPI from "./PublishAPI";
-import ThumbnailsAPI from "./ThumbnailsAPI";
-import TranslationRolesAPI from "./TranslationRolesAPI";
-import UsersAPI from "./UsersAPI";
-import OtherAPI from "./OtherAPI";
-import TwoStepVerificationAPI from "./TwoStepVerificationAPI";
-import DataAPI from "./DataAPI";
+import { Client } from "../Client";
+import { GeneralAPI } from "./GeneralAPI";
+import { AccountInformationAPI } from "./AccountInformationAPI";
+import { AccountSettingsAPI } from "./AccountSettingsAPI";
+import { AdConfigurationAPI } from "./AdConfigurationAPI";
+import { AssetDeliveryAPI } from "./AssetDeliveryAPI";
+import { AuthAPI } from "./AuthAPI";
+import { AvatarAPI } from "./AvatarAPI";
+import { BadgesAPI } from "./BadgesAPI";
+import { BillingAPI } from "./BillingAPI";
+import { CatalogAPI } from "./CatalogAPI";
+import { ChatAPI } from "./ChatAPI";
+import { ContactsAPI } from "./ContactsAPI";
+import { DevelopAPI } from "./DevelopAPI";
+import { EconomyAPI } from "./EconomyAPI";
+import { EconomyCreatorStatsAPI } from "./EconomyCreatorStatsAPI";
+import { EngagementPayoutsAPI } from "./EngagementPayoutsAPI";
+import { FollowingsAPI } from "./FollowingsAPI";
+import { FriendsAPI } from "./FriendsAPI";
+import { GamesAPI } from "./GamesAPI";
+import { GameInternationalizationAPI } from "./GameInternationalizationAPI";
+import { GroupsAPI } from "./GroupsAPI";
+import { InventoryAPI } from "./InventoryAPI";
+import { ItemConfigurationAPI } from "./ItemConfigurationAPI";
+import { LocaleAPI } from "./LocaleAPI";
+import { MetricsAPI } from "./MetricsAPI";
+import { NotificationsAPI } from "./NotificationsAPI";
+import { PremiumFeaturesAPI } from "./PremiumFeaturesAPI";
+import { PresenceAPI } from "./PresenceAPI";
+import { PrivateMessagesAPI } from "./PrivateMessagesAPI";
+import { PublishAPI } from "./PublishAPI";
+import { ThumbnailsAPI } from "./ThumbnailsAPI";
+import { TranslationRolesAPI } from "./TranslationRolesAPI";
+import { UsersAPI } from "./UsersAPI";
+import { OtherAPI } from "./OtherAPI";
+import { TwoStepVerificationAPI } from "./TwoStepVerificationAPI";
+import { DataAPI } from "./DataAPI";
 
 export declare type APIs = {
   accountInformationAPI: AccountInformationAPI;
@@ -75,7 +75,10 @@ export declare type APIs = {
   twoStepVerification: TwoStepVerificationAPI;
 };
 
-export default function initAPIs(client: Client): APIs {
+/**
+ * @hidden
+ */
+export function initAPIs(client: Client): APIs {
   return {
     accountInformationAPI: new AccountInformationAPI(client),
     accountSettingsAPI: new AccountSettingsAPI(client),

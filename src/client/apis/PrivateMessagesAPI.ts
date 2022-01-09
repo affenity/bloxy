@@ -1,5 +1,5 @@
-import BaseAPI from "./BaseAPI";
-import Client from "../Client";
+import { BaseAPI } from "./BaseAPI";
+import { Client } from "../Client";
 
 export type PrivateMessagesGetAnnouncements = {
   collection: {
@@ -89,7 +89,7 @@ export type PrivateMessagesUnArchiveMessagesOptions =
   PrivateMessagesArchiveMessagesOptions;
 export type PrivateMessagesUnArchiveMessages = PrivateMessagesArchiveMessages;
 
-export default class PrivateMessagesAPI extends BaseAPI {
+export class PrivateMessagesAPI extends BaseAPI {
   constructor(client: Client) {
     super({
       client,

@@ -1,5 +1,5 @@
-import BaseAPI from "./BaseAPI";
-import Client from "../Client";
+import { BaseAPI } from "./BaseAPI";
+import { Client } from "../Client";
 import {
   GameUniverseOptions,
   PartialGameUniverse,
@@ -274,7 +274,7 @@ export type GamesUpdateVIPServerSubscription = {
   price: number;
 };
 
-export default class GamesAPI extends BaseAPI {
+export class GamesAPI extends BaseAPI {
   constructor(client: Client) {
     super({
       client,

@@ -1,8 +1,8 @@
 import { RESTRequestOptions } from "../../../interfaces/RESTInterfaces";
-import RESTRequest from "./";
+import { RESTRequest } from "./";
 import querystring from "querystring";
 
-export default async function prepare (
+export async function prepare(
   request: RESTRequest,
   options: RESTRequestOptions
 ): Promise<void> {
@@ -32,9 +32,9 @@ export default async function prepare (
     }
   }
   if (
-    (request.requestOptions.xcsrf !== false
-      && request.requestOptions.method.toLowerCase() !== "get")
-    || request.requestOptions.xcsrf === true
+    (request.requestOptions.xcsrf !== false &&
+      request.requestOptions.method.toLowerCase() !== "get") ||
+    request.requestOptions.xcsrf === true
   ) {
     request.requestOptions.headers = {
       ...request.requestOptions.headers,
@@ -51,16 +51,16 @@ export default async function prepare (
     );
   }
   if (request.requestOptions.json) {
-    request.requestOptions.body
-      = typeof request.requestOptions.json === "string"
+    request.requestOptions.body =
+      typeof request.requestOptions.json === "string"
         ? request.requestOptions.json
         : JSON.stringify(request.requestOptions.json);
     request.requestOptions.headers["content-type"] = "application/json";
     delete request.requestOptions.json;
   }
   if (!request.requestOptions.excludeCookies) {
-    request.requestOptions.headers.Cookie
-      = request.controller.cookieJar.getCookieStringSync(
+    request.requestOptions.headers.Cookie =
+      request.controller.cookieJar.getCookieStringSync(
         request.requestOptions.url
       );
   }

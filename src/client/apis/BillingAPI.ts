@@ -1,5 +1,5 @@
-import BaseAPI from "./BaseAPI";
-import Client from "../Client";
+import { BaseAPI } from "./BaseAPI";
+import { Client } from "../Client";
 import { SortOption } from "../..";
 
 export type BillingGetDeveloperExchangeRate = {
@@ -143,7 +143,7 @@ export type BillingRedeemPromoCodeOptions = {
   code: string;
 };
 
-export default class BillingAPI extends BaseAPI {
+export class BillingAPI extends BaseAPI {
   constructor(client: Client) {
     super({
       client,

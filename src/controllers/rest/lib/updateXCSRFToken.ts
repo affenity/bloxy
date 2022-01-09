@@ -1,6 +1,6 @@
-import RESTController from "../RESTController";
+import { RESTController } from "../RESTController";
 
-export default function updateXCSRFToken (
+export function updateXCSRFToken(
   restController: RESTController
 ): Promise<string> {
   return restController

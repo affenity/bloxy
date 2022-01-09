@@ -1,16 +1,16 @@
-import RESTController from "../RESTController";
-import RESTRequest from "../request";
+import { RESTController } from "../RESTController";
+import { RESTRequest } from "../request";
 import { BloxyHttpError } from "../../../util/errors/errors";
 import { RESTResponseDataType } from "../../../interfaces/RESTInterfaces";
 
-export default class RESTResponse {
+export class RESTResponse {
   public controller: RESTController;
   public request: RESTRequest;
   public responseData: RESTResponseDataType;
 
   // Public options: RESTResponseOptions;
 
-  constructor (
+  constructor(
     controller: RESTController,
     request: RESTRequest,
     responseData: RESTResponseDataType
@@ -21,7 +21,7 @@ export default class RESTResponse {
   }
 
   // eslint-disable-next-line require-await
-  async process (): Promise<RESTResponseDataType> {
+  async process(): Promise<RESTResponseDataType> {
     const allProcessed = this.controller.responseHandlers.map((handler) =>
       handler(this)
     );
@@ -31,16 +31,16 @@ export default class RESTResponse {
     } else {
       const error = allProcessed.find(
         (err) =>
-          err instanceof BloxyHttpError
-          && err.name === "BloxyHttpInvalidStatusMessageError"
-          && err.statusMessage.includes("Token Validation Failed")
+          err instanceof BloxyHttpError &&
+          err.name === "BloxyHttpInvalidStatusMessageError" &&
+          err.statusMessage.includes("Token Validation Failed")
       );
 
       if (error) {
         // 1 attempt = 0 retries
         if (
-          this.request.attempts - 1
-          === this.controller.getXCSRFTokenRefreshMaxRetries()
+          this.request.attempts - 1 ===
+          this.controller.getXCSRFTokenRefreshMaxRetries()
         ) {
           throw error;
         } else {

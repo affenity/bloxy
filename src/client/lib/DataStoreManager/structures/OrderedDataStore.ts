@@ -1,10 +1,11 @@
-import GenericDataStore from "./GenericDataStore";
-import DataStoreManager from "../DataStoreManager";
-import DataStoreHttpRequest from "./DataStoreHttpRequest";
-import DataStoreManagerConstants, {
+import { GenericDataStore } from "./GenericDataStore";
+import { DataStoreManager } from "../DataStoreManager";
+import { DataStoreHttpRequest } from "./DataStoreHttpRequest";
+import {
+  DataStoreManagerConstants,
   DataStoreRequestType
 } from "../util/constants";
-import OrderedDataStorePage from "./OrderedDataStorePage";
+import { OrderedDataStorePage } from "./OrderedDataStorePage";
 
 export type GetSortedUrlOptions = {
   ascending?: boolean;
@@ -23,10 +24,8 @@ export type OrderedDataStoreResultType = {
   };
 };
 
-export default class OrderedDataStore<
-  DataType
-> extends GenericDataStore<DataType> {
-  constructor (
+export class OrderedDataStore<DataType> extends GenericDataStore<DataType> {
+  constructor(
     manager: DataStoreManager,
     placeId: number,
     name: string,
@@ -43,7 +42,7 @@ export default class OrderedDataStore<
     );
   }
 
-  public async getSortedAsync (
+  public async getSortedAsync(
     options: GetSortedUrlOptions
   ): Promise<OrderedDataStorePage<DataType>> {
     this.performPreflightChecks({});
@@ -70,12 +69,12 @@ export default class OrderedDataStore<
     });
   }
 
-  private buildGetSortedUrl (options: GetSortedUrlOptions) {
+  private buildGetSortedUrl(options: GetSortedUrlOptions) {
     const encodedQueryString = this.createQueryString({
       key: this.safeEncodeValue(this.name),
       pageSize:
-        options.pageSize
-        || DataStoreManagerConstants.DFInt.DataStoreMaxPageSize,
+        options.pageSize ||
+        DataStoreManagerConstants.DFInt.DataStoreMaxPageSize,
       ascending: options.ascending ? "True" : "False",
       inclusiveMinValue: options.minValue,
       inclusiveMaxValue: options.maxValue,

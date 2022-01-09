@@ -1,5 +1,5 @@
-import BaseAPI from "./BaseAPI";
-import Client from "../Client";
+import { BaseAPI } from "./BaseAPI";
+import { Client } from "../Client";
 import { UserIdOption, Privacy } from "../..";
 
 // AccountInformation
@@ -68,7 +68,7 @@ export type AccountInformationRobloxBadge = {
 export declare type AccountInformationRobloxBadges =
   AccountInformationRobloxBadge[];
 
-export default class AccountInformationAPI extends BaseAPI {
+export class AccountInformationAPI extends BaseAPI {
   constructor(client: Client) {
     super({
       baseUrl: "https://accountinformation.roblox.com/",

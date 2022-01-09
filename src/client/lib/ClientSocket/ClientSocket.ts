@@ -1,4 +1,4 @@
-import Client from "../../Client";
+import { Client } from "../../Client";
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-ignore
 import * as SignalR from "signalr-client";
@@ -91,7 +91,7 @@ export class Socket extends EventEmitter {
   public socket: any;
   public connected: boolean;
 
-  constructor (client: Client) {
+  constructor(client: Client) {
     super();
 
     this.client = client;
@@ -99,7 +99,7 @@ export class Socket extends EventEmitter {
     this.connected = false;
   }
 
-  connect (): Promise<void> {
+  connect(): Promise<void> {
     return new Promise((resolve, reject) => {
       const connectSocket = (retries = 0): void => {
         this.socket = new SignalR.client(
@@ -108,10 +108,10 @@ export class Socket extends EventEmitter {
           3,
           true
         );
-        this.socket.headers.Cookie
-          = this.client.rest.cookieJar.getCookieStringSync("https://roblox.com");
-        const maxRetries
-          = this.client.options.setup?.websocket?.maxRetries ?? 3;
+        this.socket.headers.Cookie =
+          this.client.rest.cookieJar.getCookieStringSync("https://roblox.com");
+        const maxRetries =
+          this.client.options.setup?.websocket?.maxRetries ?? 3;
 
         const attemptReconnect = (): unknown => connectSocket(++retries);
         const onError = (error: Error): void => {
@@ -152,7 +152,7 @@ export class Socket extends EventEmitter {
   /**
    * This is called after the connection of the socket has successfully been established
    */
-  init (): void {
+  init(): void {
     this.socket.on(
       "UserNotificationHub",
       "notification",

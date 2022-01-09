@@ -1,5 +1,5 @@
-import BaseAPI from "./BaseAPI";
-import Client from "../Client";
+import { BaseAPI } from "./BaseAPI";
+import { Client } from "../Client";
 
 export type MetricsGetThumbnailsMetaData = {
   logRatio: number;
@@ -20,7 +20,7 @@ export type MetricsReportBundleLoadOptions = {
 };
 export type MetricsReportBundleLoad = unknown;
 
-export default class LocaleAPI extends BaseAPI {
+export class MetricsAPI extends BaseAPI {
   constructor(client: Client) {
     super({
       client,

@@ -1,5 +1,5 @@
-import BaseAPI from "./BaseAPI";
-import Client from "../Client";
+import { BaseAPI } from "./BaseAPI";
+import { Client } from "../Client";
 import {
   GeneralGetUserFriendsCount,
   GeneralGetUserFriendsCountOptions
@@ -177,7 +177,7 @@ export type FriendsGetSelfRecommendedUsers = {
   presenceType: EnumUserPresence;
 }[];
 
-export default class FriendsAPI extends BaseAPI {
+export class FriendsAPI extends BaseAPI {
   constructor(client: Client) {
     super({
       client,

@@ -1,4 +1,4 @@
-import Client from "../client";
+import { Client } from "../client";
 import { DevelopGetGroupUniversesOptions } from "../client/apis/DevelopAPI";
 import { CursorPage } from "./Asset";
 import { PartialGameUniverse, PartialGameUniverseOptions } from "./Game";

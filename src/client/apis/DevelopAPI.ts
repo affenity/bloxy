@@ -1,5 +1,5 @@
-import BaseAPI from "./BaseAPI";
-import Client from "../Client";
+import { BaseAPI } from "./BaseAPI";
+import { Client } from "../Client";
 import { PartialGroupOptions } from "../../structures/Group";
 import { ISOString } from "../../types/GenericTypes";
 
@@ -559,7 +559,7 @@ export type DevelopUpdateDeveloperProductOptions = {
 };
 export type DevelopUpdateDeveloperProduct = unknown;
 
-export default class DevelopAPI extends BaseAPI {
+export class DevelopAPI extends BaseAPI {
   constructor(client: Client) {
     super({
       client,

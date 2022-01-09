@@ -1,5 +1,5 @@
-import BaseAPI from "./BaseAPI";
-import Client from "../Client";
+import { BaseAPI } from "./BaseAPI";
+import { Client } from "../Client";
 import { Privacy } from "../../types/GenericTypes";
 import { UserIdOption } from "../..";
 
@@ -40,7 +40,7 @@ export type AccountSettingsVisibilityPrivacy = {
   visibilityPrivacy: number;
 };
 
-export default class AccountSettingsAPI extends BaseAPI {
+export class AccountSettingsAPI extends BaseAPI {
   constructor(client: Client) {
     super({
       baseUrl: "https://accountsettings.roblox.com/",

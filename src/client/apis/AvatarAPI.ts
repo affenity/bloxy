@@ -1,5 +1,5 @@
-import BaseAPI from "./BaseAPI";
-import Client from "../Client";
+import { BaseAPI } from "./BaseAPI";
+import { Client } from "../Client";
 import type {
   AssetIdOption,
   AssetIdsOption,
@@ -174,7 +174,7 @@ export type AvatarGetRecentlyUsedOptions = {
   recentItemListType: string;
 };
 
-export default class AvatarAPI extends BaseAPI {
+export class AvatarAPI extends BaseAPI {
   constructor(client: Client) {
     super({
       client,

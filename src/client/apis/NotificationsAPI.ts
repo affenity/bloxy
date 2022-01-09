@@ -1,5 +1,5 @@
-import BaseAPI from "./BaseAPI";
-import Client from "../Client";
+import { BaseAPI } from "./BaseAPI";
+import { Client } from "../Client";
 
 export type NotificationsGetNotificationsSettings = {
   notificationBandSettings: {
@@ -238,7 +238,7 @@ export type NotificationsSuppressStreamNotificationsPrompt = {
   statusMessage: string;
 };
 
-export default class NotificationsAPI extends BaseAPI {
+export class NotificationsAPI extends BaseAPI {
   constructor(client: Client) {
     super({
       client,

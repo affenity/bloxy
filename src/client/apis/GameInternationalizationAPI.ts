@@ -1,5 +1,5 @@
-import BaseAPI from "./BaseAPI";
-import Client from "../Client";
+import { BaseAPI } from "./BaseAPI";
+import { Client } from "../Client";
 
 export type GameInternationalizationGetGameInfoOptions = {
   gameId: number;
@@ -106,7 +106,7 @@ export type GameInternationalizationToggleAutomaticGameTranslation = {
   isAutomaticTranslationEnabled: boolean;
 };
 
-export default class GameInternationalizationAPI extends BaseAPI {
+export class GameInternationalizationAPI extends BaseAPI {
   constructor(client: Client) {
     super({
       client,

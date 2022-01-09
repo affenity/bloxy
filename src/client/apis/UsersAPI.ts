@@ -1,5 +1,5 @@
-import BaseAPI from "./BaseAPI";
-import Client from "../Client";
+import { BaseAPI } from "./BaseAPI";
+import { Client } from "../Client";
 
 export type UsersValidateDisplayNameNewUserOptions = {
   displayName: string;
@@ -85,7 +85,7 @@ export type UsersUserNameHistory = {
   data: { name: string }[];
 };
 
-export default class UsersAPI extends BaseAPI {
+export class UsersAPI extends BaseAPI {
   constructor(client: Client) {
     super({
       client,

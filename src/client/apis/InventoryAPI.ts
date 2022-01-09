@@ -1,5 +1,5 @@
-import BaseAPI from "./BaseAPI";
-import Client from "../Client";
+import { BaseAPI } from "./BaseAPI";
+import { Client } from "../Client";
 
 export type InventoryCanViewInventory = {
   canView: boolean;
@@ -180,7 +180,7 @@ export type InventoryGetUserInventoryByAssetTypeId = {
   }[];
 };
 
-export default class InventoryAPI extends BaseAPI {
+export class InventoryAPI extends BaseAPI {
   constructor(client: Client) {
     super({
       client,

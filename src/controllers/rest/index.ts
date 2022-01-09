@@ -1,1 +1,1 @@
-export { default } from "./RESTController";
+export { RESTController } from "./RESTController";

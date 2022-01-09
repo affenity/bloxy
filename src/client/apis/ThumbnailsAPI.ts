@@ -1,5 +1,5 @@
-import BaseAPI from "./BaseAPI";
-import Client from "../Client";
+import { BaseAPI } from "./BaseAPI";
+import { Client } from "../Client";
 
 export type ThumbnailsGetAssetsThumbnailsOptions = {
   assetIds: number[];
@@ -196,7 +196,7 @@ export type ThumbnailsGetBatchImages = {
   }[];
 };
 
-export default class ThumbnailsAPI extends BaseAPI {
+export class ThumbnailsAPI extends BaseAPI {
   constructor(client: Client) {
     super({
       client,

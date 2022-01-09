@@ -1,5 +1,5 @@
-import BaseAPI from "./BaseAPI";
-import Client from "../Client";
+import { BaseAPI } from "./BaseAPI";
+import { Client } from "../Client";
 
 export type GroupsGroupRolePermissionsOptions = {
   groupId: number;
@@ -655,7 +655,7 @@ export type GroupsUpdateRoleOptions = {
 };
 export type GroupsUpdateRole = GroupsCreateRole;
 
-export default class GroupsAPI extends BaseAPI {
+export class GroupsAPI extends BaseAPI {
   constructor(client: Client) {
     super({
       client,

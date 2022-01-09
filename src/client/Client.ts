@@ -1,13 +1,13 @@
-import ClientBase, { ClientOptions } from "./ClientBase";
-import initAPIs, { APIs } from "./apis";
-import ClientUser from "../structures/ClientUser";
-import RESTController from "../controllers/rest";
+import { ClientBase, ClientOptions } from "./ClientBase";
+import { initAPIs, APIs } from "./apis";
+import { ClientUser } from "../structures/ClientUser";
+import { RESTController } from "../controllers/rest";
 import { Group, PartialUser, User } from "../structures";
 import * as ClientSocket from "./lib/ClientSocket/ClientSocket";
-import ChatManager from "./lib/ChatManager/ChatManager";
-import DataStoreManager from "./lib/DataStoreManager/DataStoreManager";
+import { ChatManager } from "./lib/ChatManager/ChatManager";
+import { DataStoreManager } from "./lib/DataStoreManager/DataStoreManager";
 
-export default class Client extends ClientBase {
+export class Client extends ClientBase {
   public user: ClientUser | null;
   public apis: APIs;
   public rest: RESTController;
@@ -15,7 +15,7 @@ export default class Client extends ClientBase {
   public dataStoreManager: DataStoreManager;
   public chat: ChatManager;
 
-  constructor (options?: ClientOptions) {
+  constructor(options?: ClientOptions) {
     super(options);
 
     this.user = null;
@@ -28,17 +28,17 @@ export default class Client extends ClientBase {
     this.init();
   }
 
-  public isLoggedIn (): boolean {
+  public isLoggedIn(): boolean {
     return this.user !== null;
   }
 
-  init (): void {
+  init(): void {
     if (this.options.rest) {
       this.rest.setOptions(this.options.rest);
     }
   }
 
-  public async login (cookie?: string): Promise<ClientUser> {
+  public async login(cookie?: string): Promise<ClientUser> {
     this.log("info", {
       name: "Client.login",
       description: `Started login process..`
@@ -68,8 +68,8 @@ export default class Client extends ClientBase {
       description: `Added cookie to cookie jar, proceeding to fetching authenticated user information..`
     });
 
-    const getAuthenticationData
-      = await this.apis.usersAPI.getAuthenticatedUserInformation();
+    const getAuthenticationData =
+      await this.apis.usersAPI.getAuthenticatedUserInformation();
     this.user = new ClientUser(
       {
         id: getAuthenticationData.id,
@@ -87,7 +87,7 @@ export default class Client extends ClientBase {
     return this.user;
   }
 
-  getGroup (groupId: number): Promise<Group> {
+  getGroup(groupId: number): Promise<Group> {
     return this.apis.groupsAPI
       .getGroup({
         groupId
@@ -101,7 +101,7 @@ export default class Client extends ClientBase {
       });
   }
 
-  getUser (userId: number | string): Promise<User> {
+  getUser(userId: number | string): Promise<User> {
     if (typeof userId === "string") {
       userId = parseInt(userId);
     }
@@ -151,7 +151,7 @@ export default class Client extends ClientBase {
       );
   }
 
-  getUserIdFromUsername (username: string): Promise<PartialUser> {
+  getUserIdFromUsername(username: string): Promise<PartialUser> {
     return this.apis.usersAPI
       .getUsersByUsernames({
         usernames: [username],
@@ -166,7 +166,7 @@ export default class Client extends ClientBase {
       });
   }
 
-  getUsernameFromUserId (userId: number | string): Promise<PartialUser> {
+  getUsernameFromUserId(userId: number | string): Promise<PartialUser> {
     if (typeof userId === "string") {
       userId = parseInt(userId);
     }
@@ -178,7 +178,7 @@ export default class Client extends ClientBase {
       .then((data) => new PartialUser(data, this));
   }
 
-  getUsersByUserIds (
+  getUsersByUserIds(
     userIds: number[] | string[],
     excludeBannedUsers = false
   ): Promise<PartialUser[]> {
@@ -196,7 +196,7 @@ export default class Client extends ClientBase {
       );
   }
 
-  getUsersByUsernames (
+  getUsersByUsernames(
     usernames: string[],
     excludeBannedUsers = false
   ): Promise<PartialUser[]> {

@@ -1,4 +1,4 @@
-import DataStoreManager from "../DataStoreManager";
+import { DataStoreManager } from "../DataStoreManager";
 import {
   RESTRequestOptions,
   RESTResponseDataType
@@ -11,17 +11,17 @@ type DataStoreHttpRequestOptions = RESTRequestOptions & {
   data: string;
 };
 
-export default class DataStoreHttpRequest {
+export class DataStoreHttpRequest {
   public initiator: DataStoreManager;
   public options: DataStoreHttpRequestOptions;
 
-  constructor (manager: DataStoreManager, options: DataStoreHttpRequestOptions) {
+  constructor(manager: DataStoreManager, options: DataStoreHttpRequestOptions) {
     this.initiator = manager;
     this.options = options;
 
     // Adjusting the body
-    this.options.body
-      = this.options.data.length === 0 ? " " : this.options.data;
+    this.options.body =
+      this.options.data.length === 0 ? " " : this.options.data;
 
     // Always POST
     this.options.method = this.options.method || "POST";
@@ -35,7 +35,7 @@ export default class DataStoreHttpRequest {
     };
   }
 
-  send (): Promise<RESTResponseDataType> {
+  send(): Promise<RESTResponseDataType> {
     return this.initiator.client.rest.request(this.options);
   }
 }

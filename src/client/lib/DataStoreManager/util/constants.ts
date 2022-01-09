@@ -6,7 +6,7 @@ export enum DataStoreRequestType {
   GET_SORTED_ASYNC_PAGE = 9
 }
 
-const DataStoreManagerConstants = {
+export const DataStoreManagerConstants = {
   DFFlag: {
     UseNewDataStoreRequestSetTimestampBehaviour: false,
     GetGlobalDataStorePcallFix: false,
@@ -18,5 +18,3 @@ const DataStoreManagerConstants = {
     DataStoreKeyLengthLimit: 50
   }
 };
-
-export default DataStoreManagerConstants;

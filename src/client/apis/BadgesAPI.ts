@@ -1,5 +1,5 @@
-import BaseAPI from "./BaseAPI";
-import Client from "../Client";
+import { BaseAPI } from "./BaseAPI";
+import { Client } from "../Client";
 import { SortOption } from "../..";
 
 export type BadgesMetaData = {
@@ -71,7 +71,7 @@ export type BadgesDeleteBadgeFromSelfOptions = {
   badgeId: number;
 };
 
-export default class AvatarAPI extends BaseAPI {
+export class BadgesAPI extends BaseAPI {
   constructor(client: Client) {
     super({
       client,

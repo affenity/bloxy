@@ -1,10 +1,8 @@
-import GenericDataStore from "./GenericDataStore";
-import DataStoreManager from "../DataStoreManager";
+import { GenericDataStore } from "./GenericDataStore";
+import { DataStoreManager } from "../DataStoreManager";
 
-export default class GlobalDataStore<
-  DataType
-> extends GenericDataStore<DataType> {
-  constructor (
+export class GlobalDataStore<DataType> extends GenericDataStore<DataType> {
+  constructor(
     manager: DataStoreManager,
     placeId: number,
     name: string,

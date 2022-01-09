@@ -1,4 +1,4 @@
-import Client from "../../client/Client";
+import { Client } from "../../client/Client";
 import { Cookie, CookieJar } from "tough-cookie";
 import {
   DefaultCreateCookieOptions,
@@ -11,13 +11,13 @@ import {
   RESTResponseDataType,
   RESTResponseHandler
 } from "../../interfaces/RESTInterfaces";
-import updateXCSRFToken from "./lib/updateXCSRFToken";
-import RESTRequest from "./request";
-import responseHandlers from "./response/handlers";
-import getRequester from "./lib/getRequester";
+import { updateXCSRFToken } from "./lib/updateXCSRFToken";
+import { RESTRequest } from "./request";
+import { responseHandlers } from "./response/handlers";
+import { getRequester } from "./lib/getRequester";
 import { utilMergeDeep } from "../../util/utilFunctions";
 
-class RESTController {
+export class RESTController {
   public client: Client;
   public options: RESTControllerOptions;
   public requester: RESTRequester;
@@ -25,7 +25,7 @@ class RESTController {
   public responseHandlers: RESTResponseHandler[];
   public requestHandlers: RESTRequestHandler[];
 
-  constructor (client: Client, options?: RESTControllerOptions) {
+  constructor(client: Client, options?: RESTControllerOptions) {
     /**
      * The client
      */
@@ -60,7 +60,7 @@ class RESTController {
    * @param {RequestOptions} options The options
    * @returns {Promise<RESTResponseDataType>}
    */
-  request (options: RESTRequestOptions): Promise<RESTResponseDataType> {
+  request(options: RESTRequestOptions): Promise<RESTResponseDataType> {
     const request = new RESTRequest(this, options);
 
     return request.send();
@@ -70,7 +70,7 @@ class RESTController {
    * Fetches a new XCSRF token
    */
 
-  fetchXCSRFToken (): Promise<string> {
+  fetchXCSRFToken(): Promise<string> {
     return updateXCSRFToken(this).then((xcsrfToken) => {
       this.setXCSRFToken(xcsrfToken);
       return xcsrfToken;
@@ -81,7 +81,7 @@ class RESTController {
    * Sets the XCSRF token
    * @param {string} token The xcsrf token to use in future requets
    */
-  setXCSRFToken (token: string): void {
+  setXCSRFToken(token: string): void {
     this.options.xcsrf = token;
     this.options.xcsrfSet = Date.now();
   }
@@ -90,12 +90,12 @@ class RESTController {
    * Gets the existing XCSRF token if it's not older than set refresh interval,
    * otherwise, fetch a new one
    */
-  async getXCSRFToken (): Promise<string | undefined> {
+  async getXCSRFToken(): Promise<string | undefined> {
     if (
-      !this.options.xcsrf
-      || Date.now() - (this.options.xcsrfSet || 0)
-        >= (this.options.xcsrfRefreshInterval
-          || DefaultRESTControllerOptions.xcsrfRefreshInterval)
+      !this.options.xcsrf ||
+      Date.now() - (this.options.xcsrfSet || 0) >=
+        (this.options.xcsrfRefreshInterval ||
+          DefaultRESTControllerOptions.xcsrfRefreshInterval)
     ) {
       // Refresh token
       await this.fetchXCSRFToken().then((token) => {
@@ -111,7 +111,7 @@ class RESTController {
    * @param {RESTCreateCookieOptions} cookieOptions The options to use
    * @returns {Cookie}
    */
-  createCookie (cookieOptions: RESTCreateCookieOptions): Cookie {
+  createCookie(cookieOptions: RESTCreateCookieOptions): Cookie {
     return new Cookie({
       ...DefaultCreateCookieOptions,
       ...cookieOptions
@@ -125,7 +125,7 @@ class RESTController {
    * @param {Object} setCookieOptions Options for setting the cookie
    * @returns {Cookie}
    */
-  addCookie (cookie: Cookie, domain?: string, setCookieOptions?: any): Cookie {
+  addCookie(cookie: Cookie, domain?: string, setCookieOptions?: any): Cookie {
     return this.cookieJar.setCookieSync(
       cookie,
       domain || "https://roblox.com",
@@ -138,7 +138,7 @@ class RESTController {
    * @param {string} domain The domain to retrieve the cookies for
    * @returns {Cookie[]}
    */
-  getCookies (domain: string): Cookie[] {
+  getCookies(domain: string): Cookie[] {
     return this.cookieJar.getCookiesSync(domain);
   }
 
@@ -146,7 +146,7 @@ class RESTController {
    * Adds a response handler
    * @param {Function} handler The response handler
    */
-  addResponseHandler (handler: RESTResponseHandler): void {
+  addResponseHandler(handler: RESTResponseHandler): void {
     this.responseHandlers.push(handler);
   }
 
@@ -154,7 +154,7 @@ class RESTController {
    * Adds a request handler
    * @param {Function} handler The request handler
    */
-  addRequestHandler (handler: RESTRequestHandler): void {
+  addRequestHandler(handler: RESTRequestHandler): void {
     this.requestHandlers.push(handler);
   }
 
@@ -162,7 +162,7 @@ class RESTController {
    * Sets the proxy for the requests
    * @param {string} proxyURL The proxy URL
    */
-  setProxy (proxyURL: string): void {
+  setProxy(proxyURL: string): void {
     this.options.proxy = proxyURL;
   }
 
@@ -170,7 +170,7 @@ class RESTController {
    * Gets the proxy used
    * @returns {string | undefined}
    */
-  getProxy (): string | undefined {
+  getProxy(): string | undefined {
     return this.options.proxy;
   }
 
@@ -178,7 +178,7 @@ class RESTController {
    * Sets the user agents for future requests
    * @param {string} userAgent The user agent to use
    */
-  setUserAgent (userAgent: string): void {
+  setUserAgent(userAgent: string): void {
     this.options.userAgent = userAgent;
   }
 
@@ -186,7 +186,7 @@ class RESTController {
    * Gets the user agent
    * @returns {string | undefined}
    */
-  getUserAgent (): string | undefined {
+  getUserAgent(): string | undefined {
     return this.options.userAgent;
   }
 
@@ -194,7 +194,7 @@ class RESTController {
    * Sets the XCSRF token refresh interval
    * @param {number} xcsrfRefreshInterval The time in ms to use
    */
-  setXCSRFTokenRefreshInterval (xcsrfRefreshInterval: number): void {
+  setXCSRFTokenRefreshInterval(xcsrfRefreshInterval: number): void {
     this.options.xcsrfRefreshInterval = xcsrfRefreshInterval;
   }
 
@@ -202,7 +202,7 @@ class RESTController {
    * Gets the XCSRF token refresh interval
    * @returns {number | undefined}
    */
-  getXCSRFTokenRefreshInterval (): number | undefined {
+  getXCSRFTokenRefreshInterval(): number | undefined {
     return this.options.xcsrfRefreshInterval;
   }
 
@@ -211,7 +211,7 @@ class RESTController {
    * tokens on Token Validation errors
    * @param {number} xcsrfRefreshMaxRetries Number of retries
    */
-  setXCSRFTokenRefreshMaxRetries (xcsrfRefreshMaxRetries: number): void {
+  setXCSRFTokenRefreshMaxRetries(xcsrfRefreshMaxRetries: number): void {
     this.options.xcsrfRefreshMaxRetries = xcsrfRefreshMaxRetries;
   }
 
@@ -220,7 +220,7 @@ class RESTController {
    * tokens on Token Validation errors
    * @returns {number | undefined}
    */
-  getXCSRFTokenRefreshMaxRetries (): number | undefined {
+  getXCSRFTokenRefreshMaxRetries(): number | undefined {
     return this.options.xcsrfRefreshMaxRetries;
   }
 
@@ -229,7 +229,7 @@ class RESTController {
    * @param {RESTControllerOptions} options The options to use
    * @returns {RESTControllerOptions}
    */
-  setOptions (options?: RESTControllerOptions): RESTControllerOptions {
+  setOptions(options?: RESTControllerOptions): RESTControllerOptions {
     this.options = utilMergeDeep(
       DefaultRESTControllerOptions,
       options || {}
@@ -238,5 +238,3 @@ class RESTController {
     return this.options;
   }
 }
-
-export default RESTController;

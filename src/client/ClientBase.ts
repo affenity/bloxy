@@ -33,7 +33,7 @@ interface DebugData {
   description: string;
 }
 
-export default class ClientBase extends EventEmitter {
+export class ClientBase extends EventEmitter {
   public options: ClientOptions;
   public debugger: {
     info: Debugger;
@@ -41,7 +41,7 @@ export default class ClientBase extends EventEmitter {
     error: Debugger;
   };
 
-  constructor (options?: ClientOptions) {
+  constructor(options?: ClientOptions) {
     super();
 
     this.options = this.updateOptions(options);
@@ -52,7 +52,7 @@ export default class ClientBase extends EventEmitter {
     };
   }
 
-  public updateOptions (options?: ClientOptions): ClientOptions {
+  public updateOptions(options?: ClientOptions): ClientOptions {
     this.options = utilMergeDeep(
       {
         credentials: {},
@@ -66,13 +66,13 @@ export default class ClientBase extends EventEmitter {
     return this.options;
   }
 
-  public log (level: "info" | "warn" | "error", data: DebugData): void {
-    const loggerToUse
-      = level === "info"
+  public log(level: "info" | "warn" | "error", data: DebugData): void {
+    const loggerToUse =
+      level === "info"
         ? this.debugger.info
         : level === "error"
-          ? this.debugger.error
-          : this.debugger.warn;
+        ? this.debugger.error
+        : this.debugger.warn;
 
     loggerToUse(
       `[${new Date().toISOString()}] ${data.name}: ${data.description}`

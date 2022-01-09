@@ -1,5 +1,5 @@
-import BaseAPI from "./BaseAPI";
-import Client from "../Client";
+import { BaseAPI } from "./BaseAPI";
+import { Client } from "../Client";
 import { EnumUserPresence } from "../../interfaces/GeneralInterfaces";
 
 export type OtherGetUserProfileHeaderOptions = {
@@ -45,7 +45,7 @@ export type OtherGetUserProfileHeader = {
   CanSeeInventory: boolean;
 };
 
-export default class OtherAPI extends BaseAPI {
+export class OtherAPI extends BaseAPI {
   constructor(client: Client) {
     super({
       client,

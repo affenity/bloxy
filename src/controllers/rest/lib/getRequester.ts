@@ -1,14 +1,14 @@
-import RESTController from "../RESTController";
+import { RESTController } from "../RESTController";
 import got from "got";
 
-export default function getRequester (
+export function getRequester(
   controller: RESTController,
   customRequester?: RESTController["requester"]
 ) {
   if (
-    !controller.requester
-    && !controller.client.options.rest!.requester
-    && customRequester === undefined
+    !controller.requester &&
+    !controller.client.options.rest!.requester &&
+    customRequester === undefined
   ) {
     let requester: null | any;
 

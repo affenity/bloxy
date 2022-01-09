@@ -1,5 +1,5 @@
-import BaseAPI from "./BaseAPI";
-import Client from "../Client";
+import { BaseAPI } from "./BaseAPI";
+import { Client } from "../Client";
 
 export type TwoStepVerificationGetMetaDataOptions = {
   userId: number;
@@ -73,7 +73,7 @@ export type TwoStepVerificationEmailEnableOptions = {
 };
 export type TwoStepVerificationEmailEnable = unknown;
 
-export default class TwoStepVerificationAPI extends BaseAPI {
+export class TwoStepVerificationAPI extends BaseAPI {
   constructor(client: Client) {
     super({
       client,

@@ -1,5 +1,5 @@
-import BaseAPI from "./BaseAPI";
-import Client from "../Client";
+import { BaseAPI } from "./BaseAPI";
+import { Client } from "../Client";
 import { AssetVersionOptions, ProductOptions } from "../../structures/Asset";
 
 export declare type GeneralGetAssetVersionOptions = number;
@@ -151,7 +151,7 @@ export declare type GeneralGetUserById = {
 export declare type GeneralGetUserByUsername = GeneralGetUserById;
 export declare type GeneralUserCanManageAsset = boolean;
 
-export default class GeneralAPI extends BaseAPI {
+export class GeneralAPI extends BaseAPI {
   constructor(client: Client) {
     super({
       baseUrl: "https://api.roblox.com/",

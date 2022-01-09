@@ -1,5 +1,5 @@
-import BaseAPI from "./BaseAPI";
-import Client from "../Client";
+import { BaseAPI } from "./BaseAPI";
+import { Client } from "../Client";
 
 export type ContactsGetContactsMetaData = {
   multiGetContactsMaxSize: number;
@@ -27,7 +27,7 @@ export type ContactsSetUserTag = {
   status: "Success" | string;
 };
 
-export default class ContactsAPI extends BaseAPI {
+export class ContactsAPI extends BaseAPI {
   constructor(client: Client) {
     super({
       client,

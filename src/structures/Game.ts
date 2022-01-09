@@ -1,4 +1,4 @@
-import Client from "../client";
+import { Client } from "../client";
 import { CreatorType, GameGenre, MorphAvatarType } from "../util/constants";
 import { PartialGroup, PartialGroupOptions } from "./Group";
 import { PartialUser, PartialUserOptions } from "./User";

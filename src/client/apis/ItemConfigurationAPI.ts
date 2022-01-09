@@ -1,5 +1,5 @@
-import BaseAPI from "./BaseAPI";
-import Client from "../Client";
+import { BaseAPI } from "./BaseAPI";
+import { Client } from "../Client";
 
 export type ItemConfigurationGetCreatedAssetsOptions = {
   assetType: string;
@@ -81,7 +81,7 @@ export type ItemConfigurationSearchTagsOptions = {
 };
 export type ItemConfigurationSearchTags = ItemConfigurationGetTagsByTagIds;
 
-export default class InventoryAPI extends BaseAPI {
+export class ItemConfigurationAPI extends BaseAPI {
   constructor(client: Client) {
     super({
       client,

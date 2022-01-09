@@ -1,5 +1,4 @@
-export { default as Client } from "./client";
-export const test = true;
+export { Client } from "./client";
 
 // Generic Types
 export * from "./types/GenericTypes";

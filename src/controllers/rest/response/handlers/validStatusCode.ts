@@ -1,25 +1,23 @@
-import RESTResponse from "../RESTResponse";
+import { RESTResponse } from "../RESTResponse";
 import { BloxyHttpError } from "../../../../util/errors/errors";
 
-export default function validStatusCode (
-  response: RESTResponse
-): boolean | Error {
+export function validStatusCode(response: RESTResponse): boolean | Error {
   const { request, responseData } = response;
   let isValid = true;
   const responseOptions = request.requestOptions.responseOptions || {};
 
   if (
-    request.requestOptions.responseOptions
-    && request.requestOptions.checks?.statusCode
+    request.requestOptions.responseOptions &&
+    request.requestOptions.checks?.statusCode
   ) {
     const allowedStatusCodes = responseOptions.allowedStatusCodes || [];
     const disallowedStatusCodes = responseOptions.disallowedStatusCodes || [];
 
     const isAllowed = allowedStatusCodes.some(
-      (statusCode) => responseData.statusCode === statusCode
+      (statusCode: number) => responseData.statusCode === statusCode
     );
     const isDisallowed = disallowedStatusCodes.some(
-      (statusCode) => responseData.statusCode === statusCode
+      (statusCode: number) => responseData.statusCode === statusCode
     );
 
     if (allowedStatusCodes.length > 0) {
@@ -28,16 +26,16 @@ export default function validStatusCode (
         isValid = false;
       }
     } else if (
-      allowedStatusCodes.length === 0
-      && disallowedStatusCodes.length > 0
+      allowedStatusCodes.length === 0 &&
+      disallowedStatusCodes.length > 0
     ) {
       // Only these are disallowed
       if (isDisallowed) {
         isValid = false;
       }
     } else if (
-      allowedStatusCodes.length === 0
-      && disallowedStatusCodes.length === 0
+      allowedStatusCodes.length === 0 &&
+      disallowedStatusCodes.length === 0
     ) {
       // All status are allowed
     }
@@ -46,14 +44,14 @@ export default function validStatusCode (
   return isValid
     ? true
     : new BloxyHttpError({
-      statusMessage: responseData.statusMessage,
-      statusCode: responseData.statusCode,
-      message: `Invalid status code in response. Body: ${
-        responseData.body instanceof Object
-          ? JSON.stringify(responseData.body)
-          : responseData.body
-      }`,
-      name: "BloxyHttpInvalidStatusCodeError",
-      possibleReasons: []
-    });
+        statusMessage: responseData.statusMessage,
+        statusCode: responseData.statusCode,
+        message: `Invalid status code in response. Body: ${
+          responseData.body instanceof Object
+            ? JSON.stringify(responseData.body)
+            : responseData.body
+        }`,
+        name: "BloxyHttpInvalidStatusCodeError",
+        possibleReasons: []
+      });
 }

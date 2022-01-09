@@ -1,1 +1,1 @@
-export { default } from "./RESTRequest";
+export { RESTRequest } from "./RESTRequest";

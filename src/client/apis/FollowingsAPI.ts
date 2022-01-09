@@ -1,5 +1,5 @@
-import BaseAPI from "./BaseAPI";
-import Client from "../Client";
+import { BaseAPI } from "./BaseAPI";
+import { Client } from "../Client";
 
 export type FollowingsGetUserFollowedUniversesOptions = {
   userId: number;
@@ -31,7 +31,7 @@ export type FollowingsUnFollowUniverse = {
 export type FollowingsFollowUniverseOptions = FollowingsUnFollowUniverseOptions;
 export type FollowingsFollowUniverse = FollowingsUnFollowUniverse;
 
-export default class FollowingsAPI extends BaseAPI {
+export class FollowingsAPI extends BaseAPI {
   constructor(client: Client) {
     super({
       client,
