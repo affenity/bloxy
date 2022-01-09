@@ -1,0 +1,6947 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.2.3, mkdocs-material-8.1.4">
+    
+    
+      
+        <title>Class: default - Bloxy Docs</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.bb3983ee.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.e6a45f82.min.css">
+        
+      
+    
+    
+    
+      
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="none" data-md-color-accent="none">
+  
+    
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#class-default" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Bloxy Docs" class="md-header__button md-logo" aria-label="Bloxy Docs" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Bloxy Docs
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Class: default
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Bloxy Docs" class="md-nav__button md-logo" aria-label="Bloxy Docs" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    Bloxy Docs
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        Home
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../modules/" class="md-nav__link">
+        bloxy
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3">
+          Classes
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Classes" data-md-level="1">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          Classes
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../client_Client.default/" class="md-nav__link">
+        Class: default
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Class: default
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        Class: default
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#hierarchy" class="md-nav__link">
+    Hierarchy
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#table-of-contents" class="md-nav__link">
+    Table of contents
+  </a>
+  
+    <nav class="md-nav" aria-label="Table of contents">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#constructors" class="md-nav__link">
+    Constructors
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#properties" class="md-nav__link">
+    Properties
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#methods" class="md-nav__link">
+    Methods
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#constructors_1" class="md-nav__link">
+    Constructors
+  </a>
+  
+    <nav class="md-nav" aria-label="Constructors">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#constructor" class="md-nav__link">
+     constructor
+  </a>
+  
+    <nav class="md-nav" aria-label=" constructor">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#parameters" class="md-nav__link">
+    Parameters
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#overrides" class="md-nav__link">
+    Overrides
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#defined-in" class="md-nav__link">
+    Defined in
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#properties_1" class="md-nav__link">
+    Properties
+  </a>
+  
+    <nav class="md-nav" aria-label="Properties">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#debugger" class="md-nav__link">
+     debugger
+  </a>
+  
+    <nav class="md-nav" aria-label=" debugger">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#type-declaration" class="md-nav__link">
+    Type declaration
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#defined-in_1" class="md-nav__link">
+    Defined in
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#options" class="md-nav__link">
+     options
+  </a>
+  
+    <nav class="md-nav" aria-label=" options">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#defined-in_2" class="md-nav__link">
+    Defined in
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#capturerejectionsymbol" class="md-nav__link">
+     captureRejectionSymbol
+  </a>
+  
+    <nav class="md-nav" aria-label=" captureRejectionSymbol">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#inherited-from" class="md-nav__link">
+    Inherited from
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#defined-in_3" class="md-nav__link">
+    Defined in
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#capturerejections" class="md-nav__link">
+     captureRejections
+  </a>
+  
+    <nav class="md-nav" aria-label=" captureRejections">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#inherited-from_1" class="md-nav__link">
+    Inherited from
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#defined-in_4" class="md-nav__link">
+    Defined in
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#defaultmaxlisteners" class="md-nav__link">
+     defaultMaxListeners
+  </a>
+  
+    <nav class="md-nav" aria-label=" defaultMaxListeners">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#inherited-from_2" class="md-nav__link">
+    Inherited from
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#defined-in_5" class="md-nav__link">
+    Defined in
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#errormonitor" class="md-nav__link">
+     errorMonitor
+  </a>
+  
+    <nav class="md-nav" aria-label=" errorMonitor">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#inherited-from_3" class="md-nav__link">
+    Inherited from
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#defined-in_6" class="md-nav__link">
+    Defined in
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#methods_1" class="md-nav__link">
+    Methods
+  </a>
+  
+    <nav class="md-nav" aria-label="Methods">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#addlistener" class="md-nav__link">
+     addListener
+  </a>
+  
+    <nav class="md-nav" aria-label=" addListener">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#parameters_1" class="md-nav__link">
+    Parameters
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#returns" class="md-nav__link">
+    Returns
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#inherited-from_4" class="md-nav__link">
+    Inherited from
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#defined-in_7" class="md-nav__link">
+    Defined in
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#emit" class="md-nav__link">
+     emit
+  </a>
+  
+    <nav class="md-nav" aria-label=" emit">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#parameters_2" class="md-nav__link">
+    Parameters
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#returns_1" class="md-nav__link">
+    Returns
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#inherited-from_5" class="md-nav__link">
+    Inherited from
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#defined-in_8" class="md-nav__link">
+    Defined in
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#eventnames" class="md-nav__link">
+     eventNames
+  </a>
+  
+    <nav class="md-nav" aria-label=" eventNames">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#returns_2" class="md-nav__link">
+    Returns
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#inherited-from_6" class="md-nav__link">
+    Inherited from
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#defined-in_9" class="md-nav__link">
+    Defined in
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getmaxlisteners" class="md-nav__link">
+     getMaxListeners
+  </a>
+  
+    <nav class="md-nav" aria-label=" getMaxListeners">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#returns_3" class="md-nav__link">
+    Returns
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#inherited-from_7" class="md-nav__link">
+    Inherited from
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#defined-in_10" class="md-nav__link">
+    Defined in
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#listenercount" class="md-nav__link">
+     listenerCount
+  </a>
+  
+    <nav class="md-nav" aria-label=" listenerCount">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#parameters_3" class="md-nav__link">
+    Parameters
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#returns_4" class="md-nav__link">
+    Returns
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#inherited-from_8" class="md-nav__link">
+    Inherited from
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#defined-in_11" class="md-nav__link">
+    Defined in
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#listeners" class="md-nav__link">
+     listeners
+  </a>
+  
+    <nav class="md-nav" aria-label=" listeners">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#parameters_4" class="md-nav__link">
+    Parameters
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#returns_5" class="md-nav__link">
+    Returns
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#inherited-from_9" class="md-nav__link">
+    Inherited from
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#defined-in_12" class="md-nav__link">
+    Defined in
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#log" class="md-nav__link">
+     log
+  </a>
+  
+    <nav class="md-nav" aria-label=" log">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#parameters_5" class="md-nav__link">
+    Parameters
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#returns_6" class="md-nav__link">
+    Returns
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#defined-in_13" class="md-nav__link">
+    Defined in
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#off" class="md-nav__link">
+     off
+  </a>
+  
+    <nav class="md-nav" aria-label=" off">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#parameters_6" class="md-nav__link">
+    Parameters
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#returns_7" class="md-nav__link">
+    Returns
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#inherited-from_10" class="md-nav__link">
+    Inherited from
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#defined-in_14" class="md-nav__link">
+    Defined in
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#on" class="md-nav__link">
+     on
+  </a>
+  
+    <nav class="md-nav" aria-label=" on">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#parameters_7" class="md-nav__link">
+    Parameters
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#returns_8" class="md-nav__link">
+    Returns
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#inherited-from_11" class="md-nav__link">
+    Inherited from
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#defined-in_15" class="md-nav__link">
+    Defined in
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#once" class="md-nav__link">
+     once
+  </a>
+  
+    <nav class="md-nav" aria-label=" once">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#parameters_8" class="md-nav__link">
+    Parameters
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#returns_9" class="md-nav__link">
+    Returns
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#inherited-from_12" class="md-nav__link">
+    Inherited from
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#defined-in_16" class="md-nav__link">
+    Defined in
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#prependlistener" class="md-nav__link">
+     prependListener
+  </a>
+  
+    <nav class="md-nav" aria-label=" prependListener">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#parameters_9" class="md-nav__link">
+    Parameters
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#returns_10" class="md-nav__link">
+    Returns
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#inherited-from_13" class="md-nav__link">
+    Inherited from
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#defined-in_17" class="md-nav__link">
+    Defined in
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#prependoncelistener" class="md-nav__link">
+     prependOnceListener
+  </a>
+  
+    <nav class="md-nav" aria-label=" prependOnceListener">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#parameters_10" class="md-nav__link">
+    Parameters
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#returns_11" class="md-nav__link">
+    Returns
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#inherited-from_14" class="md-nav__link">
+    Inherited from
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#defined-in_18" class="md-nav__link">
+    Defined in
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rawlisteners" class="md-nav__link">
+     rawListeners
+  </a>
+  
+    <nav class="md-nav" aria-label=" rawListeners">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#parameters_11" class="md-nav__link">
+    Parameters
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#returns_12" class="md-nav__link">
+    Returns
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#inherited-from_15" class="md-nav__link">
+    Inherited from
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#defined-in_19" class="md-nav__link">
+    Defined in
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#removealllisteners" class="md-nav__link">
+     removeAllListeners
+  </a>
+  
+    <nav class="md-nav" aria-label=" removeAllListeners">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#parameters_12" class="md-nav__link">
+    Parameters
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#returns_13" class="md-nav__link">
+    Returns
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#inherited-from_16" class="md-nav__link">
+    Inherited from
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#defined-in_20" class="md-nav__link">
+    Defined in
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#removelistener" class="md-nav__link">
+     removeListener
+  </a>
+  
+    <nav class="md-nav" aria-label=" removeListener">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#parameters_13" class="md-nav__link">
+    Parameters
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#returns_14" class="md-nav__link">
+    Returns
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#inherited-from_17" class="md-nav__link">
+    Inherited from
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#defined-in_21" class="md-nav__link">
+    Defined in
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setmaxlisteners" class="md-nav__link">
+     setMaxListeners
+  </a>
+  
+    <nav class="md-nav" aria-label=" setMaxListeners">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#parameters_14" class="md-nav__link">
+    Parameters
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#returns_15" class="md-nav__link">
+    Returns
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#inherited-from_18" class="md-nav__link">
+    Inherited from
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#defined-in_22" class="md-nav__link">
+    Defined in
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#updateoptions" class="md-nav__link">
+     updateOptions
+  </a>
+  
+    <nav class="md-nav" aria-label=" updateOptions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#parameters_15" class="md-nav__link">
+    Parameters
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#returns_16" class="md-nav__link">
+    Returns
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#defined-in_23" class="md-nav__link">
+    Defined in
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#geteventlisteners" class="md-nav__link">
+     getEventListeners
+  </a>
+  
+    <nav class="md-nav" aria-label=" getEventListeners">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#parameters_16" class="md-nav__link">
+    Parameters
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#returns_17" class="md-nav__link">
+    Returns
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#inherited-from_19" class="md-nav__link">
+    Inherited from
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#defined-in_24" class="md-nav__link">
+    Defined in
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#listenercount_1" class="md-nav__link">
+     listenerCount
+  </a>
+  
+    <nav class="md-nav" aria-label=" listenerCount">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#parameters_17" class="md-nav__link">
+    Parameters
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#returns_18" class="md-nav__link">
+    Returns
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#inherited-from_20" class="md-nav__link">
+    Inherited from
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#defined-in_25" class="md-nav__link">
+    Defined in
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#on_1" class="md-nav__link">
+     on
+  </a>
+  
+    <nav class="md-nav" aria-label=" on">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#parameters_18" class="md-nav__link">
+    Parameters
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#returns_19" class="md-nav__link">
+    Returns
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#inherited-from_21" class="md-nav__link">
+    Inherited from
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#defined-in_26" class="md-nav__link">
+    Defined in
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#once_1" class="md-nav__link">
+     once
+  </a>
+  
+    <nav class="md-nav" aria-label=" once">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#parameters_19" class="md-nav__link">
+    Parameters
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#returns_20" class="md-nav__link">
+    Returns
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#inherited-from_22" class="md-nav__link">
+    Inherited from
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#defined-in_27" class="md-nav__link">
+    Defined in
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#parameters_20" class="md-nav__link">
+    Parameters
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#returns_21" class="md-nav__link">
+    Returns
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#inherited-from_23" class="md-nav__link">
+    Inherited from
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#defined-in_28" class="md-nav__link">
+    Defined in
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../client_apis_AccountInformationAPI.default/" class="md-nav__link">
+        Class: default
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../client_apis_AccountSettingsAPI.default/" class="md-nav__link">
+        Class: default
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../client_apis_AdConfigurationAPI.default/" class="md-nav__link">
+        Class: default
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../client_apis_AssetDeliveryAPI.default/" class="md-nav__link">
+        Class: default
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../client_apis_AuthAPI.default/" class="md-nav__link">
+        Class: default
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../client_apis_AvatarAPI.default/" class="md-nav__link">
+        Class: default
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../client_apis_BadgesAPI.default/" class="md-nav__link">
+        Class: default
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../client_apis_BaseAPI.default/" class="md-nav__link">
+        Class: default
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../client_apis_BillingAPI.default/" class="md-nav__link">
+        Class: default
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../client_apis_CatalogAPI.default/" class="md-nav__link">
+        Class: default
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../client_apis_ChatAPI.default/" class="md-nav__link">
+        Class: default
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../client_apis_ContactsAPI.default/" class="md-nav__link">
+        Class: default
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../client_apis_DataAPI.default/" class="md-nav__link">
+        Class: default
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../client_apis_DevelopAPI.default/" class="md-nav__link">
+        Class: default
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../client_apis_EconomyAPI.default/" class="md-nav__link">
+        Class: default
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../client_apis_EconomyCreatorStatsAPI.default/" class="md-nav__link">
+        Class: default
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../client_apis_EngagementPayoutsAPI.default/" class="md-nav__link">
+        Class: default
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../client_apis_FollowingsAPI.default/" class="md-nav__link">
+        Class: default
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../client_apis_FriendsAPI.default/" class="md-nav__link">
+        Class: default
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../client_apis_GameInternationalizationAPI.default/" class="md-nav__link">
+        Class: default
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../client_apis_GamesAPI.default/" class="md-nav__link">
+        Class: default
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../client_apis_GeneralAPI.default/" class="md-nav__link">
+        Class: default
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../client_apis_GroupsAPI.default/" class="md-nav__link">
+        Class: default
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../client_apis_InventoryAPI.default/" class="md-nav__link">
+        Class: default
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../client_apis_ItemConfigurationAPI.default/" class="md-nav__link">
+        Class: default
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../client_apis_LocaleAPI.default/" class="md-nav__link">
+        Class: default
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../client_apis_MetricsAPI.default/" class="md-nav__link">
+        Class: default
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../client_apis_NotificationsAPI.default/" class="md-nav__link">
+        Class: default
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../client_apis_OtherAPI.default/" class="md-nav__link">
+        Class: default
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../client_apis_PremiumFeaturesAPI.default/" class="md-nav__link">
+        Class: default
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../client_apis_PresenceAPI.default/" class="md-nav__link">
+        Class: default
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../client_apis_PrivateMessagesAPI.default/" class="md-nav__link">
+        Class: default
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../client_apis_PublishAPI.default/" class="md-nav__link">
+        Class: default
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../client_apis_ThumbnailsAPI.default/" class="md-nav__link">
+        Class: default
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../client_apis_TranslationRolesAPI.default/" class="md-nav__link">
+        Class: default
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../client_apis_TwoStepVerificationAPI.default/" class="md-nav__link">
+        Class: default
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../client_apis_UsersAPI.default/" class="md-nav__link">
+        Class: default
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../client_lib_ChatManager_ChatManager.default/" class="md-nav__link">
+        Class: default
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../client_lib_ClientSocket_ClientSocket.Socket/" class="md-nav__link">
+        Class: Socket
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../client_lib_DataStoreManager_DataStoreManager.default/" class="md-nav__link">
+        Class: default
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../client_lib_DataStoreManager_structures_DataStoreHttpRequest.default/" class="md-nav__link">
+        Class: default
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../client_lib_DataStoreManager_structures_GenericDataStore.default/" class="md-nav__link">
+        Class: default<DataType\>
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../client_lib_DataStoreManager_structures_GlobalDataStore.default/" class="md-nav__link">
+        Class: default<DataType\>
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../client_lib_DataStoreManager_structures_OrderedDataStore.default/" class="md-nav__link">
+        Class: default<DataType\>
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../client_lib_DataStoreManager_structures_OrderedDataStorePage.default/" class="md-nav__link">
+        Class: default<DataType\>
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../controllers_rest_RESTController.default/" class="md-nav__link">
+        Class: default
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../controllers_rest_request_RESTRequest.default/" class="md-nav__link">
+        Class: default
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../controllers_rest_response_RESTResponse.default/" class="md-nav__link">
+        Class: default
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../structures_Asset.AssetVersion/" class="md-nav__link">
+        Class: AssetVersion
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../structures_Asset.Bundle/" class="md-nav__link">
+        Class: Bundle
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../structures_Asset.CollectibleAsset/" class="md-nav__link">
+        Class: CollectibleAsset
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../structures_Asset.CursorPage/" class="md-nav__link">
+        Class: CursorPage<T\>
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../structures_Asset.Product/" class="md-nav__link">
+        Class: Product
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../structures_Asset.Trade/" class="md-nav__link">
+        Class: Trade
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../structures_Chat.ChatConversation/" class="md-nav__link">
+        Class: ChatConversation
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../structures_Chat.ChatMessage/" class="md-nav__link">
+        Class: ChatMessage
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../structures_Chat.ChatMessageSent/" class="md-nav__link">
+        Class: ChatMessageSent
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../structures_Chat.PartialChatConversation/" class="md-nav__link">
+        Class: PartialChatConversation
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../structures_ClientUser.default/" class="md-nav__link">
+        Class: default
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../structures_Game.BasePlace/" class="md-nav__link">
+        Class: BasePlace
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../structures_Game.GameBadge/" class="md-nav__link">
+        Class: GameBadge
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../structures_Game.GameBadgeBase/" class="md-nav__link">
+        Class: GameBadgeBase
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../structures_Game.GameMediaData/" class="md-nav__link">
+        Class: GameMediaData
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../structures_Game.GamePass/" class="md-nav__link">
+        Class: GamePass
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../structures_Game.GameUniverse/" class="md-nav__link">
+        Class: GameUniverse
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../structures_Game.PartialGameBadge/" class="md-nav__link">
+        Class: PartialGameBadge
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../structures_Game.PartialGameUniverse/" class="md-nav__link">
+        Class: PartialGameUniverse
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../structures_Game.PartialPlace/" class="md-nav__link">
+        Class: PartialPlace
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../structures_Game.PartialVIPServer/" class="md-nav__link">
+        Class: PartialVIPServer
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../structures_Game.Place/" class="md-nav__link">
+        Class: Place
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../structures_Game.VIPServer/" class="md-nav__link">
+        Class: VIPServer
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../structures_Group.Group/" class="md-nav__link">
+        Class: Group
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../structures_Group.GroupBase/" class="md-nav__link">
+        Class: GroupBase
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../structures_Group.GroupJoinRequest/" class="md-nav__link">
+        Class: GroupJoinRequest
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../structures_Group.GroupMember/" class="md-nav__link">
+        Class: GroupMember
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../structures_Group.GroupRole/" class="md-nav__link">
+        Class: GroupRole
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../structures_Group.GroupRolePermissions/" class="md-nav__link">
+        Class: GroupRolePermissions
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../structures_Group.GroupShout/" class="md-nav__link">
+        Class: GroupShout
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../structures_Group.GroupWallPost/" class="md-nav__link">
+        Class: GroupWallPost
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../structures_Group.PartialGroup/" class="md-nav__link">
+        Class: PartialGroup
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../structures_User.FriendRequest/" class="md-nav__link">
+        Class: FriendRequest
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../structures_User.PartialUser/" class="md-nav__link">
+        Class: PartialUser
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../structures_User.User/" class="md-nav__link">
+        Class: User
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../structures_User.UserBase/" class="md-nav__link">
+        Class: UserBase
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../util_errors_errors.BloxyHttpError/" class="md-nav__link">
+        Class: BloxyHttpError
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" type="checkbox" id="__nav_4" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_4">
+          Enums
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Enums" data-md-level="1">
+        <label class="md-nav__title" for="__nav_4">
+          <span class="md-nav__icon md-icon"></span>
+          Enums
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../enums/client_lib_DataStoreManager_util_constants.DataStoreRequestType/" class="md-nav__link">
+        Enumeration: DataStoreRequestType
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../enums/interfaces_GeneralInterfaces.EnumUserPresence/" class="md-nav__link">
+        Enumeration: EnumUserPresence
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../enums/util_constants.CreatorType/" class="md-nav__link">
+        Enumeration: CreatorType
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../enums/util_constants.GameGenre/" class="md-nav__link">
+        Enumeration: GameGenre
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../enums/util_constants.MorphAvatarType/" class="md-nav__link">
+        Enumeration: MorphAvatarType
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5" type="checkbox" id="__nav_5" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_5">
+          Interfaces
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Interfaces" data-md-level="1">
+        <label class="md-nav__title" for="__nav_5">
+          <span class="md-nav__icon md-icon"></span>
+          Interfaces
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../interfaces/client_ClientBase.ClientCallbacks/" class="md-nav__link">
+        Interface: ClientCallbacks
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../interfaces/client_ClientBase.ClientCredentialsOptions/" class="md-nav__link">
+        Interface: ClientCredentialsOptions
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../interfaces/client_ClientBase.ClientOptions/" class="md-nav__link">
+        Interface: ClientOptions
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../interfaces/client_ClientBase.ClientSetup/" class="md-nav__link">
+        Interface: ClientSetup
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../interfaces/interfaces_GeneralInterfaces.UserPresence/" class="md-nav__link">
+        Interface: UserPresence
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../interfaces/structures_Asset.AssetVersionOptions/" class="md-nav__link">
+        Interface: AssetVersionOptions
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../interfaces/structures_Asset.BundleOptions/" class="md-nav__link">
+        Interface: BundleOptions
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../interfaces/structures_Asset.CollectibleAssetOptions/" class="md-nav__link">
+        Interface: CollectibleAssetOptions
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../interfaces/structures_Asset.ProductOptions/" class="md-nav__link">
+        Interface: ProductOptions
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../interfaces/structures_Asset.Structures/" class="md-nav__link">
+        Interface: Structures
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../interfaces/structures_Asset.TradeOptions/" class="md-nav__link">
+        Interface: TradeOptions
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../interfaces/structures_Chat.ChatConversationOptions/" class="md-nav__link">
+        Interface: ChatConversationOptions
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../interfaces/structures_Chat.ChatMessageOptions/" class="md-nav__link">
+        Interface: ChatMessageOptions
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../interfaces/structures_Chat.ChatMessageSentOptions/" class="md-nav__link">
+        Interface: ChatMessageSentOptions
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../interfaces/structures_Chat.PartialChatConversationOptions/" class="md-nav__link">
+        Interface: PartialChatConversationOptions
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../interfaces/structures_ClientUser.ClientUserOptions/" class="md-nav__link">
+        Interface: ClientUserOptions
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../interfaces/structures_Game.BasePlaceOptions/" class="md-nav__link">
+        Interface: BasePlaceOptions
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../interfaces/structures_Game.GameBadgeBaseOptions/" class="md-nav__link">
+        Interface: GameBadgeBaseOptions
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../interfaces/structures_Game.GameBadgeOptions/" class="md-nav__link">
+        Interface: GameBadgeOptions
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../interfaces/structures_Game.GameMediaDataOptions/" class="md-nav__link">
+        Interface: GameMediaDataOptions
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../interfaces/structures_Game.GamePassOptions/" class="md-nav__link">
+        Interface: GamePassOptions
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../interfaces/structures_Game.GameUniverseOptions/" class="md-nav__link">
+        Interface: GameUniverseOptions
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../interfaces/structures_Game.PartialGameUniverseOptions/" class="md-nav__link">
+        Interface: PartialGameUniverseOptions
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../interfaces/structures_Game.PartialVIPServerOptions/" class="md-nav__link">
+        Interface: PartialVIPServerOptions
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../interfaces/structures_Game.PlaceOptions/" class="md-nav__link">
+        Interface: PlaceOptions
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../interfaces/structures_Game.VIPServerOptions/" class="md-nav__link">
+        Interface: VIPServerOptions
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../interfaces/structures_Group.GroupBaseOptions/" class="md-nav__link">
+        Interface: GroupBaseOptions
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../interfaces/structures_Group.GroupJoinRequestOptions/" class="md-nav__link">
+        Interface: GroupJoinRequestOptions
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../interfaces/structures_Group.GroupMemberOptions/" class="md-nav__link">
+        Interface: GroupMemberOptions
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../interfaces/structures_Group.GroupOptions/" class="md-nav__link">
+        Interface: GroupOptions
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../interfaces/structures_Group.GroupRoleOptions/" class="md-nav__link">
+        Interface: GroupRoleOptions
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../interfaces/structures_Group.GroupRolePermissionsOptions/" class="md-nav__link">
+        Interface: GroupRolePermissionsOptions
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../interfaces/structures_Group.GroupShoutOptions/" class="md-nav__link">
+        Interface: GroupShoutOptions
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../interfaces/structures_Group.GroupWallPostOptions/" class="md-nav__link">
+        Interface: GroupWallPostOptions
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../interfaces/structures_Group.PartialGroupOptions/" class="md-nav__link">
+        Interface: PartialGroupOptions
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../interfaces/structures_User.FriendRequestOptions/" class="md-nav__link">
+        Interface: FriendRequestOptions
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../interfaces/structures_User.PartialUserOptions/" class="md-nav__link">
+        Interface: PartialUserOptions
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../interfaces/structures_User.UserBaseOptions/" class="md-nav__link">
+        Interface: UserBaseOptions
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../interfaces/structures_User.UserOptions/" class="md-nav__link">
+        Interface: UserOptions
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6" type="checkbox" id="__nav_6" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_6">
+          Modules
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Modules" data-md-level="1">
+        <label class="md-nav__title" for="__nav_6">
+          <span class="md-nav__icon md-icon"></span>
+          Modules
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../modules/" class="md-nav__link">
+        Module: index
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../modules/client/" class="md-nav__link">
+        Module: client
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../modules/client_Client/" class="md-nav__link">
+        Module: client/Client
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../modules/client_ClientBase/" class="md-nav__link">
+        Module: client/ClientBase
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../modules/client_apis/" class="md-nav__link">
+        Module: client/apis
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../modules/client_apis_AccountInformationAPI/" class="md-nav__link">
+        Module: client/apis/AccountInformationAPI
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../modules/client_apis_AccountSettingsAPI/" class="md-nav__link">
+        Module: client/apis/AccountSettingsAPI
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../modules/client_apis_AdConfigurationAPI/" class="md-nav__link">
+        Module: client/apis/AdConfigurationAPI
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../modules/client_apis_AssetDeliveryAPI/" class="md-nav__link">
+        Module: client/apis/AssetDeliveryAPI
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../modules/client_apis_AuthAPI/" class="md-nav__link">
+        Module: client/apis/AuthAPI
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../modules/client_apis_AvatarAPI/" class="md-nav__link">
+        Module: client/apis/AvatarAPI
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../modules/client_apis_BadgesAPI/" class="md-nav__link">
+        Module: client/apis/BadgesAPI
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../modules/client_apis_BaseAPI/" class="md-nav__link">
+        Module: client/apis/BaseAPI
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../modules/client_apis_BillingAPI/" class="md-nav__link">
+        Module: client/apis/BillingAPI
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../modules/client_apis_CatalogAPI/" class="md-nav__link">
+        Module: client/apis/CatalogAPI
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../modules/client_apis_ChatAPI/" class="md-nav__link">
+        Module: client/apis/ChatAPI
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../modules/client_apis_ContactsAPI/" class="md-nav__link">
+        Module: client/apis/ContactsAPI
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../modules/client_apis_DataAPI/" class="md-nav__link">
+        Module: client/apis/DataAPI
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../modules/client_apis_DevelopAPI/" class="md-nav__link">
+        Module: client/apis/DevelopAPI
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../modules/client_apis_EconomyAPI/" class="md-nav__link">
+        Module: client/apis/EconomyAPI
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../modules/client_apis_EconomyCreatorStatsAPI/" class="md-nav__link">
+        Module: client/apis/EconomyCreatorStatsAPI
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../modules/client_apis_EngagementPayoutsAPI/" class="md-nav__link">
+        Module: client/apis/EngagementPayoutsAPI
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../modules/client_apis_FollowingsAPI/" class="md-nav__link">
+        Module: client/apis/FollowingsAPI
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../modules/client_apis_FriendsAPI/" class="md-nav__link">
+        Module: client/apis/FriendsAPI
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../modules/client_apis_GameInternationalizationAPI/" class="md-nav__link">
+        Module: client/apis/GameInternationalizationAPI
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../modules/client_apis_GamesAPI/" class="md-nav__link">
+        Module: client/apis/GamesAPI
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../modules/client_apis_GeneralAPI/" class="md-nav__link">
+        Module: client/apis/GeneralAPI
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../modules/client_apis_GroupsAPI/" class="md-nav__link">
+        Module: client/apis/GroupsAPI
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../modules/client_apis_InventoryAPI/" class="md-nav__link">
+        Module: client/apis/InventoryAPI
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../modules/client_apis_ItemConfigurationAPI/" class="md-nav__link">
+        Module: client/apis/ItemConfigurationAPI
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../modules/client_apis_LocaleAPI/" class="md-nav__link">
+        Module: client/apis/LocaleAPI
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../modules/client_apis_MetricsAPI/" class="md-nav__link">
+        Module: client/apis/MetricsAPI
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../modules/client_apis_NotificationsAPI/" class="md-nav__link">
+        Module: client/apis/NotificationsAPI
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../modules/client_apis_OtherAPI/" class="md-nav__link">
+        Module: client/apis/OtherAPI
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../modules/client_apis_PremiumFeaturesAPI/" class="md-nav__link">
+        Module: client/apis/PremiumFeaturesAPI
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../modules/client_apis_PresenceAPI/" class="md-nav__link">
+        Module: client/apis/PresenceAPI
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../modules/client_apis_PrivateMessagesAPI/" class="md-nav__link">
+        Module: client/apis/PrivateMessagesAPI
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../modules/client_apis_PublishAPI/" class="md-nav__link">
+        Module: client/apis/PublishAPI
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../modules/client_apis_ThumbnailsAPI/" class="md-nav__link">
+        Module: client/apis/ThumbnailsAPI
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../modules/client_apis_TranslationRolesAPI/" class="md-nav__link">
+        Module: client/apis/TranslationRolesAPI
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../modules/client_apis_TwoStepVerificationAPI/" class="md-nav__link">
+        Module: client/apis/TwoStepVerificationAPI
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../modules/client_apis_UsersAPI/" class="md-nav__link">
+        Module: client/apis/UsersAPI
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../modules/client_lib_ChatManager_ChatManager/" class="md-nav__link">
+        Module: client/lib/ChatManager/ChatManager
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../modules/client_lib_ClientSocket/" class="md-nav__link">
+        Module: client/lib/ClientSocket
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../modules/client_lib_ClientSocket_ClientSocket/" class="md-nav__link">
+        Module: client/lib/ClientSocket/ClientSocket
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../modules/client_lib_ClientSocket_handlers/" class="md-nav__link">
+        Module: client/lib/ClientSocket/handlers
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../modules/client_lib_ClientSocket_handlers_chatNotifications/" class="md-nav__link">
+        Module: client/lib/ClientSocket/handlers/chatNotifications
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../modules/client_lib_ClientSocket_handlers_friendShipnotifications/" class="md-nav__link">
+        Module: client/lib/ClientSocket/handlers/friendShipnotifications
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../modules/client_lib_ClientSocket_handlers_messageNotifications/" class="md-nav__link">
+        Module: client/lib/ClientSocket/handlers/messageNotifications
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../modules/client_lib_ClientSocket_handlers_presenceBulkNotifications/" class="md-nav__link">
+        Module: client/lib/ClientSocket/handlers/presenceBulkNotifications
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../modules/client_lib_DataStoreManager_DataStoreManager/" class="md-nav__link">
+        Module: client/lib/DataStoreManager/DataStoreManager
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../modules/client_lib_DataStoreManager_structures_DataStoreHttpRequest/" class="md-nav__link">
+        Module: client/lib/DataStoreManager/structures/DataStoreHttpRequest
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../modules/client_lib_DataStoreManager_structures_GenericDataStore/" class="md-nav__link">
+        Module: client/lib/DataStoreManager/structures/GenericDataStore
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../modules/client_lib_DataStoreManager_structures_GlobalDataStore/" class="md-nav__link">
+        Module: client/lib/DataStoreManager/structures/GlobalDataStore
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../modules/client_lib_DataStoreManager_structures_OrderedDataStore/" class="md-nav__link">
+        Module: client/lib/DataStoreManager/structures/OrderedDataStore
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../modules/client_lib_DataStoreManager_structures_OrderedDataStorePage/" class="md-nav__link">
+        Module: client/lib/DataStoreManager/structures/OrderedDataStorePage
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../modules/client_lib_DataStoreManager_util_checks/" class="md-nav__link">
+        Module: client/lib/DataStoreManager/util/checks
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../modules/client_lib_DataStoreManager_util_constants/" class="md-nav__link">
+        Module: client/lib/DataStoreManager/util/constants
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../modules/controllers/" class="md-nav__link">
+        Module: controllers
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../modules/controllers_rest/" class="md-nav__link">
+        Module: controllers/rest
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../modules/controllers_rest_RESTController/" class="md-nav__link">
+        Module: controllers/rest/RESTController
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../modules/controllers_rest_lib_getRequester/" class="md-nav__link">
+        Module: controllers/rest/lib/getRequester
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../modules/controllers_rest_lib_updateXCSRFToken/" class="md-nav__link">
+        Module: controllers/rest/lib/updateXCSRFToken
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../modules/controllers_rest_request/" class="md-nav__link">
+        Module: controllers/rest/request
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../modules/controllers_rest_request_RESTRequest/" class="md-nav__link">
+        Module: controllers/rest/request/RESTRequest
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../modules/controllers_rest_request_prepare/" class="md-nav__link">
+        Module: controllers/rest/request/prepare
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../modules/controllers_rest_response/" class="md-nav__link">
+        Module: controllers/rest/response
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../modules/controllers_rest_response_RESTResponse/" class="md-nav__link">
+        Module: controllers/rest/response/RESTResponse
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../modules/controllers_rest_response_handlers/" class="md-nav__link">
+        Module: controllers/rest/response/handlers
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../modules/controllers_rest_response_handlers_updateHeaders/" class="md-nav__link">
+        Module: controllers/rest/response/handlers/updateHeaders
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../modules/controllers_rest_response_handlers_validBody/" class="md-nav__link">
+        Module: controllers/rest/response/handlers/validBody
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../modules/controllers_rest_response_handlers_validStatusCode/" class="md-nav__link">
+        Module: controllers/rest/response/handlers/validStatusCode
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../modules/controllers_rest_response_handlers_validStatusMessage/" class="md-nav__link">
+        Module: controllers/rest/response/handlers/validStatusMessage
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../modules/interfaces_APIInterfaces/" class="md-nav__link">
+        Module: interfaces/APIInterfaces
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../modules/interfaces_GeneralInterfaces/" class="md-nav__link">
+        Module: interfaces/GeneralInterfaces
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../modules/interfaces_RESTInterfaces/" class="md-nav__link">
+        Module: interfaces/RESTInterfaces
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../modules/structures/" class="md-nav__link">
+        Module: structures
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../modules/structures_Asset/" class="md-nav__link">
+        Module: structures/Asset
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../modules/structures_Chat/" class="md-nav__link">
+        Module: structures/Chat
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../modules/structures_ClientUser/" class="md-nav__link">
+        Module: structures/ClientUser
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../modules/structures_Game/" class="md-nav__link">
+        Module: structures/Game
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../modules/structures_Group/" class="md-nav__link">
+        Module: structures/Group
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../modules/structures_User/" class="md-nav__link">
+        Module: structures/User
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../modules/types_GenericOptionTypes/" class="md-nav__link">
+        Module: types/GenericOptionTypes
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../modules/types_GenericTypes/" class="md-nav__link">
+        Module: types/GenericTypes
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../modules/util_constants/" class="md-nav__link">
+        Module: util/constants
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../modules/util_converter/" class="md-nav__link">
+        Module: util/converter
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../modules/util_errors/" class="md-nav__link">
+        Module: util/errors
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../modules/util_errors_errors/" class="md-nav__link">
+        Module: util/errors/errors
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../modules/util_errors_messages/" class="md-nav__link">
+        Module: util/errors/messages
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../modules/util_utilFunctions/" class="md-nav__link">
+        Module: util/utilFunctions
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#hierarchy" class="md-nav__link">
+    Hierarchy
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#table-of-contents" class="md-nav__link">
+    Table of contents
+  </a>
+  
+    <nav class="md-nav" aria-label="Table of contents">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#constructors" class="md-nav__link">
+    Constructors
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#properties" class="md-nav__link">
+    Properties
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#methods" class="md-nav__link">
+    Methods
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#constructors_1" class="md-nav__link">
+    Constructors
+  </a>
+  
+    <nav class="md-nav" aria-label="Constructors">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#constructor" class="md-nav__link">
+     constructor
+  </a>
+  
+    <nav class="md-nav" aria-label=" constructor">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#parameters" class="md-nav__link">
+    Parameters
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#overrides" class="md-nav__link">
+    Overrides
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#defined-in" class="md-nav__link">
+    Defined in
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#properties_1" class="md-nav__link">
+    Properties
+  </a>
+  
+    <nav class="md-nav" aria-label="Properties">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#debugger" class="md-nav__link">
+     debugger
+  </a>
+  
+    <nav class="md-nav" aria-label=" debugger">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#type-declaration" class="md-nav__link">
+    Type declaration
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#defined-in_1" class="md-nav__link">
+    Defined in
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#options" class="md-nav__link">
+     options
+  </a>
+  
+    <nav class="md-nav" aria-label=" options">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#defined-in_2" class="md-nav__link">
+    Defined in
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#capturerejectionsymbol" class="md-nav__link">
+     captureRejectionSymbol
+  </a>
+  
+    <nav class="md-nav" aria-label=" captureRejectionSymbol">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#inherited-from" class="md-nav__link">
+    Inherited from
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#defined-in_3" class="md-nav__link">
+    Defined in
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#capturerejections" class="md-nav__link">
+     captureRejections
+  </a>
+  
+    <nav class="md-nav" aria-label=" captureRejections">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#inherited-from_1" class="md-nav__link">
+    Inherited from
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#defined-in_4" class="md-nav__link">
+    Defined in
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#defaultmaxlisteners" class="md-nav__link">
+     defaultMaxListeners
+  </a>
+  
+    <nav class="md-nav" aria-label=" defaultMaxListeners">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#inherited-from_2" class="md-nav__link">
+    Inherited from
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#defined-in_5" class="md-nav__link">
+    Defined in
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#errormonitor" class="md-nav__link">
+     errorMonitor
+  </a>
+  
+    <nav class="md-nav" aria-label=" errorMonitor">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#inherited-from_3" class="md-nav__link">
+    Inherited from
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#defined-in_6" class="md-nav__link">
+    Defined in
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#methods_1" class="md-nav__link">
+    Methods
+  </a>
+  
+    <nav class="md-nav" aria-label="Methods">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#addlistener" class="md-nav__link">
+     addListener
+  </a>
+  
+    <nav class="md-nav" aria-label=" addListener">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#parameters_1" class="md-nav__link">
+    Parameters
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#returns" class="md-nav__link">
+    Returns
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#inherited-from_4" class="md-nav__link">
+    Inherited from
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#defined-in_7" class="md-nav__link">
+    Defined in
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#emit" class="md-nav__link">
+     emit
+  </a>
+  
+    <nav class="md-nav" aria-label=" emit">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#parameters_2" class="md-nav__link">
+    Parameters
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#returns_1" class="md-nav__link">
+    Returns
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#inherited-from_5" class="md-nav__link">
+    Inherited from
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#defined-in_8" class="md-nav__link">
+    Defined in
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#eventnames" class="md-nav__link">
+     eventNames
+  </a>
+  
+    <nav class="md-nav" aria-label=" eventNames">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#returns_2" class="md-nav__link">
+    Returns
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#inherited-from_6" class="md-nav__link">
+    Inherited from
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#defined-in_9" class="md-nav__link">
+    Defined in
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getmaxlisteners" class="md-nav__link">
+     getMaxListeners
+  </a>
+  
+    <nav class="md-nav" aria-label=" getMaxListeners">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#returns_3" class="md-nav__link">
+    Returns
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#inherited-from_7" class="md-nav__link">
+    Inherited from
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#defined-in_10" class="md-nav__link">
+    Defined in
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#listenercount" class="md-nav__link">
+     listenerCount
+  </a>
+  
+    <nav class="md-nav" aria-label=" listenerCount">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#parameters_3" class="md-nav__link">
+    Parameters
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#returns_4" class="md-nav__link">
+    Returns
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#inherited-from_8" class="md-nav__link">
+    Inherited from
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#defined-in_11" class="md-nav__link">
+    Defined in
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#listeners" class="md-nav__link">
+     listeners
+  </a>
+  
+    <nav class="md-nav" aria-label=" listeners">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#parameters_4" class="md-nav__link">
+    Parameters
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#returns_5" class="md-nav__link">
+    Returns
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#inherited-from_9" class="md-nav__link">
+    Inherited from
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#defined-in_12" class="md-nav__link">
+    Defined in
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#log" class="md-nav__link">
+     log
+  </a>
+  
+    <nav class="md-nav" aria-label=" log">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#parameters_5" class="md-nav__link">
+    Parameters
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#returns_6" class="md-nav__link">
+    Returns
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#defined-in_13" class="md-nav__link">
+    Defined in
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#off" class="md-nav__link">
+     off
+  </a>
+  
+    <nav class="md-nav" aria-label=" off">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#parameters_6" class="md-nav__link">
+    Parameters
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#returns_7" class="md-nav__link">
+    Returns
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#inherited-from_10" class="md-nav__link">
+    Inherited from
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#defined-in_14" class="md-nav__link">
+    Defined in
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#on" class="md-nav__link">
+     on
+  </a>
+  
+    <nav class="md-nav" aria-label=" on">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#parameters_7" class="md-nav__link">
+    Parameters
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#returns_8" class="md-nav__link">
+    Returns
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#inherited-from_11" class="md-nav__link">
+    Inherited from
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#defined-in_15" class="md-nav__link">
+    Defined in
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#once" class="md-nav__link">
+     once
+  </a>
+  
+    <nav class="md-nav" aria-label=" once">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#parameters_8" class="md-nav__link">
+    Parameters
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#returns_9" class="md-nav__link">
+    Returns
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#inherited-from_12" class="md-nav__link">
+    Inherited from
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#defined-in_16" class="md-nav__link">
+    Defined in
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#prependlistener" class="md-nav__link">
+     prependListener
+  </a>
+  
+    <nav class="md-nav" aria-label=" prependListener">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#parameters_9" class="md-nav__link">
+    Parameters
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#returns_10" class="md-nav__link">
+    Returns
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#inherited-from_13" class="md-nav__link">
+    Inherited from
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#defined-in_17" class="md-nav__link">
+    Defined in
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#prependoncelistener" class="md-nav__link">
+     prependOnceListener
+  </a>
+  
+    <nav class="md-nav" aria-label=" prependOnceListener">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#parameters_10" class="md-nav__link">
+    Parameters
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#returns_11" class="md-nav__link">
+    Returns
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#inherited-from_14" class="md-nav__link">
+    Inherited from
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#defined-in_18" class="md-nav__link">
+    Defined in
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rawlisteners" class="md-nav__link">
+     rawListeners
+  </a>
+  
+    <nav class="md-nav" aria-label=" rawListeners">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#parameters_11" class="md-nav__link">
+    Parameters
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#returns_12" class="md-nav__link">
+    Returns
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#inherited-from_15" class="md-nav__link">
+    Inherited from
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#defined-in_19" class="md-nav__link">
+    Defined in
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#removealllisteners" class="md-nav__link">
+     removeAllListeners
+  </a>
+  
+    <nav class="md-nav" aria-label=" removeAllListeners">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#parameters_12" class="md-nav__link">
+    Parameters
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#returns_13" class="md-nav__link">
+    Returns
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#inherited-from_16" class="md-nav__link">
+    Inherited from
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#defined-in_20" class="md-nav__link">
+    Defined in
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#removelistener" class="md-nav__link">
+     removeListener
+  </a>
+  
+    <nav class="md-nav" aria-label=" removeListener">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#parameters_13" class="md-nav__link">
+    Parameters
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#returns_14" class="md-nav__link">
+    Returns
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#inherited-from_17" class="md-nav__link">
+    Inherited from
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#defined-in_21" class="md-nav__link">
+    Defined in
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setmaxlisteners" class="md-nav__link">
+     setMaxListeners
+  </a>
+  
+    <nav class="md-nav" aria-label=" setMaxListeners">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#parameters_14" class="md-nav__link">
+    Parameters
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#returns_15" class="md-nav__link">
+    Returns
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#inherited-from_18" class="md-nav__link">
+    Inherited from
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#defined-in_22" class="md-nav__link">
+    Defined in
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#updateoptions" class="md-nav__link">
+     updateOptions
+  </a>
+  
+    <nav class="md-nav" aria-label=" updateOptions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#parameters_15" class="md-nav__link">
+    Parameters
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#returns_16" class="md-nav__link">
+    Returns
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#defined-in_23" class="md-nav__link">
+    Defined in
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#geteventlisteners" class="md-nav__link">
+     getEventListeners
+  </a>
+  
+    <nav class="md-nav" aria-label=" getEventListeners">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#parameters_16" class="md-nav__link">
+    Parameters
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#returns_17" class="md-nav__link">
+    Returns
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#inherited-from_19" class="md-nav__link">
+    Inherited from
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#defined-in_24" class="md-nav__link">
+    Defined in
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#listenercount_1" class="md-nav__link">
+     listenerCount
+  </a>
+  
+    <nav class="md-nav" aria-label=" listenerCount">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#parameters_17" class="md-nav__link">
+    Parameters
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#returns_18" class="md-nav__link">
+    Returns
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#inherited-from_20" class="md-nav__link">
+    Inherited from
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#defined-in_25" class="md-nav__link">
+    Defined in
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#on_1" class="md-nav__link">
+     on
+  </a>
+  
+    <nav class="md-nav" aria-label=" on">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#parameters_18" class="md-nav__link">
+    Parameters
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#returns_19" class="md-nav__link">
+    Returns
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#inherited-from_21" class="md-nav__link">
+    Inherited from
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#defined-in_26" class="md-nav__link">
+    Defined in
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#once_1" class="md-nav__link">
+     once
+  </a>
+  
+    <nav class="md-nav" aria-label=" once">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#parameters_19" class="md-nav__link">
+    Parameters
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#returns_20" class="md-nav__link">
+    Returns
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#inherited-from_22" class="md-nav__link">
+    Inherited from
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#defined-in_27" class="md-nav__link">
+    Defined in
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#parameters_20" class="md-nav__link">
+    Parameters
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#returns_21" class="md-nav__link">
+    Returns
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#inherited-from_23" class="md-nav__link">
+    Inherited from
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#defined-in_28" class="md-nav__link">
+    Defined in
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+
+<h1 id="class-default">Class: default</h1>
+<p><a href="../../modules/client_ClientBase/">client/ClientBase</a>.default</p>
+<h2 id="hierarchy">Hierarchy</h2>
+<ul>
+<li><code>EventEmitter</code></li>
+</ul>
+<p>↳ <strong><code>default</code></strong></p>
+<p>↳↳ <a href="../client_Client.default/"><code>default</code></a></p>
+<h2 id="table-of-contents">Table of contents</h2>
+<h3 id="constructors">Constructors</h3>
+<ul>
+<li><a href="./#constructor">constructor</a></li>
+</ul>
+<h3 id="properties">Properties</h3>
+<ul>
+<li><a href="./#debugger">debugger</a></li>
+<li><a href="./#options">options</a></li>
+<li><a href="./#capturerejectionsymbol">captureRejectionSymbol</a></li>
+<li><a href="./#capturerejections">captureRejections</a></li>
+<li><a href="./#defaultmaxlisteners">defaultMaxListeners</a></li>
+<li><a href="./#errormonitor">errorMonitor</a></li>
+</ul>
+<h3 id="methods">Methods</h3>
+<ul>
+<li><a href="./#addlistener">addListener</a></li>
+<li><a href="./#emit">emit</a></li>
+<li><a href="./#eventnames">eventNames</a></li>
+<li><a href="./#getmaxlisteners">getMaxListeners</a></li>
+<li><a href="./#listenercount">listenerCount</a></li>
+<li><a href="./#listeners">listeners</a></li>
+<li><a href="./#log">log</a></li>
+<li><a href="./#off">off</a></li>
+<li><a href="./#on">on</a></li>
+<li><a href="./#once">once</a></li>
+<li><a href="./#prependlistener">prependListener</a></li>
+<li><a href="./#prependoncelistener">prependOnceListener</a></li>
+<li><a href="./#rawlisteners">rawListeners</a></li>
+<li><a href="./#removealllisteners">removeAllListeners</a></li>
+<li><a href="./#removelistener">removeListener</a></li>
+<li><a href="./#setmaxlisteners">setMaxListeners</a></li>
+<li><a href="./#updateoptions">updateOptions</a></li>
+<li><a href="./#geteventlisteners">getEventListeners</a></li>
+<li><a href="./#listenercount">listenerCount</a></li>
+<li><a href="./#on">on</a></li>
+<li><a href="./#once">once</a></li>
+</ul>
+<h2 id="constructors_1">Constructors</h2>
+<h3 id="constructor"><a id="constructor" name="constructor"></a> constructor</h3>
+<p>• <strong>new default</strong>(<code>options?</code>)</p>
+<h4 id="parameters">Parameters</h4>
+<table>
+<thead>
+<tr>
+<th align="left">Name</th>
+<th align="left">Type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><code>options?</code></td>
+<td align="left"><a href="../../interfaces/client_ClientBase.ClientOptions/"><code>ClientOptions</code></a></td>
+</tr>
+</tbody>
+</table>
+<h4 id="overrides">Overrides</h4>
+<p>EventEmitter.constructor</p>
+<h4 id="defined-in">Defined in</h4>
+<p><a href="https://github.com/Visualizememe/bloxy/blob/b51335816/src/client/ClientBase.ts#L44">src/client/ClientBase.ts:44</a></p>
+<h2 id="properties_1">Properties</h2>
+<h3 id="debugger"><a id="debugger" name="debugger"></a> debugger</h3>
+<p>• <strong>debugger</strong>: <code>Object</code></p>
+<h4 id="type-declaration">Type declaration</h4>
+<table>
+<thead>
+<tr>
+<th align="left">Name</th>
+<th align="left">Type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><code>error</code></td>
+<td align="left"><code>Debugger</code></td>
+</tr>
+<tr>
+<td align="left"><code>info</code></td>
+<td align="left"><code>Debugger</code></td>
+</tr>
+<tr>
+<td align="left"><code>warn</code></td>
+<td align="left"><code>Debugger</code></td>
+</tr>
+</tbody>
+</table>
+<h4 id="defined-in_1">Defined in</h4>
+<p><a href="https://github.com/Visualizememe/bloxy/blob/b51335816/src/client/ClientBase.ts#L38">src/client/ClientBase.ts:38</a></p>
+<hr />
+<h3 id="options"><a id="options" name="options"></a> options</h3>
+<p>• <strong>options</strong>: <a href="../../interfaces/client_ClientBase.ClientOptions/"><code>ClientOptions</code></a></p>
+<h4 id="defined-in_2">Defined in</h4>
+<p><a href="https://github.com/Visualizememe/bloxy/blob/b51335816/src/client/ClientBase.ts#L37">src/client/ClientBase.ts:37</a></p>
+<hr />
+<h3 id="capturerejectionsymbol"><a id="capturerejectionsymbol" name="capturerejectionsymbol"></a> captureRejectionSymbol</h3>
+<p>▪ <code>Static</code> <code>Readonly</code> <strong>captureRejectionSymbol</strong>: typeof <a href="../client_Client.default/#capturerejectionsymbol"><code>captureRejectionSymbol</code></a></p>
+<h4 id="inherited-from">Inherited from</h4>
+<p>EventEmitter.captureRejectionSymbol</p>
+<h4 id="defined-in_3">Defined in</h4>
+<p>node_modules/@types/node/events.d.ts:273</p>
+<hr />
+<h3 id="capturerejections"><a id="capturerejections" name="capturerejections"></a> captureRejections</h3>
+<p>▪ <code>Static</code> <strong>captureRejections</strong>: <code>boolean</code></p>
+<p>Sets or gets the default captureRejection value for all emitters.</p>
+<h4 id="inherited-from_1">Inherited from</h4>
+<p>EventEmitter.captureRejections</p>
+<h4 id="defined-in_4">Defined in</h4>
+<p>node_modules/@types/node/events.d.ts:278</p>
+<hr />
+<h3 id="defaultmaxlisteners"><a id="defaultmaxlisteners" name="defaultmaxlisteners"></a> defaultMaxListeners</h3>
+<p>▪ <code>Static</code> <strong>defaultMaxListeners</strong>: <code>number</code></p>
+<h4 id="inherited-from_2">Inherited from</h4>
+<p>EventEmitter.defaultMaxListeners</p>
+<h4 id="defined-in_5">Defined in</h4>
+<p>node_modules/@types/node/events.d.ts:279</p>
+<hr />
+<h3 id="errormonitor"><a id="errormonitor" name="errormonitor"></a> errorMonitor</h3>
+<p>▪ <code>Static</code> <code>Readonly</code> <strong>errorMonitor</strong>: typeof <a href="../client_Client.default/#errormonitor"><code>errorMonitor</code></a></p>
+<p>This symbol shall be used to install a listener for only monitoring <code>'error'</code>
+events. Listeners installed using this symbol are called before the regular
+<code>'error'</code> listeners are called.</p>
+<p>Installing a listener using this symbol does not change the behavior once an
+<code>'error'</code> event is emitted, therefore the process will still crash if no
+regular <code>'error'</code> listener is installed.</p>
+<h4 id="inherited-from_3">Inherited from</h4>
+<p>EventEmitter.errorMonitor</p>
+<h4 id="defined-in_6">Defined in</h4>
+<p>node_modules/@types/node/events.d.ts:272</p>
+<h2 id="methods_1">Methods</h2>
+<h3 id="addlistener"><a id="addlistener" name="addlistener"></a> addListener</h3>
+<p>▸ <strong>addListener</strong>(<code>eventName</code>, <code>listener</code>): <a href="./"><code>default</code></a></p>
+<p>Alias for <code>emitter.on(eventName, listener)</code>.</p>
+<p><strong><code>since</code></strong> v0.1.26</p>
+<h4 id="parameters_1">Parameters</h4>
+<table>
+<thead>
+<tr>
+<th align="left">Name</th>
+<th align="left">Type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><code>eventName</code></td>
+<td align="left"><code>string</code> | <code>symbol</code></td>
+</tr>
+<tr>
+<td align="left"><code>listener</code></td>
+<td align="left">(...<code>args</code>: <code>any</code>[]) =&gt; <code>void</code></td>
+</tr>
+</tbody>
+</table>
+<h4 id="returns">Returns</h4>
+<p><a href="./"><code>default</code></a></p>
+<h4 id="inherited-from_4">Inherited from</h4>
+<p>EventEmitter.addListener</p>
+<h4 id="defined-in_7">Defined in</h4>
+<p>node_modules/@types/node/events.d.ts:299</p>
+<hr />
+<h3 id="emit"><a id="emit" name="emit"></a> emit</h3>
+<p>▸ <strong>emit</strong>(<code>eventName</code>, ...<code>args</code>): <code>boolean</code></p>
+<p>Synchronously calls each of the listeners registered for the event named<code>eventName</code>, in the order they were registered, passing the supplied arguments
+to each.</p>
+<p>Returns <code>true</code> if the event had listeners, <code>false</code> otherwise.</p>
+<pre><code class="language-js">const EventEmitter = require('events');
+const myEmitter = new EventEmitter();
+
+// First listener
+myEmitter.on('event', function firstListener() {
+  console.log('Helloooo! first listener');
+});
+// Second listener
+myEmitter.on('event', function secondListener(arg1, arg2) {
+  console.log(`event with parameters ${arg1}, ${arg2} in second listener`);
+});
+// Third listener
+myEmitter.on('event', function thirdListener(...args) {
+  const parameters = args.join(', ');
+  console.log(`event with parameters ${parameters} in third listener`);
+});
+
+console.log(myEmitter.listeners('event'));
+
+myEmitter.emit('event', 1, 2, 3, 4, 5);
+
+// Prints:
+// [
+//   [Function: firstListener],
+//   [Function: secondListener],
+//   [Function: thirdListener]
+// ]
+// Helloooo! first listener
+// event with parameters 1, 2 in second listener
+// event with parameters 1, 2, 3, 4, 5 in third listener
+</code></pre>
+<p><strong><code>since</code></strong> v0.1.26</p>
+<h4 id="parameters_2">Parameters</h4>
+<table>
+<thead>
+<tr>
+<th align="left">Name</th>
+<th align="left">Type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><code>eventName</code></td>
+<td align="left"><code>string</code> | <code>symbol</code></td>
+</tr>
+<tr>
+<td align="left"><code>...args</code></td>
+<td align="left"><code>any</code>[]</td>
+</tr>
+</tbody>
+</table>
+<h4 id="returns_1">Returns</h4>
+<p><code>boolean</code></p>
+<h4 id="inherited-from_5">Inherited from</h4>
+<p>EventEmitter.emit</p>
+<h4 id="defined-in_8">Defined in</h4>
+<p>node_modules/@types/node/events.d.ts:555</p>
+<hr />
+<h3 id="eventnames"><a id="eventnames" name="eventnames"></a> eventNames</h3>
+<p>▸ <strong>eventNames</strong>(): (<code>string</code> | <code>symbol</code>)[]</p>
+<p>Returns an array listing the events for which the emitter has registered
+listeners. The values in the array are strings or <code>Symbol</code>s.</p>
+<pre><code class="language-js">const EventEmitter = require('events');
+const myEE = new EventEmitter();
+myEE.on('foo', () =&gt; {});
+myEE.on('bar', () =&gt; {});
+
+const sym = Symbol('symbol');
+myEE.on(sym, () =&gt; {});
+
+console.log(myEE.eventNames());
+// Prints: [ 'foo', 'bar', Symbol(symbol) ]
+</code></pre>
+<p><strong><code>since</code></strong> v6.0.0</p>
+<h4 id="returns_2">Returns</h4>
+<p>(<code>string</code> | <code>symbol</code>)[]</p>
+<h4 id="inherited-from_6">Inherited from</h4>
+<p>EventEmitter.eventNames</p>
+<h4 id="defined-in_9">Defined in</h4>
+<p>node_modules/@types/node/events.d.ts:614</p>
+<hr />
+<h3 id="getmaxlisteners"><a id="getmaxlisteners" name="getmaxlisteners"></a> getMaxListeners</h3>
+<p>▸ <strong>getMaxListeners</strong>(): <code>number</code></p>
+<p>Returns the current max listener value for the <code>EventEmitter</code> which is either
+set by <code>emitter.setMaxListeners(n)</code> or defaults to <a href="./#defaultmaxlisteners">defaultMaxListeners</a>.</p>
+<p><strong><code>since</code></strong> v1.0.0</p>
+<h4 id="returns_3">Returns</h4>
+<p><code>number</code></p>
+<h4 id="inherited-from_7">Inherited from</h4>
+<p>EventEmitter.getMaxListeners</p>
+<h4 id="defined-in_10">Defined in</h4>
+<p>node_modules/@types/node/events.d.ts:471</p>
+<hr />
+<h3 id="listenercount"><a id="listenercount" name="listenercount"></a> listenerCount</h3>
+<p>▸ <strong>listenerCount</strong>(<code>eventName</code>): <code>number</code></p>
+<p>Returns the number of listeners listening to the event named <code>eventName</code>.</p>
+<p><strong><code>since</code></strong> v3.2.0</p>
+<h4 id="parameters_3">Parameters</h4>
+<table>
+<thead>
+<tr>
+<th align="left">Name</th>
+<th align="left">Type</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><code>eventName</code></td>
+<td align="left"><code>string</code> | <code>symbol</code></td>
+<td align="left">The name of the event being listened for</td>
+</tr>
+</tbody>
+</table>
+<h4 id="returns_4">Returns</h4>
+<p><code>number</code></p>
+<h4 id="inherited-from_8">Inherited from</h4>
+<p>EventEmitter.listenerCount</p>
+<h4 id="defined-in_11">Defined in</h4>
+<p>node_modules/@types/node/events.d.ts:561</p>
+<hr />
+<h3 id="listeners"><a id="listeners" name="listeners"></a> listeners</h3>
+<p>▸ <strong>listeners</strong>(<code>eventName</code>): <code>Function</code>[]</p>
+<p>Returns a copy of the array of listeners for the event named <code>eventName</code>.</p>
+<pre><code class="language-js">server.on('connection', (stream) =&gt; {
+  console.log('someone connected!');
+});
+console.log(util.inspect(server.listeners('connection')));
+// Prints: [ [Function] ]
+</code></pre>
+<p><strong><code>since</code></strong> v0.1.26</p>
+<h4 id="parameters_4">Parameters</h4>
+<table>
+<thead>
+<tr>
+<th align="left">Name</th>
+<th align="left">Type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><code>eventName</code></td>
+<td align="left"><code>string</code> | <code>symbol</code></td>
+</tr>
+</tbody>
+</table>
+<h4 id="returns_5">Returns</h4>
+<p><code>Function</code>[]</p>
+<h4 id="inherited-from_9">Inherited from</h4>
+<p>EventEmitter.listeners</p>
+<h4 id="defined-in_12">Defined in</h4>
+<p>node_modules/@types/node/events.d.ts:484</p>
+<hr />
+<h3 id="log"><a id="log" name="log"></a> log</h3>
+<p>▸ <strong>log</strong>(<code>level</code>, <code>data</code>): <code>void</code></p>
+<h4 id="parameters_5">Parameters</h4>
+<table>
+<thead>
+<tr>
+<th align="left">Name</th>
+<th align="left">Type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><code>level</code></td>
+<td align="left"><code>"info"</code> | <code>"warn"</code> | <code>"error"</code></td>
+</tr>
+<tr>
+<td align="left"><code>data</code></td>
+<td align="left"><code>DebugData</code></td>
+</tr>
+</tbody>
+</table>
+<h4 id="returns_6">Returns</h4>
+<p><code>void</code></p>
+<h4 id="defined-in_13">Defined in</h4>
+<p><a href="https://github.com/Visualizememe/bloxy/blob/b51335816/src/client/ClientBase.ts#L69">src/client/ClientBase.ts:69</a></p>
+<hr />
+<h3 id="off"><a id="off" name="off"></a> off</h3>
+<p>▸ <strong>off</strong>(<code>eventName</code>, <code>listener</code>): <a href="./"><code>default</code></a></p>
+<p>Alias for <code>emitter.removeListener()</code>.</p>
+<p><strong><code>since</code></strong> v10.0.0</p>
+<h4 id="parameters_6">Parameters</h4>
+<table>
+<thead>
+<tr>
+<th align="left">Name</th>
+<th align="left">Type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><code>eventName</code></td>
+<td align="left"><code>string</code> | <code>symbol</code></td>
+</tr>
+<tr>
+<td align="left"><code>listener</code></td>
+<td align="left">(...<code>args</code>: <code>any</code>[]) =&gt; <code>void</code></td>
+</tr>
+</tbody>
+</table>
+<h4 id="returns_7">Returns</h4>
+<p><a href="./"><code>default</code></a></p>
+<h4 id="inherited-from_10">Inherited from</h4>
+<p>EventEmitter.off</p>
+<h4 id="defined-in_14">Defined in</h4>
+<p>node_modules/@types/node/events.d.ts:444</p>
+<hr />
+<h3 id="on"><a id="on" name="on"></a> on</h3>
+<p>▸ <strong>on</strong>(<code>eventName</code>, <code>listener</code>): <a href="./"><code>default</code></a></p>
+<p>Adds the <code>listener</code> function to the end of the listeners array for the
+event named <code>eventName</code>. No checks are made to see if the <code>listener</code> has
+already been added. Multiple calls passing the same combination of <code>eventName</code>and <code>listener</code> will result in the <code>listener</code> being added, and called, multiple
+times.</p>
+<pre><code class="language-js">server.on('connection', (stream) =&gt; {
+  console.log('someone connected!');
+});
+</code></pre>
+<p>Returns a reference to the <code>EventEmitter</code>, so that calls can be chained.</p>
+<p>By default, event listeners are invoked in the order they are added. The<code>emitter.prependListener()</code> method can be used as an alternative to add the
+event listener to the beginning of the listeners array.</p>
+<pre><code class="language-js">const myEE = new EventEmitter();
+myEE.on('foo', () =&gt; console.log('a'));
+myEE.prependListener('foo', () =&gt; console.log('b'));
+myEE.emit('foo');
+// Prints:
+//   b
+//   a
+</code></pre>
+<p><strong><code>since</code></strong> v0.1.101</p>
+<h4 id="parameters_7">Parameters</h4>
+<table>
+<thead>
+<tr>
+<th align="left">Name</th>
+<th align="left">Type</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><code>eventName</code></td>
+<td align="left"><code>string</code> | <code>symbol</code></td>
+<td align="left">The name of the event.</td>
+</tr>
+<tr>
+<td align="left"><code>listener</code></td>
+<td align="left">(...<code>args</code>: <code>any</code>[]) =&gt; <code>void</code></td>
+<td align="left">The callback function</td>
+</tr>
+</tbody>
+</table>
+<h4 id="returns_8">Returns</h4>
+<p><a href="./"><code>default</code></a></p>
+<h4 id="inherited-from_11">Inherited from</h4>
+<p>EventEmitter.on</p>
+<h4 id="defined-in_15">Defined in</h4>
+<p>node_modules/@types/node/events.d.ts:330</p>
+<hr />
+<h3 id="once"><a id="once" name="once"></a> once</h3>
+<p>▸ <strong>once</strong>(<code>eventName</code>, <code>listener</code>): <a href="./"><code>default</code></a></p>
+<p>Adds a <strong>one-time</strong><code>listener</code> function for the event named <code>eventName</code>. The
+next time <code>eventName</code> is triggered, this listener is removed and then invoked.</p>
+<pre><code class="language-js">server.once('connection', (stream) =&gt; {
+  console.log('Ah, we have our first user!');
+});
+</code></pre>
+<p>Returns a reference to the <code>EventEmitter</code>, so that calls can be chained.</p>
+<p>By default, event listeners are invoked in the order they are added. The<code>emitter.prependOnceListener()</code> method can be used as an alternative to add the
+event listener to the beginning of the listeners array.</p>
+<pre><code class="language-js">const myEE = new EventEmitter();
+myEE.once('foo', () =&gt; console.log('a'));
+myEE.prependOnceListener('foo', () =&gt; console.log('b'));
+myEE.emit('foo');
+// Prints:
+//   b
+//   a
+</code></pre>
+<p><strong><code>since</code></strong> v0.3.0</p>
+<h4 id="parameters_8">Parameters</h4>
+<table>
+<thead>
+<tr>
+<th align="left">Name</th>
+<th align="left">Type</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><code>eventName</code></td>
+<td align="left"><code>string</code> | <code>symbol</code></td>
+<td align="left">The name of the event.</td>
+</tr>
+<tr>
+<td align="left"><code>listener</code></td>
+<td align="left">(...<code>args</code>: <code>any</code>[]) =&gt; <code>void</code></td>
+<td align="left">The callback function</td>
+</tr>
+</tbody>
+</table>
+<h4 id="returns_9">Returns</h4>
+<p><a href="./"><code>default</code></a></p>
+<h4 id="inherited-from_12">Inherited from</h4>
+<p>EventEmitter.once</p>
+<h4 id="defined-in_16">Defined in</h4>
+<p>node_modules/@types/node/events.d.ts:359</p>
+<hr />
+<h3 id="prependlistener"><a id="prependlistener" name="prependlistener"></a> prependListener</h3>
+<p>▸ <strong>prependListener</strong>(<code>eventName</code>, <code>listener</code>): <a href="./"><code>default</code></a></p>
+<p>Adds the <code>listener</code> function to the <em>beginning</em> of the listeners array for the
+event named <code>eventName</code>. No checks are made to see if the <code>listener</code> has
+already been added. Multiple calls passing the same combination of <code>eventName</code>and <code>listener</code> will result in the <code>listener</code> being added, and called, multiple
+times.</p>
+<pre><code class="language-js">server.prependListener('connection', (stream) =&gt; {
+  console.log('someone connected!');
+});
+</code></pre>
+<p>Returns a reference to the <code>EventEmitter</code>, so that calls can be chained.</p>
+<p><strong><code>since</code></strong> v6.0.0</p>
+<h4 id="parameters_9">Parameters</h4>
+<table>
+<thead>
+<tr>
+<th align="left">Name</th>
+<th align="left">Type</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><code>eventName</code></td>
+<td align="left"><code>string</code> | <code>symbol</code></td>
+<td align="left">The name of the event.</td>
+</tr>
+<tr>
+<td align="left"><code>listener</code></td>
+<td align="left">(...<code>args</code>: <code>any</code>[]) =&gt; <code>void</code></td>
+<td align="left">The callback function</td>
+</tr>
+</tbody>
+</table>
+<h4 id="returns_10">Returns</h4>
+<p><a href="./"><code>default</code></a></p>
+<h4 id="inherited-from_13">Inherited from</h4>
+<p>EventEmitter.prependListener</p>
+<h4 id="defined-in_17">Defined in</h4>
+<p>node_modules/@types/node/events.d.ts:579</p>
+<hr />
+<h3 id="prependoncelistener"><a id="prependoncelistener" name="prependoncelistener"></a> prependOnceListener</h3>
+<p>▸ <strong>prependOnceListener</strong>(<code>eventName</code>, <code>listener</code>): <a href="./"><code>default</code></a></p>
+<p>Adds a <strong>one-time</strong><code>listener</code> function for the event named <code>eventName</code> to the_beginning_ of the listeners array. The next time <code>eventName</code> is triggered, this
+listener is removed, and then invoked.</p>
+<pre><code class="language-js">server.prependOnceListener('connection', (stream) =&gt; {
+  console.log('Ah, we have our first user!');
+});
+</code></pre>
+<p>Returns a reference to the <code>EventEmitter</code>, so that calls can be chained.</p>
+<p><strong><code>since</code></strong> v6.0.0</p>
+<h4 id="parameters_10">Parameters</h4>
+<table>
+<thead>
+<tr>
+<th align="left">Name</th>
+<th align="left">Type</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><code>eventName</code></td>
+<td align="left"><code>string</code> | <code>symbol</code></td>
+<td align="left">The name of the event.</td>
+</tr>
+<tr>
+<td align="left"><code>listener</code></td>
+<td align="left">(...<code>args</code>: <code>any</code>[]) =&gt; <code>void</code></td>
+<td align="left">The callback function</td>
+</tr>
+</tbody>
+</table>
+<h4 id="returns_11">Returns</h4>
+<p><a href="./"><code>default</code></a></p>
+<h4 id="inherited-from_14">Inherited from</h4>
+<p>EventEmitter.prependOnceListener</p>
+<h4 id="defined-in_18">Defined in</h4>
+<p>node_modules/@types/node/events.d.ts:595</p>
+<hr />
+<h3 id="rawlisteners"><a id="rawlisteners" name="rawlisteners"></a> rawListeners</h3>
+<p>▸ <strong>rawListeners</strong>(<code>eventName</code>): <code>Function</code>[]</p>
+<p>Returns a copy of the array of listeners for the event named <code>eventName</code>,
+including any wrappers (such as those created by <code>.once()</code>).</p>
+<pre><code class="language-js">const emitter = new EventEmitter();
+emitter.once('log', () =&gt; console.log('log once'));
+
+// Returns a new Array with a function `onceWrapper` which has a property
+// `listener` which contains the original listener bound above
+const listeners = emitter.rawListeners('log');
+const logFnWrapper = listeners[0];
+
+// Logs &quot;log once&quot; to the console and does not unbind the `once` event
+logFnWrapper.listener();
+
+// Logs &quot;log once&quot; to the console and removes the listener
+logFnWrapper();
+
+emitter.on('log', () =&gt; console.log('log persistently'));
+// Will return a new Array with a single function bound by `.on()` above
+const newListeners = emitter.rawListeners('log');
+
+// Logs &quot;log persistently&quot; twice
+newListeners[0]();
+emitter.emit('log');
+</code></pre>
+<p><strong><code>since</code></strong> v9.4.0</p>
+<h4 id="parameters_11">Parameters</h4>
+<table>
+<thead>
+<tr>
+<th align="left">Name</th>
+<th align="left">Type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><code>eventName</code></td>
+<td align="left"><code>string</code> | <code>symbol</code></td>
+</tr>
+</tbody>
+</table>
+<h4 id="returns_12">Returns</h4>
+<p><code>Function</code>[]</p>
+<h4 id="inherited-from_15">Inherited from</h4>
+<p>EventEmitter.rawListeners</p>
+<h4 id="defined-in_19">Defined in</h4>
+<p>node_modules/@types/node/events.d.ts:514</p>
+<hr />
+<h3 id="removealllisteners"><a id="removealllisteners" name="removealllisteners"></a> removeAllListeners</h3>
+<p>▸ <strong>removeAllListeners</strong>(<code>event?</code>): <a href="./"><code>default</code></a></p>
+<p>Removes all listeners, or those of the specified <code>eventName</code>.</p>
+<p>It is bad practice to remove listeners added elsewhere in the code,
+particularly when the <code>EventEmitter</code> instance was created by some other
+component or module (e.g. sockets or file streams).</p>
+<p>Returns a reference to the <code>EventEmitter</code>, so that calls can be chained.</p>
+<p><strong><code>since</code></strong> v0.1.26</p>
+<h4 id="parameters_12">Parameters</h4>
+<table>
+<thead>
+<tr>
+<th align="left">Name</th>
+<th align="left">Type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><code>event?</code></td>
+<td align="left"><code>string</code> | <code>symbol</code></td>
+</tr>
+</tbody>
+</table>
+<h4 id="returns_13">Returns</h4>
+<p><a href="./"><code>default</code></a></p>
+<h4 id="inherited-from_16">Inherited from</h4>
+<p>EventEmitter.removeAllListeners</p>
+<h4 id="defined-in_20">Defined in</h4>
+<p>node_modules/@types/node/events.d.ts:455</p>
+<hr />
+<h3 id="removelistener"><a id="removelistener" name="removelistener"></a> removeListener</h3>
+<p>▸ <strong>removeListener</strong>(<code>eventName</code>, <code>listener</code>): <a href="./"><code>default</code></a></p>
+<p>Removes the specified <code>listener</code> from the listener array for the event named<code>eventName</code>.</p>
+<pre><code class="language-js">const callback = (stream) =&gt; {
+  console.log('someone connected!');
+};
+server.on('connection', callback);
+// ...
+server.removeListener('connection', callback);
+</code></pre>
+<p><code>removeListener()</code> will remove, at most, one instance of a listener from the
+listener array. If any single listener has been added multiple times to the
+listener array for the specified <code>eventName</code>, then <code>removeListener()</code> must be
+called multiple times to remove each instance.</p>
+<p>Once an event is emitted, all listeners attached to it at the
+time of emitting are called in order. This implies that any<code>removeListener()</code> or <code>removeAllListeners()</code> calls <em>after</em> emitting and_before_ the last listener finishes execution will
+not remove them from<code>emit()</code> in progress. Subsequent events behave as expected.</p>
+<pre><code class="language-js">const myEmitter = new MyEmitter();
+
+const callbackA = () =&gt; {
+  console.log('A');
+  myEmitter.removeListener('event', callbackB);
+};
+
+const callbackB = () =&gt; {
+  console.log('B');
+};
+
+myEmitter.on('event', callbackA);
+
+myEmitter.on('event', callbackB);
+
+// callbackA removes listener callbackB but it will still be called.
+// Internal listener array at time of emit [callbackA, callbackB]
+myEmitter.emit('event');
+// Prints:
+//   A
+//   B
+
+// callbackB is now removed.
+// Internal listener array [callbackA]
+myEmitter.emit('event');
+// Prints:
+//   A
+</code></pre>
+<p>Because listeners are managed using an internal array, calling this will
+change the position indices of any listener registered <em>after</em> the listener
+being removed. This will not impact the order in which listeners are called,
+but it means that any copies of the listener array as returned by
+the <code>emitter.listeners()</code> method will need to be recreated.</p>
+<p>When a single function has been added as a handler multiple times for a single
+event (as in the example below), <code>removeListener()</code> will remove the most
+recently added instance. In the example the <code>once('ping')</code>listener is removed:</p>
+<pre><code class="language-js">const ee = new EventEmitter();
+
+function pong() {
+  console.log('pong');
+}
+
+ee.on('ping', pong);
+ee.once('ping', pong);
+ee.removeListener('ping', pong);
+
+ee.emit('ping');
+ee.emit('ping');
+</code></pre>
+<p>Returns a reference to the <code>EventEmitter</code>, so that calls can be chained.</p>
+<p><strong><code>since</code></strong> v0.1.26</p>
+<h4 id="parameters_13">Parameters</h4>
+<table>
+<thead>
+<tr>
+<th align="left">Name</th>
+<th align="left">Type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><code>eventName</code></td>
+<td align="left"><code>string</code> | <code>symbol</code></td>
+</tr>
+<tr>
+<td align="left"><code>listener</code></td>
+<td align="left">(...<code>args</code>: <code>any</code>[]) =&gt; <code>void</code></td>
+</tr>
+</tbody>
+</table>
+<h4 id="returns_14">Returns</h4>
+<p><a href="./"><code>default</code></a></p>
+<h4 id="inherited-from_17">Inherited from</h4>
+<p>EventEmitter.removeListener</p>
+<h4 id="defined-in_21">Defined in</h4>
+<p>node_modules/@types/node/events.d.ts:439</p>
+<hr />
+<h3 id="setmaxlisteners"><a id="setmaxlisteners" name="setmaxlisteners"></a> setMaxListeners</h3>
+<p>▸ <strong>setMaxListeners</strong>(<code>n</code>): <a href="./"><code>default</code></a></p>
+<p>By default <code>EventEmitter</code>s will print a warning if more than <code>10</code> listeners are
+added for a particular event. This is a useful default that helps finding
+memory leaks. The <code>emitter.setMaxListeners()</code> method allows the limit to be
+modified for this specific <code>EventEmitter</code> instance. The value can be set to<code>Infinity</code> (or <code>0</code>) to indicate an unlimited number of listeners.</p>
+<p>Returns a reference to the <code>EventEmitter</code>, so that calls can be chained.</p>
+<p><strong><code>since</code></strong> v0.3.5</p>
+<h4 id="parameters_14">Parameters</h4>
+<table>
+<thead>
+<tr>
+<th align="left">Name</th>
+<th align="left">Type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><code>n</code></td>
+<td align="left"><code>number</code></td>
+</tr>
+</tbody>
+</table>
+<h4 id="returns_15">Returns</h4>
+<p><a href="./"><code>default</code></a></p>
+<h4 id="inherited-from_18">Inherited from</h4>
+<p>EventEmitter.setMaxListeners</p>
+<h4 id="defined-in_22">Defined in</h4>
+<p>node_modules/@types/node/events.d.ts:465</p>
+<hr />
+<h3 id="updateoptions"><a id="updateoptions" name="updateoptions"></a> updateOptions</h3>
+<p>▸ <strong>updateOptions</strong>(<code>options?</code>): <a href="../../interfaces/client_ClientBase.ClientOptions/"><code>ClientOptions</code></a></p>
+<h4 id="parameters_15">Parameters</h4>
+<table>
+<thead>
+<tr>
+<th align="left">Name</th>
+<th align="left">Type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><code>options?</code></td>
+<td align="left"><a href="../../interfaces/client_ClientBase.ClientOptions/"><code>ClientOptions</code></a></td>
+</tr>
+</tbody>
+</table>
+<h4 id="returns_16">Returns</h4>
+<p><a href="../../interfaces/client_ClientBase.ClientOptions/"><code>ClientOptions</code></a></p>
+<h4 id="defined-in_23">Defined in</h4>
+<p><a href="https://github.com/Visualizememe/bloxy/blob/b51335816/src/client/ClientBase.ts#L55">src/client/ClientBase.ts:55</a></p>
+<hr />
+<h3 id="geteventlisteners"><a id="geteventlisteners" name="geteventlisteners"></a> getEventListeners</h3>
+<p>▸ <code>Static</code> <strong>getEventListeners</strong>(<code>emitter</code>, <code>name</code>): <code>Function</code>[]</p>
+<p>Returns a copy of the array of listeners for the event named <code>eventName</code>.</p>
+<p>For <code>EventEmitter</code>s this behaves exactly the same as calling <code>.listeners</code> on
+the emitter.</p>
+<p>For <code>EventTarget</code>s this is the only way to get the event listeners for the
+event target. This is useful for debugging and diagnostic purposes.</p>
+<pre><code class="language-js">const { getEventListeners, EventEmitter } = require('events');
+
+{
+  const ee = new EventEmitter();
+  const listener = () =&gt; console.log('Events are fun');
+  ee.on('foo', listener);
+  getEventListeners(ee, 'foo'); // [listener]
+}
+{
+  const et = new EventTarget();
+  const listener = () =&gt; console.log('Events are fun');
+  et.addEventListener('foo', listener);
+  getEventListeners(et, 'foo'); // [listener]
+}
+</code></pre>
+<p><strong><code>since</code></strong> v15.2.0</p>
+<h4 id="parameters_16">Parameters</h4>
+<table>
+<thead>
+<tr>
+<th align="left">Name</th>
+<th align="left">Type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><code>emitter</code></td>
+<td align="left"><code>DOMEventTarget</code> | <code>EventEmitter</code></td>
+</tr>
+<tr>
+<td align="left"><code>name</code></td>
+<td align="left"><code>string</code> | <code>symbol</code></td>
+</tr>
+</tbody>
+</table>
+<h4 id="returns_17">Returns</h4>
+<p><code>Function</code>[]</p>
+<h4 id="inherited-from_19">Inherited from</h4>
+<p>EventEmitter.getEventListeners</p>
+<h4 id="defined-in_24">Defined in</h4>
+<p>node_modules/@types/node/events.d.ts:262</p>
+<hr />
+<h3 id="listenercount_1"><a id="listenercount" name="listenercount"></a> listenerCount</h3>
+<p>▸ <code>Static</code> <strong>listenerCount</strong>(<code>emitter</code>, <code>eventName</code>): <code>number</code></p>
+<p>A class method that returns the number of listeners for the given <code>eventName</code>registered on the given <code>emitter</code>.</p>
+<pre><code class="language-js">const { EventEmitter, listenerCount } = require('events');
+const myEmitter = new EventEmitter();
+myEmitter.on('event', () =&gt; {});
+myEmitter.on('event', () =&gt; {});
+console.log(listenerCount(myEmitter, 'event'));
+// Prints: 2
+</code></pre>
+<p><strong><code>since</code></strong> v0.9.12</p>
+<p><strong><code>deprecated</code></strong> Since v3.2.0 - Use <code>listenerCount</code> instead.</p>
+<h4 id="parameters_17">Parameters</h4>
+<table>
+<thead>
+<tr>
+<th align="left">Name</th>
+<th align="left">Type</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><code>emitter</code></td>
+<td align="left"><code>EventEmitter</code></td>
+<td align="left">The emitter to query</td>
+</tr>
+<tr>
+<td align="left"><code>eventName</code></td>
+<td align="left"><code>string</code> | <code>symbol</code></td>
+<td align="left">The event name</td>
+</tr>
+</tbody>
+</table>
+<h4 id="returns_18">Returns</h4>
+<p><code>number</code></p>
+<h4 id="inherited-from_20">Inherited from</h4>
+<p>EventEmitter.listenerCount</p>
+<h4 id="defined-in_25">Defined in</h4>
+<p>node_modules/@types/node/events.d.ts:234</p>
+<hr />
+<h3 id="on_1"><a id="on" name="on"></a> on</h3>
+<p>▸ <code>Static</code> <strong>on</strong>(<code>emitter</code>, <code>eventName</code>, <code>options?</code>): <code>AsyncIterableIterator</code>&lt;<code>any</code>></p>
+<pre><code class="language-js">const { on, EventEmitter } = require('events');
+
+(async () =&gt; {
+  const ee = new EventEmitter();
+
+  // Emit later on
+  process.nextTick(() =&gt; {
+    ee.emit('foo', 'bar');
+    ee.emit('foo', 42);
+  });
+
+  for await (const event of on(ee, 'foo')) {
+    // The execution of this inner block is synchronous and it
+    // processes one event at a time (even with await). Do not use
+    // if concurrent execution is required.
+    console.log(event); // prints ['bar'] [42]
+  }
+  // Unreachable here
+})();
+</code></pre>
+<p>Returns an <code>AsyncIterator</code> that iterates <code>eventName</code> events. It will throw
+if the <code>EventEmitter</code> emits <code>'error'</code>. It removes all listeners when
+exiting the loop. The <code>value</code> returned by each iteration is an array
+composed of the emitted event arguments.</p>
+<p>An <code>AbortSignal</code> can be used to cancel waiting on events:</p>
+<pre><code class="language-js">const { on, EventEmitter } = require('events');
+const ac = new AbortController();
+
+(async () =&gt; {
+  const ee = new EventEmitter();
+
+  // Emit later on
+  process.nextTick(() =&gt; {
+    ee.emit('foo', 'bar');
+    ee.emit('foo', 42);
+  });
+
+  for await (const event of on(ee, 'foo', { signal: ac.signal })) {
+    // The execution of this inner block is synchronous and it
+    // processes one event at a time (even with await). Do not use
+    // if concurrent execution is required.
+    console.log(event); // prints ['bar'] [42]
+  }
+  // Unreachable here
+})();
+
+process.nextTick(() =&gt; ac.abort());
+</code></pre>
+<p><strong><code>since</code></strong> v13.6.0, v12.16.0</p>
+<h4 id="parameters_18">Parameters</h4>
+<table>
+<thead>
+<tr>
+<th align="left">Name</th>
+<th align="left">Type</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><code>emitter</code></td>
+<td align="left"><code>EventEmitter</code></td>
+<td align="left">-</td>
+</tr>
+<tr>
+<td align="left"><code>eventName</code></td>
+<td align="left"><code>string</code></td>
+<td align="left">The name of the event being listened for</td>
+</tr>
+<tr>
+<td align="left"><code>options?</code></td>
+<td align="left"><code>StaticEventEmitterOptions</code></td>
+<td align="left">-</td>
+</tr>
+</tbody>
+</table>
+<h4 id="returns_19">Returns</h4>
+<p><code>AsyncIterableIterator</code>&lt;<code>any</code>></p>
+<p>that iterates <code>eventName</code> events emitted by the <code>emitter</code></p>
+<h4 id="inherited-from_21">Inherited from</h4>
+<p>EventEmitter.on</p>
+<h4 id="defined-in_26">Defined in</h4>
+<p>node_modules/@types/node/events.d.ts:217</p>
+<hr />
+<h3 id="once_1"><a id="once" name="once"></a> once</h3>
+<p>▸ <code>Static</code> <strong>once</strong>(<code>emitter</code>, <code>eventName</code>, <code>options?</code>): <code>Promise</code>&lt;<code>any</code>[]></p>
+<p>Creates a <code>Promise</code> that is fulfilled when the <code>EventEmitter</code> emits the given
+event or that is rejected if the <code>EventEmitter</code> emits <code>'error'</code> while waiting.
+The <code>Promise</code> will resolve with an array of all the arguments emitted to the
+given event.</p>
+<p>This method is intentionally generic and works with the web platform <a href="https://dom.spec.whatwg.org/#interface-eventtarget">EventTarget</a> interface, which has no special<code>'error'</code> event
+semantics and does not listen to the <code>'error'</code> event.</p>
+<pre><code class="language-js">const { once, EventEmitter } = require('events');
+
+async function run() {
+  const ee = new EventEmitter();
+
+  process.nextTick(() =&gt; {
+    ee.emit('myevent', 42);
+  });
+
+  const [value] = await once(ee, 'myevent');
+  console.log(value);
+
+  const err = new Error('kaboom');
+  process.nextTick(() =&gt; {
+    ee.emit('error', err);
+  });
+
+  try {
+    await once(ee, 'myevent');
+  } catch (err) {
+    console.log('error happened', err);
+  }
+}
+
+run();
+</code></pre>
+<p>The special handling of the <code>'error'</code> event is only used when <code>events.once()</code>is used to wait for another event. If <code>events.once()</code> is used to wait for the
+'<code>error'</code> event itself, then it is treated as any other kind of event without
+special handling:</p>
+<pre><code class="language-js">const { EventEmitter, once } = require('events');
+
+const ee = new EventEmitter();
+
+once(ee, 'error')
+  .then(([err]) =&gt; console.log('ok', err.message))
+  .catch((err) =&gt; console.log('error', err.message));
+
+ee.emit('error', new Error('boom'));
+
+// Prints: ok boom
+</code></pre>
+<p>An <code>AbortSignal</code> can be used to cancel waiting for the event:</p>
+<pre><code class="language-js">const { EventEmitter, once } = require('events');
+
+const ee = new EventEmitter();
+const ac = new AbortController();
+
+async function foo(emitter, event, signal) {
+  try {
+    await once(emitter, event, { signal });
+    console.log('event emitted!');
+  } catch (error) {
+    if (error.name === 'AbortError') {
+      console.error('Waiting for the event was canceled!');
+    } else {
+      console.error('There was an error', error.message);
+    }
+  }
+}
+
+foo(ee, 'foo', ac.signal);
+ac.abort(); // Abort waiting for the event
+ee.emit('foo'); // Prints: Waiting for the event was canceled!
+</code></pre>
+<p><strong><code>since</code></strong> v11.13.0, v10.16.0</p>
+<h4 id="parameters_19">Parameters</h4>
+<table>
+<thead>
+<tr>
+<th align="left">Name</th>
+<th align="left">Type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><code>emitter</code></td>
+<td align="left"><code>NodeEventTarget</code></td>
+</tr>
+<tr>
+<td align="left"><code>eventName</code></td>
+<td align="left"><code>string</code> | <code>symbol</code></td>
+</tr>
+<tr>
+<td align="left"><code>options?</code></td>
+<td align="left"><code>StaticEventEmitterOptions</code></td>
+</tr>
+</tbody>
+</table>
+<h4 id="returns_20">Returns</h4>
+<p><code>Promise</code>&lt;<code>any</code>[]></p>
+<h4 id="inherited-from_22">Inherited from</h4>
+<p>EventEmitter.once</p>
+<h4 id="defined-in_27">Defined in</h4>
+<p>node_modules/@types/node/events.d.ts:157</p>
+<p>▸ <code>Static</code> <strong>once</strong>(<code>emitter</code>, <code>eventName</code>, <code>options?</code>): <code>Promise</code>&lt;<code>any</code>[]></p>
+<h4 id="parameters_20">Parameters</h4>
+<table>
+<thead>
+<tr>
+<th align="left">Name</th>
+<th align="left">Type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><code>emitter</code></td>
+<td align="left"><code>DOMEventTarget</code></td>
+</tr>
+<tr>
+<td align="left"><code>eventName</code></td>
+<td align="left"><code>string</code></td>
+</tr>
+<tr>
+<td align="left"><code>options?</code></td>
+<td align="left"><code>StaticEventEmitterOptions</code></td>
+</tr>
+</tbody>
+</table>
+<h4 id="returns_21">Returns</h4>
+<p><code>Promise</code>&lt;<code>any</code>[]></p>
+<h4 id="inherited-from_23">Inherited from</h4>
+<p>EventEmitter.once</p>
+<h4 id="defined-in_28">Defined in</h4>
+<p>node_modules/@types/node/events.d.ts:158</p>
+
+              
+            </article>
+          </div>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    <nav class="md-footer__inner md-grid" aria-label="Footer">
+      
+        
+        <a href="../client_Client.default/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Class: default" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              Class: default
+            </div>
+          </div>
+        </a>
+      
+      
+        
+        <a href="../client_apis_AccountInformationAPI.default/" class="md-footer__link md-footer__link--next" aria-label="Next: Class: default" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              Class: default
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": "../..", "features": [], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../../assets/javascripts/workers/search.361d90f1.min.js"}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.289a2a4b.min.js"></script>
+      
+    
+  </body>
+</html>
