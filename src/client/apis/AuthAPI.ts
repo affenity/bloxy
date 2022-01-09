@@ -1,9 +1,17 @@
 import BaseAPI from "./BaseAPI";
 import Client from "../Client";
+import { UsernamePasswordOption } from "../../types/GenericOptionTypes";
 
 // AccountPin
 export type AuthPin = {
   pin: string;
+};
+export type AuthUnlockPinOptions = AuthPin;
+export type AuthUnlockPin = {
+  unlockedUntil: number;
+};
+export type AuthLockPin = {
+  success: boolean;
 };
 
 // Metadata
@@ -24,17 +32,17 @@ export type AuthMetaData = {
 export type AuthTicket = {
   authTicket: string;
 };
-export type GetAuthMetaData = {
+export type AuthEndpointMetaData = {
   cookieLawNoticeTimeout: number;
 };
-export type LoginOptions = {
+export type AuthLoginOptions = {
   ctype: "Email" | "Username" | string;
   cvalue: string;
   password: string;
   captchaToken: string;
   captchaProvider: "PROVIDER_ARKOSELABS" | string;
 };
-export type Login = {
+export type AuthLogin = {
   user: {
     id: number;
     name: string;
@@ -45,71 +53,55 @@ export type Login = {
     ticket: string;
   };
 };
-export type Logout = unknown;
-export type GetCredentialsVerificationStatusOptions = {
+export type AuthCredentialsVerificationOptions = {
   credentialType: "Email" | "Username" | "PhoneNumber";
   credentialValue: string;
   password: string;
 };
-export type GetCredentialsVerificationStatus = {
+export type AuthGetCredentialsVerificationStatus = {
   canSend: boolean;
 };
-export type SendCredentialsVerificationMessageOptions = {
-  credentialType: "Email" | "Username" | "PhoneNumber";
-  credentialValue: string;
-  password: string;
-};
-export type SendCredentialsVerificationMessage = unknown;
-export type GetMetaData = {
-  isUpdateUsernameEnabled: boolean;
-  ftuxAvatarAssetMap: string;
-};
-export type GetCurrentPasswordStatus = {
+export type AuthGetCurrentPasswordStatus = {
   valid: boolean;
 };
-export type GetPasswordResetMetaDataOptions = {
+export type AuthGetPasswordResetMetaDataOptions = {
   targetType: "Email" | "PhoneNumber";
   ticket: string;
 };
-export type GetPasswordResetMetaData = {
+export type AuthGetPasswordResetMetaData = {
   users: {
     userId: number;
     username: string;
     displayName: string;
   }[];
 };
-export type ResetPasswordOptions = {
+export type AuthResetPasswordOptions = {
   targetType: "Email" | "PhoneNumber";
   ticket: string;
   userId: number;
   password: string;
   passwordRepeated: string;
 };
-export type ResetPassword = Login;
-export type ValidatePasswordOptions = {
-  username: string;
-  password: string;
-};
-export type ValidatePassword = {
+export type AuthValidatePassword = {
   code: string;
   message: string;
 };
-export type SendPasswordResetOptions = {
-  targetType: ResetPasswordOptions["targetType"];
+export type AuthSendPasswordResetOptions = {
+  targetType: AuthResetPasswordOptions["targetType"];
   target: string;
   captchaToken: string;
   captchaProvider: "PROVIDER_ARKOSELABS" | string;
 };
-export type SendPasswordReset = {
+export type AuthSendPasswordReset = {
   nonce: string;
   transmissionType: string;
 };
-export type VerifyPasswordResetOptions = {
-  targetType: ResetPasswordOptions["targetType"];
+export type AuthVerifyPasswordResetOptions = {
+  targetType: AuthResetPasswordOptions["targetType"];
   nonce: string;
   code: string;
 };
-export type VerifyPasswordReset = {
+export type AuthVerifyPasswordReset = {
   userTickets: {
     user: {
       userId: number;
@@ -119,22 +111,21 @@ export type VerifyPasswordReset = {
     ticket: string;
   }[];
 };
-export type ChangeUserPasswordOptions = {
+export type AuthChangeUserPasswordOptions = {
   currentPassword: string;
   newPassword: string;
 };
-export type ChangeUserPassword = unknown;
-export type GetRecoveryMetaData = {
+export type AuthGetRecoveryMetaData = {
   isOnPhone: boolean;
   codeLength: number;
   isPhoneFeatureEnabledForUsername: boolean;
   isPhoneFeatureEnabledForPassword: boolean;
   isBedev2CaptchaEnabledForPasswordReset: boolean;
 };
-export type RevertAccountInfoOptions = {
+export type AuthRevertAccountInfoOptions = {
   ticket: string;
 };
-export type RevertAccountInfo = {
+export type AuthRevertAccountInfo = {
   isTwoStepVerificationEnabled: boolean;
   isEmailVerified: boolean;
   isEmailChanged: boolean;
@@ -142,60 +133,58 @@ export type RevertAccountInfo = {
   username: string;
   ticket: string;
 };
-export type RevertAccountOptions = {
+export type AuthRevertAccountOptions = {
   userId: number;
   newPassword: string;
   ticket: string;
 };
-export type RevertAccount = Login;
-export type GetSAMLMetaData = unknown;
-export type SAMLRequest = unknown;
-export type GetTwoStepVerificationMetaData = {
+export type AuthGetSAMLMetaData = unknown;
+export type AuthSAMLRequest = unknown;
+export type AuthGetTwoStepVerificationMetaData = {
   codeLength: number;
   loadingImageUrl: string;
   supportUrl: string;
 };
-export type ResendTwoStepVerificationOptions = {
+export type AuthResendTwoStepVerificationOptions = {
   username: string;
   ticket: string;
   actionType: string;
 };
-export type ResendTwoStepVerification = RequestTwoStepVerification;
-export type RequestTwoStepVerification = {
+export type AuthTwoStepVerification = {
   mediaType: "Email" | "PhoneNumber" | string;
   ticket: string;
 };
-export type VerifyTwoStepVerificationOptions = {
+export type AuthVerifyTwoStepVerificationOptions = {
   username: string;
   ticket: string;
   code: string;
   rememberDevice: boolean;
   actionType: string;
 };
-export type VerifyTwoStepVerification = unknown;
-export type GetExistingUsernamesOptions = {
+export type AuthVerifyTwoStepVerification = unknown;
+export type AuthGetExistingUsernamesOptions = {
   username: string;
 };
-export type GetExistingUsernames = {
+export type AuthGetExistingUsernames = {
   usernames: string[];
 };
-export type ValidateUsernameOptions = {
+export type AuthValidateUsernameOptions = {
   username: string;
   birthday: string;
   context: "Unknown" | "Signup" | "UsernameChange" | string;
 };
-export type ValidateUsername = {
+export type AuthValidateUsername = {
   code: string;
   message: string;
 };
-export type RecoverUsernamesOptions = {
+export type AuthRecoverUsernamesOptions = {
   targetType: "Email" | string;
   target: string;
 };
-export type RecoverUsernames = {
+export type AuthRecoverUsernames = {
   transmissionType: string;
 };
-export type SignUpOptions = {
+export type AuthSignUpOptions = {
   username: string;
   password: string;
   gender: "Unknown" | string;
@@ -213,15 +202,21 @@ export type SignUpOptions = {
   captchaToken: string;
   captchaProvider: string;
 };
-export type SignUp = {
+export type AuthSignUp = {
   userId: number;
   starterPlaceId: number;
 };
-export type ChangeUsernameOptions = {
+export type AuthChangeUsernameOptions = {
   username: string;
   password: string;
 };
-export type ChangeUsername = unknown;
+export type AuthChangeUsername = unknown;
+export type AuthChangeUserPassword = unknown;
+export type AuthResetPassword = AuthLogin & {
+  identityVerificationLoginTicket: string;
+  isBanned: boolean;
+};
+export type AuthRevertAccount = AuthResetPassword;
 
 export default class AuthAPI extends BaseAPI {
   constructor(client: Client) {
@@ -231,7 +226,7 @@ export default class AuthAPI extends BaseAPI {
     });
   }
 
-  unlockPin(options: AuthPin): Promise<boolean> {
+  unlockPin(options: AuthUnlockPinOptions): Promise<AuthUnlockPin> {
     return this.request({
       requiresAuth: true,
       request: {
@@ -240,10 +235,10 @@ export default class AuthAPI extends BaseAPI {
         json: options
       },
       json: true
-    }).then(() => true);
+    }).then((response) => response.body);
   }
 
-  lockPin(): Promise<boolean> {
+  lockPin(): Promise<AuthLockPin> {
     return this.request({
       requiresAuth: true,
       request: {
@@ -251,7 +246,7 @@ export default class AuthAPI extends BaseAPI {
         method: "POST"
       },
       json: true
-    }).then(() => true);
+    }).then((response) => response.body);
   }
 
   getAuthTicket(): Promise<AuthTicket> {
@@ -298,19 +293,19 @@ export default class AuthAPI extends BaseAPI {
     }));
   }
 
-  getCurrentUserPasswordStatus(): Promise<GetCurrentPasswordStatus> {
+  getCurrentUserPasswordStatus(): Promise<AuthGetCurrentPasswordStatus> {
     return this.request({
       json: true,
       requiresAuth: true,
       request: {
         path: "v2/passwords/current-status"
       }
-    }).then((response) => response.body as GetCurrentPasswordStatus);
+    }).then((response) => response.body);
   }
 
   getPasswordResetMetaData(
-    options: GetPasswordResetMetaDataOptions
-  ): Promise<GetPasswordResetMetaData> {
+    options: AuthGetPasswordResetMetaDataOptions
+  ): Promise<AuthGetPasswordResetMetaData> {
     return this.request({
       json: true,
       requiresAuth: false,
@@ -321,24 +316,24 @@ export default class AuthAPI extends BaseAPI {
           "request.ticket": options.ticket
         }
       }
-    }).then((response) => response.body as GetPasswordResetMetaData);
+    }).then((response) => response.body);
   }
 
-  resetPassword(options: ResetPasswordOptions): Promise<ResetPassword> {
+  resetPassword(options: AuthResetPasswordOptions): Promise<AuthResetPassword> {
     return this.request({
       json: true,
       requiresAuth: false,
       request: {
-        path: "v2/auth/metadata",
+        path: "v2/passwords/reset",
         method: "POST",
         json: options
       }
-    }).then((response) => response.body as ResetPassword);
+    }).then((response) => response.body);
   }
 
   validatePassword(
-    options: ValidatePasswordOptions
-  ): Promise<ValidatePassword> {
+    options: UsernamePasswordOption
+  ): Promise<AuthValidatePassword> {
     return this.request({
       json: true,
       requiresAuth: false,
@@ -349,12 +344,12 @@ export default class AuthAPI extends BaseAPI {
           "request.password": options.password
         }
       }
-    }).then((response) => response.body as ValidatePassword);
+    }).then((response) => response.body);
   }
 
   sendPasswordReset(
-    options: SendPasswordResetOptions
-  ): Promise<SendPasswordReset> {
+    options: AuthSendPasswordResetOptions
+  ): Promise<AuthSendPasswordReset> {
     return this.request({
       json: true,
       requiresAuth: false,
@@ -363,12 +358,12 @@ export default class AuthAPI extends BaseAPI {
         method: "POST",
         json: options
       }
-    }).then((response) => response.body as SendPasswordReset);
+    }).then((response) => response.body);
   }
 
   verifyPasswordReset(
-    options: VerifyPasswordResetOptions
-  ): Promise<VerifyPasswordReset> {
+    options: AuthVerifyPasswordResetOptions
+  ): Promise<AuthVerifyPasswordReset> {
     return this.request({
       json: true,
       requiresAuth: false,
@@ -377,12 +372,12 @@ export default class AuthAPI extends BaseAPI {
         method: "POST",
         json: options
       }
-    }).then((response) => response.body as VerifyPasswordReset);
+    }).then((response) => response.body);
   }
 
   changeUserPassword(
-    options: ChangeUserPasswordOptions
-  ): Promise<ChangeUserPassword> {
+    options: AuthChangeUserPasswordOptions
+  ): Promise<AuthChangeUserPassword> {
     return this.request({
       json: true,
       requiresAuth: true,
@@ -391,22 +386,22 @@ export default class AuthAPI extends BaseAPI {
         method: "POST",
         json: options
       }
-    }).then((response) => response.body as ChangeUserPassword);
+    }).then((response) => response.body);
   }
 
-  getRecoveryMetaData(): Promise<GetRecoveryMetaData> {
+  getRecoveryMetaData(): Promise<AuthGetRecoveryMetaData> {
     return this.request({
       json: true,
       requiresAuth: false,
       request: {
         path: "v2/recovery/metadata"
       }
-    }).then((response) => response.body as GetRecoveryMetaData);
+    }).then((response) => response.body);
   }
 
   getRevertAccountInfo(
-    options: RevertAccountInfoOptions
-  ): Promise<RevertAccountInfo> {
+    options: AuthRevertAccountInfoOptions
+  ): Promise<AuthRevertAccountInfo> {
     return this.request({
       json: true,
       requiresAuth: false,
@@ -416,10 +411,10 @@ export default class AuthAPI extends BaseAPI {
           ticket: options.ticket
         }
       }
-    }).then((response) => response.body as RevertAccountInfo);
+    }).then((response) => response.body);
   }
 
-  revertAccount(options: RevertAccountOptions): Promise<RevertAccount> {
+  revertAccount(options: AuthRevertAccountOptions): Promise<AuthRevertAccount> {
     return this.request({
       json: true,
       requiresAuth: false,
@@ -428,20 +423,20 @@ export default class AuthAPI extends BaseAPI {
         method: "POST",
         json: options
       }
-    }).then((response) => response.body as RevertAccount);
+    }).then((response) => response.body);
   }
 
-  getSAMLMetaData(): Promise<GetSAMLMetaData> {
+  getSAMLMetaData(): Promise<AuthGetSAMLMetaData> {
     return this.request({
       json: true,
       requiresAuth: false,
       request: {
         path: "v2/saml/metadata"
       }
-    }).then((response) => response.body as GetSAMLMetaData);
+    }).then((response) => response.body);
   }
 
-  samlAuthenticate(): Promise<SAMLRequest> {
+  samlAuthenticate(): Promise<AuthSAMLRequest> {
     return this.request({
       json: true,
       requiresAuth: false,
@@ -449,22 +444,22 @@ export default class AuthAPI extends BaseAPI {
         path: "v2/saml/login",
         method: "POST"
       }
-    }).then((response) => response.body as SAMLRequest);
+    }).then((response) => response.body);
   }
 
-  getTwoStepVerificationMetaData(): Promise<GetTwoStepVerificationMetaData> {
+  getTwoStepVerificationMetaData(): Promise<AuthGetTwoStepVerificationMetaData> {
     return this.request({
       json: true,
       requiresAuth: false,
       request: {
         path: "v2/twostepverification/metadata"
       }
-    }).then((response) => response.body as GetTwoStepVerificationMetaData);
+    }).then((response) => response.body);
   }
 
   resendTwoStepVerificationCode(
-    options: ResendTwoStepVerificationOptions
-  ): Promise<ResendTwoStepVerification> {
+    options: AuthResendTwoStepVerificationOptions
+  ): Promise<AuthTwoStepVerification> {
     return this.request({
       json: true,
       requiresAuth: false,
@@ -473,12 +468,12 @@ export default class AuthAPI extends BaseAPI {
         method: "POST",
         json: options
       }
-    }).then((response) => response.body as ResendTwoStepVerification);
+    }).then((response) => response.body);
   }
 
-  verifyTwoStepCode(
-    options: VerifyTwoStepVerificationOptions
-  ): Promise<VerifyTwoStepVerification> {
+  verifyTwoStepVerificationCode(
+    options: AuthVerifyTwoStepVerificationOptions
+  ): Promise<AuthVerifyTwoStepVerification> {
     return this.request({
       json: true,
       requiresAuth: false,
@@ -487,12 +482,12 @@ export default class AuthAPI extends BaseAPI {
         method: "POST",
         json: options
       }
-    }).then((response) => response.body as VerifyTwoStepVerification);
+    }).then((response) => response.body);
   }
 
   getExistingUsernames(
-    options: GetExistingUsernamesOptions
-  ): Promise<GetExistingUsernames> {
+    options: AuthGetExistingUsernamesOptions
+  ): Promise<AuthGetExistingUsernames> {
     return this.request({
       json: true,
       requiresAuth: false,
@@ -502,12 +497,12 @@ export default class AuthAPI extends BaseAPI {
           username: options.username
         }
       }
-    }).then((response) => response.body as GetExistingUsernames);
+    }).then((response) => response.body);
   }
 
   validateUsername(
-    options: ValidateUsernameOptions
-  ): Promise<ValidateUsername> {
+    options: AuthValidateUsernameOptions
+  ): Promise<AuthValidateUsername> {
     return this.request({
       json: true,
       requiresAuth: false,
@@ -519,12 +514,12 @@ export default class AuthAPI extends BaseAPI {
           "request.context": options.context
         }
       }
-    }).then((response) => response.body as ValidateUsername);
+    }).then((response) => response.body);
   }
 
   recoverUsernames(
-    options: RecoverUsernamesOptions
-  ): Promise<RecoverUsernames> {
+    options: AuthRecoverUsernamesOptions
+  ): Promise<AuthRecoverUsernames> {
     return this.request({
       json: true,
       requiresAuth: false,
@@ -532,10 +527,10 @@ export default class AuthAPI extends BaseAPI {
         path: "v2/twostepverification/metadata",
         json: options
       }
-    }).then((response) => response.body as RecoverUsernames);
+    }).then((response) => response.body);
   }
 
-  signUp(options: SignUpOptions): Promise<SignUp> {
+  signUp(options: AuthSignUpOptions): Promise<AuthSignUp> {
     return this.request({
       json: true,
       requiresAuth: false,
@@ -544,10 +539,12 @@ export default class AuthAPI extends BaseAPI {
         method: "POST",
         json: options
       }
-    }).then((response) => response.body as SignUp);
+    }).then((response) => response.body);
   }
 
-  changeUserUsername(options: ChangeUsernameOptions): Promise<ChangeUsername> {
+  changeUserUsername(
+    options: AuthChangeUsernameOptions
+  ): Promise<AuthChangeUsername> {
     return this.request({
       json: true,
       requiresAuth: true,
@@ -556,6 +553,6 @@ export default class AuthAPI extends BaseAPI {
         method: "POST",
         json: options
       }
-    }).then((response) => response.body as ChangeUsername);
+    }).then((response) => response.body);
   }
 }

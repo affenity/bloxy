@@ -1,6 +1,7 @@
 import BaseAPI from "./BaseAPI";
 import Client from "../Client";
-import { Privacy } from "../../types/GeneralTypes";
+import { Privacy } from "../../types/GenericTypes";
+import { UserIdOption } from "../..";
 
 // Accounts
 export type AccountSettingsMetaData = {
@@ -37,11 +38,6 @@ export type AccountSettingsPrivateMessagePrivacy = {
 };
 export type AccountSettingsVisibilityPrivacy = {
   visibilityPrivacy: number;
-};
-
-// BlockUser
-export type AccountSettingsBlockUser = {
-  userId: number;
 };
 
 export default class AccountSettingsAPI extends BaseAPI {
@@ -215,7 +211,7 @@ export default class AccountSettingsAPI extends BaseAPI {
     }).then(() => true);
   }
 
-  blockUser(options: AccountSettingsBlockUser): Promise<boolean> {
+  blockUser(options: UserIdOption): Promise<boolean> {
     return this.request({
       requiresAuth: true,
       request: {
@@ -226,7 +222,7 @@ export default class AccountSettingsAPI extends BaseAPI {
     }).then(() => true);
   }
 
-  unblockUser(options: AccountSettingsBlockUser): Promise<boolean> {
+  unblockUser(options: UserIdOption): Promise<boolean> {
     return this.request({
       requiresAuth: true,
       request: {

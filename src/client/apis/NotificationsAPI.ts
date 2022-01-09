@@ -1,7 +1,7 @@
 import BaseAPI from "./BaseAPI";
 import Client from "../Client";
 
-export type GetNotificationsSettings = {
+export type NotificationsGetNotificationsSettings = {
   notificationBandSettings: {
     notificationSourceType: string;
     receiverDestinationType: string;
@@ -21,42 +21,43 @@ export type GetNotificationsSettings = {
   optedOutNotificationSourceTypes: string[];
   optedOutReceiverDestinationTypes: string[];
 };
-export type GetRealtimeNotificationsSettings = {
+export type NotificationsGetRealtimeNotificationsSettings = {
   primaryDomain: string;
   fallbackDomain: string;
 };
-export type AllowNotificationSourceOptions = {
+export type NotificationsAllowNotificationSourceOptions = {
   sourceType: string;
 };
-export type AllowNotificationSource = unknown;
-export type DisallowNotificationSourceOptions = AllowNotificationSourceOptions;
-export type DisallowNotificationSource = unknown;
-export type AllowNotificationsDestinationOptions = {
+export type NotificationsAllowNotificationSource = unknown;
+export type NotificationsDisallowNotificationSourceOptions =
+  NotificationsAllowNotificationSourceOptions;
+export type NotificationsDisallowNotificationSource = unknown;
+export type NotificationsAllowNotificationsDestinationOptions = {
   destinationType: string;
 };
-export type AllowNotificationsDestination = unknown;
-export type DisallowNotificationsDestinationOptions =
-  AllowNotificationsDestinationOptions;
-export type DisallowNotificationsDestination = unknown;
-export type UpdateNotificationDestinationSettingsOptions = {
+export type NotificationsAllowNotificationsDestination = unknown;
+export type NotificationsDisallowNotificationsDestinationOptions =
+  NotificationsAllowNotificationsDestinationOptions;
+export type NotificationsDisallowNotificationsDestination = unknown;
+export type NotificationsUpdateNotificationDestinationSettingsOptions = {
   notificationSourceType: string;
   destinationId: number;
   isEnabled: boolean;
 };
-export type UpdateNotificationDestinationSettings = unknown;
-export type UpdateNotificationSettingsOptions = {
+export type NotificationsUpdateNotificationDestinationSettings = unknown;
+export type NotificationsUpdateNotificationSettingsOptions = {
   updatedSettings: {
     notificationSourceType: string;
     receiverDestination: string;
     isEnabled: boolean;
   }[];
 };
-export type UpdateNotificationSettings = unknown;
-export type GetChromeNotificationsManifest = {
+export type NotificationsUpdateNotificationSettings = unknown;
+export type NotificationsGetChromeNotificationsManifest = {
   name: string;
   gcm_sender_id: string;
 };
-export type GetCurrentNotificationDeviceDestination = {
+export type NotificationsGetCurrentNotificationDeviceDestination = {
   destination: {
     user: {
       name: string;
@@ -71,15 +72,15 @@ export type GetCurrentNotificationDeviceDestination = {
   };
   statusMessage: string;
 };
-export type GetNotificationDestinations = {
-  destinations: GetCurrentNotificationDeviceDestination["destination"][];
+export type NotificationsGetNotificationDestinations = {
+  destinations: NotificationsGetCurrentNotificationDeviceDestination["destination"][];
   statusMessage: string;
 };
-export type GetNotificationsMetaDataOptions = {
+export type NotificationsGetNotificationsMetaDataOptions = {
   notificationToken: string;
   notificationId: number;
 };
-export type GetNotificationsMetaData = {
+export type NotificationsGetNotificationsMetaData = {
   metadata: {
     notificationId: string;
     type: string;
@@ -88,52 +89,52 @@ export type GetNotificationsMetaData = {
   };
   statusMessage: string;
 };
-export type GetNotificationIdsOptions = {
+export type NotificationsGetNotificationIdsOptions = {
   notificationToken: string;
   limit: number;
   cursor?: string;
 };
-export type GetNotificationIds = {
+export type NotificationsGetNotificationIds = {
   ids: string[];
   statusMessage: string;
 };
-export type DeregisterAllDevices = {
+export type NotificationsDeregisterAllDevices = {
   statusMessage: string;
 };
-export type DeregisterCurrentDevice = {
+export type NotificationsDeregisterCurrentDevice = {
   statusMessage: string;
 };
-export type MarkNotificationReadOptions = {
+export type NotificationsMarkNotificationReadOptions = {
   platformType: string;
   notificationId: string;
 };
-export type MarkNotificationRead = {
+export type NotificationsMarkNotificationRead = {
   statusMessage: string;
 };
-export type MarkNotificationCategoryReadOptions = {
+export type NotificationsMarkNotificationCategoryReadOptions = {
   notificationType: string;
   category: string;
   latestNotificationId: string;
 };
-export type MarkNotificationCategoryRead = {
+export type NotificationsMarkNotificationCategoryRead = {
   statusMessage: string;
 };
-export type MarkNotificationInteractionOptions = {
+export type NotificationsMarkNotificationInteractionOptions = {
   platformType: string;
   notificationToken: string;
   notificationId: number;
   interactionType: string;
 };
-export type MarkNotificationInteraction = {
+export type NotificationsMarkNotificationInteraction = {
   statusMessage: string;
 };
-export type RegisterAmazonAndroidOptions = {
+export type NotificationsRegisterAmazonAndroidOptions = {
   notificationToken: string;
   authorizeForUser: boolean;
   oldNotificationToken: string;
   deviceName: string;
 };
-export type RegisterAmazonAndroid = {
+export type NotificationsRegisterAmazonAndroid = {
   registration: {
     userPushNotificationDestinationId: number;
     name: string;
@@ -143,32 +144,37 @@ export type RegisterAmazonAndroid = {
   };
   statusMessage: string;
 };
-export type RegisterAndroidNativeOptions = RegisterAmazonAndroidOptions;
-export type RegisterAndroidNative = RegisterAmazonAndroid;
-export type RegisterAndroidTencentServiceOptions = RegisterAmazonAndroidOptions;
-export type RegisterAndroidTencentService = RegisterAmazonAndroid;
-export type RegisterChromeOptions = {
+export type NotificationsRegisterAndroidNativeOptions =
+  NotificationsRegisterAmazonAndroidOptions;
+export type NotificationsRegisterAndroidNative =
+  NotificationsRegisterAmazonAndroid;
+export type NotificationsRegisterAndroidTencentServiceOptions =
+  NotificationsRegisterAmazonAndroidOptions;
+export type NotificationsRegisterAndroidTencentService =
+  NotificationsRegisterAmazonAndroid;
+export type NotificationsRegisterChromeOptions = {
   notificationToken: string;
   initiatedByUser: boolean;
 };
-export type RegisterChrome = RegisterAmazonAndroid;
-export type RegisterFirefoxOptions = RegisterChromeOptions & {
-  notificationEndpoint: string;
-};
-export type RegisterFirefox = RegisterAmazonAndroid;
-export type RegisterIOSNativeOptions = {
+export type NotificationsRegisterChrome = NotificationsRegisterAmazonAndroid;
+export type NotificationsRegisterFirefoxOptions =
+  NotificationsRegisterChromeOptions & {
+    notificationEndpoint: string;
+  };
+export type NotificationsRegisterFirefox = NotificationsRegisterAmazonAndroid;
+export type NotificationsRegisterIOSNativeOptions = {
   notificationToken: string;
   destinationIdentifier: string;
   authorizeForUser: boolean;
   oldNotificationToken: string;
   deviceName: string;
 };
-export type RegisterIOSNative = RegisterAmazonAndroid;
-export type GetLatestUniversesUpdatesOptions = {
+export type NotificationsRegisterIOSNative = NotificationsRegisterAmazonAndroid;
+export type NotificationsGetLatestUniversesUpdatesOptions = {
   universeIds: number[];
   sinceDateTime?: string;
 };
-export type GetLatestUniverseUpdates = {
+export type NotificationsGetLatestUniverseUpdates = {
   universeId: number;
   rootPlaceId: number;
   createdOn: string;
@@ -176,15 +182,15 @@ export type GetLatestUniverseUpdates = {
   content: string;
   universeName: string;
 }[];
-export type GetStreamNotificationsPromptSettings = {
+export type NotificationsGetStreamNotificationsPromptSettings = {
   hasUserInteractedWithNotificationsStream: boolean;
   showNotificationStreamPrompt: boolean;
 };
-export type GetRecentStreamNotificationsOptions = {
+export type NotificationsGetRecentStreamNotificationsOptions = {
   startIndex?: number;
   maxRows?: number;
 };
-export type GetRecentStreamNotifications = {
+export type NotificationsGetRecentStreamNotifications = {
   id: number;
   notificationSourceType: string;
   eventDate: string;
@@ -192,55 +198,55 @@ export type GetRecentStreamNotifications = {
   metadataCollection: unknown[];
   eventCount: number;
 }[];
-export type GetStreamNotificationsMetaData = {
+export type NotificationsGetStreamNotificationsMetaData = {
   bannerDismissTimeSpan: number;
   signalRDisconnectionResponseInMilliseconds: number;
   canLaunchGameFromGameUpdate: boolean;
   useFriendsApiForAjaxRequests: boolean;
 };
-export type GetStreamNotificationsUnreadCount = {
+export type NotificationsGetStreamNotificationsUnreadCount = {
   unreadNotifications: number;
   statusMessage: string;
 };
-export type ClearUnreadStreamNotifications = {
+export type NotificationsClearUnreadStreamNotifications = {
   statusMessage: string;
 };
-export type SendGameUpdateNotificationInteractedOptions = {
+export type NotificationsSendGameUpdateNotificationInteractedOptions = {
   universeId: number;
   createdOnKey: string;
   interactioNType: string;
   currentUserId: number;
 };
-export type SendGameUpdateNotificationInteracted = {
+export type NotificationsSendGameUpdateNotificationInteracted = {
   statusMessage: string;
 };
-export type SendGameUpdateNotificationReadOptions = {
+export type NotificationsSendGameUpdateNotificationReadOptions = {
   universeId: number;
   createdOn: string;
   currentUserId: number;
 };
-export type SendGameUpdateNotificationRead = {
+export type NotificationsSendGameUpdateNotificationRead = {
   statusMessage: string;
 };
-export type MarkStreamNotificationInteractedOptions = {
+export type NotificationsMarkStreamNotificationInteractedOptions = {
   eventId: string;
 };
-export type MarkStreamNotificationInteracted = {
+export type NotificationsMarkStreamNotificationInteracted = {
   statusMessage: string;
 };
-export type SuppressStreamNotificationsPrompt = {
+export type NotificationsSuppressStreamNotificationsPrompt = {
   statusMessage: string;
 };
 
 export default class NotificationsAPI extends BaseAPI {
-  constructor (client: Client) {
+  constructor(client: Client) {
     super({
       client,
       baseUrl: "https://notifications.roblox.com/"
     });
   }
 
-  getNotificationsSettings (): Promise<GetNotificationsSettings> {
+  getNotificationsSettings(): Promise<NotificationsGetNotificationsSettings> {
     return this.request({
       requiresAuth: false,
       request: {
@@ -250,7 +256,7 @@ export default class NotificationsAPI extends BaseAPI {
     }).then((response) => response.body);
   }
 
-  getRealtimeNotificationSettings (): Promise<GetRealtimeNotificationsSettings> {
+  getRealtimeNotificationSettings(): Promise<NotificationsGetRealtimeNotificationsSettings> {
     return this.request({
       requiresAuth: false,
       request: {
@@ -260,9 +266,9 @@ export default class NotificationsAPI extends BaseAPI {
     }).then((response) => response.body);
   }
 
-  allowNotificationSource (
-    options: AllowNotificationSourceOptions
-  ): Promise<AllowNotificationSource> {
+  allowNotificationSource(
+    options: NotificationsAllowNotificationSourceOptions
+  ): Promise<NotificationsAllowNotificationSource> {
     return this.request({
       requiresAuth: false,
       request: {
@@ -274,9 +280,9 @@ export default class NotificationsAPI extends BaseAPI {
     }).then((response) => response.body);
   }
 
-  disallowNotificationSource (
-    options: DisallowNotificationSourceOptions
-  ): Promise<DisallowNotificationSource> {
+  disallowNotificationSource(
+    options: NotificationsDisallowNotificationSourceOptions
+  ): Promise<NotificationsDisallowNotificationSource> {
     return this.request({
       requiresAuth: false,
       request: {
@@ -288,9 +294,9 @@ export default class NotificationsAPI extends BaseAPI {
     }).then((response) => response.body);
   }
 
-  allowNotificationDestination (
-    options: AllowNotificationsDestinationOptions
-  ): Promise<AllowNotificationsDestination> {
+  allowNotificationDestination(
+    options: NotificationsAllowNotificationsDestinationOptions
+  ): Promise<NotificationsAllowNotificationsDestination> {
     return this.request({
       requiresAuth: false,
       request: {
@@ -302,9 +308,9 @@ export default class NotificationsAPI extends BaseAPI {
     }).then((response) => response.body);
   }
 
-  disallowNotificationDestination (
-    options: DisallowNotificationsDestinationOptions
-  ): Promise<DisallowNotificationsDestination> {
+  disallowNotificationDestination(
+    options: NotificationsDisallowNotificationsDestinationOptions
+  ): Promise<NotificationsDisallowNotificationsDestination> {
     return this.request({
       requiresAuth: false,
       request: {
@@ -316,9 +322,9 @@ export default class NotificationsAPI extends BaseAPI {
     }).then((response) => response.body);
   }
 
-  updateDestinationSetting (
-    options: UpdateNotificationDestinationSettingsOptions
-  ): Promise<UpdateNotificationDestinationSettings> {
+  updateDestinationSetting(
+    options: NotificationsUpdateNotificationDestinationSettingsOptions
+  ): Promise<NotificationsUpdateNotificationDestinationSettings> {
     return this.request({
       requiresAuth: false,
       request: {
@@ -330,9 +336,9 @@ export default class NotificationsAPI extends BaseAPI {
     }).then((response) => response.body);
   }
 
-  updateNotificationSettings (
-    options: UpdateNotificationSettingsOptions
-  ): Promise<UpdateNotificationSettings> {
+  updateNotificationSettings(
+    options: NotificationsUpdateNotificationSettingsOptions
+  ): Promise<NotificationsUpdateNotificationSettings> {
     return this.request({
       requiresAuth: false,
       request: {
@@ -344,7 +350,7 @@ export default class NotificationsAPI extends BaseAPI {
     }).then((response) => response.body);
   }
 
-  getChromeManifest (): Promise<GetChromeNotificationsManifest> {
+  getChromeManifest(): Promise<NotificationsGetChromeNotificationsManifest> {
     return this.request({
       requiresAuth: false,
       request: {
@@ -354,7 +360,7 @@ export default class NotificationsAPI extends BaseAPI {
     }).then((response) => response.body);
   }
 
-  getCurrentDeviceDestination (): Promise<GetCurrentNotificationDeviceDestination> {
+  getCurrentDeviceDestination(): Promise<NotificationsGetCurrentNotificationDeviceDestination> {
     return this.request({
       requiresAuth: false,
       request: {
@@ -364,7 +370,7 @@ export default class NotificationsAPI extends BaseAPI {
     }).then((response) => response.body);
   }
 
-  getDestinations (): Promise<GetNotificationDestinations> {
+  getDestinations(): Promise<NotificationsGetNotificationDestinations> {
     return this.request({
       requiresAuth: false,
       request: {
@@ -374,7 +380,7 @@ export default class NotificationsAPI extends BaseAPI {
     }).then((response) => response.body);
   }
 
-  getPushNotificationsMetaData (): Promise<GetNotificationsMetaData> {
+  getPushNotificationsMetaData(): Promise<NotificationsGetNotificationsMetaData> {
     return this.request({
       requiresAuth: false,
       request: {
@@ -384,9 +390,9 @@ export default class NotificationsAPI extends BaseAPI {
     }).then((response) => response.body);
   }
 
-  getNotificationIds (
-    options: GetNotificationIdsOptions
-  ): Promise<GetNotificationIds> {
+  getNotificationIds(
+    options: NotificationsGetNotificationIdsOptions
+  ): Promise<NotificationsGetNotificationIds> {
     return this.request({
       requiresAuth: false,
       request: {
@@ -397,7 +403,7 @@ export default class NotificationsAPI extends BaseAPI {
     }).then((response) => response.body);
   }
 
-  deregisterAllDevices (): Promise<DeregisterAllDevices> {
+  deregisterAllDevices(): Promise<NotificationsDeregisterAllDevices> {
     return this.request({
       requiresAuth: false,
       request: {
@@ -408,7 +414,7 @@ export default class NotificationsAPI extends BaseAPI {
     }).then((response) => response.body);
   }
 
-  deregisterCurrentDevice (): Promise<DeregisterCurrentDevice> {
+  deregisterCurrentDevice(): Promise<NotificationsDeregisterCurrentDevice> {
     return this.request({
       requiresAuth: false,
       request: {
@@ -418,9 +424,9 @@ export default class NotificationsAPI extends BaseAPI {
     }).then((response) => response.body);
   }
 
-  markNotificationRead (
-    options: MarkNotificationReadOptions
-  ): Promise<MarkNotificationRead> {
+  markNotificationRead(
+    options: NotificationsMarkNotificationReadOptions
+  ): Promise<NotificationsMarkNotificationRead> {
     return this.request({
       requiresAuth: false,
       request: {
@@ -432,9 +438,9 @@ export default class NotificationsAPI extends BaseAPI {
     }).then((response) => response.body);
   }
 
-  markNotificationCategoryRead (
-    options: MarkNotificationCategoryReadOptions
-  ): Promise<MarkNotificationCategoryRead> {
+  markNotificationCategoryRead(
+    options: NotificationsMarkNotificationCategoryReadOptions
+  ): Promise<NotificationsMarkNotificationCategoryRead> {
     return this.request({
       requiresAuth: false,
       request: {
@@ -446,9 +452,9 @@ export default class NotificationsAPI extends BaseAPI {
     }).then((response) => response.body);
   }
 
-  markNotificationInteraction (
-    options: MarkNotificationInteractionOptions
-  ): Promise<MarkNotificationInteraction> {
+  markNotificationInteraction(
+    options: NotificationsMarkNotificationInteractionOptions
+  ): Promise<NotificationsMarkNotificationInteraction> {
     return this.request({
       requiresAuth: false,
       request: {
@@ -460,9 +466,9 @@ export default class NotificationsAPI extends BaseAPI {
     }).then((response) => response.body);
   }
 
-  registerAndroidAmazon (
-    options: RegisterAmazonAndroidOptions
-  ): Promise<RegisterAmazonAndroid> {
+  registerAndroidAmazon(
+    options: NotificationsRegisterAmazonAndroidOptions
+  ): Promise<NotificationsRegisterAmazonAndroid> {
     return this.request({
       requiresAuth: false,
       request: {
@@ -474,9 +480,9 @@ export default class NotificationsAPI extends BaseAPI {
     }).then((response) => response.body);
   }
 
-  registerAndroidNative (
-    options: RegisterAndroidNativeOptions
-  ): Promise<RegisterAndroidNative> {
+  registerAndroidNative(
+    options: NotificationsRegisterAndroidNativeOptions
+  ): Promise<NotificationsRegisterAndroidNative> {
     return this.request({
       requiresAuth: false,
       request: {
@@ -488,9 +494,9 @@ export default class NotificationsAPI extends BaseAPI {
     }).then((response) => response.body);
   }
 
-  registerAndroidTencentSerice (
-    options: RegisterAndroidTencentServiceOptions
-  ): Promise<RegisterAndroidTencentService> {
+  registerAndroidTencentSerice(
+    options: NotificationsRegisterAndroidTencentServiceOptions
+  ): Promise<NotificationsRegisterAndroidTencentService> {
     return this.request({
       requiresAuth: false,
       request: {
@@ -502,7 +508,9 @@ export default class NotificationsAPI extends BaseAPI {
     }).then((response) => response.body);
   }
 
-  registerChrome (options: RegisterChromeOptions): Promise<RegisterChrome> {
+  registerChrome(
+    options: NotificationsRegisterChromeOptions
+  ): Promise<NotificationsRegisterChrome> {
     return this.request({
       requiresAuth: false,
       request: {
@@ -514,7 +522,9 @@ export default class NotificationsAPI extends BaseAPI {
     }).then((response) => response.body);
   }
 
-  registerFirefox (options: RegisterFirefoxOptions): Promise<RegisterFirefox> {
+  registerFirefox(
+    options: NotificationsRegisterFirefoxOptions
+  ): Promise<NotificationsRegisterFirefox> {
     return this.request({
       requiresAuth: false,
       request: {
@@ -526,9 +536,9 @@ export default class NotificationsAPI extends BaseAPI {
     }).then((response) => response.body);
   }
 
-  registerIOSNative (
-    options: RegisterIOSNativeOptions
-  ): Promise<RegisterIOSNative> {
+  registerIOSNative(
+    options: NotificationsRegisterIOSNativeOptions
+  ): Promise<NotificationsRegisterIOSNative> {
     return this.request({
       requiresAuth: false,
       request: {
@@ -540,9 +550,9 @@ export default class NotificationsAPI extends BaseAPI {
     }).then((response) => response.body);
   }
 
-  getLatestUniversesUpdates (
-    options: GetLatestUniversesUpdatesOptions
-  ): Promise<GetLatestUniverseUpdates> {
+  getLatestUniversesUpdates(
+    options: NotificationsGetLatestUniversesUpdatesOptions
+  ): Promise<NotificationsGetLatestUniverseUpdates> {
     return this.request({
       requiresAuth: false,
       request: {
@@ -556,7 +566,7 @@ export default class NotificationsAPI extends BaseAPI {
     }).then((response) => response.body);
   }
 
-  getStreamNotificationsPromptSettings (): Promise<GetStreamNotificationsPromptSettings> {
+  getStreamNotificationsPromptSettings(): Promise<NotificationsGetStreamNotificationsPromptSettings> {
     return this.request({
       requiresAuth: false,
       request: {
@@ -566,9 +576,9 @@ export default class NotificationsAPI extends BaseAPI {
     }).then((response) => response.body);
   }
 
-  getRecentStreamNotifications (
-    options: GetRecentStreamNotificationsOptions
-  ): Promise<GetRecentStreamNotifications> {
+  getRecentStreamNotifications(
+    options: NotificationsGetRecentStreamNotificationsOptions
+  ): Promise<NotificationsGetRecentStreamNotifications> {
     return this.request({
       requiresAuth: false,
       request: {
@@ -579,7 +589,7 @@ export default class NotificationsAPI extends BaseAPI {
     }).then((response) => response.body);
   }
 
-  getStreamNotificationsMetaData (): Promise<GetLatestUniverseUpdates> {
+  getStreamNotificationsMetaData(): Promise<NotificationsGetLatestUniverseUpdates> {
     return this.request({
       requiresAuth: false,
       request: {
@@ -589,7 +599,7 @@ export default class NotificationsAPI extends BaseAPI {
     }).then((response) => response.body);
   }
 
-  getUnreadStreamNotificationsCount (): Promise<GetLatestUniverseUpdates> {
+  getUnreadStreamNotificationsCount(): Promise<NotificationsGetLatestUniverseUpdates> {
     return this.request({
       requiresAuth: false,
       request: {
@@ -599,7 +609,7 @@ export default class NotificationsAPI extends BaseAPI {
     }).then((response) => response.body);
   }
 
-  clearUnreadStreamNotifications (): Promise<ClearUnreadStreamNotifications> {
+  clearUnreadStreamNotifications(): Promise<NotificationsClearUnreadStreamNotifications> {
     return this.request({
       requiresAuth: false,
       request: {
@@ -610,9 +620,9 @@ export default class NotificationsAPI extends BaseAPI {
     }).then((response) => response.body);
   }
 
-  markGameUpdateNotificationInteracted (
-    options: SendGameUpdateNotificationInteractedOptions
-  ): Promise<SendGameUpdateNotificationInteracted> {
+  markGameUpdateNotificationInteracted(
+    options: NotificationsSendGameUpdateNotificationInteractedOptions
+  ): Promise<NotificationsSendGameUpdateNotificationInteracted> {
     return this.request({
       requiresAuth: false,
       request: {
@@ -624,9 +634,9 @@ export default class NotificationsAPI extends BaseAPI {
     }).then((response) => response.body);
   }
 
-  markGameUpdateNotificationRead (
-    options: SendGameUpdateNotificationReadOptions
-  ): Promise<SendGameUpdateNotificationRead> {
+  markGameUpdateNotificationRead(
+    options: NotificationsSendGameUpdateNotificationReadOptions
+  ): Promise<NotificationsSendGameUpdateNotificationRead> {
     return this.request({
       requiresAuth: false,
       request: {
@@ -638,7 +648,7 @@ export default class NotificationsAPI extends BaseAPI {
     }).then((response) => response.body);
   }
 
-  suppressStreamNotificationsPrompt (): Promise<SuppressStreamNotificationsPrompt> {
+  suppressStreamNotificationsPrompt(): Promise<NotificationsSuppressStreamNotificationsPrompt> {
     return this.request({
       requiresAuth: false,
       request: {

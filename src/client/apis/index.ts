@@ -30,7 +30,6 @@ import PresenceAPI from "./PresenceAPI";
 import PrivateMessagesAPI from "./PrivateMessagesAPI";
 import PublishAPI from "./PublishAPI";
 import ThumbnailsAPI from "./ThumbnailsAPI";
-import TradesAPI from "./TradesAPI";
 import TranslationRolesAPI from "./TranslationRolesAPI";
 import UsersAPI from "./UsersAPI";
 import OtherAPI from "./OtherAPI";
@@ -70,11 +69,10 @@ export declare type APIs = {
   privateMessagesAPI: PrivateMessagesAPI;
   publishAPI: PublishAPI;
   thumbnailsAPI: ThumbnailsAPI;
-  tradesAPI: TradesAPI;
   translationRolesAPI: TranslationRolesAPI;
   usersAPI: UsersAPI;
   generalApi: GeneralAPI;
-  twpStepVerification: TwoStepVerificationAPI;
+  twoStepVerification: TwoStepVerificationAPI;
 };
 
 export default function initAPIs(client: Client): APIs {
@@ -112,9 +110,8 @@ export default function initAPIs(client: Client): APIs {
     privateMessagesAPI: new PrivateMessagesAPI(client),
     publishAPI: new PublishAPI(client),
     thumbnailsAPI: new ThumbnailsAPI(client),
-    tradesAPI: new TradesAPI(client),
     translationRolesAPI: new TranslationRolesAPI(client),
     usersAPI: new UsersAPI(client),
-    twpStepVerification: new TwoStepVerificationAPI(client)
+    twoStepVerification: new TwoStepVerificationAPI(client)
   };
 }

@@ -1,28 +1,28 @@
 import BaseAPI from "./BaseAPI";
 import Client from "../Client";
 
-export type PremiumUpsellCheckOptions = {
+export type PremiumFeaturesUpsellCheckOptions = {
   userId: number;
   universeId: number;
   placeId: number;
 };
-export type PremiumUpsellCheck = unknown;
-export type ValidateUserMembershipOptions = {
+export type PremiumFeaturesUpsellCheck = unknown;
+export type PremiumFeaturesValidateUserMembershipOptions = {
   userId: number;
 };
-export type ValidateUserMembership = boolean;
+export type PremiumFeaturesValidateUserMembership = boolean;
 
 export default class PremiumFeaturesAPI extends BaseAPI {
-  constructor (client: Client) {
+  constructor(client: Client) {
     super({
       client,
       baseUrl: "https://premiumfeatures.roblox.com/"
     });
   }
 
-  premiumUpsellCheck (
-    options: PremiumUpsellCheckOptions
-  ): Promise<PremiumUpsellCheck> {
+  premiumUpsellCheck(
+    options: PremiumFeaturesUpsellCheckOptions
+  ): Promise<PremiumFeaturesUpsellCheck> {
     return this.request({
       requiresAuth: false,
       request: {
@@ -33,9 +33,9 @@ export default class PremiumFeaturesAPI extends BaseAPI {
     }).then((response) => response.body);
   }
 
-  validateUserMembership (
-    options: ValidateUserMembershipOptions
-  ): Promise<ValidateUserMembership> {
+  validateUserMembership(
+    options: PremiumFeaturesValidateUserMembershipOptions
+  ): Promise<PremiumFeaturesValidateUserMembership> {
     return this.request({
       requiresAuth: false,
       request: {

@@ -1,21 +1,21 @@
 import BaseAPI from "./BaseAPI";
 import Client from "../Client";
 
-export type GetTwoStepVerificationMetaDataOptions = {
+export type TwoStepVerificationGetMetaDataOptions = {
   userId: number;
   challengeId: string;
   actionType: string;
 };
-export type GetTwoStepVerificationMetaData = {
+export type TwoStepVerificationGetMetaData = {
   twoStepVerificationEnabled: boolean;
   authenticatorEnabled: boolean;
   authenticatorQrCodeSize: string;
   emailCodeLength: number;
   authenticatorCodeLength: number;
 };
-export type GetTwoStepConfigurationOptions =
-  GetTwoStepVerificationMetaDataOptions;
-export type GetTwoStepConfiguration = {
+export type TwoStepVerificationGetConfigurationOptions =
+  TwoStepVerificationGetMetaDataOptions;
+export type TwoStepVerificationGetConfiguration = {
   primaryMediaType: "Email" | string;
   methods: {
     mediaType: "Email" | string;
@@ -23,67 +23,67 @@ export type GetTwoStepConfiguration = {
     updated: string;
   }[];
 };
-export type AuthenticatorVerifyOptions = {
+export type TwoStepVerificationAuthenticatorVerifyOptions = {
   challengeId: string;
   actionType: string;
   code: string;
 };
-export type AuthenticatorVerify = {
+export type TwoStepVerificationAuthenticatorVerify = {
   verificationToken: string;
 };
-export type AuthenticatorDisableOptions = {
+export type TwoStepVerificationAuthenticatorDisableOptions = {
   password: string;
 };
-export type AuthenticatorDisable = unknown;
-export type AuthenticatorEnableOptions = {
+export type TwoStepVerificationAuthenticatorDisable = unknown;
+export type TwoStepVerificationAuthenticatorEnableOptions = {
   userId: number;
 };
-export type AuthenticatorEnable = {
+export type TwoStepVerificationAuthenticatorEnable = {
   setupToken: string;
   qrCodeImageUrl: string;
   manualEntryKey: string;
 };
-export type AuthenticatorVerifySetupOptions = {
+export type TwoStepVerificationAuthenticatorVerifySetupOptions = {
   setupToken: string;
   code: string;
 };
-export type AuthenticatorVerifySetup = unknown;
-export type EmailSendCodeOptions = {
+export type TwoStepVerificationAuthenticatorVerifySetup = unknown;
+export type TwoStepVerificationEmailSendCodeOptions = {
   challengeId: string;
   actionType: string;
 };
-export type EmailSendCode = {
+export type TwoStepVerificationEmailSendCode = {
   challengeId: string;
   actionType: string;
 };
-export type EmailVerifyOptions = {
+export type TwoStepVerificationEmailVerifyOptions = {
   challengeId: string;
   actionType: string;
   code: string;
 };
-export type EmailVerify = {
+export type TwoStepVerificationEmailVerify = {
   verificationToken: string;
 };
-export type EmailDisableOptions = {
+export type TwoStepVerificationEmailDisableOptions = {
   password: string;
 };
-export type EmailDisable = unknown;
-export type EmailEnableOptions = {
+export type TwoStepVerificationEmailDisable = unknown;
+export type TwoStepVerificationEmailEnableOptions = {
   userId: number;
 };
-export type EmailEnable = unknown;
+export type TwoStepVerificationEmailEnable = unknown;
 
 export default class TwoStepVerificationAPI extends BaseAPI {
-  constructor (client: Client) {
+  constructor(client: Client) {
     super({
       client,
       baseUrl: "https://twostepverification.roblox.com/"
     });
   }
 
-  getMetaData (
-    options: GetTwoStepVerificationMetaDataOptions
-  ): Promise<GetTwoStepVerificationMetaData> {
+  getMetaData(
+    options: TwoStepVerificationGetMetaDataOptions
+  ): Promise<TwoStepVerificationGetMetaData> {
     return this.request({
       requiresAuth: true,
       request: {
@@ -94,9 +94,9 @@ export default class TwoStepVerificationAPI extends BaseAPI {
     }).then((response) => response.body);
   }
 
-  getConfiguration (
-    options?: GetTwoStepConfigurationOptions
-  ): Promise<GetTwoStepVerificationMetaData> {
+  getConfiguration(
+    options?: TwoStepVerificationGetConfigurationOptions
+  ): Promise<TwoStepVerificationGetMetaData> {
     return this.request({
       requiresAuth: true,
       request: {
@@ -107,9 +107,9 @@ export default class TwoStepVerificationAPI extends BaseAPI {
     }).then((response) => response.body);
   }
 
-  verifyWithAuthenticator (
-    options: AuthenticatorVerifyOptions
-  ): Promise<AuthenticatorVerify> {
+  verifyWithAuthenticator(
+    options: TwoStepVerificationAuthenticatorVerifyOptions
+  ): Promise<TwoStepVerificationAuthenticatorVerify> {
     return this.request({
       requiresAuth: true,
       request: {
@@ -123,9 +123,9 @@ export default class TwoStepVerificationAPI extends BaseAPI {
     }).then((response) => response.body);
   }
 
-  disableAuthenticator (
-    options: AuthenticatorDisableOptions
-  ): Promise<AuthenticatorDisable> {
+  disableAuthenticator(
+    options: TwoStepVerificationAuthenticatorDisableOptions
+  ): Promise<TwoStepVerificationAuthenticatorDisable> {
     return this.request({
       requiresAuth: true,
       request: {
@@ -139,9 +139,9 @@ export default class TwoStepVerificationAPI extends BaseAPI {
     }).then((response) => response.body);
   }
 
-  enableAuthenticator (
-    options: AuthenticatorEnableOptions
-  ): Promise<AuthenticatorEnable> {
+  enableAuthenticator(
+    options: TwoStepVerificationAuthenticatorEnableOptions
+  ): Promise<TwoStepVerificationAuthenticatorEnable> {
     return this.request({
       requiresAuth: true,
       request: {
@@ -155,9 +155,9 @@ export default class TwoStepVerificationAPI extends BaseAPI {
     }).then((response) => response.body);
   }
 
-  verifyAuthenticatorSetup (
-    options: AuthenticatorVerifySetupOptions
-  ): Promise<AuthenticatorVerifySetup> {
+  verifyAuthenticatorSetup(
+    options: TwoStepVerificationAuthenticatorVerifySetupOptions
+  ): Promise<TwoStepVerificationAuthenticatorVerifySetup> {
     return this.request({
       requiresAuth: true,
       request: {
@@ -171,7 +171,9 @@ export default class TwoStepVerificationAPI extends BaseAPI {
     }).then((response) => response.body);
   }
 
-  sendEmailCode (options: EmailSendCodeOptions): Promise<EmailSendCode> {
+  sendEmailCode(
+    options: TwoStepVerificationEmailSendCodeOptions
+  ): Promise<TwoStepVerificationEmailSendCode> {
     return this.request({
       requiresAuth: true,
       request: {
@@ -182,7 +184,9 @@ export default class TwoStepVerificationAPI extends BaseAPI {
     }).then((response) => response.body);
   }
 
-  verifyEmail (options: EmailVerifyOptions): Promise<EmailVerify> {
+  verifyEmail(
+    options: TwoStepVerificationEmailVerifyOptions
+  ): Promise<TwoStepVerificationEmailVerify> {
     return this.request({
       requiresAuth: true,
       request: {
@@ -194,7 +198,9 @@ export default class TwoStepVerificationAPI extends BaseAPI {
     }).then((response) => response.body);
   }
 
-  disableEmail (options: EmailDisableOptions): Promise<EmailDisable> {
+  disableEmail(
+    options: TwoStepVerificationEmailDisableOptions
+  ): Promise<TwoStepVerificationEmailDisable> {
     return this.request({
       requiresAuth: true,
       request: {
@@ -206,7 +212,9 @@ export default class TwoStepVerificationAPI extends BaseAPI {
     }).then((response) => response.body);
   }
 
-  enableEmail (options: EmailEnableOptions): Promise<EmailEnable> {
+  enableEmail(
+    options: TwoStepVerificationEmailEnableOptions
+  ): Promise<TwoStepVerificationEmailEnable> {
     return this.request({
       requiresAuth: true,
       request: {

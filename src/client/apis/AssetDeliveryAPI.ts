@@ -1,7 +1,7 @@
 import BaseAPI from "./BaseAPI";
 import Client from "../Client";
 
-export type BaseAssetDeliveryOptions = {
+export type AssetDeliveryBaseOptions = {
   acceptEncoding: string;
   robloxPlaceId: number;
   assetType: string;
@@ -13,7 +13,7 @@ export type BaseAssetDeliveryOptions = {
   serverPlaceId: number;
   expectedAssetType: string;
 };
-export type BaseAsset = {
+export type AssetDeliveryBaseAsset = {
   location?: string;
   errors?: { code: number; message: string }[];
   requestId?: string;
@@ -21,7 +21,7 @@ export type BaseAsset = {
   isCopyrightProtected?: boolean;
   isArchived?: boolean;
 };
-export type BaseAssetRaw = {
+export type AssetDeliveryBaseAssetRaw = {
   Location?: string;
   Errors?: { Code: number; Message: string }[];
   RequestId?: string;
@@ -30,13 +30,15 @@ export type BaseAssetRaw = {
   IsArchived?: boolean;
 };
 
-const convertToBaseAsset = (options: BaseAssetRaw): BaseAsset => ({
+const convertToBaseAsset = (
+  options: AssetDeliveryBaseAssetRaw
+): AssetDeliveryBaseAsset => ({
   errors:
     typeof options.Errors !== "undefined"
       ? options.Errors.map((v) => ({
-        message: v.Message,
-        code: v.Code
-      }))
+          message: v.Message,
+          code: v.Code
+        }))
       : undefined,
   isArchived:
     typeof options.IsArchived !== "undefined" ? options.IsArchived : undefined,
@@ -54,7 +56,7 @@ const convertToBaseAsset = (options: BaseAssetRaw): BaseAsset => ({
     typeof options.RequestId !== "undefined" ? options.RequestId : undefined
 });
 const generateBaseDeliveryAssetOptions = (
-  options: BaseAssetDeliveryOptions
+  options: AssetDeliveryBaseOptions
 ) => ({
   headers: {
     "Accept-Encoding": options.acceptEncoding,
@@ -72,40 +74,48 @@ const generateBaseDeliveryAssetOptions = (
   }
 });
 
-export type GetAssetByAliasOptions = BaseAssetDeliveryOptions & {
+export type AssetDeliveryGetAssetByAliasOptions = AssetDeliveryBaseOptions & {
   alias: string;
 };
-export type GetAssetByAlias = BaseAsset;
-export type GetAssetByIdOptions = BaseAssetDeliveryOptions & { id: number };
-export type GetAssetById = {
+export type AssetDeliveryGetAssetByAlias = AssetDeliveryBaseAsset;
+export type AssetDeliveryGetAssetByIdOptions = AssetDeliveryBaseOptions & {
+  id: number;
+};
+export type AssetDeliveryGetAssetById = {
   location?: string;
   request?: unknown;
 };
-export type GetAssetByHashOptions = BaseAssetDeliveryOptions & { hash: string };
-export type GetAssetByHash = unknown;
-export type GetAssetByAssetIdOptions = BaseAssetDeliveryOptions & {
+export type AssetDeliveryGetAssetByHashOptions = AssetDeliveryBaseOptions & {
+  hash: string;
+};
+export type AssetDeliveryGetAssetByHash = unknown;
+export type AssetDeliveryGetAssetByAssetIdOptions = AssetDeliveryBaseOptions & {
   assetId: number;
 };
-export type GetAssetByAssetId = unknown;
-export type GetAssetVersionByAssetIdOptions = BaseAssetDeliveryOptions & {
-  assetId: number;
-  version: number;
-};
-export type GetAssetVersionByAssetId = unknown;
-export type GetAssetByAssetVersionIdOptions = BaseAssetDeliveryOptions & {
-  assetVersionId: number;
-};
-export type GetAssetByAssetVersionId = unknown;
-export type GetAssetByMarAssetHashOptions = BaseAssetDeliveryOptions & {
-  marAssetHash: string;
-  marCheckSum: string;
-};
-export type GetAssetByMarAssetHash = unknown;
-export type GetAssetByUserAssetIdOptions = BaseAssetDeliveryOptions & {
-  userAssetId: number;
-};
-export type GetAssetByUserAssetId = unknown;
-export type GetBatchAssetsOptions = {
+export type AssetDeliveryGetAssetByAssetId = unknown;
+export type AssetDeliveryGetAssetVersionByAssetIdOptions =
+  AssetDeliveryBaseOptions & {
+    assetId: number;
+    version: number;
+  };
+export type AssetDeliveryGetAssetVersionByAssetId = unknown;
+export type AssetDeliveryGetAssetByAssetVersionIdOptions =
+  AssetDeliveryBaseOptions & {
+    assetVersionId: number;
+  };
+export type AssetDeliveryGetAssetByAssetVersionId = unknown;
+export type AssetDeliveryGetAssetByMarAssetHashOptions =
+  AssetDeliveryBaseOptions & {
+    marAssetHash: string;
+    marCheckSum: string;
+  };
+export type AssetDeliveryGetAssetByMarAssetHash = unknown;
+export type AssetDeliveryGetAssetByUserAssetIdOptions =
+  AssetDeliveryBaseOptions & {
+    userAssetId: number;
+  };
+export type AssetDeliveryGetAssetByUserAssetId = unknown;
+export type AssetDeliveryGetBatchAssetsOptions = {
   assetName: string;
   assetType: string;
   clientInsert: boolean;
@@ -123,17 +133,19 @@ export type GetBatchAssetsOptions = {
   assetVersionId: number;
   modulePlaceId: number;
 };
-export type GetBatchAssets = BaseAsset[];
+export type AssetDeliveryGetBatchAssets = AssetDeliveryBaseAsset[];
 
 export default class AssetDeliveryAPI extends BaseAPI {
-  constructor (client: Client) {
+  constructor(client: Client) {
     super({
       baseUrl: "https://assetdelivery.roblox.com/",
       client
     });
   }
 
-  getAssetByAlias (options: GetAssetByAliasOptions): Promise<GetAssetByAlias> {
+  getAssetByAlias(
+    options: AssetDeliveryGetAssetByAliasOptions
+  ): Promise<AssetDeliveryGetAssetByAlias> {
     const generatedOptions = generateBaseDeliveryAssetOptions(options);
     return this.request({
       json: true,
@@ -147,10 +159,12 @@ export default class AssetDeliveryAPI extends BaseAPI {
           ...generatedOptions.headers
         }
       }
-    }).then((response) => convertToBaseAsset(response.body) as GetAssetByAlias);
+    }).then((response) => convertToBaseAsset(response.body));
   }
 
-  getAssetById (options: GetAssetByIdOptions): Promise<GetAssetById> {
+  getAssetById(
+    options: AssetDeliveryGetAssetByIdOptions
+  ): Promise<AssetDeliveryGetAssetById> {
     const generatedOptions = generateBaseDeliveryAssetOptions(options);
     return this.request({
       json: true,
@@ -171,7 +185,9 @@ export default class AssetDeliveryAPI extends BaseAPI {
     }));
   }
 
-  getAssetByHash (options: GetAssetByHashOptions): Promise<GetAssetByHash> {
+  getAssetByHash(
+    options: AssetDeliveryGetAssetByHashOptions
+  ): Promise<AssetDeliveryGetAssetByHash> {
     const generatedOptions = generateBaseDeliveryAssetOptions(options);
     return this.request({
       json: true,
@@ -185,12 +201,12 @@ export default class AssetDeliveryAPI extends BaseAPI {
           ...generatedOptions.headers
         }
       }
-    }).then((response) => convertToBaseAsset(response.body) as GetAssetByHash);
+    }).then((response) => convertToBaseAsset(response.body));
   }
 
-  getAssetByAssetId (
-    options: GetAssetByAssetIdOptions
-  ): Promise<GetAssetByAssetId> {
+  getAssetByAssetId(
+    options: AssetDeliveryGetAssetByAssetIdOptions
+  ): Promise<AssetDeliveryGetAssetByAssetId> {
     const generatedOptions = generateBaseDeliveryAssetOptions(options);
     return this.request({
       json: true,
@@ -204,14 +220,12 @@ export default class AssetDeliveryAPI extends BaseAPI {
           ...generatedOptions.headers
         }
       }
-    }).then(
-      (response) => convertToBaseAsset(response.body) as GetAssetByAssetId
-    );
+    }).then((response) => convertToBaseAsset(response.body));
   }
 
-  getAssetVersionByAssetId (
-    options: GetAssetVersionByAssetIdOptions
-  ): Promise<GetAssetVersionByAssetId> {
+  getAssetVersionByAssetId(
+    options: AssetDeliveryGetAssetVersionByAssetIdOptions
+  ): Promise<AssetDeliveryGetAssetVersionByAssetId> {
     const generatedOptions = generateBaseDeliveryAssetOptions(options);
     return this.request({
       json: true,
@@ -225,15 +239,12 @@ export default class AssetDeliveryAPI extends BaseAPI {
           ...generatedOptions.headers
         }
       }
-    }).then(
-      (response) =>
-        convertToBaseAsset(response.body) as GetAssetVersionByAssetId
-    );
+    }).then((response) => convertToBaseAsset(response.body));
   }
 
-  getAssetByAssetVersionId (
-    options: GetAssetByAssetVersionIdOptions
-  ): Promise<GetAssetByAssetVersionId> {
+  getAssetByAssetVersionId(
+    options: AssetDeliveryGetAssetByAssetVersionIdOptions
+  ): Promise<AssetDeliveryGetAssetByAssetVersionId> {
     const generatedOptions = generateBaseDeliveryAssetOptions(options);
     return this.request({
       json: true,
@@ -247,15 +258,12 @@ export default class AssetDeliveryAPI extends BaseAPI {
           ...generatedOptions.headers
         }
       }
-    }).then(
-      (response) =>
-        convertToBaseAsset(response.body) as GetAssetByAssetVersionId
-    );
+    }).then((response) => convertToBaseAsset(response.body));
   }
 
-  getAssetByMarAssetHash (
-    options: GetAssetByMarAssetHashOptions
-  ): Promise<GetAssetByMarAssetHash> {
+  getAssetByMarAssetHash(
+    options: AssetDeliveryGetAssetByMarAssetHashOptions
+  ): Promise<AssetDeliveryGetAssetByMarAssetHash> {
     const generatedOptions = generateBaseDeliveryAssetOptions(options);
     return this.request({
       json: true,
@@ -269,14 +277,12 @@ export default class AssetDeliveryAPI extends BaseAPI {
           ...generatedOptions.headers
         }
       }
-    }).then(
-      (response) => convertToBaseAsset(response.body) as GetAssetByMarAssetHash
-    );
+    }).then((response) => convertToBaseAsset(response.body));
   }
 
-  getAssetByUserAssetId (
-    options: GetAssetByUserAssetIdOptions
-  ): Promise<GetAssetByUserAssetId> {
+  getAssetByUserAssetId(
+    options: AssetDeliveryGetAssetByUserAssetIdOptions
+  ): Promise<AssetDeliveryGetAssetByUserAssetId> {
     const generatedOptions = generateBaseDeliveryAssetOptions(options);
     return this.request({
       json: true,
@@ -290,12 +296,12 @@ export default class AssetDeliveryAPI extends BaseAPI {
           ...generatedOptions.headers
         }
       }
-    }).then(
-      (response) => convertToBaseAsset(response.body) as GetAssetByUserAssetId
-    );
+    }).then((response) => convertToBaseAsset(response.body));
   }
 
-  getBatchAssets (options: GetBatchAssetsOptions): Promise<GetBatchAssets> {
+  getBatchAssets(
+    options: AssetDeliveryGetBatchAssetsOptions
+  ): Promise<AssetDeliveryGetBatchAssets> {
     return this.request({
       requiresAuth: true,
       json: true,
@@ -304,11 +310,10 @@ export default class AssetDeliveryAPI extends BaseAPI {
         method: "POST",
         json: options
       }
-    }).then(
-      (response) =>
-        response.body.map((value: BaseAssetRaw) =>
-          convertToBaseAsset(value)
-        ) as GetBatchAssets
+    }).then((response) =>
+      response.body.map((value: AssetDeliveryBaseAssetRaw) =>
+        convertToBaseAsset(value)
+      )
     );
   }
 }

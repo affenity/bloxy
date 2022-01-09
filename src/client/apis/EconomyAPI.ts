@@ -1,11 +1,11 @@
 import BaseAPI from "./BaseAPI";
 import Client from "../Client";
-import { SubmitDeveloperExchangeOptions as BillingAPISubmitDeveloperExchangeOptions } from "./BillingAPI";
+import { BillingSubmitDeveloperExchangeOptions } from "./BillingAPI";
 
-export type GetAssetResaleDataOptions = {
+export type EconomyGetAssetResaleDataOptions = {
   assetId: number;
 };
-export type GetAssetResaleData = {
+export type EconomyGetAssetResaleData = {
   assetStock: number;
   sales: number;
   numberRemaining: number;
@@ -20,12 +20,12 @@ export type GetAssetResaleData = {
     date: string;
   }[];
 };
-export type GetAssetResellersOptions = {
+export type EconomyGetAssetResellersOptions = {
   assetId: number;
   limit?: 10 | 25 | 50 | 100;
   cursor?: string;
 };
-export type GetAssetResellers = {
+export type EconomyGetAssetResellers = {
   previousPageCursor: string;
   nextPageCursor: string;
   data: {
@@ -39,24 +39,24 @@ export type GetAssetResellers = {
     serialNumber: number;
   }[];
 };
-export type GetUserResellableAssetCopiesOptions = {
+export type EconomyGetUserResellableAssetCopiesOptions = {
   userId: number;
   assetId: number;
 };
-export type GetUserResellableAssetCopies = {
-  data: GetAssetResellers["data"];
+export type EconomyGetUserResellableAssetCopies = {
+  data: EconomyGetAssetResellers["data"];
 };
-export type GetResaleTaxRate = {
+export type EconomyGetResaleTaxRate = {
   taxRate: number;
   minimumFee: number;
 };
-export type SetAssetCopiesOptions = {
+export type EconomySetAssetCopiesOptions = {
   assetId: number;
   userAssetId: number;
   price: number;
 };
-export type SetAssetCopies = unknown;
-export type GetDeveloperExchangeAbility = {
+export type EconomySetAssetCopies = unknown;
+export type EconomyGetDeveloperExchangeAbility = {
   canCashOut: boolean;
   meetsPremiumRequirement: boolean;
   hasVerifiedEmail: boolean;
@@ -65,11 +65,11 @@ export type GetDeveloperExchangeAbility = {
   hasCashedOutThisMonth: boolean;
   lastImbursementStatusIsValid: boolean;
 };
-export type GetDeveloperExchangeHelp = unknown;
-export type GetDeveloperExchangeInfoOptions = {
+export type EconomyGetDeveloperExchangeHelp = unknown;
+export type EconomyGetDeveloperExchangeInfoOptions = {
   fromDevExPage: boolean;
 };
-export type GetDeveloperExchangeInfo = {
+export type EconomyGetDeveloperExchangeInfo = {
   hasCurrencyOperationError: boolean;
   currencyOperationErrorMessage: string;
   showOnlyExchangeRates: boolean;
@@ -85,9 +85,9 @@ export type GetDeveloperExchangeInfo = {
   lastImbursementSubmissionDate: string;
   conversionPercent: number;
 };
-export type SubmitDeveloperExchangeOptions =
-  BillingAPISubmitDeveloperExchangeOptions;
-export type SubmitDeveloperExchange = {
+export type EconomySubmitDeveloperExchangeOptions =
+  BillingSubmitDeveloperExchangeOptions;
+export type EconomySubmitDeveloperExchange = {
   submitted: boolean;
   cashOutAbility: {
     canCashOut: boolean;
@@ -100,23 +100,23 @@ export type SubmitDeveloperExchange = {
   };
   errors: unknown;
 };
-export type GetGroupCurrencyOptions = {
+export type EconomyGetGroupCurrencyOptions = {
   groupId: number;
 };
-export type GetGroupCurrency = {
+export type EconomyGetGroupCurrency = {
   robux: number;
 };
-export type GetSelfCurrencyOptions = {
+export type EconomyGetSelfCurrencyOptions = {
   userId: number;
 };
-export type GetSelfCurrency = {
+export type EconomyGetSelfCurrency = {
   robux: number;
 };
-export type GetGroupRevenueSummaryInTimeFrameOptions = {
+export type EconomyGetGroupRevenueSummaryInTimeFrameOptions = {
   groupId: number;
   timeFrame: "Day" | "Week" | "Month" | "Year";
 };
-export type GetGroupRevenueSummaryInTimeFrame = {
+export type EconomyGetGroupRevenueSummaryInTimeFrame = {
   recurringRobuxStipend: number;
   itemSaleRobux: number;
   purchasedRoblox: number;
@@ -124,27 +124,27 @@ export type GetGroupRevenueSummaryInTimeFrame = {
   pendingRobux: number;
   groupPayoutRobux: number;
 };
-export type GetSelfRevenueSummaryInTimeFrameOptions = Omit<
-GetGroupRevenueSummaryInTimeFrameOptions,
-"groupId"
+export type EconomyGetSelfRevenueSummaryInTimeFrameOptions = Omit<
+  EconomyGetGroupRevenueSummaryInTimeFrameOptions,
+  "groupId"
 > & {
   userId: number;
 };
-export type GetSelfRevenueSummaryInTimeFrame =
-  GetGroupRevenueSummaryInTimeFrame;
-export type GetGroupTransactionsOptions = {
+export type EconomyGetSelfRevenueSummaryInTimeFrame =
+  EconomyGetGroupRevenueSummaryInTimeFrame;
+export type EconomyGetGroupTransactionsOptions = {
   groupId: number;
   transactionType:
-  | "Sale"
-  | "Purchase"
-  | "AffiliateSale"
-  | "DevEx"
-  | "GroupPayout"
-  | "AdImpressionPayout";
+    | "Sale"
+    | "Purchase"
+    | "AffiliateSale"
+    | "DevEx"
+    | "GroupPayout"
+    | "AdImpressionPayout";
   limit?: 10 | 25 | 50 | 100;
   cursor?: string;
 };
-export type GetGroupTransactions = {
+export type EconomyGetGroupTransactions = {
   previousPageCursor: string;
   nextPageCursor: string;
   data: {
@@ -162,25 +162,25 @@ export type GetGroupTransactions = {
     };
   }[];
 };
-export type GetSelfTransactionsOptions = Omit<
-GetGroupTransactionsOptions,
-"groupId"
+export type EconomyGetSelfTransactionsOptions = Omit<
+  EconomyGetGroupTransactionsOptions,
+  "groupId"
 > & {
   userId: number;
 };
-export type GetSelfTransactions = GetGroupTransactions;
+export type EconomyGetSelfTransactions = EconomyGetGroupTransactions;
 
 export default class EconomyAPI extends BaseAPI {
-  constructor (client: Client) {
+  constructor(client: Client) {
     super({
       client,
       baseUrl: "https://economy.roblox.com/"
     });
   }
 
-  getAssetResaleData (
-    options: GetAssetResaleDataOptions
-  ): Promise<GetAssetResaleData> {
+  getAssetResaleData(
+    options: EconomyGetAssetResaleDataOptions
+  ): Promise<EconomyGetAssetResaleData> {
     return this.request({
       requiresAuth: false,
       request: {
@@ -190,9 +190,9 @@ export default class EconomyAPI extends BaseAPI {
     }).then((response) => response.body);
   }
 
-  getAssetResellers (
-    options: GetAssetResellersOptions
-  ): Promise<GetAssetResellers> {
+  getAssetResellers(
+    options: EconomyGetAssetResellersOptions
+  ): Promise<EconomyGetAssetResellers> {
     return this.request({
       requiresAuth: false,
       request: {
@@ -203,9 +203,9 @@ export default class EconomyAPI extends BaseAPI {
     }).then((response) => response.body);
   }
 
-  getUserResellableAssetCopies (
-    options: GetUserResellableAssetCopiesOptions
-  ): Promise<GetUserResellableAssetCopies> {
+  getUserResellableAssetCopies(
+    options: EconomyGetUserResellableAssetCopiesOptions
+  ): Promise<EconomyGetUserResellableAssetCopies> {
     return this.request({
       requiresAuth: false,
       request: {
@@ -215,7 +215,7 @@ export default class EconomyAPI extends BaseAPI {
     }).then((response) => response.body);
   }
 
-  getResaleTaxRate (): Promise<GetResaleTaxRate> {
+  getResaleTaxRate(): Promise<EconomyGetResaleTaxRate> {
     return this.request({
       requiresAuth: false,
       request: {
@@ -225,9 +225,9 @@ export default class EconomyAPI extends BaseAPI {
     }).then((response) => response.body);
   }
 
-  setAssetCopiesForSale (
-    options: SetAssetCopiesOptions
-  ): Promise<SetAssetCopies> {
+  setAssetCopiesForSale(
+    options: EconomySetAssetCopiesOptions
+  ): Promise<EconomySetAssetCopies> {
     return this.request({
       requiresAuth: true,
       request: {
@@ -241,7 +241,7 @@ export default class EconomyAPI extends BaseAPI {
     }).then((response) => response.body);
   }
 
-  getDeveloperExchangeAbility (): Promise<GetDeveloperExchangeAbility> {
+  getDeveloperExchangeAbility(): Promise<EconomyGetDeveloperExchangeAbility> {
     return this.request({
       requiresAuth: true,
       request: {
@@ -251,7 +251,7 @@ export default class EconomyAPI extends BaseAPI {
     }).then((response) => response.body);
   }
 
-  getDeveloperExchangeHelp (): Promise<GetDeveloperExchangeHelp> {
+  getDeveloperExchangeHelp(): Promise<EconomyGetDeveloperExchangeHelp> {
     return this.request({
       requiresAuth: true,
       request: {
@@ -261,9 +261,9 @@ export default class EconomyAPI extends BaseAPI {
     }).then((response) => response.body);
   }
 
-  getDeveloperExchangeInfo (
-    options: GetDeveloperExchangeInfoOptions
-  ): Promise<GetDeveloperExchangeInfo> {
+  getDeveloperExchangeInfo(
+    options: EconomyGetDeveloperExchangeInfoOptions
+  ): Promise<EconomyGetDeveloperExchangeInfo> {
     return this.request({
       requiresAuth: true,
       request: {
@@ -274,9 +274,9 @@ export default class EconomyAPI extends BaseAPI {
     }).then((response) => response.body);
   }
 
-  submitDeveloperExchange (
-    options: SubmitDeveloperExchangeOptions
-  ): Promise<SubmitDeveloperExchange> {
+  submitDeveloperExchange(
+    options: EconomySubmitDeveloperExchangeOptions
+  ): Promise<EconomySubmitDeveloperExchange> {
     return this.request({
       requiresAuth: true,
       request: {
@@ -288,9 +288,9 @@ export default class EconomyAPI extends BaseAPI {
     }).then((response) => response.body);
   }
 
-  getGroupCurrency (
-    options: GetGroupCurrencyOptions
-  ): Promise<GetGroupCurrency> {
+  getGroupCurrency(
+    options: EconomyGetGroupCurrencyOptions
+  ): Promise<EconomyGetGroupCurrency> {
     return this.request({
       requiresAuth: true,
       request: {
@@ -300,7 +300,9 @@ export default class EconomyAPI extends BaseAPI {
     }).then((response) => response.body);
   }
 
-  getSelfCurrency (options: GetSelfCurrencyOptions): Promise<GetSelfCurrency> {
+  getSelfCurrency(
+    options: EconomyGetSelfCurrencyOptions
+  ): Promise<EconomyGetSelfCurrency> {
     return this.request({
       requiresAuth: true,
       request: {
@@ -310,9 +312,9 @@ export default class EconomyAPI extends BaseAPI {
     }).then((response) => response.body);
   }
 
-  getGroupRevenueByTime (
-    options: GetGroupRevenueSummaryInTimeFrameOptions
-  ): Promise<GetGroupRevenueSummaryInTimeFrame> {
+  getGroupRevenueByTime(
+    options: EconomyGetGroupRevenueSummaryInTimeFrameOptions
+  ): Promise<EconomyGetGroupRevenueSummaryInTimeFrame> {
     return this.request({
       requiresAuth: false,
       request: {
@@ -322,9 +324,9 @@ export default class EconomyAPI extends BaseAPI {
     }).then((response) => response.body);
   }
 
-  getSelfRevenueSummaryByTIme (
-    options: GetSelfRevenueSummaryInTimeFrameOptions
-  ): Promise<GetSelfRevenueSummaryInTimeFrame> {
+  getSelfRevenueSummaryByTIme(
+    options: EconomyGetSelfRevenueSummaryInTimeFrameOptions
+  ): Promise<EconomyGetSelfRevenueSummaryInTimeFrame> {
     return this.request({
       requiresAuth: false,
       request: {
@@ -334,9 +336,9 @@ export default class EconomyAPI extends BaseAPI {
     }).then((response) => response.body);
   }
 
-  getGroupTransactions (
-    options: GetGroupTransactionsOptions
-  ): Promise<GetGroupTransactions> {
+  getGroupTransactions(
+    options: EconomyGetGroupTransactionsOptions
+  ): Promise<EconomyGetGroupTransactions> {
     return this.request({
       requiresAuth: false,
       request: {
@@ -347,9 +349,9 @@ export default class EconomyAPI extends BaseAPI {
     }).then((response) => response.body);
   }
 
-  getSelfTransactions (
-    options: GetSelfTransactionsOptions
-  ): Promise<GetSelfTransactions> {
+  getSelfTransactions(
+    options: EconomyGetSelfTransactionsOptions
+  ): Promise<EconomyGetSelfTransactions> {
     return this.request({
       requiresAuth: true,
       request: {

@@ -1,6 +1,7 @@
 import BaseAPI from "./BaseAPI";
 import Client from "../Client";
-import { ISOString } from "../../types/GeneralTypes";
+import { ISOString } from "../../types/GenericTypes";
+import { GroupIdOption } from "../..";
 
 // Utility types
 export type AdConfigurationTargetGender = unknown;
@@ -46,7 +47,7 @@ export type AdConfigurationUniverse = {
 export type AdConfigurationUniverses = {
   universes: AdConfigurationUniverse[];
 };
-export type AdConfigurationCreateSponsoredGameAd = {
+export type AdConfigurationCreateSponsoredGameAdOptions = {
   universeId: number;
   targetGender: AdConfigurationTargetGender;
   targetAgeBracket: AdConfigurationTargetAgeBracket;
@@ -57,9 +58,15 @@ export type AdConfigurationCreateSponsoredGameAd = {
   adName: string;
   bidAmountInRobux: number;
 };
-export interface AdConfigurationStopSponsoredGameAd {
+export type AdConfigurationStopSponsoredGameAdOptions = {
   adSetId: number;
-}
+};
+export type AdConfigurationGetSponsoredGamesOptions = {
+  universeId: number;
+  includeReportingStats?: boolean;
+  isArchived?: boolean;
+  pageCursor?: string;
+};
 
 export default class AdConfigurationAPI extends BaseAPI {
   constructor(client: Client) {
@@ -69,12 +76,9 @@ export default class AdConfigurationAPI extends BaseAPI {
     });
   }
 
-  getSponsoredGames(options: {
-    universeId: number;
-    includeReportingStats?: boolean;
-    isArchived?: boolean;
-    pageCursor?: string;
-  }): Promise<AdConfigurationSponsoredGames> {
+  getSponsoredGames(
+    options: AdConfigurationGetSponsoredGamesOptions
+  ): Promise<AdConfigurationSponsoredGames> {
     return this.request({
       requiresAuth: true,
       request: {
@@ -91,9 +95,9 @@ export default class AdConfigurationAPI extends BaseAPI {
     }).then((response) => response.body);
   }
 
-  getUniverses(options: {
-    groupId?: number;
-  }): Promise<AdConfigurationUniverses> {
+  getUniverses(
+    options: Partial<GroupIdOption>
+  ): Promise<AdConfigurationUniverses> {
     return this.request({
       requiresAuth: true,
       request: {
@@ -108,7 +112,7 @@ export default class AdConfigurationAPI extends BaseAPI {
   }
 
   createSponsor(
-    options: AdConfigurationCreateSponsoredGameAd
+    options: AdConfigurationCreateSponsoredGameAdOptions
   ): Promise<boolean> {
     return this.request({
       requiresAuth: true,
@@ -121,7 +125,9 @@ export default class AdConfigurationAPI extends BaseAPI {
     }).then(() => true);
   }
 
-  stopSponsor(options: AdConfigurationStopSponsoredGameAd): Promise<boolean> {
+  stopSponsor(
+    options: AdConfigurationStopSponsoredGameAdOptions
+  ): Promise<boolean> {
     return this.request({
       requiresAuth: true,
       request: {

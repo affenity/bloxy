@@ -1,29 +1,29 @@
 import BaseAPI from "./BaseAPI";
 import Client from "../Client";
 
-export type GetContactsMetaData = {
+export type ContactsGetContactsMetaData = {
   multiGetContactsMaxSize: number;
   multiGetContactsCacheTTLinMS: number;
 };
-export type GetUsersTagsOptions = {
+export type ContactsGetUsersTagsOptions = {
   targetUserIds: number[];
 };
-export type GetUsersTags = {
+export type ContactsGetUsersTags = {
   targetUserId: number;
   targetUserTag: string;
 }[];
-export type SetPendingUserTagOptions = {
+export type ContactsSetPendingUserTagOptions = {
   targetUserId: number;
   userTag: string;
 };
-export type SetPendingUserTag = {
+export type ContactsSetPendingUserTag = {
   status: "Success" | string;
 };
-export type SetUserTagOptions = {
+export type ContactsSetUserTagOptions = {
   targetUserId: number;
   userTag: string;
 };
-export type SetUserTag = {
+export type ContactsSetUserTag = {
   status: "Success" | string;
 };
 
@@ -35,7 +35,7 @@ export default class ContactsAPI extends BaseAPI {
     });
   }
 
-  getContactsMetaData(): Promise<GetContactsMetaData> {
+  getContactsMetaData(): Promise<ContactsGetContactsMetaData> {
     return this.request({
       requiresAuth: false,
       request: {
@@ -45,7 +45,9 @@ export default class ContactsAPI extends BaseAPI {
     }).then((response) => response.body);
   }
 
-  getUsersTags(options: GetUsersTagsOptions): Promise<GetUsersTags> {
+  getUsersTags(
+    options: ContactsGetUsersTagsOptions
+  ): Promise<ContactsGetUsersTags> {
     return this.request({
       requiresAuth: true,
       request: {
@@ -58,8 +60,8 @@ export default class ContactsAPI extends BaseAPI {
   }
 
   setPendingUserTag(
-    options: SetPendingUserTagOptions
-  ): Promise<SetPendingUserTag> {
+    options: ContactsSetPendingUserTagOptions
+  ): Promise<ContactsSetPendingUserTag> {
     return this.request({
       requiresAuth: false,
       request: {
@@ -71,7 +73,7 @@ export default class ContactsAPI extends BaseAPI {
     }).then((response) => response.body);
   }
 
-  setUserTag(options: SetUserTagOptions): Promise<SetUserTag> {
+  setUserTag(options: ContactsSetUserTagOptions): Promise<ContactsSetUserTag> {
     return this.request({
       requiresAuth: false,
       request: {

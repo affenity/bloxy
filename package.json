@@ -23,7 +23,7 @@
     "eslint": "eslint . --ext .ts",
     "prepublishOnly": "npm run build",
     "create-docs": "typedoc src && mkdocs build",
-    "prepare-windows": "npm install && npm run build && npm run create-docs && echo 'Finished'",
+    "prepare-windows": "npm install && npm run build && npm run create-docs && echo 'Finished'"
   },
   "types": "./dist/index.d.ts",
   "keywords": [
@@ -66,6 +66,7 @@
   "dependencies": {
     "debug": "^4.3.1",
     "got": "^11.8.3",
+    "signalr": "^2.4.2",
     "signalr-client": "0.0.20",
     "tough-cookie": "^4.0.0",
     "tslib": "^2.1.0"

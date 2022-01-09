@@ -1,57 +1,60 @@
 import BaseAPI from "./BaseAPI";
 import Client from "../Client";
-import { GetUserFriendsCount, GetUserFriendsCountOptions } from "./GeneralAPI";
+import {
+  GeneralGetUserFriendsCount,
+  GeneralGetUserFriendsCountOptions
+} from "./GeneralAPI";
 import { PartialUser } from "../../structures/User";
 import {
   EnumUserPresence,
   UserPresence
 } from "../../interfaces/GeneralInterfaces";
 
-export type FindFriendByCodeOptions = {
+export type FriendsFindFriendByCodeOptions = {
   code: string;
 };
-export type FindFriendByCode = {
+export type FriendsFindFriendByCode = {
   userId: number;
   username: string;
   friendshipStatus: "NoFriendship" | string;
 };
-export type CheckSessionHealth = unknown;
-export type RedeemNearbyFriendCodeOptions = {
+export type FriendsCheckSessionHealth = unknown;
+export type FriendsRedeemNearbyFriendCodeOptions = {
   code: string;
 };
-export type RedeemNearbyFriendCode = unknown;
-export type DeleteSession = unknown;
-export type GetOrCreateNearbySession = {
+export type FriendsRedeemNearbyFriendCode = unknown;
+export type FriendsDeleteSession = unknown;
+export type FriendsGetOrCreateNearbySession = {
   code: string;
   expires: number;
 };
-export type RedeemQRCodeOptions = {
+export type FriendsRedeemQRCodeOptions = {
   code: string;
 };
-export type RedeemQRCode = {
+export type FriendsRedeemQRCode = {
   userId: number;
   username: string;
 };
-export type DeleteQRCodeSession = unknown;
-export type GetOrCreateQRCodeSession = GetOrCreateNearbySession;
-export type GetMetaDataOptions = {
+export type FriendsDeleteQRCodeSession = unknown;
+export type FriendsGetOrCreateQRCodeSession = FriendsGetOrCreateNearbySession;
+export type FriendsGetMetaDataOptions = {
   targetUserId: number;
 };
-export type GetMetaData = {
+export type FriendsGetMetaData = {
   isFriendFinderEnabled: boolean;
   isNearbyUpsellEnabled: boolean;
   isFriendsUserDataStoreCacheEnabled: boolean;
   userName: string;
 };
-export type GetSelfFriendsCount = {
+export type FriendsGetSelfFriendsCount = {
   count: number;
 };
-export type GetSelfFriendRequestsOptions = {
+export type FriendsGetSelfFriendRequestsOptions = {
   sortOrder?: "Desc" | "Asc";
   limit?: 10 | 25 | 50 | 100;
   cursor?: string;
 };
-export type GetSelfFriendRequests = {
+export type FriendsGetSelfFriendRequests = {
   previousPageCursor: string;
   nextPageCursor: string;
   data: {
@@ -62,16 +65,16 @@ export type GetSelfFriendRequests = {
     username: string;
   }[];
 };
-export type GetSelfFriendRequestsCount = {
+export type FriendsGetSelfFriendRequestsCount = {
   count: number;
 };
-export type GetUserFollowersOptions = {
+export type FriendsGetUserFollowersOptions = {
   userId: number;
   sortOrder?: "Asc" | "Desc";
   limit?: 10 | 25 | 50 | 100;
   cursor?: string;
 };
-export type GetUserFollowers = {
+export type FriendsGetUserFollowers = {
   previousPageCursor: string;
   nextPageCursor: string;
   data: {
@@ -84,22 +87,23 @@ export type GetUserFollowers = {
     name: string;
   }[];
 };
-export type GetUserFollowersCountOptions = {
+export type FriendsGetUserFollowersCountOptions = {
   userId: number;
 };
-export type GetUserFollowersCount = {
+export type FriendsGetUserFollowersCount = {
   count: number;
 };
-export type GetUserFollowingOptions = GetUserFollowersOptions;
-export type GetUserFollowing = GetUserFollowers;
-export type GetUserFollowingCountOptions = GetUserFollowersCountOptions;
-export type GetUserFollowingCount = GetUserFollowersCount;
-export type GetUserFriendsOptions = {
+export type FriendsGetUserFollowingOptions = FriendsGetUserFollowersOptions;
+export type FriendsGetUserFollowing = FriendsGetUserFollowers;
+export type FriendsGetUserFollowingCountOptions =
+  FriendsGetUserFollowersCountOptions;
+export type FriendsGetUserFollowingCount = FriendsGetUserFollowersCount;
+export type FriendsGetUserFriendsOptions = {
   cursor?: string;
   limit?: 10 | 25 | 50 | 100;
   userId: number;
 };
-export type GetUserFriends = {
+export type FriendsGetUserFriends = {
   data: {
     isOnline: boolean;
     isDeleted: boolean;
@@ -110,10 +114,10 @@ export type GetUserFriends = {
     name: string;
   }[];
 };
-export type GetUserOnlineFriendsOptions = {
+export type FriendsGetUserOnlineFriendsOptions = {
   userId: number;
 };
-export type GetUserOnlineFriends = {
+export type FriendsGetUserOnlineFriends = {
   data: {
     userId: number;
     username: string;
@@ -128,61 +132,62 @@ export type GetUserOnlineFriends = {
     };
   }[];
 };
-export type GetUserFriendsWithStatusesOptions = {
+export type FriendsGetUserFriendsWithStatusesOptions = {
   userId: number;
   withUserIds: number[];
 };
-export type GetUserFriendsWithStatuses = {
+export type FriendsGetUserFriendsWithStatuses = {
   data: {
     id: number;
     status: "NotFriends" | string;
   }[];
 };
-export type DeclineAllFriendRequests = unknown;
-export type AcceptFriendRequestOptions = {
+export type FriendsDeclineAllFriendRequests = unknown;
+export type FriendsAcceptFriendRequestOptions = {
   userId: number;
 };
-export type AcceptFriendRequest = unknown;
-export type DeclineFriendRequestOptions = AcceptFriendRequestOptions;
-export type DeclineFriendRequest = unknown;
-export type FollowUserOptions = {
+export type FriendsAcceptFriendRequest = unknown;
+export type FriendsDeclineFriendRequestOptions =
+  FriendsAcceptFriendRequestOptions;
+export type FriendsDeclineFriendRequest = unknown;
+export type FriendsFollowUserOptions = {
   userId: number;
 };
-export type FollowUser = {
+export type FriendsFollowUser = {
   success: boolean;
   isCaptchaRequired: boolean;
 };
-export type SendFriendRequestOptions = {
+export type FriendsSendFriendRequestOptions = {
   userId: number;
   source?: "Unknown" | string;
 };
-export type SendFriendRequest = {
+export type FriendsSendFriendRequest = {
   success: boolean;
   isCaptchaRequired: boolean;
 };
-export type UnFollowUserOptions = FollowUserOptions;
-export type UnFollowUser = FollowUser;
-export type UnfriendUserOptions = {
+export type FriendsUnFollowUserOptions = FriendsFollowUserOptions;
+export type FriendsUnFollowUser = FriendsFollowUser;
+export type FriendsUnfriendUserOptions = {
   userId: number;
 };
-export type UnfriendUser = unknown;
-export type GetSelfRecommendedUsers = {
+export type FriendsUnfriendUser = unknown;
+export type FriendsGetSelfRecommendedUsers = {
   user: PartialUser;
   profileUrl: string;
   presenceType: EnumUserPresence;
 }[];
 
 export default class FriendsAPI extends BaseAPI {
-  constructor (client: Client) {
+  constructor(client: Client) {
     super({
       client,
       baseUrl: "https://friends.roblox.com/"
     });
   }
 
-  findFriendByCode (
-    options: FindFriendByCodeOptions
-  ): Promise<FindFriendByCode> {
+  findFriendByCode(
+    options: FriendsFindFriendByCodeOptions
+  ): Promise<FriendsFindFriendByCode> {
     return this.request({
       requiresAuth: true,
       request: {
@@ -192,7 +197,7 @@ export default class FriendsAPI extends BaseAPI {
     }).then((response) => response.body);
   }
 
-  checkSessionHealth (): Promise<CheckSessionHealth> {
+  checkSessionHealth(): Promise<FriendsCheckSessionHealth> {
     return this.request({
       requiresAuth: true,
       request: {
@@ -202,9 +207,9 @@ export default class FriendsAPI extends BaseAPI {
     }).then((response) => response.body);
   }
 
-  redeemFriendCode (
-    options: RedeemNearbyFriendCodeOptions
-  ): Promise<RedeemNearbyFriendCode> {
+  redeemFriendCode(
+    options: FriendsRedeemNearbyFriendCodeOptions
+  ): Promise<FriendsRedeemNearbyFriendCode> {
     return this.request({
       requiresAuth: true,
       request: {
@@ -215,7 +220,7 @@ export default class FriendsAPI extends BaseAPI {
     }).then((response) => response.body);
   }
 
-  deleteFriendSession (): Promise<DeleteSession> {
+  deleteFriendSession(): Promise<FriendsDeleteSession> {
     return this.request({
       requiresAuth: true,
       request: {
@@ -226,7 +231,7 @@ export default class FriendsAPI extends BaseAPI {
     }).then((response) => response.body);
   }
 
-  getSession (): Promise<FindFriendByCode> {
+  getSession(): Promise<FriendsFindFriendByCode> {
     return this.request({
       requiresAuth: true,
       request: {
@@ -237,7 +242,9 @@ export default class FriendsAPI extends BaseAPI {
     }).then((response) => response.body);
   }
 
-  redeemFriendQRCode (options: RedeemQRCodeOptions): Promise<RedeemQRCode> {
+  redeemFriendQRCode(
+    options: FriendsRedeemQRCodeOptions
+  ): Promise<FriendsRedeemQRCode> {
     return this.request({
       requiresAuth: true,
       request: {
@@ -248,7 +255,7 @@ export default class FriendsAPI extends BaseAPI {
     }).then((response) => response.body);
   }
 
-  deleteFriendQRSession (): Promise<DeleteQRCodeSession> {
+  deleteFriendQRSession(): Promise<FriendsDeleteQRCodeSession> {
     return this.request({
       requiresAuth: true,
       request: {
@@ -259,7 +266,7 @@ export default class FriendsAPI extends BaseAPI {
     }).then((response) => response.body);
   }
 
-  getFriendQRSession (): Promise<GetOrCreateQRCodeSession> {
+  getFriendQRSession(): Promise<FriendsGetOrCreateQRCodeSession> {
     return this.request({
       requiresAuth: true,
       request: {
@@ -270,7 +277,7 @@ export default class FriendsAPI extends BaseAPI {
     }).then((response) => response.body);
   }
 
-  getMetaData (options: GetMetaDataOptions): Promise<GetMetaData> {
+  getMetaData(options: FriendsGetMetaDataOptions): Promise<FriendsGetMetaData> {
     return this.request({
       requiresAuth: false,
       request: {
@@ -281,7 +288,7 @@ export default class FriendsAPI extends BaseAPI {
     }).then((response) => response.body);
   }
 
-  getSelfFriendsCount (): Promise<GetSelfFriendsCount> {
+  getSelfFriendsCount(): Promise<FriendsGetSelfFriendsCount> {
     return this.request({
       requiresAuth: true,
       request: {
@@ -291,9 +298,9 @@ export default class FriendsAPI extends BaseAPI {
     }).then((response) => response.body);
   }
 
-  getSelfFriendRequests (
-    options: GetSelfFriendRequestsOptions
-  ): Promise<GetSelfFriendRequests> {
+  getSelfFriendRequests(
+    options: FriendsGetSelfFriendRequestsOptions
+  ): Promise<FriendsGetSelfFriendRequests> {
     return this.request({
       requiresAuth: true,
       request: {
@@ -304,7 +311,7 @@ export default class FriendsAPI extends BaseAPI {
     }).then((response) => response.body);
   }
 
-  getSelfFriendRequestsCount (): Promise<GetSelfFriendRequestsCount> {
+  getSelfFriendRequestsCount(): Promise<FriendsGetSelfFriendRequestsCount> {
     return this.request({
       requiresAuth: true,
       request: {
@@ -314,9 +321,9 @@ export default class FriendsAPI extends BaseAPI {
     }).then((response) => response.body);
   }
 
-  getUserFollowers (
-    options: GetUserFollowersOptions
-  ): Promise<GetUserFollowers> {
+  getUserFollowers(
+    options: FriendsGetUserFollowersOptions
+  ): Promise<FriendsGetUserFollowers> {
     return this.request({
       requiresAuth: false,
       request: {
@@ -327,9 +334,9 @@ export default class FriendsAPI extends BaseAPI {
     }).then((response) => response.body);
   }
 
-  getUserFollowersCount (
-    options: GetUserFollowersCountOptions
-  ): Promise<GetUserFollowersCount> {
+  getUserFollowersCount(
+    options: FriendsGetUserFollowersCountOptions
+  ): Promise<FriendsGetUserFollowersCount> {
     return this.request({
       requiresAuth: false,
       request: {
@@ -339,9 +346,9 @@ export default class FriendsAPI extends BaseAPI {
     }).then((response) => response.body);
   }
 
-  getUserFollowing (
-    options: GetUserFollowingOptions
-  ): Promise<GetUserFollowing> {
+  getUserFollowing(
+    options: FriendsGetUserFollowingOptions
+  ): Promise<FriendsGetUserFollowing> {
     return this.request({
       requiresAuth: false,
       request: {
@@ -352,9 +359,9 @@ export default class FriendsAPI extends BaseAPI {
     }).then((response) => response.body);
   }
 
-  getUserFollowingCount (
-    options: GetUserFollowingCountOptions
-  ): Promise<GetUserFollowingCount> {
+  getUserFollowingCount(
+    options: FriendsGetUserFollowingCountOptions
+  ): Promise<FriendsGetUserFollowingCount> {
     return this.request({
       requiresAuth: false,
       request: {
@@ -364,7 +371,9 @@ export default class FriendsAPI extends BaseAPI {
     }).then((response) => response.body);
   }
 
-  getUserFriends (options: GetUserFriendsOptions): Promise<GetUserFriends> {
+  getUserFriends(
+    options: FriendsGetUserFriendsOptions
+  ): Promise<FriendsGetUserFriends> {
     return this.request({
       requiresAuth: false,
       request: {
@@ -375,9 +384,9 @@ export default class FriendsAPI extends BaseAPI {
     }).then((response) => response.body);
   }
 
-  getUserFriendsCount (
-    options: GetUserFriendsCountOptions
-  ): Promise<GetUserFriendsCount> {
+  getUserFriendsCount(
+    options: GeneralGetUserFriendsCountOptions
+  ): Promise<GeneralGetUserFriendsCount> {
     return this.request({
       requiresAuth: false,
       request: {
@@ -387,9 +396,9 @@ export default class FriendsAPI extends BaseAPI {
     }).then((response) => response.body);
   }
 
-  getUserFriendsOnline (
-    options: GetUserOnlineFriendsOptions
-  ): Promise<GetUserOnlineFriends> {
+  getUserFriendsOnline(
+    options: FriendsGetUserOnlineFriendsOptions
+  ): Promise<FriendsGetUserOnlineFriends> {
     return this.request({
       requiresAuth: true,
       request: {
@@ -399,9 +408,9 @@ export default class FriendsAPI extends BaseAPI {
     }).then((response) => response.body);
   }
 
-  getUserFriendsWithStatuses (
-    options: GetUserFriendsWithStatusesOptions
-  ): Promise<GetUserFriendsWithStatuses> {
+  getUserFriendsWithStatuses(
+    options: FriendsGetUserFriendsWithStatusesOptions
+  ): Promise<FriendsGetUserFriendsWithStatuses> {
     return this.request({
       requiresAuth: false,
       request: {
@@ -414,7 +423,7 @@ export default class FriendsAPI extends BaseAPI {
     }).then((response) => response.body);
   }
 
-  declineAllFriendRequests (): Promise<DeclineAllFriendRequests> {
+  declineAllFriendRequests(): Promise<FriendsDeclineAllFriendRequests> {
     return this.request({
       requiresAuth: true,
       request: {
@@ -425,9 +434,9 @@ export default class FriendsAPI extends BaseAPI {
     }).then((response) => response.body);
   }
 
-  acceptFriendRequest (
-    options: AcceptFriendRequestOptions
-  ): Promise<AcceptFriendRequest> {
+  acceptFriendRequest(
+    options: FriendsAcceptFriendRequestOptions
+  ): Promise<FriendsAcceptFriendRequest> {
     return this.request({
       requiresAuth: true,
       request: {
@@ -438,9 +447,9 @@ export default class FriendsAPI extends BaseAPI {
     }).then((response) => response.body);
   }
 
-  declineFriendRequest (
-    options: DeclineFriendRequestOptions
-  ): Promise<DeclineFriendRequest> {
+  declineFriendRequest(
+    options: FriendsDeclineFriendRequestOptions
+  ): Promise<FriendsDeclineFriendRequest> {
     return this.request({
       requiresAuth: true,
       request: {
@@ -451,7 +460,7 @@ export default class FriendsAPI extends BaseAPI {
     }).then((response) => response.body);
   }
 
-  followUser (options: FollowUserOptions): Promise<FollowUser> {
+  followUser(options: FriendsFollowUserOptions): Promise<FriendsFollowUser> {
     return this.request({
       requiresAuth: true,
       request: {
@@ -462,9 +471,9 @@ export default class FriendsAPI extends BaseAPI {
     }).then((response) => response.body);
   }
 
-  sendFriendRequest (
-    options: SendFriendRequestOptions
-  ): Promise<SendFriendRequest> {
+  sendFriendRequest(
+    options: FriendsSendFriendRequestOptions
+  ): Promise<FriendsSendFriendRequest> {
     return this.request({
       requiresAuth: true,
       request: {
@@ -478,7 +487,9 @@ export default class FriendsAPI extends BaseAPI {
     }).then((response) => response.body);
   }
 
-  unFollowUser (options: UnFollowUserOptions): Promise<UnFollowUser> {
+  unFollowUser(
+    options: FriendsUnFollowUserOptions
+  ): Promise<FriendsUnFollowUser> {
     return this.request({
       requiresAuth: true,
       request: {
@@ -489,7 +500,9 @@ export default class FriendsAPI extends BaseAPI {
     }).then((response) => response.body);
   }
 
-  unfriendUser (options: UnfriendUserOptions): Promise<UnfriendUser> {
+  unfriendUser(
+    options: FriendsUnfriendUserOptions
+  ): Promise<FriendsUnfriendUser> {
     return this.request({
       requiresAuth: true,
       request: {
@@ -500,7 +513,7 @@ export default class FriendsAPI extends BaseAPI {
     }).then((response) => response.body);
   }
 
-  getRecommendedUsers (): Promise<GetSelfRecommendedUsers> {
+  getRecommendedUsers(): Promise<FriendsGetSelfRecommendedUsers> {
     return this.request({
       requiresAuth: true,
       request: {

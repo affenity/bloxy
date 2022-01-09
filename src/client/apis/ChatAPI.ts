@@ -1,51 +1,84 @@
 import BaseAPI from "./BaseAPI";
 import Client from "../Client";
-import {
-  ChatConversationOptions,
-  ChatMessageOptions,
-  ChatMessageSentOptions,
-  PartialChatConversationOptions
-} from "../../structures/Chat";
 
-export type GetChatSettings = {
+export type ChatPartialConversationData = {
+  id: number;
+  title?: string;
+};
+export type ChatMessageSentData = {
+  content: string;
+  filteredForReceivers: boolean;
+  messageId: string;
+  sent: string;
+  messageType: "PlainText" | string;
+  resultType: "Success" | string;
+  statusMessage: string;
+};
+export type ChatMessageData = {
+  id: string;
+  senderType: string;
+  sent: string;
+  read: boolean;
+  messageType: "PlainText" | string;
+  decorators: string[];
+  senderTargetId: number;
+  content: string;
+  link?: {
+    type: "Game";
+    game: {
+      universeId: number;
+    };
+  };
+  eventBased?: {
+    type: "SetConversationUniverse";
+    setConversationUniverse: {
+      actorUserId: number;
+      universeId: number;
+    };
+  };
+};
+export type ChatGetChatSettings = {
   chatEnabled: boolean;
 };
-export type GetConversationsOptions = {
-  conversationIds: number[];
-};
-export type GetConversations = ChatConversationOptions[];
-export type GetConversationMessagesOptions = {
-  conversationId: number;
-  pageSize: number;
-  exclusiveStartMessageId?: string;
-};
-export type GetConversationMessages = ChatMessageOptions[];
-export type GetRolloutSettingsOptions = {
-  featureNames: string[];
-};
-export type GetRolloutSettings = {
+export type ChatGetConversationMessages = ChatMessageData[];
+export type ChatGetRolloutSettings = {
   rolloutFeatures: {
     featureName: string;
     isRolloutEnabled: boolean;
   }[];
 };
-export type GetUnreadConversationCount = {
+export type ChatGetUnreadConversationCount = {
   count: number;
 };
-export type GetUnreadMessagesInConversationsOptions = {
-  conversationIds: number[];
-  pageSize?: number;
-};
-export type GetUnreadMessagesInConversations = {
+export type ChatGetUnreadMessagesInConversations = {
   conversationId: number;
-  chatMessages: ChatMessageOptions[];
+  chatMessages: ChatMessageData[];
 }[];
-export type GetUserConversationsOptions = {
-  pageNumber: number;
-  pageSize: number;
+export type ChatConversationData = {
+  id: number;
+  title: string;
+  initiator: {
+    type: "User" | string;
+    targetId: number;
+    name: string | null;
+    displayName: string | null;
+  };
+  hasUnreadMessages: boolean;
+  participants: {
+    type: "User" | string;
+    targetId: number;
+    name: string;
+    displayName: string;
+  }[];
+  conversationType: "OneToOneConversation" | string;
+  conversationTitle: {
+    titleForViewer: string;
+    isDefaultTitle: boolean;
+  };
+  lastUpdated: string;
+  conversationUniverse: number | null;
 };
-export type GetUserConversations = ChatConversationOptions[];
-export type GetMetaData = {
+export type ChatGetMetaData = {
   isChatEnabledByPrivacySetting: string;
   languageForPrivacySettingUnavailable: string;
   maxConversationTitleLength: number;
@@ -69,17 +102,9 @@ export type GetMetaData = {
   isPlayTogetherForGameCardsEnabled: boolean;
   isRoactChatEnabled: boolean;
 };
-export type GetMultiLatestConversationMessagesOptions = {
-  conversationIds: number[];
-  pageSize: number;
-};
-export type GetMultiLatestConversationMessages =
-  GetUnreadMessagesInConversations;
-export type AddUsersToConversationOptions = {
-  participantUserIds: number[];
-  conversationId: number;
-};
-export type AddUsersToConversation = {
+export type ChatGetMultiLatestConversationMessages =
+  ChatGetUnreadMessagesInConversations;
+export type ChatAddUsersToConversation = {
   conversationId: number;
   rejectedParticipants: {
     rejectedReason: string;
@@ -91,33 +116,25 @@ export type AddUsersToConversation = {
   resultType: "Success" | string;
   statusMessage: string;
 };
-export type MarkMessageInConversationAsReadOptions = {
+export type ChatMarkMessageInConversationAsReadOptions = {
   conversationId: number;
   endMessageId: string;
 };
-export type MarkMessageInConversationAsRead = {
+export type ChatMarkConversationMessagesRead = {
   resultType: "Success" | string;
 };
-export type MarkConversationsAsSeenOptions = {
+export type ChatMarkConversationsAsSeenOptions = {
   conversationsToMarkSeen: number[];
 };
-export type MarkConversationsAsSeen = {
+export type ChatMarkConversationsSeen = {
   resultType: "Success" | string;
 };
-export type RemoveUserFromConversationOptions = {
-  participantUserId: number;
-  conversationId: number;
-};
-export type RemoveUserFromConversation = {
-  conversation: PartialChatConversationOptions;
+export type ChatRemoveUserFromConversation = {
+  conversation: ChatPartialConversationData;
   resultType: "Success" | string;
   statusMessage: string;
 };
-export type RenameGroupConversationOptions = {
-  conversationId: number;
-  newTitle: string;
-};
-export type RenameGroupConversation = {
+export type ChatRenameGroupConversation = {
   conversationTitle: string;
   statusMessage: string;
   resultType: "Success" | string;
@@ -126,36 +143,16 @@ export type RenameGroupConversation = {
     isDefaultTitle: boolean;
   };
 };
-export type ResetConversationUniverseOptions = {
-  conversationId: number;
-};
-export type ResetConversationUniverse = {
+export type ChatResetConversationUniverse = {
   statusMessage: string;
 };
-export type SendGameLinkMessageOptions = {
-  universeId: number;
-  conversationId: number;
-  decorators: string[];
-};
-export type SendGameLinkMessage = ChatMessageSentOptions;
-export type SendMessageOptions = {
-  message: string;
-  conversationId: number;
-  decorators: string[];
-};
-export type SendMessage = ChatMessageSentOptions;
-export type SetConversationUniverseOptions = {
-  conversationId: number;
-  universeId: number;
-};
-export type SetConversationUniverse = {
+export type ChatSendGameLinkMessage = ChatMessageSentData;
+export type ChatSendMessage = ChatMessageSentData;
+export type ChatSetConversationUniverse = {
   statusMessage: string;
 };
-export type StartCloudEditConversationOptions = {
-  placeId: number;
-};
-export type StartCloudEditConversation = {
-  conversation: ChatConversationOptions;
+export type ChatStartCloudEditConversation = {
+  conversation: ChatConversationData;
   rejectedParticipants: {
     rejectedReason: string;
     type: "User";
@@ -166,21 +163,83 @@ export type StartCloudEditConversation = {
   resultType: "Success" | string;
   statusMessage: string;
 };
-export type StartGroupConversationOptions = {
+export type ChatStartGroupConversation = ChatStartCloudEditConversation;
+export type ChatStartOneToOneConversation = ChatStartCloudEditConversation;
+export type ChatUpdateUserTypingStatus = {
+  statusMessage: string;
+};
+export type ChatGetConversationsOptions = {
+  conversationIds: number[];
+};
+export type ChatGetConversationMessagesOptions = {
+  conversationId: number;
+  pageSize: number;
+  exclusiveStartMessageId?: string;
+};
+export type ChatGetRolloutSettingsOptions = {
+  featureNames: string[];
+};
+export type ChatGetUnreadMessagesInConversationsOptions = {
+  conversationIds: number[];
+  pageSize?: number;
+};
+export type ChatGetUserConversationsOptions = {
+  pageNumber: number;
+  pageSize: number;
+};
+export type ChatGetMultiLatestConversationMessagesOptions = {
+  conversationIds: number[];
+  pageSize: number;
+};
+export type ChatAddUsersToConversationOptions = {
+  participantUserIds: number[];
+  conversationId: number;
+};
+export type ChatMarkConversationMessagesReadOptions = {
+  conversationId: number;
+  endMessageId: string;
+};
+export type ChatMarkConversationsSeenOptions = {
+  conversationsToMarkSeen: number[];
+};
+export type ChatRemoveUserFromConversationOptions = {
+  participantUserId: number;
+  conversationId: number;
+};
+export type ChatRenameGroupConversationOptions = {
+  conversationId: number;
+  newTitle: string;
+};
+export type ChatResetConversationUniverseOptions = {
+  conversationId: number;
+};
+export type ChatSendMessageOptions = {
+  message: string;
+  conversationId: number;
+  decorators: string[];
+};
+export type ChatSetConversationUniverseOptions = {
+  conversationId: number;
+  universeId: number;
+};
+export type ChatStartCloudEditConversationOptions = {
+  placeId: number;
+};
+export type ChatStartGroupConversationOptions = {
   participantUserIds: number[];
   title: string;
 };
-export type StartGroupConversation = StartCloudEditConversation;
-export type StartOneToOneConversationOptions = {
+export type ChatStartOneToOneConversationOptions = {
   participantUserId: number;
 };
-export type StartOneToOneConversation = StartCloudEditConversation;
-export type UpdateUserTypingStatusOptions = {
+export type ChatUpdateUserTypingStatusOptions = {
   conversationId: number;
   isTyping: boolean;
 };
-export type UpdateUserTypingStatus = {
-  statusMessage: string;
+export type ChatSendGameLinkMessageOptions = {
+  universeId: number;
+  conversationId: number;
+  decorators: string[];
 };
 
 export default class ChatAPI extends BaseAPI {
@@ -191,7 +250,7 @@ export default class ChatAPI extends BaseAPI {
     });
   }
 
-  getChatSettings(): Promise<GetChatSettings> {
+  getChatSettings(): Promise<ChatGetChatSettings> {
     return this.request({
       requiresAuth: true,
       request: {
@@ -202,8 +261,8 @@ export default class ChatAPI extends BaseAPI {
   }
 
   getConversations(
-    options: GetConversationsOptions
-  ): Promise<GetConversations> {
+    options: ChatGetConversationsOptions
+  ): Promise<ChatConversationData[]> {
     return this.request({
       requiresAuth: true,
       request: {
@@ -217,8 +276,8 @@ export default class ChatAPI extends BaseAPI {
   }
 
   getConversationMessages(
-    options: GetConversationMessagesOptions
-  ): Promise<GetConversationMessages> {
+    options: ChatGetConversationMessagesOptions
+  ): Promise<ChatGetConversationMessages> {
     return this.request({
       requiresAuth: true,
       request: {
@@ -230,8 +289,8 @@ export default class ChatAPI extends BaseAPI {
   }
 
   getRolloutSettings(
-    options: GetRolloutSettingsOptions
-  ): Promise<GetRolloutSettings> {
+    options: ChatGetRolloutSettingsOptions
+  ): Promise<ChatGetRolloutSettings> {
     return this.request({
       requiresAuth: true,
       request: {
@@ -244,7 +303,7 @@ export default class ChatAPI extends BaseAPI {
     }).then((response) => response.body);
   }
 
-  getUnreadConversationCount(): Promise<GetUnreadConversationCount> {
+  getUnreadConversationCount(): Promise<ChatGetUnreadConversationCount> {
     return this.request({
       requiresAuth: true,
       request: {
@@ -255,8 +314,8 @@ export default class ChatAPI extends BaseAPI {
   }
 
   getUnreadMessagesInConversations(
-    options: GetUnreadMessagesInConversationsOptions
-  ): Promise<GetUnreadMessagesInConversations> {
+    options: ChatGetUnreadMessagesInConversationsOptions
+  ): Promise<ChatGetUnreadMessagesInConversations> {
     return this.request({
       requiresAuth: true,
       request: {
@@ -271,8 +330,8 @@ export default class ChatAPI extends BaseAPI {
   }
 
   getUserConversations(
-    options: GetUserConversationsOptions
-  ): Promise<GetUserConversations> {
+    options: ChatGetUserConversationsOptions
+  ): Promise<ChatConversationData> {
     return this.request({
       requiresAuth: true,
       request: {
@@ -283,7 +342,7 @@ export default class ChatAPI extends BaseAPI {
     }).then((response) => response.body);
   }
 
-  getMetaData(): Promise<GetMetaData> {
+  getMetaData(): Promise<ChatGetMetaData> {
     return this.request({
       requiresAuth: true,
       request: {
@@ -294,8 +353,8 @@ export default class ChatAPI extends BaseAPI {
   }
 
   getMultiLatestConversationMessages(
-    options: GetMultiLatestConversationMessagesOptions
-  ): Promise<GetMultiLatestConversationMessages> {
+    options: ChatGetMultiLatestConversationMessagesOptions
+  ): Promise<ChatGetMultiLatestConversationMessages> {
     return this.request({
       requiresAuth: true,
       request: {
@@ -307,8 +366,8 @@ export default class ChatAPI extends BaseAPI {
   }
 
   addUsersToConversation(
-    options: AddUsersToConversationOptions
-  ): Promise<AddUsersToConversation> {
+    options: ChatAddUsersToConversationOptions
+  ): Promise<ChatAddUsersToConversation> {
     return this.request({
       requiresAuth: true,
       request: {
@@ -321,8 +380,8 @@ export default class ChatAPI extends BaseAPI {
   }
 
   markConversationMessagesRead(
-    options: MarkMessageInConversationAsReadOptions
-  ): Promise<MarkMessageInConversationAsRead> {
+    options: ChatMarkConversationMessagesReadOptions
+  ): Promise<ChatMarkConversationMessagesRead> {
     return this.request({
       requiresAuth: true,
       request: {
@@ -335,8 +394,8 @@ export default class ChatAPI extends BaseAPI {
   }
 
   markConversationsSeen(
-    options: MarkConversationsAsSeenOptions
-  ): Promise<MarkConversationsAsSeen> {
+    options: ChatMarkConversationsSeenOptions
+  ): Promise<ChatMarkConversationsSeen> {
     return this.request({
       requiresAuth: true,
       request: {
@@ -349,8 +408,8 @@ export default class ChatAPI extends BaseAPI {
   }
 
   removeUserFromConversation(
-    options: RemoveUserFromConversationOptions
-  ): Promise<RemoveUserFromConversation> {
+    options: ChatRemoveUserFromConversationOptions
+  ): Promise<ChatRemoveUserFromConversation> {
     return this.request({
       requiresAuth: true,
       request: {
@@ -363,8 +422,8 @@ export default class ChatAPI extends BaseAPI {
   }
 
   renameGroupConversation(
-    options: RenameGroupConversationOptions
-  ): Promise<RenameGroupConversation> {
+    options: ChatRenameGroupConversationOptions
+  ): Promise<ChatRenameGroupConversation> {
     return this.request({
       requiresAuth: true,
       request: {
@@ -377,8 +436,8 @@ export default class ChatAPI extends BaseAPI {
   }
 
   resetConversationUniverse(
-    options: ResetConversationUniverseOptions
-  ): Promise<ResetConversationUniverse> {
+    options: ChatResetConversationUniverseOptions
+  ): Promise<ChatResetConversationUniverse> {
     return this.request({
       requiresAuth: true,
       request: {
@@ -391,8 +450,8 @@ export default class ChatAPI extends BaseAPI {
   }
 
   sendGameLinkMessage(
-    options: SendGameLinkMessageOptions
-  ): Promise<SendGameLinkMessage> {
+    options: ChatSendGameLinkMessageOptions
+  ): Promise<ChatSendGameLinkMessage> {
     return this.request({
       requiresAuth: true,
       request: {
@@ -404,7 +463,7 @@ export default class ChatAPI extends BaseAPI {
     }).then((response) => response.body);
   }
 
-  sendMessage(options: SendMessageOptions): Promise<SendMessage> {
+  sendMessage(options: ChatSendMessageOptions): Promise<ChatSendMessage> {
     return this.request({
       requiresAuth: true,
       request: {
@@ -417,8 +476,8 @@ export default class ChatAPI extends BaseAPI {
   }
 
   setConversationUniverse(
-    options: SetConversationUniverseOptions
-  ): Promise<SetConversationUniverse> {
+    options: ChatSetConversationUniverseOptions
+  ): Promise<ChatSetConversationUniverse> {
     return this.request({
       requiresAuth: true,
       request: {
@@ -431,8 +490,8 @@ export default class ChatAPI extends BaseAPI {
   }
 
   startCloudEditConversation(
-    options: StartCloudEditConversationOptions
-  ): Promise<StartCloudEditConversation> {
+    options: ChatStartCloudEditConversationOptions
+  ): Promise<ChatStartCloudEditConversation> {
     return this.request({
       requiresAuth: true,
       request: {
@@ -445,8 +504,8 @@ export default class ChatAPI extends BaseAPI {
   }
 
   startGroupConversation(
-    options: StartGroupConversationOptions
-  ): Promise<StartGroupConversation> {
+    options: ChatStartGroupConversationOptions
+  ): Promise<ChatStartGroupConversation> {
     return this.request({
       requiresAuth: true,
       request: {
@@ -459,8 +518,8 @@ export default class ChatAPI extends BaseAPI {
   }
 
   startOneToOneConversation(
-    options: StartOneToOneConversationOptions
-  ): Promise<StartOneToOneConversation> {
+    options: ChatStartOneToOneConversationOptions
+  ): Promise<ChatStartOneToOneConversation> {
     return this.request({
       requiresAuth: true,
       request: {
@@ -473,8 +532,8 @@ export default class ChatAPI extends BaseAPI {
   }
 
   updateUserTypingStatus(
-    options: UpdateUserTypingStatusOptions
-  ): Promise<UpdateUserTypingStatus> {
+    options: ChatUpdateUserTypingStatusOptions
+  ): Promise<ChatUpdateUserTypingStatus> {
     return this.request({
       requiresAuth: true,
       request: {

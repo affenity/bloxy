@@ -1,20 +1,20 @@
 import BaseAPI from "./BaseAPI";
 import Client from "../Client";
 
-export type GetCountryRegionsOptions = {
+export type LocaleGetCountryRegionsOptions = {
   locale: string;
 };
-export type GetCountryRegions = {
+export type LocaleGetCountryRegions = {
   countryRegionList: {
     code: string;
     name: string;
     displayName: string;
   }[];
 };
-export type GetLocalesOptions = {
+export type LocaleGetLocalesOptions = {
   displayValueLocale?: string;
 };
-export type GetLocales = {
+export type LocaleGetLocales = {
   data: {
     locale: {
       id: number;
@@ -33,21 +33,21 @@ export type GetLocales = {
     isEnabledForInGameUgc: boolean;
   }[];
 };
-export type GetSupportedLocales = {
-  supportedLocales: GetLocales["data"][0]["locale"][];
+export type LocaleGetSupportedLocales = {
+  supportedLocales: LocaleGetLocales["data"][0]["locale"][];
 };
-export type GetUserLocale = {
-  supportedLocale: GetLocales["data"][0]["locale"];
+export type LocaleGetUserLocale = {
+  supportedLocale: LocaleGetLocales["data"][0]["locale"];
 };
-export type GetLocusSupportedLocales = {
-  signupAndLogin: GetLocales["data"][0]["locale"];
-  generalExperience: GetLocales["data"][0]["locale"];
-  ugc: GetLocales["data"][0]["locale"];
+export type LocaleGetLocusSupportedLocales = {
+  signupAndLogin: LocaleGetLocales["data"][0]["locale"];
+  generalExperience: LocaleGetLocales["data"][0]["locale"];
+  ugc: LocaleGetLocales["data"][0]["locale"];
 };
-export type SetUserLocaleOptions = {
+export type LocaleSetUserLocaleOptions = {
   supportedLocaleCode: string;
 };
-export type SetUserLocale = {
+export type LocaleSetUserLocale = {
   success: boolean;
 };
 
@@ -60,8 +60,8 @@ export default class LocaleAPI extends BaseAPI {
   }
 
   getCountryRegions(
-    options: GetCountryRegionsOptions
-  ): Promise<GetCountryRegions> {
+    options: LocaleGetCountryRegionsOptions
+  ): Promise<LocaleGetCountryRegions> {
     return this.request({
       requiresAuth: false,
       request: {
@@ -72,7 +72,7 @@ export default class LocaleAPI extends BaseAPI {
     }).then((response) => response.body);
   }
 
-  getLocales(options: GetLocalesOptions): Promise<GetLocales> {
+  getLocales(options: LocaleGetLocalesOptions): Promise<LocaleGetLocales> {
     return this.request({
       requiresAuth: false,
       request: {
@@ -83,7 +83,7 @@ export default class LocaleAPI extends BaseAPI {
     }).then((response) => response.body);
   }
 
-  getSupportedLocales(): Promise<GetSupportedLocales> {
+  getSupportedLocales(): Promise<LocaleGetSupportedLocales> {
     return this.request({
       requiresAuth: false,
       request: {
@@ -93,7 +93,7 @@ export default class LocaleAPI extends BaseAPI {
     }).then((response) => response.body);
   }
 
-  getSupportedLocalsForCreators(): Promise<GetSupportedLocales> {
+  getSupportedLocalsForCreators(): Promise<LocaleGetSupportedLocales> {
     return this.request({
       requiresAuth: false,
       request: {
@@ -103,7 +103,7 @@ export default class LocaleAPI extends BaseAPI {
     }).then((response) => response.body);
   }
 
-  getUserLocale(): Promise<GetUserLocale> {
+  getUserLocale(): Promise<LocaleGetUserLocale> {
     return this.request({
       requiresAuth: true,
       request: {
@@ -113,7 +113,7 @@ export default class LocaleAPI extends BaseAPI {
     }).then((response) => response.body);
   }
 
-  getLocusSupportedLocales(): Promise<GetLocusSupportedLocales> {
+  getLocusSupportedLocales(): Promise<LocaleGetLocusSupportedLocales> {
     return this.request({
       requiresAuth: false,
       request: {
@@ -123,7 +123,9 @@ export default class LocaleAPI extends BaseAPI {
     }).then((response) => response.body);
   }
 
-  setUserLocale(options: SetUserLocaleOptions): Promise<SetUserLocale> {
+  setUserLocale(
+    options: LocaleSetUserLocaleOptions
+  ): Promise<LocaleSetUserLocale> {
     return this.request({
       requiresAuth: true,
       request: {

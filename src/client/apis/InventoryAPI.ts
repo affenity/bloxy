@@ -1,7 +1,7 @@
 import BaseAPI from "./BaseAPI";
 import Client from "../Client";
 
-export type CanViewInventory = {
+export type InventoryCanViewInventory = {
   canView: boolean;
 };
 export type InventoryItem = {
@@ -21,13 +21,13 @@ export type InventoryCategory = {
 export type InventoryCategories = {
   categories: InventoryCategory[];
 };
-export type GetPackageAssetsOptions = {
+export type InventoryGetPackageAssetsOptions = {
   packageId: number;
 };
-export type GetPackageAssets = {
+export type InventoryGetPackageAssets = {
   assetIds: number[];
 };
-export type GetUserCollectiblesOptions = {
+export type InventoryGetUserCollectiblesOptions = {
   userId: number;
   assetType?:
     | "Image"
@@ -89,7 +89,7 @@ export type GetUserCollectiblesOptions = {
   limit?: 10 | 25 | 50 | 100;
   cursor?: string;
 };
-export type GetUserCollectibles = {
+export type InventoryGetUserCollectibles = {
   previousPageCursor: string;
   nextPageCursor: string;
   data: {
@@ -103,28 +103,28 @@ export type GetUserCollectibles = {
     buildersClubMembershipType: "None" | string;
   }[];
 };
-export type GetUserItemsByTypeAndTargetIdOptions = {
+export type InventoryGetUserItemsByTypeAndTargetIdOptions = {
   userId: number;
   itemType: "Asset" | "GamePass" | "Badge" | "Bundle";
   itemTargetId: number;
 };
-export type GetUserItemsByTypeAndTargetId = {
+export type InventoryGetUserItemsByTypeAndTargetId = {
   previousPageCursor: string;
   nextPageCursor: string;
   data: {
     Id: number;
     Name: string;
-    Type: GetUserItemsByTypeAndTargetIdOptions["itemType"];
+    Type: InventoryGetUserItemsByTypeAndTargetIdOptions["itemType"];
     InstanceId: number;
   }[];
 };
-export type GetAssetOwnersOptions = {
+export type InventoryGetAssetOwnersOptions = {
   assetId: number;
   sortOrder?: "Asc" | "Desc";
   limit?: 10 | 25 | 50 | 100;
   cursor?: string;
 };
-export type GetAssetOwners = {
+export type InventoryGetAssetOwners = {
   previousPageCursor: string;
   nextPageCursor: string;
   data: {
@@ -139,30 +139,30 @@ export type GetAssetOwners = {
     updated: string;
   };
 };
-export type GetUserInventoryOptions = {
+export type InventoryGetUserInventoryOptions = {
   userId: number;
-  assetTypes: GetUserCollectiblesOptions["assetType"][];
+  assetTypes: InventoryGetUserCollectiblesOptions["assetType"][];
   limit?: 10 | 25 | 50 | 100;
   cursor?: string;
   sortOrder?: "Asc" | "Desc";
 };
-export type GetUserInventory = {
+export type InventoryGetUserInventory = {
   previousPageCursor: string;
   nextPageCursor: string;
   data: {
     assetId: number;
     name: string;
-    assetType: GetUserCollectiblesOptions["assetType"];
+    assetType: InventoryGetUserCollectiblesOptions["assetType"];
     created: string;
   }[];
 };
-export type GetUserInventoryByAssetTypeIdOptions = Omit<
-  GetUserInventoryOptions,
+export type InventoryGetUserInventoryByAssetTypeIdOptions = Omit<
+  InventoryGetUserInventoryOptions,
   "assetTypes"
 > & {
   assetTypeId: number;
 };
-export type GetUserInventoryByAssetTypeId = {
+export type InventoryGetUserInventoryByAssetTypeId = {
   previousPageCursor: string;
   nextPageCursor: string;
   data: {
@@ -189,8 +189,8 @@ export default class InventoryAPI extends BaseAPI {
   }
 
   getPackageAssets(
-    options: GetPackageAssetsOptions
-  ): Promise<GetPackageAssets> {
+    options: InventoryGetPackageAssetsOptions
+  ): Promise<InventoryGetPackageAssets> {
     return this.request({
       requiresAuth: false,
       request: {
@@ -201,8 +201,8 @@ export default class InventoryAPI extends BaseAPI {
   }
 
   getUserCollectibles(
-    options: GetUserCollectiblesOptions
-  ): Promise<GetUserCollectibles> {
+    options: InventoryGetUserCollectiblesOptions
+  ): Promise<InventoryGetUserCollectibles> {
     return this.request({
       requiresAuth: false,
       request: {
@@ -214,8 +214,8 @@ export default class InventoryAPI extends BaseAPI {
   }
 
   getUserItemsByTypeAndTargetId(
-    options: GetUserItemsByTypeAndTargetIdOptions
-  ): Promise<GetUserItemsByTypeAndTargetId> {
+    options: InventoryGetUserItemsByTypeAndTargetIdOptions
+  ): Promise<InventoryGetUserItemsByTypeAndTargetId> {
     return this.request({
       requiresAuth: false,
       request: {
@@ -225,7 +225,9 @@ export default class InventoryAPI extends BaseAPI {
     }).then((response) => response.body);
   }
 
-  canViewInventory(options: { userId: number }): Promise<CanViewInventory> {
+  canViewInventory(options: {
+    userId: number;
+  }): Promise<InventoryCanViewInventory> {
     return this.request({
       requiresAuth: false,
       request: {
@@ -257,7 +259,9 @@ export default class InventoryAPI extends BaseAPI {
     }).then((response) => response.body);
   }
 
-  getAssetOwners(options: GetAssetOwnersOptions): Promise<GetAssetOwners> {
+  getAssetOwners(
+    options: InventoryGetAssetOwnersOptions
+  ): Promise<InventoryGetAssetOwners> {
     return this.request({
       requiresAuth: false,
       request: {
@@ -269,8 +273,8 @@ export default class InventoryAPI extends BaseAPI {
   }
 
   getUserInventory(
-    options: GetUserInventoryOptions
-  ): Promise<GetUserInventory> {
+    options: InventoryGetUserInventoryOptions
+  ): Promise<InventoryGetUserInventory> {
     return this.request({
       requiresAuth: false,
       request: {
@@ -282,8 +286,8 @@ export default class InventoryAPI extends BaseAPI {
   }
 
   getUserInventoryByAssetTypeId(
-    options: GetUserInventoryByAssetTypeIdOptions
-  ): Promise<GetUserInventoryByAssetTypeId> {
+    options: InventoryGetUserInventoryByAssetTypeIdOptions
+  ): Promise<InventoryGetUserInventoryByAssetTypeId> {
     return this.request({
       requiresAuth: false,
       request: {

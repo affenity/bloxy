@@ -2,16 +2,16 @@ import BaseAPI from "./BaseAPI";
 import Client from "../Client";
 import { EnumUserPresence } from "../../interfaces/GeneralInterfaces";
 
-export type RegisterAppPresenceOptions = {
+export type PresenceRegisterAppPresenceOptions = {
   location: string;
   placeId: number;
   disconnect: boolean;
 };
-export type RegisterAppPresence = unknown;
-export type GetUsersPresencesOptions = {
+export type PresenceRegisterAppPresence = unknown;
+export type PresenceGetUsersPresencesOptions = {
   userIds: number[];
 };
-export type GetUsersPresences = {
+export type PresenceGetUsersPresences = {
   userPresences: {
     userPresenceType: EnumUserPresence;
     lastLocation: string;
@@ -25,16 +25,16 @@ export type GetUsersPresences = {
 };
 
 export default class PresenceAPI extends BaseAPI {
-  constructor (client: Client) {
+  constructor(client: Client) {
     super({
       client,
       baseUrl: "https://presence.roblox.com/"
     });
   }
 
-  registerAppPresence (
-    options: RegisterAppPresenceOptions
-  ): Promise<RegisterAppPresence> {
+  registerAppPresence(
+    options: PresenceRegisterAppPresenceOptions
+  ): Promise<PresenceRegisterAppPresence> {
     return this.request({
       requiresAuth: false,
       request: {
@@ -46,9 +46,9 @@ export default class PresenceAPI extends BaseAPI {
     }).then((response) => response.body);
   }
 
-  getUsersPresences (
-    options: GetUsersPresencesOptions
-  ): Promise<GetUsersPresences> {
+  getUsersPresences(
+    options: PresenceGetUsersPresencesOptions
+  ): Promise<PresenceGetUsersPresences> {
     return this.request({
       requiresAuth: false,
       request: {

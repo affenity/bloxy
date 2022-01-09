@@ -1,7 +1,8 @@
 import BaseAPI from "./BaseAPI";
 import Client from "../Client";
+import { AssetIdOption, SortOption, UserIdOption } from "../..";
 
-export type ProductDetails = {
+export type CatalogProductDetails = {
   id: number;
   type: string;
   isPublicDomain: boolean;
@@ -12,13 +13,7 @@ export type ProductDetails = {
     premiumPriceInRobux: number;
   };
 };
-export type GetAssetBundlesOptions = {
-  assetId: number;
-  sortOrder?: "Asc" | "Desc";
-  limit?: 10 | 25 | 50 | 100;
-  cursor?: string;
-};
-export type GetAssetBundles = {
+export type CatalogGetAssetBundles = {
   previousPageCursor: string;
   nextPageCursor: string;
   data: {
@@ -38,95 +33,70 @@ export type GetAssetBundles = {
       type: string;
     };
     creatorType: number;
-    product: ProductDetails;
+    product: CatalogProductDetails;
   }[];
 };
-export type GetBundleDetailsOptions = {
-  bundleId: number;
+export type CatalogGetBundleDetails = CatalogGetAssetBundles["data"][0];
+export type CatalogGetBundleRecommendationsByBundleId = {
+  data: CatalogGetAssetBundles["data"];
 };
-export type GetBundleDetails = GetAssetBundles["data"][0];
-export type GetBundleRecommendationsByBundleIdOptions = {
+export type CatalogGetMultiBundleDetails = CatalogGetAssetBundles["data"];
+export type CatalogUnpackBundle = unknown;
+export type CatalogGetAssetToCategory = Record<string, number>;
+export type CatalogGetAppStoreExclusiveBundles = {
+  data: CatalogProductDetails[];
+};
+export type CatalogGetAssetFavoriteCountOptions = {
+  assetId: number;
+};
+export type CatalogGetFavoriteCount = number;
+export type CatalogRemoveSelfAssetFavorite = unknown;
+export type CatalogGetUserFavoriteAsset = {
+  assetId: number;
+  userId: number;
+  created: string;
+};
+export type CatalogFavoriteAsset = unknown;
+export type CatalogRemoveFavoriteBundle = unknown;
+export type CatalogGetSelfFavoriteBundle = {
+  bundleId: number;
+  userId: number;
+  created: string;
+};
+export type CatalogFavoriteBundle = unknown;
+export type CatalogGetAssetBundlesOptions = SortOption & AssetIdOption;
+export type CatalogGetBundleDetailsOptions = { bundleId: number };
+export type CatalogGetBundleRecommendationsByBundleIdOptions = {
   bundleId: number;
   numItems?: number;
 };
-export type GetBundleRecommendationsByBundleId = {
-  data: GetAssetBundles["data"];
-};
-export type GetMultiBundleDetailsOptions = {
+export type CatalogGetMultiBundleDetailsOptions = {
   bundleIds: number[];
 };
-export type GetMultiBundleDetails = GetAssetBundles["data"];
-export type GetUserBundlesOptions = {
-  userId: number;
-  sortOrder?: "Asc" | "Desc";
-  limit?: 10 | 25 | 50 | 100;
-  cursor?: string;
-};
-export type GetUserBundles = GetAssetBundles;
-export type GetUserBundlesByTypeOptions = GetUserBundlesOptions & {
-  bundleType: "BodyParts" | "AvatarAnimations" | string;
-};
-export type GetUserBundlesByType = GetUserBundles;
-export type UnpackBundleOptions = {
+export type CatalogGetUserBundlesOptions = SortOption & UserIdOption;
+export type CatalogGetUserBundlesByTypeOptions =
+  CatalogGetUserBundlesOptions & {
+    bundleType: string;
+  };
+export type CatalogUnpackBundleOptions = {
   bundleId: number;
 };
-export type UnpackBundle = unknown;
-export type GetAssetToCategory = Record<string, number>;
-export type GetAssetToSubCategory = GetAssetToCategory;
-export type GetCategories = GetAssetToCategory;
-export type GetSubCategories = GetAssetToCategory;
-export type GetAppStoreExclusiveBundlesOptions = {
+export type CatalogGetAppStoreExclusiveBundlesOptions = {
   appStoreType: "iOS" | "GooglePlay" | "Xbox" | "Amazon";
 };
-export type GetAppStoreExclusiveBundles = {
-  data: ProductDetails[];
-};
-export type GetAssetFavoriteCountOptions = {
-  assetId: number;
-};
-export type GetAssetFavoriteCount = number;
-export type GetBundleFavoriteCountOptions = {
+export type CatalogGetBundleFavoriteCount = CatalogUnpackBundleOptions;
+export type CatalogRemoveAssetFavoriteOptions = AssetIdOption & UserIdOption;
+export type CatalogGetUserFavoriteAssetOptions = AssetIdOption & UserIdOption;
+export type CatalogFavoriteAssetOptions = AssetIdOption & UserIdOption;
+export type CatalogRemoveBundleFavoriteOptions = UserIdOption & {
   bundleId: number;
 };
-export type GetBundleFavoriteCount = number;
-export type RemoveSelfAssetFavoriteOptions = {
-  userId: number;
-  assetId: number;
-};
-export type RemoveSelfAssetFavorite = unknown;
-export type GetUserFavoriteAssetOptions = {
-  userId: number;
-  assetId: number;
-};
-export type GetUserFavoriteAsset = {
-  assetId: number;
-  userId: number;
-  created: string;
-};
-export type FavoriteAssetOptions = {
-  userId: number;
-  assetId: number;
-};
-export type FavoriteAsset = unknown;
-export type RemoveFavoriteBundleOptions = {
-  userId: number;
+export type CatalogGetUserFavoriteBundleOptions = UserIdOption & {
   bundleId: number;
 };
-export type RemoveFavoriteBundle = unknown;
-export type GetSelfFavoriteBundleOptions = {
-  userId: number;
+export type CatalogFavoriteBundleOptions = UserIdOption & {
   bundleId: number;
 };
-export type GetSelfFavoriteBundle = {
-  bundleId: number;
-  userId: number;
-  created: string;
-};
-export type FavoriteBundleOptions = {
-  userId: number;
-  bundleId: number;
-};
-export type FavoriteBundle = unknown;
 
 export default class CatalogAPI extends BaseAPI {
   constructor(client: Client) {
@@ -136,7 +106,9 @@ export default class CatalogAPI extends BaseAPI {
     });
   }
 
-  getAssetBundles(options: GetAssetBundlesOptions): Promise<GetAssetBundles> {
+  getAssetBundles(
+    options: CatalogGetAssetBundlesOptions
+  ): Promise<CatalogGetAssetBundles> {
     return this.request({
       requiresAuth: false,
       request: {
@@ -148,8 +120,8 @@ export default class CatalogAPI extends BaseAPI {
   }
 
   getBundleDetails(
-    options: GetBundleDetailsOptions
-  ): Promise<GetBundleDetails> {
+    options: CatalogGetBundleDetailsOptions
+  ): Promise<CatalogGetBundleDetails> {
     return this.request({
       requiresAuth: false,
       request: {
@@ -161,8 +133,8 @@ export default class CatalogAPI extends BaseAPI {
   }
 
   getBundleRecommendationsByBundleId(
-    options: GetBundleRecommendationsByBundleIdOptions
-  ): Promise<GetBundleRecommendationsByBundleId> {
+    options: CatalogGetBundleRecommendationsByBundleIdOptions
+  ): Promise<CatalogGetBundleRecommendationsByBundleId> {
     return this.request({
       requiresAuth: false,
       request: {
@@ -174,8 +146,8 @@ export default class CatalogAPI extends BaseAPI {
   }
 
   getMultiBundleDetails(
-    options: GetMultiBundleDetailsOptions
-  ): Promise<GetMultiBundleDetails> {
+    options: CatalogGetMultiBundleDetailsOptions
+  ): Promise<CatalogGetMultiBundleDetails> {
     return this.request({
       requiresAuth: false,
       request: {
@@ -188,7 +160,9 @@ export default class CatalogAPI extends BaseAPI {
     }).then((response) => response.body);
   }
 
-  getUserBundles(options: GetUserBundlesOptions): Promise<GetUserBundles> {
+  getUserBundles(
+    options: CatalogGetUserBundlesOptions
+  ): Promise<CatalogGetAssetBundles> {
     return this.request({
       requiresAuth: false,
       request: {
@@ -200,8 +174,8 @@ export default class CatalogAPI extends BaseAPI {
   }
 
   getUserBundlesByType(
-    options: GetUserBundlesByTypeOptions
-  ): Promise<GetUserBundlesByType> {
+    options: CatalogGetUserBundlesByTypeOptions
+  ): Promise<CatalogGetAssetBundles> {
     return this.request({
       requiresAuth: false,
       request: {
@@ -211,7 +185,9 @@ export default class CatalogAPI extends BaseAPI {
     }).then((response) => response.body);
   }
 
-  unpackBundle(options: UnpackBundleOptions): Promise<UnpackBundle> {
+  unpackBundle(
+    options: CatalogUnpackBundleOptions
+  ): Promise<CatalogUnpackBundle> {
     return this.request({
       requiresAuth: false,
       request: {
@@ -222,7 +198,7 @@ export default class CatalogAPI extends BaseAPI {
     }).then((response) => response.body);
   }
 
-  getAssetToCategory(): Promise<GetAssetToCategory> {
+  getAssetToCategory(): Promise<CatalogGetAssetToCategory> {
     return this.request({
       requiresAuth: false,
       request: {
@@ -232,7 +208,7 @@ export default class CatalogAPI extends BaseAPI {
     }).then((response) => response.body);
   }
 
-  getAssetToSubCategory(): Promise<GetAssetToSubCategory> {
+  getAssetToSubCategory(): Promise<CatalogGetAssetToCategory> {
     return this.request({
       requiresAuth: false,
       request: {
@@ -242,7 +218,7 @@ export default class CatalogAPI extends BaseAPI {
     }).then((response) => response.body);
   }
 
-  getCategories(): Promise<GetCategories> {
+  getCategories(): Promise<CatalogGetAssetToCategory> {
     return this.request({
       requiresAuth: false,
       request: {
@@ -252,7 +228,7 @@ export default class CatalogAPI extends BaseAPI {
     }).then((response) => response.body);
   }
 
-  getSubCategories(): Promise<GetSubCategories> {
+  getSubCategories(): Promise<CatalogGetAssetToCategory> {
     return this.request({
       requiresAuth: false,
       request: {
@@ -263,8 +239,8 @@ export default class CatalogAPI extends BaseAPI {
   }
 
   getAppStoreExclusiveBundles(
-    options: GetAppStoreExclusiveBundlesOptions
-  ): Promise<GetAppStoreExclusiveBundles> {
+    options: CatalogGetAppStoreExclusiveBundlesOptions
+  ): Promise<CatalogGetAppStoreExclusiveBundles> {
     return this.request({
       requiresAuth: false,
       request: {
@@ -275,8 +251,8 @@ export default class CatalogAPI extends BaseAPI {
   }
 
   getAssetFavoriteCount(
-    options: GetAssetFavoriteCountOptions
-  ): Promise<GetAssetFavoriteCount> {
+    options: AssetIdOption
+  ): Promise<CatalogGetFavoriteCount> {
     return this.request({
       requiresAuth: false,
       request: {
@@ -287,8 +263,8 @@ export default class CatalogAPI extends BaseAPI {
   }
 
   getBundleFavoriteCount(
-    options: GetBundleFavoriteCountOptions
-  ): Promise<GetBundleFavoriteCount> {
+    options: CatalogGetBundleFavoriteCount
+  ): Promise<CatalogGetFavoriteCount> {
     return this.request({
       requiresAuth: false,
       request: {
@@ -299,8 +275,8 @@ export default class CatalogAPI extends BaseAPI {
   }
 
   removeAssetFavorite(
-    options: RemoveSelfAssetFavoriteOptions
-  ): Promise<RemoveSelfAssetFavorite> {
+    options: CatalogRemoveAssetFavoriteOptions
+  ): Promise<CatalogRemoveSelfAssetFavorite> {
     return this.request({
       requiresAuth: true,
       request: {
@@ -312,8 +288,8 @@ export default class CatalogAPI extends BaseAPI {
   }
 
   getUserFavoriteAsset(
-    options: GetUserFavoriteAssetOptions
-  ): Promise<GetUserFavoriteAsset> {
+    options: CatalogGetUserFavoriteAssetOptions
+  ): Promise<CatalogGetUserFavoriteAsset> {
     return this.request({
       requiresAuth: false,
       request: {
@@ -323,7 +299,9 @@ export default class CatalogAPI extends BaseAPI {
     }).then((response) => response.body);
   }
 
-  favoriteAsset(options: FavoriteAssetOptions): Promise<FavoriteAsset> {
+  favoriteAsset(
+    options: CatalogFavoriteAssetOptions
+  ): Promise<CatalogFavoriteAsset> {
     return this.request({
       requiresAuth: false,
       request: {
@@ -335,8 +313,8 @@ export default class CatalogAPI extends BaseAPI {
   }
 
   removeBundleFavorite(
-    options: RemoveFavoriteBundleOptions
-  ): Promise<RemoveFavoriteBundle> {
+    options: CatalogRemoveBundleFavoriteOptions
+  ): Promise<CatalogRemoveFavoriteBundle> {
     return this.request({
       requiresAuth: false,
       request: {
@@ -348,8 +326,8 @@ export default class CatalogAPI extends BaseAPI {
   }
 
   getUserFavoriteBundle(
-    options: GetSelfFavoriteBundleOptions
-  ): Promise<GetSelfFavoriteBundle> {
+    options: CatalogGetUserFavoriteBundleOptions
+  ): Promise<CatalogGetSelfFavoriteBundle> {
     return this.request({
       requiresAuth: false,
       request: {
@@ -359,7 +337,9 @@ export default class CatalogAPI extends BaseAPI {
     }).then((response) => response.body);
   }
 
-  favoriteBundle(options: FavoriteBundleOptions): Promise<FavoriteBundle> {
+  favoriteBundle(
+    options: CatalogFavoriteBundleOptions
+  ): Promise<CatalogFavoriteBundle> {
     return this.request({
       requiresAuth: false,
       request: {

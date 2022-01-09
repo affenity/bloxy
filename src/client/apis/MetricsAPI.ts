@@ -1,16 +1,16 @@
 import BaseAPI from "./BaseAPI";
 import Client from "../Client";
 
-export type GetThumbnailsMetaData = {
+export type MetricsGetThumbnailsMetaData = {
   logRatio: number;
 };
-export type RecordThumbnailLoadOptions = {
+export type MetricsRecordThumbnailLoadOptions = {
   duration: number;
   loadState: string;
   thumbnailType: string;
 };
-export type RecordThumbnailLoad = unknown;
-export type ReportBundleLoadOptions = {
+export type MetricsRecordThumbnailLoad = unknown;
+export type MetricsReportBundleLoadOptions = {
   bundleUrl: string;
   bundleName: string;
   loadTimeInMilliseconds: number;
@@ -18,7 +18,7 @@ export type ReportBundleLoadOptions = {
   loadState: string;
   bundleContentType: string;
 };
-export type ReportBundleLoad = unknown;
+export type MetricsReportBundleLoad = unknown;
 
 export default class LocaleAPI extends BaseAPI {
   constructor(client: Client) {
@@ -28,7 +28,7 @@ export default class LocaleAPI extends BaseAPI {
     });
   }
 
-  getThumbnailsMetaData(): Promise<GetThumbnailsMetaData> {
+  getThumbnailsMetaData(): Promise<MetricsGetThumbnailsMetaData> {
     return this.request({
       requiresAuth: false,
       request: {
@@ -39,8 +39,8 @@ export default class LocaleAPI extends BaseAPI {
   }
 
   recordThumbnailLoad(
-    options: RecordThumbnailLoadOptions
-  ): Promise<RecordThumbnailLoad> {
+    options: MetricsRecordThumbnailLoadOptions
+  ): Promise<MetricsRecordThumbnailLoad> {
     return this.request({
       requiresAuth: false,
       request: {
@@ -53,8 +53,8 @@ export default class LocaleAPI extends BaseAPI {
   }
 
   recordBundleLoad(
-    options: ReportBundleLoadOptions
-  ): Promise<ReportBundleLoad> {
+    options: MetricsReportBundleLoadOptions
+  ): Promise<MetricsReportBundleLoad> {
     return this.request({
       requiresAuth: false,
       request: {

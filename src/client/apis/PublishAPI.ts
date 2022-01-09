@@ -1,10 +1,10 @@
 import BaseAPI from "./BaseAPI";
 import Client from "../Client";
 
-export type UploadAssetsOptions = {
+export type PublishUploadAssetsOptions = {
   files: unknown;
 };
-export type UploadAssets = {
+export type PublishUploadAssets = {
   AssetDetails: {
     assetId: number;
     assetFileName: string;
@@ -21,8 +21,8 @@ export type PublishAudio = {
   Id: number;
   Name: string;
 };
-export type VerifyAudioOptions = PublishAudioOptions;
-export type VerifyAudio = {
+export type PublishVerifyAudioOptions = PublishAudioOptions;
+export type PublishVerifyAudio = {
   price: number;
   canAfford: boolean;
 };
@@ -40,18 +40,18 @@ export type PublishGamePassIconOptions = {
 export type PublishGamePassIcon = {
   targetId: number;
 };
-export type UploadGameThumbnailOptions = {
+export type PublishUploadGameThumbnailOptions = {
   gameId: number;
   files: unknown;
 };
-export type UploadGameThumbnail = {
+export type PublishUploadGameThumbnail = {
   targetId: number;
 };
-export type UploadPluginIconOptions = {
+export type PublishUploadPluginIconOptions = {
   pluginId: number;
   files: unknown;
 };
-export type UploadPluginIcon = {
+export type PublishUploadPluginIcon = {
   targetId: number;
 };
 
@@ -66,7 +66,9 @@ export default class PublishAPI extends BaseAPI {
   /**
    * @hidden
    */
-  uploadAssets(options: UploadAssetsOptions): Promise<UploadAssets> {
+  uploadAssets(
+    options: PublishUploadAssetsOptions
+  ): Promise<PublishUploadAssets> {
     return this.request({
       requiresAuth: false,
       request: {
@@ -90,7 +92,7 @@ export default class PublishAPI extends BaseAPI {
     }).then((response) => response.body);
   }
 
-  verifyAudio(options: VerifyAudioOptions): Promise<VerifyAudio> {
+  verifyAudio(options: PublishVerifyAudioOptions): Promise<PublishVerifyAudio> {
     return this.request({
       requiresAuth: false,
       request: {
@@ -134,8 +136,8 @@ export default class PublishAPI extends BaseAPI {
   }
 
   uploadGameThumbnail(
-    options: UploadGameThumbnailOptions
-  ): Promise<UploadGameThumbnail> {
+    options: PublishUploadGameThumbnailOptions
+  ): Promise<PublishUploadGameThumbnail> {
     return this.request({
       requiresAuth: false,
       request: {
@@ -148,8 +150,8 @@ export default class PublishAPI extends BaseAPI {
   }
 
   uploadPluginIcon(
-    options: UploadPluginIconOptions
-  ): Promise<UploadPluginIcon> {
+    options: PublishUploadPluginIconOptions
+  ): Promise<PublishUploadPluginIcon> {
     return this.request({
       requiresAuth: false,
       request: {

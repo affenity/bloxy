@@ -1,13 +1,13 @@
 import BaseAPI from "./BaseAPI";
 import Client from "../Client";
 
-export type GetCreatedAssetsOptions = {
+export type ItemConfigurationGetCreatedAssetsOptions = {
   assetType: string;
   isArchived?: boolean;
   groupId?: number;
   sortOrder?: "Asc" | "Desc";
 };
-export type GetCreatedAssets = {
+export type ItemConfigurationGetCreatedAssets = {
   previousPageCursor: string;
   nextPageCursor: string;
   data: {
@@ -15,10 +15,10 @@ export type GetCreatedAssets = {
     name: string;
   }[];
 };
-export type GetMultiCreatedAssetDetailsOptions = {
+export type ItemConfigurationGetMultiCreatedAssetDetailsOptions = {
   assetIds: number[];
 };
-export type GetMultiCreatedAssetDetails = {
+export type ItemConfigurationGetMultiCreatedAssetDetails = {
   assetId: number;
   name: string;
   status: string;
@@ -34,10 +34,10 @@ export type GetMultiCreatedAssetDetails = {
   isArchived: boolean;
   assetType: string;
 }[];
-export type GetItemTagsByItemIdsOptions = {
+export type ItemConfigurationGetItemTagsByItemIdsOptions = {
   itemIds: number[];
 };
-export type GetItemTagsByItemIds = {
+export type ItemConfigurationGetItemTagsByItemIds = {
   data: {
     id: string;
     itemTags: {
@@ -51,43 +51,47 @@ export type GetItemTagsByItemIds = {
     }[];
   }[];
 };
-export type CreateItemTagOptions = {
+export type ItemConfigurationCreateItemTagOptions = {
   itemId: number;
   tagId: string;
 };
-export type CreateItemTag = GetItemTagsByItemIds["data"][0]["itemTags"][0];
-export type GetItemTagsMetaData = {
+export type ItemConfigurationCreateItemTag =
+  ItemConfigurationGetItemTagsByItemIds["data"][0]["itemTags"][0];
+export type ItemConfigurationGetItemTagsMetaData = {
   isItemTagsFeatureEnabled: boolean;
   enabledAssetTypes: string[];
   maximumItemTagsPerItem: number;
 };
-export type DeleteItemTagOptions = {
+export type ItemConfigurationDeleteItemTagOptions = {
   itemTagId: number;
 };
-export type DeleteItemTag = unknown;
-export type GetTagsByTagIdsOptions = {
+export type ItemConfigurationDeleteItemTag = unknown;
+export type ItemConfigurationGetTagsByTagIdsOptions = {
   tagIds: number[];
 };
-export type GetTagsByTagIds = {
-  data: Omit<GetItemTagsByItemIds["data"][0]["itemTags"][0], "id">[];
+export type ItemConfigurationGetTagsByTagIds = {
+  data: Omit<
+    ItemConfigurationGetItemTagsByItemIds["data"][0]["itemTags"][0],
+    "id"
+  >[];
 };
-export type SearchTagsOptions = {
+export type ItemConfigurationSearchTagsOptions = {
   prefix: string;
   results: number;
 };
-export type SearchTags = GetTagsByTagIds;
+export type ItemConfigurationSearchTags = ItemConfigurationGetTagsByTagIds;
 
 export default class InventoryAPI extends BaseAPI {
-  constructor (client: Client) {
+  constructor(client: Client) {
     super({
       client,
       baseUrl: "https://itemconfiguration.roblox.com/"
     });
   }
 
-  getCreatedAssets (
-    options: GetCreatedAssetsOptions
-  ): Promise<GetCreatedAssets> {
+  getCreatedAssets(
+    options: ItemConfigurationGetCreatedAssetsOptions
+  ): Promise<ItemConfigurationGetCreatedAssets> {
     return this.request({
       requiresAuth: false,
       request: {
@@ -98,9 +102,9 @@ export default class InventoryAPI extends BaseAPI {
     }).then((response) => response.body);
   }
 
-  getMultiCreatedAssets (
-    options: GetMultiCreatedAssetDetailsOptions
-  ): Promise<GetMultiCreatedAssetDetails> {
+  getMultiCreatedAssets(
+    options: ItemConfigurationGetMultiCreatedAssetDetailsOptions
+  ): Promise<ItemConfigurationGetMultiCreatedAssetDetails> {
     return this.request({
       requiresAuth: false,
       request: {
@@ -112,9 +116,9 @@ export default class InventoryAPI extends BaseAPI {
     }).then((response) => response.body);
   }
 
-  getItemTagsByItemIds (
-    options: GetItemTagsByItemIdsOptions
-  ): Promise<GetItemTagsByItemIds> {
+  getItemTagsByItemIds(
+    options: ItemConfigurationGetItemTagsByItemIdsOptions
+  ): Promise<ItemConfigurationGetItemTagsByItemIds> {
     return this.request({
       requiresAuth: false,
       request: {
@@ -127,7 +131,9 @@ export default class InventoryAPI extends BaseAPI {
     }).then((response) => response.body);
   }
 
-  createItemTag (options: CreateItemTagOptions): Promise<CreateItemTag> {
+  createItemTag(
+    options: ItemConfigurationCreateItemTagOptions
+  ): Promise<ItemConfigurationCreateItemTag> {
     return this.request({
       requiresAuth: false,
       request: {
@@ -139,7 +145,7 @@ export default class InventoryAPI extends BaseAPI {
     }).then((response) => response.body);
   }
 
-  getItemTagsMetaData (): Promise<GetItemTagsMetaData> {
+  getItemTagsMetaData(): Promise<ItemConfigurationGetItemTagsMetaData> {
     return this.request({
       requiresAuth: false,
       request: {
@@ -149,7 +155,9 @@ export default class InventoryAPI extends BaseAPI {
     }).then((response) => response.body);
   }
 
-  deleteItemTag (options: DeleteItemTagOptions): Promise<DeleteItemTag> {
+  deleteItemTag(
+    options: ItemConfigurationDeleteItemTagOptions
+  ): Promise<ItemConfigurationDeleteItemTag> {
     return this.request({
       requiresAuth: false,
       request: {
@@ -160,7 +168,9 @@ export default class InventoryAPI extends BaseAPI {
     }).then((response) => response.body);
   }
 
-  getTagsByTagIds (options: GetTagsByTagIdsOptions): Promise<GetTagsByTagIds> {
+  getTagsByTagIds(
+    options: ItemConfigurationGetTagsByTagIdsOptions
+  ): Promise<ItemConfigurationGetTagsByTagIds> {
     return this.request({
       requiresAuth: false,
       request: {
@@ -173,7 +183,9 @@ export default class InventoryAPI extends BaseAPI {
     }).then((response) => response.body);
   }
 
-  searchTags (options: SearchTagsOptions): Promise<SearchTags> {
+  searchTags(
+    options: ItemConfigurationSearchTagsOptions
+  ): Promise<ItemConfigurationSearchTags> {
     return this.request({
       requiresAuth: false,
       request: {

@@ -1,31 +1,31 @@
 import BaseAPI from "./BaseAPI";
 import Client from "../Client";
 
-export type GetGameInfoOptions = {
+export type GameInternationalizationGetGameInfoOptions = {
   gameId: number;
 };
-export type GetGameInfo = {
+export type GameInternationalizationGetGameInfo = {
   data: {
     name: string;
     description: string;
     languageCode: string;
   }[];
 };
-export type UpdateGameInfoOptions = {
+export type GameInternationalizationUpdateGameInfoOptions = {
   gameId: number;
-  data: GetGameInfo;
+  data: GameInternationalizationGetGameInfo;
 };
-export type UpdateGameInfo = {
-  successOperations: GetGameInfo["data"];
+export type GameInternationalizationUpdateGameInfo = {
+  successOperations: GameInternationalizationGetGameInfo["data"];
   failedOperations: {
     languageCode: string;
     errorCode: number;
   }[];
 };
-export type GetNameDescriptionMetaData = {
+export type GameInternationalizationGetNameDescriptionMetaData = {
   isNameDescriptionMigrationEnabled: boolean;
 };
-export type GetGameInfoHistoryOptions = {
+export type GameInternationalizationGetGameInfoHistoryOptions = {
   gameId: number;
   requestType: string;
   languageCode: string;
@@ -33,7 +33,7 @@ export type GetGameInfoHistoryOptions = {
   count: number;
   sortOrder: "Asc" | "Desc" | string;
 };
-export type GetGameInfoHistory = {
+export type GameInternationalizationGetGameInfoHistory = {
   history: {
     translationText: string;
     translator: {
@@ -44,30 +44,30 @@ export type GetGameInfoHistory = {
   }[];
   lastEvaluatedId: string;
 };
-export type GetGameSourceLanguageOptions = {
+export type GameInternationalizationGetGameSourceLanguageOptions = {
   gameId: number;
 };
-export type GetGameSourceLanguage = {
+export type GameInternationalizationGetGameSourceLanguage = {
   name: string;
   nativeName: string;
   languageCode: string;
 };
-export type UpdateGameSourceLanguageOptions = {
+export type GameInternationalizationUpdateGameSourceLanguageOptions = {
   gameId: number;
   languageCode: string;
 };
-export type UpdateGameSourceLanguage = unknown;
-export type GetGameSupportedLanguagesOptions = {
+export type GameInternationalizationUpdateGameSourceLanguage = unknown;
+export type GameInternationalizationGetGameSupportedLanguagesOptions = {
   gameId: number;
 };
-export type GetGameSupportedLanguages = {
+export type GameInternationalizationGetGameSupportedLanguages = {
   data: {
     name: string;
     languageCodeType: string;
     languageCode: string;
   }[];
 };
-export type ModifyGameSupportedLanguagesOptions = {
+export type GameInternationalizationModifyGameSupportedLanguagesOptions = {
   data: {
     languageCodeType: string;
     languageCode: string;
@@ -75,18 +75,19 @@ export type ModifyGameSupportedLanguagesOptions = {
   }[];
   gameId: number;
 };
-export type ModifyGameSupportedLanguages = unknown;
-export type GetGameAutomaticTranslationResultsOptions = {
-  gameId: number;
-};
-export type GetGameAutomaticTranslationResults = {
+export type GameInternationalizationModifyGameSupportedLanguages = unknown;
+export type GameInternationalizationGetGameAutomaticTranslationResultsOptions =
+  {
+    gameId: number;
+  };
+export type GameInternationalizationGetGameAutomaticTranslationResults = {
   data: {
     languageCodeType: string;
     languageCode: string;
     isAutomaticTranslationEnabled: boolean;
   }[];
 };
-export type GetSupportedLanguagesMetaData = {
+export type GameInternationalizationGetSupportedLanguagesMetaData = {
   isFeatureEnabled: boolean;
   areAllLanguagesEnabled: boolean;
   minimumUniverseIdForFeature: number;
@@ -94,26 +95,28 @@ export type GetSupportedLanguagesMetaData = {
   isAutomaticTranslationProgressUIEnabled: boolean;
   isSupportedLanguagesChildLocalesUIEnabled: boolean;
 };
-export type ToggleAutomaticGameTranslationOptions = {
+export type GameInternationalizationToggleAutomaticGameTranslationOptions = {
   gameId: number;
   languageCode: string;
   enableAutomaticTranslation: boolean;
 };
-export type ToggleAutomaticGameTranslation = {
+export type GameInternationalizationToggleAutomaticGameTranslation = {
   gameId: number;
   languageCode: string;
   isAutomaticTranslationEnabled: boolean;
 };
 
 export default class GameInternationalizationAPI extends BaseAPI {
-  constructor (client: Client) {
+  constructor(client: Client) {
     super({
       client,
       baseUrl: "https://gameinternationalization.roblox.com/"
     });
   }
 
-  getGameInfo (options: GetGameInfoOptions): Promise<GetGameInfo> {
+  getGameInfo(
+    options: GameInternationalizationGetGameInfoOptions
+  ): Promise<GameInternationalizationGetGameInfo> {
     return this.request({
       requiresAuth: true,
       request: {
@@ -123,7 +126,9 @@ export default class GameInternationalizationAPI extends BaseAPI {
     }).then((response) => response.body);
   }
 
-  updateGameInfo (options: UpdateGameInfoOptions): Promise<UpdateGameInfo> {
+  updateGameInfo(
+    options: GameInternationalizationUpdateGameInfoOptions
+  ): Promise<GameInternationalizationUpdateGameInfo> {
     return this.request({
       requiresAuth: true,
       request: {
@@ -137,7 +142,7 @@ export default class GameInternationalizationAPI extends BaseAPI {
     }).then((response) => response.body);
   }
 
-  getNameDescriptionMetaData (): Promise<GetNameDescriptionMetaData> {
+  getNameDescriptionMetaData(): Promise<GameInternationalizationGetNameDescriptionMetaData> {
     return this.request({
       requiresAuth: true,
       request: {
@@ -147,9 +152,9 @@ export default class GameInternationalizationAPI extends BaseAPI {
     }).then((response) => response.body);
   }
 
-  getGameInfoHistory (
-    options: GetGameInfoHistoryOptions
-  ): Promise<GetGameInfoHistory> {
+  getGameInfoHistory(
+    options: GameInternationalizationGetGameInfoHistoryOptions
+  ): Promise<GameInternationalizationGetGameInfoHistory> {
     return this.request({
       requiresAuth: true,
       request: {
@@ -161,9 +166,9 @@ export default class GameInternationalizationAPI extends BaseAPI {
     }).then((response) => response.body);
   }
 
-  getGameSourceLanguage (
-    options: GetGameSourceLanguageOptions
-  ): Promise<GetGameSourceLanguage> {
+  getGameSourceLanguage(
+    options: GameInternationalizationGetGameSourceLanguageOptions
+  ): Promise<GameInternationalizationGetGameSourceLanguage> {
     return this.request({
       requiresAuth: true,
       request: {
@@ -173,9 +178,9 @@ export default class GameInternationalizationAPI extends BaseAPI {
     }).then((response) => response.body);
   }
 
-  updateGameSourceLanguage (
-    options: UpdateGameSourceLanguageOptions
-  ): Promise<UpdateGameSourceLanguage> {
+  updateGameSourceLanguage(
+    options: GameInternationalizationUpdateGameSourceLanguageOptions
+  ): Promise<GameInternationalizationUpdateGameSourceLanguage> {
     return this.request({
       requiresAuth: true,
       request: {
@@ -189,9 +194,9 @@ export default class GameInternationalizationAPI extends BaseAPI {
     }).then((response) => response.body);
   }
 
-  getGameSupportedLanguages (
-    options: GetGameSupportedLanguagesOptions
-  ): Promise<GetGameSupportedLanguages> {
+  getGameSupportedLanguages(
+    options: GameInternationalizationGetGameSupportedLanguagesOptions
+  ): Promise<GameInternationalizationGetGameSupportedLanguages> {
     return this.request({
       requiresAuth: true,
       request: {
@@ -201,9 +206,9 @@ export default class GameInternationalizationAPI extends BaseAPI {
     }).then((response) => response.body);
   }
 
-  modifyGameSupportedLanguages (
-    options: ModifyGameSupportedLanguagesOptions
-  ): Promise<ModifyGameSupportedLanguages> {
+  modifyGameSupportedLanguages(
+    options: GameInternationalizationModifyGameSupportedLanguagesOptions
+  ): Promise<GameInternationalizationModifyGameSupportedLanguages> {
     return this.request({
       requiresAuth: true,
       request: {
@@ -215,9 +220,9 @@ export default class GameInternationalizationAPI extends BaseAPI {
     }).then((response) => response.body);
   }
 
-  getGameAutomaticTranslationStatus (
-    options: GetGameAutomaticTranslationResultsOptions
-  ): Promise<GetGameAutomaticTranslationResults> {
+  getGameAutomaticTranslationStatus(
+    options: GameInternationalizationGetGameAutomaticTranslationResultsOptions
+  ): Promise<GameInternationalizationGetGameAutomaticTranslationResults> {
     return this.request({
       requiresAuth: true,
       request: {
@@ -227,7 +232,7 @@ export default class GameInternationalizationAPI extends BaseAPI {
     }).then((response) => response.body);
   }
 
-  getSupportedLanguagesMetaData (): Promise<GetSupportedLanguagesMetaData> {
+  getSupportedLanguagesMetaData(): Promise<GameInternationalizationGetSupportedLanguagesMetaData> {
     return this.request({
       requiresAuth: true,
       request: {
@@ -237,9 +242,9 @@ export default class GameInternationalizationAPI extends BaseAPI {
     }).then((response) => response.body);
   }
 
-  toggleGameAutomaticTranslation (
-    options: ToggleAutomaticGameTranslationOptions
-  ): Promise<ToggleAutomaticGameTranslation> {
+  toggleGameAutomaticTranslation(
+    options: GameInternationalizationToggleAutomaticGameTranslationOptions
+  ): Promise<GameInternationalizationToggleAutomaticGameTranslation> {
     return this.request({
       requiresAuth: true,
       request: {

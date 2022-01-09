@@ -5,7 +5,7 @@ import {
 } from "../../interfaces/RESTInterfaces";
 import Client from "../Client";
 
-export declare type BaseAPIRequestOptions = {
+export type BaseAPIRequestOptions = {
   /**
    * The request options
    */
@@ -27,12 +27,12 @@ export default class BaseAPI {
   public client: Client;
   public options: BaseAPIOptions;
 
-  constructor (options: BaseAPIOptions) {
+  constructor(options: BaseAPIOptions) {
     this.client = options.client;
     this.options = options;
   }
 
-  request (options: BaseAPIRequestOptions): Promise<RESTResponseDataType> {
+  request(options: BaseAPIRequestOptions): Promise<RESTResponseDataType> {
     if (options.requiresAuth) {
       if (!this.options.client.isLoggedIn()) {
         throw new Error(

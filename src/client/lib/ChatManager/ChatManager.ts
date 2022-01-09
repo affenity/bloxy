@@ -1,19 +1,19 @@
 import Client from "../../Client";
 import {
-  AddUsersToConversation,
-  GetChatSettings,
-  MarkConversationsAsSeen,
-  MarkMessageInConversationAsRead,
-  RemoveUserFromConversation,
-  RenameGroupConversation,
-  ResetConversationUniverse,
-  SendGameLinkMessageOptions,
-  SendMessageOptions,
-  SetConversationUniverse,
-  StartCloudEditConversation,
-  StartGroupConversation,
-  StartOneToOneConversation,
-  UpdateUserTypingStatus
+  ChatAddUsersToConversation,
+  ChatGetChatSettings,
+  ChatMarkConversationsSeen,
+  ChatMarkConversationMessagesRead,
+  ChatRemoveUserFromConversation,
+  ChatRenameGroupConversation,
+  ChatResetConversationUniverse,
+  ChatSendGameLinkMessageOptions,
+  ChatSendMessageOptions,
+  ChatSetConversationUniverse,
+  ChatStartCloudEditConversation,
+  ChatStartGroupConversation,
+  ChatStartOneToOneConversation,
+  ChatUpdateUserTypingStatus
 } from "../../apis/ChatAPI";
 import {
   ChatConversation,
@@ -24,21 +24,21 @@ import {
 export default class ChatManager {
   public client: Client;
 
-  constructor (client: Client) {
+  constructor(client: Client) {
     this.client = client;
   }
 
-  getSettings (): Promise<GetChatSettings> {
+  getSettings(): Promise<ChatGetChatSettings> {
     return this.client.apis.chatAPI.getChatSettings();
   }
 
-  getConversation (conversationId: number): Promise<ChatConversation | null> {
+  getConversation(conversationId: number): Promise<ChatConversation | null> {
     return this.getConversations([conversationId]).then(
       (data) => data[0] || null
     );
   }
 
-  getConversationMessages (
+  getConversationMessages(
     conversationId: number,
     amount = 100,
     startMessageId?: string
@@ -54,13 +54,13 @@ export default class ChatManager {
       );
   }
 
-  getUnreadConversationsCount (): Promise<number> {
+  getUnreadConversationsCount(): Promise<number> {
     return this.client.apis.chatAPI
       .getUnreadConversationCount()
       .then((response) => response.count);
   }
 
-  getConversations (conversations: number[]): Promise<ChatConversation[]> {
+  getConversations(conversations: number[]): Promise<ChatConversation[]> {
     return this.client.apis.chatAPI
       .getConversations({
         conversationIds: conversations
@@ -73,55 +73,55 @@ export default class ChatManager {
       );
   }
 
-  addUsersToConversation (
+  addUsersToConversation(
     conversation: number,
     users: number[]
-  ): Promise<AddUsersToConversation> {
+  ): Promise<ChatAddUsersToConversation> {
     return this.client.apis.chatAPI.addUsersToConversation({
       conversationId: conversation,
       participantUserIds: users
     });
   }
 
-  markMessageRead (
+  markMessageRead(
     conversation: number,
     id: string
-  ): Promise<MarkMessageInConversationAsRead> {
+  ): Promise<ChatMarkConversationMessagesRead> {
     return this.client.apis.chatAPI.markConversationMessagesRead({
       conversationId: conversation,
       endMessageId: id
     });
   }
 
-  markConversationsRead (
+  markConversationsRead(
     conversations: number[]
-  ): Promise<MarkConversationsAsSeen> {
+  ): Promise<ChatMarkConversationsSeen> {
     return this.client.apis.chatAPI.markConversationsSeen({
       conversationsToMarkSeen: conversations
     });
   }
 
-  removeUserFromConversation (
+  removeUserFromConversation(
     conversation: number,
     user: number
-  ): Promise<RemoveUserFromConversation> {
+  ): Promise<ChatRemoveUserFromConversation> {
     return this.client.apis.chatAPI.removeUserFromConversation({
       conversationId: conversation,
       participantUserId: user
     });
   }
 
-  renameGroupConversation (
+  renameGroupConversation(
     conversation: number,
     name: string
-  ): Promise<RenameGroupConversation> {
+  ): Promise<ChatRenameGroupConversation> {
     return this.client.apis.chatAPI.renameGroupConversation({
       conversationId: conversation,
       newTitle: name
     });
   }
 
-  getUnreadMessagesInConversations (
+  getUnreadMessagesInConversations(
     conversations: number[],
     amount = 100
   ): Promise<ChatMessage[]> {
@@ -142,7 +142,7 @@ export default class ChatManager {
       );
   }
 
-  getLatestMessagesInConversations (
+  getLatestMessagesInConversations(
     conversations: number[],
     amount = 100
   ): Promise<ChatMessage[]> {
@@ -163,68 +163,68 @@ export default class ChatManager {
       );
   }
 
-  resetConversationUniverse (
+  resetConversationUniverse(
     conversation: number
-  ): Promise<ResetConversationUniverse> {
+  ): Promise<ChatResetConversationUniverse> {
     return this.client.apis.chatAPI.resetConversationUniverse({
       conversationId: conversation
     });
   }
 
-  sendGameLinkMessage (
-    options: SendGameLinkMessageOptions
+  sendGameLinkMessage(
+    options: ChatSendGameLinkMessageOptions
   ): Promise<ChatMessageSent> {
     return this.client.apis.chatAPI
       .sendGameLinkMessage(options)
       .then((response) => new ChatMessageSent(response, this.client));
   }
 
-  sendMessage (options: SendMessageOptions): Promise<ChatMessageSent> {
+  sendMessage(options: ChatSendMessageOptions): Promise<ChatMessageSent> {
     return this.client.apis.chatAPI
       .sendMessage(options)
       .then((response) => new ChatMessageSent(response, this.client));
   }
 
-  setConversationUniverse (
+  setConversationUniverse(
     conversation: number,
     universe: number
-  ): Promise<SetConversationUniverse> {
+  ): Promise<ChatSetConversationUniverse> {
     return this.client.apis.chatAPI.setConversationUniverse({
       conversationId: conversation,
       universeId: universe
     });
   }
 
-  startCloudEditConversation (
+  startCloudEditConversation(
     placeId: number
-  ): Promise<StartCloudEditConversation> {
+  ): Promise<ChatStartCloudEditConversation> {
     return this.client.apis.chatAPI.startCloudEditConversation({
       placeId
     });
   }
 
-  startGroupConversation (
+  startGroupConversation(
     title: string,
     users: number[]
-  ): Promise<StartGroupConversation> {
+  ): Promise<ChatStartGroupConversation> {
     return this.client.apis.chatAPI.startGroupConversation({
       participantUserIds: users,
       title
     });
   }
 
-  startOneToOneConversation (
+  startOneToOneConversation(
     userId: number
-  ): Promise<StartOneToOneConversation> {
+  ): Promise<ChatStartOneToOneConversation> {
     return this.client.apis.chatAPI.startOneToOneConversation({
       participantUserId: userId
     });
   }
 
-  updateTypingStatus (
+  updateTypingStatus(
     conversation: number,
     isTyping = true
-  ): Promise<UpdateUserTypingStatus> {
+  ): Promise<ChatUpdateUserTypingStatus> {
     return this.client.apis.chatAPI.updateUserTypingStatus({
       conversationId: conversation,
       isTyping

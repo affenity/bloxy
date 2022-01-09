@@ -1,77 +1,77 @@
 import Client from "../client";
-import { GetGroupUniversesOptions } from "../client/apis/DevelopAPI";
+import { DevelopGetGroupUniversesOptions } from "../client/apis/DevelopAPI";
 import { CursorPage } from "./Asset";
 import { PartialGameUniverse, PartialGameUniverseOptions } from "./Game";
 import {
-  GetGroupRevenueSummaryInTimeFrame,
-  GetGroupRevenueSummaryInTimeFrameOptions,
-  GetGroupTransactions,
-  GetGroupTransactionsOptions
+  EconomyGetGroupRevenueSummaryInTimeFrame,
+  EconomyGetGroupRevenueSummaryInTimeFrameOptions,
+  EconomyGetGroupTransactions,
+  EconomyGetGroupTransactionsOptions
 } from "../client/apis/EconomyAPI";
 import {
-  AcceptJoinRequest,
-  AcceptJoinRequests,
-  AcceptJoinRequestsOptions,
-  AcceptRelationshipRequest,
-  AcceptRelationshipRequests,
-  AcceptRelationshipRequestsOptions,
-  ChangeOwner,
-  ClaimGroup,
-  CreateRelationship,
-  CreateRelationshipOptions,
-  CreateRole,
-  CreateRoleOptions,
-  CreateWallPost,
-  CreateWallPostOptions,
-  DeclineJoinRequest,
-  DeclineJoinRequests,
-  DeclineRelationshipRequest,
-  DeclineRelationshipRequests,
-  DeclineRelationshipRequestsOptions,
-  DeleteRelationship,
-  DeleteRelationshipOptions,
-  DeleteRole,
-  DeleteSocialLink,
-  DeleteWallPost,
-  GetAllRolesPermissions,
-  GetGroupPayouts,
-  GetGroupRelationships,
-  GetGroupRelationshipsOptions,
-  GetGroupSettings,
-  GetGuestPermissions,
-  GetJoinRequest,
-  GetJoinRequestsOptions,
-  GetMembersOptions,
-  GetMembersWithRoleOptions,
-  GetRelationshipRequests,
-  GetRelationshipRequestsOptions,
-  GetRolePermissions,
-  GetSelfGroupMembership,
-  GetSocialLinks,
-  GetWallPostsOptions,
-  JoinGroup,
-  JoinGroupOptions,
-  KickMember,
-  PayoutMembers,
-  PayoutMembersOptions,
-  PostSocialLink,
-  PostSocialLinkOptions,
-  RemovePrimaryGroup,
-  SetPrimaryGroup,
-  UpdateGroupDescription,
-  UpdateGroupIcon,
-  UpdateGroupSettings,
-  UpdateGroupSettingsOptions,
-  UpdateGroupStatus,
-  UpdateMember,
-  UpdateRecurringPayouts,
-  UpdateRecurringPayoutsOptions,
-  UpdateRole,
-  UpdateRoleOptions,
-  UpdateRolePermissions,
-  UpdateRolePermissionsOptions,
-  UpdateSocialLink,
-  UpdateSocialLinkOptions
+  GroupsAcceptJoinRequest,
+  GroupsAcceptJoinRequests,
+  GroupsAcceptJoinRequestsOptions,
+  GroupsAcceptRelationshipRequest,
+  GroupsAcceptRelationshipRequests,
+  GroupsAcceptRelationshipRequestsOptions,
+  GroupsChangeOwner,
+  GroupsClaimGroup,
+  GroupsCreateRelationship,
+  GroupsCreateRelationshipOptions,
+  GroupsCreateRole,
+  GroupsCreateRoleOptions,
+  GroupsCreateWallPost,
+  GroupsCreateWallPostOptions,
+  GroupsDeclineJoinRequest,
+  GroupsDeclineJoinRequests,
+  GroupsDeclineRelationshipRequest,
+  GroupsDeclineRelationshipRequests,
+  GroupsDeclineRelationshipRequestsOptions,
+  GroupsDeleteRelationship,
+  GroupsDeleteRelationshipOptions,
+  GroupsDeleteRole,
+  GroupsDeleteSocialLink,
+  GroupsDeleteWallPost,
+  GroupsGetAllRolesPermissions,
+  GroupsGetGroupPayouts,
+  GroupsGetGroupRelationships,
+  GroupsGetGroupRelationshipsOptions,
+  GroupsGetGroupSettings,
+  GroupsGetGuestPermissions,
+  GroupsGetJoinRequest,
+  GroupsGetJoinRequestsOptions,
+  GroupsGetMembersOptions,
+  GroupsGetMembersWithRoleOptions,
+  GroupsGetRelationshipRequests,
+  GroupsGetRelationshipRequestsOptions,
+  GroupsGetRolePermissions,
+  GroupsGetSelfGroupMembership,
+  GroupsGetSocialLinks,
+  GroupsGetWallPostsOptions,
+  GroupsJoinGroup,
+  GroupsJoinGroupOptions,
+  GroupsKickMember,
+  GroupsPayoutMembers,
+  GroupsPayoutMembersOptions,
+  GroupsPostSocialLink,
+  GroupsPostSocialLinkOptions,
+  GroupsRemovePrimaryGroup,
+  GroupsSetPrimaryGroup,
+  GroupsUpdateGroupDescription,
+  GroupsUpdateGroupIcon,
+  GroupsUpdateGroupSettings,
+  GroupsUpdateGroupSettingsOptions,
+  GroupsUpdateGroupStatus,
+  GroupsUpdateMember,
+  GroupsUpdateRecurringPayouts,
+  GroupsUpdateRecurringPayoutsOptions,
+  GroupsUpdateRole,
+  GroupsUpdateRoleOptions,
+  GroupsUpdateRolePermissions,
+  GroupsUpdateRolePermissionsOptions,
+  GroupsUpdateSocialLink,
+  GroupsUpdateSocialLinkOptions
 } from "../client/apis/GroupsAPI";
 import { PartialUser, PartialUserOptions, UserBase } from "./User";
 
@@ -89,7 +89,7 @@ const retrieveStructures = (): Structures => ({
 });
 
 type GroupRelationships<T extends "enemies" | "allies"> = Omit<
-  GetGroupRelationships,
+  GroupsGetGroupRelationships,
   "relatedGroups"
 > & {
   groupId: number;
@@ -116,7 +116,7 @@ export class GroupBase {
   }
 
   getUniverses(
-    options?: Omit<GetGroupUniversesOptions, "groupId">
+    options?: Omit<DevelopGetGroupUniversesOptions, "groupId">
   ): Promise<CursorPage<PartialGameUniverse>> {
     return this.client.apis.developAPI
       .getGroupUniverses({
@@ -176,8 +176,8 @@ export class GroupBase {
   }
 
   getRevenueSummaryInTimeFrame(
-    timeFrame: GetGroupRevenueSummaryInTimeFrameOptions["timeFrame"]
-  ): Promise<GetGroupRevenueSummaryInTimeFrame> {
+    timeFrame: EconomyGetGroupRevenueSummaryInTimeFrameOptions["timeFrame"]
+  ): Promise<EconomyGetGroupRevenueSummaryInTimeFrame> {
     return this.client.apis.economyAPI.getGroupRevenueByTime({
       groupId: this.id,
       timeFrame
@@ -185,8 +185,8 @@ export class GroupBase {
   }
 
   getTransactions(
-    options: Omit<GetGroupTransactionsOptions, "groupId">
-  ): Promise<GetGroupTransactions> {
+    options: Omit<EconomyGetGroupTransactionsOptions, "groupId">
+  ): Promise<EconomyGetGroupTransactions> {
     return this.client.apis.economyAPI.getGroupTransactions({
       groupId: this.id,
       ...options
@@ -270,43 +270,45 @@ export class GroupBase {
     return this.getMember(userId);
   }
 
-  getSettings(): Promise<GetGroupSettings> {
+  getSettings(): Promise<GroupsGetGroupSettings> {
     return this.client.apis.groupsAPI.getGroupSettings({
       groupId: this.id
     });
   }
 
   updateSettings(
-    options: Omit<UpdateGroupSettingsOptions, "groupId">
-  ): Promise<UpdateGroupSettings> {
+    options: Omit<GroupsUpdateGroupSettingsOptions, "groupId">
+  ): Promise<GroupsUpdateGroupSettings> {
     return this.client.apis.groupsAPI.updateGroupSettings({
       groupId: this.id,
       ...options
     });
   }
 
-  updateDescription(description: string): Promise<UpdateGroupDescription> {
+  updateDescription(
+    description: string
+  ): Promise<GroupsUpdateGroupDescription> {
     return this.client.apis.groupsAPI.updateGroupDescription({
       description,
       groupId: this.id
     });
   }
 
-  updateShout(shout: string): Promise<UpdateGroupStatus> {
+  updateShout(shout: string): Promise<GroupsUpdateGroupStatus> {
     return this.client.apis.groupsAPI.updateGroupStatus({
       groupId: this.id,
       message: shout
     });
   }
 
-  updateIcon(file: unknown): Promise<UpdateGroupIcon> {
+  updateIcon(file: unknown): Promise<GroupsUpdateGroupIcon> {
     return this.client.apis.groupsAPI.updateGroupIcon({
       files: file,
       groupId: this.id
     });
   }
 
-  declineJoinRequests(userIds: number[]): Promise<DeclineJoinRequests> {
+  declineJoinRequests(userIds: number[]): Promise<GroupsDeclineJoinRequests> {
     return this.client.apis.groupsAPI.declineJoinRequests({
       groupId: this.id,
       userIds
@@ -314,7 +316,7 @@ export class GroupBase {
   }
 
   getJoinRequests(
-    options: Omit<GetJoinRequestsOptions, "groupId">
+    options: Omit<GroupsGetJoinRequestsOptions, "groupId">
   ): Promise<CursorPage<GroupJoinRequest>> {
     const CursorPageClass = require("./Asset").CursorPage;
 
@@ -335,36 +337,36 @@ export class GroupBase {
   }
 
   acceptJoinRequests(
-    options: Omit<AcceptJoinRequestsOptions, "groupId">
-  ): Promise<AcceptJoinRequests> {
+    options: Omit<GroupsAcceptJoinRequestsOptions, "groupId">
+  ): Promise<GroupsAcceptJoinRequests> {
     return this.client.apis.groupsAPI.acceptJoinRequests({
       groupId: this.id,
       ...options
     });
   }
 
-  declineJoinRequest(userId: number): Promise<DeclineJoinRequest> {
+  declineJoinRequest(userId: number): Promise<GroupsDeclineJoinRequest> {
     return this.client.apis.groupsAPI.declineJoinRequest({
       groupId: this.id,
       userId
     });
   }
 
-  getJoinRequest(userId: number): Promise<GetJoinRequest> {
+  getJoinRequest(userId: number): Promise<GroupsGetJoinRequest> {
     return this.client.apis.groupsAPI.getJoinRequest({
       groupId: this.id,
       userId
     });
   }
 
-  acceptJoinRequest(userId: number): Promise<AcceptJoinRequest> {
+  acceptJoinRequest(userId: number): Promise<GroupsAcceptJoinRequest> {
     return this.client.apis.groupsAPI.acceptJoinRequest({
       groupId: this.id,
       userId
     });
   }
 
-  getSelfMembership(): Promise<GetSelfGroupMembership> {
+  getSelfMembership(): Promise<GroupsGetSelfGroupMembership> {
     return this.client.apis.groupsAPI.getSelfGroupMembership({
       groupId: this.id
     });
@@ -393,7 +395,7 @@ export class GroupBase {
   }
 
   getMembersWithRole(
-    options: Omit<GetMembersWithRoleOptions, "groupId">
+    options: Omit<GroupsGetMembersWithRoleOptions, "groupId">
   ): Promise<CursorPage<GroupMember>> {
     const CursorPageClass = require("./Asset").CursorPage;
 
@@ -414,7 +416,7 @@ export class GroupBase {
   }
 
   getMembers(
-    options: Omit<GetMembersOptions, "groupId">
+    options: Omit<GroupsGetMembersOptions, "groupId">
   ): Promise<CursorPage<GroupMember>> {
     const CursorPageClass = require("./Asset").CursorPage;
 
@@ -429,7 +431,9 @@ export class GroupBase {
       );
   }
 
-  join(options: Omit<JoinGroupOptions, "groupId">): Promise<JoinGroup> {
+  join(
+    options: Omit<GroupsJoinGroupOptions, "groupId">
+  ): Promise<GroupsJoinGroup> {
     return this.client.apis.groupsAPI.joinGroup({
       groupId: this.id,
       ...options,
@@ -448,27 +452,27 @@ export class GroupBase {
       );
   }
 
-  changeOwner(userId: number): Promise<ChangeOwner> {
+  changeOwner(userId: number): Promise<GroupsChangeOwner> {
     return this.client.apis.groupsAPI.changeGroupOwner({
       groupId: this.id,
       userId
     });
   }
 
-  claim(): Promise<ClaimGroup> {
+  claim(): Promise<GroupsClaimGroup> {
     return this.client.apis.groupsAPI.claimGroup({
       groupId: this.id
     });
   }
 
-  kickMember(userId: number): Promise<KickMember> {
+  kickMember(userId: number): Promise<GroupsKickMember> {
     return this.client.apis.groupsAPI.kickMember({
       groupId: this.id,
       userId
     });
   }
 
-  updateMember(userId: number, roleId: number): Promise<UpdateMember> {
+  updateMember(userId: number, roleId: number): Promise<GroupsUpdateMember> {
     return this.client.apis.groupsAPI.updateMember({
       groupId: this.id,
       roleId,
@@ -476,15 +480,15 @@ export class GroupBase {
     });
   }
 
-  getPayouts(): Promise<GetGroupPayouts> {
+  getPayouts(): Promise<GroupsGetGroupPayouts> {
     return this.client.apis.groupsAPI.getGroupPayouts({
       groupId: this.id
     });
   }
 
   payoutMembers(
-    options: Omit<PayoutMembersOptions, "groupId">
-  ): Promise<PayoutMembers> {
+    options: Omit<GroupsPayoutMembersOptions, "groupId">
+  ): Promise<GroupsPayoutMembers> {
     return this.client.apis.groupsAPI.payoutMembers({
       groupId: this.id,
       ...options
@@ -492,8 +496,8 @@ export class GroupBase {
   }
 
   updateRecurringPayouts(
-    options: Omit<UpdateRecurringPayoutsOptions, "groupId">
-  ): Promise<UpdateRecurringPayouts> {
+    options: Omit<GroupsUpdateRecurringPayoutsOptions, "groupId">
+  ): Promise<GroupsUpdateRecurringPayouts> {
     return this.client.apis.groupsAPI.updateRecurringPayouts({
       groupId: this.id,
       ...options
@@ -501,8 +505,8 @@ export class GroupBase {
   }
 
   getRelationships(
-    options: Omit<GetGroupRelationshipsOptions, "groupId">
-  ): Promise<GetGroupRelationships> {
+    options: Omit<GroupsGetGroupRelationshipsOptions, "groupId">
+  ): Promise<GroupsGetGroupRelationships> {
     return this.client.apis.groupsAPI.getGroupRelationships({
       groupId: this.id,
       ...options
@@ -510,8 +514,8 @@ export class GroupBase {
   }
 
   declineRelationshipRequests(
-    options: Omit<DeclineRelationshipRequestsOptions, "groupId">
-  ): Promise<DeclineRelationshipRequests> {
+    options: Omit<GroupsDeclineRelationshipRequestsOptions, "groupId">
+  ): Promise<GroupsDeclineRelationshipRequests> {
     return this.client.apis.groupsAPI.declineRelationshipRequests({
       groupId: this.id,
       ...options
@@ -519,8 +523,8 @@ export class GroupBase {
   }
 
   getRelationshipRequests(
-    options: Omit<GetRelationshipRequestsOptions, "groupId">
-  ): Promise<GetRelationshipRequests> {
+    options: Omit<GroupsGetRelationshipRequestsOptions, "groupId">
+  ): Promise<GroupsGetRelationshipRequests> {
     return this.client.apis.groupsAPI.getRelationshipRequests({
       groupId: this.id,
       ...options
@@ -528,8 +532,8 @@ export class GroupBase {
   }
 
   acceptRelationshipRequests(
-    options: Omit<AcceptRelationshipRequestsOptions, "groupId">
-  ): Promise<AcceptRelationshipRequests> {
+    options: Omit<GroupsAcceptRelationshipRequestsOptions, "groupId">
+  ): Promise<GroupsAcceptRelationshipRequests> {
     return this.client.apis.groupsAPI.acceptRelationshipRequests({
       groupId: this.id,
       ...options
@@ -537,8 +541,8 @@ export class GroupBase {
   }
 
   deleteRelationship(
-    options: Omit<DeleteRelationshipOptions, "groupId">
-  ): Promise<DeleteRelationship> {
+    options: Omit<GroupsDeleteRelationshipOptions, "groupId">
+  ): Promise<GroupsDeleteRelationship> {
     return this.client.apis.groupsAPI.deleteRelationship({
       groupId: this.id,
       ...options
@@ -546,8 +550,8 @@ export class GroupBase {
   }
 
   createRelationship(
-    options: Omit<CreateRelationshipOptions, "groupId">
-  ): Promise<CreateRelationship> {
+    options: Omit<GroupsCreateRelationshipOptions, "groupId">
+  ): Promise<GroupsCreateRelationship> {
     return this.client.apis.groupsAPI.createRelationship({
       groupId: this.id,
       ...options
@@ -557,7 +561,7 @@ export class GroupBase {
   acceptRelationshipRequest(
     type: "enemies" | "allies",
     withGroup: number
-  ): Promise<AcceptRelationshipRequest> {
+  ): Promise<GroupsAcceptRelationshipRequest> {
     return this.client.apis.groupsAPI.acceptRelationshipRequest({
       groupId: this.id,
       relationshipType: type || "allies",
@@ -568,7 +572,7 @@ export class GroupBase {
   declineRelationshipRequest(
     type: "enemies" | "allies",
     withGroup: number
-  ): Promise<DeclineRelationshipRequest> {
+  ): Promise<GroupsDeclineRelationshipRequest> {
     return this.client.apis.groupsAPI.declineRelationshipRequest({
       groupId: this.id,
       relationshipType: type || "allies",
@@ -576,7 +580,7 @@ export class GroupBase {
     });
   }
 
-  getRolePermissions(roleId: number): Promise<GetRolePermissions> {
+  getRolePermissions(roleId: number): Promise<GroupsGetRolePermissions> {
     return this.client.apis.groupsAPI.getRolePermissions({
       groupId: this.id,
       roleId
@@ -585,8 +589,8 @@ export class GroupBase {
 
   updateRolePermissions(
     roleId: number,
-    permissions: Omit<UpdateRolePermissionsOptions, "groupId" | "roleId">
-  ): Promise<UpdateRolePermissions> {
+    permissions: Omit<GroupsUpdateRolePermissionsOptions, "groupId" | "roleId">
+  ): Promise<GroupsUpdateRolePermissions> {
     return this.client.apis.groupsAPI.updateRolePermissions({
       groupId: this.id,
       roleId,
@@ -594,34 +598,34 @@ export class GroupBase {
     });
   }
 
-  getGuestPermissions(): Promise<GetGuestPermissions> {
+  getGuestPermissions(): Promise<GroupsGetGuestPermissions> {
     return this.client.apis.groupsAPI.getGuestPermissions({
       groupId: this.id
     });
   }
 
-  getAllRolesPermissions(): Promise<GetAllRolesPermissions> {
+  getAllRolesPermissions(): Promise<GroupsGetAllRolesPermissions> {
     return this.client.apis.groupsAPI.getAllRolesPermissions({
       groupId: this.id
     });
   }
 
-  getSocialLinks(): Promise<GetSocialLinks> {
+  getSocialLinks(): Promise<GroupsGetSocialLinks> {
     return this.client.apis.groupsAPI.getSocialLinks({
       groupId: this.id
     });
   }
 
   createSocialLink(
-    options: Omit<PostSocialLinkOptions, "groupId">
-  ): Promise<PostSocialLink> {
+    options: Omit<GroupsPostSocialLinkOptions, "groupId">
+  ): Promise<GroupsPostSocialLink> {
     return this.client.apis.groupsAPI.createSocialLink({
       groupId: this.id,
       ...options
     });
   }
 
-  deleteSocialLink(id: number): Promise<DeleteSocialLink> {
+  deleteSocialLink(id: number): Promise<GroupsDeleteSocialLink> {
     return this.client.apis.groupsAPI.deleteSocialLink({
       groupId: this.id,
       id
@@ -629,8 +633,8 @@ export class GroupBase {
   }
 
   updateSocialLink(
-    options: Omit<UpdateSocialLinkOptions, "groupId">
-  ): Promise<UpdateSocialLink> {
+    options: Omit<GroupsUpdateSocialLinkOptions, "groupId">
+  ): Promise<GroupsUpdateSocialLink> {
     return this.client.apis.groupsAPI.updateSocialLink({
       groupId: this.id,
       ...options
@@ -638,7 +642,7 @@ export class GroupBase {
   }
 
   getWallPosts(
-    options: Omit<GetWallPostsOptions, "groupId">
+    options: Omit<GroupsGetWallPostsOptions, "groupId">
   ): Promise<CursorPage<GroupWallPost>> {
     const CursorPageClass = require("./Asset").CursorPage;
 
@@ -654,15 +658,15 @@ export class GroupBase {
   }
 
   createWallPost(
-    options: Omit<CreateWallPostOptions, "groupId">
-  ): Promise<CreateWallPost> {
+    options: Omit<GroupsCreateWallPostOptions, "groupId">
+  ): Promise<GroupsCreateWallPost> {
     return this.client.apis.groupsAPI.createWallPost({
       groupId: this.id,
       ...options
     });
   }
 
-  deleteWallPost(id: number): Promise<DeleteWallPost> {
+  deleteWallPost(id: number): Promise<GroupsDeleteWallPost> {
     return this.client.apis.groupsAPI.deleteWallPost({
       groupId: this.id,
       id
@@ -695,24 +699,26 @@ export class GroupBase {
     );
   }
 
-  removeAsPrimary(): Promise<RemovePrimaryGroup> {
+  removeAsPrimary(): Promise<GroupsRemovePrimaryGroup> {
     return this.client.apis.groupsAPI.removePrimaryGroup();
   }
 
-  setAsPrimary(): Promise<SetPrimaryGroup> {
+  setAsPrimary(): Promise<GroupsSetPrimaryGroup> {
     return this.client.apis.groupsAPI.setPrimaryGroup({
       groupId: this.id
     });
   }
 
-  createRole(options: Omit<CreateRoleOptions, "groupId">): Promise<CreateRole> {
+  createRole(
+    options: Omit<GroupsCreateRoleOptions, "groupId">
+  ): Promise<GroupsCreateRole> {
     return this.client.apis.groupsAPI.createRole({
       groupId: this.id,
       ...options
     });
   }
 
-  deleteRole(roleId: number): Promise<DeleteRole> {
+  deleteRole(roleId: number): Promise<GroupsDeleteRole> {
     return this.client.apis.groupsAPI.deleteRole({
       groupId: this.id,
       roleId
@@ -721,8 +727,8 @@ export class GroupBase {
 
   updateRole(
     roleId: number,
-    options: Omit<UpdateRoleOptions, "groupId" | "roleId">
-  ): Promise<UpdateRole> {
+    options: Omit<GroupsUpdateRoleOptions, "groupId" | "roleId">
+  ): Promise<GroupsUpdateRole> {
     return this.client.apis.groupsAPI.updateRole({
       groupId: this.id,
       roleId,

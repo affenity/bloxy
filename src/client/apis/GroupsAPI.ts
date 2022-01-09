@@ -1,15 +1,83 @@
 import BaseAPI from "./BaseAPI";
 import Client from "../Client";
-import {
-  GroupOptions,
-  GroupRoleOptions,
-  GroupRolePermissionsOptions
-} from "../../structures/Group";
 
-export type GetGroupOptions = {
+export type GroupsGroupRolePermissionsOptions = {
+  groupId: number;
+  role: {
+    id: number;
+    name: string;
+    description: string;
+    rank: number;
+    memberCount: number;
+  };
+  permissions: {
+    groupPostsPermissions: {
+      viewWall: boolean;
+      postToWall: boolean;
+      deleteFromWall: boolean;
+      viewStatus: boolean;
+      postToStatus: boolean;
+    };
+    groupMembershipPermissions: {
+      changeRank: boolean;
+      inviteMembers: boolean;
+      removeMembers: boolean;
+    };
+    groupManagementPermissions: {
+      manageRelationships: boolean;
+      manageClan: boolean;
+      viewAuditLogs: boolean;
+    };
+    groupEconomyPermissions: {
+      spendGroupFunds: boolean;
+      advertiseGroup: boolean;
+      createItems: boolean;
+      manageItems: boolean;
+      addGroupPlaces: boolean;
+      manageGroupGames: boolean;
+      viewGroupPayouts: boolean;
+    };
+  };
+};
+export type GroupsGroupRoleOptions = {
+  id?: number;
+  name?: string;
+  rank?: number;
+  group: {
+    id: number;
+    name?: string;
+  };
+};
+export type GroupsGroupOptions = {
+  id: number;
+  name: string;
+  description: string;
+  owner: {
+    buildersClubMembershipType: string;
+    userId: number;
+    username: string;
+    displayName: string;
+  } | null;
+  shout: {
+    body: string;
+    poster: {
+      buildersClubMembershipType: string;
+      userId: number;
+      username: string;
+      displayName: string;
+    };
+    created: string;
+    updated: string;
+  } | null;
+  memberCount: number;
+  isBuildersClubOnly: boolean;
+  publicEntryAllowed: boolean;
+  isLocked: boolean;
+};
+export type GroupsGetGroupOptions = {
   groupId: number;
 };
-export type GetGroup = {
+export type GroupsGetGroup = {
   id: number;
   name: string;
   description: string;
@@ -35,13 +103,13 @@ export type GetGroup = {
   publicEntryAllowed: boolean;
   isLocked: boolean;
 };
-export type GetMultiGroupsOptions = {
+export type GroupsGetMultiGroupsOptions = {
   groupIds: number[];
 };
-export type GetMultiGroups = {
-  data: GroupOptions[];
+export type GroupsGetMultiGroups = {
+  data: GroupsGroupOptions[];
 };
-export type GetGroupAuditLogsOptions = {
+export type GroupsGetGroupAuditLogsOptions = {
   groupId: number;
   actionType:
     | "DeletePost"
@@ -90,7 +158,7 @@ export type GetGroupAuditLogsOptions = {
   limit?: 10 | 25 | 50 | 100;
   cursor?: string;
 };
-export type GetGroupAuditLogs = {
+export type GroupsGetGroupAuditLogs = {
   previousPageCursor: string;
   nextPageCursor: string;
   data: {
@@ -114,10 +182,10 @@ export type GetGroupAuditLogs = {
     created: string;
   }[];
 };
-export type GetGroupSettingsOptions = {
+export type GroupsGetGroupSettingsOptions = {
   groupId: number;
 };
-export type GetGroupSettings = {
+export type GroupsGetGroupSettings = {
   groupId: number;
   isApprovalRequired: boolean;
   isBuildersClubRequired: boolean;
@@ -125,9 +193,9 @@ export type GetGroupSettings = {
   areGroupFundsVisible: boolean;
   areGroupGamesVisible: boolean;
 };
-export type UpdateGroupSettingsOptions = GetGroupSettings;
-export type UpdateGroupSettings = unknown;
-export type GetGroupConfigurationMetaData = {
+export type GroupsUpdateGroupSettingsOptions = GroupsGetGroupSettings;
+export type GroupsUpdateGroupSettings = unknown;
+export type GroupsGetGroupConfigurationMetaData = {
   groupConfiguration: {
     nameMaxLength: number;
     descriptionMaxLength: number;
@@ -148,7 +216,7 @@ export type GetGroupConfigurationMetaData = {
   isPremiumPayoutsEnabled: boolean;
   isDefaultEmblemPolicyEnabled: boolean;
 };
-export type GetGroupsMetaData = {
+export type GroupsGetGroupsMetaData = {
   groupLimit: number;
   currentGroupCount: number;
   groupStatusMaxLength: number;
@@ -159,43 +227,43 @@ export type GetGroupsMetaData = {
   isGroupDetailsPolicyEnabled: boolean;
   showPreviousGroupNames: boolean;
 };
-export type CreateGroupOptions = {
+export type GroupsCreateGroupOptions = {
   name: string;
   description: string;
   publicGroup: boolean;
   buildersClubMembersOnly: boolean;
   files: unknown;
 };
-export type CreateGroup = GroupOptions;
-export type UpdateGroupDescriptionOptions = {
+export type GroupsCreateGroup = GroupsGroupOptions;
+export type GroupsUpdateGroupDescriptionOptions = {
   groupId: number;
   description: string;
 };
-export type UpdateGroupDescription = {
+export type GroupsUpdateGroupDescription = {
   newDescription: string;
 };
-export type UpdateGroupStatusOptions = {
+export type GroupsUpdateGroupStatusOptions = {
   groupId: number;
   message: string;
 };
-export type UpdateGroupStatus = GroupOptions["shout"];
-export type UpdateGroupIconOptions = {
+export type GroupsUpdateGroupStatus = GroupsGroupOptions["shout"];
+export type GroupsUpdateGroupIconOptions = {
   groupId: number;
   files: unknown;
 };
-export type UpdateGroupIcon = unknown;
-export type DeclineJoinRequestsOptions = {
+export type GroupsUpdateGroupIcon = unknown;
+export type GroupsDeclineJoinRequestsOptions = {
   groupId: number;
   userIds: number[];
 };
-export type DeclineJoinRequests = unknown;
-export type GetJoinRequestsOptions = {
+export type GroupsDeclineJoinRequests = unknown;
+export type GroupsGetJoinRequestsOptions = {
   groupId: number;
   sortOrder?: "Asc" | "Desc";
   limit?: 10 | 25 | 50 | 100;
   cursor?: string;
 };
-export type GetJoinRequests = {
+export type GroupsGetJoinRequests = {
   previousPageCursor: string;
   nextPageCursor: string;
   data: {
@@ -207,30 +275,30 @@ export type GetJoinRequests = {
     created: string;
   }[];
 };
-export type AcceptJoinRequestsOptions = {
+export type GroupsAcceptJoinRequestsOptions = {
   groupId: number;
   userIds: number[];
 };
-export type AcceptJoinRequests = unknown;
-export type DeclineJoinRequestOptions = {
+export type GroupsAcceptJoinRequests = unknown;
+export type GroupsDeclineJoinRequestOptions = {
   groupId: number;
   userId: number;
 };
-export type DeclineJoinRequest = unknown;
-export type GetJoinRequestOptions = {
+export type GroupsDeclineJoinRequest = unknown;
+export type GroupsGetJoinRequestOptions = {
   groupId: number;
   userId: number;
 };
-export type GetJoinRequest = GetJoinRequests["data"][0];
-export type AcceptJoinRequestOptions = {
+export type GroupsGetJoinRequest = GroupsGetJoinRequests["data"][0];
+export type GroupsAcceptJoinRequestOptions = {
   groupId: number;
   userId: number;
 };
-export type AcceptJoinRequest = unknown;
-export type GetSelfGroupMembershipOptions = {
+export type GroupsAcceptJoinRequest = unknown;
+export type GroupsGetSelfGroupMembershipOptions = {
   groupId: number;
 };
-export type GetSelfGroupMembership = {
+export type GroupsGetSelfGroupMembership = {
   groupId: number;
   isPrimary: boolean;
   isPendingJoin: boolean;
@@ -249,12 +317,12 @@ export type GetSelfGroupMembership = {
       memberCount: number;
     };
   };
-  permissions: GroupRolePermissionsOptions["permissions"];
+  permissions: GroupsGroupRolePermissionsOptions["permissions"];
 };
-export type GetGroupRolesOptions = {
+export type GroupsGetGroupRolesOptions = {
   groupId: number;
 };
-export type GetGroupRoles = {
+export type GroupsGetGroupRoles = {
   groupId: number;
   roles: {
     id: number;
@@ -264,14 +332,14 @@ export type GetGroupRoles = {
     memberCount: number;
   }[];
 };
-export type GetMembersWithRoleOptions = {
+export type GroupsGetMembersWithRoleOptions = {
   groupId: number;
   roleId: number;
   sortOrder?: "Asc" | "Desc";
   limit?: 10 | 25 | 50 | 100;
   cursor?: string;
 };
-export type GetMembersWithRole = {
+export type GroupsGetMembersWithRole = {
   previousPageCursor: string;
   nextPageCursor: string;
   data: {
@@ -281,55 +349,55 @@ export type GetMembersWithRole = {
     displayName: string;
   }[];
 };
-export type GetMembersOptions = {
+export type GroupsGetMembersOptions = {
   groupId: number;
   sortOrder?: "Asc" | "Desc";
   limit?: 10 | 25 | 50 | 100;
   cursor?: string;
 };
-export type GetMembers = GetMembersWithRole;
-export type JoinGroupOptions = {
+export type GroupsGetMembers = GroupsGetMembersWithRole;
+export type GroupsJoinGroupOptions = {
   groupId: number;
   captchaToken: string;
   captchaProvider: "PROVIDER_ARKOSELABS" | string;
 };
-export type JoinGroup = unknown;
-export type GetSelfPendingGroupJoins = {
-  data: GroupOptions[];
+export type GroupsJoinGroup = unknown;
+export type GroupsGetSelfPendingGroupJoins = {
+  data: GroupsGroupOptions[];
 };
-export type GetUserGroupsOptions = {
+export type GroupsGetUserGroupsOptions = {
   userId: number;
 };
-export type GetUserGroups = {
+export type GroupsGetUserGroups = {
   data: {
-    group: GroupOptions;
-    role: GetGroupRoles["roles"][0];
+    group: GroupsGroupOptions;
+    role: GroupsGetGroupRoles["roles"][0];
   }[];
 };
-export type ChangeOwnerOptions = {
+export type GroupsChangeOwnerOptions = {
   groupId: number;
   userId: number;
 };
-export type ChangeOwner = unknown;
-export type ClaimGroupOptions = {
+export type GroupsChangeOwner = unknown;
+export type GroupsClaimGroupOptions = {
   groupId: number;
 };
-export type ClaimGroup = unknown;
-export type KickMemberOptions = {
+export type GroupsClaimGroup = unknown;
+export type GroupsKickMemberOptions = {
   groupId: number;
   userId: number;
 };
-export type KickMember = unknown;
-export type UpdateMemberOptions = {
+export type GroupsKickMember = unknown;
+export type GroupsUpdateMemberOptions = {
   groupId: number;
   userId: number;
   roleId: number;
 };
-export type UpdateMember = unknown;
-export type GetGroupPayoutsOptions = {
+export type GroupsUpdateMember = unknown;
+export type GroupsGetGroupPayoutsOptions = {
   groupId: number;
 };
-export type GetGroupPayouts = {
+export type GroupsGetGroupPayouts = {
   data: {
     user: {
       buildersClubMembershipType: "None" | string;
@@ -340,7 +408,7 @@ export type GetGroupPayouts = {
     percentage: number;
   }[];
 };
-export type PayoutMembersOptions = {
+export type GroupsPayoutMembersOptions = {
   groupId: number;
   users: {
     userId: number;
@@ -348,63 +416,64 @@ export type PayoutMembersOptions = {
   }[];
   type: "FixedAmount" | "Percentage" | string;
 };
-export type PayoutMembers = unknown;
-export type UpdateRecurringPayoutsOptions = PayoutMembersOptions;
-export type UpdateRecurringPayouts = unknown;
-export type GetGroupRelationshipsOptions = {
+export type GroupsPayoutMembers = unknown;
+export type GroupsUpdateRecurringPayoutsOptions = GroupsPayoutMembersOptions;
+export type GroupsUpdateRecurringPayouts = unknown;
+export type GroupsGetGroupRelationshipsOptions = {
   groupId: number;
   relationshipType: "enemies" | "allies";
   startRowIndex?: number;
   maxRows?: number;
 };
-export type GetGroupRelationships = {
+export type GroupsGetGroupRelationships = {
   groupId: number;
-  relationshipType: GetGroupRelationshipsOptions["relationshipType"];
+  relationshipType: GroupsGetGroupRelationshipsOptions["relationshipType"];
   totalGroupCount: number;
-  relatedGroups: GroupOptions[];
+  relatedGroups: GroupsGroupOptions[];
   nextRowIndex: number;
 };
-export type DeclineRelationshipRequestsOptions = {
+export type GroupsDeclineRelationshipRequestsOptions = {
   groupId: number;
-  relationshipType: GetGroupRelationshipsOptions["relationshipType"];
+  relationshipType: GroupsGetGroupRelationshipsOptions["relationshipType"];
   withGroups: number[];
 };
-export type DeclineRelationshipRequests = unknown;
-export type GetRelationshipRequestsOptions = GetGroupRelationshipsOptions;
-export type GetRelationshipRequests = GetGroupRelationships;
-export type AcceptRelationshipRequestsOptions =
-  DeclineRelationshipRequestsOptions;
-export type AcceptRelationshipRequests = unknown;
-export type DeleteRelationshipOptions = Omit<
-  DeclineRelationshipRequestsOptions,
+export type GroupsDeclineRelationshipRequests = unknown;
+export type GroupsGetRelationshipRequestsOptions =
+  GroupsGetGroupRelationshipsOptions;
+export type GroupsGetRelationshipRequests = GroupsGetGroupRelationships;
+export type GroupsAcceptRelationshipRequestsOptions =
+  GroupsDeclineRelationshipRequestsOptions;
+export type GroupsAcceptRelationshipRequests = unknown;
+export type GroupsDeleteRelationshipOptions = Omit<
+  GroupsDeclineRelationshipRequestsOptions,
   "withGroups"
 > & {
   withGroup: number;
 };
-export type DeleteRelationship = unknown;
-export type CreateRelationshipOptions = Omit<
-  DeclineRelationshipRequestsOptions,
+export type GroupsDeleteRelationship = unknown;
+export type GroupsCreateRelationshipOptions = Omit<
+  GroupsDeclineRelationshipRequestsOptions,
   "withGroups"
 > & {
   withGroup: number;
 };
-export type CreateRelationship = unknown;
-export type DeclineRelationshipRequestOptions = Omit<
-  DeclineRelationshipRequestsOptions,
+export type GroupsCreateRelationship = unknown;
+export type GroupsDeclineRelationshipRequestOptions = Omit<
+  GroupsDeclineRelationshipRequestsOptions,
   "withGroups"
 > & {
   withGroup: number;
 };
-export type DeclineRelationshipRequest = unknown;
-export type AcceptRelationshipRequestOptions =
-  DeclineRelationshipRequestOptions;
-export type AcceptRelationshipRequest = unknown;
-export type GetRolePermissionsOptions = {
+export type GroupsDeclineRelationshipRequest = unknown;
+export type GroupsAcceptRelationshipRequestOptions =
+  GroupsDeclineRelationshipRequestOptions;
+export type GroupsAcceptRelationshipRequest = unknown;
+export type GroupsGetRolePermissionsOptions = {
   groupId: number;
   roleId: number;
 };
-export type GetRolePermissions = GroupRolePermissionsOptions;
-export type UpdateRolePermissionsOptions = {
+export type GroupsGetRolePermissions = GroupsGroupRolePermissionsOptions;
+export type GroupsUpdateRolePermissionsOptions = {
   groupId: number;
   roleId: number;
   DeleteFromWall: boolean;
@@ -425,21 +494,21 @@ export type UpdateRolePermissionsOptions = {
   ManageClan: boolean;
   ManageGroupGames: boolean;
 };
-export type UpdateRolePermissions = unknown;
-export type GetGuestPermissionsOptions = {
+export type GroupsUpdateRolePermissions = unknown;
+export type GroupsGetGuestPermissionsOptions = {
   groupId: number;
 };
-export type GetGuestPermissions = GroupRolePermissionsOptions;
-export type GetAllRolesPermissionsOptions = {
+export type GroupsGetGuestPermissions = GroupsGroupRolePermissionsOptions;
+export type GroupsGetAllRolesPermissionsOptions = {
   groupId: number;
 };
-export type GetAllRolesPermissions = {
-  data: GroupRolePermissionsOptions[];
+export type GroupsGetAllRolesPermissions = {
+  data: GroupsGroupRolePermissionsOptions[];
 };
-export type GetSocialLinksOptions = {
+export type GroupsGetSocialLinksOptions = {
   groupId: number;
 };
-export type GetSocialLinks = {
+export type GroupsGetSocialLinks = {
   data: {
     id: number;
     type: "Facebook" | string;
@@ -447,33 +516,33 @@ export type GetSocialLinks = {
     title: string;
   }[];
 };
-export type PostSocialLinkOptions = {
+export type GroupsPostSocialLinkOptions = {
   groupId: number;
   type: "Facebook" | string;
   url: string;
   title: string;
 };
-export type PostSocialLink = GetSocialLinks["data"][0];
-export type DeleteSocialLinkOptions = {
+export type GroupsPostSocialLink = GroupsGetSocialLinks["data"][0];
+export type GroupsDeleteSocialLinkOptions = {
   groupId: number;
   id: number;
 };
-export type DeleteSocialLink = unknown;
-export type UpdateSocialLinkOptions = {
+export type GroupsDeleteSocialLink = unknown;
+export type GroupsUpdateSocialLinkOptions = {
   groupId: number;
   id: number;
   type: "Facebook" | string;
   url: string;
   title: string;
 };
-export type UpdateSocialLink = unknown;
-export type GetWallPostsOptions = {
+export type GroupsUpdateSocialLink = unknown;
+export type GroupsGetWallPostsOptions = {
   groupId: number;
   sortOrder?: "Asc" | "Desc";
   limit?: 10 | 25 | 50 | 100;
   cursor?: string;
 };
-export type GetWallPosts = {
+export type GroupsGetWallPosts = {
   previousPageCursor: string;
   nextPageCursor: string;
   data: {
@@ -489,29 +558,29 @@ export type GetWallPosts = {
     };
   }[];
 };
-export type CreateWallPostOptions = {
+export type GroupsCreateWallPostOptions = {
   groupId: number;
   body: string;
   captchaToken: string;
   captchaProvider: "PROVIDER_ARKOSELABS" | string;
 };
-export type CreateWallPost = GetWallPosts["data"][0];
-export type DeleteWallPostOptions = {
+export type GroupsCreateWallPost = GroupsGetWallPosts["data"][0];
+export type GroupsDeleteWallPostOptions = {
   groupId: number;
   id: number;
 };
-export type DeleteWallPost = unknown;
-export type DeleteWallPostsByUserOptions = {
+export type GroupsDeleteWallPost = unknown;
+export type GroupsDeleteWallPostsByUserOptions = {
   groupId: number;
   userId: number;
 };
-export type DeleteWallPostsByUser = unknown;
-export type SearchGroupsByKeywordOptions = {
+export type GroupsDeleteWallPostsByUser = unknown;
+export type GroupsSearchGroupsByKeywordOptions = {
   keyword: string;
   limit?: 10 | 25 | 50 | 100;
   cursor?: string;
 };
-export type SearchGroupsByKeyword = {
+export type GroupsSearchGroupsByKeyword = {
   keyword: string;
   previousPageCursor: string;
   nextPageCursor: string;
@@ -525,23 +594,23 @@ export type SearchGroupsByKeyword = {
     updated: string;
   }[];
 };
-export type SearchGroupsOptions = {
+export type GroupsSearchGroupsOptions = {
   groupName: string;
 };
-export type SearchGroups = {
+export type GroupsSearchGroups = {
   data: {
     id: number;
     name: string;
     memberCount: number;
   }[];
 };
-export type GetGroupSearchMetaData = {
+export type GroupsGetGroupSearchMetaData = {
   SuggestedGroupKeywords: string[];
 };
-export type GetRolesByIdsOptions = {
+export type GroupsGetRolesByIdsOptions = {
   roleIds: number[];
 };
-export type GetRolesByIds = {
+export type GroupsGetRolesByIds = {
   data: {
     groupId: number;
     id: number;
@@ -551,40 +620,40 @@ export type GetRolesByIds = {
     memberCount: number;
   }[];
 };
-export type GetUserPrimaryGroupOptions = {
+export type GroupsGetUserPrimaryGroupOptions = {
   userId: number;
 };
-export type GetUserPrimaryGroup = {
-  group?: GroupOptions;
-  role?: GroupRoleOptions;
+export type GroupsGetUserPrimaryGroup = {
+  group?: GroupsGroupOptions;
+  role?: GroupsGroupRoleOptions;
   isPrimaryGroup?: boolean;
 };
-export type RemovePrimaryGroup = unknown;
-export type SetPrimaryGroupOptions = {
+export type GroupsRemovePrimaryGroup = unknown;
+export type GroupsSetPrimaryGroupOptions = {
   groupId: number;
 };
-export type SetPrimaryGroup = unknown;
-export type CreateRoleOptions = {
+export type GroupsSetPrimaryGroup = unknown;
+export type GroupsCreateRoleOptions = {
   groupId: number;
   name: string;
   description: string;
   rank: number;
   usingGroupFunds: boolean;
 };
-export type CreateRole = Omit<GetRolesByIds["data"][0], "groupId">;
-export type DeleteRoleOptions = {
+export type GroupsCreateRole = Omit<GroupsGetRolesByIds["data"][0], "groupId">;
+export type GroupsDeleteRoleOptions = {
   groupId: number;
   roleId: number;
 };
-export type DeleteRole = unknown;
-export type UpdateRoleOptions = {
+export type GroupsDeleteRole = unknown;
+export type GroupsUpdateRoleOptions = {
   groupId: number;
   roleId: number;
   name: string;
   description: string;
   rank: number;
 };
-export type UpdateRole = CreateRole;
+export type GroupsUpdateRole = GroupsCreateRole;
 
 export default class GroupsAPI extends BaseAPI {
   constructor(client: Client) {
@@ -594,7 +663,7 @@ export default class GroupsAPI extends BaseAPI {
     });
   }
 
-  getGroup(options: GetGroupOptions): Promise<GetGroup> {
+  getGroup(options: GroupsGetGroupOptions): Promise<GroupsGetGroup> {
     return this.request({
       requiresAuth: false,
       request: {
@@ -604,7 +673,9 @@ export default class GroupsAPI extends BaseAPI {
     }).then((response) => response.body);
   }
 
-  getMultiGroups(options: GetMultiGroupsOptions): Promise<GetMultiGroups> {
+  getMultiGroups(
+    options: GroupsGetMultiGroupsOptions
+  ): Promise<GroupsGetMultiGroups> {
     return this.request({
       requiresAuth: false,
       request: {
@@ -617,7 +688,9 @@ export default class GroupsAPI extends BaseAPI {
     }).then((response) => response.body);
   }
 
-  getAuditLogs(options: GetGroupAuditLogsOptions): Promise<GetGroupAuditLogs> {
+  getAuditLogs(
+    options: GroupsGetGroupAuditLogsOptions
+  ): Promise<GroupsGetGroupAuditLogs> {
     return this.request({
       requiresAuth: true,
       request: {
@@ -629,8 +702,8 @@ export default class GroupsAPI extends BaseAPI {
   }
 
   getGroupSettings(
-    options: GetGroupSettingsOptions
-  ): Promise<GetGroupSettings> {
+    options: GroupsGetGroupSettingsOptions
+  ): Promise<GroupsGetGroupSettings> {
     return this.request({
       requiresAuth: false,
       request: {
@@ -641,8 +714,8 @@ export default class GroupsAPI extends BaseAPI {
   }
 
   updateGroupSettings(
-    options: UpdateGroupSettingsOptions
-  ): Promise<UpdateGroupSettings> {
+    options: GroupsUpdateGroupSettingsOptions
+  ): Promise<GroupsUpdateGroupSettings> {
     return this.request({
       requiresAuth: true,
       request: {
@@ -654,7 +727,7 @@ export default class GroupsAPI extends BaseAPI {
     }).then((response) => response.body);
   }
 
-  getGroupConfigurationMetaData(): Promise<GetGroupConfigurationMetaData> {
+  getGroupConfigurationMetaData(): Promise<GroupsGetGroupConfigurationMetaData> {
     return this.request({
       requiresAuth: false,
       request: {
@@ -664,7 +737,7 @@ export default class GroupsAPI extends BaseAPI {
     }).then((response) => response.body);
   }
 
-  getGroupsMetaData(): Promise<GetGroupsMetaData> {
+  getGroupsMetaData(): Promise<GroupsGetGroupsMetaData> {
     return this.request({
       requiresAuth: false,
       request: {
@@ -674,7 +747,7 @@ export default class GroupsAPI extends BaseAPI {
     }).then((response) => response.body);
   }
 
-  createGroup(options: CreateGroupOptions): Promise<CreateGroup> {
+  createGroup(options: GroupsCreateGroupOptions): Promise<GroupsCreateGroup> {
     return this.request({
       requiresAuth: true,
       request: {
@@ -693,8 +766,8 @@ export default class GroupsAPI extends BaseAPI {
   }
 
   updateGroupDescription(
-    options: UpdateGroupDescriptionOptions
-  ): Promise<UpdateGroupDescription> {
+    options: GroupsUpdateGroupDescriptionOptions
+  ): Promise<GroupsUpdateGroupDescription> {
     return this.request({
       requiresAuth: true,
       request: {
@@ -707,8 +780,8 @@ export default class GroupsAPI extends BaseAPI {
   }
 
   updateGroupStatus(
-    options: UpdateGroupStatusOptions
-  ): Promise<UpdateGroupStatus> {
+    options: GroupsUpdateGroupStatusOptions
+  ): Promise<GroupsUpdateGroupStatus> {
     return this.request({
       requiresAuth: true,
       request: {
@@ -720,7 +793,9 @@ export default class GroupsAPI extends BaseAPI {
     }).then((response) => response.body);
   }
 
-  updateGroupIcon(options: UpdateGroupIconOptions): Promise<UpdateGroupIcon> {
+  updateGroupIcon(
+    options: GroupsUpdateGroupIconOptions
+  ): Promise<GroupsUpdateGroupIcon> {
     return this.request({
       requiresAuth: true,
       request: {
@@ -733,8 +808,8 @@ export default class GroupsAPI extends BaseAPI {
   }
 
   declineJoinRequests(
-    options: DeclineJoinRequestsOptions
-  ): Promise<DeclineJoinRequests> {
+    options: GroupsDeclineJoinRequestsOptions
+  ): Promise<GroupsDeclineJoinRequests> {
     return this.request({
       requiresAuth: true,
       request: {
@@ -748,7 +823,9 @@ export default class GroupsAPI extends BaseAPI {
     }).then((response) => response.body);
   }
 
-  getJoinRequests(options: GetJoinRequestsOptions): Promise<GetJoinRequests> {
+  getJoinRequests(
+    options: GroupsGetJoinRequestsOptions
+  ): Promise<GroupsGetJoinRequests> {
     return this.request({
       requiresAuth: true,
       request: {
@@ -760,8 +837,8 @@ export default class GroupsAPI extends BaseAPI {
   }
 
   acceptJoinRequests(
-    options: AcceptJoinRequestsOptions
-  ): Promise<AcceptJoinRequests> {
+    options: GroupsAcceptJoinRequestsOptions
+  ): Promise<GroupsAcceptJoinRequests> {
     return this.request({
       requiresAuth: true,
       request: {
@@ -776,8 +853,8 @@ export default class GroupsAPI extends BaseAPI {
   }
 
   declineJoinRequest(
-    options: DeclineJoinRequestOptions
-  ): Promise<DeclineJoinRequest> {
+    options: GroupsDeclineJoinRequestOptions
+  ): Promise<GroupsDeclineJoinRequest> {
     return this.request({
       requiresAuth: true,
       request: {
@@ -788,7 +865,9 @@ export default class GroupsAPI extends BaseAPI {
     }).then((response) => response.body);
   }
 
-  getJoinRequest(options: GetJoinRequestOptions): Promise<GetJoinRequest> {
+  getJoinRequest(
+    options: GroupsGetJoinRequestOptions
+  ): Promise<GroupsGetJoinRequest> {
     return this.request({
       requiresAuth: true,
       request: {
@@ -799,8 +878,8 @@ export default class GroupsAPI extends BaseAPI {
   }
 
   acceptJoinRequest(
-    options: AcceptJoinRequestOptions
-  ): Promise<AcceptJoinRequest> {
+    options: GroupsAcceptJoinRequestOptions
+  ): Promise<GroupsAcceptJoinRequest> {
     return this.request({
       requiresAuth: true,
       request: {
@@ -812,8 +891,8 @@ export default class GroupsAPI extends BaseAPI {
   }
 
   getSelfGroupMembership(
-    options: GetSelfGroupMembershipOptions
-  ): Promise<GetSelfGroupMembership> {
+    options: GroupsGetSelfGroupMembershipOptions
+  ): Promise<GroupsGetSelfGroupMembership> {
     return this.request({
       requiresAuth: true,
       request: {
@@ -823,7 +902,9 @@ export default class GroupsAPI extends BaseAPI {
     }).then((response) => response.body);
   }
 
-  getGroupRoles(options: GetGroupRolesOptions): Promise<GetGroupRoles> {
+  getGroupRoles(
+    options: GroupsGetGroupRolesOptions
+  ): Promise<GroupsGetGroupRoles> {
     return this.request({
       requiresAuth: true,
       request: {
@@ -834,8 +915,8 @@ export default class GroupsAPI extends BaseAPI {
   }
 
   getMembersWithRole(
-    options: GetMembersWithRoleOptions
-  ): Promise<GetMembersWithRole> {
+    options: GroupsGetMembersWithRoleOptions
+  ): Promise<GroupsGetMembersWithRole> {
     return this.request({
       requiresAuth: false,
       request: {
@@ -849,7 +930,7 @@ export default class GroupsAPI extends BaseAPI {
     }).then((response) => response.body);
   }
 
-  getMembers(options: GetMembersOptions): Promise<GetMembers> {
+  getMembers(options: GroupsGetMembersOptions): Promise<GroupsGetMembers> {
     return this.request({
       requiresAuth: false,
       request: {
@@ -860,7 +941,7 @@ export default class GroupsAPI extends BaseAPI {
     }).then((response) => response.body);
   }
 
-  joinGroup(options: JoinGroupOptions): Promise<JoinGroup> {
+  joinGroup(options: GroupsJoinGroupOptions): Promise<GroupsJoinGroup> {
     return this.request({
       requiresAuth: true,
       request: {
@@ -872,7 +953,7 @@ export default class GroupsAPI extends BaseAPI {
     }).then((response) => response.body);
   }
 
-  getSelfPendingGroupJoins(): Promise<GetSelfPendingGroupJoins> {
+  getSelfPendingGroupJoins(): Promise<GroupsGetSelfPendingGroupJoins> {
     return this.request({
       requiresAuth: true,
       request: {
@@ -882,7 +963,9 @@ export default class GroupsAPI extends BaseAPI {
     }).then((response) => response.body);
   }
 
-  getUserGroups(options: GetUserGroupsOptions): Promise<GetUserGroups> {
+  getUserGroups(
+    options: GroupsGetUserGroupsOptions
+  ): Promise<GroupsGetUserGroups> {
     return this.request({
       requiresAuth: true,
       request: {
@@ -892,7 +975,9 @@ export default class GroupsAPI extends BaseAPI {
     }).then((response) => response.body);
   }
 
-  changeGroupOwner(options: ChangeOwnerOptions): Promise<ChangeOwner> {
+  changeGroupOwner(
+    options: GroupsChangeOwnerOptions
+  ): Promise<GroupsChangeOwner> {
     return this.request({
       requiresAuth: true,
       request: {
@@ -904,7 +989,7 @@ export default class GroupsAPI extends BaseAPI {
     }).then((response) => response.body);
   }
 
-  claimGroup(options: ClaimGroupOptions): Promise<ClaimGroup> {
+  claimGroup(options: GroupsClaimGroupOptions): Promise<GroupsClaimGroup> {
     return this.request({
       requiresAuth: true,
       request: {
@@ -916,7 +1001,7 @@ export default class GroupsAPI extends BaseAPI {
     }).then((response) => response.body);
   }
 
-  kickMember(options: KickMemberOptions): Promise<KickMember> {
+  kickMember(options: GroupsKickMemberOptions): Promise<GroupsKickMember> {
     return this.request({
       requiresAuth: true,
       request: {
@@ -927,7 +1012,9 @@ export default class GroupsAPI extends BaseAPI {
     }).then((response) => response.body);
   }
 
-  updateMember(options: UpdateMemberOptions): Promise<UpdateMember> {
+  updateMember(
+    options: GroupsUpdateMemberOptions
+  ): Promise<GroupsUpdateMember> {
     return this.request({
       requiresAuth: true,
       request: {
@@ -939,7 +1026,9 @@ export default class GroupsAPI extends BaseAPI {
     }).then((response) => response.body);
   }
 
-  getGroupPayouts(options: GetGroupPayoutsOptions): Promise<GetGroupPayouts> {
+  getGroupPayouts(
+    options: GroupsGetGroupPayoutsOptions
+  ): Promise<GroupsGetGroupPayouts> {
     return this.request({
       requiresAuth: true,
       request: {
@@ -949,7 +1038,9 @@ export default class GroupsAPI extends BaseAPI {
     }).then((response) => response.body);
   }
 
-  payoutMembers(options: PayoutMembersOptions): Promise<PayoutMembers> {
+  payoutMembers(
+    options: GroupsPayoutMembersOptions
+  ): Promise<GroupsPayoutMembers> {
     return this.request({
       requiresAuth: true,
       request: {
@@ -969,8 +1060,8 @@ export default class GroupsAPI extends BaseAPI {
   }
 
   updateRecurringPayouts(
-    options: UpdateRecurringPayoutsOptions
-  ): Promise<UpdateRecurringPayouts> {
+    options: GroupsUpdateRecurringPayoutsOptions
+  ): Promise<GroupsUpdateRecurringPayouts> {
     return this.request({
       requiresAuth: true,
       request: {
@@ -990,8 +1081,8 @@ export default class GroupsAPI extends BaseAPI {
   }
 
   getGroupRelationships(
-    options: GetGroupRelationshipsOptions
-  ): Promise<GetGroupRelationships> {
+    options: GroupsGetGroupRelationshipsOptions
+  ): Promise<GroupsGetGroupRelationships> {
     return this.request({
       requiresAuth: false,
       request: {
@@ -1006,8 +1097,8 @@ export default class GroupsAPI extends BaseAPI {
   }
 
   declineRelationshipRequests(
-    options: DeclineRelationshipRequestsOptions
-  ): Promise<DeclineRelationshipRequests> {
+    options: GroupsDeclineRelationshipRequestsOptions
+  ): Promise<GroupsDeclineRelationshipRequests> {
     return this.request({
       requiresAuth: true,
       request: {
@@ -1022,8 +1113,8 @@ export default class GroupsAPI extends BaseAPI {
   }
 
   getRelationshipRequests(
-    options: GetRelationshipRequestsOptions
-  ): Promise<GetRelationshipRequests> {
+    options: GroupsGetRelationshipRequestsOptions
+  ): Promise<GroupsGetRelationshipRequests> {
     return this.request({
       requiresAuth: true,
       request: {
@@ -1035,8 +1126,8 @@ export default class GroupsAPI extends BaseAPI {
   }
 
   acceptRelationshipRequests(
-    options: AcceptRelationshipRequestsOptions
-  ): Promise<AcceptRelationshipRequests> {
+    options: GroupsAcceptRelationshipRequestsOptions
+  ): Promise<GroupsAcceptRelationshipRequests> {
     return this.request({
       requiresAuth: true,
       request: {
@@ -1051,8 +1142,8 @@ export default class GroupsAPI extends BaseAPI {
   }
 
   deleteRelationship(
-    options: DeleteRelationshipOptions
-  ): Promise<DeleteRelationship> {
+    options: GroupsDeleteRelationshipOptions
+  ): Promise<GroupsDeleteRelationship> {
     return this.request({
       requiresAuth: true,
       request: {
@@ -1064,8 +1155,8 @@ export default class GroupsAPI extends BaseAPI {
   }
 
   createRelationship(
-    options: CreateRelationshipOptions
-  ): Promise<CreateRelationship> {
+    options: GroupsCreateRelationshipOptions
+  ): Promise<GroupsCreateRelationship> {
     return this.request({
       requiresAuth: true,
       request: {
@@ -1077,8 +1168,8 @@ export default class GroupsAPI extends BaseAPI {
   }
 
   acceptRelationshipRequest(
-    options: AcceptRelationshipRequestOptions
-  ): Promise<AcceptRelationshipRequest> {
+    options: GroupsAcceptRelationshipRequestOptions
+  ): Promise<GroupsAcceptRelationshipRequest> {
     return this.request({
       requiresAuth: true,
       request: {
@@ -1089,8 +1180,8 @@ export default class GroupsAPI extends BaseAPI {
   }
 
   declineRelationshipRequest(
-    options: DeclineRelationshipRequestOptions
-  ): Promise<DeclineRelationshipRequest> {
+    options: GroupsDeclineRelationshipRequestOptions
+  ): Promise<GroupsDeclineRelationshipRequest> {
     return this.request({
       requiresAuth: true,
       request: {
@@ -1102,8 +1193,8 @@ export default class GroupsAPI extends BaseAPI {
   }
 
   getRolePermissions(
-    options: GetRolePermissionsOptions
-  ): Promise<GetRolePermissions> {
+    options: GroupsGetRolePermissionsOptions
+  ): Promise<GroupsGetRolePermissions> {
     return this.request({
       requiresAuth: false,
       request: {
@@ -1114,8 +1205,8 @@ export default class GroupsAPI extends BaseAPI {
   }
 
   updateRolePermissions(
-    options: UpdateRolePermissionsOptions
-  ): Promise<UpdateRolePermissions> {
+    options: GroupsUpdateRolePermissionsOptions
+  ): Promise<GroupsUpdateRolePermissions> {
     return this.request({
       requiresAuth: true,
       request: {
@@ -1128,8 +1219,8 @@ export default class GroupsAPI extends BaseAPI {
   }
 
   getGuestPermissions(
-    options: GetGuestPermissionsOptions
-  ): Promise<GetGuestPermissions> {
+    options: GroupsGetGuestPermissionsOptions
+  ): Promise<GroupsGetGuestPermissions> {
     return this.request({
       requiresAuth: false,
       request: {
@@ -1140,8 +1231,8 @@ export default class GroupsAPI extends BaseAPI {
   }
 
   getAllRolesPermissions(
-    options: GetAllRolesPermissionsOptions
-  ): Promise<GetAllRolesPermissions> {
+    options: GroupsGetAllRolesPermissionsOptions
+  ): Promise<GroupsGetAllRolesPermissions> {
     return this.request({
       requiresAuth: false,
       request: {
@@ -1151,7 +1242,9 @@ export default class GroupsAPI extends BaseAPI {
     }).then((response) => response.body);
   }
 
-  getSocialLinks(options: GetSocialLinksOptions): Promise<GetSocialLinks> {
+  getSocialLinks(
+    options: GroupsGetSocialLinksOptions
+  ): Promise<GroupsGetSocialLinks> {
     return this.request({
       requiresAuth: false,
       request: {
@@ -1161,7 +1254,9 @@ export default class GroupsAPI extends BaseAPI {
     }).then((response) => response.body);
   }
 
-  createSocialLink(options: PostSocialLinkOptions): Promise<PostSocialLink> {
+  createSocialLink(
+    options: GroupsPostSocialLinkOptions
+  ): Promise<GroupsPostSocialLink> {
     return this.request({
       requiresAuth: true,
       request: {
@@ -1174,8 +1269,8 @@ export default class GroupsAPI extends BaseAPI {
   }
 
   deleteSocialLink(
-    options: DeleteSocialLinkOptions
-  ): Promise<DeleteSocialLink> {
+    options: GroupsDeleteSocialLinkOptions
+  ): Promise<GroupsDeleteSocialLink> {
     return this.request({
       requiresAuth: true,
       request: {
@@ -1187,8 +1282,8 @@ export default class GroupsAPI extends BaseAPI {
   }
 
   updateSocialLink(
-    options: UpdateSocialLinkOptions
-  ): Promise<UpdateSocialLink> {
+    options: GroupsUpdateSocialLinkOptions
+  ): Promise<GroupsUpdateSocialLink> {
     return this.request({
       requiresAuth: true,
       request: {
@@ -1200,7 +1295,9 @@ export default class GroupsAPI extends BaseAPI {
     }).then((response) => response.body);
   }
 
-  getWallPosts(options: GetWallPostsOptions): Promise<GetWallPosts> {
+  getWallPosts(
+    options: GroupsGetWallPostsOptions
+  ): Promise<GroupsGetWallPosts> {
     return this.request({
       requiresAuth: false,
       request: {
@@ -1211,7 +1308,9 @@ export default class GroupsAPI extends BaseAPI {
     }).then((response) => response.body);
   }
 
-  createWallPost(options: CreateWallPostOptions): Promise<CreateWallPost> {
+  createWallPost(
+    options: GroupsCreateWallPostOptions
+  ): Promise<GroupsCreateWallPost> {
     return this.request({
       requiresAuth: true,
       request: {
@@ -1223,7 +1322,9 @@ export default class GroupsAPI extends BaseAPI {
     }).then((response) => response.body);
   }
 
-  deleteWallPost(options: DeleteWallPostOptions): Promise<DeleteWallPost> {
+  deleteWallPost(
+    options: GroupsDeleteWallPostOptions
+  ): Promise<GroupsDeleteWallPost> {
     return this.request({
       requiresAuth: true,
       request: {
@@ -1235,8 +1336,8 @@ export default class GroupsAPI extends BaseAPI {
   }
 
   deleteUserWallPosts(
-    options: DeleteWallPostsByUserOptions
-  ): Promise<DeleteWallPostsByUser> {
+    options: GroupsDeleteWallPostsByUserOptions
+  ): Promise<GroupsDeleteWallPostsByUser> {
     return this.request({
       requiresAuth: true,
       request: {
@@ -1248,8 +1349,8 @@ export default class GroupsAPI extends BaseAPI {
   }
 
   searchGroupsByKeyword(
-    options: SearchGroupsByKeywordOptions
-  ): Promise<SearchGroupsByKeyword> {
+    options: GroupsSearchGroupsByKeywordOptions
+  ): Promise<GroupsSearchGroupsByKeyword> {
     return this.request({
       requiresAuth: false,
       request: {
@@ -1260,7 +1361,9 @@ export default class GroupsAPI extends BaseAPI {
     }).then((response) => response.body);
   }
 
-  searchGroups(options: SearchGroupsOptions): Promise<SearchGroups> {
+  searchGroups(
+    options: GroupsSearchGroupsOptions
+  ): Promise<GroupsSearchGroups> {
     return this.request({
       requiresAuth: false,
       request: {
@@ -1271,7 +1374,7 @@ export default class GroupsAPI extends BaseAPI {
     }).then((response) => response.body);
   }
 
-  getGroupSearchMetaData(): Promise<GetGroupSearchMetaData> {
+  getGroupSearchMetaData(): Promise<GroupsGetGroupSearchMetaData> {
     return this.request({
       requiresAuth: false,
       request: {
@@ -1281,7 +1384,9 @@ export default class GroupsAPI extends BaseAPI {
     }).then((response) => response.body);
   }
 
-  getRolesByIds(options: GetRolesByIdsOptions): Promise<GetRolesByIds> {
+  getRolesByIds(
+    options: GroupsGetRolesByIdsOptions
+  ): Promise<GroupsGetRolesByIds> {
     return this.request({
       requiresAuth: false,
       request: {
@@ -1295,8 +1400,8 @@ export default class GroupsAPI extends BaseAPI {
   }
 
   getUserPrimaryGroup(
-    options: GetUserPrimaryGroupOptions
-  ): Promise<GetUserPrimaryGroup> {
+    options: GroupsGetUserPrimaryGroupOptions
+  ): Promise<GroupsGetUserPrimaryGroup> {
     return this.request({
       requiresAuth: false,
       request: {
@@ -1306,7 +1411,7 @@ export default class GroupsAPI extends BaseAPI {
     }).then((response) => response.body);
   }
 
-  removePrimaryGroup(): Promise<RemovePrimaryGroup> {
+  removePrimaryGroup(): Promise<GroupsRemovePrimaryGroup> {
     return this.request({
       requiresAuth: true,
       request: {
@@ -1317,7 +1422,9 @@ export default class GroupsAPI extends BaseAPI {
     }).then((response) => response.body);
   }
 
-  setPrimaryGroup(options: SetPrimaryGroupOptions): Promise<SetPrimaryGroup> {
+  setPrimaryGroup(
+    options: GroupsSetPrimaryGroupOptions
+  ): Promise<GroupsSetPrimaryGroup> {
     return this.request({
       requiresAuth: true,
       request: {
@@ -1329,7 +1436,7 @@ export default class GroupsAPI extends BaseAPI {
     }).then((response) => response.body);
   }
 
-  createRole(options: CreateRoleOptions): Promise<CreateRole> {
+  createRole(options: GroupsCreateRoleOptions): Promise<GroupsCreateRole> {
     return this.request({
       requiresAuth: true,
       request: {
@@ -1341,7 +1448,7 @@ export default class GroupsAPI extends BaseAPI {
     }).then((response) => response.body);
   }
 
-  deleteRole(options: DeleteRoleOptions): Promise<DeleteRole> {
+  deleteRole(options: GroupsDeleteRoleOptions): Promise<GroupsDeleteRole> {
     return this.request({
       requiresAuth: true,
       request: {
@@ -1352,7 +1459,7 @@ export default class GroupsAPI extends BaseAPI {
     }).then((response) => response.body);
   }
 
-  updateRole(options: UpdateRoleOptions): Promise<UpdateRole> {
+  updateRole(options: GroupsUpdateRoleOptions): Promise<GroupsUpdateRole> {
     return this.request({
       requiresAuth: true,
       request: {

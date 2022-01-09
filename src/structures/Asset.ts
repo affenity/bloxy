@@ -2,7 +2,7 @@ import Client from "../client";
 import { CreatorType } from "../util/constants";
 import { PartialGameUniverse, PartialGameUniverseOptions } from "./Game";
 import { PartialUser, PartialUserOptions } from "./User";
-import { ProductDetails } from "../client/apis/CatalogAPI";
+import { CatalogProductDetails } from "../client/apis/CatalogAPI";
 import { PartialGroup, PartialGroupOptions } from "./Group";
 
 export interface Structures {
@@ -43,7 +43,7 @@ export class AssetVersion {
   public created: Date;
   public updated: Date;
 
-  constructor (data: any, client: Client) {
+  constructor(data: any, client: Client) {
     const structures = retrieveStructures();
 
     this.client = client;
@@ -58,14 +58,14 @@ export class AssetVersion {
       },
       this.client
     );
-    this.createdForUniverse = data.CreatingUniverseId ?
-      new structures.PartialGameUniverse(
-        {
-          id: data.CreatingUniverseId
-        },
-        client
-      ) :
-      null;
+    this.createdForUniverse = data.CreatingUniverseId
+      ? new structures.PartialGameUniverse(
+          {
+            id: data.CreatingUniverseId
+          },
+          client
+        )
+      : null;
     this.created = new Date(data.Created);
     this.updated = new Date(data.Updated);
   }
@@ -87,7 +87,7 @@ export interface BundleOptions {
     name: string;
     type: string;
   };
-  product: ProductDetails;
+  product: CatalogProductDetails;
 }
 
 export class Bundle {
@@ -116,7 +116,7 @@ export class Bundle {
     };
   };
 
-  constructor (data: BundleOptions, client: Client) {
+  constructor(data: BundleOptions, client: Client) {
     const structures = retrieveStructures();
 
     this.client = client;
@@ -131,25 +131,25 @@ export class Bundle {
       type: itemData.type
     }));
     this.creatorType =
-      data.creator.type.toLowerCase() === "group" ?
-        CreatorType.GROUP :
-        CreatorType.USER;
+      data.creator.type.toLowerCase() === "group"
+        ? CreatorType.GROUP
+        : CreatorType.USER;
     this.creator =
-      this.creatorType === CreatorType.USER ?
-        new structures.PartialUser(
-          {
-            id: data.creator.id,
-            name: data.creator.name
-          },
-          client
-        ) :
-        new structures.PartialGroup(
-          {
-            id: data.creator.id,
-            name: data.creator.name
-          },
-          client
-        );
+      this.creatorType === CreatorType.USER
+        ? new structures.PartialUser(
+            {
+              id: data.creator.id,
+              name: data.creator.name
+            },
+            client
+          )
+        : new structures.PartialGroup(
+            {
+              id: data.creator.id,
+              name: data.creator.name
+            },
+            client
+          );
     this.product = {
       id: data.product.id,
       type: data.product.type,
@@ -185,7 +185,7 @@ export class CollectibleAsset {
   public assetStock: number | null;
   public buildersClubMembershipType: number;
 
-  constructor (data: CollectibleAssetOptions, client: Client) {
+  constructor(data: CollectibleAssetOptions, client: Client) {
     this.client = client;
     this.assetId = data.assetId;
     this.userAssetId = data.userAssetId;
@@ -219,7 +219,7 @@ export class CursorPage<T> {
   public data: T[];
   public method: any;
 
-  constructor (
+  constructor(
     client: Client,
     options: CursorPageOptions,
     response: CursorPageResponse,
@@ -236,7 +236,7 @@ export class CursorPage<T> {
     this.method = method;
   }
 
-  getNext (newOptions?: CursorPageOptions): Promise<CursorPage<T>> {
+  getNext(newOptions?: CursorPageOptions): Promise<CursorPage<T>> {
     if (!this.cursors.next) {
       throw new Error(
         "Attempted to iterate to next page, but no cursor was presented for the next page"
@@ -252,7 +252,7 @@ export class CursorPage<T> {
     return this.method(options);
   }
 
-  getPrevious (newOptions?: CursorPageOptions): Promise<CursorPage<T>> {
+  getPrevious(newOptions?: CursorPageOptions): Promise<CursorPage<T>> {
     if (!this.cursors.previous) {
       throw new Error(
         "Attempted to iterate to previous page, but no cursor was presented for the previous page"
@@ -319,7 +319,7 @@ export class Product {
   public remaining: number | null;
   public minimumMembershipLevel: number;
 
-  constructor (data: ProductOptions, client: Client) {
+  constructor(data: ProductOptions, client: Client) {
     const structures = retrieveStructures();
 
     this.client = client;
@@ -386,7 +386,7 @@ export class Trade {
   public active: boolean;
   public status: string;
 
-  constructor (data: TradeOptions, client: Client) {
+  constructor(data: TradeOptions, client: Client) {
     const structures = retrieveStructures();
 
     this.client = client;

@@ -2,8 +2,8 @@ import Client from "../client";
 import { CreatorType, GameGenre, MorphAvatarType } from "../util/constants";
 import { PartialGroup, PartialGroupOptions } from "./Group";
 import { PartialUser, PartialUserOptions } from "./User";
-import { GetPlaceStatisticsByTypeOptions } from "../client/apis/DevelopAPI";
-import { GetGameServersByTypeOptions } from "../client/apis/GamesAPI";
+import { DevelopGetPlaceStatisticsByTypeOptions } from "../client/apis/DevelopAPI";
+import { GamesGetGameServersByTypeOptions } from "../client/apis/GamesAPI";
 
 interface Structures {
   PartialUser: new (data: PartialUserOptions, client: Client) => PartialUser;
@@ -178,7 +178,9 @@ export class BasePlace {
     });
   }
 
-  getStatistics(options: Omit<GetPlaceStatisticsByTypeOptions, "placeId">) {
+  getStatistics(
+    options: Omit<DevelopGetPlaceStatisticsByTypeOptions, "placeId">
+  ) {
     return this.client.apis.developAPI.getPlaceStatistics({
       placeId: this.id,
       ...options
@@ -193,7 +195,7 @@ export class BasePlace {
     });
   }
 
-  getGameServers(options: Omit<GetGameServersByTypeOptions, "placeId">) {
+  getGameServers(options: Omit<GamesGetGameServersByTypeOptions, "placeId">) {
     return this.client.apis.gamesAPI.getGameServersByType({
       placeId: this.id,
       ...options

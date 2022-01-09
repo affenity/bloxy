@@ -1,25 +1,25 @@
 import BaseAPI from "./BaseAPI";
 import Client from "../Client";
 
-export type ValidateDisplayNameNewUserOptions = {
+export type UsersValidateDisplayNameNewUserOptions = {
   displayName: string;
   birthdate: string;
 };
-export type ValidateDisplayNameNewUser = unknown;
-export type ValidateDisplayNameExistingUserOptions = {
+export type UsersValidateDisplayNameNewUser = unknown;
+export type UsersValidateDisplayNameExistingUserOptions = {
   userId: number;
   displayName: string;
 };
-export type ValidateDisplayNameExistingUser = unknown;
-export type SetSelfDisplayNameOptions = {
+export type UsersValidateDisplayNameExistingUser = unknown;
+export type UsersSetSelfDisplayNameOptions = {
   userId: number;
   newDisplayName: string;
 };
-export type SetSelfDisplayName = unknown;
-export type GetUserByIdOptions = {
+export type UsersSetSelfDisplayName = unknown;
+export type UsersGetUserByIdOptions = {
   userId: number;
 };
-export type GetUserById = {
+export type UsersGetUserById = {
   description: string;
   created: string;
   isBanned: boolean;
@@ -27,16 +27,16 @@ export type GetUserById = {
   name: string;
   displayName: string;
 };
-export type GetSelfAuthenticatedUserInformation = {
+export type UsersGetSelfAuthenticatedUserInformation = {
   id: number;
   name: string;
   displayName: string;
 };
-export type GetUsersByUsernamesOptions = {
+export type UsersGetUsersByUsernamesOptions = {
   usernames: string[];
   excludeBannedUsers?: boolean;
 };
-export type GetUsersByUsernames = {
+export type UsersGetUsersByUsernames = {
   data: {
     requestedUsername: string;
     id: number;
@@ -44,32 +44,32 @@ export type GetUsersByUsernames = {
     displayName: string;
   }[];
 };
-export type GetUsersByUserIdsOptions = {
+export type UsersGetUsersByUserIdsOptions = {
   userIds: number[];
   excludeBannedUsers?: boolean;
 };
-export type GetUsersByUserIds = {
-  data: Omit<GetUsersByUsernames["data"][0], "requestedUsername">[];
+export type UsersGetUsersByUserIds = {
+  data: Omit<UsersGetUsersByUsernames["data"][0], "requestedUsername">[];
 };
-export type GetUserStatusOptions = {
+export type UsersGetUserStatusOptions = {
   userId: number;
 };
-export type GetUserStatus = {
+export type UsersGetUserStatus = {
   status: string;
 };
-export type UpdateSelfStatusOptions = {
+export type UsersUpdateSelfStatusOptions = {
   userId: number;
   status: string;
 };
-export type UpdateSelfStatus = {
+export type UsersUpdateSelfStatus = {
   status: string;
 };
-export type SearchUsersOptions = {
+export type UsersSearchUsersOptions = {
   keyword: string;
   limit?: 10 | 25 | 50 | 100;
   cursor?: string;
 };
-export type SearchUsers = {
+export type UsersSearchUsers = {
   previousPageCursor: string;
   nextPageCursor: string;
   data: {
@@ -79,7 +79,7 @@ export type SearchUsers = {
     displayName: string;
   }[];
 };
-export type UserNameHistory = {
+export type UsersUserNameHistory = {
   previousPageCursor: string;
   nextPageCursor: string;
   data: { name: string }[];
@@ -94,8 +94,8 @@ export default class UsersAPI extends BaseAPI {
   }
 
   validateDisplayNameNewUser(
-    options: ValidateDisplayNameNewUserOptions
-  ): Promise<ValidateDisplayNameNewUser> {
+    options: UsersValidateDisplayNameNewUserOptions
+  ): Promise<UsersValidateDisplayNameNewUser> {
     return this.request({
       requiresAuth: false,
       request: {
@@ -107,8 +107,8 @@ export default class UsersAPI extends BaseAPI {
   }
 
   validateDisplayNameExistingUser(
-    options: ValidateDisplayNameExistingUserOptions
-  ): Promise<ValidateDisplayNameExistingUser> {
+    options: UsersValidateDisplayNameExistingUserOptions
+  ): Promise<UsersValidateDisplayNameExistingUser> {
     return this.request({
       requiresAuth: true,
       request: {
@@ -120,8 +120,8 @@ export default class UsersAPI extends BaseAPI {
   }
 
   setDisplayName(
-    options: SetSelfDisplayNameOptions
-  ): Promise<SetSelfDisplayName> {
+    options: UsersSetSelfDisplayNameOptions
+  ): Promise<UsersSetSelfDisplayName> {
     return this.request({
       requiresAuth: true,
       request: {
@@ -133,7 +133,7 @@ export default class UsersAPI extends BaseAPI {
     }).then((response) => response.body);
   }
 
-  getUserById(options: GetUserByIdOptions): Promise<GetUserById> {
+  getUserById(options: UsersGetUserByIdOptions): Promise<UsersGetUserById> {
     return this.request({
       requiresAuth: false,
       request: {
@@ -143,7 +143,7 @@ export default class UsersAPI extends BaseAPI {
     }).then((response) => response.body);
   }
 
-  getAuthenticatedUserInformation(): Promise<GetSelfAuthenticatedUserInformation> {
+  getAuthenticatedUserInformation(): Promise<UsersGetSelfAuthenticatedUserInformation> {
     return this.request({
       // This should actually be "true", but as it's needed in client.login, it's set to false
       requiresAuth: false,
@@ -155,8 +155,8 @@ export default class UsersAPI extends BaseAPI {
   }
 
   getUsersByUsernames(
-    options: GetUsersByUsernamesOptions
-  ): Promise<GetUsersByUsernames> {
+    options: UsersGetUsersByUsernamesOptions
+  ): Promise<UsersGetUsersByUsernames> {
     return this.request({
       requiresAuth: false,
       request: {
@@ -168,7 +168,9 @@ export default class UsersAPI extends BaseAPI {
     }).then((response) => response.body);
   }
 
-  getUsersByIds(options: GetUsersByUserIdsOptions): Promise<GetUsersByUserIds> {
+  getUsersByIds(
+    options: UsersGetUsersByUserIdsOptions
+  ): Promise<UsersGetUsersByUserIds> {
     return this.request({
       requiresAuth: false,
       request: {
@@ -180,7 +182,9 @@ export default class UsersAPI extends BaseAPI {
     }).then((response) => response.body);
   }
 
-  getUserNameHistory(options: { userId: number }): Promise<UserNameHistory> {
+  getUserNameHistory(options: {
+    userId: number;
+  }): Promise<UsersUserNameHistory> {
     return this.request({
       requiresAuth: false,
       request: {
@@ -191,7 +195,7 @@ export default class UsersAPI extends BaseAPI {
     }).then((response) => response.body);
   }
 
-  searchUsers(options: SearchUsersOptions): Promise<SearchUsers> {
+  searchUsers(options: UsersSearchUsersOptions): Promise<UsersSearchUsers> {
     return this.request({
       requiresAuth: false,
       request: {

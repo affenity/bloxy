@@ -2,8 +2,8 @@ import Client from "../client";
 import { PartialUser, PartialUserOptions } from "./User";
 import { PartialGameUniverse, PartialGameUniverseOptions } from "./Game";
 import {
-  SendGameLinkMessageOptions,
-  SendMessageOptions
+  ChatSendGameLinkMessageOptions,
+  ChatSendMessageOptions
 } from "../client/apis/ChatAPI";
 import { PartialGroup, PartialGroupOptions } from "./Group";
 
@@ -62,7 +62,7 @@ export class ChatConversation {
   public lastUpdated: Date;
   public universe: PartialGameUniverse | null;
 
-  constructor (data: ChatConversationOptions, client: Client) {
+  constructor(data: ChatConversationOptions, client: Client) {
     const structures = retrieveStructures();
 
     this.client = client;
@@ -88,14 +88,14 @@ export class ChatConversation {
     );
     this.type = data.conversationType;
     this.lastUpdated = new Date(data.lastUpdated);
-    this.universe = data.conversationUniverse ?
-      new structures.PartialGameUniverse(
-        {
-          id: data.conversationUniverse
-        },
-        client
-      ) :
-      null;
+    this.universe = data.conversationUniverse
+      ? new structures.PartialGameUniverse(
+          {
+            id: data.conversationUniverse
+          },
+          client
+        )
+      : null;
     this.conversationTitle = {
       forViewer: data.conversationTitle.titleForViewer,
       isDefaultTitle: data.conversationTitle.isDefaultTitle
@@ -103,57 +103,57 @@ export class ChatConversation {
   }
 
   // eslint-disable-next-line @typescript-eslint/explicit-function-return-type
-  getMessages (amount = 100, startId?: string) {
+  getMessages(amount = 100, startId?: string) {
     return this.client.chat.getConversationMessages(this.id, amount, startId);
   }
 
   // eslint-disable-next-line @typescript-eslint/explicit-function-return-type
-  addUsers (users: number[]) {
+  addUsers(users: number[]) {
     return this.client.chat.addUsersToConversation(this.id, users);
   }
 
   // eslint-disable-next-line @typescript-eslint/explicit-function-return-type
-  removeUser (userId: number) {
+  removeUser(userId: number) {
     return this.client.chat.removeUserFromConversation(this.id, userId);
   }
 
   // eslint-disable-next-line @typescript-eslint/explicit-function-return-type
-  markMessageRead (id: string) {
+  markMessageRead(id: string) {
     return this.client.chat.markMessageRead(this.id, id);
   }
 
   // eslint-disable-next-line @typescript-eslint/explicit-function-return-type
-  markRead () {
+  markRead() {
     return this.client.chat.markConversationsRead([this.id]);
   }
 
   // eslint-disable-next-line @typescript-eslint/explicit-function-return-type
-  rename (name: string) {
+  rename(name: string) {
     return this.client.chat.renameGroupConversation(this.id, name);
   }
 
   // eslint-disable-next-line @typescript-eslint/explicit-function-return-type
-  getUnreadMessages (amount = 100) {
+  getUnreadMessages(amount = 100) {
     return this.client.chat.getUnreadMessagesInConversations([this.id], amount);
   }
 
   // eslint-disable-next-line @typescript-eslint/explicit-function-return-type
-  getLatestMessages (amount = 100) {
+  getLatestMessages(amount = 100) {
     return this.client.chat.getLatestMessagesInConversations([this.id], amount);
   }
 
   // eslint-disable-next-line @typescript-eslint/explicit-function-return-type
-  resetUniverse () {
+  resetUniverse() {
     return this.client.chat.resetConversationUniverse(this.id);
   }
 
   // eslint-disable-next-line @typescript-eslint/explicit-function-return-type
-  sendGameLinkMessage (options: SendGameLinkMessageOptions) {
+  sendGameLinkMessage(options: ChatSendGameLinkMessageOptions) {
     return this.client.chat.sendGameLinkMessage(options);
   }
 
   // eslint-disable-next-line @typescript-eslint/explicit-function-return-type
-  sendMessage (options: SendMessageOptions) {
+  sendMessage(options: ChatSendMessageOptions) {
     return this.client.chat.sendMessage(options);
   }
 }
@@ -168,7 +168,7 @@ export class PartialChatConversation {
   public id: number;
   public title: string | null;
 
-  constructor (data: PartialChatConversationOptions, client: Client) {
+  constructor(data: PartialChatConversationOptions, client: Client) {
     this.client = client;
     this.id = data.id;
     this.title = data.title || null;
@@ -208,7 +208,7 @@ export class ChatMessage {
   public decorators: string[];
   public content: string;
 
-  constructor (data: ChatMessageOptions, client: Client) {
+  constructor(data: ChatMessageOptions, client: Client) {
     const structures = retrieveStructures();
 
     this.client = client;
@@ -246,7 +246,7 @@ export class ChatMessageSent {
   public result: "Success" | string;
   public status: string;
 
-  constructor (data: ChatMessageSentOptions, client: Client) {
+  constructor(data: ChatMessageSentOptions, client: Client) {
     this.client = client;
     this.id = data.messageId;
     this.content = data.content;

@@ -1,24 +1,24 @@
 import BaseAPI from "./BaseAPI";
 import Client from "../Client";
 
-export type GetUniversePayoutHistoryOptions = {
+export type EngagementPayoutsGetUniversePayoutHistoryOptions = {
   universeId: number;
   startDate: string;
   endDate: string;
 };
-export type GetUniversePayoutHistory = unknown;
+export type EngagementPayoutsGetUniversePayoutHistory = unknown;
 
 export default class EngagementPayoutsAPI extends BaseAPI {
-  constructor (client: Client) {
+  constructor(client: Client) {
     super({
       client,
       baseUrl: "https://engagementpayouts.roblox.com/"
     });
   }
 
-  getUniversePayoutHistory (
-    options: GetUniversePayoutHistoryOptions
-  ): Promise<GetUniversePayoutHistory> {
+  getUniversePayoutHistory(
+    options: EngagementPayoutsGetUniversePayoutHistoryOptions
+  ): Promise<EngagementPayoutsGetUniversePayoutHistory> {
     return this.request({
       requiresAuth: true,
       request: {

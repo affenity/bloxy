@@ -2,104 +2,104 @@ import BaseAPI from "./BaseAPI";
 import Client from "../Client";
 import { AssetVersionOptions, ProductOptions } from "../../structures/Asset";
 
-export declare type GetAssetVersionOptions = number;
-export declare type AwardBadgeOptions = {
+export declare type GeneralGetAssetVersionOptions = number;
+export declare type GeneralAwardBadgeOptions = {
   userId: number;
   badgeId: number;
   placeId: number;
 };
-export declare type GetUserFriendsOptions = {
+export declare type GeneralGetUserFriendsOptions = {
   userId: number;
   page: number;
 };
-export declare type AcceptFriendRequestOptions = {
+export declare type GeneralAcceptFriendRequestOptions = {
   userId: number;
 };
-export declare type DeclineFriendRequestOptions = {
+export declare type GeneralDeclineFriendRequestOptions = {
   userId: number;
 };
-export declare type SendFriendRequestOptions = {
+export declare type GeneralSendFriendRequestOptions = {
   userId: number;
 };
-export declare type GetUserFriendsCountOptions = {
+export declare type GeneralGetUserFriendsCountOptions = {
   userId: number;
 };
-export declare type UnfriendUserOptions = {
+export declare type GeneralUnfriendUserOptions = {
   userId: number;
 };
-export declare type IsUserFollowingOptions = {
+export declare type GeneralIsUserFollowingOptions = {
   userId: number;
   followUserId: number;
 };
-export declare type FollowUserOptions = {
+export declare type GeneralFollowUserOptions = {
   userId: number;
 };
-export declare type UnfollowUserOptions = {
+export declare type GeneralUnfollowUserOptions = {
   userId: number;
 };
-export declare type GetUserGroupsOptions = {
+export declare type GeneralGetUserGroupsOptions = {
   userId: number;
 };
-export declare type GetGroupOptions = {
+export declare type GeneralGetGroupOptions = {
   groupId: number;
 };
-export declare type GetGroupAlliesOptions = {
-  groupId: number;
-  page: number;
-};
-export declare type GetGroupEnemiesOptions = {
+export declare type GeneralGetGroupAlliesOptions = {
   groupId: number;
   page: number;
 };
-export declare type GetProductInfoOptions = {
+export declare type GeneralGetGroupEnemiesOptions = {
+  groupId: number;
+  page: number;
+};
+export declare type GeneralGetProductInfoOptions = {
   assetId: number;
 };
-export declare type GetGamePassProductInfoOptions = {
+export declare type GeneralGetGamePassProductInfoOptions = {
   gamePassId: number;
 };
-export declare type UserOwnsAssetOptions = {
+export declare type GeneralUserOwnsAssetOptions = {
   userId: number;
   assetId: number;
 };
-export declare type BlockUserOptions = {
+export declare type GeneralBlockUserOptions = {
   userId: number;
 };
-export declare type UnblockUserOptions = {
+export declare type GeneralUnblockUserOptions = {
   userId: number;
 };
-export declare type GetUserByUsernameOptions = {
+export declare type GeneralGetUserByUsernameOptions = {
   username: string;
 };
-export declare type UserCanManageAssetOptions = {
+export declare type GeneralUserCanManageAssetOptions = {
   userId: number;
   assetId: number;
 };
-export declare type GetUserByIdOptions = {
+export declare type GeneralGetUserByIdOptions = {
   userId: number;
 };
-export declare type GetAssetVersions = AssetVersionOptions[];
-export declare type AwardBadge = boolean;
-export declare type GetBalance = {
+export declare type GeneralGetAssetVersions = AssetVersionOptions[];
+export declare type GeneralAwardBadge = boolean;
+export declare type GeneralGetBalance = {
   robux: number;
 };
-export declare type GetUserFriends = {
+export declare type GeneralGetUserFriends = {
   Id: number;
   Username: string;
   AvatarUri: string;
   AvatarFinal: boolean;
   IsOnline: boolean;
 }[];
-export declare type AcceptFriendRequest = boolean;
-export declare type DeclineFriendRequest = boolean;
-export declare type SendFriendRequest = boolean;
-export declare type GetUserFriendsCount = {
+export declare type GeneralAcceptFriendRequest = boolean;
+export declare type GeneralDeclineFriendRequest = boolean;
+export declare type GeneralSendFriendRequest = boolean;
+export declare type GeneralGetUserFriendsCount = {
   count: number;
 };
-export declare type UnfriendUser = boolean;
-export declare type IsUserFollowing = boolean;
-export declare type FollowUser = boolean;
-export declare type UnfollowUser = boolean;
-export declare type GetUserGroups = {
+export declare type GeneralUnfriendUser = boolean;
+export declare type GeneralIsUserFollowing = boolean;
+export declare type GeneralFollowUser = boolean;
+export declare type GeneralUnfollowUser = boolean;
+export declare type GeneralGetUserGroups = {
   id: number;
   name: string;
   emblemId: number | null;
@@ -111,7 +111,7 @@ export declare type GetUserGroups = {
   inClan: boolean;
   primary: boolean;
 }[];
-export declare type GetGroup = {
+export declare type GeneralGetGroup = {
   Name: string;
   Id: number;
   Owner: {
@@ -125,41 +125,43 @@ export declare type GetGroup = {
     Rank: number;
   }[];
 };
-export declare type GetGroupAllies = {
-  Groups: GetGroup[];
+export declare type GeneralGetGroupAllies = {
+  Groups: GeneralGetGroup[];
   FinalPage: boolean;
 };
-export declare type GetGroupEnemies = GetGroupAllies;
-export declare type GetIncomingItems = {
+export declare type GeneralGetGroupEnemies = GeneralGetGroupAllies;
+export declare type GeneralGetIncomingItems = {
   unreadMessageCount: number;
   friendRequestsCount: number;
 };
-export declare type GetProductInfo = ProductOptions;
-export declare type GetGamePassProductInfo = ProductOptions;
-export declare type UserOwnsAsset = boolean;
-export declare type GetDeviceInfo = {
+export declare type GeneralGetProductInfo = ProductOptions;
+export declare type GeneralGetGamePassProductInfo = ProductOptions;
+export declare type GeneralUserOwnsAsset = boolean;
+export declare type GeneralGetDeviceInfo = {
   platformType: string;
   deviceType: string;
   operatingSystemType: string;
 };
-export declare type BlockUser = boolean;
-export declare type UnblockUser = boolean;
-export declare type GetUserById = {
+export declare type GeneralBlockUser = boolean;
+export declare type GeneralUnblockUser = boolean;
+export declare type GeneralGetUserById = {
   id: number;
   name: string;
 };
-export declare type GetUserByUsername = GetUserById;
-export declare type UserCanManageAsset = boolean;
+export declare type GeneralGetUserByUsername = GeneralGetUserById;
+export declare type GeneralUserCanManageAsset = boolean;
 
 export default class GeneralAPI extends BaseAPI {
-  constructor (client: Client) {
+  constructor(client: Client) {
     super({
       baseUrl: "https://api.roblox.com/",
       client
     });
   }
 
-  getAssetVersions (options: GetAssetVersionOptions): Promise<GetAssetVersions> {
+  getAssetVersions(
+    options: GeneralGetAssetVersionOptions
+  ): Promise<GeneralGetAssetVersions> {
     return this.request({
       requiresAuth: true,
       request: {
@@ -169,7 +171,7 @@ export default class GeneralAPI extends BaseAPI {
     }).then((response) => response.body);
   }
 
-  awardBadge (options: AwardBadgeOptions): Promise<AwardBadge> {
+  awardBadge(options: GeneralAwardBadgeOptions): Promise<GeneralAwardBadge> {
     return this.request({
       requiresAuth: true,
       request: {
@@ -180,16 +182,18 @@ export default class GeneralAPI extends BaseAPI {
     }).then(() => true);
   }
 
-  getBalance (): Promise<GetBalance> {
+  getBalance(): Promise<GeneralGetBalance> {
     return this.request({
       requiresAuth: true,
       request: {
         path: "currency/balance"
       }
-    }).then((response) => response.body as GetBalance);
+    }).then((response) => response.body as GeneralGetBalance);
   }
 
-  getUserFriends (options: GetUserFriendsOptions): Promise<GetUserFriends> {
+  getUserFriends(
+    options: GeneralGetUserFriendsOptions
+  ): Promise<GeneralGetUserFriends> {
     return this.request({
       requiresAuth: false,
       request: {
@@ -202,9 +206,9 @@ export default class GeneralAPI extends BaseAPI {
     }).then((response) => response.body);
   }
 
-  acceptFriendRequest (
-    options: AcceptFriendRequestOptions
-  ): Promise<AcceptFriendRequest> {
+  acceptFriendRequest(
+    options: GeneralAcceptFriendRequestOptions
+  ): Promise<GeneralAcceptFriendRequest> {
     return this.request({
       requiresAuth: true,
       request: {
@@ -214,12 +218,12 @@ export default class GeneralAPI extends BaseAPI {
           requesterUserId: options.userId
         }
       }
-    }).then(() => true as AcceptFriendRequest);
+    }).then(() => true as GeneralAcceptFriendRequest);
   }
 
-  declineFriendRequest (
-    options: DeclineFriendRequestOptions
-  ): Promise<DeclineFriendRequest> {
+  declineFriendRequest(
+    options: GeneralDeclineFriendRequestOptions
+  ): Promise<GeneralDeclineFriendRequest> {
     return this.request({
       requiresAuth: true,
       request: {
@@ -229,12 +233,12 @@ export default class GeneralAPI extends BaseAPI {
           requesterUserId: options.userId
         }
       }
-    }).then(() => true as DeclineFriendRequest);
+    }).then(() => true as GeneralDeclineFriendRequest);
   }
 
-  sendFriendRequest (
-    options: SendFriendRequestOptions
-  ): Promise<SendFriendRequest> {
+  sendFriendRequest(
+    options: GeneralSendFriendRequestOptions
+  ): Promise<GeneralSendFriendRequest> {
     return this.request({
       requiresAuth: true,
       request: {
@@ -244,12 +248,12 @@ export default class GeneralAPI extends BaseAPI {
           recipientUserId: options.userId
         }
       }
-    }).then(() => true as SendFriendRequest);
+    }).then(() => true as GeneralSendFriendRequest);
   }
 
-  getUserFriendsCount (
-    options: GetUserFriendsCountOptions
-  ): Promise<GetUserFriendsCount> {
+  getUserFriendsCount(
+    options: GeneralGetUserFriendsCountOptions
+  ): Promise<GeneralGetUserFriendsCount> {
     return this.request({
       requiresAuth: false,
       request: {
@@ -260,7 +264,9 @@ export default class GeneralAPI extends BaseAPI {
     }).then((response) => response.body.count);
   }
 
-  unfriendUser (options: UnfriendUserOptions): Promise<UnfriendUser> {
+  unfriendUser(
+    options: GeneralUnfriendUserOptions
+  ): Promise<GeneralUnfriendUser> {
     return this.request({
       requiresAuth: true,
       request: {
@@ -270,10 +276,12 @@ export default class GeneralAPI extends BaseAPI {
           friendUserId: options.userId
         }
       }
-    }).then(() => true as UnfriendUser);
+    }).then(() => true as GeneralUnfriendUser);
   }
 
-  isUserFollowing (options: IsUserFollowingOptions): Promise<IsUserFollowing> {
+  isUserFollowing(
+    options: GeneralIsUserFollowingOptions
+  ): Promise<GeneralIsUserFollowing> {
     return this.request({
       requiresAuth: false,
       request: {
@@ -283,7 +291,7 @@ export default class GeneralAPI extends BaseAPI {
     }).then((response) => response.body.isFollowing);
   }
 
-  followUser (options: FollowUserOptions): Promise<FollowUser> {
+  followUser(options: GeneralFollowUserOptions): Promise<GeneralFollowUser> {
     return this.request({
       requiresAuth: true,
       request: {
@@ -293,10 +301,12 @@ export default class GeneralAPI extends BaseAPI {
           followedUserId: options.userId
         }
       }
-    }).then(() => true as FollowUser);
+    }).then(() => true as GeneralFollowUser);
   }
 
-  unfollowUser (options: UnfollowUserOptions): Promise<UnfollowUser> {
+  unfollowUser(
+    options: GeneralUnfollowUserOptions
+  ): Promise<GeneralUnfollowUser> {
     return this.request({
       requiresAuth: true,
       request: {
@@ -306,10 +316,12 @@ export default class GeneralAPI extends BaseAPI {
           followedUserId: options.userId
         }
       }
-    }).then(() => true as UnfollowUser);
+    }).then(() => true as GeneralUnfollowUser);
   }
 
-  getUserGroups (options: GetUserGroupsOptions): Promise<GetUserGroups> {
+  getUserGroups(
+    options: GeneralGetUserGroupsOptions
+  ): Promise<GeneralGetUserGroups> {
     return this.request({
       requiresAuth: false,
       request: {
@@ -318,7 +330,7 @@ export default class GeneralAPI extends BaseAPI {
     }).then((response) => response.body);
   }
 
-  getGroup (options: GetGroupOptions): Promise<GetGroup> {
+  getGroup(options: GeneralGetGroupOptions): Promise<GeneralGetGroup> {
     return this.request({
       requiresAuth: false,
       request: {
@@ -328,7 +340,9 @@ export default class GeneralAPI extends BaseAPI {
     }).then((response) => response.body);
   }
 
-  getGroupAllies (options: GetGroupAlliesOptions): Promise<GetGroupAllies> {
+  getGroupAllies(
+    options: GeneralGetGroupAlliesOptions
+  ): Promise<GeneralGetGroupAllies> {
     return this.request({
       requiresAuth: true,
       request: {
@@ -341,7 +355,9 @@ export default class GeneralAPI extends BaseAPI {
     }).then((response) => response.body);
   }
 
-  getGroupEnemies (options: GetGroupEnemiesOptions): Promise<GetGroupEnemies> {
+  getGroupEnemies(
+    options: GeneralGetGroupEnemiesOptions
+  ): Promise<GeneralGetGroupEnemies> {
     return this.request({
       requiresAuth: true,
       request: {
@@ -354,7 +370,7 @@ export default class GeneralAPI extends BaseAPI {
     }).then((response) => response.body);
   }
 
-  getIncomingItems (): Promise<GetIncomingItems> {
+  getIncomingItems(): Promise<GeneralGetIncomingItems> {
     return this.request({
       requiresAuth: true,
       request: {
@@ -367,7 +383,9 @@ export default class GeneralAPI extends BaseAPI {
     }));
   }
 
-  getProductInfo (options: GetProductInfoOptions): Promise<GetProductInfo> {
+  getProductInfo(
+    options: GeneralGetProductInfoOptions
+  ): Promise<GeneralGetProductInfo> {
     return this.request({
       requiresAuth: false,
       request: {
@@ -378,9 +396,9 @@ export default class GeneralAPI extends BaseAPI {
     }).then((response) => response.body);
   }
 
-  getGamePassProductInfo (
-    options: GetGamePassProductInfoOptions
-  ): Promise<GetGamePassProductInfo> {
+  getGamePassProductInfo(
+    options: GeneralGetGamePassProductInfoOptions
+  ): Promise<GeneralGetGamePassProductInfo> {
     return this.request({
       requiresAuth: false,
       request: {
@@ -391,7 +409,9 @@ export default class GeneralAPI extends BaseAPI {
     }).then((response) => response.body);
   }
 
-  userOwnsAsset (options: UserOwnsAssetOptions): Promise<UserOwnsAsset> {
+  userOwnsAsset(
+    options: GeneralUserOwnsAssetOptions
+  ): Promise<GeneralUserOwnsAsset> {
     return this.request({
       requiresAuth: false,
       request: {
@@ -399,11 +419,12 @@ export default class GeneralAPI extends BaseAPI {
         qs: options
       }
     }).then(
-      (response) => (response.body as string).includes("true") as UserOwnsAsset
+      (response) =>
+        (response.body as string).includes("true") as GeneralUserOwnsAsset
     );
   }
 
-  getDeviceInfo (): Promise<GetDeviceInfo> {
+  getDeviceInfo(): Promise<GeneralGetDeviceInfo> {
     return this.request({
       requiresAuth: false,
       request: {
@@ -416,7 +437,7 @@ export default class GeneralAPI extends BaseAPI {
     }));
   }
 
-  blockUser (options: BlockUserOptions): Promise<BlockUser> {
+  blockUser(options: GeneralBlockUserOptions): Promise<GeneralBlockUser> {
     return this.request({
       requiresAuth: true,
       request: {
@@ -425,10 +446,10 @@ export default class GeneralAPI extends BaseAPI {
         method: "POST"
       },
       json: true
-    }).then((response) => response.body.success === (true as BlockUser));
+    }).then((response) => response.body.success === (true as GeneralBlockUser));
   }
 
-  unblockUser (options: UnblockUserOptions): Promise<UnblockUser> {
+  unblockUser(options: GeneralUnblockUserOptions): Promise<GeneralUnblockUser> {
     return this.request({
       requiresAuth: true,
       request: {
@@ -437,10 +458,12 @@ export default class GeneralAPI extends BaseAPI {
         method: "POST"
       },
       json: true
-    }).then((response) => response.body.success === (true as UnblockUser));
+    }).then(
+      (response) => response.body.success === (true as GeneralUnblockUser)
+    );
   }
 
-  getUserById (options: GetUserByIdOptions): Promise<GetUserById> {
+  getUserById(options: GeneralGetUserByIdOptions): Promise<GeneralGetUserById> {
     return this.request({
       requiresAuth: false,
       request: {
@@ -453,9 +476,9 @@ export default class GeneralAPI extends BaseAPI {
     }));
   }
 
-  getUserByUsername (
-    options: GetUserByUsernameOptions
-  ): Promise<GetUserByUsername> {
+  getUserByUsername(
+    options: GeneralGetUserByUsernameOptions
+  ): Promise<GeneralGetUserByUsername> {
     return this.request({
       requiresAuth: false,
       request: {
@@ -469,9 +492,9 @@ export default class GeneralAPI extends BaseAPI {
     }));
   }
 
-  userCanManageAsset (
-    options: UserCanManageAssetOptions
-  ): Promise<UserCanManageAsset> {
+  userCanManageAsset(
+    options: GeneralUserCanManageAssetOptions
+  ): Promise<GeneralUserCanManageAsset> {
     return this.request({
       requiresAuth: false,
       request: {
@@ -479,7 +502,8 @@ export default class GeneralAPI extends BaseAPI {
       },
       json: true
     }).then(
-      (response) => response.body.CanManage === (true as UserCanManageAsset)
+      (response) =>
+        response.body.CanManage === (true as GeneralUserCanManageAsset)
     );
   }
 }

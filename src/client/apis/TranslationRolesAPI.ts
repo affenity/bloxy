@@ -1,29 +1,29 @@
 import BaseAPI from "./BaseAPI";
 import Client from "../Client";
 
-export type GetSelfGameRolesOptions = {
+export type TranslationRolesGetSelfGameRolesOptions = {
   gameId: number;
 };
-export type GetSelfGameRoles = {
+export type TranslationRolesGetSelfGameRoles = {
   data: string[];
 };
-export type GetGameRoleAssigneesOptions = {
+export type TranslationRolesGetGameRoleAssigneesOptions = {
   gameId: number;
   role: "translator";
 };
-export type GetGameRoleAssignees = {
+export type TranslationRolesGetGameRoleAssignees = {
   data: {
     id: null;
     name: string;
     type: "user";
   }[];
 };
-export type GetSelfGamesAccessByRoleOptions = {
+export type TranslationRolesGetSelfGamesAccessByRoleOptions = {
   role: "translator";
   exclusiveStartKey?: string;
   pageSize?: number;
 };
-export type GetSelfGamesAccessByRole = {
+export type TranslationRolesGetSelfGamesAccessByRole = {
   games: {
     gameId: number;
     assignee: {
@@ -32,25 +32,25 @@ export type GetSelfGamesAccessByRole = {
     };
   }[];
 };
-export type UpdateUserAccess = {
+export type TranslationRolesUpdateUserAccess = {
   gameId: number;
   userId: number;
   role: "translator";
   revoke?: boolean;
 };
-export type UpdateUser = unknown;
+export type TranslationRolesUpdateUser = unknown;
 
 export default class TradesAPI extends BaseAPI {
-  constructor (client: Client) {
+  constructor(client: Client) {
     super({
       client,
       baseUrl: "https://translationroles.roblox.com/"
     });
   }
 
-  getSelfGameRoles (
-    options: GetSelfGameRolesOptions
-  ): Promise<GetSelfGameRoles> {
+  getSelfGameRoles(
+    options: TranslationRolesGetSelfGameRolesOptions
+  ): Promise<TranslationRolesGetSelfGameRoles> {
     return this.request({
       requiresAuth: true,
       request: {
@@ -60,9 +60,9 @@ export default class TradesAPI extends BaseAPI {
     }).then((response) => response.body);
   }
 
-  getGameRoleAssignees (
-    options: GetGameRoleAssigneesOptions
-  ): Promise<GetGameRoleAssignees> {
+  getGameRoleAssignees(
+    options: TranslationRolesGetGameRoleAssigneesOptions
+  ): Promise<TranslationRolesGetGameRoleAssignees> {
     return this.request({
       requiresAuth: true,
       request: {
@@ -72,9 +72,9 @@ export default class TradesAPI extends BaseAPI {
     }).then((response) => response.body);
   }
 
-  getSelfGamesAccessByRole (
-    options: GetSelfGamesAccessByRoleOptions
-  ): Promise<GetSelfGamesAccessByRole> {
+  getSelfGamesAccessByRole(
+    options: TranslationRolesGetSelfGamesAccessByRoleOptions
+  ): Promise<TranslationRolesGetSelfGamesAccessByRole> {
     return this.request({
       requiresAuth: true,
       request: {
@@ -84,7 +84,9 @@ export default class TradesAPI extends BaseAPI {
     }).then((response) => response.body);
   }
 
-  updateUserAccess (options: UpdateUserAccess): Promise<UpdateUser> {
+  updateUserAccess(
+    options: TranslationRolesUpdateUserAccess
+  ): Promise<TranslationRolesUpdateUser> {
     return this.request({
       requiresAuth: true,
       request: {

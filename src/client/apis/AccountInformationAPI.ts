@@ -1,25 +1,25 @@
 import BaseAPI from "./BaseAPI";
 import Client from "../Client";
-import { Privacy } from "../../types/GeneralTypes";
+import { UserIdOption, Privacy } from "../..";
 
 // AccountInformation
-export type UserAccountBirthdate = {
+export type AccountInformationBirthdate = {
   birthDay: number;
   birthMonth: number;
   birthYear: number;
 };
-export type UserAccountDescription = {
+export type AccountInformationDescription = {
   description: string;
 };
-export type UserAccountGender = {
+export type AccountInformationGender = {
   gender: number;
 };
-export type UserAccountXboxConsecutiveLoginDays = {
+export type AccountInformationXboxConsecutiveLoginDays = {
   count: number;
 };
 
 // Metadata
-export type UserAccountMetaData = {
+export type AccountInformationMetaData = {
   isAllowedNotificationsEndpointDisabled: boolean;
   isAccountSettingsPolicyEnabled: boolean;
   isPhoneNumberEnabled: boolean;
@@ -32,7 +32,7 @@ export type UserAccountMetaData = {
 };
 
 // PromotionChannel
-export type UserAccountOwnPromotionChannels = {
+export type AccountInformationOwnPromotionChannels = {
   promotionChannelsVisibilityPrivacy: Privacy;
   facebook: string;
   twitter: string;
@@ -40,29 +40,33 @@ export type UserAccountOwnPromotionChannels = {
   twitch: string;
   guilded: string;
 };
-export declare type UserAccountPromotionChannels = Omit<
-  UserAccountOwnPromotionChannels,
+export declare type AccountInformationPromotionChannels = Omit<
+  AccountInformationOwnPromotionChannels,
   "promotionChannelsVisibilityPrivacy"
 >;
 
 // StarCodeAffiliate
-export type UserAccountStarCodeAffiliate = {
+export type AccountInformationStarCodeAffiliate = {
   userId: number;
   name: string;
   code: string;
 };
-export type UserAccountSetStarCodeAffiliate = {
+export type AccountInformationSetStarCodeAffiliate = {
+  code: string;
+};
+export type AccountInformationAddStarCodeAffiliateOption = {
   code: string;
 };
 
 // RobloxBadges
-export type UserAccountRobloxBadge = {
+export type AccountInformationRobloxBadge = {
   id: number;
   name: string;
   description: string;
   imageUrl: string;
 };
-export declare type UserAccountRobloxBadges = UserAccountRobloxBadge[];
+export declare type AccountInformationRobloxBadges =
+  AccountInformationRobloxBadge[];
 
 export default class AccountInformationAPI extends BaseAPI {
   constructor(client: Client) {
@@ -72,7 +76,7 @@ export default class AccountInformationAPI extends BaseAPI {
     });
   }
 
-  getUserBirthdate(): Promise<UserAccountBirthdate> {
+  getUserBirthdate(): Promise<AccountInformationBirthdate> {
     return this.request({
       requiresAuth: true,
       request: {
@@ -82,7 +86,7 @@ export default class AccountInformationAPI extends BaseAPI {
     }).then((response) => response.body);
   }
 
-  updateUserBirthdate(options: UserAccountBirthdate): Promise<boolean> {
+  updateUserBirthdate(options: AccountInformationBirthdate): Promise<boolean> {
     return this.request({
       requiresAuth: true,
       request: {
@@ -94,7 +98,7 @@ export default class AccountInformationAPI extends BaseAPI {
     }).then(() => true);
   }
 
-  getUserDescription(): Promise<UserAccountDescription> {
+  getUserDescription(): Promise<AccountInformationDescription> {
     return this.request({
       requiresAuth: true,
       request: {
@@ -104,7 +108,9 @@ export default class AccountInformationAPI extends BaseAPI {
     }).then((response) => response.body);
   }
 
-  updateUserDescription(options: UserAccountDescription): Promise<boolean> {
+  updateUserDescription(
+    options: AccountInformationDescription
+  ): Promise<boolean> {
     return this.request({
       requiresAuth: true,
       request: {
@@ -116,7 +122,7 @@ export default class AccountInformationAPI extends BaseAPI {
     }).then(() => true);
   }
 
-  getUserGender(): Promise<UserAccountGender> {
+  getUserGender(): Promise<AccountInformationGender> {
     return this.request({
       requiresAuth: true,
       request: {
@@ -126,7 +132,7 @@ export default class AccountInformationAPI extends BaseAPI {
     }).then((response) => response.body);
   }
 
-  updateUserGender(options: UserAccountGender): Promise<boolean> {
+  updateUserGender(options: AccountInformationGender): Promise<boolean> {
     return this.request({
       requiresAuth: true,
       request: {
@@ -138,7 +144,7 @@ export default class AccountInformationAPI extends BaseAPI {
     }).then(() => true);
   }
 
-  getConsecutiveXboxLoginDays(): Promise<UserAccountXboxConsecutiveLoginDays> {
+  getConsecutiveXboxLoginDays(): Promise<AccountInformationXboxConsecutiveLoginDays> {
     return this.request({
       requiresAuth: true,
       request: {
@@ -148,7 +154,7 @@ export default class AccountInformationAPI extends BaseAPI {
     }).then((response) => response.body);
   }
 
-  getMetaData(): Promise<UserAccountMetaData> {
+  getMetaData(): Promise<AccountInformationMetaData> {
     return this.request({
       requiresAuth: false,
       request: {
@@ -158,7 +164,7 @@ export default class AccountInformationAPI extends BaseAPI {
     }).then((response) => response.body);
   }
 
-  getSelfPromotionChannels(): Promise<UserAccountOwnPromotionChannels> {
+  getSelfPromotionChannels(): Promise<AccountInformationOwnPromotionChannels> {
     return this.request({
       requiresAuth: true,
       request: {
@@ -168,9 +174,9 @@ export default class AccountInformationAPI extends BaseAPI {
     }).then((response) => response.body);
   }
 
-  getUserPromotionChannels(options: {
-    userId: number;
-  }): Promise<UserAccountPromotionChannels> {
+  getUserPromotionChannels(
+    options: UserIdOption
+  ): Promise<AccountInformationPromotionChannels> {
     return this.request({
       requiresAuth: false,
       request: {
@@ -181,7 +187,7 @@ export default class AccountInformationAPI extends BaseAPI {
   }
 
   updateUserPromotionChannels(
-    options: UserAccountOwnPromotionChannels
+    options: AccountInformationOwnPromotionChannels
   ): Promise<boolean> {
     return this.request({
       requiresAuth: true,
@@ -205,7 +211,7 @@ export default class AccountInformationAPI extends BaseAPI {
     }).then(() => true);
   }
 
-  getStarCodeAffiliate(): Promise<UserAccountStarCodeAffiliate> {
+  getStarCodeAffiliate(): Promise<AccountInformationStarCodeAffiliate> {
     return this.request({
       requiresAuth: true,
       request: {
@@ -216,8 +222,8 @@ export default class AccountInformationAPI extends BaseAPI {
   }
 
   addStarCodeAffiliate(
-    options: UserAccountSetStarCodeAffiliate
-  ): Promise<UserAccountStarCodeAffiliate> {
+    options: AccountInformationAddStarCodeAffiliateOption
+  ): Promise<AccountInformationStarCodeAffiliate> {
     return this.request({
       requiresAuth: true,
       request: {
@@ -229,9 +235,9 @@ export default class AccountInformationAPI extends BaseAPI {
     }).then((response) => response.body);
   }
 
-  getRobloxBadges(options: {
-    userId: number;
-  }): Promise<UserAccountRobloxBadges> {
+  getRobloxBadges(
+    options: UserIdOption
+  ): Promise<AccountInformationRobloxBadges> {
     return this.request({
       requiresAuth: false,
       request: {

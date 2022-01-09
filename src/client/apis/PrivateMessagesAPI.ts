@@ -1,7 +1,7 @@
 import BaseAPI from "./BaseAPI";
 import Client from "../Client";
 
-export type GetAnnouncements = {
+export type PrivateMessagesGetAnnouncements = {
   collection: {
     id: number;
     sender: {
@@ -16,15 +16,15 @@ export type GetAnnouncements = {
   };
   totalCollectionSize: number;
 };
-export type GetAnnouncementsMetaData = {
+export type PrivateMessagesGetAnnouncementsMetaData = {
   numOfAnnouncements: number;
 };
-export type GetMessagesOptions = {
+export type PrivateMessagesGetMessagesOptions = {
   pageNumber?: number;
   pageSize?: number;
   messageTab?: "Inbox" | "Sent" | "Archive";
 };
-export type GetMessages = {
+export type PrivateMessagesGetMessages = {
   collection: {
     id: number;
     sender: {
@@ -49,27 +49,30 @@ export type GetMessages = {
   totalPages: number;
   pageNumber: number;
 };
-export type GetMessageOptions = {
+export type PrivateMessagesGetMessageOptions = {
   messageId: number;
 };
-export type GetMessage = GetMessages["collection"][0];
-export type GetUnreadMessagesCount = {
+export type PrivateMessagesGetMessage =
+  PrivateMessagesGetMessages["collection"][0];
+export type PrivateMessagesGetUnreadMessagesCount = {
   count: number;
 };
-export type ArchiveMessagesOptions = {
+export type PrivateMessagesArchiveMessagesOptions = {
   messageIds: number[];
 };
-export type ArchiveMessages = {
+export type PrivateMessagesArchiveMessages = {
   failedMessages?: {
     messageId: number;
     errorMessage: string;
   }[];
 };
-export type MarkMessagesReadOptions = ArchiveMessagesOptions;
-export type MarkMessagesRead = ArchiveMessages;
-export type MarkMessagesUnreadOptions = ArchiveMessagesOptions;
-export type MarkMessagesUnread = ArchiveMessages;
-export type SendMessageOptions = {
+export type PrivateMessagesMarkMessagesReadOptions =
+  PrivateMessagesArchiveMessagesOptions;
+export type PrivateMessagesMarkMessagesRead = PrivateMessagesArchiveMessages;
+export type PrivateMessagesMarkMessagesUnreadOptions =
+  PrivateMessagesArchiveMessagesOptions;
+export type PrivateMessagesMarkMessagesUnread = PrivateMessagesArchiveMessages;
+export type PrivateMessagesSendMessageOptions = {
   userId: number;
   subject: string;
   body: string;
@@ -77,13 +80,14 @@ export type SendMessageOptions = {
   replyMessageId?: number;
   includePreviousMessage?: boolean;
 };
-export type SendMessage = {
+export type PrivateMessagesSendMessage = {
   success: boolean;
   shortMessage: string;
   message: string;
 };
-export type UnArchiveMessagesOptions = ArchiveMessagesOptions;
-export type UnArchiveMessages = ArchiveMessages;
+export type PrivateMessagesUnArchiveMessagesOptions =
+  PrivateMessagesArchiveMessagesOptions;
+export type PrivateMessagesUnArchiveMessages = PrivateMessagesArchiveMessages;
 
 export default class PrivateMessagesAPI extends BaseAPI {
   constructor(client: Client) {
@@ -93,7 +97,7 @@ export default class PrivateMessagesAPI extends BaseAPI {
     });
   }
 
-  getAnnouncements(): Promise<GetAnnouncements> {
+  getAnnouncements(): Promise<PrivateMessagesGetAnnouncements> {
     return this.request({
       requiresAuth: false,
       request: {
@@ -103,7 +107,7 @@ export default class PrivateMessagesAPI extends BaseAPI {
     }).then((response) => response.body);
   }
 
-  getAnnouncementsMetaData(): Promise<GetAnnouncementsMetaData> {
+  getAnnouncementsMetaData(): Promise<PrivateMessagesGetAnnouncementsMetaData> {
     return this.request({
       requiresAuth: true,
       request: {
@@ -113,7 +117,9 @@ export default class PrivateMessagesAPI extends BaseAPI {
     }).then((response) => response.body);
   }
 
-  getMessages(options: GetMessagesOptions): Promise<GetMessages> {
+  getMessages(
+    options: PrivateMessagesGetMessagesOptions
+  ): Promise<PrivateMessagesGetMessages> {
     return this.request({
       requiresAuth: true,
       request: {
@@ -124,7 +130,9 @@ export default class PrivateMessagesAPI extends BaseAPI {
     }).then((response) => response.body);
   }
 
-  getMessage(options: GetMessageOptions): Promise<GetMessage> {
+  getMessage(
+    options: PrivateMessagesGetMessageOptions
+  ): Promise<PrivateMessagesGetMessage> {
     return this.request({
       requiresAuth: true,
       request: {
@@ -144,7 +152,7 @@ export default class PrivateMessagesAPI extends BaseAPI {
     }).then((response) => response.body.canMessage);
   }
 
-  getUnreadMessagesCount(): Promise<GetUnreadMessagesCount> {
+  getUnreadMessagesCount(): Promise<PrivateMessagesGetUnreadMessagesCount> {
     return this.request({
       requiresAuth: true,
       request: {
@@ -154,7 +162,9 @@ export default class PrivateMessagesAPI extends BaseAPI {
     }).then((response) => response.body);
   }
 
-  archiveMessages(options: ArchiveMessagesOptions): Promise<ArchiveMessages> {
+  archiveMessages(
+    options: PrivateMessagesArchiveMessagesOptions
+  ): Promise<PrivateMessagesArchiveMessages> {
     return this.request({
       requiresAuth: true,
       request: {
@@ -167,8 +177,8 @@ export default class PrivateMessagesAPI extends BaseAPI {
   }
 
   markMessagesRead(
-    options: MarkMessagesReadOptions
-  ): Promise<MarkMessagesRead> {
+    options: PrivateMessagesMarkMessagesReadOptions
+  ): Promise<PrivateMessagesMarkMessagesRead> {
     return this.request({
       requiresAuth: true,
       request: {
@@ -181,8 +191,8 @@ export default class PrivateMessagesAPI extends BaseAPI {
   }
 
   markMessagesUnread(
-    options: MarkMessagesUnreadOptions
-  ): Promise<MarkMessagesUnread> {
+    options: PrivateMessagesMarkMessagesUnreadOptions
+  ): Promise<PrivateMessagesMarkMessagesUnread> {
     return this.request({
       requiresAuth: true,
       request: {
@@ -194,7 +204,9 @@ export default class PrivateMessagesAPI extends BaseAPI {
     }).then((response) => response.body);
   }
 
-  sendMessage(options: SendMessageOptions): Promise<SendMessage> {
+  sendMessage(
+    options: PrivateMessagesSendMessageOptions
+  ): Promise<PrivateMessagesSendMessage> {
     return this.request({
       requiresAuth: true,
       request: {
@@ -207,8 +219,8 @@ export default class PrivateMessagesAPI extends BaseAPI {
   }
 
   unArchiveMessages(
-    options: UnArchiveMessagesOptions
-  ): Promise<UnArchiveMessages> {
+    options: PrivateMessagesUnArchiveMessagesOptions
+  ): Promise<PrivateMessagesUnArchiveMessages> {
     return this.request({
       requiresAuth: true,
       request: {

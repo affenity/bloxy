@@ -1,28 +1,28 @@
 import BaseAPI from "./BaseAPI";
 import Client from "../Client";
 
-export type GetUniverseStatsOptions = {
+export type EconomyCreatorStatsGetUniverseStatsOptions = {
   universeId: number;
   type: "PremiumUpsells" | "PremiumVisits";
   startTime: string;
   endTime: string;
 };
-export type GetUniverseStats = {
+export type EconomyCreatorStatsGetUniverseStats = {
   dataGranularity: "Hourly" | string;
   data: unknown;
 };
 
 export default class EconomyCreatorStatsAPI extends BaseAPI {
-  constructor (client: Client) {
+  constructor(client: Client) {
     super({
       client,
       baseUrl: "https://economycreatorstats.roblox.com/"
     });
   }
 
-  getUniverseStats (
-    options: GetUniverseStatsOptions
-  ): Promise<GetUniverseStats> {
+  getUniverseStats(
+    options: EconomyCreatorStatsGetUniverseStatsOptions
+  ): Promise<EconomyCreatorStatsGetUniverseStats> {
     return this.request({
       requiresAuth: true,
       request: {

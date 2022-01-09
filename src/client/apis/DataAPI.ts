@@ -1,21 +1,21 @@
 import BaseAPI from "./BaseAPI";
 import Client from "../Client";
 
-export type UploadDataOptions = {
+export type DataUploadDataOptions = {
   assetId: number;
   data: unknown;
 };
-export type UploadDataResult = unknown;
+export type DataUploadDataResult = unknown;
 
 export default class DataAPI extends BaseAPI {
-  constructor (client: Client) {
+  constructor(client: Client) {
     super({
       client,
       baseUrl: "https://data.roblox.com/"
     });
   }
 
-  uploadData (options: UploadDataOptions): Promise<UploadDataResult> {
+  uploadData(options: DataUploadDataOptions): Promise<DataUploadDataResult> {
     return this.request({
       requiresAuth: true,
       json: true,

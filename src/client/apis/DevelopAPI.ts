@@ -1,23 +1,45 @@
 import BaseAPI from "./BaseAPI";
 import Client from "../Client";
-import { GameUniverseOptions } from "../../structures/Game";
 import { PartialGroupOptions } from "../../structures/Group";
-import { ISOString } from "../../types/GeneralTypes";
+import { ISOString } from "../../types/GenericTypes";
 
+export type DevelopGameUniverseOptions = {
+  id: number;
+  rootPlaceId: number;
+  name: string;
+  description: string;
+  creatorType: string;
+  creator: {
+    id: number;
+    name: string;
+  };
+  price: number;
+  allowedGearGenres: string[];
+  allowedGearCategories: string[];
+  playing: number;
+  visits: number;
+  maxPlayers: number;
+  created: string;
+  updated: string;
+  studioAccessToApisAllowed: boolean;
+  createVipServersAllowed: boolean;
+  universeAvatarType: string;
+  genre: string;
+};
 export type DevelopAgeDataAvailable = {
   isAgeDataAvailable: boolean;
 };
-export type ProductAggregation = {
+export type DevelopProductAggregation = {
   developerProductName: string;
   revenueAmount: number;
 };
-export type DevelopProductAggregation = {
-  allDevicesDeveloperProductRevenue: ProductAggregation[];
+export type DevelopProductAggregations = {
+  allDevicesDeveloperProductRevenue: DevelopProductAggregation[];
   developerProductRevenueByDevice: {
-    Computer: ProductAggregation[];
-    Phone: ProductAggregation[];
-    Tablet: ProductAggregation[];
-    Console: ProductAggregation[];
+    Computer: DevelopProductAggregation[];
+    Phone: DevelopProductAggregation[];
+    Tablet: DevelopProductAggregation[];
+    Console: DevelopProductAggregation[];
   };
 };
 
@@ -62,26 +84,26 @@ export type DevelopInvitedTeamCreatePlaces = {
   nextPageCursor: string;
   data: DevelopInvitedTeamCreatePlace[];
 };
-export type GetUniverseLiveStatsOptions = {
+export type DevelopGetUniverseLiveStatsOptions = {
   universeId: number;
 };
-export type GetUniverseLiveStats = {
+export type DevelopGetUniverseLiveStats = {
   totalPlayerCount: number;
   playerCountsByDeviceType: Record<string, number>;
   gameCount: number;
 };
-export type GetUniverseRevenueReportsOptions = {
+export type DevelopGetUniverseRevenueReportsOptions = {
   universeId: number;
 };
-export type GetUniverseRevenueReport = {
+export type DevelopGetUniverseRevenueReport = {
   month: number;
   year: number;
   RevenueReportStatus: "NotGenerated" | "ReadyForDownload";
 };
-export type GetUniverseRevenueReports = {
-  monthlyRevenueReportStatusList: GetUniverseRevenueReport[];
+export type DevelopGetUniverseRevenueReports = {
+  monthlyRevenueReportStatusList: DevelopGetUniverseRevenueReport[];
 };
-export type GetUniverseRevenueReportOptions = {
+export type DevelopGetUniverseRevenueReportOptions = {
   universeId: number;
   yearDashMonth: `${number}-${number}`;
 };
@@ -91,10 +113,10 @@ export type DevelopCreatorDashboardMetadata = {
   playFabDataSourceChartsAvailableByKPITypes: string[];
 };
 
-export type GetAssetsVoteInformationOptions = {
+export type DevelopGetAssetsVoteInformationOptions = {
   assetIds: number[];
 };
-export type GetAssetsVoteInformation = {
+export type DevelopGetAssetsVoteInformation = {
   data: {
     assetId: number;
     hasUserVoted: number;
@@ -105,15 +127,15 @@ export type GetAssetsVoteInformation = {
     reasonForNotAbleToVote: string;
   }[];
 };
-export type GetGameTemplates = {
+export type DevelopGetGameTemplates = {
   gameTemplateType: string;
   hasTutorials: boolean;
-  universe: GameUniverseOptions;
+  universe: DevelopGameUniverseOptions;
 }[];
-export type GetGameUpdatesHistoryOptions = {
+export type DevelopGetGameUpdatesHistoryOptions = {
   universeId: number;
 };
-export type GetGameUpdatesHistory = {
+export type DevelopGetGameUpdatesHistory = {
   universeId: number;
   createdOn: string;
   createdOnKey: string;
@@ -126,26 +148,26 @@ export type GetGameUpdatesHistory = {
   plays: number;
   unfollows: number;
 }[];
-export type PublishGameNotificationOptions = {
+export type DevelopPublishGameNotificationOptions = {
   universeId: number;
   gameUpdateText: unknown;
 };
-export type PublishGameNotification = GetGameUpdatesHistory;
-export type FilterPublishGameNotificationOptions = {
+export type DevelopPublishGameNotification = DevelopGetGameUpdatesHistory;
+export type DevelopFilterPublishGameNotificationOptions = {
   text: string;
 };
-export type FilterPublishGameNotification = {
+export type DevelopFilterPublishGameNotification = {
   filteredGameUpdateText: string;
   isFiltered: boolean;
   moderationLevel: number;
 };
-export type GetGroupUniversesOptions = {
+export type DevelopGetGroupUniversesOptions = {
   groupId: number;
   sortOrder?: "Asc" | "Desc";
   limit?: 10 | 25 | 50 | 100;
   cursor?: string;
 };
-export type GetGroupUniverses = {
+export type DevelopGetGroupUniverses = {
   previousPageCursor: string;
   nextPageCursor: string;
   data: {
@@ -163,28 +185,28 @@ export type GetGroupUniverses = {
     updated: string;
   }[];
 };
-export type GetPlaceCompatibilitiesOptions = {
+export type DevelopGetPlaceCompatibilitiesOptions = {
   placeId: number;
 };
-export type GetPlaceCompatibilities = {
+export type DevelopGetPlaceCompatibilities = {
   Compatibilities: {
     status: "Good" | string;
     platformName: string;
     crashRatePercentage: number;
   }[];
 };
-export type UpdatePlaceConfigurationOptions = {
+export type DevelopUpdatePlaceConfigurationOptions = {
   placeId: number;
   name: string;
   description: string;
 };
-export type UpdatePlaceConfiguration = {
+export type DevelopUpdatePlaceConfiguration = {
   id: number;
   universeId: number;
   name: string;
   description: string;
 };
-export type GetPlaceStatisticsByTypeOptions = {
+export type DevelopGetPlaceStatisticsByTypeOptions = {
   placeId: number;
   type: "Revenue" | "RevenuePerVisit" | "AverageVisitLength" | "Visits";
   granularity?: "Hourly" | "Daily" | "Monthly";
@@ -192,18 +214,18 @@ export type GetPlaceStatisticsByTypeOptions = {
   startTime?: string;
   endTime?: string;
 };
-export type GetPlaceStatisticsByType = {
+export type DevelopGetPlaceStatisticsByType = {
   placeId: number;
-  dataType: GetPlaceStatisticsByTypeOptions["type"];
-  dataGranularity: GetPlaceStatisticsByTypeOptions["granularity"];
+  dataType: DevelopGetPlaceStatisticsByTypeOptions["type"];
+  dataGranularity: DevelopGetPlaceStatisticsByTypeOptions["granularity"];
   startTime: string;
   endTime: string;
   data: unknown;
 };
-export type GetPluginsByIdOptions = {
+export type DevelopGetPluginsByIdOptions = {
   pluginIds: number[];
 };
-export type GetPluginsById = {
+export type DevelopGetPluginsById = {
   data: {
     id: number;
     name: string;
@@ -214,14 +236,14 @@ export type GetPluginsById = {
     updated: string;
   }[];
 };
-export type UpdatePluginOptions = {
+export type DevelopUpdatePluginOptions = {
   pluginId: number;
   name: string;
   description: string;
   commentsEnabled: boolean;
 };
-export type UpdatePlugin = unknown;
-export type SearchUniversesOptions = {
+export type DevelopUpdatePlugin = unknown;
+export type DevelopSearchUniversesOptions = {
   q: {
     creator: "user" | "group" | "team";
     archived?: boolean;
@@ -245,7 +267,7 @@ export type SearchUniversesOptions = {
   limit?: 10 | 25 | 50 | 100;
   cursor?: string;
 };
-export type SearchUniverseData = {
+export type DevelopSearchUniverseData = {
   id: number;
   name: string;
   description: string;
@@ -259,12 +281,12 @@ export type SearchUniverseData = {
   created: string;
   updated: string;
 };
-export type SearchUniverses = {
+export type DevelopSearchUniverses = {
   previousPageCursor: string | null;
   nextPageCursor: string | null;
-  data: SearchUniverseData[];
+  data: DevelopSearchUniverseData[];
 };
-export type SearchToolboxOptions = {
+export type DevelopSearchToolboxOptions = {
   category: string;
   keyword?: string;
   sort?: string;
@@ -274,7 +296,7 @@ export type SearchToolboxOptions = {
   groupId?: number;
   cacheMode?: "Normal" | "Bypass" | "ForceUpdate";
 };
-export type SearchToolbox = {
+export type DevelopSearchToolbox = {
   TotalResults: number;
   Results: {
     Asset: {
@@ -317,32 +339,32 @@ export type SearchToolbox = {
     };
   }[];
 };
-export type GetUniverseOptions = {
+export type DevelopGetUniverseOptions = {
   universeId: number;
 };
-export type GetUniverse = GameUniverseOptions;
-export type GetUniversePermissionsOptions = {
+export type DevelopGetUniverse = DevelopGameUniverseOptions;
+export type DevelopGetUniversePermissionsOptions = {
   universeId: number;
 };
-export type GetUniversePermissions = {
+export type DevelopGetUniversePermissions = {
   canManage: boolean;
   canCloudEdit: boolean;
 };
-export type GetUniversePlacesOptions = {
+export type DevelopGetUniversePlacesOptions = {
   universeId: number;
   sortOrder?: "Asc" | "Desc";
   limit?: 10 | 25 | 50 | 100;
   cursor?: string;
 };
-export type GetUniversePlaces = {
+export type DevelopGetUniversePlaces = {
   previousPageCursor: string;
   nextPageCursor: string;
   data: unknown[];
 };
-export type GetUniverseStatisticsReportsOptions = {
+export type DevelopGetUniverseStatisticsReportsOptions = {
   universeId: number;
 };
-export type GetUniverseStatisticsReports = {
+export type DevelopGetUniverseStatisticsReports = {
   reports: {
     universeId: number;
     yearDashMonth: string;
@@ -350,52 +372,52 @@ export type GetUniverseStatisticsReports = {
     spreadsheetId: string;
   }[];
 };
-export type GetUniverseStatisticsReportsByTimeOptions = {
+export type DevelopGetUniverseStatisticsReportsByTimeOptions = {
   universeId: number;
   yearDashMonth: string;
 };
-export type GetUniverseStatisticsReportByTime = {
+export type DevelopGetUniverseStatisticsReportByTime = {
   universeId: number;
   yearDashMonth: string;
   status: "NotGenerated" | string;
   spreadsheetId: string;
 };
-export type DownloadUniverseStatisticsReportByTimeOptions = {
+export type DevelopDownloadUniverseStatisticsReportByTimeOptions = {
   universeId: number;
   yearDashMonth: string;
 };
-export type DownloadUniverseStatisticsReportByTime = unknown;
-export type MultiGetUniversesOptions = {
+export type DevelopDownloadUniverseStatisticsReportByTime = unknown;
+export type DevelopMultiGetUniversesOptions = {
   ids: number[];
 };
-export type MultiGetUniverses = GameUniverseOptions[];
-export type MultiGetUniversesPermissionsOptions = {
+export type DevelopMultiGetUniverses = DevelopGameUniverseOptions[];
+export type DevelopMultiGetUniversesPermissionsOptions = {
   ids: number[];
 };
-export type MultiGetUniversesPermissions = {
+export type DevelopMultiGetUniversesPermissions = {
   data: {
     universeId: number;
     canManage: boolean;
     canCloudEdit: boolean;
   }[];
 };
-export type ActivateUniverseOptions = {
+export type DevelopActivateUniverseOptions = {
   universeId: number;
 };
-export type ActivateUniverse = unknown;
-export type DeactivateUniverseOptions = {
+export type DevelopActivateUniverse = unknown;
+export type DevelopDeactivateUniverseOptions = {
   universeId: number;
 };
-export type DeactivateUniverse = unknown;
-export type GenerateUniverseStatisticReportsByTimeOptions = {
+export type DevelopDeactivateUniverse = unknown;
+export type DevelopGenerateUniverseStatisticReportsByTimeOptions = {
   universeId: number;
   yearDashMonth: string;
 };
-export type GenerateUniverseStatisticReportsByTime = unknown;
-export type GetUniverseConfigurationOptions = {
+export type DevelopGenerateUniverseStatisticReportsByTime = unknown;
+export type DevelopGetUniverseConfigurationOptions = {
   universeId: number;
 };
-export type GetUniverseConfiguration = {
+export type DevelopGetUniverseConfiguration = {
   id: number;
   name: string;
   universeAvatarType: "MorphToR6" | "MorphToR15";
@@ -411,41 +433,42 @@ export type GetUniverseConfiguration = {
   isForSale: boolean;
   price: number;
 };
-export type UpdateUniverseConfigurationOptions = Omit<
-  GetUniverseConfiguration,
+export type DevelopUpdateUniverseConfigurationOptions = Omit<
+  DevelopGetUniverseConfiguration,
   "id"
 > & { universeId: number };
-export type UpdateUniverseConfiguration = GetUniverseConfiguration;
-export type GetUniverseVIPServersConfigurationOptions = {
+export type DevelopUpdateUniverseConfiguration =
+  DevelopGetUniverseConfiguration;
+export type DevelopGetUniverseVIPServersConfigurationOptions = {
   universeId: number;
 };
-export type GetUniverseVIPServersConfiguration = {
+export type DevelopGetUniverseVIPServersConfiguration = {
   isEnabled: boolean;
   price: number;
   activeServersCount: number;
   activeSubscriptionsCount: number;
 };
-export type GetUniverseTeamCreateSettingsOptions = {
+export type DevelopGetUniverseTeamCreateSettingsOptions = {
   universeId: number;
 };
-export type GetUniverseTeamCreateSettings = {
+export type DevelopGetUniverseTeamCreateSettings = {
   isEnabled: boolean;
 };
-export type UpdateUniverseTeamCreateSettingsOptions =
-  GetUniverseTeamCreateSettingsOptions;
-export type UpdateUniverseTeamCreateSettings = unknown;
-export type RemoveUserFromUniverseTeamCreateOptions = {
+export type DevelopUpdateUniverseTeamCreateSettingsOptions =
+  DevelopGetUniverseTeamCreateSettingsOptions;
+export type DevelopUpdateUniverseTeamCreateSettings = unknown;
+export type DevelopRemoveUserFromUniverseTeamCreateOptions = {
   universeId: number;
   userId: number;
 };
-export type RemoveUserFromUniverseTeamCreate = unknown;
-export type GetUsersInUniverseTeamCreateOptions = {
+export type DevelopRemoveUserFromUniverseTeamCreate = unknown;
+export type DevelopGetUsersInUniverseTeamCreateOptions = {
   universeId: number;
   sortOrder?: "Asc" | "Desc";
   limit?: 10 | 25 | 50 | 100;
   cursor?: string;
 };
-export type GetUsersInUniverseTeamCreate = {
+export type DevelopGetUsersInUniverseTeamCreate = {
   previousPageCursor: string;
   nextPageCursor: string;
   data: {
@@ -455,20 +478,20 @@ export type GetUsersInUniverseTeamCreate = {
     displayName: string;
   }[];
 };
-export type GetSelfTeamCreateUniversesAccessOptions = {
+export type DevelopGetSelfTeamCreateUniversesAccessOptions = {
   sortOrder?: "Asc" | "Desc";
   limit?: 10 | 25 | 50 | 100;
   cursor?: string;
 };
-export type GetSelfTeamCreateUniversesAccess = {
+export type DevelopGetSelfTeamCreateUniversesAccess = {
   previousPageCursor: string;
   nextPageCursor: string;
-  data: GameUniverseOptions[];
+  data: DevelopGameUniverseOptions[];
 };
-export type GetSelfGroupsAccess = {
+export type DevelopGetSelfGroupsAccess = {
   data: PartialGroupOptions[];
 };
-export type GetNotificationsStatisticReports = {
+export type DevelopGetNotificationsStatisticReports = {
   data: {
     UserId: number;
     UniverseId: number;
@@ -477,55 +500,56 @@ export type GetNotificationsStatisticReports = {
     GameName: string;
   }[];
 };
-export type GetStudioDataOptions = {
+export type DevelopGetStudioDataOptions = {
   clientKey: string;
 };
-export type GetStudioData = unknown;
-export type SetStudioDataOptions = {
+export type DevelopGetStudioData = unknown;
+export type DevelopSetStudioDataOptions = {
   clientKey: string;
   data: unknown;
 };
-export type SetStudioData = {
+export type DevelopSetStudioData = {
   success: boolean;
 };
-export type GetSelfUniversesOptions = {
+export type DevelopGetSelfUniversesOptions = {
   sortOrder?: "Asc" | "Desc";
   limit?: 10 | 25 | 50 | 100;
   cursor?: string;
 };
-export type GetSelfUniverses = {
+export type DevelopGetSelfUniverses = {
   previousPageCursor: string;
   nextPageCursor: string;
-  data: GameUniverseOptions[];
+  data: DevelopGameUniverseOptions[];
 };
-export type CreateUniverseAliasOptions = {
+export type DevelopCreateUniverseAliasOptions = {
   name: string;
   type: "Asset" | string;
   targetId: number;
 };
-export type CreateUniverseAlias = unknown;
-export type DeleteUniverseAliasOptions = {
+export type DevelopCreateUniverseAlias = unknown;
+export type DevelopDeleteUniverseAliasOptions = {
   universeId: number;
   name: string;
 };
-export type DeleteUniverseAlias = unknown;
-export type UpdateUniverseAliasOptions = CreateUniverseAliasOptions;
-export type UpdateUniverseAlias = unknown;
-export type CreateDeveloperProductOptions = {
+export type DevelopDeleteUniverseAlias = unknown;
+export type DevelopUpdateUniverseAliasOptions =
+  DevelopCreateUniverseAliasOptions;
+export type DevelopUpdateUniverseAlias = unknown;
+export type DevelopCreateDeveloperProductOptions = {
   universeId: number;
   name: string;
   description: string;
   priceInRobux: number;
   iconImageAssetId?: number;
 };
-export type CreateDeveloperProduct = {
+export type DevelopCreateDeveloperProduct = {
   id: number;
   name: string;
   Description: string;
   shopId: number;
   iconImageAssetId: number;
 };
-export type UpdateDeveloperProductOptions = {
+export type DevelopUpdateDeveloperProductOptions = {
   universeId: number;
   developerProductId: number;
   Name: string;
@@ -533,7 +557,7 @@ export type UpdateDeveloperProductOptions = {
   IconImageAssetId?: number;
   PriceInRobux: number;
 };
-export type UpdateDeveloperProduct = unknown;
+export type DevelopUpdateDeveloperProduct = unknown;
 
 export default class DevelopAPI extends BaseAPI {
   constructor(client: Client) {
@@ -543,7 +567,7 @@ export default class DevelopAPI extends BaseAPI {
     });
   }
 
-  getGameTemplates(): Promise<GetGameTemplates> {
+  getGameTemplates(): Promise<DevelopGetGameTemplates> {
     return this.request({
       requiresAuth: false,
       request: {
@@ -554,8 +578,8 @@ export default class DevelopAPI extends BaseAPI {
   }
 
   getGameUpdatesHistory(
-    options: GetGameUpdatesHistoryOptions
-  ): Promise<GetGameUpdatesHistory> {
+    options: DevelopGetGameUpdatesHistoryOptions
+  ): Promise<DevelopGetGameUpdatesHistory> {
     return this.request({
       requiresAuth: false,
       request: {
@@ -566,8 +590,8 @@ export default class DevelopAPI extends BaseAPI {
   }
 
   publishGameUpdateNotification(
-    options: PublishGameNotificationOptions
-  ): Promise<PublishGameNotification> {
+    options: DevelopPublishGameNotificationOptions
+  ): Promise<DevelopPublishGameNotification> {
     return this.request({
       requiresAuth: false,
       request: {
@@ -580,8 +604,8 @@ export default class DevelopAPI extends BaseAPI {
   }
 
   filterGameUpdateNotificationText(
-    options: FilterPublishGameNotificationOptions
-  ): Promise<FilterPublishGameNotification> {
+    options: DevelopFilterPublishGameNotificationOptions
+  ): Promise<DevelopFilterPublishGameNotification> {
     return this.request({
       requiresAuth: false,
       request: {
@@ -594,8 +618,8 @@ export default class DevelopAPI extends BaseAPI {
   }
 
   getGroupUniverses(
-    options: GetGroupUniversesOptions
-  ): Promise<GetGroupUniverses> {
+    options: DevelopGetGroupUniversesOptions
+  ): Promise<DevelopGetGroupUniverses> {
     return this.request({
       requiresAuth: false,
       request: {
@@ -607,8 +631,8 @@ export default class DevelopAPI extends BaseAPI {
   }
 
   getPlaceCompatibilities(
-    options: GetPlaceCompatibilitiesOptions
-  ): Promise<GetPlaceCompatibilities> {
+    options: DevelopGetPlaceCompatibilitiesOptions
+  ): Promise<DevelopGetPlaceCompatibilities> {
     return this.request({
       requiresAuth: false,
       request: {
@@ -619,8 +643,8 @@ export default class DevelopAPI extends BaseAPI {
   }
 
   updatePlaceConfiguration(
-    options: UpdatePlaceConfigurationOptions
-  ): Promise<UpdatePlaceConfiguration> {
+    options: DevelopUpdatePlaceConfigurationOptions
+  ): Promise<DevelopUpdatePlaceConfiguration> {
     return this.request({
       requiresAuth: false,
       request: {
@@ -633,8 +657,8 @@ export default class DevelopAPI extends BaseAPI {
   }
 
   getPlaceStatistics(
-    options: GetPlaceStatisticsByTypeOptions
-  ): Promise<GetPlaceStatisticsByType> {
+    options: DevelopGetPlaceStatisticsByTypeOptions
+  ): Promise<DevelopGetPlaceStatisticsByType> {
     return this.request({
       requiresAuth: false,
       request: {
@@ -661,7 +685,7 @@ export default class DevelopAPI extends BaseAPI {
   getDeveloperProductAggregation(options: {
     placeId: number;
     timeFrame: "Hourly" | "Daily" | "Monthly";
-  }): Promise<DevelopProductAggregation> {
+  }): Promise<DevelopProductAggregations> {
     return this.request({
       requiresAuth: false,
       request: {
@@ -715,7 +739,9 @@ export default class DevelopAPI extends BaseAPI {
     }).then(() => true);
   }
 
-  getMultiPlugins(options: GetPluginsByIdOptions): Promise<GetPluginsById> {
+  getMultiPlugins(
+    options: DevelopGetPluginsByIdOptions
+  ): Promise<DevelopGetPluginsById> {
     return this.request({
       requiresAuth: false,
       request: {
@@ -728,7 +754,9 @@ export default class DevelopAPI extends BaseAPI {
     }).then((response) => response.body);
   }
 
-  updatePlugin(options: UpdatePluginOptions): Promise<UpdatePlugin> {
+  updatePlugin(
+    options: DevelopUpdatePluginOptions
+  ): Promise<DevelopUpdatePlugin> {
     return this.request({
       requiresAuth: false,
       request: {
@@ -740,7 +768,9 @@ export default class DevelopAPI extends BaseAPI {
     }).then((response) => response.body);
   }
 
-  searchUniverses(options: SearchUniversesOptions): Promise<SearchUniverses> {
+  searchUniverses(
+    options: DevelopSearchUniversesOptions
+  ): Promise<DevelopSearchUniverses> {
     const encodedQuery = `${options.q.search || ""} creator:${
       options.q.creator.slice(0, 1).toUpperCase() + options.q.creator.slice(1)
     } ${
@@ -768,7 +798,9 @@ export default class DevelopAPI extends BaseAPI {
     }).then((response) => response.body);
   }
 
-  searchToolbox(options: SearchToolboxOptions): Promise<SearchToolbox> {
+  searchToolbox(
+    options: DevelopSearchToolboxOptions
+  ): Promise<DevelopSearchToolbox> {
     return this.request({
       requiresAuth: false,
       request: {
@@ -779,7 +811,7 @@ export default class DevelopAPI extends BaseAPI {
     }).then((response) => response.body);
   }
 
-  getUniverse(options: GetUniverseOptions): Promise<GetUniverse> {
+  getUniverse(options: DevelopGetUniverseOptions): Promise<DevelopGetUniverse> {
     return this.request({
       requiresAuth: false,
       request: {
@@ -790,8 +822,8 @@ export default class DevelopAPI extends BaseAPI {
   }
 
   getUniverseLiveStats(
-    options: GetUniverseLiveStatsOptions
-  ): Promise<GetUniverseLiveStats> {
+    options: DevelopGetUniverseLiveStatsOptions
+  ): Promise<DevelopGetUniverseLiveStats> {
     return this.request({
       requiresAuth: true,
       request: {
@@ -802,8 +834,8 @@ export default class DevelopAPI extends BaseAPI {
   }
 
   getSelfUniversePermissions(
-    options: GetUniversePermissionsOptions
-  ): Promise<GetUniversePermissions> {
+    options: DevelopGetUniversePermissionsOptions
+  ): Promise<DevelopGetUniversePermissions> {
     return this.request({
       requiresAuth: true,
       request: {
@@ -814,8 +846,8 @@ export default class DevelopAPI extends BaseAPI {
   }
 
   getPlacesInUniverse(
-    options: GetUniversePlacesOptions
-  ): Promise<GetUniversePlaces> {
+    options: DevelopGetUniversePlacesOptions
+  ): Promise<DevelopGetUniversePlaces> {
     return this.request({
       requiresAuth: true,
       request: {
@@ -827,8 +859,8 @@ export default class DevelopAPI extends BaseAPI {
   }
 
   getUniverseRevenueReports(
-    options: GetUniverseRevenueReportsOptions
-  ): Promise<GetUniverseRevenueReports> {
+    options: DevelopGetUniverseRevenueReportsOptions
+  ): Promise<DevelopGetUniverseRevenueReports> {
     return this.request({
       requiresAuth: true,
       request: {
@@ -840,8 +872,8 @@ export default class DevelopAPI extends BaseAPI {
   }
 
   getUniverseRevenueReport(
-    options: GetUniverseRevenueReportOptions
-  ): Promise<GetUniverseRevenueReport> {
+    options: DevelopGetUniverseRevenueReportOptions
+  ): Promise<DevelopGetUniverseRevenueReport> {
     return this.request({
       requiresAuth: true,
       request: {
@@ -852,7 +884,7 @@ export default class DevelopAPI extends BaseAPI {
   }
 
   downloadUniverseRevenueReport(
-    options: GetUniverseRevenueReportOptions
+    options: DevelopGetUniverseRevenueReportOptions
   ): Promise<unknown> {
     return this.request({
       requiresAuth: true,
@@ -864,8 +896,8 @@ export default class DevelopAPI extends BaseAPI {
   }
 
   getUniverseStatisticReports(
-    options: GetUniverseStatisticsReportsOptions
-  ): Promise<GetUniverseStatisticsReports> {
+    options: DevelopGetUniverseStatisticsReportsOptions
+  ): Promise<DevelopGetUniverseStatisticsReports> {
     return this.request({
       requiresAuth: false,
       request: {
@@ -876,8 +908,8 @@ export default class DevelopAPI extends BaseAPI {
   }
 
   getUniverseStatisticReportsByTime(
-    options: GetUniverseStatisticsReportsByTimeOptions
-  ): Promise<GetUniverseStatisticsReportByTime> {
+    options: DevelopGetUniverseStatisticsReportsByTimeOptions
+  ): Promise<DevelopGetUniverseStatisticsReportByTime> {
     return this.request({
       requiresAuth: false,
       request: {
@@ -888,8 +920,8 @@ export default class DevelopAPI extends BaseAPI {
   }
 
   downloadUniverseStatisticReportsByTime(
-    options: DownloadUniverseStatisticsReportByTimeOptions
-  ): Promise<DownloadUniverseStatisticsReportByTime> {
+    options: DevelopDownloadUniverseStatisticsReportByTimeOptions
+  ): Promise<DevelopDownloadUniverseStatisticsReportByTime> {
     return this.request({
       requiresAuth: false,
       request: {
@@ -900,8 +932,8 @@ export default class DevelopAPI extends BaseAPI {
   }
 
   getMultiUniverses(
-    options: MultiGetUniversesOptions
-  ): Promise<MultiGetUniverses> {
+    options: DevelopMultiGetUniversesOptions
+  ): Promise<DevelopMultiGetUniverses> {
     return this.request({
       requiresAuth: false,
       request: {
@@ -915,8 +947,8 @@ export default class DevelopAPI extends BaseAPI {
   }
 
   getMultiUniversesPermissions(
-    options: MultiGetUniversesPermissionsOptions
-  ): Promise<MultiGetUniversesPermissions> {
+    options: DevelopMultiGetUniversesPermissionsOptions
+  ): Promise<DevelopMultiGetUniversesPermissions> {
     return this.request({
       requiresAuth: false,
       request: {
@@ -930,8 +962,8 @@ export default class DevelopAPI extends BaseAPI {
   }
 
   activateUniverse(
-    options: ActivateUniverseOptions
-  ): Promise<ActivateUniverse> {
+    options: DevelopActivateUniverseOptions
+  ): Promise<DevelopActivateUniverse> {
     return this.request({
       requiresAuth: false,
       request: {
@@ -943,8 +975,8 @@ export default class DevelopAPI extends BaseAPI {
   }
 
   deactivateUniverse(
-    options: DeactivateUniverseOptions
-  ): Promise<DeactivateUniverse> {
+    options: DevelopDeactivateUniverseOptions
+  ): Promise<DevelopDeactivateUniverse> {
     return this.request({
       requiresAuth: false,
       request: {
@@ -956,8 +988,8 @@ export default class DevelopAPI extends BaseAPI {
   }
 
   generateUniverseStatisticReportsByTime(
-    options: GenerateUniverseStatisticReportsByTimeOptions
-  ): Promise<GenerateUniverseStatisticReportsByTime> {
+    options: DevelopGenerateUniverseStatisticReportsByTimeOptions
+  ): Promise<DevelopGenerateUniverseStatisticReportsByTime> {
     return this.request({
       requiresAuth: false,
       request: {
@@ -969,8 +1001,8 @@ export default class DevelopAPI extends BaseAPI {
   }
 
   getUniverseConfiguration(
-    options: GetUniverseConfigurationOptions
-  ): Promise<GetUniverseConfiguration> {
+    options: DevelopGetUniverseConfigurationOptions
+  ): Promise<DevelopGetUniverseConfiguration> {
     return this.request({
       requiresAuth: false,
       request: {
@@ -981,8 +1013,8 @@ export default class DevelopAPI extends BaseAPI {
   }
 
   updateUniverseConfiguration(
-    options: UpdateUniverseConfigurationOptions
-  ): Promise<UpdateUniverseConfiguration> {
+    options: DevelopUpdateUniverseConfigurationOptions
+  ): Promise<DevelopUpdateUniverseConfiguration> {
     return this.request({
       requiresAuth: false,
       request: {
@@ -995,8 +1027,8 @@ export default class DevelopAPI extends BaseAPI {
   }
 
   getUniverseVIPServersConfiguration(
-    options: GetUniverseVIPServersConfigurationOptions
-  ): Promise<GetUniverseVIPServersConfiguration> {
+    options: DevelopGetUniverseVIPServersConfigurationOptions
+  ): Promise<DevelopGetUniverseVIPServersConfiguration> {
     return this.request({
       requiresAuth: false,
       request: {
@@ -1007,8 +1039,8 @@ export default class DevelopAPI extends BaseAPI {
   }
 
   getUniverseTeamCreateSettings(
-    options: GetUniverseTeamCreateSettingsOptions
-  ): Promise<GetUniverseTeamCreateSettings> {
+    options: DevelopGetUniverseTeamCreateSettingsOptions
+  ): Promise<DevelopGetUniverseTeamCreateSettings> {
     return this.request({
       requiresAuth: false,
       request: {
@@ -1019,8 +1051,8 @@ export default class DevelopAPI extends BaseAPI {
   }
 
   removeUserFromUniverseTeamCreate(
-    options: RemoveUserFromUniverseTeamCreateOptions
-  ): Promise<RemoveUserFromUniverseTeamCreate> {
+    options: DevelopRemoveUserFromUniverseTeamCreateOptions
+  ): Promise<DevelopRemoveUserFromUniverseTeamCreate> {
     return this.request({
       requiresAuth: false,
       request: {
@@ -1033,8 +1065,8 @@ export default class DevelopAPI extends BaseAPI {
   }
 
   getUniverseTeamCreateMembers(
-    options: GetUsersInUniverseTeamCreateOptions
-  ): Promise<GetUsersInUniverseTeamCreate> {
+    options: DevelopGetUsersInUniverseTeamCreateOptions
+  ): Promise<DevelopGetUsersInUniverseTeamCreate> {
     return this.request({
       requiresAuth: false,
       request: {
@@ -1046,8 +1078,8 @@ export default class DevelopAPI extends BaseAPI {
   }
 
   getSelfUniversesTeamCreateAccess(
-    options: GetSelfTeamCreateUniversesAccessOptions
-  ): Promise<GetSelfTeamCreateUniversesAccess> {
+    options: DevelopGetSelfTeamCreateUniversesAccessOptions
+  ): Promise<DevelopGetSelfTeamCreateUniversesAccess> {
     return this.request({
       requiresAuth: false,
       request: {
@@ -1058,7 +1090,7 @@ export default class DevelopAPI extends BaseAPI {
     }).then((response) => response.body);
   }
 
-  getSelfManageableGroups(): Promise<GetSelfGroupsAccess> {
+  getSelfManageableGroups(): Promise<DevelopGetSelfGroupsAccess> {
     return this.request({
       requiresAuth: false,
       request: {
@@ -1068,7 +1100,7 @@ export default class DevelopAPI extends BaseAPI {
     }).then((response) => response.body);
   }
 
-  getSelfNotificationStatisticReports(): Promise<GetNotificationsStatisticReports> {
+  getSelfNotificationStatisticReports(): Promise<DevelopGetNotificationsStatisticReports> {
     return this.request({
       requiresAuth: false,
       request: {
@@ -1078,7 +1110,9 @@ export default class DevelopAPI extends BaseAPI {
     }).then((response) => response.body);
   }
 
-  getStudioData(options: GetStudioDataOptions): Promise<GetStudioData> {
+  getStudioData(
+    options: DevelopGetStudioDataOptions
+  ): Promise<DevelopGetStudioData> {
     return this.request({
       requiresAuth: false,
       request: {
@@ -1089,7 +1123,9 @@ export default class DevelopAPI extends BaseAPI {
     }).then((response) => response.body);
   }
 
-  setStudioData(options: SetStudioDataOptions): Promise<SetStudioData> {
+  setStudioData(
+    options: DevelopSetStudioDataOptions
+  ): Promise<DevelopSetStudioData> {
     return this.request({
       requiresAuth: false,
       request: {
@@ -1105,8 +1141,8 @@ export default class DevelopAPI extends BaseAPI {
   }
 
   getSelfUniverses(
-    options: GetSelfUniversesOptions
-  ): Promise<GetSelfUniverses> {
+    options: DevelopGetSelfUniversesOptions
+  ): Promise<DevelopGetSelfUniverses> {
     return this.request({
       requiresAuth: false,
       request: {
@@ -1118,8 +1154,8 @@ export default class DevelopAPI extends BaseAPI {
   }
 
   createUniverseAlias(
-    options: CreateUniverseAliasOptions
-  ): Promise<CreateUniverseAlias> {
+    options: DevelopCreateUniverseAliasOptions
+  ): Promise<DevelopCreateUniverseAlias> {
     return this.request({
       requiresAuth: false,
       request: {
@@ -1130,8 +1166,8 @@ export default class DevelopAPI extends BaseAPI {
   }
 
   deleteUniverseAlias(
-    options: DeleteUniverseAliasOptions
-  ): Promise<DeleteUniverseAlias> {
+    options: DevelopDeleteUniverseAliasOptions
+  ): Promise<DevelopDeleteUniverseAlias> {
     return this.request({
       requiresAuth: false,
       request: {
@@ -1143,8 +1179,8 @@ export default class DevelopAPI extends BaseAPI {
   }
 
   updateUniverseAlias(
-    options: UpdateUniverseAliasOptions
-  ): Promise<UpdateUniverseAlias> {
+    options: DevelopUpdateUniverseAliasOptions
+  ): Promise<DevelopUpdateUniverseAlias> {
     return this.request({
       requiresAuth: false,
       request: {
@@ -1157,8 +1193,8 @@ export default class DevelopAPI extends BaseAPI {
   }
 
   createDeveloperProduct(
-    options: CreateDeveloperProductOptions
-  ): Promise<CreateDeveloperProduct> {
+    options: DevelopCreateDeveloperProductOptions
+  ): Promise<DevelopCreateDeveloperProduct> {
     return this.request({
       requiresAuth: false,
       request: {
@@ -1171,8 +1207,8 @@ export default class DevelopAPI extends BaseAPI {
   }
 
   updateDeveloperProduct(
-    options: UpdateDeveloperProductOptions
-  ): Promise<UpdateDeveloperProduct> {
+    options: DevelopUpdateDeveloperProductOptions
+  ): Promise<DevelopUpdateDeveloperProduct> {
     return this.request({
       requiresAuth: false,
       request: {

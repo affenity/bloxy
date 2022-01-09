@@ -7,7 +7,7 @@ import {
   VIPServerOptions
 } from "../../structures/Game";
 
-export type GameServer = {
+export type GamesGameServer = {
   id: string;
   maxPlayers: number;
   playing: number;
@@ -18,26 +18,26 @@ export type GameServer = {
   accessCode: string;
 };
 
-export type GetGameUniversesOptions = {
+export type GamesGetGameUniversesOptions = {
   universeIds: number[];
 };
-export type GetGameUniverses = GameUniverseOptions[];
-export type GetGameServersByTypeOptions = {
+export type GamesGetGameUniverses = GameUniverseOptions[];
+export type GamesGetGameServersByTypeOptions = {
   placeId: number;
   serverType: "Public" | "Friend" | "VIP";
   sortOrder?: "Asc" | "Desc";
   limit?: 10 | 25 | 50 | 100;
   cursor?: string;
 };
-export type GetGameServersByType = {
+export type GamesGetGameServersByType = {
   previousPageCursor: string;
   nextPageCursor: string;
-  data: GameServer[];
+  data: GamesGameServer[];
 };
-export type GetGamesProductInfoOptions = {
+export type GamesGetGamesProductInfoOptions = {
   universeIds: number[];
 };
-export type GameGamesProductInfo = {
+export type GamesGameGamesProductInfo = {
   data: {
     universeId: number;
     isForSale: boolean;
@@ -46,7 +46,7 @@ export type GameGamesProductInfo = {
     productId: number;
   }[];
 };
-export type ListGamesOptions = {
+export type GamesListGamesOptions = {
   sortToken?: string;
   gameFilter?: string;
   timeFilter?: string;
@@ -64,7 +64,7 @@ export type ListGamesOptions = {
   pageContextSeeAll?: boolean;
   sortPosition?: number;
 };
-export type ListGames = {
+export type GamesListGames = {
   games: {
     creatorId: number;
     creatorName: string;
@@ -96,44 +96,45 @@ export type ListGames = {
   algorithmQueryType: string;
   suggestionAlgorithm: string;
 };
-export type MultiGetPlacesOptions = {
+export type GamesMultiGetPlacesOptions = {
   placeIds: number[];
 };
-export type MultiGetPlaces = PlaceOptions[];
-export type MultiGetGameUniversesPlayabilityOptions = {
+export type GamesMultiGetPlaces = PlaceOptions[];
+export type GamesMultiGetGameUniversesPlayabilityOptions = {
   universeIds: number[];
 };
-export type MultiGetGameUniversesPlayability = {
+export type GamesMultiGetGameUniversesPlayability = {
   playabilityStatus: "UnplayableOtherReason" | string;
   isPlayable: boolean;
   universeId: number;
 }[];
-export type GetGameRecommendationsByAlgorithmOptions = {
+export type GamesGetGameRecommendationsByAlgorithmOptions = {
   algorithmName: string;
   paginationKey?: string;
   maxRows?: number;
 };
-export type GetGameRecommendationsByAlgorithm = {
-  games: ListGames["games"];
+export type GamesGetGameRecommendationsByAlgorithm = {
+  games: GamesListGames["games"];
   nextPaginationKey: string | null;
 };
-export type GetGameRecommendationsByGameOptions = {
+export type GamesGetGameRecommendationsByGameOptions = {
   universeId: number;
   paginationKey?: string;
   maxRows?: number;
 };
-export type GetGameRecommendationsByGame = GetGameRecommendationsByAlgorithm;
-export type GetGameSortsOptions = {
+export type GamesGetGameRecommendationsByGame =
+  GamesGetGameRecommendationsByAlgorithm;
+export type GamesGetGameSortsOptions = {
   gameSortsContext?:
-  | "GamesDefaultSorts"
-  | "GamesAllSorts"
-  | "HomeSorts"
-  | "ChatSorts"
-  | "UnifiedHomeSorts"
-  | "GamesPageAbTestSorts1"
-  | "GamesPageAbTestSorts2";
+    | "GamesDefaultSorts"
+    | "GamesAllSorts"
+    | "HomeSorts"
+    | "ChatSorts"
+    | "UnifiedHomeSorts"
+    | "GamesPageAbTestSorts1"
+    | "GamesPageAbTestSorts2";
 };
-export type GetGameSorts = {
+export type GamesGetGameSorts = {
   sorts: {
     token: string;
     name: string;
@@ -163,30 +164,30 @@ export type GetGameSorts = {
     isSeeAllPage: boolean;
   };
 };
-export type IsGameFavoritedOptions = {
+export type GamesIsGameFavoritedOptions = {
   universeId: number;
 };
-export type IsGameFavorited = {
+export type GamesIsGameFavorited = {
   isFavorited: boolean;
 };
-export type ToggleGameFavoriteOptions = {
+export type GamesToggleGameFavoriteOptions = {
   universeId: number;
   favorite: boolean;
 };
-export type ToggleGameFavorite = unknown;
-export type GetGameFavoriteCountOptions = {
+export type GamesToggleGameFavorite = unknown;
+export type GamesGetGameFavoriteCountOptions = {
   universeId: number;
 };
-export type GetGameFavoriteCount = {
+export type GamesGetGameFavoriteCount = {
   favoritesCount: number;
 };
-export type GetGameGamePassesOptions = {
+export type GamesGetGameGamePassesOptions = {
   universeId: number;
   sortOrder?: "Asc" | "Desc";
   limit?: 10 | 25 | 50 | 100;
   cursor?: string;
 };
-export type GetGameGamePasses = {
+export type GamesGetGameGamePasses = {
   previousPageCursor: string;
   nextPageCursor: string;
   data: {
@@ -197,53 +198,53 @@ export type GetGameGamePasses = {
     price: number;
   }[];
 };
-export type GetSelfUniverseVoteStatusOptions = {
+export type GamesGetSelfUniverseVoteStatusOptions = {
   universeId: number;
 };
-export type GetSelfUniverseVoteStatus = {
+export type GamesGetSelfUniverseVoteStatus = {
   canVote: boolean;
   userVote: boolean;
   reasonForNotVoteable: string;
 };
-export type GetGamesVotesOptions = {
+export type GamesGetGamesVotesOptions = {
   universeIds: number[];
 };
-export type GetGamesVotes = {
+export type GamesGetGamesVotes = {
   data: {
     number: PartialGameUniverse;
     upVotes: number;
     downVotes: number;
   }[];
 };
-export type SetSelfGameVoteOptions = {
+export type GamesSetSelfGameVoteOptions = {
   universeId: number;
   vote: boolean;
 };
-export type SetSelfGameVote = unknown;
-export type CanSelfInviteUserToVIPServerOptions = {
+export type GamesSetSelfGameVote = unknown;
+export type GamesCanSelfInviteUserToVIPServerOptions = {
   userId: number;
 };
-export type CanSelfInviteUserToVIPServer = {
+export type GamesCanSelfInviteUserToVIPServer = {
   canInvite: boolean;
 };
-export type GetVIPServerOptions = {
+export type GamesGetVIPServerOptions = {
   id: number;
 };
-export type GetVIPServer = VIPServerOptions;
-export type UpdateVIPServerOptions = {
+export type GamesGetVIPServer = VIPServerOptions;
+export type GamesUpdateVIPServerOptions = {
   id: number;
   name: string;
   newJoinCode: boolean;
   active: boolean;
 };
-export type UpdateVIPServer = VIPServerOptions;
-export type CreateVIPServerOptions = {
+export type GamesUpdateVIPServer = VIPServerOptions;
+export type GamesCreateVIPServerOptions = {
   universeId: number;
   name: string;
   expectedPrice: number;
 };
-export type CreateVIPServer = GameServer;
-export type UpdateVIPServerPermissionsOptions = {
+export type GamesCreateVIPServer = GamesGameServer;
+export type GamesUpdateVIPServerPermissionsOptions = {
   id: number;
   clanAllowed: boolean;
   enemyClanId: number;
@@ -251,7 +252,7 @@ export type UpdateVIPServerPermissionsOptions = {
   usersToAdd: number[];
   usersToRemove: number[];
 };
-export type UpdateVIPServerPermissions = {
+export type GamesUpdateVIPServerPermissions = {
   clanAllowed: boolean;
   enemyClanId: number;
   friendsAllowed: boolean;
@@ -261,12 +262,12 @@ export type UpdateVIPServerPermissions = {
     displayName: string;
   }[];
 };
-export type UpdateVIPServerSubscriptionOptions = {
+export type GamesUpdateVIPServerSubscriptionOptions = {
   id: number;
   active: boolean;
   price: number;
 };
-export type UpdateVIPServerSubscription = {
+export type GamesUpdateVIPServerSubscription = {
   active: boolean;
   expired: boolean;
   expirationDate: string;
@@ -274,14 +275,16 @@ export type UpdateVIPServerSubscription = {
 };
 
 export default class GamesAPI extends BaseAPI {
-  constructor (client: Client) {
+  constructor(client: Client) {
     super({
       client,
       baseUrl: "https://games.roblox.com/"
     });
   }
 
-  getGames (options: GetGameUniversesOptions): Promise<GetGameUniverses> {
+  getGames(
+    options: GamesGetGameUniversesOptions
+  ): Promise<GamesGetGameUniverses> {
     const universeIdsQueryString = `universeIds=${options.universeIds.join(
       "&universeIds="
     )}`;
@@ -294,9 +297,9 @@ export default class GamesAPI extends BaseAPI {
     }).then((response) => response.body);
   }
 
-  getGameServersByType (
-    options: GetGameServersByTypeOptions
-  ): Promise<GetGameServersByType> {
+  getGameServersByType(
+    options: GamesGetGameServersByTypeOptions
+  ): Promise<GamesGetGameServersByType> {
     return this.request({
       requiresAuth: true,
       request: {
@@ -307,9 +310,9 @@ export default class GamesAPI extends BaseAPI {
     }).then((response) => response.body);
   }
 
-  getGamesProductInfo (
-    options: GetGamesProductInfoOptions
-  ): Promise<GameGamesProductInfo> {
+  getGamesProductInfo(
+    options: GamesGetGamesProductInfoOptions
+  ): Promise<GamesGameGamesProductInfo> {
     const universeIdsQueryString = `universeIds=${options.universeIds.join(
       "&universeIds="
     )}`;
@@ -322,7 +325,7 @@ export default class GamesAPI extends BaseAPI {
     }).then((response) => response.body);
   }
 
-  listGames (options: ListGamesOptions): Promise<ListGames> {
+  listGames(options: GamesListGamesOptions): Promise<GamesListGames> {
     return this.request({
       requiresAuth: true,
       request: {
@@ -351,7 +354,9 @@ export default class GamesAPI extends BaseAPI {
     }).then((response) => response.body);
   }
 
-  getMultiPlaces (options: MultiGetPlacesOptions): Promise<MultiGetPlaces> {
+  getMultiPlaces(
+    options: GamesMultiGetPlacesOptions
+  ): Promise<GamesMultiGetPlaces> {
     const placeIdsQueryString = `placeIds=${options.placeIds.join(
       "&placeIds="
     )}`;
@@ -365,9 +370,9 @@ export default class GamesAPI extends BaseAPI {
     }).then((response) => response.body);
   }
 
-  getMultiGamesPlayabilityStatus (
-    options: MultiGetGameUniversesPlayabilityOptions
-  ): Promise<MultiGetGameUniversesPlayability> {
+  getMultiGamesPlayabilityStatus(
+    options: GamesMultiGetGameUniversesPlayabilityOptions
+  ): Promise<GamesMultiGetGameUniversesPlayability> {
     const universeIdsQueryString = `universeIds=${options.universeIds.join(
       "&universeIds="
     )}`;
@@ -380,9 +385,9 @@ export default class GamesAPI extends BaseAPI {
     }).then((response) => response.body);
   }
 
-  getGameRecommendationsByAlgorithm (
-    options: GetGameRecommendationsByAlgorithmOptions
-  ): Promise<GetGameRecommendationsByAlgorithm> {
+  getGameRecommendationsByAlgorithm(
+    options: GamesGetGameRecommendationsByAlgorithmOptions
+  ): Promise<GamesGetGameRecommendationsByAlgorithm> {
     return this.request({
       requiresAuth: true,
       request: {
@@ -396,9 +401,9 @@ export default class GamesAPI extends BaseAPI {
     }).then((response) => response.body);
   }
 
-  getGameRecommendationsByGame (
-    options: GetGameRecommendationsByGameOptions
-  ): Promise<GetGameRecommendationsByGame> {
+  getGameRecommendationsByGame(
+    options: GamesGetGameRecommendationsByGameOptions
+  ): Promise<GamesGetGameRecommendationsByGame> {
     return this.request({
       requiresAuth: true,
       request: {
@@ -412,7 +417,7 @@ export default class GamesAPI extends BaseAPI {
     }).then((response) => response.body);
   }
 
-  getGameSorts (options: GetGameSortsOptions): Promise<GetGameSorts> {
+  getGameSorts(options: GamesGetGameSortsOptions): Promise<GamesGetGameSorts> {
     return this.request({
       requiresAuth: true,
       request: {
@@ -425,7 +430,9 @@ export default class GamesAPI extends BaseAPI {
     }).then((response) => response.body);
   }
 
-  isGameFavorited (options: IsGameFavoritedOptions): Promise<IsGameFavorited> {
+  isGameFavorited(
+    options: GamesIsGameFavoritedOptions
+  ): Promise<GamesIsGameFavorited> {
     return this.request({
       requiresAuth: true,
       request: {
@@ -435,9 +442,9 @@ export default class GamesAPI extends BaseAPI {
     }).then((response) => response.body);
   }
 
-  toggleGameFavorite (
-    options: ToggleGameFavoriteOptions
-  ): Promise<ToggleGameFavorite> {
+  toggleGameFavorite(
+    options: GamesToggleGameFavoriteOptions
+  ): Promise<GamesToggleGameFavorite> {
     return this.request({
       requiresAuth: true,
       request: {
@@ -451,9 +458,9 @@ export default class GamesAPI extends BaseAPI {
     }).then((response) => response.body);
   }
 
-  getGameFavoriteCount (
-    options: GetGameFavoriteCountOptions
-  ): Promise<GetGameFavoriteCount> {
+  getGameFavoriteCount(
+    options: GamesGetGameFavoriteCountOptions
+  ): Promise<GamesGetGameFavoriteCount> {
     return this.request({
       requiresAuth: true,
       request: {
@@ -463,9 +470,9 @@ export default class GamesAPI extends BaseAPI {
     }).then((response) => response.body);
   }
 
-  getGameGamePasses (
-    options: GetGameGamePassesOptions
-  ): Promise<GetGameGamePasses> {
+  getGameGamePasses(
+    options: GamesGetGameGamePassesOptions
+  ): Promise<GamesGetGameGamePasses> {
     return this.request({
       requiresAuth: true,
       request: {
@@ -476,9 +483,9 @@ export default class GamesAPI extends BaseAPI {
     }).then((response) => response.body);
   }
 
-  getSelfGameVote (
-    options: GetSelfUniverseVoteStatusOptions
-  ): Promise<GetSelfUniverseVoteStatus> {
+  getSelfGameVote(
+    options: GamesGetSelfUniverseVoteStatusOptions
+  ): Promise<GamesGetSelfUniverseVoteStatus> {
     return this.request({
       requiresAuth: true,
       request: {
@@ -488,7 +495,9 @@ export default class GamesAPI extends BaseAPI {
     }).then((response) => response.body);
   }
 
-  getGamesVotes (options: GetGamesVotesOptions): Promise<GetGamesVotes> {
+  getGamesVotes(
+    options: GamesGetGamesVotesOptions
+  ): Promise<GamesGetGamesVotes> {
     const universeIdsQueryString = `universeIds=${options.universeIds.join(
       "&universeIds="
     )}`;
@@ -501,7 +510,9 @@ export default class GamesAPI extends BaseAPI {
     }).then((response) => response.body);
   }
 
-  setSelfGameVote (options: SetSelfGameVoteOptions): Promise<SetSelfGameVote> {
+  setSelfGameVote(
+    options: GamesSetSelfGameVoteOptions
+  ): Promise<GamesSetSelfGameVote> {
     return this.request({
       requiresAuth: true,
       request: {
@@ -515,9 +526,9 @@ export default class GamesAPI extends BaseAPI {
     }).then((response) => response.body);
   }
 
-  canSelfInviteUserToVIPServer (
-    options: CanSelfInviteUserToVIPServerOptions
-  ): Promise<CanSelfInviteUserToVIPServer> {
+  canSelfInviteUserToVIPServer(
+    options: GamesCanSelfInviteUserToVIPServerOptions
+  ): Promise<GamesCanSelfInviteUserToVIPServer> {
     return this.request({
       requiresAuth: true,
       request: {
@@ -527,7 +538,7 @@ export default class GamesAPI extends BaseAPI {
     }).then((response) => response.body);
   }
 
-  getVIPServer (options: GetVIPServerOptions): Promise<GetVIPServer> {
+  getVIPServer(options: GamesGetVIPServerOptions): Promise<GamesGetVIPServer> {
     return this.request({
       requiresAuth: true,
       request: {
@@ -538,7 +549,9 @@ export default class GamesAPI extends BaseAPI {
     }).then((response) => response.body);
   }
 
-  updateVIPServer (options: UpdateVIPServerOptions): Promise<UpdateVIPServer> {
+  updateVIPServer(
+    options: GamesUpdateVIPServerOptions
+  ): Promise<GamesUpdateVIPServer> {
     return this.request({
       requiresAuth: true,
       request: {
@@ -550,7 +563,9 @@ export default class GamesAPI extends BaseAPI {
     }).then((response) => response.body);
   }
 
-  createVIPServer (options: CreateVIPServerOptions): Promise<CreateVIPServer> {
+  createVIPServer(
+    options: GamesCreateVIPServerOptions
+  ): Promise<GamesCreateVIPServer> {
     return this.request({
       requiresAuth: true,
       request: {
@@ -562,9 +577,9 @@ export default class GamesAPI extends BaseAPI {
     }).then((response) => response.body);
   }
 
-  updateVIPServerPermissions (
-    options: UpdateVIPServerPermissionsOptions
-  ): Promise<UpdateVIPServerPermissions> {
+  updateVIPServerPermissions(
+    options: GamesUpdateVIPServerPermissionsOptions
+  ): Promise<GamesUpdateVIPServerPermissions> {
     return this.request({
       requiresAuth: true,
       request: {
@@ -576,9 +591,9 @@ export default class GamesAPI extends BaseAPI {
     }).then((response) => response.body);
   }
 
-  updateVIPServerSubscription (
-    options: UpdateVIPServerSubscriptionOptions
-  ): Promise<UpdateVIPServerSubscription> {
+  updateVIPServerSubscription(
+    options: GamesUpdateVIPServerSubscriptionOptions
+  ): Promise<GamesUpdateVIPServerSubscription> {
     return this.request({
       requiresAuth: true,
       request: {

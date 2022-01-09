@@ -2,10 +2,10 @@ import BaseAPI from "./BaseAPI";
 import Client from "../Client";
 import { EnumUserPresence } from "../../interfaces/GeneralInterfaces";
 
-export type GetUserProfileHeaderOptions = {
+export type OtherGetUserProfileHeaderOptions = {
   userId: number;
 };
-export type GetUserProfileHeader = {
+export type OtherGetUserProfileHeader = {
   UserId: number;
   ProfileUserId: number;
   ProfileUserName: string;
@@ -46,16 +46,16 @@ export type GetUserProfileHeader = {
 };
 
 export default class OtherAPI extends BaseAPI {
-  constructor (client: Client) {
+  constructor(client: Client) {
     super({
       client,
       baseUrl: "https://roblox.com/"
     });
   }
 
-  getUserProfileHeader (
-    options: GetUserProfileHeaderOptions
-  ): Promise<GetUserProfileHeader> {
+  getUserProfileHeader(
+    options: OtherGetUserProfileHeaderOptions
+  ): Promise<OtherGetUserProfileHeader> {
     return this.request({
       requiresAuth: false,
       request: {
