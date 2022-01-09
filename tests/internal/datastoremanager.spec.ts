@@ -1,6 +1,6 @@
 import { Client } from "../../dist";
 import { expect } from "chai";
-import GlobalDataStore from "../../dist/client/lib/DataStoreManager/structures/GlobalDataStore";
+import { GlobalDataStore } from "../../dist/client/lib/DataStoreManager/structures/GlobalDataStore";
 import {} from "mocha";
 
 const authenticatedClient = new Client();
