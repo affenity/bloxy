@@ -4,5 +4,6 @@
   "plugin": "typedoc-plugin-markdown",
   "hideBreadcrumbs": true,
   "namedAnchors": true,
-  "excludeExternals": false
+  "excludeExternals": false,
+  "entryPointStrategy": "expand"
 }

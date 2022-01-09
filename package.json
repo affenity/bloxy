@@ -22,7 +22,7 @@
     "build": "tsc --skipLibCheck",
     "eslint": "eslint . --ext .ts",
     "prepublishOnly": "npm run build",
-    "create-docs": "typedoc src && mkdocs build",
+    "create-docs": "typedoc ./src && mkdocs build",
     "prepare-windows": "npm install && npm run build && npm run create-docs && echo 'Finished'"
   },
   "types": "./dist/index.d.ts",
