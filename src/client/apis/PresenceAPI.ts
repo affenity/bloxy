@@ -12,16 +12,17 @@ export type PresenceGetUsersPresencesOptions = {
   userIds: number[];
 };
 export type PresenceGetUsersPresences = {
-  userPresences: {
-    userPresenceType: EnumUserPresence;
-    lastLocation: string;
-    placeId: number;
-    rootPlaceId: number;
-    gameId: string;
-    universeId: number;
-    userId: number;
-    lastOnline: string;
-  }[];
+  userPresences: PresenceGetUsersPresence[];
+};
+export type PresenceGetUsersPresence = {
+  userPresenceType: EnumUserPresence;
+  lastLocation: string;
+  placeId: number;
+  rootPlaceId: number;
+  gameId: string;
+  universeId: number;
+  userId: number;
+  lastOnline: string;
 };
 
 export class PresenceAPI extends BaseAPI {

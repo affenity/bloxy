@@ -4,8 +4,8 @@ import { Client } from "../../Client";
 import * as SignalR from "signalr-client";
 import { default as socketHandlers } from "./handlers";
 import { EventEmitter } from "events";
-import { PartialChatConversation } from "../../../structures/Chat";
-import { PartialUser } from "../../../structures/User";
+import { PartialChatConversation } from "../../../old_structures/Chat";
+import { PartialUser } from "../../../old_structures/User";
 
 export declare interface Socket extends EventEmitter {
   on(

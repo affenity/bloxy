@@ -1,7 +1,7 @@
 import * as ClientSocket from "../ClientSocket";
-import { PartialUser } from "../../../../structures/User";
+import { PartialUser } from "../../../../old_structures/User";
 
-export default function handleFriendshipNotifications (
+export default function handleFriendshipNotifications(
   socket: ClientSocket.Socket,
   messageType: string,
   message: any

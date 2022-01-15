@@ -1,6 +1,6 @@
 import { BaseAPI } from "./BaseAPI";
 import { Client } from "../Client";
-import { PartialGroupOptions } from "../../structures/Group";
+import { PartialGroupOptions } from "../../old_structures/Group";
 import { ISOString } from "../../types/GenericTypes";
 
 export type DevelopGameUniverseOptions = {

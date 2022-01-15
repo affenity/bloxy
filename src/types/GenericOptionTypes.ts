@@ -37,3 +37,7 @@ export type UsernamePasswordOption = {
   username: string;
   password: string;
 };
+export type PageSortOrder = SortOption["sortOrder"];
+export type PageSortLimit = SortOption["limit"];
+export type PageSortCursor = SortOption["cursor"];
+export type ItemType = "Asset" | "GamePass" | "Badge" | "Bundle";

@@ -1,11 +1,13 @@
 import { ClientBase, ClientOptions } from "./ClientBase";
 import { initAPIs, APIs } from "./apis";
-import { ClientUser } from "../structures/ClientUser";
+import { ClientUser } from "../old_structures/ClientUser";
 import { RESTController } from "../controllers/rest";
-import { Group, PartialUser, User } from "../structures";
+import { Group, PartialUser } from "../old_structures";
 import * as ClientSocket from "./lib/ClientSocket/ClientSocket";
 import { ChatManager } from "./lib/ChatManager/ChatManager";
 import { DataStoreManager } from "./lib/DataStoreManager/DataStoreManager";
+import { User } from "../structures/User";
+import { BaseUser } from "../structures/BaseUser";
 
 export class Client extends ClientBase {
   public user: ClientUser | null;
@@ -101,54 +103,21 @@ export class Client extends ClientBase {
       });
   }
 
-  getUser(userId: number | string): Promise<User> {
-    if (typeof userId === "string") {
-      userId = parseInt(userId);
-    }
+  /**
+   * Returns a base user object from a user id.
+   * @param userId The user's ID
+   */
+  getBaseUser(userId: number): BaseUser {
+    return new BaseUser(this, userId);
+  }
 
-    return this.apis.otherAPI
-      .getUserProfileHeader({
-        userId
-      })
-      .then(
-        (data) =>
-          new User(
-            {
-              id: data.ProfileUserId,
-              name: data.ProfileUserName,
-              displayName: data.ProfileDisplayName,
-              canFollow: data.CanBeFollowed,
-              canSeeInventory: data.CanSeeInventory,
-              canTrade: data.CanTrade,
-              incomingFriendRequest: data.IncomingFriendRequestPending,
-              sentFriendRequest: data.FriendRequestPending,
-              canMessage: data.CanMessage,
-              isViewerBlocked: data.IsViewerBlocked,
-              isVieweeBlocked: data.IsVieweeBlocked,
-              followingsCount: data.FollowingsCount,
-              followersCount: data.FollowersCount,
-              userPlaceId: data.UserPlaceId,
-              userStatusDate: data.UserStatusDate,
-              userStatus: data.UserStatus,
-              presenceType: data.UserPresenceType,
-              friendsCount: data.FriendsCount,
-              canFriend: data.MaySendFriendInvitation,
-              areFriends: data.AreFriends,
-              lastLocation: data.LastLocation,
-              canSeeFavorites: data.CanSeeFavorites,
-              headShotImage: {
-                final: data.HeadShotImage.Final,
-                endpointType: data.HeadShotImage.EndpointType,
-                retryUrl: data.HeadShotImage.RetryUrl,
-                url: data.HeadShotImage.Url,
-                userId: data.HeadShotImage.UserId
-              },
-              messagesDisabled: data.MessagesDisabled,
-              previousUsernames: data.PreviousUserNames
-            },
-            this
-          )
-      );
+  /**
+   * Returns a user object from a user id.
+   * @param userId The user's ID
+   */
+  async getUser(userId: number): Promise<User> {
+    const data = await this.apis.usersAPI.getUserById({ userId });
+    return new User(this, data);
   }
 
   getUserIdFromUsername(username: string): Promise<PartialUser> {

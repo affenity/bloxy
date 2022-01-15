@@ -26,6 +26,7 @@ export type UsersGetUserById = {
   id: number;
   name: string;
   displayName: string;
+  externalAppDisplayName: string;
 };
 export type UsersGetSelfAuthenticatedUserInformation = {
   id: number;
@@ -184,6 +185,9 @@ export class UsersAPI extends BaseAPI {
 
   getUserNameHistory(options: {
     userId: number;
+    limit?: 10 | 25 | 50 | 100;
+    cursor?: string;
+    sortOrder?: "Asc" | "Desc";
   }): Promise<UsersUserNameHistory> {
     return this.request({
       requiresAuth: false,

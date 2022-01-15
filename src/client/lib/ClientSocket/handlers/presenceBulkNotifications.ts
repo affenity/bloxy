@@ -1,7 +1,7 @@
 import { Socket as ClientSocket } from "../ClientSocket";
-import { PartialUser } from "../../../../structures/User";
+import { PartialUser } from "../../../../old_structures/User";
 
-export default function handlePresenceBulkNotifications (
+export default function handlePresenceBulkNotifications(
   socket: ClientSocket,
   _messageType: string,
   message: any

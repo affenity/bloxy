@@ -19,7 +19,7 @@ import {
   ChatConversation,
   ChatMessage,
   ChatMessageSent
-} from "../../../structures/Chat";
+} from "../../../old_structures/Chat";
 
 export class ChatManager {
   public client: Client;

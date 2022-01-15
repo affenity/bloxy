@@ -4,7 +4,7 @@ import {
   GeneralGetUserFriendsCount,
   GeneralGetUserFriendsCountOptions
 } from "./GeneralAPI";
-import { PartialUser } from "../../structures/User";
+import { PartialUser } from "../../old_structures/User";
 import {
   EnumUserPresence,
   UserPresence
@@ -99,8 +99,7 @@ export type FriendsGetUserFollowingCountOptions =
   FriendsGetUserFollowersCountOptions;
 export type FriendsGetUserFollowingCount = FriendsGetUserFollowersCount;
 export type FriendsGetUserFriendsOptions = {
-  cursor?: string;
-  limit?: 10 | 25 | 50 | 100;
+  userSort?: "Alphabetical" | "StatusAlphabetical" | "StatusFrequents";
   userId: number;
 };
 export type FriendsGetUserFriends = {

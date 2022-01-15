@@ -1,6 +1,9 @@
 import { BaseAPI } from "./BaseAPI";
 import { Client } from "../Client";
-import { AssetVersionOptions, ProductOptions } from "../../structures/Asset";
+import {
+  AssetVersionOptions,
+  ProductOptions
+} from "../../old_structures/Asset";
 
 export declare type GeneralGetAssetVersionOptions = number;
 export declare type GeneralAwardBadgeOptions = {

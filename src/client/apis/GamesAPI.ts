@@ -5,7 +5,7 @@ import {
   PartialGameUniverse,
   PlaceOptions,
   VIPServerOptions
-} from "../../structures/Game";
+} from "../../old_structures/Game";
 
 export type GamesGameServer = {
   id: string;
