@@ -1,0 +1,1 @@
+export { RESTController } from "./RESTController";
