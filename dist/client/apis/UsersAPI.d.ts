@@ -97,6 +97,9 @@ export declare class UsersAPI extends BaseAPI {
     getUsersByIds(options: UsersGetUsersByUserIdsOptions): Promise<UsersGetUsersByUserIds>;
     getUserNameHistory(options: {
         userId: number;
+        limit?: 10 | 25 | 50 | 100;
+        cursor?: string;
+        sortOrder?: "Asc" | "Desc";
     }): Promise<UsersUserNameHistory>;
     searchUsers(options: UsersSearchUsersOptions): Promise<UsersSearchUsers>;
 }

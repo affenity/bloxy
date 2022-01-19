@@ -1,4 +1,4 @@
-import { AccountInformationPromotionChannels, AccountInformationRobloxBadges, Client, EconomyGetSelfCurrency, FriendsGetUserFollowers, FriendsGetUserFriends, ItemType, PageSortLimit, PageSortOrder, PresenceGetUsersPresence, UsersUserNameHistory } from "..";
+import { AccountInformationPromotionChannels, AccountInformationRobloxBadges, Client, EconomyGetSelfCurrency, FriendsGetUserFollowers, FriendsGetUserFriends, FriendsGetUserFriendsOptions, ItemType, PageSortLimit, PageSortOrder, PresenceGetUsersPresence, PrivateMessagesSendMessage, UsersUserNameHistory } from "..";
 import { CursorPage } from "./CursorPage";
 export declare type BaseUserOwnedBadge = {
     badgeId: number;
@@ -25,8 +25,13 @@ export declare class BaseUser {
     get userId(): number;
     /**
      * Return the username history of the user.
+     * @param limit The number of followers to return
+     * @param sortOrder The sort order of the followers
+     * @param cursor The cursor to continue at
      */
-    getUsernameHistory(): Promise<UsersUserNameHistory>;
+    getUsernameHistory(limit?: PageSortLimit, sortOrder?: PageSortOrder, cursor?: string): Promise<CursorPage<UsersUserNameHistory["data"][0], {
+        userId: number;
+    }>>;
     /**
      * Returns the users current presence.
      */
@@ -36,7 +41,7 @@ export declare class BaseUser {
      * @param limit The number of friends to return
      * @param cursor The cursor to continue at
      */
-    getFriends(limit?: PageSortLimit, cursor?: string): Promise<FriendsGetUserFriends>;
+    getFriends(userSort?: FriendsGetUserFriendsOptions["userSort"]): Promise<FriendsGetUserFriends>;
     /**
      * Returns the user's robux amount. The BaseUser must be the currently authenticated user, or else this function throws an error.
      */
@@ -105,5 +110,14 @@ export declare class BaseUser {
      * @param sortOrder The sort order of the followings
      * @param cursor The cursor to continue at
      */
-    getFollowings(limit?: PageSortLimit, sortOrder?: PageSortOrder, cursor?: string): Promise<FriendsGetUserFollowers>;
+    getFollowings(limit?: PageSortLimit, sortOrder?: PageSortOrder, cursor?: string): Promise<CursorPage<FriendsGetUserFollowers["data"][0], {
+        userId: number;
+    }>>;
+    /**
+     * Sends a private message to the user
+     * @param recipientId The user ID to send the message to
+     * @param subject The subject of the message
+     * @param body The body of the message
+     */
+    sendMessage(recipientId: number, subject: string, body: string): Promise<PrivateMessagesSendMessage>;
 }

@@ -91,8 +91,7 @@ export declare type FriendsGetUserFollowing = FriendsGetUserFollowers;
 export declare type FriendsGetUserFollowingCountOptions = FriendsGetUserFollowersCountOptions;
 export declare type FriendsGetUserFollowingCount = FriendsGetUserFollowersCount;
 export declare type FriendsGetUserFriendsOptions = {
-    cursor?: string;
-    limit?: 10 | 25 | 50 | 100;
+    userSort?: "Alphabetical" | "StatusAlphabetical" | "StatusFrequents";
     userId: number;
 };
 export declare type FriendsGetUserFriends = {

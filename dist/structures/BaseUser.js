@@ -26,11 +26,16 @@ class BaseUser {
     }
     /**
      * Return the username history of the user.
+     * @param limit The number of followers to return
+     * @param sortOrder The sort order of the followers
+     * @param cursor The cursor to continue at
      */
-    getUsernameHistory() {
-        return this.client.apis.usersAPI.getUserNameHistory({
+    getUsernameHistory(limit = 10, sortOrder = "Asc", cursor) {
+        return this.client.apis.usersAPI
+            .getUserNameHistory({
             userId: this.userId
-        });
+        })
+            .then((response) => new CursorPage_1.CursorPage({ limit, sortOrder, cursor }, { userId: this.userId }, response, (0, CursorPage_1.contextCall)(this.client.apis.usersAPI, this.client.apis.usersAPI.getUserNameHistory)));
     }
     /**
      * Returns the users current presence.
@@ -47,11 +52,10 @@ class BaseUser {
      * @param limit The number of friends to return
      * @param cursor The cursor to continue at
      */
-    getFriends(limit = 10, cursor) {
+    getFriends(userSort) {
         return this.client.apis.friendsAPI.getUserFriends({
             userId: this.userId,
-            limit,
-            cursor
+            userSort
         });
     }
     /**
@@ -200,11 +204,27 @@ class BaseUser {
      * @param cursor The cursor to continue at
      */
     getFollowings(limit = 10, sortOrder = "Asc", cursor) {
-        return this.client.apis.friendsAPI.getUserFollowing({
+        return this.client.apis.friendsAPI
+            .getUserFollowing({
             userId: this.userId,
             limit,
             sortOrder,
             cursor
+        })
+            .then((response) => new CursorPage_1.CursorPage({ limit, sortOrder, cursor }, { userId: this.userId }, response, (0, CursorPage_1.contextCall)(this.client.apis.friendsAPI, this.client.apis.friendsAPI.getUserFollowers)));
+    }
+    /**
+     * Sends a private message to the user
+     * @param recipientId The user ID to send the message to
+     * @param subject The subject of the message
+     * @param body The body of the message
+     */
+    sendMessage(recipientId, subject, body) {
+        return this.client.apis.privateMessagesAPI.sendMessage({
+            userId: this.userId,
+            recipientId,
+            subject,
+            body
         });
     }
 }
