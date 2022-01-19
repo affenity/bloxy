@@ -1,68 +1,68 @@
-import BaseAPI from "./BaseAPI";
-import Client from "../Client";
+import { BaseAPI } from "./BaseAPI";
+import { Client } from "../Client";
 
+export type MetricsGetThumbnailsMetaData = {
+  logRatio: number;
+};
+export type MetricsRecordThumbnailLoadOptions = {
+  duration: number;
+  loadState: string;
+  thumbnailType: string;
+};
+export type MetricsRecordThumbnailLoad = unknown;
+export type MetricsReportBundleLoadOptions = {
+  bundleUrl: string;
+  bundleName: string;
+  loadTimeInMilliseconds: number;
+  cdnProviderName: string;
+  loadState: string;
+  bundleContentType: string;
+};
+export type MetricsReportBundleLoad = unknown;
 
-export type GetThumbnailsMetaData = {
-    logRatio: number;
-}
-export type RecordThumbnailLoadOptions = {
-    duration: number;
-    loadState: string;
-    thumbnailType: string;
-}
-export type RecordThumbnailLoad = unknown
-export type RecordBundleLoadOptions = {
-    bundleUrl: string;
-    bundleName: string;
-    loadTimeInMilliseconds: number;
-    cdnProviderName: string;
-    loadState: string;
-    bundleContentType: string;
-}
-export type RecordBundleLoad = unknown
+export class MetricsAPI extends BaseAPI {
+  constructor(client: Client) {
+    super({
+      client,
+      baseUrl: "https://metrics.roblox.com/"
+    });
+  }
 
-export default class LocaleAPI extends BaseAPI {
-    constructor (client: Client) {
-        super({
-            client,
-            baseUrl: "https://metrics.roblox.com/"
-        });
-    }
+  getThumbnailsMetaData(): Promise<MetricsGetThumbnailsMetaData> {
+    return this.request({
+      requiresAuth: false,
+      request: {
+        path: `v1/thumbnails/metadata`
+      },
+      json: true
+    }).then((response) => response.body);
+  }
 
-    getThumbnailsMetaData (): Promise<GetThumbnailsMetaData> {
-        return this.request({
-            requiresAuth: false,
-            request: {
-                path: `v1/thumbnails/metadata`
-            },
-            json: true
-        })
-            .then(response => response.body);
-    }
+  recordThumbnailLoad(
+    options: MetricsRecordThumbnailLoadOptions
+  ): Promise<MetricsRecordThumbnailLoad> {
+    return this.request({
+      requiresAuth: false,
+      request: {
+        path: `v1/thumbnails/load`,
+        method: "POST",
+        json: options
+      },
+      json: true
+    }).then((response) => response.body);
+  }
 
-    recordThumbnailLoad (options: RecordThumbnailLoadOptions): Promise<RecordThumbnailLoad> {
-        return this.request({
-            requiresAuth: false,
-            request: {
-                path: `v1/thumbnails/load`,
-                method: "POST",
-                json: options
-            },
-            json: true
-        })
-            .then(response => response.body);
-    }
-
-    recordBundleLoad (options: RecordBundleLoadOptions): Promise<RecordBundleLoad> {
-        return this.request({
-            requiresAuth: false,
-            request: {
-                path: `v1/thumbnails/metadata`,
-                method: "POST",
-                json: options
-            },
-            json: true
-        })
-            .then(response => response.body);
-    }
+  recordBundleLoad(
+    options: MetricsReportBundleLoadOptions
+  ): Promise<MetricsReportBundleLoad> {
+    return this.request({
+      requiresAuth: false,
+      request: {
+        path: `v1/bundle-metrics/report`,
+        method: "POST",
+        json: options
+      },
+      json: true
+    }).then((response) => response.body);
+  }
 }

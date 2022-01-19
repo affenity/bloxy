@@ -1,462 +1,235 @@
-import BaseAPI from "./BaseAPI";
-import Client from "../Client";
-import { UpdateUserPromotionChannelsOptions as AccountInformationUpdateUserPromotionChannelsOptions } from "./AccountInformationAPI";
+import { BaseAPI } from "./BaseAPI";
+import { Client } from "../Client";
+import { Privacy } from "../../types/GenericTypes";
+import { UserIdOption } from "../..";
 
-
-export type GetSettingsGroups = {
-    title: string;
-    url: string;
-    suffix: string;
-}[];
-export type GetAppChatPrivacy = {
-    appChatPrivacy: string;
-}
-export type UpdateAppChatPrivacyOptions = {
-    appChatPrivacy: string;
+// Accounts
+export type AccountSettingsMetaData = {
+  isAccountsRestrictionsSpamBugFixEnabled: boolean;
+  maximumParentalControlsMonthlySpendLimitInUSD: number;
+  isParentalMonthlyLimitInUIEnabled: boolean;
+  isParentalNotificationSettingsInUIEnabled: boolean;
 };
-export type UpdateAppChatPrivacy = boolean;
-export type GetGameChatPrivacy = {
-    gameChatPrivacy: string;
-}
-export type UpdateGameChatPrivacyOptions = {
-    gameChatPrivacy: string;
+export type AccountSettingsGroup = {
+  title: string;
+  url: string;
+  suffix: string;
 };
-export type UpdateGameChatPrivacy = boolean;
-export type GetInventoryPrivacy = {
-    inventoryPrivacy: string;
-}
-export type UpdateInventoryPrivacyOptions = {
-    inventoryPrivacy: string;
+export type AccountSettingsGroups = AccountSettingsGroup[];
+
+// PrivacySettings
+export type AccountSettingsAppChatPrivacy = {
+  appChatPrivacy: Omit<Privacy, "AllUsers" | "Followers" | "Following"> | "All";
 };
-export type UpdateInventoryPrivacy = {
-    inventoryPrivacy: string;
-    tradePrivacy: string;
-    privacySettingResponse: string;
+export type AccountSettingsGameChatPrivacy = {
+  gameChatPrivacy: Omit<Privacy, "Followers" | "Following" | "Friends">;
 };
-export type GetUserPrivacy = {
-    phoneDiscovery: string;
-}
-export type UpdateUserPrivacyOptions = {
-    phoneDiscovery: string;
+export type AccountSettingsInventoryPrivacy = {
+  inventoryPrivacy: Privacy;
 };
-export type UpdateUserPrivacy = {
-    phoneDiscovery: string;
-}
-export type GetUserPrivacySettingsInfo = {
-    isPhoneDiscoveryEnabled: boolean;
-}
-export type GetUserPrivateMessagePrivacy = {
-    privateMessagePrivacy: string;
-}
-export type UpdateUserPrivateMessagePrivacyOptions = {
-    privateMessagePrivacy: string;
+export type AccountSettingsPrivacy = {
+  phoneDiscovery: Omit<Privacy, "Followers" | "Following" | "Friends">;
 };
-export type UpdateUserPrivateMessagePrivacy = boolean;
-export type GetUserEmailStatus = {
-    email: string;
-    verified: boolean;
-}
-export type UpdateUserEmailOptions = {
-    password: string;
-    emailAddress: string;
+export type AccountSettingsPrivacyInfo = {
+  isPhoneDiscoveryEnabled: boolean;
 };
-export type UpdateUserEmail = boolean;
-export type SendEmailVerification = boolean;
-export type GetWebsiteTheme = {
-    themeType: string;
-}
-export type UpdateWebsiteThemeOptions = {
-    themeType: string;
+export type AccountSettingsPrivateMessagePrivacy = {
+  privateMessagePrivacy: Privacy;
 };
-export type UpdateWebsiteTheme = boolean;
-export type GetWebsiteThemes = {
-    data: string[];
+export type AccountSettingsVisibilityPrivacy = {
+  visibilityPrivacy: number;
 };
-export type GetUserTradePrivacy = {
-    tradePrivacy: string;
-};
-export type UpdateUserTradePrivacyOptions = {
-    tradePrivacy: string;
-};
-export type UpdateUserTradePrivacy = {
-    tradePrivacy: string;
-    inventoryPrivacy: string;
-    privacySettingResponse: string;
-};
-export type GetUserTradeQualityFilter = {
-    tradeValue: string;
-}
-export type UpdateUserTradeQualityFilterOptions = {
-    tradeValue: string;
-};
-export type UpdateUserTradeQualityFilter = boolean;
-export type UpdateTwoStepStatusOptions = {
-    enabled: boolean;
-    password: string;
-};
-export type UpdateTwoStepStatus = {
-    enabled: boolean;
-    password: string;
-}
-export type GetContactUpsell = {
-    upsellScreenType: string;
-}
-export type UpdateContactUpsellSuppressionOptions = {
-    suppress: boolean;
-};
-export type UpdateContactUpsellSuppression = boolean;
-export type GetIsXboxUsernameValidOptions = {
-    authorization: string;
-    signature: string;
-    username: string;
-};
-export type GetIsXboxUsernameValid = {
-    isValid: boolean;
-    errorMessage?: string;
-    errorCode?: string;
-}
-export type UpdateUserPromotionChannelsOptions = AccountInformationUpdateUserPromotionChannelsOptions;
-export type UpdateUserPromotionChannels = boolean;
 
+export class AccountSettingsAPI extends BaseAPI {
+  constructor(client: Client) {
+    super({
+      baseUrl: "https://accountsettings.roblox.com/",
+      client
+    });
+  }
 
-export default class AccountSettingsAPI extends BaseAPI {
-    constructor (client: Client) {
-        super({
-            baseUrl: "https://accountsettings.roblox.com/",
-            client
-        });
-    }
+  getMetaData(): Promise<AccountSettingsMetaData> {
+    return this.request({
+      requiresAuth: true,
+      request: {
+        path: "v1/account/settings/metadata"
+      },
+      json: true
+    }).then((response) => ({
+      isAccountsRestrictionsSpamBugFixEnabled:
+        response.body.IsAccountsRestrictionsSpamBugFixEnabled,
+      isParentalMonthlyLimitInUIEnabled:
+        response.body.IsParentalMonthlyLimitInUIEnabled,
+      isParentalNotificationSettingsInUIEnabled:
+        response.body.IsParentalNotificationSettingsInUIEnabled,
+      maximumParentalControlsMonthlySpendLimitInUSD:
+        response.body.MaximumParentalControlsMonthlySpendLimitInUSD
+    }));
+  }
 
-    getSettingsGroups (): Promise<GetSettingsGroups> {
-        return this.request({
-            requiresAuth: false,
-            request: {
-                path: "v1/account/settings/settings-groups"
-            },
-            json: true
-        })
-            .then(response => response.body.map((val: any) => ({
-                title: val.Title,
-                url: val.Url,
-                suffix: val.Suffix
-            })));
-    }
+  getSettingsGroups(): Promise<AccountSettingsGroups> {
+    return this.request({
+      requiresAuth: false,
+      request: {
+        path: "v1/account/settings/settings-groups"
+      },
+      json: true
+    }).then((response) =>
+      response.body.map((val: any) => ({
+        title: val.Title,
+        url: val.Url,
+        suffix: val.Suffix
+      }))
+    );
+  }
 
-    getAppChatPrivacy (): Promise<GetAppChatPrivacy> {
-        return this.request({
-            requiresAuth: true,
-            request: {
-                path: "v1/app-chat-privacy"
-            },
-            json: true
-        })
-            .then(response => response.body);
-    }
+  getAppChatPrivacy(): Promise<AccountSettingsAppChatPrivacy> {
+    return this.request({
+      requiresAuth: true,
+      request: {
+        path: "v1/app-chat-privacy"
+      },
+      json: true
+    }).then((response) => response.body);
+  }
 
-    updateAppChatPrivacy (options: UpdateAppChatPrivacyOptions): Promise<UpdateAppChatPrivacy> {
-        return this.request({
-            requiresAuth: true,
-            request: {
-                path: "v1/app-chat-privacy",
-                method: "POST",
-                json: options
-            },
-            json: true
-        })
-            .then(response => response.body);
-    }
+  updateAppChatPrivacy(
+    options: AccountSettingsAppChatPrivacy
+  ): Promise<boolean> {
+    return this.request({
+      requiresAuth: true,
+      request: {
+        path: "v1/app-chat-privacy",
+        method: "POST",
+        json: options
+      },
+      json: true
+    }).then(() => true);
+  }
 
-    getGameChatPrivacy (): Promise<GetGameChatPrivacy> {
-        return this.request({
-            requiresAuth: true,
-            request: {
-                path: "v1/game-chat-privacy"
-            },
-            json: true
-        })
-            .then(response => response.body);
-    }
+  getGameChatPrivacy(): Promise<AccountSettingsGameChatPrivacy> {
+    return this.request({
+      requiresAuth: true,
+      request: {
+        path: "v1/game-chat-privacy"
+      },
+      json: true
+    }).then((response) => response.body);
+  }
 
-    updateGameChatPrivacy (options: UpdateGameChatPrivacyOptions): Promise<UpdateGameChatPrivacy> {
-        return this.request({
-            requiresAuth: true,
-            request: {
-                path: "v1/game-chat-privacy",
-                method: "POST",
-                json: options
-            },
-            json: true
-        })
-            .then(response => response.body);
-    }
+  updateGameChatPrivacy(
+    options: AccountSettingsGameChatPrivacy
+  ): Promise<boolean> {
+    return this.request({
+      requiresAuth: true,
+      request: {
+        path: "v1/game-chat-privacy",
+        method: "POST",
+        json: options
+      },
+      json: true
+    }).then(() => true);
+  }
 
-    getInventoryPrivacy (): Promise<GetInventoryPrivacy> {
-        return this.request({
-            requiresAuth: true,
-            request: {
-                path: "v1/inventory-privacy"
-            },
-            json: true
-        })
-            .then(response => response.body);
-    }
+  getInventoryPrivacy(): Promise<AccountSettingsInventoryPrivacy> {
+    return this.request({
+      requiresAuth: true,
+      request: {
+        path: "v1/inventory-privacy"
+      },
+      json: true
+    }).then((response) => response.body);
+  }
 
-    updateInventoryPrivacy (options: UpdateInventoryPrivacyOptions): Promise<UpdateInventoryPrivacy> {
-        return this.request({
-            requiresAuth: true,
-            request: {
-                path: "v1/inventory-privacy",
-                method: "POST",
-                json: options
-            },
-            json: true
-        })
-            .then(response => response.body);
-    }
+  updateInventoryPrivacy(
+    options: AccountSettingsInventoryPrivacy
+  ): Promise<boolean> {
+    return this.request({
+      requiresAuth: true,
+      request: {
+        path: "v1/inventory-privacy",
+        method: "POST",
+        json: options
+      },
+      json: true
+    }).then(() => true);
+  }
 
-    getUserPrivacy (): Promise<GetUserPrivacy> {
-        return this.request({
-            requiresAuth: true,
-            request: {
-                path: "v1/privacy"
-            },
-            json: true
-        })
-            .then(response => response.body);
-    }
+  getUserPrivacy(): Promise<AccountSettingsPrivacy> {
+    return this.request({
+      requiresAuth: true,
+      request: {
+        path: "v1/privacy"
+      },
+      json: true
+    }).then((response) => response.body);
+  }
 
-    updateUserPrivacy (options: UpdateUserPrivacyOptions): Promise<UpdateUserPrivacy> {
-        return this.request({
-            requiresAuth: true,
-            request: {
-                path: "v1/privacy",
-                method: "PATCH",
-                json: options
-            },
-            json: true
-        })
-            .then(response => response.body);
-    }
+  updateUserPrivacy(options: AccountSettingsPrivacy): Promise<boolean> {
+    return this.request({
+      requiresAuth: true,
+      request: {
+        path: "v1/privacy",
+        method: "PATCH",
+        json: options
+      },
+      json: true
+    }).then(() => true);
+  }
 
-    getUserPrivacySettingsInfo (): Promise<GetUserPrivacySettingsInfo> {
-        return this.request({
-            requiresAuth: true,
-            request: {
-                path: "v1/privacy/info"
-            },
-            json: true
-        })
-            .then(response => response.body as GetUserPrivacySettingsInfo);
-    }
+  getUserPrivacySettingsInfo(): Promise<AccountSettingsPrivacyInfo> {
+    return this.request({
+      requiresAuth: true,
+      request: {
+        path: "v1/privacy/info"
+      },
+      json: true
+    }).then((response) => response.body);
+  }
 
-    getUserPrivateMessagePrivacy (): Promise<GetUserPrivateMessagePrivacy> {
-        return this.request({
-            requiresAuth: true,
-            request: {
-                path: "v1/private-message-privacy"
-            },
-            json: true
-        })
-            .then(response => response.body as GetUserPrivateMessagePrivacy);
-    }
+  getUserPrivateMessagePrivacy(): Promise<AccountSettingsPrivateMessagePrivacy> {
+    return this.request({
+      requiresAuth: true,
+      request: {
+        path: "v1/private-message-privacy"
+      },
+      json: true
+    }).then((response) => response.body);
+  }
 
-    updateUserPrivateMessagePrivacy (options: UpdateUserPrivateMessagePrivacyOptions): Promise<UpdateUserPrivateMessagePrivacy> {
-        return this.request({
-            requiresAuth: true,
-            request: {
-                path: "v1/private-message-privacy",
-                method: "POST",
-                json: options
-            },
-            json: true
-        })
-            .then(() => true as UpdateUserPrivateMessagePrivacy);
-    }
+  updateUserPrivateMessagePrivacy(
+    options: AccountSettingsPrivateMessagePrivacy
+  ): Promise<boolean> {
+    return this.request({
+      requiresAuth: true,
+      request: {
+        path: "v1/private-message-privacy",
+        method: "POST",
+        json: options
+      },
+      json: true
+    }).then(() => true);
+  }
 
-    getUserEmailStatus (): Promise<GetUserEmailStatus> {
-        return this.request({
-            requiresAuth: true,
-            request: {
-                path: "v1/email"
-            },
-            json: true
-        })
-            .then(response => response.body as GetUserEmailStatus);
-    }
+  blockUser(options: UserIdOption): Promise<boolean> {
+    return this.request({
+      requiresAuth: true,
+      request: {
+        path: `v1/users/${options.userId}/block`,
+        method: "POST"
+      },
+      json: true
+    }).then(() => true);
+  }
 
-    updateUserEmail (options: UpdateUserEmailOptions): Promise<UpdateUserEmail> {
-        return this.request({
-            requiresAuth: true,
-            request: {
-                path: "v1/email",
-                method: "PATCH",
-                json: options
-            },
-            json: true
-        })
-            .then(() => true);
-    }
-
-    sendEmailVerification (): Promise<SendEmailVerification> {
-        return this.request({
-            requiresAuth: true,
-            request: {
-                path: "v1/email/verify",
-                method: "POST"
-            },
-            json: true
-        })
-            .then(() => true);
-    }
-
-    getWebsiteTheme (): Promise<GetWebsiteTheme> {
-        return this.request({
-            requiresAuth: true,
-            request: {
-                path: `v1/themes/User/${this.client.user!.id}`
-            },
-            json: true
-        })
-            .then(response => response.body as GetWebsiteTheme);
-    }
-
-    updateWebsiteTheme (options: UpdateWebsiteThemeOptions): Promise<UpdateWebsiteTheme> {
-        return this.request({
-            requiresAuth: true,
-            request: {
-                path: `v1/themes/User/${this.client.user!.id}`,
-                method: "PATCH",
-                json: {
-                    themeType: options.themeType
-                }
-            },
-            json: true
-        })
-            .then(() => true);
-    }
-
-    getWebsiteThemes (): Promise<GetWebsiteThemes> {
-        return this.request({
-            requiresAuth: true,
-            request: {
-                path: "v1/themes/types"
-            },
-            json: true
-        })
-            .then(response => response.body as GetWebsiteThemes);
-    }
-
-    getUserTradePrivacy (): Promise<GetUserTradePrivacy> {
-        return this.request({
-            requiresAuth: true,
-            request: {
-                path: "v1/trade-privacy"
-            },
-            json: true
-        })
-            .then(response => response.body as GetUserTradePrivacy);
-    }
-
-    updateUserTradePrivacy (options: UpdateUserTradePrivacyOptions): Promise<UpdateUserTradePrivacy> {
-        return this.request({
-            requiresAuth: true,
-            request: {
-                path: "v1/trade-privacy",
-                method: "POST",
-                json: options
-            },
-            json: true
-        })
-            .then(response => response.body as UpdateUserTradePrivacy);
-    }
-
-    getUserTradeQualityFilter (): Promise<GetUserTradeQualityFilter> {
-        return this.request({
-            requiresAuth: true,
-            request: {
-                path: "v1/trade-value"
-            },
-            json: true
-        })
-            .then(response => response.body as GetUserTradeQualityFilter);
-    }
-
-    updateUserTradeQualityFilter (options: UpdateUserTradeQualityFilterOptions): Promise<UpdateUserTradeQualityFilter> {
-        return this.request({
-            requiresAuth: true,
-            request: {
-                path: "v1/trade-value",
-                method: "POST",
-                json: options
-            },
-            json: true
-        })
-            .then(() => true);
-    }
-
-    updateTwoStepStatus (options: UpdateTwoStepStatusOptions): Promise<UpdateTwoStepStatus> {
-        return this.request({
-            requiresAuth: true,
-            request: {
-                path: "v1/email",
-                method: "PATCH",
-                json: options
-            },
-            json: true
-        })
-            .then(response => response.body as UpdateTwoStepStatus);
-    }
-
-    getContactUpsell (): Promise<GetContactUpsell> {
-        return this.request({
-            requiresAuth: true,
-            request: {
-                path: "v1/user/screens/contact-upsell"
-            },
-            json: true
-        })
-            .then(response => response.body as GetContactUpsell);
-    }
-
-    updateContactUpsellSuppression (options: UpdateContactUpsellSuppressionOptions): Promise<UpdateContactUpsellSuppression> {
-        return this.request({
-            requiresAuth: true,
-            request: {
-                method: "POST",
-                path: "v1/user/screens/contact-upsell/suppress",
-                json: options
-            },
-            json: true
-        })
-            .then(() => true as UpdateContactUpsellSuppression);
-    }
-
-    getIsXboxUsernameValid (options: GetIsXboxUsernameValidOptions): Promise<GetIsXboxUsernameValid> {
-        return this.request({
-            requiresAuth: true,
-            request: {
-                path: "v1/xbox/is-username-valid",
-                qs: {
-                    Authorization: options.authorization,
-                    signature: options.signature,
-                    "request.username": options.username
-                }
-            },
-            json: true
-        })
-            .then(response => response.body as GetIsXboxUsernameValid);
-    }
-
-    updateUserPromotionChannels (options: UpdateUserPromotionChannelsOptions): Promise<UpdateUserPromotionChannels> {
-        return this.request({
-            requiresAuth: true,
-            request: {
-                path: "v1/promotion-channels",
-                method: "POST",
-                json: options
-            },
-            json: true
-        })
-            .then(() => true);
-    }
+  unblockUser(options: UserIdOption): Promise<boolean> {
+    return this.request({
+      requiresAuth: true,
+      request: {
+        path: `v1/users/${options.userId}/unblock`,
+        method: "POST"
+      },
+      json: true
+    }).then(() => true);
+  }
 }

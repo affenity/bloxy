@@ -1,8 +1,7 @@
-import rest from "./rest";
-
+import { RESTController } from "./rest";
 
 const controllers = {
-    rest
+  rest: RESTController
 };
 
 export default controllers;

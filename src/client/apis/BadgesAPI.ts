@@ -1,147 +1,177 @@
-import BaseAPI from "./BaseAPI";
-import Client from "../Client";
-import { GameBadgeOptions } from "../../structures/Game";
+import { BaseAPI } from "./BaseAPI";
+import { Client } from "../Client";
+import { SortOption } from "../..";
 
+export type BadgesMetaData = {
+  badgeCreationPrice: number;
+  maxBadgeNameLength: number;
+  maxBadgeDescriptionLength: number;
+};
 
-export type GetBadgeOptions = {
-    badgeId: number;
-}
-export type GetBadge = GameBadgeOptions;
-export type UpdateBadgeOptions = {
+export type BadgesGetBadge = {
+  id: number;
+  name: string;
+  description: string;
+  displayName: string;
+  displayDescription: string;
+  enabled: boolean;
+  iconImageId: number;
+  displayIconImageId: number;
+  created: string;
+  updated: string;
+  statistics: {
+    pastDayAwardedCount: number;
+    awardedCount: number;
+    winRatePercentage: number;
+  };
+  awardingUniverse: {
     id: number;
     name: string;
-    description: string;
-    enabled: boolean;
+    rootPlaceId: number;
+  };
 };
-export type UpdateBadge = unknown;
-export type GetUniverseBadgesOptions = {
-    universeId: number;
-    limit?: 10 | 25 | 50 | 100;
-    cursor?: string;
-    sortOrder?: "Asc" | "Desc";
-}
-export type GetUniverseBadges = {
-    previousPageCursor: string;
-    nextPageCursor: string;
-    data: GetBadge[];
+export type BadgesUpdateBadge = unknown;
+export type BadgesGetBadges = {
+  previousPageCursor: string;
+  nextPageCursor: string;
+  data: BadgesGetBadge[];
 };
-export type GetUserBadgesOptions = {
-    userId: number;
-    limit?: 10 | 25 | 50 | 100;
-    cursor?: string;
-    sortOrder?: "Asc" | "Desc";
-}
-export type GetUserBadges = GetUniverseBadges;
-export type GetUserBadgesAwardedDatesOptions = {
-    userId: number;
-    badgeIds: number[];
-}
-export type GetUserBadgesAwardedDates = {
-    data: {
-        badgeId: number;
-        awardedDate: string;
-    }[];
-}
-export type DeleteBadgeFromUserOptions = {
-    userId: number;
+export type BadgesGetUserBadgesAwardedDates = {
+  data: {
     badgeId: number;
-}
-export type DeleteBadgeFromUser = unknown;
-export type DeleteBadgeFromSelfOptions = {
-    badgeId: number;
-}
-export type DeleteBadgeFromSelf = DeleteBadgeFromUser;
+    awardedDate: string;
+  }[];
+};
+export type BadgesDeleteBadgeFromUser = unknown;
+export type BadgesDeleteBadgeFromSelf = BadgesDeleteBadgeFromUser;
+export type BadgesGetBadgeOptions = {
+  badgeId: number;
+};
+export type BadgesUpdateBadgeOptions = {
+  id: number;
+  name: string;
+  description: string;
+  enabled: boolean;
+};
+export type BadgesGetUniverseBadgesOptions = {
+  universeId: number;
+} & SortOption;
+export type BadgesGetUserBadgesOptions = {
+  userId: number;
+} & SortOption;
+export type BadgesGetUserBadgesAwardedDatesOptions = {
+  userId: number;
+  badgeIds: number[];
+};
+export type BadgesDeleteBadgeFromUserOptions = {
+  userId: number;
+  badgeId: number;
+};
+export type BadgesDeleteBadgeFromSelfOptions = {
+  badgeId: number;
+};
 
-export default class AvatarAPI extends BaseAPI {
-    constructor (client: Client) {
-        super({
-            client,
-            baseUrl: "https://badges.roblox.com/"
-        });
-    }
+export class BadgesAPI extends BaseAPI {
+  constructor(client: Client) {
+    super({
+      client,
+      baseUrl: "https://badges.roblox.com/"
+    });
+  }
 
-    getBadge (options: GetBadgeOptions): Promise<GetBadge> {
-        return this.request({
-            requiresAuth: false,
-            request: {
-                path: `v1/badges/${options.badgeId}`
-            },
-            json: true
-        })
-            .then(response => response.body);
-    }
+  getMetaData(): Promise<BadgesMetaData> {
+    return this.request({
+      requiresAuth: false,
+      request: {
+        path: "v1/badges/metadata"
+      },
+      json: true
+    }).then((response) => response.body);
+  }
 
-    updateBadge (options: UpdateBadgeOptions): Promise<UpdateBadge> {
-        return this.request({
-            requiresAuth: false,
-            request: {
-                path: `v1/badges/${options.id}`,
-                method: "PATCH"
-            },
-            json: true
-        })
-            .then(response => response.body);
-    }
+  getBadge(options: BadgesGetBadgeOptions): Promise<BadgesGetBadge> {
+    return this.request({
+      requiresAuth: false,
+      request: {
+        path: `v1/badges/${options.badgeId}`
+      },
+      json: true
+    }).then((response) => response.body);
+  }
 
-    getUniverseBadges (options: GetUniverseBadgesOptions): Promise<GetUniverseBadges> {
-        return this.request({
-            requiresAuth: false,
-            request: {
-                path: `v1/universes/${options.universeId}/badges`,
-                qs: options
-            },
-            json: true
-        })
-            .then(response => response.body);
-    }
+  updateBadge(options: BadgesUpdateBadgeOptions): Promise<BadgesUpdateBadge> {
+    return this.request({
+      requiresAuth: false,
+      request: {
+        path: `v1/badges/${options.id}`,
+        method: "PATCH"
+      },
+      json: true
+    }).then((response) => response.body);
+  }
 
-    getUserBadges (options: GetUserBadgesOptions): Promise<GetUserBadges> {
-        return this.request({
-            requiresAuth: false,
-            request: {
-                path: `v1/users/${options.userId}/badges`,
-                qs: options
-            },
-            json: true
-        })
-            .then(response => response.body);
-    }
+  getUniverseBadges(
+    options: BadgesGetUniverseBadgesOptions
+  ): Promise<BadgesGetBadges> {
+    return this.request({
+      requiresAuth: false,
+      request: {
+        path: `v1/universes/${options.universeId}/badges`,
+        qs: options
+      },
+      json: true
+    }).then((response) => response.body);
+  }
 
-    getUserBadgesAwardedDates (options: GetUserBadgesAwardedDatesOptions): Promise<GetUserBadgesAwardedDates> {
-        return this.request({
-            requiresAuth: false,
-            request: {
-                path: `v1/users/${options.userId}/badges/awarded-dates`,
-                qs: {
-                    badgeIds: options.badgeIds.join(",")
-                }
-            },
-            json: true
-        })
-            .then(response => response.body);
-    }
+  getUserBadges(options: BadgesGetUserBadgesOptions): Promise<BadgesGetBadges> {
+    return this.request({
+      requiresAuth: false,
+      request: {
+        path: `v1/users/${options.userId}/badges`,
+        qs: options
+      },
+      json: true
+    }).then((response) => response.body);
+  }
 
-    deleteBadgeFromUser (options: DeleteBadgeFromUserOptions): Promise<DeleteBadgeFromUser> {
-        return this.request({
-            requiresAuth: false,
-            request: {
-                path: `v1/user/${options.userId}/badges/${options.badgeId}`,
-                method: "DELETE"
-            },
-            json: true
-        })
-            .then(response => response.body);
-    }
+  getUserBadgesAwardedDates(
+    options: BadgesGetUserBadgesAwardedDatesOptions
+  ): Promise<BadgesGetUserBadgesAwardedDates> {
+    return this.request({
+      requiresAuth: false,
+      request: {
+        path: `v1/users/${options.userId}/badges/awarded-dates`,
+        qs: {
+          badgeIds: options.badgeIds.join(",")
+        }
+      },
+      json: true
+    }).then((response) => response.body);
+  }
 
-    deleteBadgeFromSelf (options: DeleteBadgeFromSelfOptions): Promise<DeleteBadgeFromSelf> {
-        return this.request({
-            requiresAuth: false,
-            request: {
-                path: `v1/user/badges/${options.badgeId}`,
-                method: "DELETE"
-            },
-            json: true
-        })
-            .then(response => response.body);
-    }
+  deleteBadgeFromUser(
+    options: BadgesDeleteBadgeFromUserOptions
+  ): Promise<BadgesDeleteBadgeFromUser> {
+    return this.request({
+      requiresAuth: false,
+      request: {
+        path: `v1/user/${options.userId}/badges/${options.badgeId}`,
+        method: "DELETE"
+      },
+      json: true
+    }).then((response) => response.body);
+  }
+
+  deleteBadgeFromSelf(
+    options: BadgesDeleteBadgeFromSelfOptions
+  ): Promise<BadgesDeleteBadgeFromSelf> {
+    return this.request({
+      requiresAuth: false,
+      request: {
+        path: `v1/user/badges/${options.badgeId}`,
+        method: "DELETE"
+      },
+      json: true
+    }).then((response) => response.body);
+  }
 }

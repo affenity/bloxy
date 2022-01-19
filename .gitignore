@@ -1,7 +1,11 @@
 node_modules
 coverage
 tests/index.js
-dist
+# dist # Should we really ignore the dist folder?
 docs
 site
 .idea
+.nyc_output
+
+# temporary
+tests_jest
